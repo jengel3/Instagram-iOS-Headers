@@ -39,6 +39,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)onFriendStatusReceived:(id)arg1 ;
 -(IGRealtimeManager *)realtimeManager;
 -(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)handleRealtimeOperation:(id)arg1 ;

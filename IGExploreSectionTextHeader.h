@@ -2,19 +2,31 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class UILabel;
+@class UILabel, UIButton, UIImageView;
 
 @interface IGExploreSectionTextHeader : UIView {
 
-	UILabel* _title;
+	UILabel* _titleLabel;
+	UIButton* _actionButton;
+	UIImageView* _iconView;
+	unsigned _titleLocation;
 
 }
 
-@property (nonatomic,retain) UILabel * title;              //@synthesize title=_title - In the implementation block
+@property (nonatomic,readonly) UILabel * titleLabel;                 //@synthesize titleLabel=_titleLabel - In the implementation block
+@property (nonatomic,readonly) UIButton * actionButton;              //@synthesize actionButton=_actionButton - In the implementation block
+@property (nonatomic,readonly) UIImageView * iconView;               //@synthesize iconView=_iconView - In the implementation block
+@property (assign,nonatomic) unsigned titleLocation;                 //@synthesize titleLocation=_titleLocation - In the implementation block
+-(void)layoutIcon;
+-(void)layoutActionButton;
+-(void)layoutTitle;
+-(unsigned)titleLocation;
+-(void)setTitleLocation:(unsigned)arg1 ;
+-(UIButton *)actionButton;
+-(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
--(void)setTitle:(UILabel *)arg1 ;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
--(UILabel *)title;
--(id)initWithText:(id)arg1 ;
+-(UILabel *)titleLabel;
+-(UIImageView *)iconView;
 @end
 

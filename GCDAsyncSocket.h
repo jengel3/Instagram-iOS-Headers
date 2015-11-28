@@ -29,7 +29,7 @@
 	GCDAsyncWritePacket* currentWrite;
 	unsigned long socketFDBytesAvailable;
 	GCDAsyncSocketPreBuffer* preBuffer;
-	SCD_Struct_GC52* streamContext;
+	SCD_Struct_GC48* streamContext;
 	CFReadStreamRef readStream;
 	CFWriteStreamRef writeStream;
 	SSLContextRef sslContext;

@@ -15,11 +15,13 @@
 
 @property (nonatomic,readonly) char appLaunchedAfterMemoryCrash;              //@synthesize appLaunchedAfterMemoryCrash=_appLaunchedAfterMemoryCrash - In the implementation block
 +(id)sharedExceptionHandler;
+-(id)updateBuildHistoryForBuildNumber:(id)arg1 ;
 -(void)initializeOOMTracking;
 -(void)updateUser:(id)arg1 ;
 -(void)clearIGUser;
 -(void)initializeOOMData:(SCD_Struct_IG3*)arg1 ;
 -(char)createOOMFile;
+-(void)updateExceptionAndOOMDataWithAppState:(int)arg1 ;
 -(char)appLaunchedAfterMemoryCrash;
 -(void)dealloc;
 -(id)init;

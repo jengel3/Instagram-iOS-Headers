@@ -14,7 +14,6 @@
 
 @interface IGBroadcastShareManager : IGViewController <UICollectionViewDataSource, UICollectionViewDelegate, IGUserInTaggingViewControllerDelegate, IGLocationPickerDelegate, IGShareListManagerDelegate, IGLocationSuggestionDelegate, IGShareManager> {
 
-	char _shouldShowDetectionSpinner;
 	NSString* _shareString;
 	UIViewController*<IGShareManagerDelegate> _delegate;
 	IGMediaMetadata* _mediaMetadata;
@@ -32,7 +31,6 @@
 @property (nonatomic,retain) IGCollectionView * collectionView;                                      //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,retain) IGSwitch * photoMapSwitch;                                              //@synthesize photoMapSwitch=_photoMapSwitch - In the implementation block
 @property (nonatomic,retain) UIButton * clearVenueButton;                                            //@synthesize clearVenueButton=_clearVenueButton - In the implementation block
-@property (assign,nonatomic) char shouldShowDetectionSpinner;                                        //@synthesize shouldShowDetectionSpinner=_shouldShowDetectionSpinner - In the implementation block
 @property (nonatomic,retain) UIView * headerView;                                                    //@synthesize headerView=_headerView - In the implementation block
 @property (nonatomic,retain) UIView * headerBackgroundView;                                          //@synthesize headerBackgroundView=_headerBackgroundView - In the implementation block
 @property (assign,nonatomic) float locationSuggestionCellHeight;                                     //@synthesize locationSuggestionCellHeight=_locationSuggestionCellHeight - In the implementation block
@@ -73,9 +71,6 @@
 -(void)onVenueCellTapped;
 -(UIView *)headerBackgroundView;
 -(void)setHeaderBackgroundView:(UIView *)arg1 ;
--(void)configureAddPeopleRow:(id)arg1 ;
--(void)configureTaggedFacesRow:(id)arg1 ;
--(char)shouldShowDetectionSpinner;
 -(IGSwitch *)photoMapSwitch;
 -(void)configureGeoCell:(id)arg1 withVenueName:(id)arg2 ;
 -(void)configureGeoCellWithoutVenue:(id)arg1 ;
@@ -86,11 +81,8 @@
 -(void)shareListNeedsFullReload;
 -(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
 -(id)viewControllerForShareConfiguration;
--(void)configurePeopleCellWithDetectedFaces:(id)arg1 withRow:(int)arg2 ;
--(void)numberOfFacesChanged:(id)arg1 ;
 -(void)setPhotoMapSwitch:(IGSwitch *)arg1 ;
 -(void)setClearVenueButton:(UIButton *)arg1 ;
--(void)setShouldShowDetectionSpinner:(char)arg1 ;
 -(void)setSearchSessionId:(NSString *)arg1 ;
 -(void)setDelegate:(UIViewController*<IGShareManagerDelegate>)arg1 ;
 -(void)dealloc;

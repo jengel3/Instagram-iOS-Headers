@@ -2,8 +2,8 @@
 #import <Instagram/IGMediaRequestDelegate.h>
 #import <Instagram/IGVideoProxyDelegate.h>
 
-@protocol IGEventViewerMediaPreloaderCompletionDelegate, IGEventViewerMediaPreloaderProgressDelegate;
-@class IGMediaLoader, IGVideoProxy, NSMutableDictionary, NSString;
+@protocol IGEventViewerMediaPreloaderCompletionDelegate, IGEventViewerMediaPreloaderProgressDelegate, IGVideoProxyProtocol;
+@class IGMediaLoader, NSMutableDictionary, NSString;
 
 @interface IGEventViewerMediaPreloader : NSObject <IGMediaRequestDelegate, IGVideoProxyDelegate> {
 
@@ -11,7 +11,7 @@
 	id<IGEventViewerMediaPreloaderProgressDelegate> _progressDelegate;
 	float _photoWidth;
 	IGMediaLoader* _mediaLoader;
-	IGVideoProxy* _videoProxy;
+	id<IGVideoProxyProtocol> _videoProxy;
 	NSMutableDictionary* _postsToURLs;
 
 }
@@ -20,7 +20,7 @@
 @property (assign,nonatomic,__weak) id<IGEventViewerMediaPreloaderProgressDelegate> progressDelegate;                  //@synthesize progressDelegate=_progressDelegate - In the implementation block
 @property (assign,nonatomic) float photoWidth;                                                                         //@synthesize photoWidth=_photoWidth - In the implementation block
 @property (nonatomic,readonly) IGMediaLoader * mediaLoader;                                                            //@synthesize mediaLoader=_mediaLoader - In the implementation block
-@property (nonatomic,readonly) IGVideoProxy * videoProxy;                                                              //@synthesize videoProxy=_videoProxy - In the implementation block
+@property (nonatomic,readonly) id<IGVideoProxyProtocol> videoProxy;                                                    //@synthesize videoProxy=_videoProxy - In the implementation block
 @property (nonatomic,readonly) NSMutableDictionary * postsToURLs;                                                      //@synthesize postsToURLs=_postsToURLs - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -30,7 +30,7 @@
 -(id)initWithPhotoWidth:(float)arg1 ;
 -(id)initWithPhotoWidth:(float)arg1 mediaLoader:(id)arg2 videoProxy:(id)arg3 ;
 -(NSMutableDictionary *)postsToURLs;
--(IGVideoProxy *)videoProxy;
+-(id<IGVideoProxyProtocol>)videoProxy;
 -(void)cancelAllRequestsExcludingPosts:(id)arg1 ;
 -(void)notifyCompletionDelegateIfNeeded;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;

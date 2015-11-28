@@ -5,7 +5,7 @@
 #import <Instagram/IGSwitchUsersControllerDelegate.h>
 #import <Instagram/IGActionSheetDelegate.h>
 
-@class UIBarButtonItem, IGUserDetailHeaderView, IGUser, IGFriendRequestHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, IGSwitchUsersController, IGCaretView, IGFeedThumbnailPreviewingHandler, NSString;
+@class UIBarButtonItem, IGUserDetailHeaderView, IGUser, IGFriendRequestHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, NSArray, IGSwitchUsersTitleButton, IGSwitchUsersController, IGFeedThumbnailPreviewingHandler, NSString;
 
 @interface IGUserDetailViewController : IGFeedViewController <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGActionSheetDelegate> {
 
@@ -21,10 +21,11 @@
 	UIView* _blockedFooterView;
 	UILabel* _emptyFeedLabel;
 	NSDictionary* _userRestrictionData;
+	NSArray* _accessibleElements;
 	UIView* _overlayViewForTabBar;
 	UIView* _overlayForMainView;
+	IGSwitchUsersTitleButton* _titleButton;
 	IGSwitchUsersController* _switchUsersController;
-	IGCaretView* _caretView;
 	IGFeedThumbnailPreviewingHandler* _thumbnailPreviewDelegate;
 
 }
@@ -39,10 +40,11 @@
 @property (nonatomic,retain) UILabel * emptyFeedLabel;                                                 //@synthesize emptyFeedLabel=_emptyFeedLabel - In the implementation block
 @property (assign,nonatomic) char hasLoggedAdditionalUserDataLoadOnce;                                 //@synthesize hasLoggedAdditionalUserDataLoadOnce=_hasLoggedAdditionalUserDataLoadOnce - In the implementation block
 @property (nonatomic,retain) NSDictionary * userRestrictionData;                                       //@synthesize userRestrictionData=_userRestrictionData - In the implementation block
+@property (nonatomic,retain) NSArray * accessibleElements;                                             //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (nonatomic,retain) UIView * overlayViewForTabBar;                                            //@synthesize overlayViewForTabBar=_overlayViewForTabBar - In the implementation block
 @property (nonatomic,retain) UIView * overlayForMainView;                                              //@synthesize overlayForMainView=_overlayForMainView - In the implementation block
+@property (nonatomic,retain) IGSwitchUsersTitleButton * titleButton;                                   //@synthesize titleButton=_titleButton - In the implementation block
 @property (nonatomic,retain) IGSwitchUsersController * switchUsersController;                          //@synthesize switchUsersController=_switchUsersController - In the implementation block
-@property (nonatomic,retain) IGCaretView * caretView;                                                  //@synthesize caretView=_caretView - In the implementation block
 @property (assign,nonatomic) char displayingSwitchUsersTableView;                                      //@synthesize displayingSwitchUsersTableView=_displayingSwitchUsersTableView - In the implementation block
 @property (nonatomic,retain) IGFeedThumbnailPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (readonly) unsigned hash; 
@@ -55,12 +57,14 @@
 -(void)onFriendStatusReceived:(id)arg1 ;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
+-(void)setAccessibleElements:(NSArray *)arg1 ;
+-(NSArray *)accessibleElements;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(char)enableNavState;
 -(void)setThumbnailPreviewDelegate:(IGFeedThumbnailPreviewingHandler *)arg1 ;
 -(IGFeedThumbnailPreviewingHandler *)thumbnailPreviewDelegate;
 -(void)updateScrollFromContextualFeed;
--(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 ;
+-(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 ;
 -(void)handleLoadedContentDidChange;
 -(void)feedToggle:(id)arg1 selectedButton:(int)arg2 ;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 completionBlock:(/*^block*/id)arg3 ;
@@ -83,6 +87,7 @@
 -(char)isShowingCurrentUser;
 -(char)shouldShowCameraNux;
 -(IGNuxTapOnCameraView *)emptyFeedNUX;
+-(char)displayingSwitchUsersTableView;
 -(void)setUserRestrictionData:(NSDictionary *)arg1 ;
 -(NSDictionary *)userRestrictionData;
 -(UIView *)blockedFooterView;
@@ -108,7 +113,6 @@
 -(void)setEmptyFeedNUX:(IGNuxTapOnCameraView *)arg1 ;
 -(UIView *)overlayViewForTabBar;
 -(UIView *)overlayForMainView;
--(char)displayingSwitchUsersTableView;
 -(void)setDisplayingSwitchUsersTableView:(char)arg1 ;
 -(UILabel *)emptyFeedLabel;
 -(void)setEmptyFeedLabel:(UILabel *)arg1 ;
@@ -117,6 +121,8 @@
 -(id)initWithUser:(id)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
+-(void)setTitleButton:(IGSwitchUsersTitleButton *)arg1 ;
+-(IGSwitchUsersTitleButton *)titleButton;
 -(void)dealloc;
 -(id)init;
 -(void)setTitle:(id)arg1 ;
@@ -124,11 +130,10 @@
 -(int)viewType;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
+-(void)viewWillDisappear:(char)arg1 ;
 -(IGUserDetailHeaderView *)headerView;
 -(void)setHeaderView:(IGUserDetailHeaderView *)arg1 ;
 -(void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4 ;
--(IGCaretView *)caretView;
--(void)setCaretView:(IGCaretView *)arg1 ;
 -(IGFriendRequestHeaderView *)requestHeader;
 @end
 

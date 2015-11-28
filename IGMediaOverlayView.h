@@ -41,6 +41,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)onTap:(id)arg1 ;
 -(void)setAudioNUXController:(IGAudioNUXController *)arg1 ;
+-(IGVideoPlaybackView *)videoPlayerView;
+-(void)setVideoPlayerView:(IGVideoPlaybackView *)arg1 ;
 -(IGMediaOverlayIndicator *)indicator;
 -(void)setIndicator:(IGMediaOverlayIndicator *)arg1 ;
 -(char)audioNUXControllerVideoHasSound:(id)arg1 ;
@@ -48,12 +50,10 @@
 -(char)audioNUXControllerIsVideoPlaying:(id)arg1 ;
 -(IGAudioNUXController *)audioNUXController;
 -(id)initWithImage:(id)arg1 video:(id)arg2 backgroundColor:(id)arg3 ;
--(IGVideoPlaybackView *)videoPlayerView;
 -(void)scaleFromRect:(CGRect)arg1 destinationSize:(CGSize)arg2 resetBlock:(/*^block*/id)arg3 ;
 -(void)filterPlayerViewDidFinishPlaying;
 -(id)initWithImage:(id)arg1 video:(id)arg2 ;
 -(void)scaleFromRect:(CGRect)arg1 resetBlock:(/*^block*/id)arg2 ;
--(void)setVideoPlayerView:(IGVideoPlaybackView *)arg1 ;
 -(void)setDismissed:(char)arg1 ;
 -(void)setImage:(UIImage *)arg1 ;
 -(void)setBackgroundColor:(UIColor *)arg1 ;

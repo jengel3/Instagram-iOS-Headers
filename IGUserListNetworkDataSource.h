@@ -54,6 +54,8 @@
 -(NSArray *)allUsers;
 -(void)setExcludesCurrentUser:(char)arg1 ;
 -(void)setAugmentedUsers:(NSArray *)arg1 ;
+-(NSCache *)searchCache;
+-(void)setSearchCache:(NSCache *)arg1 ;
 -(char)hasCachedResultsForQuery:(id)arg1 ;
 -(void)fetchMoreData;
 -(char)loadedOnce;
@@ -63,13 +65,11 @@
 -(void)setSortingBlock:(id)arg1 ;
 -(void)setAllUsers:(NSArray *)arg1 ;
 -(char)excludesCurrentUser;
--(void)setSearchCache:(NSCache *)arg1 ;
 -(void)performFetch;
 -(NSString *)maxID;
 -(void)onMoreUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onUserFetchFailed:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
--(NSCache *)searchCache;
 -(void)setMoreUsersAvailable:(char)arg1 ;
 -(void)setMaxID:(NSString *)arg1 ;
 -(id)sortingBlock;

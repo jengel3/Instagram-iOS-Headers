@@ -3,6 +3,7 @@
 
 @interface IGMutableRaindropRankInfo : IGRaindropRankInfo
 -(void)setRankToken:(id)arg1 ;
+-(void)setExtra:(id)arg1 ;
 -(void)setRankDisplayRowSize:(id)arg1 ;
 -(void)setRankDisplayColumnSize:(id)arg1 ;
 -(void)setViewSubType:(int)arg1 ;
@@ -12,7 +13,6 @@
 -(void)setSearchQueryText:(id)arg1 ;
 -(void)setSearchSessionId:(id)arg1 ;
 -(void)setSearchImpressionToken:(id)arg1 ;
--(void)setTimeSpent:(id)arg1 ;
 -(void)setSearchType:(int)arg1 ;
 -(void)setSectionType:(int)arg1 ;
 @end

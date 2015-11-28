@@ -23,10 +23,10 @@
 -(UILabel *)usernameLabel;
 -(void)setPostImageView:(IGImageView *)arg1 ;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
--(void)configureSubviewsLayout;
--(void)addAllSubviews;
 -(IGProfilePictureImageView *)profileImageView;
 -(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
+-(void)configureSubviewsLayout;
+-(void)addAllSubviews;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)layoutSubviews;

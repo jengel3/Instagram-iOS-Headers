@@ -19,8 +19,8 @@
 +(char)isLayoutAppInstalled;
 +(char)isBoomerangAppInstalled;
 +(void)openLayoutWithAsset:(id)arg1 usePhotosFramework:(char)arg2 assetIdentifier:(id)arg3 ;
-+(char)isHyperlapseAppInstalled;
 +(void)openBoomerang;
++(char)isHyperlapseAppInstalled;
 +(char)isFBAppInstalled;
 +(char)isAppInstalled:(id)arg1 ;
 +(void)logAppInstallationsInfo;

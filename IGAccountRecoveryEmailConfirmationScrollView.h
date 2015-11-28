@@ -3,11 +3,11 @@
 #import <UIKit/UIScrollView.h>
 
 @protocol IGAccountRecoveryEmailConfirmationViewDelegate;
-@class IGTextField, UIButton, UILabel, UIImageView;
+@class IGRetroRegistrationTextField, UIButton, UILabel, UIImageView;
 
 @interface IGAccountRecoveryEmailConfirmationScrollView : UIScrollView {
 
-	IGTextField* _confirmationCodeField;
+	IGRetroRegistrationTextField* _confirmationCodeField;
 	UIButton* _nextButton;
 	UILabel* _messageLabel;
 	id<IGAccountRecoveryEmailConfirmationViewDelegate> _emailConfirmationDelegate;
@@ -18,7 +18,7 @@
 
 }
 
-@property (nonatomic,retain) IGTextField * confirmationCodeField;                                                              //@synthesize confirmationCodeField=_confirmationCodeField - In the implementation block
+@property (nonatomic,retain) IGRetroRegistrationTextField * confirmationCodeField;                                             //@synthesize confirmationCodeField=_confirmationCodeField - In the implementation block
 @property (nonatomic,retain) UIButton * nextButton;                                                                            //@synthesize nextButton=_nextButton - In the implementation block
 @property (nonatomic,retain) UILabel * messageLabel;                                                                           //@synthesize messageLabel=_messageLabel - In the implementation block
 @property (assign,nonatomic,__weak) id<IGAccountRecoveryEmailConfirmationViewDelegate> emailConfirmationDelegate;              //@synthesize emailConfirmationDelegate=_emailConfirmationDelegate - In the implementation block
@@ -26,14 +26,14 @@
 @property (nonatomic,retain) UIButton * loginInInsteadButton;                                                                  //@synthesize loginInInsteadButton=_loginInInsteadButton - In the implementation block
 @property (nonatomic,retain) UIImageView * logoView;                                                                           //@synthesize logoView=_logoView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                                                             //@synthesize titleLabel=_titleLabel - In the implementation block
--(IGTextField *)confirmationCodeField;
+-(IGRetroRegistrationTextField *)confirmationCodeField;
 -(UIButton *)resendButton;
 -(UIButton *)loginInInsteadButton;
 -(void)nextButtonTapped:(id)arg1 ;
 -(void)loginInsteadButtonTapped:(id)arg1 ;
 -(void)resendCodeButtonTapped:(id)arg1 ;
 -(id<IGAccountRecoveryEmailConfirmationViewDelegate>)emailConfirmationDelegate;
--(void)setConfirmationCodeField:(IGTextField *)arg1 ;
+-(void)setConfirmationCodeField:(IGRetroRegistrationTextField *)arg1 ;
 -(void)setEmailConfirmationDelegate:(id<IGAccountRecoveryEmailConfirmationViewDelegate>)arg1 ;
 -(void)setResendButton:(UIButton *)arg1 ;
 -(void)setLoginInInsteadButton:(UIButton *)arg1 ;

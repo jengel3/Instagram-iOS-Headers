@@ -18,7 +18,7 @@
 #import <Instagram/IGDirectGroupNamingViewControllerDelegate.h>
 
 @protocol IGDirectThreadViewControllerDelegate, IGDirectPendingThreadViewDelegate;
-@class NSNumber, IGDirectThread, IGUser, NSArray, UICollectionView, IGDirectThreadCellFactory, IGDirectThreadCellExpansionAnimator, IGDirectThreadLayout, UIBarButtonItem, IGDirectContent, IGDirectPendingRequestButtons, IGDirectGroupNamingViewController, UIView, IGProfilePictureImageView, UIButton, IGQuickCamViewController, IGDirectShareManager, IGTokenField, FBKeyboardObserver, IGDirectKeyboardTextViewController, UIPanGestureRecognizer, UITapGestureRecognizer, IGAlertBar, NSNotification, NSString;
+@class NSNumber, IGDirectThread, NSArray, IGUser, UICollectionView, IGDirectThreadCellFactory, IGDirectThreadCellExpansionAnimator, IGDirectThreadLayout, UIBarButtonItem, IGDirectContent, IGDirectPendingRequestButtons, IGDirectGroupNamingViewController, UIView, IGProfilePictureImageView, UIButton, IGQuickCamViewController, IGDirectShareManager, IGTokenField, FBKeyboardObserver, IGDirectKeyboardTextViewController, UIPanGestureRecognizer, UITapGestureRecognizer, IGAlertBar, NSNotification, NSString;
 
 @interface IGDirectThreadViewController : IGViewController <UICollectionViewDelegate, UICollectionViewDataSource, IGDirectContentUpoadCellDelegate, IGDirectContentCellTextLinkDelegate, FBKeyboardObserverDelegate, IGDirectPendingRequestButtonDelegate, IGDirectKeyboardTextViewControllerDelegate, IGSeenStampFooterDelegate, UIGestureRecognizerDelegate, IGDirectThreadInfoDelegate, IGQuickCamViewControllerDelegate, IGDirectShareManagerDataSource, IGTokenFieldDelegate, IGImageViewDelegate, IGDirectGroupNamingViewControllerDelegate> {
 
@@ -32,6 +32,7 @@
 	id<IGDirectPendingThreadViewDelegate> _pendingDelegate;
 	NSNumber* _position;
 	IGDirectThread* _thread;
+	NSArray* _recipientUsers;
 	IGUser* _threadViewer;
 	NSArray* _allContent;
 	UICollectionView* _collectionView;
@@ -55,7 +56,7 @@
 	IGDirectContent* _lastSeenContent;
 	IGDirectShareManager* _shareManager;
 	IGTokenField* _tokenField;
-	float _keyboardY;
+	float _visibleKeyboardHeight;
 	int _keyboardState;
 	int _priorKeyboardState;
 	FBKeyboardObserver* _keyboardObserver;
@@ -74,6 +75,7 @@
 @property (nonatomic,copy,readonly) NSString * threadID; 
 @property (nonatomic,retain) NSNumber * position;                                                         //@synthesize position=_position - In the implementation block
 @property (nonatomic,retain) IGDirectThread * thread;                                                     //@synthesize thread=_thread - In the implementation block
+@property (nonatomic,retain) NSArray * recipientUsers;                                                    //@synthesize recipientUsers=_recipientUsers - In the implementation block
 @property (nonatomic,retain) IGUser * threadViewer;                                                       //@synthesize threadViewer=_threadViewer - In the implementation block
 @property (nonatomic,retain) NSArray * allContent;                                                        //@synthesize allContent=_allContent - In the implementation block
 @property (nonatomic,retain) UICollectionView * collectionView;                                           //@synthesize collectionView=_collectionView - In the implementation block
@@ -99,7 +101,7 @@
 @property (nonatomic,retain) IGDirectContent * lastSeenContent;                                           //@synthesize lastSeenContent=_lastSeenContent - In the implementation block
 @property (nonatomic,retain) IGDirectShareManager * shareManager;                                         //@synthesize shareManager=_shareManager - In the implementation block
 @property (nonatomic,retain) IGTokenField * tokenField;                                                   //@synthesize tokenField=_tokenField - In the implementation block
-@property (assign,nonatomic) float keyboardY;                                                             //@synthesize keyboardY=_keyboardY - In the implementation block
+@property (assign,nonatomic) float visibleKeyboardHeight;                                                 //@synthesize visibleKeyboardHeight=_visibleKeyboardHeight - In the implementation block
 @property (assign,nonatomic) int keyboardState;                                                           //@synthesize keyboardState=_keyboardState - In the implementation block
 @property (assign,nonatomic) int priorKeyboardState;                                                      //@synthesize priorKeyboardState=_priorKeyboardState - In the implementation block
 @property (nonatomic,retain) FBKeyboardObserver * keyboardObserver;                                       //@synthesize keyboardObserver=_keyboardObserver - In the implementation block
@@ -171,6 +173,7 @@
 -(void)threadInfoViewController:(id)arg1 didRenameThreadWithID:(id)arg2 toName:(id)arg3 ;
 -(void)setAllContent:(NSArray *)arg1 ;
 -(void)onCollectionViewScroll:(id)arg1 ;
+-(void)initializeThreadComponents;
 -(IGUser *)threadViewer;
 -(void)setCellFactory:(IGDirectThreadCellFactory *)arg1 ;
 -(void)setExpansionAnimator:(IGDirectThreadCellExpansionAnimator *)arg1 ;
@@ -201,6 +204,7 @@
 -(int)decodedImageCacheCostLimit;
 -(char)isLoadingForFirstTime;
 -(void)updateTopInsets;
+-(void)setVisibleKeyboardHeight:(float)arg1 ;
 -(IGQuickCamViewController *)quickCamViewController;
 -(void)closeQuickCamInBackground;
 -(void)setThreadInputView:(UIView *)arg1 ;
@@ -216,6 +220,7 @@
 -(void)updateThreadAndTitleWithThreadID:(id)arg1 ;
 -(void)setDistanceToBottomToKeep:(NSNumber *)arg1 ;
 -(void)updateNewMessageIndicator;
+-(NSArray *)recipientUsers;
 -(float)offSetYWhenScrolledToBottom;
 -(char)updateLastSeenContent;
 -(void)setBottomInsetY:(float)arg1 ;
@@ -242,19 +247,19 @@
 -(float)unseenMessageHeight;
 -(void)unseenMessageIndicatorTapped;
 -(char)threadUsersMatchTokenField;
--(id)tokenFieldRecipients;
+-(id)recipientForCurrentState;
+-(void)handleSendWithSuccess:(char)arg1 andResponse:(id)arg2 ;
 -(void)loadThreadWithID:(id)arg1 performNetworkRefresh:(char)arg2 ;
 -(void)showFailToSend;
 -(void)setKeyboardView:(UIView *)arg1 ;
 -(void)showQuickCam:(char)arg1 ;
--(float)keyboardY;
+-(float)visibleKeyboardHeight;
 -(void)renderThreadWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)setQuickCamViewController:(IGQuickCamViewController *)arg1 ;
 -(float)bottomInsetY;
 -(void)onQuickCamInteractivePan:(id)arg1 ;
 -(void)setPriorKeyboardState:(int)arg1 ;
 -(int)priorKeyboardState;
--(void)setKeyboardY:(float)arg1 ;
 -(void)enumerateVisibleViewsWithClass:(Class)arg1 usingBlock:(/*^block*/id)arg2 ;
 -(void)onInteractivePanGesture:(id)arg1 suggestedTextViewControllerTopY:(float)arg2 shouldCompensateScroll:(char)arg3 ;
 -(UIView *)threadInputView;
@@ -280,11 +285,13 @@
 -(char)shouldAnimateScrollingToBottom;
 -(void)loadPreviousMessages;
 -(void)setLastSeenContent:(IGDirectContent *)arg1 ;
+-(void)setRecipientUsers:(NSArray *)arg1 ;
 -(void)composerSetTextViewControllerVisibility;
 -(void)composerPreloadThread;
 -(void)setGroupNamingVC:(IGDirectGroupNamingViewController *)arg1 ;
 -(void)onDismissEmojiTap:(id)arg1 ;
 -(void)onTimestampPan:(id)arg1 ;
+-(id)initWithUsers:(id)arg1 ;
 -(void)performHideForContent:(id)arg1 ;
 -(void)setThreadViewer:(IGUser *)arg1 ;
 -(void)setUnseenMessageProfilePicture:(IGProfilePictureImageView *)arg1 ;

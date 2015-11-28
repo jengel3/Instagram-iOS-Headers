@@ -2,6 +2,7 @@
 
 @protocol IGRetroRegistrationLoginViewControllerDelegate <NSObject>
 @required
+-(char)loginViewControllerIsSwitchingUsers:(id)arg1;
 -(void)loginViewController:(id)arg1 proceedTwoFactorWithUserInfo:(id)arg2;
 -(void)loginViewControllerDidTapLoginButton:(id)arg1;
 -(void)loginViewControllerDidTapSignUpButton:(id)arg1;

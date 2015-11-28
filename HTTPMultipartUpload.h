@@ -12,10 +12,10 @@
 
 }
 -(void)addFileContents:(id)arg1 name:(id)arg2 ;
--(id)formDataForFileContents:(id)arg1 name:(id)arg2 ;
+-(void)addFileUploadAttachment:(id)arg1 ;
 -(id)send:(id*)arg1 timeoutInterval:(double)arg2 ;
 -(id)formDataForKey:(id)arg1 value:(id)arg2 ;
--(id)formDataForFile:(id)arg1 name:(id)arg2 ;
+-(id)formDataForFileUploadAttachment:(id)arg1 ;
 -(void)addFileAtPath:(id)arg1 name:(id)arg2 ;
 -(id)send:(id*)arg1 ;
 -(id)multipartBoundary;

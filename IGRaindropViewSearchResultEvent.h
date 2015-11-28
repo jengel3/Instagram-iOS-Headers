@@ -18,10 +18,11 @@
 	NSString* __thrift_requestId;
 	NSNumber* __thrift_selectedPosition;
 	NSString* __thrift_selectedPlaceId;
+	NSMutableArray* __thrift_users;
 
 }
 -(id)toDict;
--(id)initWithSearchQueryText:(id)arg1 searchType:(int)arg2 selectedUserId:(id)arg3 selectedHashtag:(id)arg4 numOfViewedResults:(id)arg5 localResult:(id)arg6 cachedSearchedResult:(id)arg7 selectedPlace:(id)arg8 resultsList:(NSMutableArray*)arg9 requestId:(id)arg10 selectedPosition:(id)arg11 selectedPlaceId:(id)arg12 ;
+-(id)initWithSearchQueryText:(id)arg1 searchType:(int)arg2 selectedUserId:(id)arg3 selectedHashtag:(id)arg4 numOfViewedResults:(id)arg5 localResult:(id)arg6 cachedSearchedResult:(id)arg7 selectedPlace:(id)arg8 resultsList:(NSMutableArray*)arg9 requestId:(id)arg10 selectedPosition:(id)arg11 selectedPlaceId:(id)arg12 users:(NSMutableArray*)arg13 ;
 -(id)init;
 -(id)description;
 -(id)mutableCopyWithZone:(NSZone*)arg1 ;

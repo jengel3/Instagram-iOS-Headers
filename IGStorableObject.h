@@ -12,7 +12,7 @@
 
 }
 
-@property (nonatomic,copy) NSString * pk;                           //@synthesize pk=_pk - In the implementation block
+@property (nonatomic,readonly) NSString * pk;                       //@synthesize pk=_pk - In the implementation block
 @property (assign,nonatomic) unsigned version;                      //@synthesize version=_version - In the implementation block
 @property (assign,nonatomic) char isStored;                         //@synthesize isStored=_isStored - In the implementation block
 @property (readonly) unsigned hash; 
@@ -22,12 +22,12 @@
 +(id)centralizedStore;
 -(NSString *)pk;
 -(void)setPk:(NSString *)arg1 ;
+-(id)initWithPk:(id)arg1 ;
 -(void)setIsStored:(char)arg1 ;
 -(char)isStored;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(void)dealloc;
--(id)init;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(NSString *)description;

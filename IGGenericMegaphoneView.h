@@ -10,7 +10,8 @@
 	char _megaphoneSeen;
 	IGGenericMegaphone* _megaphone;
 	id<IGGenericMegaphoneViewDelegate> _delegate;
-	IGCoreTextView* _textView;
+	IGCoreTextView* _titleView;
+	IGCoreTextView* _messageView;
 	IGImageView* _sideImageView;
 	UIButton* _dismissButton;
 	UIView* _lineView;
@@ -22,7 +23,8 @@
 
 @property (nonatomic,retain) IGGenericMegaphone * megaphone;                                  //@synthesize megaphone=_megaphone - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGenericMegaphoneViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGCoreTextView * textView;                                       //@synthesize textView=_textView - In the implementation block
+@property (nonatomic,retain) IGCoreTextView * titleView;                                      //@synthesize titleView=_titleView - In the implementation block
+@property (nonatomic,retain) IGCoreTextView * messageView;                                    //@synthesize messageView=_messageView - In the implementation block
 @property (nonatomic,retain) IGImageView * sideImageView;                                     //@synthesize sideImageView=_sideImageView - In the implementation block
 @property (nonatomic,retain) UIButton * dismissButton;                                        //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) UIView * lineView;                                               //@synthesize lineView=_lineView - In the implementation block
@@ -37,6 +39,9 @@
 -(void)setLineView:(UIView *)arg1 ;
 -(IGImageView *)sideImageView;
 -(void)setSideImageView:(IGImageView *)arg1 ;
+-(IGCoreTextView *)messageView;
+-(void)setMessageView:(IGCoreTextView *)arg1 ;
+-(void)layoutButtons;
 -(void)didSelectButton:(id)arg1 ;
 -(void)setButtonOne:(IGButton *)arg1 ;
 -(char)megaphoneSeen;
@@ -48,17 +53,14 @@
 -(IGButton *)buttonOne;
 -(IGButton *)buttonTwo;
 -(void)setDisplaySource:(NSString *)arg1 ;
--(void)layoutSubviewsWithButtonsAtBottom;
--(void)layoutSubviewsWithButtonAtRight;
--(float)buttonHorizontalPadding;
--(float)rightTextPadding;
--(float)leftTextPadding;
--(float)buttonVerticalPadding;
 -(void)layoutSideImageView;
 -(void)layoutDismissButton;
--(void)layoutButtonOne;
 -(void)layoutTextView;
--(void)verticalCenterAll;
+-(float)buttonHorizontalLeftPadding;
+-(float)buttonVerticalPadding;
+-(float)buttonHorizontalRightPadding;
+-(float)rightTextPadding;
+-(float)leftTextPadding;
 -(Class)styleClassForButton:(id)arg1 ;
 -(void)didSelectButtonOne;
 -(void)didSelectButtonTwo;
@@ -69,9 +71,8 @@
 -(void)dealloc;
 -(void)layoutSubviews;
 -(id<IGGenericMegaphoneViewDelegate>)delegate;
--(void)setTextView:(IGCoreTextView *)arg1 ;
--(id)cacheKey;
--(IGCoreTextView *)textView;
+-(IGCoreTextView *)titleView;
+-(void)setTitleView:(IGCoreTextView *)arg1 ;
 -(UIView *)lineView;
 -(UIButton *)dismissButton;
 -(void)setDismissButton:(UIButton *)arg1 ;

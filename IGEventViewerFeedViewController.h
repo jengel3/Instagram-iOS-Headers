@@ -6,13 +6,13 @@
 #import <Instagram/IGEventViewerFeedLayoutDelegate.h>
 
 @protocol IGEventViewerFeedViewControllerDelegate;
-@class UICollectionView, IGEventViewerFeedFlowLayout, IGEventViewerCollectionViewDataSource, IGEventViewerCollectionViewCellAnimator, NSIndexPath, NSString;
+@class UICollectionView, IGEventViewerFeedLayout, IGEventViewerCollectionViewDataSource, IGEventViewerCollectionViewCellAnimator, NSIndexPath, NSString;
 
 @interface IGEventViewerFeedViewController : UIViewController <UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, IGEventViewerFeedLayoutDelegate> {
 
 	UICollectionView* _collectionView;
+	IGEventViewerFeedLayout* _feedLayout;
 	id<IGEventViewerFeedViewControllerDelegate> _delegate;
-	IGEventViewerFeedFlowLayout* _flowLayout;
 	IGEventViewerCollectionViewDataSource* _dataSource;
 	IGEventViewerCollectionViewCellAnimator* _cellAnimator;
 	NSIndexPath* _centeredIndexPathWhenBeginDragging;
@@ -20,10 +20,10 @@
 }
 
 @property (nonatomic,__weak,readonly) UICollectionView * collectionView;                                       //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,__weak,readonly) IGEventViewerFeedLayout * feedLayout;                                    //@synthesize feedLayout=_feedLayout - In the implementation block
 @property (assign,nonatomic,__weak) id<IGEventViewerFeedViewControllerDelegate> delegate;                      //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) NSIndexPath * currentlyCenteredIndexPath; 
 @property (nonatomic,readonly) IGFeedItemMediaCell*<IGEventViewerCellType> currentlyCenteredCell; 
-@property (nonatomic,__weak,readonly) IGEventViewerFeedFlowLayout * flowLayout;                                //@synthesize flowLayout=_flowLayout - In the implementation block
 @property (nonatomic,readonly) IGEventViewerCollectionViewDataSource * dataSource;                             //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,readonly) IGEventViewerCollectionViewCellAnimator * cellAnimator;                         //@synthesize cellAnimator=_cellAnimator - In the implementation block
 @property (nonatomic,retain) NSIndexPath * centeredIndexPathWhenBeginDragging;                                 //@synthesize centeredIndexPathWhenBeginDragging=_centeredIndexPathWhenBeginDragging - In the implementation block
@@ -31,10 +31,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)didReceiveTapGesture:(id)arg1 ;
+-(CGSize)eventViewerFeedLayout:(id)arg1 sizeForItemAtIndexPath:(id)arg2 inCollectionView:(id)arg3 ;
 -(NSIndexPath *)currentlyCenteredIndexPath;
 -(void)eventViewerFeedLayoutDidReachMaximumContentOffset:(id)arg1 ;
 -(void)didReceiveScrollViewPanGesture:(id)arg1 ;
--(void)didReceiveTapGesture:(id)arg1 ;
 -(IGEventViewerCollectionViewCellAnimator *)cellAnimator;
 -(void)scrollToItemAtIndexPath:(id)arg1 animated:(char)arg2 completion:(/*^block*/id)arg3 ;
 -(void)setCenteredIndexPathWhenBeginDragging:(NSIndexPath *)arg1 ;
@@ -55,10 +56,9 @@
 -(char)gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2 ;
 -(void)viewDidLayoutSubviews;
 -(UICollectionView *)collectionView;
--(CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3 ;
--(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
--(IGEventViewerFeedFlowLayout *)flowLayout;
+-(void)viewDidAppear:(char)arg1 ;
+-(IGEventViewerFeedLayout *)feedLayout;
 -(void)setupSubviews;
 -(id)initWithDataSource:(id)arg1 ;
 @end

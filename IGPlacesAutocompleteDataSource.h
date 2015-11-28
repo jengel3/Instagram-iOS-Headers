@@ -4,7 +4,7 @@
 #import <Instagram/IGAutocompleteNetworkDataSourceAnalytics.h>
 
 @protocol IGAutocompleteAsyncDataSourceDelegate;
-@class IGPlacesAutocompleteNetworkDataSource, NSArray, NSString, NSDictionary;
+@class IGPlacesAutocompleteNetworkDataSource, IGAutocompleteDataSourceStore, NSString, NSDictionary;
 
 @interface IGPlacesAutocompleteDataSource : NSObject <IGAutocompleteNetworkDataSourceDelegate, IGAutocompleteAsyncDataSource, IGAutocompleteNetworkDataSourceAnalytics> {
 
@@ -12,7 +12,7 @@
 	char _responseWasFoundInQueryCache;
 	id<IGAutocompleteAsyncDataSourceDelegate> _delegate;
 	IGPlacesAutocompleteNetworkDataSource* _dataSource;
-	NSArray* _currentResults;
+	IGAutocompleteDataSourceStore* _dataStore;
 	NSString* _responseQueryText;
 	NSString* _responseRankToken;
 	NSDictionary* _analyticsInfo;
@@ -22,7 +22,7 @@
 @property (assign,nonatomic,__weak) id<IGAutocompleteAsyncDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,getter=isSearching,nonatomic) char searching;                                      //@synthesize searching=_searching - In the implementation block
 @property (nonatomic,retain) IGPlacesAutocompleteNetworkDataSource * dataSource;                     //@synthesize dataSource=_dataSource - In the implementation block
-@property (nonatomic,retain) NSArray * currentResults;                                               //@synthesize currentResults=_currentResults - In the implementation block
+@property (nonatomic,retain) IGAutocompleteDataSourceStore * dataStore;                              //@synthesize dataStore=_dataStore - In the implementation block
 @property (nonatomic,copy) NSString * responseQueryText;                                             //@synthesize responseQueryText=_responseQueryText - In the implementation block
 @property (nonatomic,copy) NSString * responseRankToken;                                             //@synthesize responseRankToken=_responseRankToken - In the implementation block
 @property (nonatomic,retain) NSDictionary * analyticsInfo;                                           //@synthesize analyticsInfo=_analyticsInfo - In the implementation block
@@ -41,7 +41,6 @@
 -(void)setResponseQueryText:(NSString *)arg1 ;
 -(NSString *)responseRankToken;
 -(void)setResponseRankToken:(NSString *)arg1 ;
--(void)setCurrentResults:(NSArray *)arg1 ;
 -(void)setResponseWasFoundInQueryCache:(char)arg1 ;
 -(int)numberOfLocalResults;
 -(char)isLocalResult:(id)arg1 ;
@@ -59,7 +58,8 @@
 -(void)reset;
 -(void)setSearching:(char)arg1 ;
 -(unsigned)numberOfResults;
--(NSArray *)currentResults;
+-(void)setDataStore:(IGAutocompleteDataSourceStore *)arg1 ;
+-(IGAutocompleteDataSourceStore *)dataStore;
 -(void)clearResults;
 @end
 

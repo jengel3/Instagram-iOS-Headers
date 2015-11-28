@@ -43,13 +43,13 @@
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
--(IGUserListNetworkDataSource *)networkDataSource;
 -(IGFeedStatusView *)feedStatusView;
 -(void)setFeedStatusView:(IGFeedStatusView *)arg1 ;
 -(id)indexPathForUser:(id)arg1 ;
 -(void)feedStatusView:(id)arg1 wantsChangeToHeight:(float)arg2 ;
 -(void)didTapOnSeeAllAccounts:(id)arg1 withUser:(id)arg2 ;
 -(void)removeUserFromList:(id)arg1 ;
+-(IGUserListNetworkDataSource *)networkDataSource;
 -(int)userCellAccessory;
 -(void)loadMoreUsers;
 -(char)isShowingSimilarAccountsViewForCellAtIndexPath:(id)arg1 ;

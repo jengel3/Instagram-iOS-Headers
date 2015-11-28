@@ -1,16 +1,16 @@
 
 #import <Instagram/IGFeedPhotoViewDelegate.h>
+#import <Instagram/IGTimerProxyObjectType.h>
 
 @protocol IGEventViewerPhotoPlaybackControllerDelegate;
-@class NSTimer, IGEventViewerTimerProxy, IGPost, IGEventViewerPhotoCell, IGEventViewerAnalyticsLogger, NSString;
+@class NSTimer, IGTimerProxy, IGEventViewerPlaybackItem, IGEventViewerAnalyticsLogger, NSString;
 
-@interface IGEventViewerPhotoPlaybackController : NSObject <IGFeedPhotoViewDelegate> {
+@interface IGEventViewerPhotoPlaybackController : NSObject <IGFeedPhotoViewDelegate, IGTimerProxyObjectType> {
 
 	id<IGEventViewerPhotoPlaybackControllerDelegate> _delegate;
 	NSTimer* _timer;
-	IGEventViewerTimerProxy* _timerProxy;
-	IGPost* _currentPost;
-	IGEventViewerPhotoCell* _currentCell;
+	IGTimerProxy* _timerProxy;
+	IGEventViewerPlaybackItem* _playbackItem;
 	IGEventViewerAnalyticsLogger* _logger;
 	double _timerProgress;
 
@@ -20,31 +20,27 @@
 @property (nonatomic,readonly) float currentProgress; 
 @property (nonatomic,readonly) float currentDuration; 
 @property (nonatomic,retain) NSTimer * timer;                                                               //@synthesize timer=_timer - In the implementation block
-@property (nonatomic,retain) IGEventViewerTimerProxy * timerProxy;                                          //@synthesize timerProxy=_timerProxy - In the implementation block
+@property (nonatomic,retain) IGTimerProxy * timerProxy;                                                     //@synthesize timerProxy=_timerProxy - In the implementation block
 @property (assign,nonatomic) double timerProgress;                                                          //@synthesize timerProgress=_timerProgress - In the implementation block
-@property (nonatomic,retain) IGPost * currentPost;                                                          //@synthesize currentPost=_currentPost - In the implementation block
-@property (nonatomic,retain) IGEventViewerPhotoCell * currentCell;                                          //@synthesize currentCell=_currentCell - In the implementation block
+@property (nonatomic,retain) IGEventViewerPlaybackItem * playbackItem;                                      //@synthesize playbackItem=_playbackItem - In the implementation block
 @property (nonatomic,readonly) IGEventViewerAnalyticsLogger * logger;                                       //@synthesize logger=_logger - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)didFireTimer:(id)arg1 ;
 -(char)isCurrentlyPlayingPhoto;
 -(double)timerProgress;
--(IGEventViewerPhotoCell *)currentCell;
--(void)setTimerProxy:(IGEventViewerTimerProxy *)arg1 ;
--(IGEventViewerTimerProxy *)timerProxy;
+-(IGEventViewerPlaybackItem *)playbackItem;
+-(void)setTimerProxy:(IGTimerProxy *)arg1 ;
 -(void)setTimerProgress:(double)arg1 ;
--(IGPost *)currentPost;
+-(IGTimerProxy *)timerProxy;
 -(void)stopCurrentlyPlayingPhoto;
--(void)setCurrentPost:(IGPost *)arg1 ;
--(void)setCurrentCell:(IGEventViewerPhotoCell *)arg1 ;
+-(void)setPlaybackItem:(IGEventViewerPlaybackItem *)arg1 ;
 -(void)feedPhotoViewDidLoadImage:(id)arg1 ;
 -(void)feedPhotoDidDoubleTapToLike:(id)arg1 ;
+-(void)didFireTimer:(id)arg1 ;
 -(id)initWithLogger:(id)arg1 ;
--(char)isValidPhotoPost:(id)arg1 photoCell:(id)arg2 ;
--(void)playPhotoForPost:(id)arg1 photoCell:(id)arg2 ;
+-(void)playPhotoForItem:(id)arg1 ;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)stopTimer;
 -(float)currentProgress;

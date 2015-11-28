@@ -11,6 +11,8 @@
 -(void)restoreSessionForPk:(id)arg1;
 
 @required
++(void)clearForUserPK:(id)arg1;
++(id)shortServiceName;
 +(id)serviceName;
 -(id)sharingInfo;
 -(id)initWithSessionUserDefaults:(id)arg1;

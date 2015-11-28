@@ -3,6 +3,6 @@
 #import <MapKit/MKOverlayView.h>
 
 @interface IGMKEditOverlayView : MKOverlayView
--(void)drawMapRect:(SCD_Struct_IG32)arg1 zoomScale:(float)arg2 inContext:(CGContextRef)arg3 ;
+-(void)drawMapRect:(SCD_Struct_IG27)arg1 zoomScale:(float)arg2 inContext:(CGContextRef)arg3 ;
 @end
 

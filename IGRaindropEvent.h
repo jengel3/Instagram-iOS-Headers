@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/TBaseStruct.h>
 
-@class IGRaindropCommentEvent, IGRaindropLikeEvent, IGRaindropFollowEvent, IGRaindropSearchEvent, IGRaindropViewSearchResultEvent, IGRaindropViewPopularEvent, IGRaindropAppLaunchEvent, IGRaindropShareMediaURLEvent, IGRaindropSharePersonURLEvent, IGRaindropViewSwitchEvent, IGRaindropViewHashtagPageItem, IGRaindropViewPlacePageItem, IGRaindropSearchBeginEvent, IGRaindropAddLocationEvent, IGRaindropLoadLocationResultsEvent, IGRaindropTapLocationResultEvent, IGRaindropCancelLocationResultsEvent, IGRaindropCreateCustomLocationEvent, IGRaindropSearchCancelEvent, IGRaindropClusterEvent, IGRaindropFeedItemEvent, IGRaindropHideEvent, IGRaindropUserClickEvent, IGRaindropUserImpressionEvent, IGRaindropMarqueeClickEvent, IGRaindropMarqueeImpressionEvent, IGRaindropTagClickEvent, IGRaindropTagImpressionEvent, IGRaindropPlaceClickEvent, IGRaindropPlaceImpressionEvent, IGRaindropPhotoClickEvent, IGRaindropPhotoImpressionEvent, IGRaindropFollowImpressionEvent, IGRaindropFollowFailEvent, IGRaindropSearchTypingEvent, IGRaindropSearchQueryEvent, IGRaindropSearchClickEvent, IGRaindropSearchBackspaceEvent, IGRaindropSearchAbandonEvent, IGRaindropBeaconEvent;
+@class IGRaindropCommentEvent, IGRaindropLikeEvent, IGRaindropFollowEvent, IGRaindropSearchEvent, IGRaindropViewSearchResultEvent, IGRaindropViewPopularEvent, IGRaindropAppLaunchEvent, IGRaindropShareMediaURLEvent, IGRaindropSharePersonURLEvent, IGRaindropViewSwitchEvent, IGRaindropViewHashtagPageItem, IGRaindropViewPlacePageItem, IGRaindropSearchBeginEvent, IGRaindropAddLocationEvent, IGRaindropLoadLocationResultsEvent, IGRaindropTapLocationResultEvent, IGRaindropCancelLocationResultsEvent, IGRaindropCreateCustomLocationEvent, IGRaindropSearchCancelEvent, IGRaindropClusterEvent, IGRaindropFeedItemEvent, IGRaindropHideEvent, IGRaindropUserClickEvent, IGRaindropUserImpressionEvent, IGRaindropMarqueeClickEvent, IGRaindropMarqueeImpressionEvent, IGRaindropTagClickEvent, IGRaindropTagImpressionEvent, IGRaindropPlaceClickEvent, IGRaindropPlaceImpressionEvent, IGRaindropPhotoClickEvent, IGRaindropPhotoImpressionEvent, IGRaindropFollowImpressionEvent, IGRaindropFollowFailEvent, IGRaindropSearchTypingEvent, IGRaindropSearchQueryEvent, IGRaindropSearchBackspaceEvent, IGRaindropSearchAbandonEvent, IGRaindropBeaconEvent;
 
 @interface IGRaindropEvent : TBaseStruct {
 
@@ -42,7 +42,6 @@
 	IGRaindropFollowFailEvent* __thrift_followFailEvent;
 	IGRaindropSearchTypingEvent* __thrift_searchTypingEvent;
 	IGRaindropSearchQueryEvent* __thrift_searchQueryEvent;
-	IGRaindropSearchClickEvent* __thrift_searchClickEvent;
 	IGRaindropSearchBackspaceEvent* __thrift_searchBackspaceEvent;
 	IGRaindropSearchAbandonEvent* __thrift_searchAbandonEvent;
 	IGRaindropBeaconEvent* __thrift_beaconEvent;
@@ -85,7 +84,6 @@
 -(id)initWithFollowFailEvent:(id)arg1 ;
 -(id)initWithSearchTypingEvent:(id)arg1 ;
 -(id)initWithSearchQueryEvent:(id)arg1 ;
--(id)initWithSearchClickEvent:(id)arg1 ;
 -(id)initWithSearchBackspaceEvent:(id)arg1 ;
 -(id)initWithSearchAbandonEvent:(id)arg1 ;
 -(id)initWithBeaconEvent:(id)arg1 ;

@@ -19,9 +19,11 @@
 -(void)logItemTap:(id)arg1 atRow:(int)arg2 searchString:(id)arg3 ;
 -(id)searchBarPlaceholder;
 -(void)filterBySearchString:(id)arg1 ;
+-(void)clearSearchHistory;
 -(void)logSearchCancelEventForSearchString:(id)arg1 ;
 -(void)logSearchCancelRaindropEvent;
 -(void)logRaindropSearchQueryEvent;
+-(id)accessibilityIdentifier;
 -(int)viewType;
 -(void)viewDidLoad;
 -(int)searchType;

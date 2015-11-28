@@ -2,7 +2,7 @@
 #import <UIKit/UIView.h>
 
 @protocol IGFeedPromotionBannerDelegate;
-@class IGFeedPromotionBannerConfiguration, UIButton, UILabel, UIImageView;
+@class IGFeedPromotionBannerConfiguration, UIButton, UILabel, UIImageView, UIView;
 
 @interface IGFeedPromotionAppInstallBannerView : UIView {
 
@@ -11,6 +11,7 @@
 	UIButton* _installButton;
 	UILabel* _textLabel;
 	UIImageView* _imageIcon;
+	UIView* _lineView;
 
 }
 
@@ -19,6 +20,8 @@
 @property (nonatomic,retain) UIButton * installButton;                                        //@synthesize installButton=_installButton - In the implementation block
 @property (nonatomic,retain) UILabel * textLabel;                                             //@synthesize textLabel=_textLabel - In the implementation block
 @property (nonatomic,retain) UIImageView * imageIcon;                                         //@synthesize imageIcon=_imageIcon - In the implementation block
+@property (nonatomic,retain) UIView * lineView;                                               //@synthesize lineView=_lineView - In the implementation block
+-(void)setLineView:(UIView *)arg1 ;
 -(UIButton *)installButton;
 -(UIImageView *)imageIcon;
 -(void)onInstallButtonTapped:(id)arg1 ;
@@ -33,5 +36,6 @@
 -(void)setConfiguration:(IGFeedPromotionBannerConfiguration *)arg1 ;
 -(IGFeedPromotionBannerConfiguration *)configuration;
 -(void)setTextLabel:(UILabel *)arg1 ;
+-(UIView *)lineView;
 @end
 

@@ -2,23 +2,28 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGPlainTableViewCell.h>
 
+@protocol IGRaindropAnalyticsDelegate;
 @class UIView, CALayer;
 
 @interface IGSearchResultCell : IGPlainTableViewCell {
 
 	char _showFollowButton;
 	UIView* _iconView;
+	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 	CALayer* _separatorLayer;
 
 }
 
-@property (nonatomic,retain) UIView * iconView;                       //@synthesize iconView=_iconView - In the implementation block
-@property (nonatomic,readonly) CALayer * separatorLayer;              //@synthesize separatorLayer=_separatorLayer - In the implementation block
-@property (nonatomic,readonly) char showFollowButton;                 //@synthesize showFollowButton=_showFollowButton - In the implementation block
+@property (nonatomic,retain) UIView * iconView;                                                     //@synthesize iconView=_iconView - In the implementation block
+@property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
+@property (nonatomic,readonly) CALayer * separatorLayer;                                            //@synthesize separatorLayer=_separatorLayer - In the implementation block
+@property (nonatomic,readonly) char showFollowButton;                                               //@synthesize showFollowButton=_showFollowButton - In the implementation block
 +(CGRect)iconViewFrame;
 +(id)formatedPostCount:(unsigned)arg1 ;
 +(id)backgroundColor;
 +(float)height;
+-(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
+-(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(void)setHashtag:(id)arg1 ;
 -(CALayer *)separatorLayer;
 -(float)labelMinXForIconFrame:(CGRect)arg1 ;

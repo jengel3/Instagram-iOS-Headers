@@ -13,6 +13,7 @@
 	CGPoint _touchPoint;
 	char _longTapHandled;
 	long _closestTappedStringIndex;
+	int _lastEndedEventSeqNumber;
 	char _usePaddedTapDetection;
 	IGStyledString* _styledString;
 	id<IGCoreTextLinkHandler> _linkHandler;
@@ -37,6 +38,7 @@
 -(char)handleTapAtIndex:(int)arg1 forTouchEvent:(unsigned)arg2 fromLongTap:(char)arg3 ;
 -(long)findClosestIndexForURLForAttributedString:(id)arg1 nearPoint:(CGPoint)arg2 constrainedSize:(CGSize)arg3 ;
 -(long)tapIndexForTapAtPoint:(CGPoint)arg1 size:(CGSize)arg2 inString:(id)arg3 ;
+-(CGPoint)lineOrigin:(CGPoint)arg1 FromRelativeToPath:(CGPathRef)arg2 toRelativeToContext:(CGContextRef)arg3 ;
 -(char)handleTapAtIndex:(int)arg1 forTouchEvent:(unsigned)arg2 ;
 -(id<IGCoreTextLinkHandler>)linkHandler;
 -(void)drawRect:(CGRect)arg1 ;

@@ -27,9 +27,11 @@
 -(id)blendedImpressionList:(id)arg1 ;
 -(id)searchBarPlaceholder;
 -(void)filterBySearchString:(id)arg1 ;
+-(void)clearSearchHistory;
 -(void)logSearchCancelEventForSearchString:(id)arg1 ;
 -(void)logSearchCancelRaindropEvent;
 -(void)logRaindropSearchQueryEvent;
+-(id)accessibilityIdentifier;
 -(int)viewType;
 -(void)viewDidLoad;
 -(int)searchType;

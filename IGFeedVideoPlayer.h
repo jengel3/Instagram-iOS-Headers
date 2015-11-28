@@ -65,8 +65,9 @@
 -(void)loadVideoForURL:(id)arg1 ;
 -(char)assetHasAudio;
 -(void)prepareForReuseWithCompletion:(/*^block*/id)arg1 ;
--(void)assetFailedToPrepareForPlayback:(id)arg1 ;
 -(char)requiresResetPlayer;
+-(void)loadVideoForURL:(id)arg1 resourceLoaderDelegate:(id)arg2 queue:(id)arg3 ;
+-(void)assetFailedToPrepareForPlayback:(id)arg1 ;
 -(void)removeStreamingPlayerItemObservers;
 -(void)dispatchSyncOnPlayerQueueOrCurrent:(/*^block*/id)arg1 ;
 -(NSObject*<OS_dispatch_queue>)playerQueue;
@@ -91,7 +92,7 @@
 -(NSURL *)loadingURL;
 -(void)setAssetHasAudio:(char)arg1 ;
 -(void)preparePlayerWithAsset:(id)arg1 ;
--(void)prepareToPlayURL:(id)arg1 ;
+-(void)prepareToPlayURL:(id)arg1 resourceLoaderDelegate:(id)arg2 queue:(id)arg3 ;
 -(char)playedFirstFrame;
 -(char)readyToPlay;
 -(void)onPlaybackTimeChanged:(SCD_Struct_IG0)arg1 ;

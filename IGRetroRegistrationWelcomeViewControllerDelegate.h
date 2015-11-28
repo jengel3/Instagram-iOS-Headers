@@ -11,6 +11,7 @@
 -(void)welcomeViewController:(id)arg1 proceedRegistrationWithFBInfo:(id)arg2;
 -(void)welcomeViewController:(id)arg1 resetPasswordWithViewController:(id)arg2;
 -(void)welcomeViewController:(id)arg1 proceedTwoFactorWithUserInfo:(id)arg2;
+-(void)welcomeViewController:(id)arg1 proceedOneClickLoginWithUsername:(id)arg2 token:(id)arg3;
 
 @end
 

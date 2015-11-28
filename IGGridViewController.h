@@ -62,8 +62,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)cellSpacing;
--(void)setShowSelectedOverlay:(char)arg1 ;
 -(char)usePhotosFramework;
+-(void)setShowSelectedOverlay:(char)arg1 ;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(char)showSelectedOverlay;
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;

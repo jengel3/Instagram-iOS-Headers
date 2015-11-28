@@ -25,6 +25,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(void)clearForUserPK:(id)arg1 ;
++(id)shortServiceName;
++(void)logoutFromDefaults:(id)arg1 ;
 +(id)serviceName;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
@@ -43,7 +46,6 @@
 -(char)requiresLocationCoordinate;
 -(char)isAvailableInCurrentLocale;
 -(char)supportsMediaType:(int)arg1 ;
--(id)shortServiceName;
 -(id)loginViewControllerWithDelegate:(id)arg1 ;
 -(char)needsToReauthorize;
 -(void)reauthorizeIfNeeded;

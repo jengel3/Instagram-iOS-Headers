@@ -28,13 +28,13 @@
 -(Class)defaultCellClass;
 -(id)headerViewKVOHandler;
 -(id)footerViewKVOHandler;
--(void)setHeaderViewKVOHandler:(id)arg1 ;
--(void)setFooterViewKVOHandler:(id)arg1 ;
 -(UIView *)statusBarBlurringView;
+-(void)setHeaderViewKVOHandler:(id)arg1 ;
 -(char)pinsHeaderView;
 -(char)wantsStatusBarBackground;
 -(void)setPinsHeaderView:(char)arg1 ;
 -(void)setWantsStatusBarBackground:(char)arg1 ;
+-(void)setFooterViewKVOHandler:(id)arg1 ;
 -(void)setStatusBarBlurringView:(UIView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;

@@ -4,7 +4,7 @@
 #import <Instagram/IGAutocompleteNetworkDataSourceAnalytics.h>
 
 @protocol IGAutocompleteAsyncDataSourceDelegate;
-@class IGUserListAutocompleteNetworkDataSource, NSArray, NSString, NSDictionary;
+@class IGUserListAutocompleteNetworkDataSource, IGAutocompleteDataSourceStore, NSString, NSDictionary;
 
 @interface IGUserListAutocompleteDataSource : NSObject <IGAutocompleteNetworkDataSourceDelegate, IGAutocompleteAsyncDataSource, IGAutocompleteNetworkDataSourceAnalytics> {
 
@@ -13,7 +13,7 @@
 	char _responseWasFoundInQueryCache;
 	id<IGAutocompleteAsyncDataSourceDelegate> _delegate;
 	IGUserListAutocompleteNetworkDataSource* _dataSource;
-	NSArray* _currentResults;
+	IGAutocompleteDataSourceStore* _dataStore;
 	NSString* _responseQueryText;
 	NSString* _responseRankToken;
 	NSDictionary* _analyticsInfo;
@@ -24,7 +24,7 @@
 @property (assign,getter=isSearching,nonatomic) char searching;                                      //@synthesize searching=_searching - In the implementation block
 @property (assign,nonatomic) char shouldReverseSort; 
 @property (nonatomic,retain) IGUserListAutocompleteNetworkDataSource * dataSource;                   //@synthesize dataSource=_dataSource - In the implementation block
-@property (nonatomic,retain) NSArray * currentResults;                                               //@synthesize currentResults=_currentResults - In the implementation block
+@property (nonatomic,retain) IGAutocompleteDataSourceStore * dataStore;                              //@synthesize dataStore=_dataStore - In the implementation block
 @property (assign,getter=isEmptyQuery,nonatomic) char emptyQuery;                                    //@synthesize emptyQuery=_emptyQuery - In the implementation block
 @property (nonatomic,copy) NSString * responseQueryText;                                             //@synthesize responseQueryText=_responseQueryText - In the implementation block
 @property (nonatomic,copy) NSString * responseRankToken;                                             //@synthesize responseRankToken=_responseRankToken - In the implementation block
@@ -48,7 +48,6 @@
 -(void)setResponseQueryText:(NSString *)arg1 ;
 -(NSString *)responseRankToken;
 -(void)setResponseRankToken:(NSString *)arg1 ;
--(void)setCurrentResults:(NSArray *)arg1 ;
 -(void)setResponseWasFoundInQueryCache:(char)arg1 ;
 -(int)numberOfLocalResults;
 -(char)isLocalResult:(id)arg1 ;
@@ -64,7 +63,8 @@
 -(void)reset;
 -(void)setSearching:(char)arg1 ;
 -(unsigned)numberOfResults;
--(NSArray *)currentResults;
+-(void)setDataStore:(IGAutocompleteDataSourceStore *)arg1 ;
+-(IGAutocompleteDataSourceStore *)dataStore;
 -(void)clearResults;
 @end
 

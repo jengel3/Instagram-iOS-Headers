@@ -23,8 +23,8 @@
 @property (nonatomic,readonly) int thumbnailCount; 
 @property (nonatomic,readonly) float pixelsPerSecond; 
 @property (nonatomic,readonly) float secondsPerThumbnail; 
--(void)setLoadedImagesSet:(NSMutableIndexSet *)arg1 ;
 -(int)thumbnailCount;
+-(void)setLoadedImagesSet:(NSMutableIndexSet *)arg1 ;
 -(float)secondsPerThumbnail;
 -(float)pixelsPerSecond;
 -(NSMutableIndexSet *)loadedImagesSet;

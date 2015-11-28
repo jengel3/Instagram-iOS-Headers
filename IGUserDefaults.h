@@ -7,10 +7,10 @@
 -(void)removeObjectForKey:(id)arg1 inUserInfoForService:(id)arg2 ;
 -(id)accessTokenForService:(id)arg1 ;
 -(id)refreshTokenForService:(id)arg1 ;
+-(void)deleteAccessTokenForService:(id)arg1 ;
 -(char)hasAccessTokenExpiredForService:(id)arg1 ;
 -(void)setAccessTokenWithExpiration:(id)arg1 expirationInSeconds:(int)arg2 forService:(id)arg3 ;
 -(void)setRefreshToken:(id)arg1 forService:(id)arg2 ;
--(void)deleteAccessTokenForService:(id)arg1 ;
 -(void)deleteUserInfoForService:(id)arg1 ;
 -(void)setAccessToken:(id)arg1 forService:(id)arg2 ;
 -(void)expireAccessTokenForService:(id)arg1 ;

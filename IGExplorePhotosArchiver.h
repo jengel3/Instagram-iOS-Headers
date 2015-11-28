@@ -22,6 +22,7 @@
 -(id)unarchiveTrends;
 -(id)unarchiveTrendPlace;
 -(id)unarchiveMarqueeItems;
+-(char)removeTrendPlaceCache;
 -(void)setTrendsFileCoordinator:(IGFileCoordinator *)arg1 ;
 -(void)setMarqueeFileCoordinator:(IGFileCoordinator *)arg1 ;
 -(void)setTrendPlaceFileCoordinator:(IGFileCoordinator *)arg1 ;

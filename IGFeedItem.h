@@ -10,6 +10,7 @@
 	char _seen;
 	char _inPhotosOfYou;
 	char _isWaitingForPivot;
+	char _isDummyVideo;
 	char _carouselLinkButtonOverride;
 	char _expanded;
 	NSString* _permalink;
@@ -32,6 +33,7 @@
 @property (readonly) NSString * exploreAlgorithm;                                 //@synthesize exploreAlgorithm=_exploreAlgorithm - In the implementation block
 @property (readonly) NSString * exploreImpressionToken;                           //@synthesize exploreImpressionToken=_exploreImpressionToken - In the implementation block
 @property (assign) char isWaitingForPivot;                                        //@synthesize isWaitingForPivot=_isWaitingForPivot - In the implementation block
+@property (assign) char isDummyVideo;                                             //@synthesize isDummyVideo=_isDummyVideo - In the implementation block
 @property (readonly) IGDirectResponseInfo * directResponseInfo; 
 @property (readonly) int directResponseStyle;                                     //@synthesize directResponseStyle=_directResponseStyle - In the implementation block
 @property (readonly) int directResponseHeaderStyle;                               //@synthesize directResponseHeaderStyle=_directResponseHeaderStyle - In the implementation block
@@ -65,6 +67,7 @@
 -(id)featuredBadgeText;
 -(id)buildLikersStyledString;
 -(id)buildExploreContextString;
+-(id)buildNewBoomerangAttributionString;
 -(id)buildHyperlapseContextString;
 -(id)buildLayoutContextString;
 -(id)buildMoreCommentsStyledString;
@@ -72,6 +75,7 @@
 -(id)buildBoomerangContextString;
 -(id)buildFeaturedBadgeStyledString;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
+-(char)isDummyVideo;
 -(NSString *)exploreAlgorithm;
 -(NSString *)exploreImpressionToken;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 userInfo:(id)arg4 index:(int)arg5 analyticsMetadata:(id)arg6 completion:(/*^block*/id)arg7 ;
@@ -105,6 +109,7 @@
 -(NSString *)organicTrackingToken;
 -(void)addToPhotosOfYou:(char)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)untagCurrentUserWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
+-(void)setIsDummyVideo:(char)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(NSString *)description;

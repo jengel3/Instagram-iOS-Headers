@@ -5,14 +5,16 @@
 #import <Instagram/IGAutocompleteControllerTextInput.h>
 
 @protocol IGCaptionCellDelegate;
-@class UIImageView, UITextView, IGSimpleFrameButton, UIView, IGGradientView, NSString;
+@class UIImageView, UITextView, IGProfilePictureImageView, IGSimpleFrameButton, UIView, IGGradientView, NSString;
 
 @interface IGCaptionCell : UICollectionViewCell <UITextViewDelegate, IGAutocompleteControllerTextInput> {
 
+	char _shouldShowProfileInCaption;
 	UIImageView* _thumbnailView;
 	float _offsetY;
 	UITextView* _textView;
 	id<IGCaptionCellDelegate> _delegate;
+	IGProfilePictureImageView* _profilePictureImageView;
 	IGSimpleFrameButton* _photoFrameView;
 	UIView* _bottomLine;
 	IGGradientView* _topGradientView;
@@ -20,15 +22,17 @@
 
 }
 
-@property (nonatomic,retain) UIImageView * thumbnailView;                                //@synthesize thumbnailView=_thumbnailView - In the implementation block
+@property (nonatomic,retain) UIImageView * thumbnailView;                                      //@synthesize thumbnailView=_thumbnailView - In the implementation block
 @property (assign,nonatomic) NSString * text; 
-@property (assign,nonatomic) float offsetY;                                              //@synthesize offsetY=_offsetY - In the implementation block
-@property (nonatomic,retain) UITextView * textView;                                      //@synthesize textView=_textView - In the implementation block
-@property (assign,nonatomic,__weak) id<IGCaptionCellDelegate> delegate;                  //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGSimpleFrameButton * photoFrameView;                       //@synthesize photoFrameView=_photoFrameView - In the implementation block
-@property (nonatomic,retain) UIView * bottomLine;                                        //@synthesize bottomLine=_bottomLine - In the implementation block
-@property (nonatomic,retain) IGGradientView * topGradientView;                           //@synthesize topGradientView=_topGradientView - In the implementation block
-@property (nonatomic,retain) IGGradientView * bottomGradientView;                        //@synthesize bottomGradientView=_bottomGradientView - In the implementation block
+@property (assign,nonatomic) float offsetY;                                                    //@synthesize offsetY=_offsetY - In the implementation block
+@property (nonatomic,retain) UITextView * textView;                                            //@synthesize textView=_textView - In the implementation block
+@property (assign,nonatomic,__weak) id<IGCaptionCellDelegate> delegate;                        //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGProfilePictureImageView * profilePictureImageView;              //@synthesize profilePictureImageView=_profilePictureImageView - In the implementation block
+@property (nonatomic,retain) IGSimpleFrameButton * photoFrameView;                             //@synthesize photoFrameView=_photoFrameView - In the implementation block
+@property (nonatomic,retain) UIView * bottomLine;                                              //@synthesize bottomLine=_bottomLine - In the implementation block
+@property (nonatomic,retain) IGGradientView * topGradientView;                                 //@synthesize topGradientView=_topGradientView - In the implementation block
+@property (nonatomic,retain) IGGradientView * bottomGradientView;                              //@synthesize bottomGradientView=_bottomGradientView - In the implementation block
+@property (assign,nonatomic) char shouldShowProfileInCaption;                                  //@synthesize shouldShowProfileInCaption=_shouldShowProfileInCaption - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -44,11 +48,16 @@
 +(float)height;
 -(UIView *)bottomLine;
 -(void)setBottomLine:(UIView *)arg1 ;
+-(IGProfilePictureImageView *)profilePictureImageView;
+-(void)setProfilePictureImageView:(IGProfilePictureImageView *)arg1 ;
 -(IGGradientView *)bottomGradientView;
 -(void)setBottomGradientView:(IGGradientView *)arg1 ;
--(void)setThumbnailView:(id)arg1 aspectRatio:(float)arg2 ;
+-(void)setMediaThumbnailView:(id)arg1 aspectRatio:(float)arg2 ;
+-(void)setShouldShowProfileInCaption:(char)arg1 ;
+-(char)shouldShowProfileInCaption;
 -(CGRect)textViewRectWithPhotoFrame:(CGRect)arg1 ;
 -(CGRect)photoFrameRectForAspectRatio:(float)arg1 ;
+-(CGRect)profilePictureRect;
 -(void)onMediaTap;
 -(IGGradientView *)topGradientView;
 -(IGSimpleFrameButton *)photoFrameView;

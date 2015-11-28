@@ -29,7 +29,6 @@
 -(void)fbDidLogin;
 -(void)fbDidExtendToken:(id)arg1 expiresAt:(id)arg2 ;
 -(void)fbSessionInvalidated;
--(void)fbDidLogout;
 -(void)facebookAuthDidFinish;
 -(void)facebookAuthDidCancel;
 -(void)fetchAccounts;
@@ -46,6 +45,7 @@
 -(void)storeFacebookPostingAccountName:(id)arg1 ;
 -(void)storeFacebookPostingAccountAccessToken:(id)arg1 ;
 -(void)fbDidNotLogin:(char)arg1 ;
+-(void)fbDidLogout;
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 -(void)setDelegate:(id<IGFacebookPagesViewControllerDelegate>)arg1 ;

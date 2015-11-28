@@ -20,7 +20,6 @@
 	IGLabel* _taggingAddLabel;
 	IGLabel* _taggingEditLabel;
 	IGUsertagTableView* _tableView;
-	char _viewAppeared;
 	IGUsertagGroup* _usertags;
 	NSMutableSet* _untaggedFaces;
 	id<IGUserInTaggingViewControllerDelegate> _delegate;
@@ -37,7 +36,6 @@
 -(IGUsertagGroup *)usertags;
 -(void)onCancelModal;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
--(void)numberOfFacesChanged:(id)arg1 ;
 -(void)userInTaggingViewDidFinishTagging;
 -(void)userInTaggingViewDidStartTaggingAtPosition:(CGPoint)arg1 ;
 -(void)userInTaggingViewDidAddTag:(id)arg1 ;
@@ -51,7 +49,6 @@
 -(void)updateQuery;
 -(void)updateTaggingViewAndLabels;
 -(void)centerTagAtYPosition:(CGPoint)arg1 ;
--(void)userInTaggingViewDidFinishTaggingFace;
 -(void)tagTableViewDidSelectUser:(id)arg1 ;
 -(void)setDelegate:(id<IGUserInTaggingViewControllerDelegate>)arg1 ;
 -(void)dealloc;
@@ -60,7 +57,6 @@
 -(char)prefersStatusBarHidden;
 -(char)textFieldShouldReturn:(id)arg1 ;
 -(void)viewDidLoad;
--(void)viewDidAppear:(char)arg1 ;
 -(void)dismiss;
 -(void)setImageView:(id)arg1 ;
 @end

@@ -10,7 +10,6 @@
 
 	double _targetBrightness;
 	char _isCapturingStillImage;
-	char _shouldUseFallbackQuality;
 	char _audioEnabled;
 	char _focusRequested;
 	char _flashFired;
@@ -51,7 +50,6 @@
 @property (assign,nonatomic) int cameraPosition; 
 @property (assign,nonatomic) int sessionPreset;                                                       //@synthesize sessionPreset=_sessionPreset - In the implementation block
 @property (assign,nonatomic) CGSize videoSizeForCurrentSessionPreset;                                 //@synthesize videoSizeForCurrentSessionPreset=_videoSizeForCurrentSessionPreset - In the implementation block
-@property (assign,nonatomic) char shouldUseFallbackQuality;                                           //@synthesize shouldUseFallbackQuality=_shouldUseFallbackQuality - In the implementation block
 @property (assign,nonatomic) int flashMode; 
 @property (assign,nonatomic) char audioEnabled;                                                       //@synthesize audioEnabled=_audioEnabled - In the implementation block
 @property (nonatomic,retain) AVCaptureSession * videoSession;                                         //@synthesize videoSession=_videoSession - In the implementation block
@@ -109,9 +107,8 @@
 -(char)startSessionOnEnteringForeground;
 -(id<IGVideoSampleBufferDelegate>)videoBufferDelegate;
 -(id<IGAudioSampleBufferDelegate>)audioBufferDelegate;
--(char)shouldUseFallbackQuality;
--(id)capturePreset;
 -(AVCaptureDeviceInput *)videoDeviceInput;
+-(id)capturePreset;
 -(char)audioEnabled;
 -(char)isAudioSessionAuthorized;
 -(void)setVideoDeviceInput:(AVCaptureDeviceInput *)arg1 ;
@@ -129,7 +126,6 @@
 -(void)setVideoBufferDelegate:(id<IGVideoSampleBufferDelegate>)arg1 ;
 -(void)setAudioBufferDelegate:(id<IGAudioSampleBufferDelegate>)arg1 ;
 -(void)setVideoSizeForCurrentSessionPreset:(CGSize)arg1 ;
--(void)setShouldUseFallbackQuality:(char)arg1 ;
 -(void)setVideoSession:(AVCaptureSession *)arg1 ;
 -(void)setAudioSession:(AVCaptureSession *)arg1 ;
 -(void)setCaptureQueue:(NSObject*<OS_dispatch_queue>)arg1 ;

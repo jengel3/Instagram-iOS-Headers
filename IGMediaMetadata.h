@@ -7,6 +7,7 @@
 
 	char _shouldKeepCaptionOnMediaChange;
 	char _isDirectShare;
+	char _openInEditor;
 	NSString* _caption;
 	NSSet* _recipients;
 	IGDirectShareRecipient* _dv2Recipient;
@@ -49,12 +50,17 @@
 @property (nonatomic,retain) UIImage * snapshot;                                   //@synthesize snapshot=_snapshot - In the implementation block
 @property (nonatomic,retain) NSURL * defaultAssetURL;                              //@synthesize defaultAssetURL=_defaultAssetURL - In the implementation block
 @property (nonatomic,retain) NSString * defaultLocalIdentifier;                    //@synthesize defaultLocalIdentifier=_defaultLocalIdentifier - In the implementation block
+@property (assign,nonatomic) char openInEditor;                                    //@synthesize openInEditor=_openInEditor - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(float)deviceAngle;
 -(void)prepareForNewPhotoFromSource:(int)arg1 EXIFDictionary:(id)arg2 deviceOrientation:(int)arg3 cameraPosition:(int)arg4 deviceAngle:(float)arg5 ;
+-(NSURL *)defaultAssetURL;
+-(void)setDefaultAssetURL:(NSURL *)arg1 ;
+-(NSString *)defaultLocalIdentifier;
+-(void)setDefaultLocalIdentifier:(NSString *)arg1 ;
 -(void)cancelCurrentUpload;
 -(void)updateEditsInfo:(id)arg1 ;
 -(void)setUploadStartTime:(NSDate *)arg1 ;
@@ -62,13 +68,13 @@
 -(void)setShouldKeepCaptionOnMediaChange:(char)arg1 ;
 -(NSDictionary *)exifData;
 -(IGLocationMetadata *)locationMetadata;
--(IGUsertagsMetadata *)usertagsMetadata;
 -(void)prepareToShare;
 -(id)sharingInfo;
 -(void)prepareForNewMediaOfType:(int)arg1 fromSource:(int)arg2 EXIFDictionary:(id)arg3 deviceOrientation:(int)arg4 cameraPosition:(int)arg5 deviceAngle:(float)arg6 editsMetadata:(id)arg7 videoMetadata:(id)arg8 ;
 -(void)updateIsAudioMuted:(char)arg1 ;
 -(IGUploadModel *)upload;
 -(IGVideoMetadata *)videoMetadata;
+-(IGUsertagsMetadata *)usertagsMetadata;
 -(IGEditsMetadata *)editsMetadata;
 -(char)isDirectShare;
 -(void)setIsDirectShare:(char)arg1 ;
@@ -80,10 +86,8 @@
 -(void)setDv2Recipient:(IGDirectShareRecipient *)arg1 ;
 -(void)setShareListManager:(IGShareListManager *)arg1 ;
 -(void)setEditsMetadata:(IGEditsMetadata *)arg1 ;
--(NSURL *)defaultAssetURL;
--(void)setDefaultAssetURL:(NSURL *)arg1 ;
--(NSString *)defaultLocalIdentifier;
--(void)setDefaultLocalIdentifier:(NSString *)arg1 ;
+-(char)openInEditor;
+-(void)setOpenInEditor:(char)arg1 ;
 -(int)mediaType;
 -(NSSet *)recipients;
 -(void)setRecipients:(NSSet *)arg1 ;

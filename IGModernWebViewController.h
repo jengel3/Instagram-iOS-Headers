@@ -4,7 +4,7 @@
 #import <Instagram/NJKWebViewProgressDelegate.h>
 
 @protocol IGModernWebViewControllerDelegate;
-@class NSURL, UIWebView, NJKWebViewProgress, UIProgressView, NSTimer, UIBarButtonItem, IGModernWebViewToolbar, UILabel, NSString, IGTableViewInsetInfoView;
+@class NSURL, UIWebView, NJKWebViewProgress, UIProgressView, NSTimer, UIBarButtonItem, IGModernWebViewToolbar, IGViewControllerTitleDetailTitleView, UILabel, NSString, IGTableViewInsetInfoView;
 
 @interface IGModernWebViewController : IGViewController <UIWebViewDelegate, NJKWebViewProgressDelegate> {
 
@@ -18,6 +18,7 @@
 	NSTimer* _hideProgressViewTimer;
 	UIBarButtonItem* _shareBarButtonItem;
 	IGModernWebViewToolbar* _toolBar;
+	IGViewControllerTitleDetailTitleView* _titleView;
 	UILabel* _titleLabel;
 	NSString* _currentTitle;
 	IGTableViewInsetInfoView* _infoView;
@@ -33,6 +34,7 @@
 @property (nonatomic,retain) NSTimer * hideProgressViewTimer;                                    //@synthesize hideProgressViewTimer=_hideProgressViewTimer - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * shareBarButtonItem;                               //@synthesize shareBarButtonItem=_shareBarButtonItem - In the implementation block
 @property (nonatomic,retain) IGModernWebViewToolbar * toolBar;                                   //@synthesize toolBar=_toolBar - In the implementation block
+@property (nonatomic,retain) IGViewControllerTitleDetailTitleView * titleView;                   //@synthesize titleView=_titleView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                               //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (assign,nonatomic) char didAppear;                                                     //@synthesize didAppear=_didAppear - In the implementation block
 @property (nonatomic,copy) NSString * currentTitle;                                              //@synthesize currentTitle=_currentTitle - In the implementation block
@@ -44,7 +46,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(char)prefersTabBarHidden;
--(void)setNavigationBarTitle:(id)arg1 ;
+-(void)setNavigationBarTitle:(id)arg1 forURL:(id)arg2 ;
 -(void)handleInfoViewTap:(id)arg1 ;
 -(void)setWebViewInitialPageLoadStartTime:(double)arg1 ;
 -(void)setDidAppear:(char)arg1 ;
@@ -77,6 +79,8 @@
 -(id)init;
 -(id<IGModernWebViewControllerDelegate>)delegate;
 -(id)initWithNibName:(id)arg1 bundle:(id)arg2 ;
+-(IGViewControllerTitleDetailTitleView *)titleView;
+-(void)setTitleView:(IGViewControllerTitleDetailTitleView *)arg1 ;
 -(UILabel *)titleLabel;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;

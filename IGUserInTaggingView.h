@@ -6,7 +6,7 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGUserInTaggingViewDelegate;
-@class NSMutableDictionary, UIScrollView, UIImageView, UIView, IGMediaOverlayIndicator, IGUsertagView, NSMutableSet, IGFaceCircleView, IGFaceCircleVignetteOverlayView, NSString;
+@class NSMutableDictionary, UIScrollView, UIImageView, UIView, IGMediaOverlayIndicator, IGUsertagView, NSMutableSet, NSString;
 
 @interface IGUserInTaggingView : UIView <UIScrollViewDelegate, IGUsertagViewDelegate, UIGestureRecognizerDelegate> {
 
@@ -18,25 +18,15 @@
 	IGUsertagView* _pendingUsertagView;
 	char _isAddingTag;
 	char _allowTagging;
-	char _isEdittingTag;
 	id<IGUserInTaggingViewDelegate> _delegate;
 	NSMutableSet* _untaggedFaces;
-	NSMutableSet* _untaggedFaceCircleViews;
-	NSMutableSet* _taggedFaceCircleViews;
-	IGFaceCircleView* _selectedFaceCircleView;
-	IGFaceCircleVignetteOverlayView* _vignetteOverlayView;
 
 }
 
-@property (nonatomic,readonly) char isAddingTag;                                                 //@synthesize isAddingTag=_isAddingTag - In the implementation block
-@property (assign,nonatomic,__weak) id<IGUserInTaggingViewDelegate> delegate;                    //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic) char allowTagging;                                                  //@synthesize allowTagging=_allowTagging - In the implementation block
-@property (nonatomic,retain) NSMutableSet * untaggedFaces;                                       //@synthesize untaggedFaces=_untaggedFaces - In the implementation block
-@property (nonatomic,retain) NSMutableSet * untaggedFaceCircleViews;                             //@synthesize untaggedFaceCircleViews=_untaggedFaceCircleViews - In the implementation block
-@property (nonatomic,retain) NSMutableSet * taggedFaceCircleViews;                               //@synthesize taggedFaceCircleViews=_taggedFaceCircleViews - In the implementation block
-@property (nonatomic,retain) IGFaceCircleView * selectedFaceCircleView;                          //@synthesize selectedFaceCircleView=_selectedFaceCircleView - In the implementation block
-@property (assign,nonatomic) char isEdittingTag;                                                 //@synthesize isEdittingTag=_isEdittingTag - In the implementation block
-@property (nonatomic,retain) IGFaceCircleVignetteOverlayView * vignetteOverlayView;              //@synthesize vignetteOverlayView=_vignetteOverlayView - In the implementation block
+@property (nonatomic,readonly) char isAddingTag;                                           //@synthesize isAddingTag=_isAddingTag - In the implementation block
+@property (assign,nonatomic,__weak) id<IGUserInTaggingViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic) char allowTagging;                                            //@synthesize allowTagging=_allowTagging - In the implementation block
+@property (nonatomic,retain) NSMutableSet * untaggedFaces;                                 //@synthesize untaggedFaces=_untaggedFaces - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -55,37 +45,11 @@
 -(void)addTag:(id)arg1 andNotifyDelegate:(char)arg2 ;
 -(void)fixOverlapsWithViews:(id)arg1 ;
 -(void)dismissWithUser:(id)arg1 ;
--(void)addAllFaceCirclesWithAnimation:(id)arg1 ;
--(void)addFaceCircleView:(id)arg1 ;
--(void)setFrameForFaceCircleView:(id)arg1 ;
--(void)didTapFaceCircleView:(id)arg1 ;
--(void)editUserTagForFaceCircleView:(id)arg1 ;
--(void)selectFaceCircleView:(id)arg1 ;
--(void)startTaggingFaceAtPosition:(CGPoint)arg1 ;
--(void)setOverlayViewWithFaceboxView:(id)arg1 ;
--(void)setVignetteViewHidden:(char)arg1 animated:(char)arg2 ;
--(void)shrinkFaceCircleViews;
--(void)clearFaceCircleSelections;
 -(void)presentAllUsertags;
--(void)presentFaceCircleViews;
--(void)_handleTapForFaceCircleView:(id)arg1 ;
--(char)selectNextFaceCircleIfExists;
--(void)tagSelectedCircle:(id)arg1 ;
--(void)removeUserTagView:(id)arg1 ;
 -(char)isAddingTag;
 -(void)setAllowTagging:(char)arg1 ;
 -(NSMutableSet *)untaggedFaces;
 -(void)setUntaggedFaces:(NSMutableSet *)arg1 ;
--(NSMutableSet *)untaggedFaceCircleViews;
--(void)setUntaggedFaceCircleViews:(NSMutableSet *)arg1 ;
--(NSMutableSet *)taggedFaceCircleViews;
--(void)setTaggedFaceCircleViews:(NSMutableSet *)arg1 ;
--(IGFaceCircleView *)selectedFaceCircleView;
--(void)setSelectedFaceCircleView:(IGFaceCircleView *)arg1 ;
--(char)isEdittingTag;
--(void)setIsEdittingTag:(char)arg1 ;
--(IGFaceCircleVignetteOverlayView *)vignetteOverlayView;
--(void)setVignetteOverlayView:(IGFaceCircleVignetteOverlayView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGUserInTaggingViewDelegate>)arg1 ;
 -(void)dealloc;

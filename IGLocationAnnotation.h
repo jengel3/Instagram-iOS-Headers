@@ -10,7 +10,7 @@
 
 }
 
-@property (nonatomic,readonly) SCD_Struct_IG29 coordinate; 
+@property (nonatomic,readonly) SCD_Struct_IG24 coordinate; 
 @property (nonatomic,retain) IGLocation * location;                     //@synthesize location=_location - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -18,7 +18,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,copy,readonly) NSString * title; 
 @property (nonatomic,copy,readonly) NSString * subtitle; 
--(SCD_Struct_IG29)coordinate;
+-(SCD_Struct_IG24)coordinate;
 -(NSString *)title;
 -(IGLocation *)location;
 -(void)setLocation:(IGLocation *)arg1 ;

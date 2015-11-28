@@ -1,10 +1,11 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
+#import <Instagram/IGPreviewingAction.h>
 
-@class UINavigationController, IGPreviewEventManager, IGFeedItem, IGFeedItemPreviewView, UIImage, NSArray, IGFeedVideoPlayer;
+@class UINavigationController, IGPreviewEventManager, IGFeedItem, IGFeedItemPreviewView, UIImage, NSArray, IGFeedVideoPlayer, NSString;
 
-@interface IGThumbnailPreviewController : IGViewController {
+@interface IGThumbnailPreviewController : IGViewController <IGPreviewingAction> {
 
 	float _previewWidth;
 	UINavigationController* _navigationControllerForPushing;
@@ -25,7 +26,12 @@
 @property (nonatomic,readonly) UIImage * placeholderImage;                                         //@synthesize placeholderImage=_placeholderImage - In the implementation block
 @property (nonatomic,readonly) NSArray * previewItems;                                             //@synthesize previewItems=_previewItems - In the implementation block
 @property (nonatomic,readonly) IGFeedVideoPlayer * videoPlayer;                                    //@synthesize videoPlayer=_videoPlayer - In the implementation block
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 -(IGFeedItem *)feedItem;
+-(id)previewActionBarItems;
 -(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 ;
 -(void)setPreviewWidth:(float)arg1 ;
 -(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;

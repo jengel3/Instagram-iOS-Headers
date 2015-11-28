@@ -10,8 +10,8 @@
 
 }
 
-@property (nonatomic,retain) IGPost * post;                                              //@synthesize post=_post - In the implementation block
-@property (assign,nonatomic) UINavigationController * navigationController;              //@synthesize navigationController=_navigationController - In the implementation block
+@property (nonatomic,retain) IGPost * post;                                                     //@synthesize post=_post - In the implementation block
+@property (assign,nonatomic,__weak) UINavigationController * navigationController;              //@synthesize navigationController=_navigationController - In the implementation block
 +(id)cellIdentifier;
 -(IGPost *)post;
 -(void)setPost:(IGPost *)arg1 ;

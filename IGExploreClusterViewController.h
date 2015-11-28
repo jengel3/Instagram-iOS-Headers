@@ -26,6 +26,7 @@
 -(id)analyticsModule;
 -(char)enableNavState;
 -(IGNetworkSource *)networkSource;
+-(void)setNetworkSource:(IGNetworkSource *)arg1 ;
 -(void)networkSource:(id)arg1 didFetchObject:(id)arg2 ;
 -(void)networkSource:(id)arg1 didFetchMoreWithObject:(id)arg2 ;
 -(void)networkSource:(id)arg1 didFailWithError:(id)arg2 ;
@@ -56,7 +57,6 @@
 -(void)didDisplayObject:(id)arg1 atIndex:(int)arg2 ;
 -(void)willDisplayObject:(id)arg1 atIndex:(int)arg2 mediaIndex:(unsigned)arg3 ;
 -(void)didDisplayObject:(id)arg1 atIndex:(int)arg2 mediaIndex:(unsigned)arg3 ;
--(void)setNetworkSource:(IGNetworkSource *)arg1 ;
 -(void)setClusterKey:(NSString *)arg1 ;
 -(unsigned)itemCount;
 -(void)fetchData;

@@ -38,7 +38,7 @@
 -(CGRect)verticalPositionForScrollIndicatorBar:(CGRect)arg1 ;
 -(UIScrollView *)connectedScrollView;
 -(CGRect)scrollIndicatorBarFrameForScrollView:(id)arg1 ;
--(id)newSegmentWithTitle:(id)arg1 fontSize:(float)arg2 fallbackIcon:(id)arg3 ;
+-(id)newSegmentWithTitle:(id)arg1 fontSize:(float)arg2 fallbackIcon:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 -(void)updateAccessibilityStateForButtons:(id)arg1 selectedIndex:(int)arg2 ;
 -(CGRect)frameForSegment:(unsigned)arg1 withLayoutParameters:(IGTabControlLayoutParameters)arg2 ;
 -(char)canUseFallbackIcons;

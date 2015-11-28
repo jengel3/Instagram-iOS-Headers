@@ -65,6 +65,8 @@
 -(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(IGProfilePictureImageView *)profilePicture;
 -(void)setProfilePicture:(IGProfilePictureImageView *)arg1 ;
+-(UIImageView *)verifiedBadgeImageView;
+-(void)setVerifiedBadgeImageView:(UIImageView *)arg1 ;
 -(UILabel *)bylineLabel;
 -(void)setBylineLabel:(UILabel *)arg1 ;
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
@@ -86,7 +88,6 @@
 -(char)showByline;
 -(char)showShortByline;
 -(char)showVerifiedBadge;
--(UIImageView *)verifiedBadgeImageView;
 -(void)setFavoriteButtonWidthListener:(IGKVOHandle *)arg1 ;
 -(void)setupBylineLabel;
 -(void)setupVerifiedBadgeImageView;
@@ -97,7 +98,6 @@
 -(void)setShowByline:(char)arg1 ;
 -(void)setShowShortByline:(char)arg1 ;
 -(void)setFavoriteButton:(IGFavoriteButton *)arg1 ;
--(void)setVerifiedBadgeImageView:(UIImageView *)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(void)setDelegate:(id<IGUserCellDelegate>)arg1 ;

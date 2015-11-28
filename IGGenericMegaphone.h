@@ -15,7 +15,6 @@
 	UIColor* _messageColor;
 	IGMegaphoneButton* _buttonOne;
 	IGMegaphoneButton* _buttonTwo;
-	int _buttonLocation;
 
 }
 
@@ -30,14 +29,12 @@
 @property (nonatomic,retain) UIColor * messageColor;                     //@synthesize messageColor=_messageColor - In the implementation block
 @property (nonatomic,retain) IGMegaphoneButton * buttonOne;              //@synthesize buttonOne=_buttonOne - In the implementation block
 @property (nonatomic,retain) IGMegaphoneButton * buttonTwo;              //@synthesize buttonTwo=_buttonTwo - In the implementation block
-@property (assign,nonatomic) int buttonLocation;                         //@synthesize buttonLocation=_buttonLocation - In the implementation block
 +(id)megaphoneFromDictionary:(id)arg1 ;
 +(id)colorFromString:(id)arg1 ;
 -(void)setDismissible:(char)arg1 ;
 -(void)setButtonOne:(IGMegaphoneButton *)arg1 ;
 -(void)setDismissButtonColor:(UIColor *)arg1 ;
 -(void)setButtonTwo:(IGMegaphoneButton *)arg1 ;
--(void)setButtonLocation:(int)arg1 ;
 -(char)dismissible;
 -(UIColor *)dismissButtonColor;
 -(IGMegaphoneButton *)buttonOne;
@@ -56,6 +53,5 @@
 -(UIColor *)titleColor;
 -(void)setIconURL:(NSURL *)arg1 ;
 -(NSURL *)iconURL;
--(int)buttonLocation;
 @end
 

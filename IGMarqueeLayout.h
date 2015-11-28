@@ -14,9 +14,9 @@
 @property (nonatomic,readonly) IGMarqueeViewLayoutSpec * layoutSpec;                //@synthesize layoutSpec=_layoutSpec - In the implementation block
 @property (nonatomic,retain) NSIndexPath * currentlyCenteredIndexPath;              //@synthesize currentlyCenteredIndexPath=_currentlyCenteredIndexPath - In the implementation block
 -(CGPoint)targetContentOffsetInScrollview:(id)arg1 forLayoutAttributes:(id)arg2 ;
--(void)setCurrentlyCenteredIndexPath:(NSIndexPath *)arg1 ;
--(NSIndexPath *)currentlyCenteredIndexPath;
 -(CGPoint)targetContentOffsetForLayoutAttributes:(id)arg1 ;
+-(NSIndexPath *)currentlyCenteredIndexPath;
+-(void)setCurrentlyCenteredIndexPath:(NSIndexPath *)arg1 ;
 -(id)initWithLayoutSpec:(id)arg1 ;
 -(void)setScrollOffsetForIndexPath:(id)arg1 animated:(char)arg2 ;
 -(IGMarqueeViewLayoutSpec *)layoutSpec;

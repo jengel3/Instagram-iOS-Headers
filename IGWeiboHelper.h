@@ -8,7 +8,6 @@
 
 	NSString* _accessToken;
 	NSString* _refreshToken;
-	NSString* _serviceName;
 	IGNonCurrentUserDefaults* _sessionUserDefaults;
 
 }
@@ -16,13 +15,15 @@
 @property (nonatomic,readonly) char accessTokenExpired; 
 @property (nonatomic,copy) NSString * accessToken;                                        //@synthesize accessToken=_accessToken - In the implementation block
 @property (nonatomic,copy) NSString * refreshToken;                                       //@synthesize refreshToken=_refreshToken - In the implementation block
-@property (nonatomic,readonly) NSString * serviceName;                                    //@synthesize serviceName=_serviceName - In the implementation block
-@property (nonatomic,readonly) NSString * shortServiceName; 
 @property (nonatomic,retain) IGNonCurrentUserDefaults * sessionUserDefaults;              //@synthesize sessionUserDefaults=_sessionUserDefaults - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(void)clearForUserPK:(id)arg1 ;
++(id)shortServiceName;
++(void)logoutFromDefaults:(id)arg1 ;
++(id)serviceNameForTokenStore;
 +(id)serviceName;
 +(id)sharedHelper;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
@@ -36,7 +37,6 @@
 -(char)hasEverBeenConfigured;
 -(char)isAvailableInCurrentLocale;
 -(char)supportsMediaType:(int)arg1 ;
--(NSString *)shortServiceName;
 -(char)needsToReauthorize;
 -(void)reauthorizeIfNeeded;
 -(id)viewControllerForAdvancedOptions;
@@ -45,13 +45,11 @@
 -(void)reauthorize;
 -(void)weiboAuthControllerLoginFailed:(id)arg1 ;
 -(void)weiboAuthController:(id)arg1 didLoginWithAccessToken:(id)arg2 andRefreshToken:(id)arg3 ;
--(id)serviceNameForTokenStore;
 -(char)accessTokenExpired;
 -(void)saveAccessToken:(id)arg1 andRefreshToken:(id)arg2 ;
 -(int)tokenLife;
 -(void)saveNewAccessToken:(id)arg1 ;
 -(void)saveNewRefreshToken:(id)arg1 ;
--(NSString *)serviceName;
 -(void)setRefreshToken:(NSString *)arg1 ;
 -(NSString *)refreshToken;
 -(NSString *)accessToken;

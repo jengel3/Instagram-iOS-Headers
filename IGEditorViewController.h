@@ -129,6 +129,7 @@
 -(void)setImage:(id)arg1 cropRect:(CGRect)arg2 ;
 -(void)setReadyToProceed:(char)arg1 ;
 -(void)loadImageFromFile:(id)arg1 ;
+-(void)loadImageFromAssetInMetadata:(id)arg1 ;
 -(void)buildNavbar;
 -(IGFilteredPhotoView *)editView;
 -(void)setTiltShiftController:(IGTiltShiftGestureController *)arg1 ;
@@ -146,6 +147,7 @@
 -(IGFilterControlView *)filterControlView;
 -(IGFilterCollectionController *)filterTrayController;
 -(id)adjustController;
+-(void)loadImage:(id)arg1 withExif:(id)arg2 ;
 -(id)rotateOverlayButton;
 -(id)gridOverlayButton;
 -(void)allowUserInteraction:(char)arg1 ;
@@ -224,11 +226,11 @@
 -(id)initForImageFromCameraWithMediaMetadata:(id)arg1 ;
 -(id)initWithImageFromLibrary:(id)arg1 cropRect:(CGRect)arg2 mediaMetadata:(id)arg3 ;
 -(id)initWithImageFromFile:(id)arg1 mediaMetadata:(id)arg2 ;
+-(id)initWithAssetInMediaMetadata:(id)arg1 ;
 -(char)overlayIsOpaque;
 -(CGSize)supportedLuxOutputSizeForSize:(CGSize)arg1 ;
 -(void)setImageWithBufferData:(id)arg1 isPreviewBuffer:(char)arg2 ;
 -(void)showFilterTrayNux;
--(void)startFaceDetection;
 -(char)luxEnabled;
 -(char)luxHasBeenEdited;
 -(void)setEditView:(IGFilteredPhotoView *)arg1 ;

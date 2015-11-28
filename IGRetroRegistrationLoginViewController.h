@@ -46,6 +46,7 @@
 -(void)setIsSubmitting:(char)arg1 ;
 -(id)createIndicatorViewAndAddToLoginButton;
 -(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
+-(void)loginFromOneClickWithUsername:(id)arg1 token:(id)arg2 ;
 -(void)handleLoginErrors:(id)arg1 ;
 -(IGRetroRegistrationLoginHelper *)loginHelper;
 -(/*^block*/id)fbAuthCompletionHandler;

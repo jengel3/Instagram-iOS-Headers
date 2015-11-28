@@ -1,6 +1,6 @@
 
 
-@class NSString, IGNonCurrentUserDefaults, IGAutocompleteHashtagsStore, IGAutocompletePlacesStore, IGAutocompleteUsersStore, IGBlendedSearchRecentItemsOrderStore, IGDirectThreadStore, IGFlaggedCommentLedger, IGServiceManager;
+@class NSString, IGNonCurrentUserDefaults, IGAutocompleteHashtagsStore, IGAutocompletePlacesStore, IGAutocompleteUsersStore, IGBlendedSearchRecentItemsOrderStore, IGDirectThreadStore, IGDirectRecipientManager, IGFlaggedCommentLedger, IGServiceManager;
 
 @interface IGUserSession : NSObject {
 
@@ -11,6 +11,7 @@
 	IGAutocompleteUsersStore* _autocompleteUsersStore;
 	IGBlendedSearchRecentItemsOrderStore* _blendedSearchRecentItemsOrderStore;
 	IGDirectThreadStore* _directThreadStore;
+	IGDirectRecipientManager* _directRecipientManager;
 	IGFlaggedCommentLedger* _flaggedCommentLedger;
 	IGServiceManager* _serviceManager;
 	unsigned _backgroundTask;
@@ -24,6 +25,7 @@
 @property (nonatomic,retain) IGAutocompleteUsersStore * autocompleteUsersStore;                                      //@synthesize autocompleteUsersStore=_autocompleteUsersStore - In the implementation block
 @property (nonatomic,retain) IGBlendedSearchRecentItemsOrderStore * blendedSearchRecentItemsOrderStore;              //@synthesize blendedSearchRecentItemsOrderStore=_blendedSearchRecentItemsOrderStore - In the implementation block
 @property (nonatomic,retain) IGDirectThreadStore * directThreadStore;                                                //@synthesize directThreadStore=_directThreadStore - In the implementation block
+@property (nonatomic,retain) IGDirectRecipientManager * directRecipientManager;                                      //@synthesize directRecipientManager=_directRecipientManager - In the implementation block
 @property (nonatomic,retain) IGFlaggedCommentLedger * flaggedCommentLedger;                                          //@synthesize flaggedCommentLedger=_flaggedCommentLedger - In the implementation block
 @property (nonatomic,retain) IGServiceManager * serviceManager;                                                      //@synthesize serviceManager=_serviceManager - In the implementation block
 @property (assign,nonatomic) unsigned backgroundTask;                                                                //@synthesize backgroundTask=_backgroundTask - In the implementation block
@@ -35,6 +37,7 @@
 -(IGAutocompleteUsersStore *)autocompleteUsersStore;
 -(IGFlaggedCommentLedger *)flaggedCommentLedger;
 -(IGDirectThreadStore *)directThreadStore;
+-(IGDirectRecipientManager *)directRecipientManager;
 -(IGAutocompletePlacesStore *)autocompletePlacesStore;
 -(id)initWithUserPK:(id)arg1 ;
 -(void)setUserPK:(NSString *)arg1 ;
@@ -47,6 +50,7 @@
 -(void)setAutocompletePlacesStore:(IGAutocompletePlacesStore *)arg1 ;
 -(void)setAutocompleteUsersStore:(IGAutocompleteUsersStore *)arg1 ;
 -(void)setDirectThreadStore:(IGDirectThreadStore *)arg1 ;
+-(void)setDirectRecipientManager:(IGDirectRecipientManager *)arg1 ;
 -(void)setFlaggedCommentLedger:(IGFlaggedCommentLedger *)arg1 ;
 -(void)archive;
 -(void)dealloc;

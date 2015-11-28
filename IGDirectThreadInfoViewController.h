@@ -17,6 +17,7 @@
 
 }
 
+@property (nonatomic,readonly) NSString * threadID; 
 @property (assign,nonatomic,__weak) id<IGDirectThreadInfoDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGDirectThread * thread;                                     //@synthesize thread=_thread - In the implementation block
 @property (nonatomic,retain) IGTextField * nameField;                                     //@synthesize nameField=_nameField - In the implementation block
@@ -69,5 +70,6 @@
 -(void)setThread:(IGDirectThread *)arg1 ;
 -(IGDirectThread *)thread;
 -(void)setIsLoading:(char)arg1 ;
+-(NSString *)threadID;
 @end
 

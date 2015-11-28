@@ -17,6 +17,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sharedTwitterHelper;
++(id)shortServiceName;
 +(id)serviceName;
 +(id)accountStore;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
@@ -25,7 +26,6 @@
 -(void)logoutAndUnlink;
 -(int)numberOfExtraRowsForLogin;
 -(void)prepareCell:(id)arg1 forIndexPath:(id)arg2 ;
--(id)shortServiceName;
 -(void)requestTokenFromSystemAccounts;
 -(id)viewControllerForAdvancedOptions;
 -(IGSwitch *)followSwitch;

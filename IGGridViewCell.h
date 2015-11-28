@@ -42,6 +42,7 @@
 @property (nonatomic,retain) IGGradientView * gradientView;                            //@synthesize gradientView=_gradientView - In the implementation block
 @property (nonatomic,retain) UILabel * durationLabel;                                  //@synthesize durationLabel=_durationLabel - In the implementation block
 @property (getter=isHighFrameRate,nonatomic,readonly) char highFrameRate; 
+-(char)usePhotosFramework;
 -(void)cancelImageRequest;
 -(void)setSelectedOverlay:(UIView *)arg1 ;
 -(UIView *)selectedOverlay;
@@ -55,7 +56,6 @@
 -(UILabel *)durationLabel;
 -(void)setShowSelectedOverlay:(char)arg1 ;
 -(void)setInICloud:(char)arg1 ;
--(char)usePhotosFramework;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(void)updateLabelVisibility;
 -(char)inICloud;

@@ -9,6 +9,7 @@
 
 }
 +(id)sharedTumblrHelper;
++(id)shortServiceName;
 +(id)serviceName;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(id)loginErrorMessage;
@@ -17,7 +18,6 @@
 -(char)isConfigurable;
 -(char)hasEverBeenConfigured;
 -(char)isAvailableInCurrentLocale;
--(id)shortServiceName;
 -(id)viewControllerForAdvancedOptions;
 -(void)onTumblrLoginCompleted:(id)arg1 ;
 -(id)followSwitch;

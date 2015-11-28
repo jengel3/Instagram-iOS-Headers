@@ -8,7 +8,6 @@
 @interface IGAmebaHelper : NSObject <IGAmebaAuthDelegate, IGAmebaThemesDelegate, IGServiceHelperProtocol> {
 
 	NSString* _accessToken;
-	NSString* _serviceName;
 	NSDictionary* _currentThemeSetting;
 	IGNonCurrentUserDefaults* _sessionUserDefaults;
 	NSString* _username;
@@ -17,8 +16,6 @@
 }
 
 @property (nonatomic,copy) NSString * accessToken;                                        //@synthesize accessToken=_accessToken - In the implementation block
-@property (nonatomic,readonly) NSString * serviceName;                                    //@synthesize serviceName=_serviceName - In the implementation block
-@property (nonatomic,readonly) NSString * shortServiceName; 
 @property (nonatomic,readonly) NSString * clientID; 
 @property (nonatomic,readonly) NSString * callbackURLString; 
 @property (nonatomic,readonly) NSString * authURLString; 
@@ -30,6 +27,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(void)clearForUserPK:(id)arg1 ;
++(id)shortServiceName;
++(id)accessTokenKey;
 +(id)serviceName;
 +(id)sharedHelper;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
@@ -44,7 +44,6 @@
 -(char)hasEverBeenConfigured;
 -(char)isAvailableInCurrentLocale;
 -(char)supportsMediaType:(int)arg1 ;
--(NSString *)shortServiceName;
 -(char)needsToReauthorize;
 -(void)reauthorizeIfNeeded;
 -(id)viewControllerForAdvancedOptions;
@@ -54,7 +53,6 @@
 -(NSString *)callbackURLString;
 -(void)amebaAuthControllerLoginFailed:(id)arg1 ;
 -(void)amebaAuthController:(id)arg1 didLoginWithCode:(id)arg2 ;
--(id)accessTokenKey;
 -(void)setAccessAndRefreshToken:(id)arg1 expirationInSeconds:(int)arg2 refreshToken:(id)arg3 ;
 -(void)setCurrentUsername:(id)arg1 ;
 -(void)reauthorize;
@@ -62,7 +60,6 @@
 -(void)onFetchTokenFailed;
 -(void)reauthorizationNeedsLogin;
 -(void)setCurrentThemeSetting:(NSDictionary *)arg1 ;
--(NSString *)serviceName;
 -(void)setRefreshToken:(NSString *)arg1 ;
 -(NSString *)refreshToken;
 -(NSString *)accessToken;

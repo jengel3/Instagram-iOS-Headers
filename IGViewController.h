@@ -3,7 +3,7 @@
 #import <UIKit/UIViewController.h>
 #import <Instagram/IGAnalyticsRaindropProtocol.h>
 
-@class IGAnalyticsMetadata, IGRaindropNavEvent, IGMutableRaindropRankInfo, UIBarButtonItem, NSString, IGRaindropNavState, IGKeyboardManager, IGNavigationController, IGTabBarController;
+@class IGAnalyticsMetadata, IGRaindropNavEvent, IGMutableRaindropRankInfo, UIBarButtonItem, NSString, IGRaindropNavState, IGKeyboardManager, NSMutableArray, IGNavigationController, IGTabBarController;
 
 @interface IGViewController : UIViewController <IGAnalyticsRaindropProtocol> {
 
@@ -19,6 +19,7 @@
 	IGRaindropNavState* _navState;
 	int _cancelButtonSide;
 	IGKeyboardManager* _keyboardManager;
+	NSMutableArray* _previewingContexts;
 
 }
 
@@ -37,6 +38,7 @@
 @property (nonatomic,retain) IGRaindropNavState * navState;                                //@synthesize navState=_navState - In the implementation block
 @property (assign,nonatomic) int cancelButtonSide;                                         //@synthesize cancelButtonSide=_cancelButtonSide - In the implementation block
 @property (nonatomic,__weak,readonly) IGKeyboardManager * keyboardManager;                 //@synthesize keyboardManager=_keyboardManager - In the implementation block
+@property (nonatomic,retain) NSMutableArray * previewingContexts;                          //@synthesize previewingContexts=_previewingContexts - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -55,6 +57,7 @@
 -(char)disableNonEdgeNavigationGesture;
 -(IGMutableRaindropRankInfo *)surfaceRankInfo;
 -(void)setShowsCancelButton:(char)arg1 style:(int)arg2 ;
+-(id)previewActionBarItems;
 -(void)updateAnalyticsMetadata:(id)arg1 ;
 -(IGRaindropNavEvent *)currentNavEvent;
 -(IGKeyboardManager *)keyboardManager;
@@ -62,11 +65,13 @@
 -(IGRaindropNavState *)navState;
 -(void)hideModalDismissButton;
 -(int)cancelButtonSide;
+-(NSMutableArray *)previewingContexts;
 -(char)shouldContinueUserActivity;
 -(void)onPop;
 -(void)showCancelButtonWithTitle:(id)arg1 ;
 -(void)setLoadingBarButtonItem:(UIBarButtonItem *)arg1 ;
 -(void)setCancelButtonSide:(int)arg1 ;
+-(void)setPreviewingContexts:(NSMutableArray *)arg1 ;
 -(void)setIsInPopover:(char)arg1 ;
 -(void)setClickPoint:(NSString *)arg1 ;
 -(NSString *)clickPoint;
@@ -77,6 +82,8 @@
 -(char)prefersStatusBarHidden;
 -(void)setStatusBarStyle:(int)arg1 ;
 -(id)initWithNibName:(id)arg1 bundle:(id)arg2 ;
+-(void)viewWillLayoutSubviews;
+-(void)viewDidLayoutSubviews;
 -(id)backItem;
 -(NSString *)backButtonTitle;
 -(void)setBackButtonTitle:(NSString *)arg1 ;
@@ -86,8 +93,11 @@
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
+-(void)viewWillDisappear:(char)arg1 ;
 -(void)viewDidDisappear:(char)arg1 ;
 -(char)automaticallyAdjustsScrollViewInsets;
+-(id)registerForPreviewingWithDelegate:(id)arg1 sourceView:(id)arg2 ;
+-(void)unregisterForPreviewingWithContext:(id)arg1 ;
 -(IGTabBarController *)tabBarController;
 -(char)hidesBottomBarWhenPushed;
 -(void)setHidesBottomBarWhenPushed:(char)arg1 ;

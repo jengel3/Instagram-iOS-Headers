@@ -27,14 +27,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGNetworkSource *)networkSource;
 -(NSString *)eventTitle;
 -(NSString *)eventHeader;
 -(id)initWithEventId:(id)arg1 ;
 -(id)initWithEventId:(id)arg1 fetchPath:(id)arg2 ;
+-(id)initWithEventId:(id)arg1 fetchPath:(id)arg2 extraParams:(id)arg3 ;
 -(id)initWithNetworkSource:(id)arg1 feedDataArchiver:(id)arg2 ;
 -(IGEventFeedDataArchiver *)feedDataArchiver;
 -(id<IGEventServiceCacheDelegate>)cacheDelegate;
--(IGNetworkSource *)networkSource;
 -(id<IGEventServiceNetworkDelegate>)networkDelegate;
 -(void)cacheEventFeedData:(id)arg1 ;
 -(void)networkSource:(id)arg1 didFetchObject:(id)arg2 ;

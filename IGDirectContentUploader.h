@@ -16,6 +16,7 @@
 +(id)allUploadsByThreadId;
 +(id)inflightUploads;
 +(void)clearUpload:(id)arg1 ;
++(void)removeUploadFromMediaUploadManager:(id)arg1 ;
 +(void)logMessageWaterfall:(id)arg1 withContentType:(id)arg2 withClientContextID:(id)arg3 isRealtime:(char)arg4 ;
 +(void)logMessageWaterfall:(id)arg1 withContentType:(id)arg2 withClientContextID:(id)arg3 isRealtime:(char)arg4 error:(id)arg5 ;
 +(void)sendRealtimeUpload:(id)arg1 withProgress:(/*^block*/id)arg2 andCompletion:(/*^block*/id)arg3 ;

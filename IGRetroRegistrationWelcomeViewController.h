@@ -15,6 +15,7 @@
 @property (nonatomic,retain) IGRetroRegistrationWelcomeView * welcomeView;                                      //@synthesize welcomeView=_welcomeView - In the implementation block
 -(void)onFacebookAuthSuccess;
 -(void)onFacebookAuthCancelled;
+-(void)logInFromEmail:(id)arg1 ;
 -(void)setFacebookButtonLoading:(char)arg1 ;
 -(void)handleLoggedInUserForResponse:(id)arg1 ;
 -(void)handleEmailAlreadyTakenForResponse:(id)arg1 ;

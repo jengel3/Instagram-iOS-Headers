@@ -3,7 +3,7 @@
 #import <UIKit/UICollectionViewCell.h>
 
 @protocol IGCarouselCellCascadeDataSource;
-@class IGMediaThumbnailView, UILabel, UIView;
+@class IGMediaThumbnailView, UILabel, CALayer;
 
 @interface IGCarouselCell : UICollectionViewCell {
 
@@ -11,7 +11,7 @@
 	id<IGCarouselCellCascadeDataSource> _datasource;
 	IGMediaThumbnailView* _imageView;
 	UILabel* _titleLabel;
-	UIView* _overlayView;
+	CALayer* _touchDownLayer;
 
 }
 
@@ -19,21 +19,21 @@
 @property (nonatomic,retain) IGMediaThumbnailView * imageView;                                   //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                               //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (assign,nonatomic) char isLabelPaddingAdded;                                           //@synthesize isLabelPaddingAdded=_isLabelPaddingAdded - In the implementation block
-@property (nonatomic,retain) UIView * overlayView;                                               //@synthesize overlayView=_overlayView - In the implementation block
+@property (nonatomic,retain) CALayer * touchDownLayer;                                           //@synthesize touchDownLayer=_touchDownLayer - In the implementation block
 -(void)setImageBorderVisible:(char)arg1 ;
+-(CALayer *)touchDownLayer;
 -(void)setIsLabelPaddingAdded:(char)arg1 ;
 -(char)isLabelPaddingAdded;
 -(void)configureWithViewModel:(id)arg1 ;
 -(void)setVideoIconVisible:(char)arg1 ;
 -(void)nextCascadingImageAfterDelay:(double)arg1 ;
+-(void)setTouchDownLayer:(CALayer *)arg1 ;
 -(void)setDatasource:(id<IGCarouselCellCascadeDataSource>)arg1 ;
 -(id<IGCarouselCellCascadeDataSource>)datasource;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
--(void)touchesBegan:(id)arg1 withEvent:(id)arg2 ;
--(void)touchesEnded:(id)arg1 withEvent:(id)arg2 ;
--(void)touchesCancelled:(id)arg1 withEvent:(id)arg2 ;
 -(id)accessibilityLabel;
+-(void)setHighlighted:(char)arg1 ;
 -(UILabel *)titleLabel;
 -(void)prepareForReuse;
 -(IGMediaThumbnailView *)imageView;
@@ -43,7 +43,5 @@
 -(void)setImageView:(IGMediaThumbnailView *)arg1 ;
 -(void)setPlaceholderImage:(id)arg1 ;
 -(void)setImageURL:(id)arg1 ;
--(void)setOverlayView:(UIView *)arg1 ;
--(UIView *)overlayView;
 @end
 

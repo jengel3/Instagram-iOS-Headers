@@ -3,13 +3,16 @@
 #import <UIKit/UITableViewDelegate.h>
 #import <UIKit/UITableViewDataSource.h>
 #import <Instagram/IGMediaRequestDelegate.h>
+#import <UIKit/UISearchDisplayDelegate.h>
 
-@class UITableView, NSArray, NSDictionary, UIImage, NSString;
+@class UITableView, UISearchDisplayController, NSArray, NSDictionary, UIImage, NSString;
 
-@interface IGAnalyticsViewController : IGViewController <UITableViewDelegate, UITableViewDataSource, IGMediaRequestDelegate> {
+@interface IGAnalyticsViewController : IGViewController <UITableViewDelegate, UITableViewDataSource, IGMediaRequestDelegate, UISearchDisplayDelegate> {
 
 	UITableView* _tableView;
+	UISearchDisplayController* _searchController;
 	NSArray* _logLines;
+	NSArray* _filteredLogLines;
 	NSDictionary* _displayedEvent;
 	UIImage* _solidGreenImage;
 	UIImage* _solidGreenImageRounded;
@@ -41,5 +44,7 @@
 -(unsigned)type;
 -(void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;
 -(void)viewDidLoad;
+-(void)searchDisplayControllerDidEndSearch:(id)arg1 ;
+-(char)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2 ;
 @end
 

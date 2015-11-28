@@ -1,8 +1,9 @@
 
 
-@protocol IGMediaCaptureViewControllerDelegate
+@protocol IGMediaCaptureViewControllerDelegate <NSObject>
 @required
--(void)mediaCaptureViewController:(id)arg1 willTakePhotoWithPreviewBuffer:(id)arg2 cameraType:(int)arg3 cameraPosition:(int)arg4;
+-(char)mediaCaptureViewControllerShouldUseProducePhotoDelegate:(id)arg1;
+-(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2;
 
 @end
 

@@ -34,12 +34,13 @@
 -(void)reloadNavigationItem:(id)arg1 ;
 -(void)setIsTranslucent:(char)arg1 ;
 -(void)reloadNavigationItem:(id)arg1 animated:(char)arg2 ;
--(id)initWithCameraType:(int)arg1 metadata:(id)arg2 openWithState:(unsigned)arg3 imageFilePath:(id)arg4 allowedTabs:(unsigned)arg5 ;
+-(id)initWithMetadata:(id)arg1 openWithState:(unsigned)arg2 imageFilePath:(id)arg3 allowedTabs:(unsigned)arg4 ;
 -(IGCameraShutterView *)shutterView;
 -(float)originalToolbarY;
 -(IGCameraNavigationBar *)customNavbar;
 -(IGCameraToolbar *)customToolbar;
--(void)mediaCaptureViewController:(id)arg1 willTakePhotoWithPreviewBuffer:(id)arg2 cameraType:(int)arg3 cameraPosition:(int)arg4 ;
+-(char)mediaCaptureViewControllerShouldUseProducePhotoDelegate:(id)arg1 ;
+-(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2 ;
 -(id)ig_keyViewControllers;
 -(id)initWithSelfieCamera;
 -(id)initWithMetadata:(id)arg1 openWithState:(unsigned)arg2 ;

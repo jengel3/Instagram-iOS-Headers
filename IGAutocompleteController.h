@@ -14,7 +14,6 @@
 	char _reverseScroll;
 	char _committingText;
 	char _useRemoteDataSources;
-	char _useContextSensitiveAutocomplete;
 	char _lastSearchWasEmpty;
 	id<IGAutocompleteControllerDelegate> _delegate;
 	UIResponder*<IGAutocompleteControllerTextInput> _textInput;
@@ -24,8 +23,8 @@
 	IGUserListLocalDataSource* _usersLocalDataSource;
 	IGHashtagListLocalDataSource* _hashtagsLocalDataSource;
 	NSString* _analyticsModule;
-	NSString* _currentAutocompletePrefix;
 	NSString* _searchText;
+	NSString* _currentAutocompletePrefix;
 	NSString* _analyticsSessionID;
 	NSRange _currentAutocompleteRange;
 
@@ -41,12 +40,11 @@
 @property (assign,getter=isReverseScroll,nonatomic) char reverseScroll;                                     //@synthesize reverseScroll=_reverseScroll - In the implementation block
 @property (assign,getter=isCommittingText,nonatomic) char committingText;                                   //@synthesize committingText=_committingText - In the implementation block
 @property (assign,nonatomic) char useRemoteDataSources;                                                     //@synthesize useRemoteDataSources=_useRemoteDataSources - In the implementation block
-@property (assign,nonatomic) char useContextSensitiveAutocomplete;                                          //@synthesize useContextSensitiveAutocomplete=_useContextSensitiveAutocomplete - In the implementation block
 @property (nonatomic,retain) NSString * analyticsModule;                                                    //@synthesize analyticsModule=_analyticsModule - In the implementation block
+@property (nonatomic,retain) NSString * searchText;                                                         //@synthesize searchText=_searchText - In the implementation block
 @property (assign,nonatomic) NSRange currentAutocompleteRange;                                              //@synthesize currentAutocompleteRange=_currentAutocompleteRange - In the implementation block
 @property (nonatomic,copy) NSString * currentAutocompletePrefix;                                            //@synthesize currentAutocompletePrefix=_currentAutocompletePrefix - In the implementation block
 @property (assign,nonatomic) char lastSearchWasEmpty;                                                       //@synthesize lastSearchWasEmpty=_lastSearchWasEmpty - In the implementation block
-@property (nonatomic,retain) NSString * searchText;                                                         //@synthesize searchText=_searchText - In the implementation block
 @property (nonatomic,retain) NSString * analyticsSessionID;                                                 //@synthesize analyticsSessionID=_analyticsSessionID - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -86,8 +84,6 @@
 -(char)isCommittingText;
 -(char)useRemoteDataSources;
 -(void)setUseRemoteDataSources:(char)arg1 ;
--(char)useContextSensitiveAutocomplete;
--(void)setUseContextSensitiveAutocomplete:(char)arg1 ;
 -(void)setAnalyticsModule:(NSString *)arg1 ;
 -(NSRange)currentAutocompleteRange;
 -(void)setCurrentAutocompleteRange:(NSRange)arg1 ;

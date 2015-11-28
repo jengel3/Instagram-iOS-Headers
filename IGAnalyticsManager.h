@@ -40,6 +40,7 @@
 -(void)feedDidScrollToBottom:(id)arg1 ;
 -(void)handleUserSwitched:(id)arg1 ;
 -(void)handleUserIDUpdated:(id)arg1 ;
+-(void)handleLogoutAllUsers:(id)arg1 ;
 -(void)handleFacebookIDUpdated:(id)arg1 ;
 -(void)logTimeSpent;
 -(void)onCommentDeleteButtonTapped:(id)arg1 ;

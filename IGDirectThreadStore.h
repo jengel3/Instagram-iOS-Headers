@@ -33,6 +33,8 @@
 -(void)handleRealtimeOperation:(id)arg1 ;
 -(id)pkForRealtimeOperation:(id)arg1 ;
 -(void)handleRealtimeRefreshRequest;
+-(id)allThreadsSorted;
+-(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(id)allThreadsIncludingLocal;
 -(id)storedThreadWithID:(id)arg1 ;
 -(void)refreshInboxWithNextMaxID:(id)arg1 successfulInboxHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
@@ -41,10 +43,10 @@
 -(void)hideThreadWithID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(id)allPendingThreadsSorted;
 -(void)allowAllPendingThreadsSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
+-(void)allowThreads:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)declineAllPendingThreadsSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
+-(void)declineThreads:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)refreshPendingInboxWithNextMaxID:(id)arg1 successfulInboxHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
--(id)allThreadsSorted;
--(id)storedThreadWithUsers:(id)arg1 ;
 -(void)onBackground;
 -(IGDirectThreadDiskCache *)directThreadDiskCache;
 -(void)storeThread:(id)arg1 withID:(id)arg2 ;
@@ -67,7 +69,7 @@
 -(void)handleRealtimeUnseenCountEventWithCount:(id)arg1 withSequenceString:(id)arg2 ;
 -(void)refreshInbox;
 -(void)postThreadsNeedRefreshNotification;
--(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
+-(id)storedThreadWithUsers:(id)arg1 ;
 -(void)deleteContent:(id)arg1 fromThread:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)leaveThreadWithID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)sendSeenTimestampForThreadID:(id)arg1 forContent:(id)arg2 ;

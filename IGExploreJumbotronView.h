@@ -3,11 +3,12 @@
 #import <UIKit/UIView.h>
 #import <UIKit/UICollectionViewDataSource.h>
 #import <UIKit/UICollectionViewDelegateFlowLayout.h>
+#import <Instagram/IGTimerProxyObjectType.h>
 
 @protocol IGExploreJumbotronDataSource, IGExploreJumbotronDelegate;
-@class IGMarqueeCollectionView, IGMarqueeLayout, IGMarqueeViewLayoutSpec, CALayer, NSTimer, IGMarqueeTimerProxy, NSString;
+@class IGMarqueeCollectionView, IGMarqueeLayout, IGMarqueeViewLayoutSpec, CALayer, NSTimer, IGTimerProxy, NSString;
 
-@interface IGExploreJumbotronView : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
+@interface IGExploreJumbotronView : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGTimerProxyObjectType> {
 
 	id<IGExploreJumbotronDataSource> _dataSource;
 	id<IGExploreJumbotronDelegate> _delegate;
@@ -16,7 +17,7 @@
 	IGMarqueeViewLayoutSpec* _marqueeLayoutSpec;
 	CALayer* _marqueeSeparatorLayer;
 	NSTimer* _marqueeTimer;
-	IGMarqueeTimerProxy* _timerProxy;
+	IGTimerProxy* _timerProxy;
 
 }
 
@@ -27,19 +28,19 @@
 @property (nonatomic,retain) IGMarqueeViewLayoutSpec * marqueeLayoutSpec;                     //@synthesize marqueeLayoutSpec=_marqueeLayoutSpec - In the implementation block
 @property (nonatomic,retain) CALayer * marqueeSeparatorLayer;                                 //@synthesize marqueeSeparatorLayer=_marqueeSeparatorLayer - In the implementation block
 @property (nonatomic,retain) NSTimer * marqueeTimer;                                          //@synthesize marqueeTimer=_marqueeTimer - In the implementation block
-@property (nonatomic,retain) IGMarqueeTimerProxy * timerProxy;                                //@synthesize timerProxy=_timerProxy - In the implementation block
+@property (nonatomic,retain) IGTimerProxy * timerProxy;                                       //@synthesize timerProxy=_timerProxy - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setTimerProxy:(IGMarqueeTimerProxy *)arg1 ;
--(IGMarqueeTimerProxy *)timerProxy;
+-(void)setTimerProxy:(IGTimerProxy *)arg1 ;
+-(IGTimerProxy *)timerProxy;
+-(void)didFireTimer:(id)arg1 ;
 -(CGPoint)marqueeViewCenter;
 -(void)startMarqueePaging;
 -(void)cancelMarqueePaging;
 -(void)reloadMarquee;
 -(char)isMarqueePaging;
--(void)didFireMarqueeTimer:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 marqueeLayoutSpec:(id)arg2 ;
 -(float)marqueeHeightForWidth:(float)arg1 ;
 -(IGMarqueeCollectionView *)marqueeCollectionView;

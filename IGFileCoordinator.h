@@ -14,6 +14,7 @@
 -(id)initWithFilePathURL:(id)arg1 ;
 -(id)unarchiveObject;
 -(char)archiveObject:(id)arg1 ;
+-(char)removeFile;
 -(id)initWithFileManager:(id)arg1 filePathURL:(id)arg2 ;
 -(NSURL *)filePathURL;
 -(NSFileManager *)fileManager;

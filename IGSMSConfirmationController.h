@@ -45,8 +45,8 @@
 -(UIView *)coreTextViewContainer;
 -(void)sizeCoreTextViewContainerToFit;
 -(void)resendTimerFired:(id)arg1 ;
--(char)canResendSMS;
 -(void)setCanResendSMS:(char)arg1 ;
+-(char)canResendSMS;
 -(void)resetResendTimer;
 -(float)coreTextViewWidth;
 -(void)setCoreTextViewWidth:(float)arg1 ;

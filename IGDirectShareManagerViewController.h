@@ -56,15 +56,11 @@
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController*<IGShareManagerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(id)initWithMediaMetadata:(id)arg1 ;
--(IGUserListLocalDataSource *)localUsersDataSource;
--(IGUserListNetworkDataSource *)networkUsersDataSource;
--(void)setIsPerformingSearch:(char)arg1 ;
--(char)isPerformingSearch;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
--(void)setLocalUsersDataSource:(IGUserListLocalDataSource *)arg1 ;
--(void)setNetworkUsersDataSource:(IGUserListNetworkDataSource *)arg1 ;
+-(char)isPerformingSearch;
+-(void)setIsPerformingSearch:(char)arg1 ;
 -(void)setTokenField:(IGTokenField *)arg1 ;
 -(IGTokenField *)tokenField;
 -(id)tokenFieldViewForTokenOverlay:(id)arg1 ;
@@ -92,6 +88,7 @@
 -(char)groupMode;
 -(char)collapseGroups;
 -(char)searchMode;
+-(IGUserListNetworkDataSource *)networkUsersDataSource;
 -(NSOrderedSet *)singleUsers;
 -(id)headerForSectionWithTitle:(id)arg1 showSeeAll:(char)arg2 showHide:(char)arg3 addLine:(char)arg4 ;
 -(char)multiSelectMode;
@@ -99,8 +96,11 @@
 -(void)handleSelectionForUser:(id)arg1 atIndexPath:(id)arg2 fromSearch:(char)arg3 ;
 -(void)setSelectedGroup:(IGDirectThread *)arg1 ;
 -(void)setShareString:(NSString *)arg1 ;
+-(IGUserListLocalDataSource *)localUsersDataSource;
 -(NSString *)shareString;
 -(char)isReadyToShare;
+-(void)setNetworkUsersDataSource:(IGUserListNetworkDataSource *)arg1 ;
+-(void)setLocalUsersDataSource:(IGUserListLocalDataSource *)arg1 ;
 -(void)fetchData;
 -(void)setDelegate:(UIViewController*<IGShareManagerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

@@ -32,8 +32,8 @@
 -(IGSponsoredPostInfo *)sponsoredPostInfo;
 -(IGUsertagGroup *)usertags;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
--(char)needsFetch;
 -(IGDate *)takenAt;
+-(char)needsFetch;
 -(CLLocation *)mediaCoord;
 -(id)initWithFeedItem:(id)arg1 ;
 -(void)setNeedsFetch:(char)arg1 ;

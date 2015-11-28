@@ -1,11 +1,12 @@
 
 #import <UIKit/UIViewController.h>
 #import <Instagram/IGCoreTextLinkHandler.h>
+#import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGRetroRegistrationSMSVerificationViewControllerDelegate;
 @class IGRetroRegistrationSMSVerificationView, NSTimer, NSString, UITapGestureRecognizer;
 
-@interface IGRetroRegistrationSMSVerificationViewController : UIViewController <IGCoreTextLinkHandler> {
+@interface IGRetroRegistrationSMSVerificationViewController : UIViewController <IGCoreTextLinkHandler, UIGestureRecognizerDelegate> {
 
 	char _submitting;
 	char _canResendSMS;
@@ -38,29 +39,30 @@
 -(void)invalidateTimer;
 -(char)submitting;
 -(void)setSubmitting:(char)arg1 ;
+-(id)initWithUserInfo:(id)arg1 ;
 -(void)loginCompletionHandlerForUser:(id)arg1 error:(id)arg2 statusCode:(int)arg3 ;
--(void)backgroundViewTapped;
 -(id)createIndicatorViewAndAddToLoginButton;
 -(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
 -(void)handleLoginErrors:(id)arg1 ;
--(id)initWithUserInfo:(id)arg1 ;
 -(IGRetroRegistrationSMSVerificationView *)smsVerificationView;
 -(void)confirmCodeButtonPressed;
+-(void)keyboardWillDisappear;
 -(NSString *)obfuscatedPhoneNumber;
 -(NSTimer *)resendTimer;
 -(void)setResendTimer:(NSTimer *)arg1 ;
 -(void)resendTimerFired:(id)arg1 ;
 -(NSString *)twoFactorIdentifier;
+-(void)setTwoFactorIdentifier:(NSString *)arg1 ;
+-(void)setCanResendSMS:(char)arg1 ;
 -(void)loginWithTwoFactorIdentifier;
 -(char)canResendSMS;
--(void)setCanResendSMS:(char)arg1 ;
 -(void)resendTwoFactorSMS;
--(void)setTwoFactorIdentifier:(NSString *)arg1 ;
 -(id)getAccessTextViewStringForSecondsRemaining:(int)arg1 ;
 -(void)setSmsVerificationView:(IGRetroRegistrationSMSVerificationView *)arg1 ;
 -(void)setObfuscatedPhoneNumber:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGRetroRegistrationSMSVerificationViewControllerDelegate>)arg1 ;
 -(id<IGRetroRegistrationSMSVerificationViewControllerDelegate>)delegate;
+-(char)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2 ;
 -(char)prefersStatusBarHidden;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;

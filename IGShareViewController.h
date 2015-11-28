@@ -56,6 +56,7 @@
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
 -(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
+-(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
 -(id)initWithMediaMetadata:(id)arg1 ;
 -(void)setRenderInProgress:(char)arg1 ;
 -(char)overlayIsOpaque;
@@ -97,6 +98,8 @@
 -(id)modeCompletionHandler;
 -(void)onTitleTapped;
 -(void)onDoneEditingButtonTapped;
+-(void)logSearchClickEventAtIndex:(int)arg1 isUserSearch:(char)arg2 allResults:(id)arg3 ;
+-(id)allResultsList:(id)arg1 ;
 -(void)shareManagerWantsModeExit;
 -(void)shareManagerWantsModeWithTitle:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(char)overlayHasDropShadow;

@@ -34,7 +34,7 @@
 -(void)setPointInView:(CGPoint)arg1 ;
 -(char)hasPointInView;
 -(void)setHasPointInView:(char)arg1 ;
--(SCD_Struct_IG30)coordinate;
+-(SCD_Struct_IG25)coordinate;
 -(double)latitude;
 -(double)longitude;
 -(char)isEqual:(id)arg1 ;

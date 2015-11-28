@@ -36,7 +36,7 @@
 -(void)handleHeaders:(id)arg1 ;
 -(void)handleSystemMessages:(id)arg1 ;
 -(void)handleAPIRequestFailure:(id)arg1 withReponseDictionary:(id)arg2 error:(id)arg3 ;
--(void)handleAPIRequestSuccess:(id)arg1 withReponseDictionary:(id)arg2 parsedObject:(id)arg3 ;
+-(void)handleAPIRequestSuccess:(id)arg1 withParsedObject:(id)arg2 ;
 -(void)startJSONRequest:(id)arg1 completionQueue:(id)arg2 responseHandler:(/*^block*/id)arg3 ;
 -(id)errorStringFromResponse:(id)arg1 ;
 -(id)errorStringsFromObject:(id)arg1 ;

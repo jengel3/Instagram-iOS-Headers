@@ -7,6 +7,7 @@
 @interface IGPostsFeedViewController : IGFeedViewController {
 
 	char _showExploreContext;
+	char _shouldHideFirstPost;
 	UIView* _previewSplashView;
 	unsigned _startIndex;
 	IGRankedTitleView* _rankedTitleView;
@@ -18,6 +19,7 @@
 }
 
 @property (assign,nonatomic) char showExploreContext;                          //@synthesize showExploreContext=_showExploreContext - In the implementation block
+@property (assign,nonatomic) char shouldHideFirstPost;                         //@synthesize shouldHideFirstPost=_shouldHideFirstPost - In the implementation block
 @property (nonatomic,retain) UIView * previewSplashView;                       //@synthesize previewSplashView=_previewSplashView - In the implementation block
 @property (assign,nonatomic) unsigned startIndex;                              //@synthesize startIndex=_startIndex - In the implementation block
 @property (nonatomic,retain) IGRankedTitleView * rankedTitleView;              //@synthesize rankedTitleView=_rankedTitleView - In the implementation block
@@ -32,13 +34,14 @@
 -(void)reloadWithNewObjects:(id)arg1 ;
 -(char)showFollowButtonForFeedItem:(id)arg1 ;
 -(char)showExploreContextForFeedItem:(id)arg1 ;
--(id)initWithItems:(id)arg1 startAtItemIndex:(unsigned)arg2 title:(id)arg3 subtitle:(id)arg4 ;
--(id)initWithFeedNetworkSource:(id)arg1 startAtItemIndex:(unsigned)arg2 title:(id)arg3 subtitle:(id)arg4 ;
+-(id)initWithItems:(id)arg1 startAtItemIndex:(unsigned)arg2 title:(id)arg3 subtitle:(id)arg4 entityId:(id)arg5 ;
+-(id)initWithFeedNetworkSource:(id)arg1 startAtItemIndex:(unsigned)arg2 title:(id)arg3 subtitle:(id)arg4 entityId:(id)arg5 ;
 -(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
 -(char)enablePivot:(id)arg1 ;
 -(void)handleDidDisplayFeedItem:(id)arg1 ;
+-(void)setShouldHideFirstPost:(char)arg1 ;
 -(void)displayPivots:(id)arg1 ;
--(id)initWithFeedNetworkSource:(id)arg1 startAtItemIndex:(unsigned)arg2 title:(id)arg3 subtitle:(id)arg4 showsPullToRefresh:(char)arg5 ;
+-(id)initWithFeedNetworkSource:(id)arg1 startAtItemIndex:(unsigned)arg2 title:(id)arg3 subtitle:(id)arg4 entityId:(id)arg5 showsPullToRefresh:(char)arg6 ;
 -(NSString *)rankedSubtitle;
 -(void)setRankedTitleView:(IGRankedTitleView *)arg1 ;
 -(IGRankedTitleView *)rankedTitleView;
@@ -49,6 +52,7 @@
 -(void)setSavedVisibleIndexPath:(NSIndexPath *)arg1 ;
 -(void)setSavedVisibleIndexPathOffset:(float)arg1 ;
 -(void)saveCurrentScrollPosition;
+-(char)shouldHideFirstPost;
 -(NSIndexPath *)savedVisibleIndexPath;
 -(float)savedVisibleIndexPathOffset;
 -(void)scrollToIndexPath:(id)arg1 verticalOffset:(float)arg2 ;

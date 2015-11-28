@@ -13,7 +13,7 @@
 #import <Instagram/IGProfilePictureHelperDelegate.h>
 
 @protocol IGRaindropAnalyticsDelegate;
-@class IGUserDetailViewController, IGUser, NSDictionary, IGProfilePictureImageView, IGStatButton, IGButton, UIImageView, IGFollowButton, IGFriendRequestHeaderView, IGCoreTextView, UIView, IGFeedToggleView, IGProfilePictureHelper, UIButton, IGSimilarAccountsControl, IGSimilarAccountsView, IGProfileMegaphoneView, UIActivityIndicatorView, NSString;
+@class IGUserDetailViewController, IGUser, NSDictionary, IGProfilePictureImageView, IGStatButton, IGButton, UIImageView, IGFollowButton, IGFriendRequestHeaderView, IGCoreTextView, UIView, IGFeedToggleView, IGProfilePictureHelper, UIButton, IGSimilarAccountsControl, IGSimilarAccountsView, IGProfileMegaphoneView, UIActivityIndicatorView, NSArray, NSString;
 
 @interface IGUserDetailHeaderView : UIView <IGCoreTextLinkHandler, IGFollowButtonDelegate, IGProfileMegaphoneViewDelegate, IGSimilarAccountsControlDelegate, IGFriendRequestHeaderViewDelegate, IGSimilarAccountsViewDelegate, UIGestureRecognizerDelegate, IGProfilePictureImageViewDelegate, IGFeedToggleViewDelegate, IGProfilePictureHelperDelegate> {
 
@@ -44,6 +44,7 @@
 	IGProfileMegaphoneView* _megaphoneView;
 	UIActivityIndicatorView* _spinner;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
+	NSArray* _accessibleElements;
 
 }
 
@@ -74,6 +75,7 @@
 @property (nonatomic,retain) IGProfileMegaphoneView * megaphoneView;                                //@synthesize megaphoneView=_megaphoneView - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                     //@synthesize spinner=_spinner - In the implementation block
 @property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
+@property (nonatomic,retain) NSArray * accessibleElements;                                          //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -88,6 +90,8 @@
 -(void)setFollowingButton:(IGStatButton *)arg1 ;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
+-(void)setAccessibleElements:(NSArray *)arg1 ;
+-(NSArray *)accessibleElements;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)profilePictureTapped:(id)arg1 ;
 -(void)setMegaphoneView:(IGProfileMegaphoneView *)arg1 ;
@@ -173,7 +177,11 @@
 -(void)setDelegate:(IGUserDetailViewController *)arg1 ;
 -(void)dealloc;
 -(IGUserDetailViewController *)delegate;
+-(id)accessibilityIdentifier;
 -(void)updateLayout;
+-(int)accessibilityElementCount;
+-(id)accessibilityElementAtIndex:(int)arg1 ;
+-(int)indexOfAccessibilityElement:(id)arg1 ;
 -(UIActivityIndicatorView *)spinner;
 -(void)setSpinner:(UIActivityIndicatorView *)arg1 ;
 -(IGFriendRequestHeaderView *)requestHeader;

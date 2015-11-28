@@ -43,8 +43,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(char)useStaticFilterThumbnails;
 +(id)sharedFilterClasses;
-+(id)photoFilterClasses;
-+(id)videoFilterClasses;
 +(id)sharedFiltersHiddenByDefault;
 +(id)filtersHiddenByDefault;
 -(NSMutableArray *)orderedFilterClasses;

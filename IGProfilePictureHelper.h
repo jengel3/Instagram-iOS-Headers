@@ -28,7 +28,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)cameraControllerDidCancel;
--(void)cameraControllerDidFinishWithSelfie:(id)arg1 ;
+-(void)cameraControllerDidFinishWithPhoto:(id)arg1 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)facebookAuthDidFinish;
 -(void)onTwitterLoginCompleted:(id)arg1 ;

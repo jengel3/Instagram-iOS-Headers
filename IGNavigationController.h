@@ -44,6 +44,7 @@
 -(IGHorizontalPanGestureRecognizer *)panGesture;
 -(void)setPanGesture:(IGHorizontalPanGestureRecognizer *)arg1 ;
 -(IGAnalyticsMetadata *)analyticsMetadata;
+-(void)updateForVisibleChange;
 -(void)setNeedsNavigationBarAppearenceUpdateAnimated:(char)arg1 ;
 -(void)navigationAnimatorWillAnimateTransition:(id)arg1 ;
 -(void)navigationAnimatorDidFinishTransition:(id)arg1 ;
@@ -54,7 +55,6 @@
 -(IGNavigationPopAnimator *)navigationPopAnimator;
 -(IGNavigationPushAnimator *)navigationPushAnimator;
 -(id)ig_tabBarController;
--(void)updateForVisibleChange;
 -(UIView *)navigationBarUnderlay;
 -(void)setPoppingViewController:(UIViewController *)arg1 ;
 -(void)setInitialTranslation:(CGPoint)arg1 ;

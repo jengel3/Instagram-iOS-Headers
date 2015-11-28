@@ -14,7 +14,7 @@
 #import <UIKit/UIScrollViewDelegate.h>
 
 @protocol IGMediaCaptureViewControllerDelegate, OS_dispatch_queue;
-@class IGMediaMetadata, IGGridViewController, IGMediaTabBar, UIView, IGPagingScrollView, NSArray, IGCameraAccessPromptView, IGSampleBuffer, NSOperationQueue, IGCaptureManager, IGVideoRecorder, NSObject, IGVideoInfo, IGCameraFocusIndicator, IGCameraModeTransitionOverlayView, IGMediaCaptureButton, IGVideoCaptureDeleteButton, IGTapButton, IGVideoProgressView, IGStabilizationSampler, IGDirectedNUXView, IGDeviceAngleSampler, IGAppInstallationsHelper, IGCropView, IGCircularProgressView, UIImageView, IGAssetPlayerView, IGVideoPlayButton, UITapGestureRecognizer, IGCameraGuideView, IGLabel, IGEmptyLibraryView, UIPanGestureRecognizer, NSMutableDictionary, NSDictionary, UIBarButtonItem, IGChevronTitleButton, IGSelectAlbumController, IGEditorViewController, NSString;
+@class IGMediaMetadata, IGGridViewController, IGMediaTabBar, UIView, IGPagingScrollView, NSArray, IGCameraAccessPromptView, IGSampleBuffer, NSOperationQueue, IGCaptureManager, IGVideoRecorder, NSObject, IGVideoInfo, IGCameraFocusIndicator, IGCameraModeTransitionOverlayView, IGMediaCaptureButton, IGVideoCaptureDeleteButton, IGTapButton, IGVideoProgressView, IGStabilizationSampler, IGDirectedNUXView, IGDeviceAngleSampler, IGAppInstallationsHelper, IGCropView, IGCircularProgressView, UIImageView, IGNuxButton, IGAssetPlayerView, IGVideoPlayButton, UITapGestureRecognizer, IGCameraGuideView, IGLabel, IGEmptyLibraryView, UIPanGestureRecognizer, NSMutableDictionary, NSDictionary, UIBarButtonItem, IGChevronTitleButton, IGSelectAlbumController, IGEditorViewController, IGAppInstallAlertViewController, NSString;
 
 @interface IGMediaCaptureViewController : IGBaseCameraViewController <IGAssetPlayerViewDelegate, IGCaptureManagerDelegate, IGGridViewControllerDelegate, IGGridViewControllerScrollDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGMediaCaptureButtonDelegate, IGSelectAlbumDelegate, IGAppInstallAlertViewControllerDelegate, IGCropViewUserInteractionDelegate, UIScrollViewDelegate> {
 
@@ -26,13 +26,13 @@
 	char _changingModes;
 	char _layoutButtonVisible;
 	char _shouldShowDownloadLayoutNuxIfUnseen;
+	char _boomerangButtonEnabled;
 	char _shouldAutoPlayVideo;
 	char _wasPlayingVideo;
 	char _isPushingCropView;
 	id<IGMediaCaptureViewControllerDelegate> _delegate;
 	IGMediaMetadata* _mediaMetadata;
 	unsigned _openWithState;
-	int _cameraType_ONLY_FOR_LEGACY_DELEGATE;
 	int _state;
 	unsigned _tabConfiguration;
 	IGGridViewController* _gridViewController;
@@ -75,6 +75,7 @@
 	UIImageView* _loadingThumbnailView;
 	id _previewAsset;
 	IGTapButton* _layoutButton;
+	IGNuxButton* _boomerangButton;
 	IGTapButton* _longcatButton;
 	IGTapButton* _multiSelectButton;
 	IGAssetPlayerView* _playerView;
@@ -108,6 +109,8 @@
 	IGChevronTitleButton* _chevronTitleButton;
 	IGSelectAlbumController* _selectAlbumVC;
 	IGEditorViewController* _currentEditor;
+	IGAppInstallAlertViewController* _layoutAlertViewController;
+	IGAppInstallAlertViewController* _boomerangAlertViewController;
 	CGSize _previewImageSize;
 
 }
@@ -115,7 +118,6 @@
 @property (assign,nonatomic,__weak) id<IGMediaCaptureViewControllerDelegate> delegate;                         //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGMediaMetadata * mediaMetadata;                                                  //@synthesize mediaMetadata=_mediaMetadata - In the implementation block
 @property (assign,nonatomic) unsigned openWithState;                                                           //@synthesize openWithState=_openWithState - In the implementation block
-@property (assign,nonatomic) int cameraType_ONLY_FOR_LEGACY_DELEGATE;                                          //@synthesize cameraType_ONLY_FOR_LEGACY_DELEGATE=_cameraType_ONLY_FOR_LEGACY_DELEGATE - In the implementation block
 @property (assign,nonatomic) char isBackgrounded;                                                              //@synthesize isBackgrounded=_isBackgrounded - In the implementation block
 @property (assign,nonatomic) int state;                                                                        //@synthesize state=_state - In the implementation block
 @property (assign,nonatomic) unsigned tabConfiguration;                                                        //@synthesize tabConfiguration=_tabConfiguration - In the implementation block
@@ -165,6 +167,8 @@
 @property (assign,nonatomic) char layoutButtonVisible;                                                         //@synthesize layoutButtonVisible=_layoutButtonVisible - In the implementation block
 @property (assign,nonatomic) char shouldShowDownloadLayoutNuxIfUnseen;                                         //@synthesize shouldShowDownloadLayoutNuxIfUnseen=_shouldShowDownloadLayoutNuxIfUnseen - In the implementation block
 @property (nonatomic,retain) IGTapButton * layoutButton;                                                       //@synthesize layoutButton=_layoutButton - In the implementation block
+@property (nonatomic,retain) IGNuxButton * boomerangButton;                                                    //@synthesize boomerangButton=_boomerangButton - In the implementation block
+@property (assign,nonatomic) char boomerangButtonEnabled;                                                      //@synthesize boomerangButtonEnabled=_boomerangButtonEnabled - In the implementation block
 @property (nonatomic,retain) IGTapButton * longcatButton;                                                      //@synthesize longcatButton=_longcatButton - In the implementation block
 @property (nonatomic,retain) IGTapButton * multiSelectButton;                                                  //@synthesize multiSelectButton=_multiSelectButton - In the implementation block
 @property (nonatomic,retain) IGAssetPlayerView * playerView;                                                   //@synthesize playerView=_playerView - In the implementation block
@@ -202,6 +206,8 @@
 @property (nonatomic,retain) IGChevronTitleButton * chevronTitleButton;                                        //@synthesize chevronTitleButton=_chevronTitleButton - In the implementation block
 @property (nonatomic,retain) IGSelectAlbumController * selectAlbumVC;                                          //@synthesize selectAlbumVC=_selectAlbumVC - In the implementation block
 @property (assign,nonatomic,__weak) IGEditorViewController * currentEditor;                                    //@synthesize currentEditor=_currentEditor - In the implementation block
+@property (nonatomic,retain) IGAppInstallAlertViewController * layoutAlertViewController;                      //@synthesize layoutAlertViewController=_layoutAlertViewController - In the implementation block
+@property (nonatomic,retain) IGAppInstallAlertViewController * boomerangAlertViewController;                   //@synthesize boomerangAlertViewController=_boomerangAlertViewController - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -217,6 +223,7 @@
 -(void)captureSessionDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)captureSessionWillTakePhoto;
 -(IGCropView *)cropView;
+-(char)usePhotosFramework;
 -(char)overlayIsOpaque;
 -(IGDirectedNUXView *)NUXView;
 -(void)setNUXView:(IGDirectedNUXView *)arg1 ;
@@ -227,10 +234,8 @@
 -(void)cropViewUserInteractionDidEnd:(id)arg1 ;
 -(id)initWithCaptureDevicePosition:(int)arg1 tabConfiguration:(unsigned)arg2 ;
 -(void)setOpenWithState:(unsigned)arg1 ;
--(void)setCameraType_ONLY_FOR_LEGACY_DELEGATE:(int)arg1 ;
 -(IGCaptureManager *)captureManager;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
--(char)usePhotosFramework;
 -(void)gridViewControllerLibraryDidLoad:(id)arg1 ;
 -(void)gridViewController:(id)arg1 didSelectAsset:(id)arg2 atIndexPath:(id)arg3 ;
 -(char)gridViewController:(id)arg1 isAssetLoadedInPlayer:(id)arg2 ;
@@ -316,6 +321,10 @@
 -(void)onMultiSelectCancelButtonTapped;
 -(void)setMultiSelectCancelButtonItem:(UIBarButtonItem *)arg1 ;
 -(UIBarButtonItem *)multiSelectCancelButtonItem;
+-(void)setBoomerangButton:(IGNuxButton *)arg1 ;
+-(IGNuxButton *)boomerangButton;
+-(void)setBoomerangButtonEnabled:(char)arg1 ;
+-(void)boomerangButtonTapped;
 -(void)tapExpandCrop:(id)arg1 ;
 -(void)setCropTap:(UITapGestureRecognizer *)arg1 ;
 -(UITapGestureRecognizer *)cropTap;
@@ -376,7 +385,6 @@
 -(id)disableScrollViewsForViewController:(id)arg1 ;
 -(void)setDisabledScrollViews:(NSArray *)arg1 ;
 -(NSArray *)disabledScrollViews;
--(int)cameraType_ONLY_FOR_LEGACY_DELEGATE;
 -(void)presentEditorWithBuffer:(id)arg1 isPreviewBuffer:(char)arg2 ;
 -(char)wasPlayingVideo;
 -(void)playVideoPlayer;
@@ -404,6 +412,7 @@
 -(unsigned)contentEditingInputRequestID;
 -(void)setContentEditingInputRequestID:(unsigned)arg1 ;
 -(void)setSelectedAsset:(id)arg1 ;
+-(char)shouldSwitchEditingModesFromAsset:(id)arg1 toAsset:(id)arg2 ;
 -(void)setSelectedVideos:(NSMutableDictionary *)arg1 ;
 -(void)setFullResolutionSource:(id)arg1 ;
 -(void)setFullResolutionCompletionBlock:(id)arg1 ;
@@ -414,6 +423,7 @@
 -(void)showDownloadLayoutNUX;
 -(char)allVideosLoaded;
 -(void)updateVideoLibraryNextButtonEnabled;
+-(char)boomerangButtonEnabled;
 -(void)showMinDurationAssetNUX;
 -(id)previewAsset;
 -(void)setPreviewAsset:(id)arg1 ;
@@ -438,6 +448,7 @@
 -(void)showLayoutAppInstallAlertViewPopover;
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
+-(void)showBoomerangAppInstallAlertViewPopover;
 -(void)toggleMultiClipModal;
 -(void)continueWithAsset;
 -(void)updateVideoSize;
@@ -473,6 +484,10 @@
 -(void)setPlayTap:(UITapGestureRecognizer *)arg1 ;
 -(UIPanGestureRecognizer *)cropPanMinimize;
 -(void)setCropPanMinimize:(UIPanGestureRecognizer *)arg1 ;
+-(IGAppInstallAlertViewController *)layoutAlertViewController;
+-(void)setLayoutAlertViewController:(IGAppInstallAlertViewController *)arg1 ;
+-(IGAppInstallAlertViewController *)boomerangAlertViewController;
+-(void)setBoomerangAlertViewController:(IGAppInstallAlertViewController *)arg1 ;
 -(CGSize)previewImageSize;
 -(void)takePhoto;
 -(IGEditorViewController *)currentEditor;

@@ -17,22 +17,22 @@
 	float _currentAssetDuration;
 	float _pixelsPerSecond;
 	UIView* _trackheadView;
-	SCD_Struct_IG47 _scrubTime;
-	SCD_Struct_IG47 _playbackTime;
-	SCD_Struct_IG47 _beforeTrimStartTime;
-	SCD_Struct_IG47 _beforeTrimEndTime;
+	SCD_Struct_IG43 _scrubTime;
+	SCD_Struct_IG43 _playbackTime;
+	SCD_Struct_IG43 _beforeTrimStartTime;
+	SCD_Struct_IG43 _beforeTrimEndTime;
 
 }
 
 @property (nonatomic,retain) IGVideoClip * clip;                               //@synthesize clip=_clip - In the implementation block
 @property (nonatomic,readonly) unsigned draggingMode; 
-@property (nonatomic,readonly) SCD_Struct_IG47 startTime; 
-@property (nonatomic,readonly) SCD_Struct_IG47 endTime; 
-@property (assign,nonatomic) SCD_Struct_IG47 scrubTime;                        //@synthesize scrubTime=_scrubTime - In the implementation block
+@property (nonatomic,readonly) SCD_Struct_IG43 startTime; 
+@property (nonatomic,readonly) SCD_Struct_IG43 endTime; 
+@property (assign,nonatomic) SCD_Struct_IG43 scrubTime;                        //@synthesize scrubTime=_scrubTime - In the implementation block
 @property (assign,nonatomic) char scrubbing;                                   //@synthesize scrubbing=_scrubbing - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 playbackTime;                     //@synthesize playbackTime=_playbackTime - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 beforeTrimStartTime;              //@synthesize beforeTrimStartTime=_beforeTrimStartTime - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 beforeTrimEndTime;                //@synthesize beforeTrimEndTime=_beforeTrimEndTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG43 playbackTime;                     //@synthesize playbackTime=_playbackTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG43 beforeTrimStartTime;              //@synthesize beforeTrimStartTime=_beforeTrimStartTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG43 beforeTrimEndTime;                //@synthesize beforeTrimEndTime=_beforeTrimEndTime - In the implementation block
 @property (nonatomic,retain) IGTrimView * trimView;                            //@synthesize trimView=_trimView - In the implementation block
 @property (nonatomic,retain) IGFilmStripView * filmStrip;                      //@synthesize filmStrip=_filmStrip - In the implementation block
 @property (nonatomic,retain) IGTimeRulerView * rulerView;                      //@synthesize rulerView=_rulerView - In the implementation block
@@ -50,9 +50,9 @@
 -(unsigned)draggingMode;
 -(void)setClip:(id)arg1 isMulticlip:(char)arg2 ;
 -(IGTrimView *)trimView;
--(SCD_Struct_IG47)beforeTrimStartTime;
--(SCD_Struct_IG47)beforeTrimEndTime;
--(SCD_Struct_IG47)scrubTime;
+-(SCD_Struct_IG43)beforeTrimStartTime;
+-(SCD_Struct_IG43)beforeTrimEndTime;
+-(SCD_Struct_IG43)scrubTime;
 -(char)scrubbing;
 -(void)setTrimView:(IGTrimView *)arg1 ;
 -(void)trimRangeChanged:(id)arg1 ;
@@ -60,11 +60,11 @@
 -(void)trimViewEditingDidEnd;
 -(UIView *)trackheadView;
 -(void)postEditDidEnd;
--(void)setScrubTime:(SCD_Struct_IG47)arg1 ;
--(void)setPlaybackTime:(SCD_Struct_IG47)arg1 forceUpdate:(char)arg2 ;
+-(void)setScrubTime:(SCD_Struct_IG43)arg1 ;
+-(void)setPlaybackTime:(SCD_Struct_IG43)arg1 forceUpdate:(char)arg2 ;
 -(void)setScrubbingFrames:(char)arg1 ;
--(void)setBeforeTrimStartTime:(SCD_Struct_IG47)arg1 ;
--(void)setBeforeTrimEndTime:(SCD_Struct_IG47)arg1 ;
+-(void)setBeforeTrimStartTime:(SCD_Struct_IG43)arg1 ;
+-(void)setBeforeTrimEndTime:(SCD_Struct_IG43)arg1 ;
 -(float)dynamicPixelsPerSecond;
 -(IGFilmStripView *)filmStrip;
 -(void)setFilmStrip:(IGFilmStripView *)arg1 ;
@@ -75,8 +75,8 @@
 -(void)setTrackheadView:(UIView *)arg1 ;
 -(char)scrubbingFrames;
 -(void)setScrubbing:(char)arg1 ;
--(SCD_Struct_IG47)playbackTime;
--(void)setPlaybackTime:(SCD_Struct_IG47)arg1 ;
+-(SCD_Struct_IG43)playbackTime;
+-(void)setPlaybackTime:(SCD_Struct_IG43)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;
@@ -87,8 +87,8 @@
 -(void)setScrollView:(UIScrollView *)arg1 ;
 -(UIScrollView *)scrollView;
 -(IGVideoClip *)clip;
--(SCD_Struct_IG47)startTime;
+-(SCD_Struct_IG43)startTime;
 -(void)setClip:(IGVideoClip *)arg1 ;
--(SCD_Struct_IG47)endTime;
+-(SCD_Struct_IG43)endTime;
 @end
 

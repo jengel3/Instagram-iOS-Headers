@@ -4,36 +4,37 @@
 #import <UIKit/UICollectionViewDataSource.h>
 #import <UIKit/UICollectionViewDelegateFlowLayout.h>
 #import <Instagram/IGCarouselCellCascadeDataSource.h>
+#import <Instagram/IGTimerProxyObjectType.h>
 
 @protocol IGExploreCarouselsDataSource, IGExploreCarouselsDelegate;
-@class IGCarouselTimerProxy, NSMutableArray, NSMutableDictionary, NSTimer, NSString;
+@class NSMutableArray, NSMutableDictionary, NSTimer, IGTimerProxy, NSString;
 
-@interface IGExploreCarouselsView : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGCarouselCellCascadeDataSource> {
+@interface IGExploreCarouselsView : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGCarouselCellCascadeDataSource, IGTimerProxyObjectType> {
 
 	id<IGExploreCarouselsDataSource> _dataSource;
 	id<IGExploreCarouselsDelegate> _delegate;
-	IGCarouselTimerProxy* _timerProxy;
 	NSMutableArray* _carouselViews;
 	NSMutableDictionary* _imageIndicesForCell;
 	NSTimer* _cascadeTimer;
+	IGTimerProxy* _timerProxy;
 
 }
 
 @property (assign,nonatomic,__weak) id<IGExploreCarouselsDataSource> dataSource;              //@synthesize dataSource=_dataSource - In the implementation block
 @property (assign,nonatomic,__weak) id<IGExploreCarouselsDelegate> delegate;                  //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGCarouselTimerProxy * timerProxy;                               //@synthesize timerProxy=_timerProxy - In the implementation block
 @property (nonatomic,retain) NSMutableArray * carouselViews;                                  //@synthesize carouselViews=_carouselViews - In the implementation block
 @property (nonatomic,retain) NSMutableDictionary * imageIndicesForCell;                       //@synthesize imageIndicesForCell=_imageIndicesForCell - In the implementation block
 @property (nonatomic,retain) NSTimer * cascadeTimer;                                          //@synthesize cascadeTimer=_cascadeTimer - In the implementation block
+@property (nonatomic,retain) IGTimerProxy * timerProxy;                                       //@synthesize timerProxy=_timerProxy - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setTimerProxy:(IGCarouselTimerProxy *)arg1 ;
--(IGCarouselTimerProxy *)timerProxy;
+-(void)setTimerProxy:(IGTimerProxy *)arg1 ;
+-(IGTimerProxy *)timerProxy;
+-(void)didFireTimer:(id)arg1 ;
 -(void)reloadIndexesOfCarousel:(id)arg1 ;
 -(void)cascadeImageForCarouselCell:(id)arg1 ;
--(void)didFireCarouselCascadeTimer:(id)arg1 ;
 -(void)cancelTrendingCascade;
 -(NSMutableArray *)carouselViews;
 -(id)carouselViewAtIndex:(unsigned)arg1 ;

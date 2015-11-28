@@ -15,15 +15,15 @@
 	AVPlayer* _player;
 	AVPlayerLayer* _playerLayer;
 	id _currentTimeObserver;
-	SCD_Struct_IG47 _startTime;
-	SCD_Struct_IG47 _seekTime;
+	SCD_Struct_IG43 _startTime;
+	SCD_Struct_IG43 _seekTime;
 
 }
 
 @property (nonatomic,retain) AVAsset * asset;                                              //@synthesize asset=_asset - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 startTime;                                    //@synthesize startTime=_startTime - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 endTime; 
-@property (nonatomic,readonly) SCD_Struct_IG47 currentTime; 
+@property (assign,nonatomic) SCD_Struct_IG43 startTime;                                    //@synthesize startTime=_startTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG43 endTime; 
+@property (nonatomic,readonly) SCD_Struct_IG43 currentTime; 
 @property (getter=isReadyForDisplay,nonatomic,readonly) char readyForDisplay; 
 @property (assign,nonatomic) char isPlaying;                                               //@synthesize isPlaying=_isPlaying - In the implementation block
 @property (assign,getter=isLooping,nonatomic) char looping;                                //@synthesize looping=_looping - In the implementation block
@@ -32,9 +32,9 @@
 @property (nonatomic,retain) AVPlayerLayer * playerLayer;                                  //@synthesize playerLayer=_playerLayer - In the implementation block
 @property (nonatomic,retain) id currentTimeObserver;                                       //@synthesize currentTimeObserver=_currentTimeObserver - In the implementation block
 @property (assign,getter=isSeeking,nonatomic) char seeking;                                //@synthesize seeking=_seeking - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 seekTime;                                     //@synthesize seekTime=_seekTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG43 seekTime;                                     //@synthesize seekTime=_seekTime - In the implementation block
 -(void)playFromStart;
--(void)playFromTime:(SCD_Struct_IG47)arg1 ;
+-(void)playFromTime:(SCD_Struct_IG43)arg1 ;
 -(id)currentTimeObserver;
 -(void)onPlayerItemPlayedToEnd;
 -(void)registerCurrentTimeObserver;
@@ -43,13 +43,13 @@
 -(void)setPlayerLayer:(AVPlayerLayer *)arg1 ;
 -(void)setLooping:(char)arg1 ;
 -(char)isSeeking;
--(void)seekToTime:(SCD_Struct_IG47)arg1 ;
+-(void)seekToTime:(SCD_Struct_IG43)arg1 ;
 -(void)setSeeking:(char)arg1 ;
--(SCD_Struct_IG47)currentTime;
+-(SCD_Struct_IG43)currentTime;
 -(void)setPlayer:(AVPlayer *)arg1 ;
--(SCD_Struct_IG47)seekTime;
+-(SCD_Struct_IG43)seekTime;
 -(char)isReadyForDisplay;
--(void)setSeekTime:(SCD_Struct_IG47)arg1 ;
+-(void)setSeekTime:(SCD_Struct_IG43)arg1 ;
 -(char)isPlaying;
 -(AVPlayer *)player;
 -(id)initWithFrame:(CGRect)arg1 ;
@@ -57,13 +57,13 @@
 -(void)dealloc;
 -(void)layoutSubviews;
 -(id<IGAssetPlayerViewDelegate>)delegate;
--(void)setStartTime:(SCD_Struct_IG47)arg1 ;
+-(void)setStartTime:(SCD_Struct_IG43)arg1 ;
 -(void)stop;
 -(AVAsset *)asset;
--(SCD_Struct_IG47)startTime;
+-(SCD_Struct_IG43)startTime;
 -(void)setAsset:(AVAsset *)arg1 ;
--(SCD_Struct_IG47)endTime;
--(void)setEndTime:(SCD_Struct_IG47)arg1 ;
+-(SCD_Struct_IG43)endTime;
+-(void)setEndTime:(SCD_Struct_IG43)arg1 ;
 -(char)isLooping;
 -(AVPlayerLayer *)playerLayer;
 @end

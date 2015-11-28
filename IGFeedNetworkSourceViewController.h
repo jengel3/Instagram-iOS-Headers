@@ -3,12 +3,11 @@
 #import <Instagram/IGCollectionViewController.h>
 #import <Instagram/IGFeedNetworkSourceDelegate.h>
 #import <Instagram/IGFeedStatusViewDynamicHeightProtocol.h>
-#import <Instagram/IGCollectionViewControllerDataSource.h>
 #import <Instagram/IGCollectionViewControllerDelegate.h>
 
 @class NSMapTable, IGFeedNetworkSource, UIBarButtonItem, IGFeedStatusView, NSArray, NSString;
 
-@interface IGFeedNetworkSourceViewController : IGCollectionViewController <IGFeedNetworkSourceDelegate, IGFeedStatusViewDynamicHeightProtocol, IGCollectionViewControllerDataSource, IGCollectionViewControllerDelegate> {
+@interface IGFeedNetworkSourceViewController : IGCollectionViewController <IGFeedNetworkSourceDelegate, IGFeedStatusViewDynamicHeightProtocol, IGCollectionViewControllerDelegate> {
 
 	NSMapTable* _headerViewsToRank;
 	NSMapTable* _footerViewsToRank;
@@ -54,7 +53,6 @@
 -(void)removeHeaderView:(id)arg1 animated:(char)arg2 ;
 -(void)addHeaderView:(id)arg1 withRank:(int)arg2 animated:(char)arg3 ;
 -(void)layoutHeaderViews;
--(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
 -(void)reloadWithNewObjects:(id)arg1 ;
 -(void)showErrorLoadMessageIfPossible;
@@ -79,16 +77,13 @@
 -(void)finishPullToRefreshIfNecessary;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(void)handleDidEndScrolling;
--(void)onRefreshTapped:(id)arg1 ;
+-(void)didTakeRefreshAction;
 -(void)reloadDataFromServer;
+-(void)onRefreshTapped:(id)arg1 ;
 -(void)layoutFooterViews;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(void)feedStatusView:(id)arg1 wantsChangeToHeight:(float)arg2 ;
 -(float)visibleContentHeight;
--(id)collectionViewController:(id)arg1 viewForSupplementaryViewOfKind:(id)arg2 forItemAtIndexPath:(id)arg3 ;
--(int)collectionViewController:(id)arg1 numberOfSectionsForObjects:(id)arg2 context:(id)arg3 ;
--(int)collectionViewController:(id)arg1 numberOfItemsInSection:(int)arg2 withObjects:(id)arg3 context:(id)arg4 ;
--(CGSize)collectionViewController:(id)arg1 sizeForItemAtIndexPath:(id)arg2 withViewWidth:(float)arg3 withObjects:(id)arg4 context:(id)arg5 ;
 -(void)collectionViewControllerDidStartPullToRefreshAction:(id)arg1 ;
 -(void)collectionViewController:(id)arg1 didScrollWithDistanceToEndOfContent:(float)arg2 isScrollingDown:(char)arg3 ;
 -(id)initWithFeedNetworkSource:(id)arg1 layout:(id)arg2 showsPullToRefresh:(char)arg3 ;

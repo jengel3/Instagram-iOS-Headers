@@ -7,7 +7,6 @@
 -(void)userInTaggingViewDidAddTag:(id)arg1;
 -(void)userInTaggingViewDidRemoveTag:(id)arg1;
 -(void)userInTaggingViewDidMoveTag:(id)arg1;
--(void)userInTaggingViewDidFinishTaggingFace;
 
 @end
 

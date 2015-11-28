@@ -3,34 +3,38 @@
 #import <UIKit/UIScrollView.h>
 #import <Instagram/IGTextFieldDelegate.h>
 
-@class UIButton, IGTextField, IGCoreTextView, UIImageView, UILabel, NSString;
+@class UIButton, IGRetroRegistrationTextField, IGCoreTextView, UIImageView, UILabel, NSString;
 
 @interface IGRetroRegistrationSMSVerificationScrollView : UIScrollView <IGTextFieldDelegate> {
 
 	UIButton* _nextButton;
-	IGTextField* _codeField;
-	IGCoreTextView* _accessView;
+	IGRetroRegistrationTextField* _codeField;
+	IGCoreTextView* _resendCodeTextView;
+	IGCoreTextView* _backupCodeTextView;
 	UIImageView* _iconView;
 	UILabel* _titleLabel;
 	UILabel* _descriptionLabel;
 
 }
 
-@property (nonatomic,retain) UIButton * nextButton;                    //@synthesize nextButton=_nextButton - In the implementation block
-@property (nonatomic,retain) IGTextField * codeField;                  //@synthesize codeField=_codeField - In the implementation block
-@property (nonatomic,retain) IGCoreTextView * accessView;              //@synthesize accessView=_accessView - In the implementation block
-@property (nonatomic,retain) UIImageView * iconView;                   //@synthesize iconView=_iconView - In the implementation block
-@property (nonatomic,retain) UILabel * titleLabel;                     //@synthesize titleLabel=_titleLabel - In the implementation block
-@property (nonatomic,retain) UILabel * descriptionLabel;               //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
+@property (nonatomic,retain) UIButton * nextButton;                                 //@synthesize nextButton=_nextButton - In the implementation block
+@property (nonatomic,retain) IGRetroRegistrationTextField * codeField;              //@synthesize codeField=_codeField - In the implementation block
+@property (nonatomic,retain) IGCoreTextView * resendCodeTextView;                   //@synthesize resendCodeTextView=_resendCodeTextView - In the implementation block
+@property (nonatomic,retain) IGCoreTextView * backupCodeTextView;                   //@synthesize backupCodeTextView=_backupCodeTextView - In the implementation block
+@property (nonatomic,retain) UIImageView * iconView;                                //@synthesize iconView=_iconView - In the implementation block
+@property (nonatomic,retain) UILabel * titleLabel;                                  //@synthesize titleLabel=_titleLabel - In the implementation block
+@property (nonatomic,retain) UILabel * descriptionLabel;                            //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGTextField *)codeField;
--(IGCoreTextView *)accessView;
+-(IGRetroRegistrationTextField *)codeField;
+-(IGCoreTextView *)resendCodeTextView;
+-(IGCoreTextView *)backupCodeTextView;
 -(void)updateDescriptionWithPhoneNumber:(id)arg1 ;
--(void)setCodeField:(IGTextField *)arg1 ;
--(void)setAccessView:(IGCoreTextView *)arg1 ;
+-(void)setCodeField:(IGRetroRegistrationTextField *)arg1 ;
+-(void)setResendCodeTextView:(IGCoreTextView *)arg1 ;
+-(void)setBackupCodeTextView:(IGCoreTextView *)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(UILabel *)descriptionLabel;
 -(id)initWithFrame:(CGRect)arg1 ;

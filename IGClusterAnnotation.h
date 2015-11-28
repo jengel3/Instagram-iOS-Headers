@@ -11,15 +11,15 @@
 	IGQuadtreeCluster* _cluster;
 	CGPoint _centerOfPreviousAnnotation;
 	CGPoint _centerOfAnnotation;
-	SCD_Struct_IG30 _coordinate;
-	SCD_Struct_IG30 _coordinateOfPreviousAnnotation;
+	SCD_Struct_IG25 _coordinate;
+	SCD_Struct_IG25 _coordinateOfPreviousAnnotation;
 
 }
 
 @property (nonatomic,readonly) IGQuadtreeCluster * cluster;                               //@synthesize cluster=_cluster - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG30 coordinate;                                  //@synthesize coordinate=_coordinate - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG25 coordinate;                                  //@synthesize coordinate=_coordinate - In the implementation block
 @property (assign,nonatomic) CGPoint centerOfPreviousAnnotation;                          //@synthesize centerOfPreviousAnnotation=_centerOfPreviousAnnotation - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG30 coordinateOfPreviousAnnotation;              //@synthesize coordinateOfPreviousAnnotation=_coordinateOfPreviousAnnotation - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG25 coordinateOfPreviousAnnotation;              //@synthesize coordinateOfPreviousAnnotation=_coordinateOfPreviousAnnotation - In the implementation block
 @property (assign,nonatomic) CGPoint centerOfAnnotation;                                  //@synthesize centerOfAnnotation=_centerOfAnnotation - In the implementation block
 @property (assign,nonatomic) char hasPreviousAnnotaton;                                   //@synthesize hasPreviousAnnotaton=_hasPreviousAnnotaton - In the implementation block
 @property (readonly) unsigned hash; 
@@ -30,15 +30,15 @@
 @property (nonatomic,copy,readonly) NSString * subtitle; 
 -(CGPoint)centerOfPreviousAnnotation;
 -(void)setCenterOfPreviousAnnotation:(CGPoint)arg1 ;
--(SCD_Struct_IG30)coordinateOfPreviousAnnotation;
--(void)setCoordinateOfPreviousAnnotation:(SCD_Struct_IG30)arg1 ;
+-(SCD_Struct_IG25)coordinateOfPreviousAnnotation;
+-(void)setCoordinateOfPreviousAnnotation:(SCD_Struct_IG25)arg1 ;
 -(CGPoint)centerOfAnnotation;
 -(void)setCenterOfAnnotation:(CGPoint)arg1 ;
 -(char)hasPreviousAnnotaton;
 -(void)setHasPreviousAnnotaton:(char)arg1 ;
 -(id)init:(id)arg1 ;
--(void)setCoordinate:(SCD_Struct_IG30)arg1 ;
--(SCD_Struct_IG30)coordinate;
+-(void)setCoordinate:(SCD_Struct_IG25)arg1 ;
+-(SCD_Struct_IG25)coordinate;
 -(int)count;
 -(NSString *)title;
 -(NSString *)subtitle;

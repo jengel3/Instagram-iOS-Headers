@@ -20,6 +20,7 @@
 	CLLocation* _mediaCoord;
 	NSMutableOrderedSet* _likers;
 	int _likeCount;
+	NSNumber* _viewCount;
 	NSMutableDictionary* _pendingComments;
 	NSArray* _activeComments;
 	IGCommentModel* _caption;
@@ -48,6 +49,7 @@
 @property (readonly) CLLocation * mediaCoord;                          //@synthesize mediaCoord=_mediaCoord - In the implementation block
 @property (readonly) NSMutableOrderedSet * likers;                     //@synthesize likers=_likers - In the implementation block
 @property (readonly) int likeCount;                                    //@synthesize likeCount=_likeCount - In the implementation block
+@property (readonly) NSNumber * viewCount;                             //@synthesize viewCount=_viewCount - In the implementation block
 @property (readonly) char hasLiked;                                    //@synthesize hasLiked=_hasLiked - In the implementation block
 @property (readonly) IGCommentModel * caption;                         //@synthesize caption=_caption - In the implementation block
 @property (readonly) char captionIsEdited;                             //@synthesize captionIsEdited=_captionIsEdited - In the implementation block
@@ -106,10 +108,10 @@
 -(NSArray *)allComments;
 -(NSMutableOrderedSet *)likers;
 -(char)postIsBroken;
+-(IGDate *)takenAt;
 -(char)hasLiked;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
 -(char)needsFetch;
--(IGDate *)takenAt;
 -(CLLocation *)mediaCoord;
 -(void)setNeedsFetch:(char)arg1 ;
 -(int)linkStyle;
@@ -140,6 +142,7 @@
 -(void)setMediaCoord:(CLLocation *)arg1 ;
 -(void)setLikers:(NSMutableOrderedSet *)arg1 ;
 -(void)setHasLiked:(char)arg1 ;
+-(void)setViewCount:(NSNumber *)arg1 ;
 -(void)setPendingComments:(NSMutableDictionary *)arg1 ;
 -(IGDate *)lastCommentTimeStamp;
 -(IGDate *)lastReadTimeStamp;
@@ -171,5 +174,6 @@
 -(IGVideo *)video;
 -(void)addComment:(id)arg1 ;
 -(char)updateWithDictionary:(id)arg1 ;
+-(NSNumber *)viewCount;
 @end
 

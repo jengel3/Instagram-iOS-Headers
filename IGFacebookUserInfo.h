@@ -1,18 +1,21 @@
 
 #import <libobjc.A.dylib/NSCoding.h>
 
-@class NSMutableDictionary, NSString;
+@class NSString;
 
 @interface IGFacebookUserInfo : NSObject <NSCoding> {
 
-	NSMutableDictionary* _dictionary;
+	char _isEmployee;
+	char _usesDefaultProfilePicture;
+	NSString* _userID;
+	NSString* _fullName;
 
 }
 
-@property (nonatomic,readonly) NSString * userID; 
-@property (nonatomic,readonly) NSString * fullName; 
-@property (nonatomic,readonly) char isEmployee; 
-@property (nonatomic,readonly) char usesDefaultProfilePicture; 
+@property (nonatomic,readonly) NSString * userID;                           //@synthesize userID=_userID - In the implementation block
+@property (nonatomic,readonly) NSString * fullName;                         //@synthesize fullName=_fullName - In the implementation block
+@property (nonatomic,readonly) char isEmployee;                             //@synthesize isEmployee=_isEmployee - In the implementation block
+@property (nonatomic,readonly) char usesDefaultProfilePicture;              //@synthesize usesDefaultProfilePicture=_usesDefaultProfilePicture - In the implementation block
 -(char)isEmployee;
 -(id)initWithGraphUserDictionary:(id)arg1 ;
 -(char)usesDefaultProfilePicture;

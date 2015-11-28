@@ -1,16 +1,19 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
 #import <Instagram/IGSignUpViewDelegate.h>
 #import <Instagram/IGLogInViewDelegate.h>
 #import <Instagram/IGLogInViewOnePasswordDelegate.h>
 #import <Instagram/IGRetroRegistrationSMSVerificationViewControllerDelegate.h>
+#import <Instagram/IGResetPasswordDelegate.h>
 
 @protocol IGWelcomeViewControllerDelegate;
 @class IGSignUpView, IGLogInView, IGRegistrationToggleView, IGWelcomeBackgroundView, UIButton, NSString;
 
-@interface IGWelcomeViewController : IGViewController <IGSignUpViewDelegate, IGLogInViewDelegate, IGLogInViewOnePasswordDelegate, IGRetroRegistrationSMSVerificationViewControllerDelegate> {
+@interface IGWelcomeViewController : IGViewController <IGSignUpViewDelegate, IGLogInViewDelegate, IGLogInViewOnePasswordDelegate, IGRetroRegistrationSMSVerificationViewControllerDelegate, IGResetPasswordDelegate> {
 
 	char _textFieldTextDidChange;
+	char _isKeyboardShown;
 	id<IGWelcomeViewControllerDelegate> _delegate;
 	IGSignUpView* _signUpView;
 	IGLogInView* _logInView;
@@ -29,6 +32,7 @@
 @property (nonatomic,retain) UIButton * dismissButton;                                         //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (assign,nonatomic) int registrationMode;                                             //@synthesize registrationMode=_registrationMode - In the implementation block
 @property (assign,nonatomic) char textFieldTextDidChange;                                      //@synthesize textFieldTextDidChange=_textFieldTextDidChange - In the implementation block
+@property (assign,nonatomic) char isKeyboardShown;                                             //@synthesize isKeyboardShown=_isKeyboardShown - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -37,6 +41,8 @@
 -(IGRegistrationToggleView *)toggleView;
 -(void)setToggleView:(IGRegistrationToggleView *)arg1 ;
 -(void)onFacebookAuthCancelled;
+-(void)resetPasswordController:(id)arg1 dismissWithTwoFactorInfo:(id)arg2 ;
+-(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
 -(IGSignUpView *)signUpView;
 -(IGLogInView *)logInView;
 -(void)logInWithFacebookTapped;
@@ -63,7 +69,6 @@
 -(void)setLogInView:(IGLogInView *)arg1 ;
 -(void)setSignUpView:(IGSignUpView *)arg1 ;
 -(void)loginEmailCallback:(id)arg1 ;
--(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
 -(void)logInView:(id)arg1 willProceedWithKeyboard:(char)arg2 ;
 -(void)logInView:(id)arg1 didDismissForHelpWithUsername:(id)arg2 ;
 -(void)logInViewDidPromptForOnePassword:(id)arg1 ;
@@ -72,9 +77,13 @@
 -(void)signUpView:(id)arg1 didBeginEditingTextField:(id)arg2 ;
 -(void)signUpView:(id)arg1 didChangeTextField:(id)arg2 ;
 -(void)signUpView:(id)arg1 willProceedWithEmail:(id)arg2 keyboard:(char)arg3 ;
+-(void)layoutViewWithoutKeyboard;
 -(void)setTextFieldTextDidChange:(char)arg1 ;
 -(void)logTextFieldEvent:(id)arg1 forTextField:(id)arg2 ;
 -(char)textFieldTextDidChange;
+-(void)layoutViewsWithKeyboardAtRect:(CGRect)arg1 ;
+-(void)setIsKeyboardShown:(char)arg1 ;
+-(char)isKeyboardShown;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)setDelegate:(id<IGWelcomeViewControllerDelegate>)arg1 ;
 -(void)dealloc;
@@ -82,11 +91,13 @@
 -(id<IGWelcomeViewControllerDelegate>)delegate;
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2 ;
 -(char)prefersStatusBarHidden;
+-(void)viewDidLayoutSubviews;
 -(void)setBackgroundView:(IGWelcomeBackgroundView *)arg1 ;
 -(IGWelcomeBackgroundView *)backgroundView;
 -(void)textFieldDidBeginEditing:(id)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
+-(void)keyboardDidHide:(id)arg1 ;
 -(void)dismiss;
 -(UIButton *)dismissButton;
 -(void)setDismissButton:(UIButton *)arg1 ;

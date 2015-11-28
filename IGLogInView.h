@@ -4,7 +4,7 @@
 #import <Instagram/IGTextFieldDelegate.h>
 
 @protocol IGLogInViewDelegate, IGLogInViewOnePasswordDelegate;
-@class IGTextField, IGPasswordField, IGFacebookButton, UIView, NSString;
+@class IGTextField, IGPasswordField, IGFacebookButton, IGWelcomeSeparator, UIView, NSString;
 
 @interface IGLogInView : UIView <IGTextFieldDelegate> {
 
@@ -15,8 +15,10 @@
 	IGTextField* _usernameField;
 	IGPasswordField* _passwordField;
 	IGFacebookButton* _facebookButton;
-	UIView* _facebookButtonSeparator;
+	IGWelcomeSeparator* _facebookButtonSeparator;
 	float _fieldHeight;
+	UIView* _usernameFieldLine;
+	UIView* _passwordFieldLine;
 
 }
 
@@ -28,8 +30,10 @@
 @property (nonatomic,retain) IGFacebookButton * facebookButton;                                          //@synthesize facebookButton=_facebookButton - In the implementation block
 @property (assign,nonatomic) char submitting;                                                            //@synthesize submitting=_submitting - In the implementation block
 @property (assign,nonatomic) char fromReg;                                                               //@synthesize fromReg=_fromReg - In the implementation block
-@property (nonatomic,retain) UIView * facebookButtonSeparator;                                           //@synthesize facebookButtonSeparator=_facebookButtonSeparator - In the implementation block
+@property (nonatomic,retain) IGWelcomeSeparator * facebookButtonSeparator;                               //@synthesize facebookButtonSeparator=_facebookButtonSeparator - In the implementation block
 @property (assign,nonatomic) float fieldHeight;                                                          //@synthesize fieldHeight=_fieldHeight - In the implementation block
+@property (nonatomic,retain) UIView * usernameFieldLine;                                                 //@synthesize usernameFieldLine=_usernameFieldLine - In the implementation block
+@property (nonatomic,retain) UIView * passwordFieldLine;                                                 //@synthesize passwordFieldLine=_passwordFieldLine - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -43,7 +47,7 @@
 -(IGFacebookButton *)facebookButton;
 -(id)initWithFrame:(CGRect)arg1 credentialsFormHeight:(float)arg2 ;
 -(void)setFieldHeight:(float)arg1 ;
--(UIView *)facebookButtonSeparator;
+-(IGWelcomeSeparator *)facebookButtonSeparator;
 -(float)fieldHeight;
 -(void)forgotTapped;
 -(void)logInButtonTapped;
@@ -51,15 +55,20 @@
 -(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(char)fromReg;
 -(void)setFromReg:(char)arg1 ;
--(void)setFacebookButtonSeparator:(UIView *)arg1 ;
+-(void)setFacebookButtonSeparator:(IGWelcomeSeparator *)arg1 ;
 -(void)configureOnePasswordExtensionIfNeeded;
 -(id<IGLogInViewOnePasswordDelegate>)onePasswordDelegate;
 -(void)didTapOnePasswordButton:(id)arg1 ;
+-(UIView *)usernameFieldLine;
+-(UIView *)passwordFieldLine;
 -(void)setOnePasswordDelegate:(id<IGLogInViewOnePasswordDelegate>)arg1 ;
+-(void)setUsernameFieldLine:(UIView *)arg1 ;
+-(void)setPasswordFieldLine:(UIView *)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGLogInViewDelegate>)arg1 ;
 -(void)dealloc;
+-(void)layoutSubviews;
 -(id<IGLogInViewDelegate>)delegate;
 -(char)becomeFirstResponder;
 -(void)textFieldDidBeginEditing:(id)arg1 ;

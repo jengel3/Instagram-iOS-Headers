@@ -19,8 +19,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
++(id)allServiceTypes;
 +(id)shareServicesForServiceTypes:(id)arg1 ;
 +(id)imageForServiceType:(int)arg1 enabled:(char)arg2 ;
++(id)serviceTypeToServiceHelperClassDictionary;
 +(id)sharedServiceManager;
 -(id)shortNameForService:(int)arg1 ;
 -(char)serviceIsConfigured:(int)arg1 ;
@@ -29,7 +31,6 @@
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
--(id)allServiceTypes;
 -(id)nameForService:(int)arg1 ;
 -(void)setServiceMap:(NSDictionary *)arg1 ;
 -(char)serviceIsConfigurable:(int)arg1 ;

@@ -31,11 +31,11 @@
 @property (assign,getter=isVerified,nonatomic) char verified;                  //@synthesize verified=_verified - In the implementation block
 @property (assign,nonatomic) unsigned action;                                  //@synthesize action=_action - In the implementation block
 @property (assign,nonatomic) int maxThumbnails;                                //@synthesize maxThumbnails=_maxThumbnails - In the implementation block
+-(char)isVerified;
 -(NSString *)byline;
 -(NSArray *)thumbnailURLs;
 -(int)maxThumbnails;
 -(NSIndexSet *)thumbnailVideoIndexes;
--(char)isVerified;
 -(void)setThumbnailURLs:(NSArray *)arg1 ;
 -(void)setThumbnailVideoIndexes:(NSIndexSet *)arg1 ;
 -(void)setMaxThumbnails:(int)arg1 ;

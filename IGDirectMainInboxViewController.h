@@ -117,6 +117,7 @@
 -(void)megaphoneDidDismiss:(id)arg1 ;
 -(void)pendingInbox:(id)arg1 didUpdateThread:(id)arg2 withAccept:(char)arg3 remainingInviter:(id)arg4 ;
 -(void)pendingInboxDidClear:(id)arg1 ;
+-(void)pendingInboxDidActionThreads:(id)arg1 ;
 -(void)megaphone:(id)arg1 didOpenURL:(id)arg2 ;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;

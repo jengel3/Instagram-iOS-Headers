@@ -18,6 +18,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(void)clearForUserPK:(id)arg1 ;
++(id)shortServiceName;
++(void)logoutFromDefaults:(id)arg1 ;
 +(id)serviceName;
 +(id)sharedHelper;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
@@ -33,7 +36,6 @@
 -(char)hasEverBeenConfigured;
 -(char)isAvailableInCurrentLocale;
 -(char)supportsMediaType:(int)arg1 ;
--(id)shortServiceName;
 -(char)needsToReauthorize;
 -(void)reauthorizeIfNeeded;
 -(id)viewControllerForAdvancedOptions;

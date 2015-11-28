@@ -53,7 +53,7 @@
 	IGVideoTrimViewControl* _trimViewControl;
 	IGVideoScrubberView* _scrubberView;
 	IGOverlayNuxController* _overlayNuxController;
-	SCD_Struct_IG47 _keyTime;
+	SCD_Struct_IG43 _keyTime;
 
 }
 
@@ -93,7 +93,7 @@
 @property (assign,nonatomic) char needsVideoUpdate;                                            //@synthesize needsVideoUpdate=_needsVideoUpdate - In the implementation block
 @property (assign,nonatomic) char trimAnimationAlreadyShown;                                   //@synthesize trimAnimationAlreadyShown=_trimAnimationAlreadyShown - In the implementation block
 @property (assign,nonatomic) char isClipTrimMode;                                              //@synthesize isClipTrimMode=_isClipTrimMode - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG47 keyTime;                                          //@synthesize keyTime=_keyTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG43 keyTime;                                          //@synthesize keyTime=_keyTime - In the implementation block
 @property (assign,nonatomic) char didReorderTray;                                              //@synthesize didReorderTray=_didReorderTray - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -164,8 +164,8 @@
 -(IGVideoInfo *)videoInfo;
 -(id)initWithVideoInfo:(id)arg1 mediaMetadata:(id)arg2 ;
 -(void)filterPlayerViewDidFinishPlaying;
--(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG47)arg2 ;
--(id)cachedThumbnailForClip:(id)arg1 andTime:(SCD_Struct_IG47)arg2 ;
+-(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG43)arg2 ;
+-(id)cachedThumbnailForClip:(id)arg1 andTime:(SCD_Struct_IG43)arg2 ;
 -(void)didTapClipAtIndexPath:(id)arg1 ;
 -(void)clipController:(id)arg1 didChangeClipOrder:(id)arg2 ;
 -(void)clipControllerDidStartReordering:(id)arg1 ;
@@ -213,11 +213,11 @@
 -(void)exitTrimControlView;
 -(char)needsVideoUpdate;
 -(void)generateScrubberFrames;
--(void)setKeyTime:(SCD_Struct_IG47)arg1 ;
+-(void)setKeyTime:(SCD_Struct_IG43)arg1 ;
 -(void)populateThumbnailCacheForClipIndex:(unsigned)arg1 ;
--(void)cacheThumbnail:(id)arg1 forClip:(id)arg2 andTime:(SCD_Struct_IG47)arg3 ;
--(id)cacheKeyForClip:(id)arg1 filter:(id)arg2 time:(SCD_Struct_IG47)arg3 ;
--(SCD_Struct_IG47)keyTime;
+-(void)cacheThumbnail:(id)arg1 forClip:(id)arg2 andTime:(SCD_Struct_IG43)arg3 ;
+-(id)cacheKeyForClip:(id)arg1 filter:(id)arg2 time:(SCD_Struct_IG43)arg3 ;
+-(SCD_Struct_IG43)keyTime;
 -(void)scrubberViewDidMoveHandleToPosition:(float)arg1 ;
 -(void)videoTrimViewDidPressDone;
 -(void)videoTrimViewDidPressCancel;

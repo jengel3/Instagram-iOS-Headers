@@ -24,6 +24,7 @@
 @property (assign,nonatomic,__weak) id<IGDirectContentUpoadCellDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(id)emojiCommentStyle;
 +(id)commentStyle;
++(char)handlesExternalURLs;
 +(float)commentWidthForFrameWidth:(float)arg1 ;
 +(float)heightForCellWithCommentText:(id)arg1 forWidth:(float)arg2 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;

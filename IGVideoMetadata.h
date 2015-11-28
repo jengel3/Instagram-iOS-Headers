@@ -38,6 +38,7 @@
 -(int)posterFrameIndex;
 -(float)videoTimeLength;
 -(int)videoSourceType;
+-(char)isBoomerang;
 -(void)setPosterFrameIndex:(int)arg1 ;
 -(void)setIsAudioMuted:(char)arg1 ;
 -(char)isAudioMuted;

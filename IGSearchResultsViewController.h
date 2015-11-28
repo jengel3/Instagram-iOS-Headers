@@ -2,11 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGPlainTableViewController.h>
 #import <Instagram/IGAutocompleteAsyncDataSourceDelegate.h>
+#import <Instagram/IGRaindropAnalyticsDelegate.h>
 
 @protocol IGAutocompleteAsyncDataSourceIGAutocompleteNetworkDataSourceAnalytics, IGSearchResultsViewControllerDelegate;
 @class NSString, IGExploreSearchViewController, NSOrderedSet, NSMutableArray;
 
-@interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate> {
+@interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate, IGRaindropAnalyticsDelegate> {
 
 	char _isSearching;
 	char _isBackSpace;
@@ -37,19 +38,24 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(id)getRaindropResultIdFromItem:(id)arg1 ;
-+(id)getRaindropInstagramEntityFromItem:(id)arg1 ;
-+(id)getTargetIdFromItem:(id)arg1 ;
++(char)matchQuery:(id)arg1 forItem:(id)arg2 ;
++(id)targetIdFromItem:(id)arg1 ;
++(id)raindropResultIdFromItem:(id)arg1 ;
++(id)sectionWithHostingViewController:(id)arg1 recentItems:(id)arg2 shouldShowSuggestedSection:(char)arg3 ;
++(id)raindropInstagramEntityFromItem:(id)arg1 ;
 -(id)searchingCellForTableView:(id)arg1 ;
 -(void)autocompleteDataSourceDidFinishLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFailLoad:(id)arg1 ;
+-(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(id)initWithHostingViewController:(id)arg1 dataSource:(id)arg2 ;
+-(char)shouldShowSuggestedSection;
 -(void)reloadTableView;
 -(void)logItemTap:(id)arg1 atRow:(int)arg2 searchString:(id)arg3 ;
 -(unsigned)minUnSeenRow;
 -(void)onSearchTextDidChange:(id)arg1 ;
 -(void)filterBySearchString:(id)arg1 ;
+-(void)clearSearchHistory;
 -(void)logSearchCancelEventForSearchString:(id)arg1 ;
 -(void)logSearchCancelRaindropEvent;
 -(void)logRaindropSearchQueryEvent;
@@ -57,6 +63,7 @@
 -(int)searchResultState;
 -(char)noSearchQuery;
 -(char)isSearchingIndicatorSection:(int)arg1 ;
+-(char)shouldShowSectionHeader;
 -(void)searchDidEnd;
 -(void)searchDidStart;
 -(void)transitionToVisibleState;
@@ -78,6 +85,7 @@
 -(void)logSearchResponseToSearchText:(id)arg1 rankToken:(id)arg2 ;
 -(id)noResultsCellForTableView:(id)arg1 ;
 -(id)tableView:(id)arg1 resultCellForIndexPath:(id)arg2 ;
+-(id)newSectionTitleWithFrame:(CGRect)arg1 title:(id)arg2 isHistory:(char)arg3 ;
 -(void)didSelectResultRowAtIndexPath:(id)arg1 ;
 -(void)logUserSearchQuery;
 -(NSMutableArray *)searchQueryArray;
@@ -85,6 +93,7 @@
 -(char)isBackSpace;
 -(void)setIsBackSpace:(char)arg1 ;
 -(void)setHostingViewController:(IGExploreSearchViewController *)arg1 ;
+-(void)clearButtonTapped;
 -(char)isSearching;
 -(void)setSearchText:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGSearchResultsViewControllerDelegate>)arg1 ;

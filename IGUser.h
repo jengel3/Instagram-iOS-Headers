@@ -110,8 +110,8 @@
 -(int)privacyStatus;
 -(char)isUnpublished;
 -(void)setMediaCount:(NSNumber *)arg1 ;
--(NSString *)byline;
 -(char)isVerified;
+-(NSString *)byline;
 -(void)setByline:(NSString *)arg1 ;
 -(void)changeFriendshipStatusWithAction:(int)arg1 ;
 -(void)setFollowStatus:(int)arg1 ;
@@ -124,12 +124,12 @@
 -(NSNumber *)followingCount;
 -(void)fetchFollowStatus;
 -(void)setProfilePicURL:(NSURL *)arg1 ;
+-(NSNumber *)friendScore;
 -(NSString *)trackingToken;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(char)hasSimilarUsers;
 -(void)setIncomingRequestPending:(char)arg1 ;
 -(NSNumber *)mutualFollowersCount;
--(NSNumber *)friendScore;
 -(void)onFriendStatusReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onFriendStatusFailed:(id)arg1 fromRequest:(id)arg2 ;
 -(void)setLastFollowStatus:(int)arg1 ;
