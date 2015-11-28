@@ -1,10 +1,3 @@
-#import <Instagram/IGFeedItemRowItem.h>
-#import <Instagram/IGFeedItemTimelineLayoutAttributes.h>
-#import <Instagram/IGAlertActionBar.h>
-#import <Instagram/IGAlertBar.h>
-#import <Instagram/IGAlertHUD.h>
-#import <Instagram/IGAlertView.h>
-#import <Instagram/IGAppInstallAlertViewController.h>
 #import <Instagram/IGQuickHUD.h>
 #import <Instagram/IGAnalyticsWaterfall.h>
 #import <Instagram/IGAnalyticsWaterfallManager.h>
