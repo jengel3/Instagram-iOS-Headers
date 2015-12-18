@@ -50,8 +50,8 @@
 -(void)profilePictureTapped:(id)arg1 ;
 -(IGProfilePictureImageView *)profilePictureView;
 -(void)setProfilePictureView:(IGProfilePictureImageView *)arg1 ;
--(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 analyticsDelegate:(id)arg3 ;
 -(void)imageViewTapped:(id)arg1 ;
+-(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 analyticsDelegate:(id)arg3 ;
 -(void)createImageViews:(int)arg1 ;
 -(IGNewsStory *)story;
 -(void)applyHighlight:(char)arg1 ;

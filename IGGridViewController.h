@@ -7,20 +7,20 @@
 #import <libobjc.A.dylib/PHPhotoLibraryChangeObserver.h>
 
 @protocol IGGridViewControllerDelegate, IGGridViewControllerScrollDelegate, OS_dispatch_queue;
-@class NSMutableArray, ALAssetsLibrary, PHFetchResult, NSObject, UICollectionView, PHAssetCollection, PHCachingImageManager, PHImageRequestOptions, NSArray, ALAssetsGroup, NSString;
+@class NSMutableArray, NSArray, PHFetchResult, NSObject, UICollectionView, PHAssetCollection, PHCachingImageManager, PHImageRequestOptions, ALAssetsLibrary, ALAssetsGroup, NSString;
 
 @interface IGGridViewController : UIViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, PHPhotoLibraryChangeObserver> {
 
-	id _firstAsset;
 	char _allPhotosAlbumOnly;
 	char _showSelectedOverlay;
-	char _showImagesOnly;
+	char _photosOnly;
 	char _videoMultipleSelectionMode;
 	char _needsSetPhotoLibraryOptions;
+	id _firstAsset;
 	NSMutableArray* _selectedAssets;
 	id<IGGridViewControllerDelegate> _delegate;
 	id<IGGridViewControllerScrollDelegate> _scrollDelegate;
-	ALAssetsLibrary* _assetsLibrary;
+	NSArray* _preselectedIdentifiers;
 	PHFetchResult* _result;
 	NSObject*<OS_dispatch_queue> _queue;
 	UICollectionView* _collectionView;
@@ -28,6 +28,7 @@
 	PHAssetCollection* _collection;
 	PHCachingImageManager* _imageManager;
 	PHImageRequestOptions* _imageRequestOptions;
+	ALAssetsLibrary* _assetsLibrary;
 	NSArray* _assets;
 	ALAssetsGroup* _group;
 	CGSize _thumbnailSize;
@@ -35,16 +36,16 @@
 
 }
 
-@property (nonatomic,readonly) id firstAsset; 
+@property (nonatomic,readonly) id firstAsset;                                                           //@synthesize firstAsset=_firstAsset - In the implementation block
 @property (nonatomic,retain) NSMutableArray * selectedAssets;                                           //@synthesize selectedAssets=_selectedAssets - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGridViewControllerDelegate> delegate;                          //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGridViewControllerScrollDelegate> scrollDelegate;              //@synthesize scrollDelegate=_scrollDelegate - In the implementation block
 @property (nonatomic,readonly) NSString * currentAlbumTitle; 
-@property (nonatomic,retain) ALAssetsLibrary * assetsLibrary;                                           //@synthesize assetsLibrary=_assetsLibrary - In the implementation block
 @property (assign,nonatomic) char allPhotosAlbumOnly;                                                   //@synthesize allPhotosAlbumOnly=_allPhotosAlbumOnly - In the implementation block
 @property (assign,nonatomic) char showSelectedOverlay;                                                  //@synthesize showSelectedOverlay=_showSelectedOverlay - In the implementation block
-@property (assign,nonatomic) char showImagesOnly;                                                       //@synthesize showImagesOnly=_showImagesOnly - In the implementation block
+@property (assign,nonatomic) char photosOnly;                                                           //@synthesize photosOnly=_photosOnly - In the implementation block
 @property (assign,nonatomic) char videoMultipleSelectionMode;                                           //@synthesize videoMultipleSelectionMode=_videoMultipleSelectionMode - In the implementation block
+@property (nonatomic,retain) NSArray * preselectedIdentifiers;                                          //@synthesize preselectedIdentifiers=_preselectedIdentifiers - In the implementation block
 @property (nonatomic,retain) PHFetchResult * result;                                                    //@synthesize result=_result - In the implementation block
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> queue;                                        //@synthesize queue=_queue - In the implementation block
 @property (nonatomic,retain) UICollectionView * collectionView;                                         //@synthesize collectionView=_collectionView - In the implementation block
@@ -53,6 +54,7 @@
 @property (nonatomic,retain) PHCachingImageManager * imageManager;                                      //@synthesize imageManager=_imageManager - In the implementation block
 @property (nonatomic,retain) PHImageRequestOptions * imageRequestOptions;                               //@synthesize imageRequestOptions=_imageRequestOptions - In the implementation block
 @property (assign,nonatomic) char needsSetPhotoLibraryOptions;                                          //@synthesize needsSetPhotoLibraryOptions=_needsSetPhotoLibraryOptions - In the implementation block
+@property (nonatomic,retain) ALAssetsLibrary * assetsLibrary;                                           //@synthesize assetsLibrary=_assetsLibrary - In the implementation block
 @property (nonatomic,retain) NSArray * assets;                                                          //@synthesize assets=_assets - In the implementation block
 @property (nonatomic,retain) ALAssetsGroup * group;                                                     //@synthesize group=_group - In the implementation block
 @property (assign,nonatomic) CGRect previousPreheatRect;                                                //@synthesize previousPreheatRect=_previousPreheatRect - In the implementation block
@@ -63,6 +65,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(float)cellSpacing;
 -(char)usePhotosFramework;
+-(NSArray *)preselectedIdentifiers;
+-(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
 -(void)setShowSelectedOverlay:(char)arg1 ;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(char)showSelectedOverlay;
@@ -72,16 +76,18 @@
 -(void)setPhotosLibraryOptions;
 -(void)resetCachedAssets;
 -(void)assetsLibraryDidChange:(id)arg1 ;
+-(char)hasPreselectedIdentifiers;
+-(void)selectAsset:(id)arg1 ;
 -(char)allPhotosAlbumOnly;
 -(void)setCollectionFetchResult:(PHFetchResult *)arg1 ;
 -(PHFetchResult *)collectionFetchResult;
 -(void)setDefaultAlbum:(/*^block*/id)arg1 ;
 -(void)filterAssetsGroup:(id)arg1 ;
--(char)showImagesOnly;
+-(char)photosOnly;
 -(void)updateCachedAssets;
 -(void)reselectSelectedAssets;
 -(unsigned)indexOfAsset:(id)arg1 ;
--(void)internalSelectAsset:(id)arg1 ;
+-(void)addToSelectAssets:(id)arg1 ;
 -(char)videoMultipleSelectionMode;
 -(CGRect)selectedAssetFrame;
 -(unsigned)indexOfSelectedAsset:(id)arg1 ;
@@ -96,12 +102,11 @@
 -(id)indexPathsFromIndexes:(id)arg1 indexTranslationBlock:(/*^block*/id)arg2 ;
 -(void)refreshAssetGroup:(id)arg1 ;
 -(void)setVideoMultipleSelectionMode:(char)arg1 ;
--(void)selectAsset:(id)arg1 ;
--(void)setAlbum:(id)arg1 fetchResult:(id)arg2 ;
+-(void)setAlbum:(id)arg1 fromCollectionFetchResult:(id)arg2 ;
 -(void)scrollToIndexPath:(id)arg1 animated:(char)arg2 ;
 -(void)setContentInset:(UIEdgeInsets)arg1 expanding:(char)arg2 ;
 -(void)setAllPhotosAlbumOnly:(char)arg1 ;
--(void)setShowImagesOnly:(char)arg1 ;
+-(void)setPhotosOnly:(char)arg1 ;
 -(void)setAssetsLibrary:(ALAssetsLibrary *)arg1 ;
 -(id)firstAsset;
 -(id)fetchOptions;

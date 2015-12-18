@@ -49,9 +49,10 @@
 @property (nonatomic,retain) NSDictionary * lastSeenAtForUserIds;              //@synthesize lastSeenAtForUserIds=_lastSeenAtForUserIds - In the implementation block
 @property (nonatomic,retain) NSDictionary * lastSeenAtForItemIds;              //@synthesize lastSeenAtForItemIds=_lastSeenAtForItemIds - In the implementation block
 @property (nonatomic,retain) NSArray * leftUsers;                              //@synthesize leftUsers=_leftUsers - In the implementation block
++(id)usernameStringForUsernames:(id)arg1 maxUsers:(int)arg2 ;
 +(id)usernameStringForUsers:(id)arg1 ;
-+(id)usernameStringForUsers:(id)arg1 maxUsers:(int)arg2 ;
 +(id)shortUsernameStringForUsers:(id)arg1 ;
++(id)usernameStringForUsers:(id)arg1 maxUsers:(int)arg2 ;
 +(id)usersFromDictionary:(id)arg1 addSelf:(char)arg2 ;
 +(id)contentArrayFromDictionary:(id)arg1 ;
 +(id)lastMediaItemFromDictionary:(id)arg1 ;

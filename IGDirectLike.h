@@ -16,9 +16,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,retain) IGDirectContentUploadInfo * uploadInfo;              //@synthesize uploadInfo=_uploadInfo - In the implementation block
 -(IGDirectContentUploadInfo *)uploadInfo;
+-(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
 -(id)contentWithItemId:(id)arg1 ;
 -(id)serializedStringForRealtimeUpload;
--(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
 -(id)contentTypeString;
 -(id)initAsUploadWithRecipient:(id)arg1 ;
 -(char)isUploading;

@@ -9,6 +9,7 @@
 @interface IGRegistrationFlowNavigationController : IGNavigationController <IGRegistrationFlowViewControllerDelegate, IGRegistrationFindUsersViewControllerDelegate, IGClusterBrowsingV2ViewControllerDelegate> {
 
 	char _skipFindFriends;
+	char _isClusterBrowsingSkipped;
 	char _registerWithFBInfo;
 	char _autoLoggedIn;
 	char _isSwitchingUsers;
@@ -26,6 +27,7 @@
 @property (assign,nonatomic) int selectedFindFriendsViewModes;                               //@synthesize selectedFindFriendsViewModes=_selectedFindFriendsViewModes - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * doneButton;                                   //@synthesize doneButton=_doneButton - In the implementation block
 @property (assign,nonatomic) char skipFindFriends;                                           //@synthesize skipFindFriends=_skipFindFriends - In the implementation block
+@property (assign,nonatomic) char isClusterBrowsingSkipped;                                  //@synthesize isClusterBrowsingSkipped=_isClusterBrowsingSkipped - In the implementation block
 @property (assign,nonatomic) char registerWithFBInfo;                                        //@synthesize registerWithFBInfo=_registerWithFBInfo - In the implementation block
 @property (assign,nonatomic) char autoLoggedIn;                                              //@synthesize autoLoggedIn=_autoLoggedIn - In the implementation block
 @property (assign,nonatomic) char isSwitchingUsers;                                          //@synthesize isSwitchingUsers=_isSwitchingUsers - In the implementation block
@@ -46,8 +48,11 @@
 -(int)selectedFindFriendsViewModes;
 -(char)shouldShowClusterBrowsing;
 -(id)newClusterBrowsingVC;
+-(char)shouldShowFindMorePeople;
 -(IGPeopleFeedViewController *)discoverMorePeopleVC;
+-(char)isClusterBrowsingSkipped;
 -(char)isSwitchingUsers;
+-(void)setIsClusterBrowsingSkipped:(char)arg1 ;
 -(void)registrationFlowController:(id)arg1 willResetPasswordWithViewController:(id)arg2 ;
 -(void)registrationFlowController:(id)arg1 didFinishRegistrationWithLoggedInDict:(id)arg2 ;
 -(void)registrationFlowController:(id)arg1 shouldRegisterWithFacebookInformation:(id)arg2 ;
@@ -62,7 +67,6 @@
 -(void)setAutoLoggedIn:(char)arg1 ;
 -(void)setSkipFindFriends:(char)arg1 ;
 -(id)initWithPhoneRegistration:(char)arg1 isSwitchingUsers:(char)arg2 ;
--(char)shouldShowFindMorePeople;
 -(char)skipFindFriends;
 -(void)viewDidLoad;
 -(void)setDoneButton:(UIBarButtonItem *)arg1 ;

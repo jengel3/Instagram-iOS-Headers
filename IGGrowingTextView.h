@@ -14,6 +14,9 @@
 	CGPoint _contentOffset;
 	char _allowScroll;
 	char _needsToUpdateConstraints;
+	char _animateHeightChange;
+	unsigned _animationCurve;
+	float _animationDuration;
 	id<IGGrowingTextViewDelegate> _delegate;
 	UIImageView* _imageView;
 	UITextView* _internalTextView;
@@ -23,12 +26,13 @@
 
 }
 
-@property (nonatomic,readonly) unsigned animationCurve; 
-@property (nonatomic,readonly) float animationDuration; 
+@property (nonatomic,readonly) unsigned animationCurve;                                  //@synthesize animationCurve=_animationCurve - In the implementation block
+@property (nonatomic,readonly) float animationDuration;                                  //@synthesize animationDuration=_animationDuration - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGrowingTextViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) UIFont * font; 
 @property (nonatomic,retain) UIColor * textColor; 
 @property (assign,nonatomic) NSString * text; 
+@property (assign,nonatomic) char animateHeightChange;                                   //@synthesize animateHeightChange=_animateHeightChange - In the implementation block
 @property (nonatomic,retain) UIImageView * imageView;                                    //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UITextView * internalTextView;                              //@synthesize internalTextView=_internalTextView - In the implementation block
 @property (assign,nonatomic) int maxNumberOfLines;                                       //@synthesize maxNumberOfLines=_maxNumberOfLines - In the implementation block
@@ -46,12 +50,15 @@
 @property (assign,nonatomic) int returnKeyType; 
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
--(UITextView *)internalTextView;
 -(void)setMaxNumberOfLines:(int)arg1 ;
+-(UITextView *)internalTextView;
 -(unsigned)animationCurve;
--(id)initWithFrame:(CGRect)arg1 leftOffset:(float)arg2 ;
 -(float)heightForText:(id)arg1 ;
 -(void)updateSizeConstraints;
+-(char)animateHeightChange;
+-(float)expandAnimationDuration;
+-(unsigned)expandAnimationCurve;
+-(void)setAnimateHeightChange:(char)arg1 ;
 -(void)setInternalTextView:(UITextView *)arg1 ;
 -(int)maxNumberOfLines;
 -(NSString *)placeholderText;
@@ -88,11 +95,8 @@
 -(float)animationDuration;
 -(void)textViewDidBeginEditing:(id)arg1 ;
 -(void)textViewDidEndEditing:(id)arg1 ;
--(char)textViewShouldBeginEditing:(id)arg1 ;
--(char)textViewShouldEndEditing:(id)arg1 ;
 -(char)textView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
 -(void)textViewDidChange:(id)arg1 ;
--(void)textViewDidChangeSelection:(id)arg1 ;
 -(UILabel *)placeholder;
 -(id)accessibilityValue;
 -(void)setImageView:(UIImageView *)arg1 ;

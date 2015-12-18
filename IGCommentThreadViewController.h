@@ -1,14 +1,16 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
+#import <Instagram/IGCommentReshareBannerDelegate.h>
+#import <Instagram/IGCommentReshareHelperDelegate.h>
 #import <Instagram/IGCommentThreadTableSourceDelegate.h>
 #import <Instagram/IGAutocompleteControllerDelegate.h>
 #import <Instagram/IGGrowingTextViewDelegate.h>
 #import <UIKit/UITextFieldDelegate.h>
 
-@class IGFeedItem, IGPlainTableView, NSString, IGUserPreviewingHandler, IGButton, UIView, IGGrowingTextView, IGCommentModel, IGCommentThreadTableSource, IGAutocompleteController, IGBulkMediaRequestManager;
+@class IGFeedItem, IGCommentThreadTableSource, IGPlainTableView, NSString, IGUserPreviewingHandler, UIView, IGGrowingTextView, IGButton, IGCommentModel, IGAutocompleteController, IGBulkMediaRequestManager, IGCommentReshareHelper, IGCommentReshareBanner, UIButton, UIImageView;
 
-@interface IGCommentThreadViewController : IGViewController <IGCommentThreadTableSourceDelegate, IGAutocompleteControllerDelegate, IGGrowingTextViewDelegate, UITextFieldDelegate> {
+@interface IGCommentThreadViewController : IGViewController <IGCommentReshareBannerDelegate, IGCommentReshareHelperDelegate, IGCommentThreadTableSourceDelegate, IGAutocompleteControllerDelegate, IGGrowingTextViewDelegate, UITextFieldDelegate> {
 
 	char _navBarWasHidden;
 	char _skipDismissKeyboardAnimation;
@@ -18,16 +20,18 @@
 	char _appearing;
 	char _pushPerformed;
 	char _shouldPanToBottom;
+	char _enableReshareFromAtMention;
 	IGFeedItem* _feedItem;
+	IGCommentThreadTableSource* _dataSource;
 	IGPlainTableView* _tableView;
 	NSString* _prefillText;
 	IGUserPreviewingHandler* _userPreviewingDelegate;
-	IGButton* _sendButton;
+	UIView* _sendButton;
 	UIView* _textViewContainer;
 	UIView* _tableViewContainer;
 	IGGrowingTextView* _growingTextView;
+	IGButton* _postButtonLegacy;
 	IGCommentModel* _bottomCommentBeforeReload;
-	IGCommentThreadTableSource* _dataSource;
 	IGAutocompleteController* _autocompleteController;
 	IGBulkMediaRequestManager* _requestManager;
 	UIView* _keyboard;
@@ -36,21 +40,30 @@
 	float _contentOffsetYBeforeReload;
 	int _originalTextViewY;
 	int _originalLocation;
+	IGCommentReshareHelper* _commentReshareHelper;
+	UIView* _separatorLine;
+	IGCommentReshareBanner* _reshareBanner;
+	UIButton* _reshareButton;
+	UIImageView* _carrot;
+	UIImageView* _reshareLogo;
+	UIButton* _postButton;
+	UIImageView* _commentLogo;
 
 }
 
 @property (nonatomic,retain) IGFeedItem * feedItem;                                          //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,readonly) IGCommentThreadTableSource * dataSource;                      //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,retain) IGPlainTableView * tableView;                                   //@synthesize tableView=_tableView - In the implementation block
 @property (assign,nonatomic) char navBarWasHidden;                                           //@synthesize navBarWasHidden=_navBarWasHidden - In the implementation block
 @property (assign,nonatomic) char skipDismissKeyboardAnimation;                              //@synthesize skipDismissKeyboardAnimation=_skipDismissKeyboardAnimation - In the implementation block
 @property (nonatomic,readonly) NSString * prefillText;                                       //@synthesize prefillText=_prefillText - In the implementation block
 @property (nonatomic,retain) IGUserPreviewingHandler * userPreviewingDelegate;               //@synthesize userPreviewingDelegate=_userPreviewingDelegate - In the implementation block
-@property (nonatomic,retain) IGButton * sendButton;                                          //@synthesize sendButton=_sendButton - In the implementation block
+@property (nonatomic,retain) UIView * sendButton;                                            //@synthesize sendButton=_sendButton - In the implementation block
 @property (nonatomic,retain) UIView * textViewContainer;                                     //@synthesize textViewContainer=_textViewContainer - In the implementation block
 @property (nonatomic,retain) UIView * tableViewContainer;                                    //@synthesize tableViewContainer=_tableViewContainer - In the implementation block
 @property (nonatomic,retain) IGGrowingTextView * growingTextView;                            //@synthesize growingTextView=_growingTextView - In the implementation block
+@property (nonatomic,retain) IGButton * postButtonLegacy;                                    //@synthesize postButtonLegacy=_postButtonLegacy - In the implementation block
 @property (nonatomic,retain) IGCommentModel * bottomCommentBeforeReload;                     //@synthesize bottomCommentBeforeReload=_bottomCommentBeforeReload - In the implementation block
-@property (nonatomic,retain) IGCommentThreadTableSource * dataSource;                        //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,retain) IGAutocompleteController * autocompleteController;              //@synthesize autocompleteController=_autocompleteController - In the implementation block
 @property (nonatomic,retain) IGBulkMediaRequestManager * requestManager;                     //@synthesize requestManager=_requestManager - In the implementation block
 @property (nonatomic,retain) UIView * keyboard;                                              //@synthesize keyboard=_keyboard - In the implementation block
@@ -65,16 +78,40 @@
 @property (assign,nonatomic) float contentOffsetYBeforeReload;                               //@synthesize contentOffsetYBeforeReload=_contentOffsetYBeforeReload - In the implementation block
 @property (assign,nonatomic) int originalTextViewY;                                          //@synthesize originalTextViewY=_originalTextViewY - In the implementation block
 @property (assign,nonatomic) int originalLocation;                                           //@synthesize originalLocation=_originalLocation - In the implementation block
+@property (nonatomic,retain) IGCommentReshareHelper * commentReshareHelper;                  //@synthesize commentReshareHelper=_commentReshareHelper - In the implementation block
+@property (assign,nonatomic) char enableReshareFromAtMention;                                //@synthesize enableReshareFromAtMention=_enableReshareFromAtMention - In the implementation block
+@property (nonatomic,retain) UIView * separatorLine;                                         //@synthesize separatorLine=_separatorLine - In the implementation block
+@property (nonatomic,retain) IGCommentReshareBanner * reshareBanner;                         //@synthesize reshareBanner=_reshareBanner - In the implementation block
+@property (nonatomic,retain) UIButton * reshareButton;                                       //@synthesize reshareButton=_reshareButton - In the implementation block
+@property (nonatomic,retain) UIImageView * carrot;                                           //@synthesize carrot=_carrot - In the implementation block
+@property (nonatomic,retain) UIImageView * reshareLogo;                                      //@synthesize reshareLogo=_reshareLogo - In the implementation block
+@property (nonatomic,retain) UIButton * postButton;                                          //@synthesize postButton=_postButton - In the implementation block
+@property (nonatomic,retain) UIImageView * commentLogo;                                      //@synthesize commentLogo=_commentLogo - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
--(id)initWithKeyboardShowing:(char)arg1 ;
+-(id)initWithKeyboardShowing:(char)arg1 text:(id)arg2 ;
 -(id)analyticsModule;
 -(id)analyticsExtras;
+-(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
+-(IGGrowingTextView *)growingTextView;
+-(void)setupTextView;
+-(NSString *)prefillText;
+-(id)commentDeleteUndoMessageForNumberOfComments:(int)arg1 ;
+-(void)growingTextViewDidBeginEditing:(id)arg1 ;
+-(void)growingTextViewDidEndEditing:(id)arg1 ;
+-(void)growingTextViewDidChange:(id)arg1 ;
+-(char)growingTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
+-(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
+-(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
+-(char)growingTextViewShouldReturn:(id)arg1 ;
+-(char)prefersTabBarHidden;
 -(void)postComment;
+-(void)didDismissCommentReshareBanner:(id)arg1 ;
+-(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
 -(void)commentThreadDataSource:(id)arg1 didAddNewCommentAtIndexPath:(id)arg2 ;
 -(void)commentThreadDataSourceDidStartLoading:(id)arg1 isLoadingMore:(char)arg2 ;
 -(void)commentThreadDataSourceDidFinishLoading:(id)arg1 ;
@@ -90,25 +127,29 @@
 -(void)commentThreadDataSourceDidAddCommentToDelete:(id)arg1 numberOfCommentsToDelete:(int)arg2 ;
 -(void)commentThreadDataSourceDidStartBulkCommentDeletion:(id)arg1 ;
 -(void)commentThreadDataSourceDidFailBulkCommentDeletion:(id)arg1 ;
+-(char)enableNavState;
+-(void)logCommentEventWithText:(id)arg1 mediaID:(id)arg2 userPK:(id)arg3 ;
 -(char)keyboardShowing;
 -(char)tableViewIsAtBottom;
 -(void)setShouldPanToBottom:(char)arg1 ;
 -(void)moveKeyboardWithGestureRecognizer:(id)arg1 ;
 -(char)shouldPanToBottom;
 -(void)finishKeyboardAnimationWithGestureRecognizer:(id)arg1 ;
--(id)initWithKeyboardShowing:(char)arg1 text:(id)arg2 ;
--(IGGrowingTextView *)growingTextView;
+-(float)textViewHeight;
 -(void)setTableViewContainer:(UIView *)arg1 ;
 -(UIView *)tableViewContainer;
 -(IGAutocompleteController *)autocompleteController;
--(NSString *)prefillText;
+-(char)enableReshareFromAtMention;
 -(void)setTextViewContainer:(UIView *)arg1 ;
 -(UIView *)textViewContainer;
 -(void)setGrowingTextView:(IGGrowingTextView *)arg1 ;
 -(void)setKeyboardAccessoryView:(UIView *)arg1 ;
 -(UIView *)keyboardAccessoryView;
+-(float)textViewContainerHeight;
 -(void)setupTableViews;
--(void)setupTextView;
+-(void)createViewsForResharingIfNeeded;
+-(void)updateSendButton;
+-(void)setUIForReshareStatus:(int)arg1 inTransition:(char)arg2 ;
 -(void)setUserPreviewingDelegate:(IGUserPreviewingHandler *)arg1 ;
 -(IGUserPreviewingHandler *)userPreviewingDelegate;
 -(char)displayKeyboardOnAppear;
@@ -120,31 +161,39 @@
 -(void)animateKeyboardOffscreenWithDuration:(float)arg1 ;
 -(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
 -(IGBulkMediaRequestManager *)requestManager;
+-(void)setEnableReshareFromAtMention:(char)arg1 ;
+-(IGCommentReshareHelper *)commentReshareHelper;
 -(void)setKeyboardShowing:(char)arg1 ;
 -(char)keyboardIsAnimating;
--(float)textViewHeight;
+-(void)setFramesForReshareStatus:(int)arg1 ;
 -(char)skipDismissKeyboardAnimation;
 -(void)setSkipDismissKeyboardAnimation:(char)arg1 ;
 -(void)animateKeyboardReturnToOriginalPositionWithDuration:(float)arg1 ;
 -(void)setKeyboardIsAnimating:(char)arg1 ;
+-(void)updateReshareStateAndUIIfNeeded:(id)arg1 ;
+-(UIImageView *)commentLogo;
+-(UIImageView *)reshareLogo;
+-(IGButton *)postButtonLegacy;
+-(UIButton *)reshareButton;
 -(void)saveScrollPosition;
 -(void)updateScrollPositionUsingSavedScrollPosition;
 -(void)appendUsernameToTextView:(id)arg1 ;
--(id)commentDeleteUndoMessageForNumberOfComments:(int)arg1 ;
 -(void)setContentOffsetYBeforeReload:(float)arg1 ;
 -(void)setBottomCellOffsetBeforeReload:(float)arg1 ;
 -(void)setBottomCommentBeforeReload:(IGCommentModel *)arg1 ;
 -(IGCommentModel *)bottomCommentBeforeReload;
 -(float)bottomCellOffsetBeforeReload;
 -(float)contentOffsetYBeforeReload;
--(char)growingTextViewShouldBeginEditing:(id)arg1 ;
--(void)growingTextViewDidEndEditing:(id)arg1 ;
--(char)growingTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
--(void)growingTextViewDidChange:(id)arg1 ;
--(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
--(char)growingTextViewShouldReturn:(id)arg1 ;
--(char)enableNavState;
--(char)prefersTabBarHidden;
+-(void)setPostButtonLegacy:(IGButton *)arg1 ;
+-(IGCommentReshareBanner *)reshareBanner;
+-(UIImageView *)carrot;
+-(CGRect)sendButtonFrameForButtonSize:(CGSize)arg1 ;
+-(void)setReshareBanner:(IGCommentReshareBanner *)arg1 ;
+-(void)setReshareButton:(UIButton *)arg1 ;
+-(void)setCarrot:(UIImageView *)arg1 ;
+-(void)setReshareLogo:(UIImageView *)arg1 ;
+-(void)setPostButton:(UIButton *)arg1 ;
+-(void)setCommentLogo:(UIImageView *)arg1 ;
 -(char)disableNavigationGesture;
 -(char)navBarWasHidden;
 -(void)setNavBarWasHidden:(char)arg1 ;
@@ -153,8 +202,9 @@
 -(void)setOriginalTextViewY:(int)arg1 ;
 -(int)originalLocation;
 -(void)setOriginalLocation:(int)arg1 ;
+-(void)setCommentReshareHelper:(IGCommentReshareHelper *)arg1 ;
 -(void)setAppearing:(char)arg1 ;
--(void)setDataSource:(IGCommentThreadTableSource *)arg1 ;
+-(UIButton *)postButton;
 -(void)dealloc;
 -(IGCommentThreadTableSource *)dataSource;
 -(void)viewWillLayoutSubviews;
@@ -170,10 +220,11 @@
 -(void)keyboardDidShow:(id)arg1 ;
 -(UIView *)keyboard;
 -(void)setKeyboard:(UIView *)arg1 ;
--(IGButton *)sendButton;
--(void)setSendButton:(IGButton *)arg1 ;
+-(UIView *)sendButton;
+-(void)setSendButton:(UIView *)arg1 ;
 -(char)appearing;
--(void)setupSendButton;
+-(UIView *)separatorLine;
+-(void)setSeparatorLine:(UIView *)arg1 ;
 -(void)keyboardWillShow:(id)arg1 ;
 -(void)keyboardWillHide:(id)arg1 ;
 @end

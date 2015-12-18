@@ -22,9 +22,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)dismissButtonTapped;
 -(void)onFacebookAuthSuccess;
 -(void)onFacebookAuthCancelled;
--(void)logInFromEmail:(id)arg1 ;
 -(void)setFacebookButtonLoading:(char)arg1 ;
 -(void)facebookLoginCallback:(int)arg1 ;
 -(void)lookupEmailForUsernameCallback:(id)arg1 ;
@@ -46,7 +46,6 @@
 -(void)setIsSubmitting:(char)arg1 ;
 -(id)createIndicatorViewAndAddToLoginButton;
 -(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
--(void)loginFromOneClickWithUsername:(id)arg1 token:(id)arg2 ;
 -(void)handleLoginErrors:(id)arg1 ;
 -(IGRetroRegistrationLoginHelper *)loginHelper;
 -(/*^block*/id)fbAuthCompletionHandler;
@@ -56,6 +55,7 @@
 -(void)handleFBErrorNoFBForResponse:(id)arg1 ;
 -(void)loginEmailCallback:(id)arg1 ;
 -(void)loginFromRegistrationWithUsername:(id)arg1 password:(id)arg2 ;
+-(void)loginFromOneClickWithUsername:(id)arg1 token:(id)arg2 source:(id)arg3 ;
 -(void)setLoginHelper:(IGRetroRegistrationLoginHelper *)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)setDelegate:(id<IGRetroRegistrationLoginViewControllerDelegate>)arg1 ;

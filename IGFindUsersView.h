@@ -3,13 +3,12 @@
 #import <UIKit/UIView.h>
 #import <UIKit/UITableViewDataSource.h>
 #import <UIKit/UITableViewDelegate.h>
-#import <Instagram/IGFeedPromotionBannerDelegate.h>
 #import <Instagram/IGFindUsersViewDataSourceDelegate.h>
 
 @protocol IGFindUsersViewDelegate, IGRaindropAnalyticsDelegate;
 @class IGGroupedTableView, UIView, IGFindUsersViewDataSource, UIColor, IGFollowAllUsersView, NSArray, NSMutableDictionary, NSString;
 
-@interface IGFindUsersView : UIView <UITableViewDataSource, UITableViewDelegate, IGFeedPromotionBannerDelegate, IGFindUsersViewDataSourceDelegate> {
+@interface IGFindUsersView : UIView <UITableViewDataSource, UITableViewDelegate, IGFindUsersViewDataSourceDelegate> {
 
 	char _showSuggestionSourceInfo;
 	char _hideBioInfo;
@@ -73,10 +72,15 @@
 -(void)findUsersViewDataSource:(id)arg1 didLoadMoreUsers:(id)arg2 allUsers:(id)arg3 ;
 -(void)findUsersViewDataSource:(id)arg1 didLoadAllUserIDs:(id)arg2 ;
 -(void)onImageTapped:(id)arg1 ;
--(void)feedPromotionBannerDidTapDismiss:(id)arg1 withConfiguration:(id)arg2 ;
+-(unsigned)lastThumbnailFetchOffset;
+-(void)fetchThumbnailURLsIfNeeded;
+-(void)setUserList:(NSArray *)arg1 ;
+-(NSArray *)userList;
+-(char)hasViewPermissionForUser:(id)arg1 ;
+-(char)shouldFetchThumbnailURLsForUserInfo:(id)arg1 ;
+-(void)setLastThumbnailFetchOffset:(unsigned)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 followAllRowType:(int)arg2 headerHeight:(float)arg3 photoLayout:(int)arg4 analyticsDelegate:(id)arg5 ;
 -(void)setShowSuggestionSourceInfo:(char)arg1 ;
--(void)setHideBioInfo:(char)arg1 ;
 -(void)setAllowsTapOnPhotos:(char)arg1 ;
 -(void)setHeaderContentView:(UIView *)arg1 ;
 -(void)setFollowAllRowType:(int)arg1 ;
@@ -84,8 +88,6 @@
 -(void)setShowPhotoGrid:(char)arg1 ;
 -(char)showSuggestionSourceInfo;
 -(Class)userCellClass;
--(NSArray *)userList;
--(char)hasViewPermissionForUser:(id)arg1 ;
 -(char)hideTopSeparator;
 -(UIEdgeInsets)separatorEdgeInsets;
 -(char)showStandardFollowButton;
@@ -93,12 +95,10 @@
 -(id)userBioInfoCellForTableView:(id)arg1 atUserIndex:(int)arg2 ;
 -(int)photoLayout;
 -(char)allowsTapOnPhotos;
--(id)promotionBannerCellInTableView:(id)arg1 withPromotionConfig:(id)arg2 ;
 -(char)hideBioInfo;
 -(int)followAllRowType;
 -(char)showingFollowAllRow;
 -(IGFollowAllUsersView *)followAllUsersView;
--(char)shouldShowPromotionBannerCellForPromotionConfig:(id)arg1 ;
 -(char)showBioInfo;
 -(char)showPhotoGrid;
 -(char)hasPhotosForUserAtUserIndex:(int)arg1 ;
@@ -107,15 +107,8 @@
 -(id)photoGridCellForTableView:(id)arg1 atUserIndex:(int)arg2 ;
 -(NSMutableDictionary *)userInfoCellHeightCache;
 -(float)bioHeightForUser:(id)arg1 ;
--(float)heightForPromotionBannerCellInTableView:(id)arg1 withPromotionConfig:(id)arg2 ;
--(void)willDisplayPromotionBannerCellWithPromotionConfig:(id)arg1 ;
--(unsigned)lastThumbnailFetchOffset;
--(void)fetchThumbnailURLsIfNeeded;
 -(void)onScrollViewDidEndScrolling:(id)arg1 ;
 -(Class)preferredUserCellClass;
--(char)shouldFetchThumbnailURLsForUserInfo:(id)arg1 ;
--(void)setLastThumbnailFetchOffset:(unsigned)arg1 ;
--(void)setUserList:(NSArray *)arg1 ;
 -(NSArray *)allUserIDs;
 -(void)setAllUserIDs:(NSArray *)arg1 ;
 -(void)setDataSource:(id)arg1 lazilyReloadView:(char)arg2 ;
@@ -123,6 +116,7 @@
 -(void)doFollowAll;
 -(char)showVerboseFollowButton;
 -(UIView *)headerContentView;
+-(void)setHideBioInfo:(char)arg1 ;
 -(void)setHideTopSeparator:(char)arg1 ;
 -(void)setShowStandardFollowButton:(char)arg1 ;
 -(void)setPreferredUserCellClass:(Class)arg1 ;

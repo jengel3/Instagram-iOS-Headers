@@ -20,16 +20,16 @@
 @property (nonatomic,retain) CALayer * separatorLayer;                             //@synthesize separatorLayer=_separatorLayer - In the implementation block
 @property (assign,nonatomic) CGPoint startOffset;                                  //@synthesize startOffset=_startOffset - In the implementation block
 +(IGCarouselMetrics)metricsForWidth:(float)arg1 ;
++(float)heightForCarouselMetrics:(IGCarouselMetrics)arg1 ;
 +(IGCarouselMetrics)defaultMetrics;
+-(CALayer *)separatorLayer;
 -(id)layoutForMetrics:(IGCarouselMetrics)arg1 ;
 -(CGRect)separatorFrame;
 -(void)prepareForDragging;
 -(CGPoint)targetContentOffsetForVelocity:(CGPoint)arg1 targetContentOffset:(CGPoint)arg2 ;
--(CALayer *)separatorLayer;
 -(void)setSeparatorLayer:(CALayer *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;
--(void)setFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(CGPoint)startOffset;

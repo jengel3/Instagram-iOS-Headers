@@ -31,8 +31,8 @@
 -(int)reportType;
 -(void)sendReport;
 -(id)tagIDForReportType;
--(id)tagIDs;
 -(id)subscriberIDs;
+-(id)tagIDs;
 -(NSData *)screenshotImageData;
 -(NSData *)windowDescriptionData;
 -(void)captionTextViewDidChange:(id)arg1 ;

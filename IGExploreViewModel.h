@@ -16,6 +16,7 @@
 	NSIndexSet* _thumbnailVideoIndexes;
 	NSURL* _imageURL;
 	unsigned _action;
+	unsigned _style;
 	int _maxThumbnails;
 
 }
@@ -30,23 +31,27 @@
 @property (assign,getter=isFollowing,nonatomic) char following;                //@synthesize following=_following - In the implementation block
 @property (assign,getter=isVerified,nonatomic) char verified;                  //@synthesize verified=_verified - In the implementation block
 @property (assign,nonatomic) unsigned action;                                  //@synthesize action=_action - In the implementation block
+@property (assign,nonatomic) unsigned style;                                   //@synthesize style=_style - In the implementation block
 @property (assign,nonatomic) int maxThumbnails;                                //@synthesize maxThumbnails=_maxThumbnails - In the implementation block
 -(char)isVerified;
 -(NSString *)byline;
 -(NSArray *)thumbnailURLs;
 -(int)maxThumbnails;
 -(NSIndexSet *)thumbnailVideoIndexes;
+-(void)setByline:(NSString *)arg1 ;
+-(void)applyMediaBundles:(id)arg1 thumbnailSize:(CGSize)arg2 ;
 -(void)setThumbnailURLs:(NSArray *)arg1 ;
+-(id)initWithFeaturedUserInfo:(id)arg1 width:(float)arg2 showsSocialContext:(char)arg3 ;
 -(void)setThumbnailVideoIndexes:(NSIndexSet *)arg1 ;
 -(void)setMaxThumbnails:(int)arg1 ;
--(void)applyMediaBundles:(id)arg1 thumbnailSize:(CGSize)arg2 ;
--(void)setByline:(NSString *)arg1 ;
 -(void)setTitle:(NSString *)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(unsigned)action;
 -(NSString *)title;
 -(id)copyWithZone:(NSZone*)arg1 ;
+-(unsigned)style;
+-(void)setStyle:(unsigned)arg1 ;
 -(void)setAction:(unsigned)arg1 ;
 -(NSString *)subtitle;
 -(void)setSubtitle:(NSString *)arg1 ;

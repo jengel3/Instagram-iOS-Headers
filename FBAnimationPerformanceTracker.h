@@ -2,7 +2,7 @@
 
 @protocol FBAnimationPerformanceTrackerDelegate;
 #import <Instagram/Instagram-Structs.h>
-@class CADisplayLink;
+@class CADisplayLink, NSRunLoop;
 
 @interface FBAnimationPerformanceTracker : NSObject {
 
@@ -12,6 +12,7 @@
 	double _previousFrameTimestamp;
 	CADisplayLink* _displayLink;
 	char _prepared;
+	NSRunLoop* _runLoop;
 	double _durationTotal;
 	double _smallDrops;
 	double _largeDrops;
@@ -22,6 +23,7 @@
 @property (assign,nonatomic,__weak) id<FBAnimationPerformanceTrackerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(FBAnimationPerformanceTrackerConfig)standardConfig;
 +(void)_trackerLoop;
+-(id)initWithConfig:(FBAnimationPerformanceTrackerConfig)arg1 runLoop:(id)arg2 ;
 -(void)_setupSignal;
 -(void)_tearDownCADisplayLink;
 -(void)_setUpCADisplayLink;

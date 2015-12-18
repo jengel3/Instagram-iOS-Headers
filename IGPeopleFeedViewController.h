@@ -17,6 +17,7 @@
 	IGDiscoverMorePeopleConnectionView* _facebookConnectionView;
 	IGDiscoverMorePeopleConnectionView* _contactsConnectionView;
 	IGDiscoverMorePeopleConnectionView* _vkConnectionView;
+	int _feedType;
 
 }
 
@@ -30,11 +31,13 @@
 @property (nonatomic,retain) IGDiscoverMorePeopleConnectionView * contactsConnectionView;              //@synthesize contactsConnectionView=_contactsConnectionView - In the implementation block
 @property (nonatomic,retain) IGDiscoverMorePeopleConnectionView * vkConnectionView;                    //@synthesize vkConnectionView=_vkConnectionView - In the implementation block
 @property (assign,nonatomic) char shouldShowConnectCell;                                               //@synthesize shouldShowConnectCell=_shouldShowConnectCell - In the implementation block
+@property (assign,nonatomic) int feedType;                                                             //@synthesize feedType=_feedType - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)initProfileChainingPeopleFeedViewControllerWithUser:(id)arg1 ;
 -(char)enableNavState;
 -(char)disableNavigationGesture;
 -(char)disableNonEdgeNavigationGesture;
@@ -65,6 +68,7 @@
 -(IGDiscoverMorePeopleConnectionView *)contactsConnectionView;
 -(IGDiscoverMorePeopleConnectionView *)vkConnectionView;
 -(char)shouldShowConnectCell;
+-(int)feedType;
 -(UIView *)connectionHeaderView;
 -(id)dismissBlock;
 -(void)logDismiss:(id)arg1 atIndex:(unsigned)arg2 ;
@@ -73,16 +77,18 @@
 -(void)findUsersViewDataSource:(id)arg1 didLoadThumbnailsForUsers:(id)arg2 ;
 -(void)findUsersViewDataSource:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)findUsersViewDataSource:(id)arg1 didLoadMoreUsers:(id)arg2 allUsers:(id)arg3 ;
+-(void)findUsersViewDataSource:(id)arg1 didLoadAllUserIDs:(id)arg2 ;
 -(void)contactsViewController:(id)arg1 didDisconnectContactsWithSuccess:(char)arg2 ;
+-(id)initWithDataSource:(id)arg1 feedType:(int)arg2 ;
 -(NSArray *)forcedUserIDs;
 -(void)setDismissBlock:(id)arg1 ;
 -(void)setConnectionHeaderView:(UIView *)arg1 ;
 -(void)setFacebookConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
 -(void)setContactsConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
 -(void)setVkConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
+-(void)setFeedType:(int)arg1 ;
 -(void)setProfileChainingDismissBlockWithUser:(id)arg1 ;
 -(id)titleLabelWithUserName:(id)arg1 ;
--(id)initProfileChainingPeopleFeedViewControllerWithUser:(id)arg1 ;
 -(void)fetchData;
 -(void)setDataSource:(IGFindUsersViewDataSource *)arg1 ;
 -(void)setDelegate:(id)arg1 ;
@@ -92,6 +98,5 @@
 -(int)viewType;
 -(void)viewWillAppear:(char)arg1 ;
 -(id)headerView;
--(id)initWithDataSource:(id)arg1 ;
 @end
 

@@ -6,7 +6,7 @@
 #import <Instagram/IGGenericMegaphoneViewDelegate.h>
 #import <Instagram/IGFeedPromotionBannerDelegate.h>
 
-@class IGRankedMediaView, IGExploreComposedPeopleYouFollowView, UIBarButtonItem, IGHashtagModel, NSArray, IGVisitedHashtagStore, NSMutableSet, IGRelatedItemsHeaderView, IGRelatedHashtagsService, NSDictionary, IGGenericMegaphoneView, IGFeedThumbnailPreviewingHandler, NSString;
+@class IGRankedMediaView, IGExploreComposedPeopleYouFollowView, UIBarButtonItem, IGHashtagModel, NSArray, IGVisitedHashtagStore, NSMutableSet, IGRelatedItemsHeaderView, IGRelatedHashtagsService, NSDictionary, IGGenericMegaphoneView, IGFeedItemPreviewingHandler, NSString;
 
 @interface IGHashtagFeedViewController : IGFeedViewController <IGRankedMediaViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate, IGRelatedItemsHeaderViewDelegate, IGGenericMegaphoneViewDelegate, IGFeedPromotionBannerDelegate> {
 
@@ -25,7 +25,7 @@
 	IGRelatedHashtagsService* _relatedHashtagService;
 	NSDictionary* _serverMegaphoneData;
 	IGGenericMegaphoneView* _megaphoneView;
-	IGFeedThumbnailPreviewingHandler* _thumbnailPreviewDelegate;
+	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 
 }
 
@@ -44,7 +44,7 @@
 @property (nonatomic,retain) IGRelatedHashtagsService * relatedHashtagService;                               //@synthesize relatedHashtagService=_relatedHashtagService - In the implementation block
 @property (nonatomic,retain) NSDictionary * serverMegaphoneData;                                             //@synthesize serverMegaphoneData=_serverMegaphoneData - In the implementation block
 @property (nonatomic,retain) IGGenericMegaphoneView * megaphoneView;                                         //@synthesize megaphoneView=_megaphoneView - In the implementation block
-@property (nonatomic,retain) IGFeedThumbnailPreviewingHandler * thumbnailPreviewDelegate;                    //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
+@property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;                         //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -61,8 +61,8 @@
 -(IGHashtagModel *)hashtag;
 -(void)setHashtag:(IGHashtagModel *)arg1 ;
 -(NSMutableSet *)loggedImpressions;
--(void)setThumbnailPreviewDelegate:(IGFeedThumbnailPreviewingHandler *)arg1 ;
--(IGFeedThumbnailPreviewingHandler *)thumbnailPreviewDelegate;
+-(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
+-(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)updateCellVisibility:(id)arg1 atIndex:(id)arg2 ;
 -(void)handleLoadedContentDidChange;

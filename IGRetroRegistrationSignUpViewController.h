@@ -29,6 +29,7 @@
 	int _suggestedUsernameIndex;
 	NSString* _email;
 	NSString* _userDisplayName;
+	NSString* _fbToken;
 	UIImage* _profilePhoto;
 	NSString* _forceSignUpCode;
 	NSString* _SMSSignUpCode;
@@ -48,6 +49,7 @@
 @property (assign,nonatomic) int suggestedUsernameIndex;                                                       //@synthesize suggestedUsernameIndex=_suggestedUsernameIndex - In the implementation block
 @property (nonatomic,copy) NSString * email;                                                                   //@synthesize email=_email - In the implementation block
 @property (nonatomic,copy) NSString * userDisplayName;                                                         //@synthesize userDisplayName=_userDisplayName - In the implementation block
+@property (nonatomic,copy) NSString * fbToken;                                                                 //@synthesize fbToken=_fbToken - In the implementation block
 @property (nonatomic,retain) UIImage * profilePhoto;                                                           //@synthesize profilePhoto=_profilePhoto - In the implementation block
 @property (nonatomic,copy,readonly) NSString * forceSignUpCode;                                                //@synthesize forceSignUpCode=_forceSignUpCode - In the implementation block
 @property (setter=MSSignUpCode,nonatomic,copy,readonly) NSString * SMSSignUpCode;                              //@synthesize SMSSignUpCode=_SMSSignUpCode - In the implementation block
@@ -80,9 +82,11 @@
 -(void)getFacebookUserInfo;
 -(NSDictionary *)facebookUserInfo;
 -(NSMutableArray *)suggestedUsernames;
+-(NSString *)fbToken;
 -(char)skipEmail;
 -(void)accountCreatedWithUserInformation:(id)arg1 ;
 -(void)setSuggestedUsernames:(NSMutableArray *)arg1 ;
+-(void)setFbToken:(NSString *)arg1 ;
 -(void)setSkipEmail:(char)arg1 ;
 -(void)setProfilePhoto:(UIImage *)arg1 ;
 -(UIImage *)profilePhoto;
@@ -112,8 +116,6 @@
 -(void)validateUsernameField:(id)arg1 completionBlock:(/*^block*/id)arg2 ;
 -(IGRequest *)usernameRequest;
 -(void)setUsernameRequest:(IGRequest *)arg1 ;
--(id)createIndicatorViewAndAddToNextButton;
--(void)removeIndicatorViewFromNextButton:(id)arg1 ;
 -(void)signUpSuccessHandler:(id)arg1 ;
 -(void)signUpfailureHandler:(id)arg1 ;
 -(void)setSignUpRequest:(IGRequest *)arg1 ;

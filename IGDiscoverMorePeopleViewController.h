@@ -38,11 +38,11 @@
 -(void)setFacebookConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
 -(void)setContactsConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
 -(void)setVkConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
+-(void)authorizeAndFetchUsers;
 -(void)findUsersView:(id)arg1 didTapOnUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(NSMutableSet *)displayedUsers;
 -(void)updateNavigationRightBarButtonItem;
 -(id)newFindUsersView;
--(void)authorizeAndFetchUsers;
 -(id)newFindUsersViewDataSource;
 -(void)findUsersView:(id)arg1 didFollowUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(void)findUsersView:(id)arg1 willDisplayOnUser:(id)arg2 atIndex:(unsigned)arg3 ;

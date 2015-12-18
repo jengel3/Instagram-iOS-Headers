@@ -4,6 +4,7 @@
 @optional
 -(void)feedItemActionCellPageControlDidChangeValue:(id)arg1;
 -(void)feedItemActionCellDidTapCustomizableButton:(id)arg1;
+-(void)feedItemActionCellDidTapChervonButton:(id)arg1;
 
 @required
 -(int)feedItemActionCellPosition:(id)arg1;

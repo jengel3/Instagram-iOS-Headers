@@ -26,6 +26,7 @@
 -(void)addRangedDataListener:(id)arg1 ;
 -(void)removeRangedDataListener:(id)arg1 ;
 -(id)initWithURL:(id)arg1 partialData:(id)arg2 ;
+-(char)enableNetworkServiceTypeVideo;
 -(void)dataBecomeAvailable;
 -(void)endWithError:(id)arg1 ;
 -(void)cancel;

@@ -50,7 +50,7 @@
 -(void)fbDidNotLogin;
 -(void)loginWithReadPermissions:(id)arg1 ;
 -(void)loginWithPublishPermissions:(id)arg1 ;
--(void)loginWithPermissions:(id)arg1 forPublish:(char)arg2 ;
+-(void)loginWithPermissions:(id)arg1 fromViewController:(id)arg2 forPublish:(char)arg3 ;
 -(void)accessTokenChangedWithResult:(id)arg1 error:(id)arg2 ;
 -(void)fetchUserInfoWithFetchStrategy:(int)arg1 completionBlock:(/*^block*/id)arg2 ;
 -(void)sendCredentialsToServer;
@@ -63,9 +63,11 @@
 -(void)sharer:(id)arg1 didCompleteWithResults:(id)arg2 ;
 -(void)sharer:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)sharerDidCancel:(id)arg1 ;
+-(void)loginWithReadPermissions:(id)arg1 fromViewController:(id)arg2 ;
 -(void)fbDidExtendToken:(id)arg1 expiresAt:(id)arg2 ;
 -(void)fbSessionInvalidated;
 -(void)setIsAskingForAdditionalPermissions:(char)arg1 ;
+-(void)fetchCurrentFBUsernameWithCompletionBlock:(/*^block*/id)arg1 ;
 -(char)hasAuthorizedManagePages;
 -(void)setPageName:(id)arg1 ;
 -(void)showHUDWithText:(id)arg1 ;

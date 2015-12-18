@@ -26,8 +26,8 @@
 @property (nonatomic,readonly) NSSet * scrollingViews;                                     //@synthesize scrollingViews=_scrollingViews - In the implementation block
 @property (assign,nonatomic) float headerAnchor;                                           //@synthesize headerAnchor=_headerAnchor - In the implementation block
 @property (assign,nonatomic) char isAnimatingTransition;                                   //@synthesize isAnimatingTransition=_isAnimatingTransition - In the implementation block
-+(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
 +(id)scrollingHeaderItemForViewController:(id)arg1 ;
++(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
 +(unsigned)statusBarStateForViewController:(id)arg1 ;
 +(unsigned)navigationBarStateForViewController:(id)arg1 ;
 +(id)headerSnapshotForViewController:(id)arg1 navigationBar:(id)arg2 ;
@@ -44,14 +44,14 @@
 -(void)onDidEndDragging:(id)arg1 ;
 -(void)onDidBeginDragging:(id)arg1 ;
 -(void)setHeaderAnchor:(float)arg1 ;
+-(UIScrollView *)activeScrollView;
+-(float)headerAnchor;
 -(void)updateHeaderAnimated:(char)arg1 ;
 -(void)layoutHeaderForViewController:(id)arg1 animated:(char)arg2 ;
 -(NSSet *)scrollingViews;
 -(void)updateStatusBarIfNeededWithTransform:(CGAffineTransform)arg1 ;
 -(void)setIsAnimatingTransition:(char)arg1 ;
 -(void)setHeaderY:(float)arg1 animated:(char)arg2 ;
--(float)headerAnchor;
--(UIScrollView *)activeScrollView;
 -(void)positionHeaderAfterScrolling;
 -(id)initWithNavigationBar:(id)arg1 ;
 -(void)releaseActiveViewController:(id)arg1 ;

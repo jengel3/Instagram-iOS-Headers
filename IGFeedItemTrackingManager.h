@@ -9,8 +9,8 @@
 +(id)trackingTokenStringTypeForPost:(id)arg1 ;
 +(id)trackingTokenStringForPost:(id)arg1 ;
 +(char)useNoLatencyLoggingForPost:(id)arg1 ;
-+(void)hideFeedItem:(id)arg1 ;
 +(void)removeFeedItem:(id)arg1 ;
++(void)hideFeedItem:(id)arg1 ;
 +(char)allowSponsoredPostForFeedItem:(id)arg1 ;
 +(char)allowOrganicTrackingForFeedItem:(id)arg1 ;
 +(id)organicFeedItemTracker;
@@ -35,6 +35,7 @@
 -(void)feedItemDidAppear:(id)arg1 ;
 -(void)feedItemViewingStarted:(id)arg1 ;
 -(void)feedItemDidDisappear:(id)arg1 ;
+-(void)feedItemDidScrollOffScreen:(id)arg1 ;
 -(void)feedItemUserTapped:(id)arg1 ;
 -(void)feedItemLocationTapped:(id)arg1 ;
 -(void)feedItemURLTapped:(id)arg1 ;

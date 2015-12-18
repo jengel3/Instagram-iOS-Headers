@@ -64,7 +64,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)handleSuccessfulResponse:(id)arg1 ;
 -(UIView *)topLine;
 -(void)setTopLine:(UIView *)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
@@ -130,6 +129,7 @@
 -(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;
 -(float)collectionView:(id)arg1 layout:(id)arg2 minimumLineSpacingForSectionAtIndex:(int)arg3 ;
 -(int)preferredStatusBarStyle;
+-(char)prefersStatusBarHidden;
 -(id)currentText;
 -(UILabel *)titleLabel;
 -(void)dismissViewControllerAnimated:(char)arg1 completion:(/*^block*/id)arg2 ;

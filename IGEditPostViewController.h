@@ -52,7 +52,7 @@
 @property (assign,nonatomic) CGRect headerFrame;                                                //@synthesize headerFrame=_headerFrame - In the implementation block
 @property (assign,nonatomic) CGRect mediaFrame;                                                 //@synthesize mediaFrame=_mediaFrame - In the implementation block
 @property (assign,nonatomic) CGRect backgroundViewFrame;                                        //@synthesize backgroundViewFrame=_backgroundViewFrame - In the implementation block
-@property (nonatomic,retain) IGFeedItem * feedItem;                                             //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,readonly) IGFeedItem * feedItem;                                           //@synthesize feedItem=_feedItem - In the implementation block
 @property (assign,nonatomic,__weak) id<IGEditPostViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGAutocompleteController * autocompleteController;                 //@synthesize autocompleteController=_autocompleteController - In the implementation block
 @property (nonatomic,retain) UIView * autocompleteDivider;                                      //@synthesize autocompleteDivider=_autocompleteDivider - In the implementation block
@@ -85,7 +85,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(double)keyboardAnimationDuration;
 -(int)keyboardAnimationCurve;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
@@ -136,6 +135,7 @@
 -(void)tagPeopleTapped:(id)arg1 ;
 -(void)onDoneEditing;
 -(void)onCancelEditing;
+-(id)initWithFeedItem:(id)arg1 ;
 -(void)launchLocationPicker;
 -(void)dismissPresentedController:(id)arg1 finished:(char)arg2 ;
 -(void)launchUserTaggingView;

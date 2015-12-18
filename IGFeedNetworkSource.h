@@ -28,7 +28,6 @@
 	NSArray* _rankedPosts;
 	NSArray* _socialPosts;
 	int _truncationPolicy;
-	NSArray* _feedMessages;
 	NSString* _dataSourceID;
 	NSString* _fetchPath;
 	NSArray* _forcedMediaIDs;
@@ -53,7 +52,6 @@
 @property (retain) NSArray * rankedPosts;                                                        //@synthesize rankedPosts=_rankedPosts - In the implementation block
 @property (retain) NSArray * socialPosts;                                                        //@synthesize socialPosts=_socialPosts - In the implementation block
 @property (assign,nonatomic) int truncationPolicy;                                               //@synthesize truncationPolicy=_truncationPolicy - In the implementation block
-@property (nonatomic,retain) NSArray * feedMessages;                                             //@synthesize feedMessages=_feedMessages - In the implementation block
 @property (nonatomic,copy) NSString * dataSourceID;                                              //@synthesize dataSourceID=_dataSourceID - In the implementation block
 @property (nonatomic,copy) NSString * fetchPath;                                                 //@synthesize fetchPath=_fetchPath - In the implementation block
 @property (nonatomic,retain) NSArray * forcedMediaIDs;                                           //@synthesize forcedMediaIDs=_forcedMediaIDs - In the implementation block
@@ -103,6 +101,7 @@
 -(void)setNextMaxID:(NSString *)arg1 ;
 -(NSString *)nextMaxID;
 -(NSArray *)posts;
+-(NSString *)fetchPath;
 -(void)setPosts:(NSArray *)arg1 ;
 -(void)setShouldEagerLoadImages:(char)arg1 ;
 -(id)initWithPostClass:(Class)arg1 ;
@@ -133,8 +132,6 @@
 -(void)setFetchedResultsController:(IGFetchedResultsController *)arg1 ;
 -(void)setFeedRestricted:(char)arg1 ;
 -(void)deletePost:(id)arg1 ;
--(NSArray *)feedMessages;
--(void)setFeedMessages:(NSArray *)arg1 ;
 -(void)notifyDelegateDeserialization;
 -(void)deserializeEntriesAtPath:(id)arg1 ;
 -(NSArray *)forcedMediaIDs;
@@ -165,7 +162,6 @@
 -(void)truncateItemsWithMaxCount:(unsigned)arg1 ;
 -(void)loadFromFile:(id)arg1 ;
 -(void)setEagerLoadImageSize:(CGSize)arg1 imageOption:(int)arg2 videoVersion:(int)arg3 videoLoadLength:(long long)arg4 profilePictures:(char)arg5 ;
--(NSString *)fetchPath;
 -(void)setForcedMediaIDs:(NSArray *)arg1 ;
 -(void)setShouldHideIndicatorImage:(char)arg1 ;
 -(char)isUpdatingPosts;

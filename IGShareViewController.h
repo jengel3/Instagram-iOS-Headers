@@ -64,9 +64,9 @@
 -(char)prefersNavbarBottomBorderHidden;
 -(id)analyticsMetadata;
 -(id)ig_keyViewControllers;
+-(char)enableNavState;
 -(IGAutocompleteController *)autocompleteController;
 -(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
--(char)enableNavState;
 -(void)setShareManager:(UIViewController*<IGShareManager>)arg1 ;
 -(UIViewController*<IGShareManager>)shareManager;
 -(void)setShareMode:(int)arg1 ;

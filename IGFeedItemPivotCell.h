@@ -36,6 +36,7 @@
 -(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
 -(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;
+-(void)prepareForReuse;
 -(IGPivotCarouselView *)carousel;
 @end
 

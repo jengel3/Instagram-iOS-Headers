@@ -5,7 +5,7 @@
 #import <Instagram/IGAppInstallAlertViewControllerDelegate.h>
 
 @protocol IGFeedItemLoggingProviderDelegate, IGFeedItemTextCellDelegate;
-@class IGFeedItem, IGStyledString, UINavigationController, IGCoreTextView, UIImageView, UILabel, IGAppInstallationsHelper, NSString;
+@class IGFeedItem, IGStyledString, NSString, UINavigationController, IGCoreTextView, UIImageView, UILabel, IGAppInstallationsHelper;
 
 @interface IGFeedItemTextCell : UICollectionViewCell <IGCoreTextLinkHandler, IGAppInstallAlertViewControllerDelegate> {
 
@@ -13,6 +13,7 @@
 	char _enableTapToViewComments;
 	IGFeedItem* _feedItem;
 	IGStyledString* _styledString;
+	NSString* _accessibilityLabelForStyledString;
 	int _cellType;
 	UINavigationController* _navigationController;
 	id<IGFeedItemLoggingProviderDelegate> _loggingDelegate;
@@ -27,6 +28,7 @@
 
 @property (nonatomic,retain) IGFeedItem * feedItem;                                                     //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,retain) IGStyledString * styledString;                                             //@synthesize styledString=_styledString - In the implementation block
+@property (nonatomic,retain) NSString * accessibilityLabelForStyledString;                              //@synthesize accessibilityLabelForStyledString=_accessibilityLabelForStyledString - In the implementation block
 @property (assign,nonatomic) int cellType;                                                              //@synthesize cellType=_cellType - In the implementation block
 @property (assign,nonatomic,__weak) UINavigationController * navigationController;                      //@synthesize navigationController=_navigationController - In the implementation block
 @property (assign,nonatomic) char showTimeStamp;                                                        //@synthesize showTimeStamp=_showTimeStamp - In the implementation block
@@ -51,10 +53,9 @@
 -(void)showBoomerangAppInstallAlertViewPopover;
 -(id)accessibleElements;
 -(void)setStyledString:(IGStyledString *)arg1 ;
+-(IGCoreTextView *)coreTextView;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)buildCommentReplyWithUser:(id)arg1 ;
--(IGCoreTextView *)coreTextView;
 -(void)setCoreTextView:(IGCoreTextView *)arg1 ;
 -(IGStyledString *)styledString;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
@@ -77,15 +78,17 @@
 -(id)styledStringForBoomerangAttributionWithFeedItem:(id)arg1 ;
 -(id)styledStringForNewBoomerangAttributionWithFeedItem:(id)arg1 ;
 -(id)styledStringforFeaturedBadgeWithFeedItem:(id)arg1 ;
--(void)pushCommentsPrefilledWithText:(id)arg1 ;
 -(void)setAuxLabelString:(id)arg1 ;
 -(id)viewCountStringForFeedItem:(id)arg1 ;
 -(void)boomerangAttributionTapped;
 -(char)isLongTapAllowedForCellType:(int)arg1 ;
+-(void)pushCommentsPrefilledWithText:(id)arg1 ;
 -(void)setEnableTapToViewComments:(char)arg1 ;
 -(void)setTextHorizontalPadding:(float)arg1 ;
 -(void)setShowTimeStamp:(char)arg1 ;
+-(void)setAccessibilityLabelForStyledString:(NSString *)arg1 ;
 -(int)iconTypeForLikes;
+-(NSString *)accessibilityLabelForStyledString;
 -(void)setAuxLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;

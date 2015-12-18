@@ -18,6 +18,9 @@
 @property (nonatomic,__weak,readonly) UIButton * closeButton;                                  //@synthesize closeButton=_closeButton - In the implementation block
 @property (nonatomic,__weak,readonly) UILabel * titleLabel;                                    //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,__weak,readonly) UILabel * subtitleLabel;                                 //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
+-(void)setupCloseButton;
+-(void)setupLabels;
+-(void)didReceiveTap:(id)arg1 ;
 -(void)didTapCloseButton:(id)arg1 ;
 -(id)subtitleAttributes;
 -(id)textKerning;

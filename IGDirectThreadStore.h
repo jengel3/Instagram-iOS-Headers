@@ -28,15 +28,17 @@
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(IGRealtimeManager *)realtimeManager;
--(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)handleRealtimeOperation:(id)arg1 ;
 -(id)pkForRealtimeOperation:(id)arg1 ;
 -(void)handleRealtimeRefreshRequest;
+-(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
+-(id)storedThreadWithID:(id)arg1 ;
 -(id)allThreadsSorted;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(id)allThreadsIncludingLocal;
--(id)storedThreadWithID:(id)arg1 ;
 -(void)refreshInboxWithNextMaxID:(id)arg1 successfulInboxHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)setMuteStatusOfThreadWithID:(id)arg1 to:(char)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)deleteLocalThreadWithID:(id)arg1 ;
@@ -84,7 +86,6 @@
 -(void)postLocalThreadUpdatedFromUploadKey:(id)arg1 toThreadID:(id)arg2 ;
 -(void)setDirectThreadDiskCache:(IGDirectThreadDiskCache *)arg1 ;
 -(unsigned)subscriptionStatus;
--(void)archive;
 -(void)dealloc;
 @end
 

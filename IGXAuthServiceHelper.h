@@ -51,12 +51,12 @@
 -(void)reauthorizeIfNeeded;
 -(id)viewControllerForAdvancedOptions;
 -(int)usernameType;
--(void)saveLoginInfo;
--(void)setLoginPending:(char)arg1 ;
--(void)setAccessTokenFromTokenString:(id)arg1 ;
 -(id)prefUsernameKey;
 -(void)requestTokenTicket:(id)arg1 didFinishWithData:(id)arg2 ;
 -(void)requestTokenTicket:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)setAccessTokenFromTokenString:(id)arg1 ;
+-(void)setLoginPending:(char)arg1 ;
+-(void)saveLoginInfo;
 -(void)setCurrentUser:(IGUser *)arg1 ;
 -(void)setConsumer:(OAConsumer *)arg1 ;
 -(OAConsumer *)consumer;

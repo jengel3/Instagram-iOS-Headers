@@ -22,9 +22,10 @@
 +(void)clearForUserPK:(id)arg1 ;
 +(id)archiveURLForUserPK:(id)arg1 ;
 +(void)invalidateExpirationOnAppUpgrade;
--(void)updateUser:(id)arg1 ;
 -(id)regexPattern;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)archiveURL;
 -(void)loadUsersFromNotification:(id)arg1 ;
 -(void)onFriendStatusReceived:(id)arg1 ;
@@ -38,6 +39,7 @@
 -(void)addUser:(id)arg1 addToRecent:(char)arg2 ;
 -(void)logStoreLoaded;
 -(void)unbucketUser:(id)arg1 ;
+-(void)updateUser:(id)arg1 ;
 -(id)usersFromResponse:(id)arg1 ;
 -(id)storedUsersForKeys:(id)arg1 fromSet:(int)arg2 ;
 -(id)usersInBucket:(id)arg1 ;

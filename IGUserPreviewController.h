@@ -1,10 +1,11 @@
 
-#import <UIKit/UIViewController.h>
+#import <Instagram/IGViewController.h>
 #import <Instagram/IGFeedNetworkSourceDelegate.h>
+#import <Instagram/IGPreviewingAction.h>
 
 @class UINavigationController, IGPreviewEventManager, IGUser, IGUserPreviewView, IGFeedNetworkSource, NSArray, NSString;
 
-@interface IGUserPreviewController : UIViewController <IGFeedNetworkSourceDelegate> {
+@interface IGUserPreviewController : IGViewController <IGFeedNetworkSourceDelegate, IGPreviewingAction> {
 
 	float _previewWidth;
 	UINavigationController* _navigationControllerForPushing;
@@ -31,11 +32,13 @@
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
--(void)setPreviewWidth:(float)arg1 ;
--(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;
+-(id)previewActionBarItems;
 -(void)showDirectShare;
+-(void)viewProfile;
 -(float)previewWidth;
 -(UINavigationController *)navigationControllerForPushing;
+-(void)setPreviewWidth:(float)arg1 ;
+-(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;
 -(void)updatePreviewItems;
 -(void)setUserPreviewView:(IGUserPreviewView *)arg1 ;
 -(IGUserPreviewView *)userPreviewView;
@@ -44,7 +47,6 @@
 -(void)userFollowStatusChangedNotification:(id)arg1 ;
 -(void)editProfile;
 -(void)unfollowUser;
--(void)viewProfile;
 -(void)toggleNotifications;
 -(void)followUser;
 -(IGPreviewEventManager *)logger;

@@ -1,7 +1,7 @@
 
 #import <Instagram/IGMediaMetadataProtocol.h>
 
-@class NSString, NSSet, IGDirectShareRecipient, IGLocationMetadata, IGUsertagsMetadata, IGShareListManager, NSDictionary, IGVideoMetadata, IGEditsMetadata, NSDate, UIImage, NSURL, IGUploadModel;
+@class NSString, NSSet, IGDirectShareRecipient, IGLocationMetadata, IGUsertagsMetadata, IGShareListManager, NSDictionary, IGVideoMetadata, IGEditsMetadata, NSDate, UIImage, NSArray, IGUploadModel;
 
 @interface IGMediaMetadata : NSObject <IGMediaMetadataProtocol> {
 
@@ -24,8 +24,7 @@
 	IGEditsMetadata* _editsMetadata;
 	NSDate* _uploadStartTime;
 	UIImage* _snapshot;
-	NSURL* _defaultAssetURL;
-	NSString* _defaultLocalIdentifier;
+	NSArray* _preselectedIdentifiers;
 
 }
 
@@ -48,19 +47,16 @@
 @property (nonatomic,retain) NSDate * uploadStartTime;                             //@synthesize uploadStartTime=_uploadStartTime - In the implementation block
 @property (nonatomic,readonly) IGUploadModel * upload; 
 @property (nonatomic,retain) UIImage * snapshot;                                   //@synthesize snapshot=_snapshot - In the implementation block
-@property (nonatomic,retain) NSURL * defaultAssetURL;                              //@synthesize defaultAssetURL=_defaultAssetURL - In the implementation block
-@property (nonatomic,retain) NSString * defaultLocalIdentifier;                    //@synthesize defaultLocalIdentifier=_defaultLocalIdentifier - In the implementation block
 @property (assign,nonatomic) char openInEditor;                                    //@synthesize openInEditor=_openInEditor - In the implementation block
+@property (nonatomic,retain) NSArray * preselectedIdentifiers;                     //@synthesize preselectedIdentifiers=_preselectedIdentifiers - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(float)deviceAngle;
 -(void)prepareForNewPhotoFromSource:(int)arg1 EXIFDictionary:(id)arg2 deviceOrientation:(int)arg3 cameraPosition:(int)arg4 deviceAngle:(float)arg5 ;
--(NSURL *)defaultAssetURL;
--(void)setDefaultAssetURL:(NSURL *)arg1 ;
--(NSString *)defaultLocalIdentifier;
--(void)setDefaultLocalIdentifier:(NSString *)arg1 ;
+-(NSArray *)preselectedIdentifiers;
+-(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
 -(void)cancelCurrentUpload;
 -(void)updateEditsInfo:(id)arg1 ;
 -(void)setUploadStartTime:(NSDate *)arg1 ;

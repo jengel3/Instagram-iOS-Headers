@@ -48,10 +48,10 @@
 +(id)filterName;
 +(int)filterType;
 -(char)hasAdjustedValues;
--(float)highlights;
--(float)vignette;
 -(float)tintShadowsIntensity;
 -(float)tintHighlightsIntensity;
+-(float)highlights;
+-(float)vignette;
 -(void)setHighlights:(float)arg1 ;
 -(void)setShadows:(float)arg1 ;
 -(void)setVignette:(float)arg1 ;

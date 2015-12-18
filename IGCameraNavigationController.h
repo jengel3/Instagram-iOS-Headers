@@ -1,12 +1,13 @@
 
 #import <Instagram/IGViewController.h>
 #import <Instagram/IGMediaCaptureViewControllerDelegate.h>
+#import <UIKit/UIViewControllerTransitioningDelegate.h>
 #import <Instagram/IGCustomViewController.h>
 
 @protocol IGCameraNavigationControllerDelegate;
 @class IGCameraNavigationBar, IGCaptureManager, UIView, IGCameraShutterView, IGCameraToolbar, IGEditorViewController, NSString;
 
-@interface IGCameraNavigationController : IGViewController <IGMediaCaptureViewControllerDelegate, IGCustomViewController> {
+@interface IGCameraNavigationController : IGViewController <IGMediaCaptureViewControllerDelegate, UIViewControllerTransitioningDelegate, IGCustomViewController> {
 
 	IGCameraNavigationBar* _customNavbar;
 	IGCaptureManager* _captureManager;
@@ -34,20 +35,19 @@
 -(void)reloadNavigationItem:(id)arg1 ;
 -(void)setIsTranslucent:(char)arg1 ;
 -(void)reloadNavigationItem:(id)arg1 animated:(char)arg2 ;
--(id)initWithMetadata:(id)arg1 openWithState:(unsigned)arg2 imageFilePath:(id)arg3 allowedTabs:(unsigned)arg4 ;
+-(id)initWithMetadata:(id)arg1 mode:(int)arg2 imageFilePath:(id)arg3 ;
 -(IGCameraShutterView *)shutterView;
 -(float)originalToolbarY;
 -(IGCameraNavigationBar *)customNavbar;
 -(IGCameraToolbar *)customToolbar;
--(char)mediaCaptureViewControllerShouldUseProducePhotoDelegate:(id)arg1 ;
 -(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2 ;
 -(id)ig_keyViewControllers;
--(id)initWithSelfieCamera;
--(id)initWithMetadata:(id)arg1 openWithState:(unsigned)arg2 ;
+-(id)initWithMetadata:(id)arg1 mode:(int)arg2 ;
 -(id)initWithMetadata:(id)arg1 imageFilePath:(id)arg2 ;
 -(float)verticalOffset;
 -(void)setVerticalOffset:(float)arg1 ;
 -(void)popToRootViewController;
+-(char)mediaCaptureViewControllerShouldUseProducePhotoDelegate:(id)arg1 ;
 -(void)updateToolbarVisibility;
 -(void)setCustomNavbar:(IGCameraNavigationBar *)arg1 ;
 -(IGCaptureManager *)captureManager;

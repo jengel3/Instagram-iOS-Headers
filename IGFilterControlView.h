@@ -79,9 +79,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(unsigned)perspectiveRotateMode;
 -(float)tintShadowsIntensity;
 -(float)tintHighlightsIntensity;
+-(unsigned)perspectiveRotateMode;
+-(unsigned)tintColorType;
 -(id)initWithFrame:(CGRect)arg1 controlType:(unsigned)arg2 showButtons:(char)arg3 ;
 -(void)setPriorValue:(float)arg1 ;
 -(void)setPriorOrientationAngle:(float)arg1 ;
@@ -90,7 +91,6 @@
 -(void)setPerspectiveRotateMode:(unsigned)arg1 ;
 -(void)setValuesForTintShadowsColor:(unsigned)arg1 tintHighlightsColor:(unsigned)arg2 tintShadowsIntensity:(float)arg3 tintHighlightsIntensity:(float)arg4 ;
 -(void)setPositionOffscreen:(char)arg1 ;
--(unsigned)tintColorType;
 -(void)setTintShadowsIntensity:(float)arg1 ;
 -(void)setTintHighlightsIntensity:(float)arg1 ;
 -(float)priorValue;

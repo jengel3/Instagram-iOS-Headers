@@ -28,6 +28,8 @@
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)addRecentItem:(id)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(void)archiveIfNeeded;
 -(NSMutableOrderedSet *)mutableRecentItems;
@@ -39,7 +41,6 @@
 -(void)saveRecentItems:(id)arg1 ;
 -(id)recentItems;
 -(NSArray *)itemControllers;
--(void)archive;
 -(void)dealloc;
 -(void)clearHistory;
 -(void)didEnterBackground:(id)arg1 ;

@@ -40,11 +40,11 @@
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(void)feedStatusView:(id)arg1 wantsChangeToHeight:(float)arg2 ;
 -(float)visibleContentHeight;
+-(void)authorizeAndFetchUsers;
 -(void)didAuthorizeWithDataRequest:(id)arg1 ;
 -(void)findUsersView:(id)arg1 didTapOnUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(void)updateNavigationRightBarButtonItem;
 -(id)newFindUsersView;
--(void)authorizeAndFetchUsers;
 -(id)newFindUsersViewDataSource;
 -(IGFindUsersViewDataSource *)findUsersViewDataSource;
 -(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;

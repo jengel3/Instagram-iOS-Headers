@@ -13,6 +13,7 @@
 
 @property (assign,nonatomic,__weak) id<IGRetroRegistrationWelcomeViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationWelcomeView * welcomeView;                                      //@synthesize welcomeView=_welcomeView - In the implementation block
+-(void)dismissButtonTapped;
 -(void)onFacebookAuthSuccess;
 -(void)onFacebookAuthCancelled;
 -(void)logInFromEmail:(id)arg1 ;
@@ -28,6 +29,7 @@
 -(void)handleDistilleryErrorWithCode:(int)arg1 response:(id)arg2 ;
 -(/*^block*/id)getCompletionHandler;
 -(void)handleNoFBForResponse:(id)arg1 ;
+-(void)fetchFBUsername;
 -(void)setWelcomeView:(IGRetroRegistrationWelcomeView *)arg1 ;
 -(IGRetroRegistrationWelcomeView *)welcomeView;
 -(void)setDelegate:(id<IGRetroRegistrationWelcomeViewControllerDelegate>)arg1 ;

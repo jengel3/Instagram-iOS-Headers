@@ -20,6 +20,7 @@
 -(void)onAppWillBackground:(id)arg1 ;
 -(void)onAppWillResume:(id)arg1 ;
 -(void)onAppWillTerminate:(id)arg1 ;
+-(id)activeUploadsSynchronizedCopy;
 -(void)removeUploadsForKeys:(id)arg1 ;
 -(void)checkSavedUploads;
 -(void)initializeUploadWithDataType:(int)arg1 startTime:(id)arg2 ;

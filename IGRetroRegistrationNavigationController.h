@@ -11,10 +11,12 @@
 #import <Instagram/IGRetroRegistrationPhoneConfirmationViewControllerDelegate.h>
 #import <Instagram/IGAccountTakeOverViewControllerDelegate.h>
 #import <Instagram/IGResetPasswordDelegate.h>
+#import <Instagram/IGClusterBrowsingV2ViewControllerDelegate.h>
+#import <Instagram/IGRetroRegistrationSignInHelperViewControllerDelegate.h>
 
 @class NSDictionary, NSArray, NSString;
 
-@interface IGRetroRegistrationNavigationController : IGNavigationController <IGRetroRegistrationWelcomeViewControllerDelegate, IGRetroRegistrationLoginViewControllerDelegate, IGRetroRegistrationAddEmailViewControllerDelegate, IGRetroRegistrationSignUpViewControllerDelegate, IGRetroRegistrationFindFriendsViewControllerDelegate, IGAccountRecoveryEmailConfirmationControllerDelegate, IGRetroRegistrationSMSVerificationViewControllerDelegate, IGRetroRegistrationPhoneNumberViewControllerDelegate, IGRetroRegistrationPhoneConfirmationViewControllerDelegate, IGAccountTakeOverViewControllerDelegate, IGResetPasswordDelegate> {
+@interface IGRetroRegistrationNavigationController : IGNavigationController <IGRetroRegistrationWelcomeViewControllerDelegate, IGRetroRegistrationLoginViewControllerDelegate, IGRetroRegistrationAddEmailViewControllerDelegate, IGRetroRegistrationSignUpViewControllerDelegate, IGRetroRegistrationFindFriendsViewControllerDelegate, IGAccountRecoveryEmailConfirmationControllerDelegate, IGRetroRegistrationSMSVerificationViewControllerDelegate, IGRetroRegistrationPhoneNumberViewControllerDelegate, IGRetroRegistrationPhoneConfirmationViewControllerDelegate, IGAccountTakeOverViewControllerDelegate, IGResetPasswordDelegate, IGClusterBrowsingV2ViewControllerDelegate, IGRetroRegistrationSignInHelperViewControllerDelegate> {
 
 	char _isSwitchingUsers;
 	int _currentStep;
@@ -24,6 +26,7 @@
 	NSDictionary* _loggedInDictionary;
 	int _followCount;
 	NSString* _email;
+	NSString* _username;
 	NSDictionary* _twoFactorInfo;
 	NSString* _phoneNumber;
 	NSString* _forceSignUpCode;
@@ -38,6 +41,7 @@
 @property (assign,nonatomic) NSDictionary * loggedInDictionary;                                   //@synthesize loggedInDictionary=_loggedInDictionary - In the implementation block
 @property (assign,nonatomic) int followCount;                                                     //@synthesize followCount=_followCount - In the implementation block
 @property (nonatomic,copy) NSString * email;                                                      //@synthesize email=_email - In the implementation block
+@property (nonatomic,copy) NSString * username;                                                   //@synthesize username=_username - In the implementation block
 @property (nonatomic,retain) NSDictionary * twoFactorInfo;                                        //@synthesize twoFactorInfo=_twoFactorInfo - In the implementation block
 @property (nonatomic,copy) NSString * phoneNumber;                                                //@synthesize phoneNumber=_phoneNumber - In the implementation block
 @property (assign,nonatomic) char isSwitchingUsers;                                               //@synthesize isSwitchingUsers=_isSwitchingUsers - In the implementation block
@@ -47,20 +51,27 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)clusterBrowsingV2ViewControllerDidSkip:(id)arg1 ;
+-(void)clusterBrowsingV2ViewController:(id)arg1 willContinueToViewController:(id)arg2 ;
 -(void)onDoneButtonTapped;
 -(void)accountRecoveryEmailConfirmationControllerDelegate:(id)arg1 proceedWithLoggedInDictionary:(id)arg2 signUpCode:(id)arg3 ;
 -(void)accountRecoveryEmailConfirmationControllerDelegate:(id)arg1 proceedWithForceSignUpCode:(id)arg2 ;
 -(void)accountRecoveryEmailConfirmationControllerDelegateBackToLoginView:(id)arg1 ;
 -(NSDictionary *)loggedInDictionary;
+-(char)accountTakeOverViewControllerIsSwitchingUsers:(id)arg1 ;
 -(void)accountTakeOverViewControllerDidTapConfirmLogInButton:(id)arg1 ;
 -(void)accountTakeOverViewControllerDidTapSignUpButton:(id)arg1 ;
 -(void)resetPasswordController:(id)arg1 dismissWithTwoFactorInfo:(id)arg2 ;
+-(char)resetPasswordControllerIsSwitchingUsers:(id)arg1 ;
 -(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
+-(char)smsVerificationViewControllerIsSwitchingUsers:(id)arg1 ;
 -(void)setFollowCount:(int)arg1 ;
 -(int)followCount;
 -(NSDictionary *)facebookMeInfo;
 -(char)isSwitchingUsers;
 -(void)welcomeViewController:(id)arg1 userEmailTakenAutoLoginWithLoggedInDict:(id)arg2 ;
+-(void)welcomeViewControllerWantsToDismiss:(id)arg1 ;
+-(char)welcomeViewControllerIsSwitchingUsers:(id)arg1 ;
 -(id)initWithIsSwitchingUsers:(char)arg1 ;
 -(void)setFacebookMeInfo:(NSDictionary *)arg1 ;
 -(void)setIsSwitchingUsers:(char)arg1 ;
@@ -80,20 +91,25 @@
 -(char)loginViewControllerIsSwitchingUsers:(id)arg1 ;
 -(void)loginViewController:(id)arg1 proceedTwoFactorWithUserInfo:(id)arg2 ;
 -(void)loginViewControllerDidTapLoginButton:(id)arg1 ;
+-(void)loginViewController:(id)arg1 didTapOnLoginHelperButtonWithUsername:(id)arg2 ;
 -(void)loginViewControllerDidTapSignUpButton:(id)arg1 ;
+-(void)loginViewControllerWantsToDismiss:(id)arg1 ;
 -(void)loginViewController:(id)arg1 didTapOnURL:(id)arg2 ;
 -(void)loginViewController:(id)arg1 resetPasswordWithViewController:(id)arg2 ;
 -(void)loginViewController:(id)arg1 userEmailTakenAutoLoginWithLoggedInDict:(id)arg2 ;
 -(void)loginViewController:(id)arg1 proceedRegistrationWithFBInfo:(id)arg2 ;
+-(id)viewControllerForStep:(int)arg1 ;
 -(id)createFindFriendsViewController;
+-(id)createClusterBrowsingViewController;
 -(id)createFollowPeopleViewController;
 -(id)createPhoneConfirmationViewController;
 -(id)createSMSVerificationViewController;
 -(id)createSignUpViewController;
 -(id)createEmailConfirmationViewController;
 -(id)createAccountTakeOverViewController;
--(id)viewControllerForStep:(int)arg1 ;
+-(id)createSignInHelperViewController;
 -(void)userLoggedInOperations;
+-(int)followPeopleStep;
 -(void)continueStep:(int)arg1 ;
 -(NSString *)SMSVerificationCode;
 -(NSString *)forceSignUpCode;
@@ -102,6 +118,7 @@
 -(void)continueCurrentStep;
 -(void)setFindFriendMode:(int)arg1 ;
 -(void)setTwoFactorInfo:(NSDictionary *)arg1 ;
+-(void)onRegistrationFinished;
 -(void)setForceSignUpCode:(NSString *)arg1 ;
 -(void)setLoggedInDictionary:(NSDictionary *)arg1 ;
 -(void)setSMSVerificationCode:(NSString *)arg1 ;
@@ -110,7 +127,7 @@
 -(void)welcomeViewController:(id)arg1 proceedRegistrationWithFBInfo:(id)arg2 ;
 -(void)welcomeViewController:(id)arg1 resetPasswordWithViewController:(id)arg2 ;
 -(void)welcomeViewController:(id)arg1 proceedTwoFactorWithUserInfo:(id)arg2 ;
--(void)welcomeViewController:(id)arg1 proceedOneClickLoginWithUsername:(id)arg2 token:(id)arg3 ;
+-(void)welcomeViewController:(id)arg1 proceedOneClickLoginWithUsername:(id)arg2 token:(id)arg3 source:(id)arg4 ;
 -(void)signupViewControllerDidTapLoginButton:(id)arg1 ;
 -(void)signupViewControllerDidTapNextButton:(id)arg1 ;
 -(void)signupViewControllerRegistrationSucceeded:(id)arg1 ;
@@ -121,11 +138,15 @@
 -(void)phoneNumberViewControllerDelegateDidTapEmailRegistrationButton:(id)arg1 ;
 -(void)phoneNumberViewControllerDelegateSMSSentWithPhoneNumber:(id)arg1 phoneNumberViewController:(id)arg2 ;
 -(void)phoneConfirmationViewController:(id)arg1 didVerifyWithCode:(id)arg2 ;
+-(void)signInHelperViewControllerDidTapBackButton:(id)arg1 ;
+-(void)signInHelperViewController:(id)arg1 didTapOnURL:(id)arg2 ;
 -(char)gestureRecognizerShouldBegin:(id)arg1 ;
 -(NSString *)phoneNumber;
 -(int)currentStep;
 -(NSString *)email;
 -(void)setEmail:(NSString *)arg1 ;
+-(void)setUsername:(NSString *)arg1 ;
+-(NSString *)username;
 -(void)setPhoneNumber:(NSString *)arg1 ;
 @end
 

@@ -26,15 +26,13 @@
 	char _changingModes;
 	char _layoutButtonVisible;
 	char _shouldShowDownloadLayoutNuxIfUnseen;
-	char _boomerangButtonEnabled;
 	char _shouldAutoPlayVideo;
 	char _wasPlayingVideo;
 	char _isPushingCropView;
 	id<IGMediaCaptureViewControllerDelegate> _delegate;
 	IGMediaMetadata* _mediaMetadata;
-	unsigned _openWithState;
 	int _state;
-	unsigned _tabConfiguration;
+	int _mode;
 	IGGridViewController* _gridViewController;
 	IGMediaTabBar* _mediaTabBar;
 	UIView* _multiClipModal;
@@ -77,7 +75,6 @@
 	IGTapButton* _layoutButton;
 	IGNuxButton* _boomerangButton;
 	IGTapButton* _longcatButton;
-	IGTapButton* _multiSelectButton;
 	IGAssetPlayerView* _playerView;
 	IGVideoPlayButton* _playButton;
 	UITapGestureRecognizer* _playTap;
@@ -102,7 +99,6 @@
 	id _selectedAsset;
 	NSMutableDictionary* _selectedVideos;
 	UIBarButtonItem* _dismissButtonItem;
-	UIBarButtonItem* _multiSelectCancelButtonItem;
 	UIBarButtonItem* _libraryNextButtonItem;
 	UIBarButtonItem* _libraryLoadingNextButtonItem;
 	UIBarButtonItem* _videoNextButtonItem;
@@ -117,10 +113,9 @@
 
 @property (assign,nonatomic,__weak) id<IGMediaCaptureViewControllerDelegate> delegate;                         //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGMediaMetadata * mediaMetadata;                                                  //@synthesize mediaMetadata=_mediaMetadata - In the implementation block
-@property (assign,nonatomic) unsigned openWithState;                                                           //@synthesize openWithState=_openWithState - In the implementation block
 @property (assign,nonatomic) char isBackgrounded;                                                              //@synthesize isBackgrounded=_isBackgrounded - In the implementation block
 @property (assign,nonatomic) int state;                                                                        //@synthesize state=_state - In the implementation block
-@property (assign,nonatomic) unsigned tabConfiguration;                                                        //@synthesize tabConfiguration=_tabConfiguration - In the implementation block
+@property (assign,nonatomic) int mode;                                                                         //@synthesize mode=_mode - In the implementation block
 @property (assign,nonatomic) char gridViewIsLoaded;                                                            //@synthesize gridViewIsLoaded=_gridViewIsLoaded - In the implementation block
 @property (nonatomic,retain) IGGridViewController * gridViewController;                                        //@synthesize gridViewController=_gridViewController - In the implementation block
 @property (nonatomic,retain) IGMediaTabBar * mediaTabBar;                                                      //@synthesize mediaTabBar=_mediaTabBar - In the implementation block
@@ -168,9 +163,7 @@
 @property (assign,nonatomic) char shouldShowDownloadLayoutNuxIfUnseen;                                         //@synthesize shouldShowDownloadLayoutNuxIfUnseen=_shouldShowDownloadLayoutNuxIfUnseen - In the implementation block
 @property (nonatomic,retain) IGTapButton * layoutButton;                                                       //@synthesize layoutButton=_layoutButton - In the implementation block
 @property (nonatomic,retain) IGNuxButton * boomerangButton;                                                    //@synthesize boomerangButton=_boomerangButton - In the implementation block
-@property (assign,nonatomic) char boomerangButtonEnabled;                                                      //@synthesize boomerangButtonEnabled=_boomerangButtonEnabled - In the implementation block
 @property (nonatomic,retain) IGTapButton * longcatButton;                                                      //@synthesize longcatButton=_longcatButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * multiSelectButton;                                                  //@synthesize multiSelectButton=_multiSelectButton - In the implementation block
 @property (nonatomic,retain) IGAssetPlayerView * playerView;                                                   //@synthesize playerView=_playerView - In the implementation block
 @property (nonatomic,retain) IGVideoPlayButton * playButton;                                                   //@synthesize playButton=_playButton - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * playTap;                                                 //@synthesize playTap=_playTap - In the implementation block
@@ -199,7 +192,6 @@
 @property (nonatomic,retain) id selectedAsset;                                                                 //@synthesize selectedAsset=_selectedAsset - In the implementation block
 @property (nonatomic,retain) NSMutableDictionary * selectedVideos;                                             //@synthesize selectedVideos=_selectedVideos - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * dismissButtonItem;                                              //@synthesize dismissButtonItem=_dismissButtonItem - In the implementation block
-@property (nonatomic,retain) UIBarButtonItem * multiSelectCancelButtonItem;                                    //@synthesize multiSelectCancelButtonItem=_multiSelectCancelButtonItem - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * libraryNextButtonItem;                                          //@synthesize libraryNextButtonItem=_libraryNextButtonItem - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * libraryLoadingNextButtonItem;                                   //@synthesize libraryLoadingNextButtonItem=_libraryLoadingNextButtonItem - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * videoNextButtonItem;                                            //@synthesize videoNextButtonItem=_videoNextButtonItem - In the implementation block
@@ -232,8 +224,6 @@
 -(void)cropViewVisibleContentFrameDidChange:(CGRect)arg1 ;
 -(void)cropViewUserInteractionDidBegin:(id)arg1 ;
 -(void)cropViewUserInteractionDidEnd:(id)arg1 ;
--(id)initWithCaptureDevicePosition:(int)arg1 tabConfiguration:(unsigned)arg2 ;
--(void)setOpenWithState:(unsigned)arg1 ;
 -(IGCaptureManager *)captureManager;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(void)gridViewControllerLibraryDidLoad:(id)arg1 ;
@@ -250,7 +240,8 @@
 -(void)mediaCaptureButtonDidBeginRecording;
 -(IGVideoProgressView *)videoProgressView;
 -(NSMutableDictionary *)pendingVideoRequests;
--(void)setTabConfiguration:(unsigned)arg1 ;
+-(void)assertModeIsValid;
+-(int)preferredDevicePosition;
 -(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
 -(void)setDeviceAngleSampler:(IGDeviceAngleSampler *)arg1 ;
 -(void)setImageBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
@@ -312,18 +303,11 @@
 -(void)setLayoutButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)layoutButton;
 -(void)layoutButtonTapped;
--(float)layoutButtonStaticYPositionInContainer;
 -(void)setLayoutButtonVisible:(char)arg1 ;
 -(void)setShouldShowDownloadLayoutNuxIfUnseen:(char)arg1 ;
--(void)setMultiSelectButton:(IGTapButton *)arg1 ;
--(IGTapButton *)multiSelectButton;
--(void)enableMultiSelectClips;
--(void)onMultiSelectCancelButtonTapped;
--(void)setMultiSelectCancelButtonItem:(UIBarButtonItem *)arg1 ;
--(UIBarButtonItem *)multiSelectCancelButtonItem;
+-(char)boomerangButtonEnabled;
 -(void)setBoomerangButton:(IGNuxButton *)arg1 ;
 -(IGNuxButton *)boomerangButton;
--(void)setBoomerangButtonEnabled:(char)arg1 ;
 -(void)boomerangButtonTapped;
 -(void)tapExpandCrop:(id)arg1 ;
 -(void)setCropTap:(UITapGestureRecognizer *)arg1 ;
@@ -346,7 +330,6 @@
 -(float)tabBarHeight;
 -(void)onLibraryNextButtonTapped;
 -(void)setLibraryNextButtonItem:(UIBarButtonItem *)arg1 ;
--(UIBarButtonItem *)libraryNextButtonItem;
 -(void)setLibraryLoadingNextButtonItem:(UIBarButtonItem *)arg1 ;
 -(UIBarButtonItem *)libraryLoadingNextButtonItem;
 -(void)setDismissButtonItem:(UIBarButtonItem *)arg1 ;
@@ -354,18 +337,12 @@
 -(IGChevronTitleButton *)chevronTitleButton;
 -(void)onAlbumTitleTapped;
 -(IGSelectAlbumController *)selectAlbumVC;
--(unsigned)openWithState;
--(unsigned)tabConfiguration;
--(void)setMediaTabBar:(IGMediaTabBar *)arg1 ;
--(IGMediaTabBar *)mediaTabBar;
--(void)tabBarButtonTapped;
--(void)setMultiClipModal:(UIView *)arg1 ;
--(UIView *)multiClipModal;
 -(id)selectedAsset;
 -(int)assetType:(id)arg1 ;
 -(char)shouldAutoPlayVideo;
 -(void)pauseVideoPlayer;
 -(char)inMultiClipMode;
+-(IGMediaTabBar *)mediaTabBar;
 -(void)updateVideoState;
 -(void)setSelectAlbumVC:(IGSelectAlbumController *)arg1 ;
 -(char)gridViewIsLoaded;
@@ -377,6 +354,7 @@
 -(void)updateStabilizationSampler;
 -(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
 -(void)stopVideoPlayer;
+-(UIView *)multiClipModal;
 -(IGCameraAccessPromptView *)cameraPermissionDeniedView;
 -(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
 -(float)cropOffsetY;
@@ -386,6 +364,10 @@
 -(void)setDisabledScrollViews:(NSArray *)arg1 ;
 -(NSArray *)disabledScrollViews;
 -(void)presentEditorWithBuffer:(id)arg1 isPreviewBuffer:(char)arg2 ;
+-(char)showsMediaTabBar;
+-(void)setMediaTabBar:(IGMediaTabBar *)arg1 ;
+-(void)tabBarButtonTapped;
+-(void)setMultiClipModal:(UIView *)arg1 ;
 -(char)wasPlayingVideo;
 -(void)playVideoPlayer;
 -(void)setCameraMode:(int)arg1 animated:(char)arg2 ;
@@ -395,6 +377,7 @@
 -(void)setWasPlayingVideo:(char)arg1 ;
 -(id)fullResolutionCompletionBlock;
 -(id)multiClipCompletionBlock;
+-(UIBarButtonItem *)libraryNextButtonItem;
 -(UIBarButtonItem *)dismissButtonItem;
 -(UIBarButtonItem *)videoNextButtonItem;
 -(void)selectFirstAsset;
@@ -412,18 +395,16 @@
 -(unsigned)contentEditingInputRequestID;
 -(void)setContentEditingInputRequestID:(unsigned)arg1 ;
 -(void)setSelectedAsset:(id)arg1 ;
--(char)shouldSwitchEditingModesFromAsset:(id)arg1 toAsset:(id)arg2 ;
 -(void)setSelectedVideos:(NSMutableDictionary *)arg1 ;
 -(void)setFullResolutionSource:(id)arg1 ;
 -(void)setFullResolutionCompletionBlock:(id)arg1 ;
 -(void)setMultiClipCompletionBlock:(id)arg1 ;
 -(UITapGestureRecognizer *)playTap;
+-(void)setBoomerangButtonPositionForAsset:(id)arg1 ;
 -(void)hideLoadingViews;
--(void)animateCropContainerButton:(id)arg1 ;
 -(void)showDownloadLayoutNUX;
 -(char)allVideosLoaded;
 -(void)updateVideoLibraryNextButtonEnabled;
--(char)boomerangButtonEnabled;
 -(void)showMinDurationAssetNUX;
 -(id)previewAsset;
 -(void)setPreviewAsset:(id)arg1 ;
@@ -449,7 +430,6 @@
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
 -(void)showBoomerangAppInstallAlertViewPopover;
--(void)toggleMultiClipModal;
 -(void)continueWithAsset;
 -(void)updateVideoSize;
 -(void)showVideoTooShortNUX;
@@ -480,7 +460,8 @@
 -(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(char)shouldShowDownloadLayoutNuxIfUnseen;
 -(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
--(char)stateAllowedByTabConfiguration:(int)arg1 ;
+-(char)modeAllowsState:(int)arg1 ;
+-(void)toggleMultiClipModal;
 -(void)setPlayTap:(UITapGestureRecognizer *)arg1 ;
 -(UIPanGestureRecognizer *)cropPanMinimize;
 -(void)setCropPanMinimize:(UIPanGestureRecognizer *)arg1 ;
@@ -520,9 +501,12 @@
 -(void)viewDidAppear:(char)arg1 ;
 -(void)viewWillDisappear:(char)arg1 ;
 -(void)viewDidDisappear:(char)arg1 ;
+-(void)setMode:(int)arg1 ;
+-(int)mode;
 -(void)setProgressView:(IGCircularProgressView *)arg1 ;
 -(IGCircularProgressView *)progressView;
 -(void)stopRecording;
+-(id)initWithMode:(int)arg1 ;
 -(char)isChangingModes;
 -(void)setFlashButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)flashButton;

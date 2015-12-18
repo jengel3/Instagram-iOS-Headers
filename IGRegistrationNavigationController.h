@@ -16,6 +16,7 @@
 	char _skipFindFriends;
 	char _enterFromAutoLogin;
 	char _isSwitchingUsers;
+	char _isClusterBrowsingSkipped;
 	NSDictionary* _facebookMeInfo;
 	NSString* _email;
 	int _findFriendsViewMode;
@@ -33,6 +34,7 @@
 @property (nonatomic,retain) IGPeopleFeedViewController * discoverMorePeopleVC;              //@synthesize discoverMorePeopleVC=_discoverMorePeopleVC - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * doneButton;                                   //@synthesize doneButton=_doneButton - In the implementation block
 @property (assign,nonatomic) char isSwitchingUsers;                                          //@synthesize isSwitchingUsers=_isSwitchingUsers - In the implementation block
+@property (assign,nonatomic) char isClusterBrowsingSkipped;                                  //@synthesize isClusterBrowsingSkipped=_isClusterBrowsingSkipped - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -56,10 +58,13 @@
 -(void)showNewActivationFlow;
 -(char)shouldShowClusterBrowsing;
 -(id)newClusterBrowsingVC;
+-(char)shouldShowFindMorePeople;
 -(IGPeopleFeedViewController *)discoverMorePeopleVC;
+-(char)isClusterBrowsingSkipped;
 -(char)isSwitchingUsers;
 -(void)startRegistrationWithFacebookInfo:(id)arg1 ;
 -(void)pushSignInViewController;
+-(void)setIsClusterBrowsingSkipped:(char)arg1 ;
 -(void)usernameViewControllerDidSwitchToEmailFlow:(id)arg1 ;
 -(void)usernameViewControllerDidSwitchToFBFlow:(id)arg1 ;
 -(void)usernameViewController:(id)arg1 requestsLoginToUsername:(id)arg2 password:(id)arg3 ;

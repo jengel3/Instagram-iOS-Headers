@@ -38,11 +38,11 @@
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)onFacebookAuthSuccess;
+-(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
+-(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didFollowUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(IGFindUsersViewDataSource *)findUsersViewDataSource;
 -(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
--(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
--(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
 -(void)onFacebookAuthFailure;
 -(void)findUsersView:(id)arg1 didFailWithError:(id)arg2 ;

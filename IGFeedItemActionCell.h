@@ -20,9 +20,12 @@
 	int _accessoryViewType;
 	id<IGFeedItemActionCellDelegate> _delegate;
 	id<IGFeedItemLoggingProviderDelegate> _loggingDelegate;
+	int _secondaryAccessoryViewType;
 	UIView* _lineView;
 	UIButton*<IGSponsorableButton> _sponsoredButton;
 	NSArray* _accessibilityElements;
+	UIButton* _chevronButton;
+	UIView* _chevronSeperatorView;
 
 }
 
@@ -38,9 +41,12 @@
 @property (assign,nonatomic) char sponsoredPostAllowed;                                                 //@synthesize sponsoredPostAllowed=_sponsoredPostAllowed - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemActionCellDelegate> delegate;                          //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
+@property (assign,nonatomic) int secondaryAccessoryViewType;                                            //@synthesize secondaryAccessoryViewType=_secondaryAccessoryViewType - In the implementation block
 @property (nonatomic,retain) UIView * lineView;                                                         //@synthesize lineView=_lineView - In the implementation block
 @property (nonatomic,retain) UIButton*<IGSponsorableButton> sponsoredButton;                            //@synthesize sponsoredButton=_sponsoredButton - In the implementation block
 @property (nonatomic,retain) NSArray * accessibilityElements;                                           //@synthesize accessibilityElements=_accessibilityElements - In the implementation block
+@property (nonatomic,retain) UIButton * chevronButton;                                                  //@synthesize chevronButton=_chevronButton - In the implementation block
+@property (nonatomic,retain) UIView * chevronSeperatorView;                                             //@synthesize chevronSeperatorView=_chevronSeperatorView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -48,8 +54,8 @@
 +(float)height;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
--(id)accessibleElements;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(id)accessibleElements;
 -(void)setLineView:(UIView *)arg1 ;
 -(void)setLikeButton:(UIButton *)arg1 ;
 -(float)seperatorLineHInset;
@@ -62,18 +68,26 @@
 -(int)accessoryViewType;
 -(UIButton *)commentButton;
 -(UIButton*<IGSponsorableButton>)sponsoredButton;
+-(UIButton *)chevronButton;
 -(void)onMoreButtonPressed:(id)arg1 ;
 -(void)onCommentButtonPressed:(id)arg1 ;
 -(void)pageControlDidChangeValue:(id)arg1 ;
 -(void)onSendButtonPressed:(id)arg1 ;
 -(void)onLikeButtonPressed:(id)arg1 ;
+-(void)onChevronButtonPressed:(id)arg1 ;
 -(void)updateLikeButton;
 -(char)sponsoredPostAllowed;
+-(void)updateChevronButton;
 -(void)pushComments;
+-(UIView *)chevronSeperatorView;
 -(void)setCustomizableButtonHidden:(char)arg1 animated:(char)arg2 ;
+-(void)setSecondaryAccessoryViewType:(int)arg1 ;
 -(void)setCommentButton:(UIButton *)arg1 ;
 -(void)setSponsoredPostAllowed:(char)arg1 ;
+-(int)secondaryAccessoryViewType;
 -(void)setSponsoredButton:(UIButton*<IGSponsorableButton>)arg1 ;
+-(void)setChevronButton:(UIButton *)arg1 ;
+-(void)setChevronSeperatorView:(UIView *)arg1 ;
 -(void)setPageControl:(IGPageCellPageControl *)arg1 ;
 -(UIButton *)moreButton;
 -(id)initWithFrame:(CGRect)arg1 ;

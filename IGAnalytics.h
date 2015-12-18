@@ -14,7 +14,6 @@
 	NSString* _deviceID;
 	NSString* _APIKey;
 	NSString* _APISecret;
-	char _noLatencyEventsSaveEarlyEnabled;
 	NSString* _userID;
 	NSString* _facebookID;
 	IGAnalyticsLogFileManager* _logFileManager;
@@ -42,7 +41,6 @@
 @property (assign,nonatomic) double accumulatedBackgroundTime;                                //@synthesize accumulatedBackgroundTime=_accumulatedBackgroundTime - In the implementation block
 @property (assign,nonatomic) double accumulatedActiveTime;                                    //@synthesize accumulatedActiveTime=_accumulatedActiveTime - In the implementation block
 @property (nonatomic,retain) IGAnalyticsConnectionObserver * connectionObserver;              //@synthesize connectionObserver=_connectionObserver - In the implementation block
-@property (assign,nonatomic) char noLatencyEventsSaveEarlyEnabled;                            //@synthesize noLatencyEventsSaveEarlyEnabled=_noLatencyEventsSaveEarlyEnabled - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -61,7 +59,6 @@
 -(void)logTimeSpentForModule:(id)arg1 ;
 -(void)startTimer:(id)arg1 uuid:(id)arg2 ;
 -(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
--(void)setNoLatencyEventsSaveEarlyEnabled:(char)arg1 ;
 -(void)logApplication:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 ;
 -(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
 -(IGAnalyticsLogFileManager *)logFileManager;
@@ -100,14 +97,12 @@
 -(int)lastAppIconBadgeNumber;
 -(void)setLastAppIconBadgeNumber:(int)arg1 ;
 -(void)uploadSessionData:(id)arg1 session:(id)arg2 allowableRetries:(int)arg3 channel:(int)arg4 ;
--(void)uploadSession:(id)arg1 allowableRetries:(int)arg2 channel:(int)arg3 ;
--(IGAnalyticsUploader *)uploader;
--(void)logNoLatencyUploadSuccessWithResponseData:(id)arg1 rawResponse:(id)arg2 ;
 -(IGAnalyticsUploader *)noLatencyLogsUploader;
 -(IGAnalyticsLogFileManager *)noLatencyFileManager;
+-(void)logNoLatencyUploadSuccessWithResponseData:(id)arg1 rawResponse:(id)arg2 ;
+-(IGAnalyticsUploader *)uploader;
 -(void)logBinaryEvent:(id)arg1 data:(id)arg2 ;
 -(IGAnalyticsConnectionObserver *)connectionObserver;
--(char)noLatencyEventsSaveEarlyEnabled;
 -(void)connectionObserver:(id)arg1 connectionChangedWithReachability:(id)arg2 radioTechnology:(id)arg3 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 channel:(int)arg6 ;
 -(void)analyticsLoggerForEvent:(id)arg1 addExtraEventInfoTo:(id)arg2 ;

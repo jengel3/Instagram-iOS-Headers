@@ -19,7 +19,9 @@
 @property (nonatomic,copy) NSString * tagName;                      //@synthesize tagName=_tagName - In the implementation block
 @property (nonatomic,copy) NSString * tagDescription;               //@synthesize tagDescription=_tagDescription - In the implementation block
 @property (nonatomic,retain) NSNumber * mediaCount;                 //@synthesize mediaCount=_mediaCount - In the implementation block
+@property (nonatomic,copy,readonly) NSString * pk; 
 @property (nonatomic,readonly) NSString * displayName; 
+-(NSString *)pk;
 -(NSNumber *)mediaCount;
 -(void)setMediaCount:(NSNumber *)arg1 ;
 -(id)relatedItemDisplayName;

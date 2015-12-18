@@ -1,7 +1,7 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGBulkCommentDeleteManagerDelegate.h>
-#import <Instagram/IGCommentCellDelegate.h>
+#import <Instagram/IGCommentTableCellDelegate.h>
 #import <UIKit/UITableViewDataSource.h>
 #import <UIKit/UITableViewDelegate.h>
 #import <Instagram/IGActionSheetDelegate.h>
@@ -10,7 +10,7 @@
 @protocol IGCommentThreadTableSourceDelegate;
 @class NSIndexPath, IGPost, UITableView, UINavigationController, IGRealtimeManager, IGBulkCommentDeleteManager, NSArray, NSString;
 
-@interface IGCommentThreadTableSource : NSObject <IGBulkCommentDeleteManagerDelegate, IGCommentCellDelegate, UITableViewDataSource, UITableViewDelegate, IGActionSheetDelegate, IGRealtimeOperationDelegate> {
+@interface IGCommentThreadTableSource : NSObject <IGBulkCommentDeleteManagerDelegate, IGCommentTableCellDelegate, UITableViewDataSource, UITableViewDelegate, IGActionSheetDelegate, IGRealtimeOperationDelegate> {
 
 	NSIndexPath* _tappedIndexPath;
 	char _isFlaggingComment;
@@ -46,20 +46,29 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(NSArray *)activeComments;
+-(void)commentDeletionFinished:(id)arg1 ;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(IGPost *)post;
+-(IGRealtimeManager *)realtimeManager;
+-(void)handleRealtimeOperation:(id)arg1 ;
+-(id)pkForRealtimeOperation:(id)arg1 ;
+-(void)handleRealtimeRefreshRequest;
+-(void)unsubscribeFromRealtime;
+-(IGBulkCommentDeleteManager *)bulkCommentDeleteManager;
+-(char)isLoadingMore;
+-(void)undoBulkCommentDeletion;
+-(void)commitBulkCommentDeletion;
 -(void)commentDeleteManagerDidAddCommentToDelete:(id)arg1 numberOfCommentsToDelete:(int)arg2 ;
 -(void)commentDeleteManagerDidStartCommentDeletion:(id)arg1 ;
--(void)commentDeletionFinished:(id)arg1 ;
 -(void)commentDeleteManagerDidFinishCommentDeletion:(id)arg1 ;
 -(void)commentDeleteManagerDidFailToDeleteComments:(id)arg1 ;
--(void)commitBulkCommentDeletion;
--(void)undoBulkCommentDeletion;
 -(void)setPost:(IGPost *)arg1 ;
 -(void)commentCellDidShowActions:(id)arg1 ;
 -(void)commentCellDidHideActions:(id)arg1 ;
+-(void)commentCell:(id)arg1 didLongTapOnUser:(id)arg2 ;
 -(void)commentCellUserTapped:(id)arg1 ;
 -(void)commentCellReplyButtonTapped:(id)arg1 ;
--(void)commentCell:(id)arg1 didLongTapOnUser:(id)arg2 ;
 -(void)commentCellDeleteButtonTapped:(id)arg1 ;
 -(void)commentCellReportButtonTapped:(id)arg1 ;
 -(void)commentCellDidStartPanGestureRecognition:(id)arg1 ;
@@ -69,7 +78,6 @@
 -(void)setShouldSuppressReloadData:(char)arg1 ;
 -(id)indexPathForCommentModel:(id)arg1 ;
 -(void)setIsLoadingMore:(char)arg1 ;
--(IGRealtimeManager *)realtimeManager;
 -(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)loadCommentsWithLoadMore:(char)arg1 ;
 -(void)onPostUpdated:(id)arg1 ;
@@ -84,17 +92,9 @@
 -(void)showFlaggingActionSheet;
 -(void)removeCommentInCell:(id)arg1 delete:(char)arg2 reportWithReason:(int)arg3 ;
 -(char)shouldSuppressReloadData;
--(char)isLoadingMore;
--(IGBulkCommentDeleteManager *)bulkCommentDeleteManager;
 -(void)showActionSheetForComment:(id)arg1 ;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
--(void)handleRealtimeOperation:(id)arg1 ;
--(id)pkForRealtimeOperation:(id)arg1 ;
--(void)handleRealtimeRefreshRequest;
 -(void)postCommentWithText:(id)arg1 ;
 -(void)reloadAndMaybeSubscribeRealtime;
--(void)unsubscribeFromRealtime;
 -(void)setEnableCommentCellSwipeToDelete:(char)arg1 ;
 -(void)setBulkCommentDeleteManager:(IGBulkCommentDeleteManager *)arg1 ;
 -(void)dealloc;

@@ -2,8 +2,8 @@
 
 @interface IGURLHelper : NSObject
 +(void)openExternalURL:(id)arg1 withWebViewController:(id)arg2 fromViewController:(id)arg3 displaysModally:(char)arg4 ;
-+(void)openURL:(id)arg1 controller:(id)arg2 ;
 +(void)openExternalURL:(id)arg1 controller:(id)arg2 modal:(char)arg3 controls:(char)arg4 completionHandler:(/*^block*/id)arg5 ;
++(void)openURL:(id)arg1 controller:(id)arg2 ;
 +(id)actionForURL:(id)arg1 ;
 +(void)openInternalURL:(id)arg1 controller:(id)arg2 animated:(char)arg3 ;
 +(void)openExternalURL:(id)arg1 controller:(id)arg2 modal:(char)arg3 title:(id)arg4 ;

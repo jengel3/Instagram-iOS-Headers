@@ -28,14 +28,14 @@
 @property (nonatomic,retain) CLLocation * location;                                            //@synthesize location=_location - In the implementation block
 @property (assign,nonatomic) char circularCropMode;                                            //@synthesize circularCropMode=_circularCropMode - In the implementation block
 -(NSDictionary *)exifData;
--(char)circularCropMode;
 -(id)circularCropperView;
+-(void)setCircularCropMode:(char)arg1 ;
+-(char)circularCropMode;
 -(int)minimumImageSize;
 -(void)setMinimumImageSize:(int)arg1 ;
 -(void)setFullScreenImage:(UIImage *)arg1 ;
 -(UIImage *)fullSizeImage;
 -(void)setExifData:(NSDictionary *)arg1 ;
--(void)setCircularCropMode:(char)arg1 ;
 -(CGRect)cropRect;
 -(void)setDelegate:(id<IGCropperViewControllerDelegate>)arg1 ;
 -(id)init;

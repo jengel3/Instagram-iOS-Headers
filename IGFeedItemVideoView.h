@@ -83,8 +83,8 @@
 -(char)hasPlayer;
 -(char)hasPlaybackError;
 -(char)isVideoHasSound;
--(UILongPressGestureRecognizer *)longPressRecognizer;
 -(void)setAudioNUXController:(IGAudioNUXController *)arg1 ;
+-(UILongPressGestureRecognizer *)longPressRecognizer;
 -(id)relinquishPlayer;
 -(void)logVideoStoppedForReason:(int)arg1 ;
 -(char)audioNUXControllerVideoHasSound:(id)arg1 ;

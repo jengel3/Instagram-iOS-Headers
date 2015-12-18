@@ -60,11 +60,11 @@
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(char)disableNavigationGesture;
 -(void)onFacebookAuthSuccess;
+-(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
+-(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didFollowUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(IGFindUsersViewDataSource *)findUsersViewDataSource;
 -(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
--(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
--(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
 -(void)onFacebookAuthFailure;
 -(IGFindUsersView *)usersView;

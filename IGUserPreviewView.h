@@ -6,7 +6,7 @@
 
 @interface IGUserPreviewView : UIView {
 
-	char _isPrivate;
+	char _showAsPrivate;
 	IGThumbnailsGridView* _thumbnailView;
 	IGUserHeaderView* _headerView;
 	IGStatButton* _followersButton;
@@ -22,7 +22,7 @@
 @property (nonatomic,retain) IGStatButton * followingButton;                    //@synthesize followingButton=_followingButton - In the implementation block
 @property (nonatomic,retain) IGStatButton * postsButton;                        //@synthesize postsButton=_postsButton - In the implementation block
 @property (nonatomic,retain) IGExploreEmptyView * emptyView;                    //@synthesize emptyView=_emptyView - In the implementation block
-@property (assign,nonatomic) char isPrivate;                                    //@synthesize isPrivate=_isPrivate - In the implementation block
+@property (assign,nonatomic) char showAsPrivate;                                //@synthesize showAsPrivate=_showAsPrivate - In the implementation block
 -(void)updateUser:(id)arg1 ;
 -(IGStatButton *)followingButton;
 -(void)setFollowingButton:(IGStatButton *)arg1 ;
@@ -34,7 +34,8 @@
 -(IGStatButton *)followersButton;
 -(void)setFollowersButton:(IGStatButton *)arg1 ;
 -(void)setPostsButton:(IGStatButton *)arg1 ;
--(void)setIsPrivate:(char)arg1 ;
+-(char)showAsPrivate;
+-(void)setShowAsPrivate:(char)arg1 ;
 -(id)initWithUser:(id)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
@@ -42,6 +43,5 @@
 -(void)setHeaderView:(IGUserHeaderView *)arg1 ;
 -(void)setThumbnailView:(IGThumbnailsGridView *)arg1 ;
 -(IGThumbnailsGridView *)thumbnailView;
--(char)isPrivate;
 @end
 

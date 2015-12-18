@@ -15,6 +15,7 @@
 	IGNotificationMegaphoneView* _notificationMegaphoneView;
 	IGGenericMegaphoneView* _genericMegaphoneView;
 	NSDictionary* _serverMegaphoneData;
+	IGNewsDataSourceSection* _unseenMessagesStorySection;
 	IGNewsDataSourceSection* _megaphoneSection;
 	IGNewsDataSourceSection* _friendRequestSection;
 	IGNewsDataSourceSection* _storiesNewSection;
@@ -30,6 +31,7 @@
 @property (nonatomic,retain) IGNotificationMegaphoneView * notificationMegaphoneView;              //@synthesize notificationMegaphoneView=_notificationMegaphoneView - In the implementation block
 @property (nonatomic,retain) IGGenericMegaphoneView * genericMegaphoneView;                        //@synthesize genericMegaphoneView=_genericMegaphoneView - In the implementation block
 @property (nonatomic,retain) NSDictionary * serverMegaphoneData;                                   //@synthesize serverMegaphoneData=_serverMegaphoneData - In the implementation block
+@property (nonatomic,retain) IGNewsDataSourceSection * unseenMessagesStorySection;                 //@synthesize unseenMessagesStorySection=_unseenMessagesStorySection - In the implementation block
 @property (nonatomic,retain) IGNewsDataSourceSection * megaphoneSection;                           //@synthesize megaphoneSection=_megaphoneSection - In the implementation block
 @property (nonatomic,retain) IGNewsDataSourceSection * friendRequestSection;                       //@synthesize friendRequestSection=_friendRequestSection - In the implementation block
 @property (nonatomic,retain) IGNewsDataSourceSection * storiesNewSection;                          //@synthesize storiesNewSection=_storiesNewSection - In the implementation block
@@ -41,19 +43,21 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)onFriendStatusReceived:(id)arg1 ;
 -(IGRealtimeManager *)realtimeManager;
--(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)handleRealtimeOperation:(id)arg1 ;
 -(id)pkForRealtimeOperation:(id)arg1 ;
 -(void)handleRealtimeRefreshRequest;
+-(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)megaphoneDidDismiss:(id)arg1 ;
 -(void)megaphone:(id)arg1 didOpenURL:(id)arg2 ;
 -(void)reloadDataFromPullToRefresh;
+-(void)updateSections;
 -(void)setServerMegaphoneData:(NSDictionary *)arg1 ;
 -(NSDictionary *)serverMegaphoneData;
 -(void)onFetchFailed:(id)arg1 ;
 -(id)newEmptyFeedView;
 -(void)onFriendStatusChanged:(id)arg1 ;
 -(void)dismissNoMediaNux;
+-(void)unreadCountUpdated:(id)arg1 ;
 -(void)showMegaphoneIfAppropriate;
 -(char)inboxIsDirty;
 -(void)fetchInboxWithForce:(char)arg1 ;
@@ -62,10 +66,11 @@
 -(id)latestInboxStoryTimestamp;
 -(void)onDataReceived:(id)arg1 ;
 -(void)setMegaphoneSection:(IGNewsDataSourceSection *)arg1 ;
+-(void)setUnseenMessagesStorySection:(IGNewsDataSourceSection *)arg1 ;
 -(void)setFriendRequestSection:(IGNewsDataSourceSection *)arg1 ;
 -(void)setStoriesNewSection:(IGNewsDataSourceSection *)arg1 ;
 -(void)setStoriesOldSection:(IGNewsDataSourceSection *)arg1 ;
--(void)setSectionsWithMegaphoneStories:(id)arg1 friendRequestStories:(id)arg2 newStories:(id)arg3 oldStories:(id)arg4 megaphone:(id)arg5 ;
+-(void)setSectionsWithMegaphoneStories:(id)arg1 unseenMessagesStories:(id)arg2 friendRequestStories:(id)arg3 newStories:(id)arg4 oldStories:(id)arg5 megaphone:(id)arg6 ;
 -(void)setInboxIsDirty:(char)arg1 ;
 -(char)hasLoggedFetchTimeOnce;
 -(void)setHasLoggedFetchTimeOnce:(char)arg1 ;
@@ -80,6 +85,7 @@
 -(void)updateForInsertWithRectBlock:(/*^block*/id)arg1 updateBlock:(/*^block*/id)arg2 ;
 -(IGNewsDataSourceSection *)storiesOldSection;
 -(IGNewsDataSourceSection *)megaphoneSection;
+-(IGNewsDataSourceSection *)unseenMessagesStorySection;
 -(IGNewsDataSourceSection *)friendRequestSection;
 -(void)updateInboxStoryTimestamps;
 -(void)pushMegaphoneDidDismiss;

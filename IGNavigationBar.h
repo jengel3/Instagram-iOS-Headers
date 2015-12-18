@@ -3,12 +3,13 @@
 #import <UIKit/UINavigationBar.h>
 #import <UIKit/UINavigationBarDelegate.h>
 
-@class IGPassthroughView, NSString;
+@class UIColor, IGPassthroughView, NSString;
 
 @interface IGNavigationBar : UINavigationBar <UINavigationBarDelegate> {
 
 	char _overlaysStatusBar;
 	float _contentAlpha;
+	UIColor* _preferedBackgroundColor;
 	IGPassthroughView* _overlayView;
 	IGPassthroughView* _contentAlphaView;
 
@@ -16,6 +17,7 @@
 
 @property (assign,nonatomic) char overlaysStatusBar;                            //@synthesize overlaysStatusBar=_overlaysStatusBar - In the implementation block
 @property (assign,nonatomic) float contentAlpha;                                //@synthesize contentAlpha=_contentAlpha - In the implementation block
+@property (nonatomic,retain) UIColor * preferedBackgroundColor;                 //@synthesize preferedBackgroundColor=_preferedBackgroundColor - In the implementation block
 @property (nonatomic,retain) IGPassthroughView * overlayView;                   //@synthesize overlayView=_overlayView - In the implementation block
 @property (nonatomic,retain) IGPassthroughView * contentAlphaView;              //@synthesize contentAlphaView=_contentAlphaView - In the implementation block
 @property (readonly) unsigned hash; 
@@ -23,7 +25,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setDisplaysShadow:(char)arg1 animated:(char)arg2 ;
--(id)preferedBackgroundColor;
+-(void)setPreferedBackgroundColor:(UIColor *)arg1 ;
+-(UIColor *)preferedBackgroundColor;
 -(void)setOverlaysStatusBar:(char)arg1 ;
 -(IGPassthroughView *)contentAlphaView;
 -(void)onStatusBarFrameChange:(id)arg1 ;

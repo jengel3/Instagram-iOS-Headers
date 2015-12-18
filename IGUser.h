@@ -1,11 +1,10 @@
 
 #import <Instagram/IGStorableObject.h>
 #import <Instagram/IGSearchResultsLoggableItem.h>
-#import <Instagram/IGStoredObject.h>
 
 @class NSString, NSURL, NSArray, NSNumber;
 
-@interface IGUser : IGStorableObject <IGSearchResultsLoggableItem, IGStoredObject> {
+@interface IGUser : IGStorableObject <IGSearchResultsLoggableItem> {
 
 	char _incomingRequestPending;
 	char _unpublished;
@@ -14,6 +13,7 @@
 	char _directShareBlocked;
 	char _onDirectBlacklist;
 	char _staff;
+	char _needy;
 	char _verified;
 	char _rejects_staff_privileges;
 	char _geoIPBlocked;
@@ -42,6 +42,7 @@
 	NSString* _byline;
 	NSNumber* _friendScore;
 	NSNumber* _mutualFollowersCount;
+	NSString* _socialContext;
 
 }
 
@@ -62,6 +63,7 @@
 @property (getter=isGeoIPBlocked) char geoIPBlocked;                      //@synthesize geoIPBlocked=_geoIPBlocked - In the implementation block
 @property (getter=isFollowRestricted) char followRestricted;              //@synthesize followRestricted=_followRestricted - In the implementation block
 @property (getter=isVerified) char verified;                              //@synthesize verified=_verified - In the implementation block
+@property (getter=isNeedy) char needy;                                    //@synthesize needy=_needy - In the implementation block
 @property (readonly) char hasSimilarUsers; 
 @property (readonly) char has_staff_privileges; 
 @property (assign) int followStatus;                                      //@synthesize followStatus=_followStatus - In the implementation block
@@ -71,6 +73,7 @@
 @property (copy) NSString * displayName;                                  //@synthesize displayName=_displayName - In the implementation block
 @property (copy) NSString * fullName;                                     //@synthesize fullName=_fullName - In the implementation block
 @property (copy) NSString * geoIPBlockedExtraInfo;                        //@synthesize geoIPBlockedExtraInfo=_geoIPBlockedExtraInfo - In the implementation block
+@property (copy) NSString * socialContext;                                //@synthesize socialContext=_socialContext - In the implementation block
 @property (copy) NSString * trackingToken;                                //@synthesize trackingToken=_trackingToken - In the implementation block
 @property (copy) NSString * username;                                     //@synthesize username=_username - In the implementation block
 @property (copy,readonly) NSString * searchString; 
@@ -87,6 +90,7 @@
 @property (retain) NSArray * searchTerms;                                 //@synthesize searchTerms=_searchTerms - In the implementation block
 @property (retain) NSNumber * mutualFollowersCount;                       //@synthesize mutualFollowersCount=_mutualFollowersCount - In the implementation block
 @property (assign) int lastFollowStatus;                                  //@synthesize lastFollowStatus=_lastFollowStatus - In the implementation block
++(id)unmanagedUserWithUsername:(id)arg1 ;
 +(id)centralizedStore;
 +(void)fetchFollowStatusInBulk:(id)arg1 ;
 +(void)makeManyFriendRequests:(id)arg1 successBlock:(/*^block*/id)arg2 failureBlock:(/*^block*/id)arg3 ;
@@ -95,7 +99,6 @@
 +(id)cleanedBiography:(id)arg1 ;
 +(void)onFriendStatusesReceived:(id)arg1 fromRequest:(id)arg2 ;
 +(void)onFriendStatusesFailed:(id)arg1 fromRequest:(id)arg2 ;
-+(id)unmanagedUserWithUsername:(id)arg1 ;
 -(char)staff;
 -(NSNumber *)mediaCount;
 -(int)followStatus;
@@ -108,10 +111,14 @@
 -(char)isFollowRestricted;
 -(void)changeFriendshipStatusWithAction:(int)arg1 completion:(/*^block*/id)arg2 ;
 -(int)privacyStatus;
+-(char)hasChainingUsers;
+-(char)hasSimilarUsers;
+-(void)fetchSimilarAccountsWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(char)isUnpublished;
 -(void)setMediaCount:(NSNumber *)arg1 ;
 -(char)isVerified;
 -(NSString *)byline;
+-(NSString *)socialContext;
 -(void)setByline:(NSString *)arg1 ;
 -(void)changeFriendshipStatusWithAction:(int)arg1 ;
 -(void)setFollowStatus:(int)arg1 ;
@@ -124,12 +131,12 @@
 -(NSNumber *)followingCount;
 -(void)fetchFollowStatus;
 -(void)setProfilePicURL:(NSURL *)arg1 ;
--(NSNumber *)friendScore;
 -(NSString *)trackingToken;
 -(void)setTrackingToken:(NSString *)arg1 ;
--(char)hasSimilarUsers;
+-(void)setSocialContext:(NSString *)arg1 ;
 -(void)setIncomingRequestPending:(char)arg1 ;
 -(NSNumber *)mutualFollowersCount;
+-(NSNumber *)friendScore;
 -(void)onFriendStatusReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onFriendStatusFailed:(id)arg1 fromRequest:(id)arg2 ;
 -(void)setLastFollowStatus:(int)arg1 ;
@@ -153,12 +160,14 @@
 -(void)suggestUserWithResponseHandler:(/*^block*/id)arg1 ;
 -(void)approveDirectShareRequestWithSuccessBlock:(/*^block*/id)arg1 failureBlock:(/*^block*/id)arg2 ;
 -(void)ignoreDirectShareRequestWithSuccessBlock:(/*^block*/id)arg1 failureBlock:(/*^block*/id)arg2 ;
+-(char)isNeedy;
 -(char)isGeoIPBlocked;
 -(NSString *)geoIPBlockedExtraInfo;
 -(NSString *)biography;
 -(char)profileActionNeeded;
 -(char)onDirectBlacklist;
 -(void)setStaff:(char)arg1 ;
+-(void)setNeedy:(char)arg1 ;
 -(void)setBiography:(NSString *)arg1 ;
 -(void)setExternalURL:(NSURL *)arg1 ;
 -(void)setGeoMediaCount:(unsigned)arg1 ;
@@ -183,7 +192,6 @@
 -(char)directShareBlocked;
 -(void)setRejects_staff_privileges:(char)arg1 ;
 -(unsigned)usertagsCount;
--(char)hasChainingUsers;
 -(id)HDProfilePicURL;
 -(char)friendshipStatusPending;
 -(char)has_staff_privileges;
@@ -191,7 +199,6 @@
 -(id)primaryName;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
--(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(NSString *)description;
 -(NSString *)searchString;

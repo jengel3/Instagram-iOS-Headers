@@ -6,7 +6,7 @@
 #import <Instagram/IGSearchResultsViewControllerDelegate.h>
 
 @protocol IGExploreSearchControllerDelegate;
-@class IGExploreAutocompleteSearchHelper, NSDate, IGNavSearchBar, NSString, IGBlendedSearchViewController, IGUserSearchViewController, IGHashtagSearchViewController, IGPlacesSearchViewController, IGKVOHandle, UIView;
+@class IGExploreAutocompleteSearchHelper, NSDate, IGNavSearchBar, NSString, IGSearchResultsViewController, IGKVOHandle, UIView;
 
 @interface IGExploreSearchViewController : IGTabPageViewController <IGNavSearchBarDelegate, IGTabPageViewControllerDelegate, IGSearchResultsViewControllerDelegate> {
 
@@ -17,10 +17,10 @@
 	NSDate* _lastSearch;
 	IGNavSearchBar* _searchBar;
 	NSString* _sessionId;
-	IGBlendedSearchViewController* _topSearchViewController;
-	IGUserSearchViewController* _userSearchViewController;
-	IGHashtagSearchViewController* _hashtagSearchViewController;
-	IGPlacesSearchViewController* _placesSearchViewController;
+	IGSearchResultsViewController* _topSearchViewController;
+	IGSearchResultsViewController* _userSearchViewController;
+	IGSearchResultsViewController* _hashtagSearchViewController;
+	IGSearchResultsViewController* _placesSearchViewController;
 	IGKVOHandle* _topResultsContentOffsetObserver;
 	IGKVOHandle* _userResultsContentOffsetObserver;
 	IGKVOHandle* _hashtagResultsContentOffsetObserver;
@@ -40,10 +40,10 @@
 @property (nonatomic,retain) NSString * sessionId;                                                                     //@synthesize sessionId=_sessionId - In the implementation block
 @property (nonatomic,retain) IGViewController*<IGExploreSearchChildViewController> currentViewController; 
 @property (nonatomic,readonly) IGExploreAutocompleteSearchHelper * searchHelper;                                       //@synthesize searchHelper=_searchHelper - In the implementation block
-@property (nonatomic,retain) IGBlendedSearchViewController * topSearchViewController;                                  //@synthesize topSearchViewController=_topSearchViewController - In the implementation block
-@property (nonatomic,retain) IGUserSearchViewController * userSearchViewController;                                    //@synthesize userSearchViewController=_userSearchViewController - In the implementation block
-@property (nonatomic,retain) IGHashtagSearchViewController * hashtagSearchViewController;                              //@synthesize hashtagSearchViewController=_hashtagSearchViewController - In the implementation block
-@property (nonatomic,retain) IGPlacesSearchViewController * placesSearchViewController;                                //@synthesize placesSearchViewController=_placesSearchViewController - In the implementation block
+@property (nonatomic,retain) IGSearchResultsViewController * topSearchViewController;                                  //@synthesize topSearchViewController=_topSearchViewController - In the implementation block
+@property (nonatomic,retain) IGSearchResultsViewController * userSearchViewController;                                 //@synthesize userSearchViewController=_userSearchViewController - In the implementation block
+@property (nonatomic,retain) IGSearchResultsViewController * hashtagSearchViewController;                              //@synthesize hashtagSearchViewController=_hashtagSearchViewController - In the implementation block
+@property (nonatomic,retain) IGSearchResultsViewController * placesSearchViewController;                               //@synthesize placesSearchViewController=_placesSearchViewController - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * topResultsContentOffsetObserver;                                            //@synthesize topResultsContentOffsetObserver=_topResultsContentOffsetObserver - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * userResultsContentOffsetObserver;                                           //@synthesize userResultsContentOffsetObserver=_userResultsContentOffsetObserver - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * hashtagResultsContentOffsetObserver;                                        //@synthesize hashtagResultsContentOffsetObserver=_hashtagResultsContentOffsetObserver - In the implementation block
@@ -67,10 +67,10 @@
 -(void)performPopTransition:(id)arg1 toVC:(id)arg2 duration:(double)arg3 complete:(/*^block*/id)arg4 ;
 -(void)pageViewController:(id)arg1 didPageToViewController:(id)arg2 ;
 -(void)onSearchTextDidChange:(id)arg1 ;
--(IGBlendedSearchViewController *)topSearchViewController;
--(IGUserSearchViewController *)userSearchViewController;
--(IGHashtagSearchViewController *)hashtagSearchViewController;
--(IGPlacesSearchViewController *)placesSearchViewController;
+-(IGSearchResultsViewController *)topSearchViewController;
+-(IGSearchResultsViewController *)userSearchViewController;
+-(IGSearchResultsViewController *)hashtagSearchViewController;
+-(IGSearchResultsViewController *)placesSearchViewController;
 -(void)setNavLineView:(UIView *)arg1 ;
 -(UIView *)navView;
 -(void)updateSearchbarPlaceholderForController:(id)arg1 ;
@@ -95,11 +95,12 @@
 -(void)searchBarReturnKeyTapped:(id)arg1 ;
 -(void)searchBarPeopleIconTapped:(id)arg1 ;
 -(void)searchTableViewController:(id)arg1 didChangeSearchText:(id)arg2 ;
+-(void)didTapSearchResult;
 -(NSDate *)lastSearch;
--(void)setTopSearchViewController:(IGBlendedSearchViewController *)arg1 ;
--(void)setUserSearchViewController:(IGUserSearchViewController *)arg1 ;
--(void)setHashtagSearchViewController:(IGHashtagSearchViewController *)arg1 ;
--(void)setPlacesSearchViewController:(IGPlacesSearchViewController *)arg1 ;
+-(void)setTopSearchViewController:(IGSearchResultsViewController *)arg1 ;
+-(void)setUserSearchViewController:(IGSearchResultsViewController *)arg1 ;
+-(void)setHashtagSearchViewController:(IGSearchResultsViewController *)arg1 ;
+-(void)setPlacesSearchViewController:(IGSearchResultsViewController *)arg1 ;
 -(IGKVOHandle *)topResultsContentOffsetObserver;
 -(IGKVOHandle *)userResultsContentOffsetObserver;
 -(IGKVOHandle *)hashtagResultsContentOffsetObserver;

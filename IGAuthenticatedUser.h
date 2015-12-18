@@ -22,8 +22,8 @@
 -(id)toDict;
 -(NSString *)profilePicURL;
 -(void)setPk:(NSString *)arg1 ;
--(void)setIsPrivate:(char)arg1 ;
 -(void)setProfilePicURL:(NSString *)arg1 ;
+-(void)setIsPrivate:(char)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)initWithDictionary:(id)arg1 ;

@@ -3,6 +3,7 @@
 #import <Instagram/IGActionSheetDelegate.h>
 #import <UIKit/UIWebViewDelegate.h>
 
+@protocol IGWebViewControllerContinuationDelegate;
 @class NSURL, UIWebView, UIActivityIndicatorView, UIButton, UIBarButtonItem, NSString;
 
 @interface IGWebViewController : IGViewController <IGActionSheetDelegate, UIWebViewDelegate> {
@@ -13,6 +14,7 @@
 	NSURL* _targetURL;
 	/*^block*/id _completionHandler;
 	/*^block*/id _modalDidDismissHandler;
+	id<IGWebViewControllerContinuationDelegate> _continuationDelegate;
 	UIWebView* _webView;
 	UIActivityIndicatorView* _loadingIndicator;
 	UIButton* _backButton;
@@ -22,18 +24,19 @@
 
 }
 
-@property (nonatomic,retain) NSURL * targetURL;                                       //@synthesize targetURL=_targetURL - In the implementation block
-@property (assign,nonatomic) char showPopoutButton;                                   //@synthesize showPopoutButton=_showPopoutButton - In the implementation block
-@property (assign,nonatomic) char hidesNavigationButtons;                             //@synthesize hidesNavigationButtons=_hidesNavigationButtons - In the implementation block
-@property (assign,nonatomic) char showsPageTitle;                                     //@synthesize showsPageTitle=_showsPageTitle - In the implementation block
-@property (nonatomic,copy) id completionHandler;                                      //@synthesize completionHandler=_completionHandler - In the implementation block
-@property (nonatomic,copy) id modalDidDismissHandler;                                 //@synthesize modalDidDismissHandler=_modalDidDismissHandler - In the implementation block
-@property (nonatomic,retain) UIWebView * webView;                                     //@synthesize webView=_webView - In the implementation block
-@property (nonatomic,retain) UIActivityIndicatorView * loadingIndicator;              //@synthesize loadingIndicator=_loadingIndicator - In the implementation block
-@property (nonatomic,retain) UIButton * backButton;                                   //@synthesize backButton=_backButton - In the implementation block
-@property (nonatomic,retain) UIButton * refreshButton;                                //@synthesize refreshButton=_refreshButton - In the implementation block
-@property (nonatomic,retain) UIButton * forwardButton;                                //@synthesize forwardButton=_forwardButton - In the implementation block
-@property (nonatomic,retain) UIBarButtonItem * actionsButton;                         //@synthesize actionsButton=_actionsButton - In the implementation block
+@property (nonatomic,retain) NSURL * targetURL;                                                                    //@synthesize targetURL=_targetURL - In the implementation block
+@property (assign,nonatomic) char showPopoutButton;                                                                //@synthesize showPopoutButton=_showPopoutButton - In the implementation block
+@property (assign,nonatomic) char hidesNavigationButtons;                                                          //@synthesize hidesNavigationButtons=_hidesNavigationButtons - In the implementation block
+@property (assign,nonatomic) char showsPageTitle;                                                                  //@synthesize showsPageTitle=_showsPageTitle - In the implementation block
+@property (nonatomic,copy) id completionHandler;                                                                   //@synthesize completionHandler=_completionHandler - In the implementation block
+@property (nonatomic,copy) id modalDidDismissHandler;                                                              //@synthesize modalDidDismissHandler=_modalDidDismissHandler - In the implementation block
+@property (assign,nonatomic,__weak) id<IGWebViewControllerContinuationDelegate> continuationDelegate;              //@synthesize continuationDelegate=_continuationDelegate - In the implementation block
+@property (nonatomic,retain) UIWebView * webView;                                                                  //@synthesize webView=_webView - In the implementation block
+@property (nonatomic,retain) UIActivityIndicatorView * loadingIndicator;                                           //@synthesize loadingIndicator=_loadingIndicator - In the implementation block
+@property (nonatomic,retain) UIButton * backButton;                                                                //@synthesize backButton=_backButton - In the implementation block
+@property (nonatomic,retain) UIButton * refreshButton;                                                             //@synthesize refreshButton=_refreshButton - In the implementation block
+@property (nonatomic,retain) UIButton * forwardButton;                                                             //@synthesize forwardButton=_forwardButton - In the implementation block
+@property (nonatomic,retain) UIBarButtonItem * actionsButton;                                                      //@synthesize actionsButton=_actionsButton - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -43,6 +46,7 @@
 -(void)onCancelModal;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(char)prefersTabBarHidden;
+-(void)setContinuationDelegate:(id<IGWebViewControllerContinuationDelegate>)arg1 ;
 -(void)setModalDidDismissHandler:(id)arg1 ;
 -(UIButton *)forwardButton;
 -(void)setForwardButton:(UIButton *)arg1 ;
@@ -50,6 +54,7 @@
 -(void)loadCurrentTargetURL;
 -(void)onActionsTapped;
 -(void)buildNavigationButtonsIfNeeded;
+-(id<IGWebViewControllerContinuationDelegate>)continuationDelegate;
 -(char)didHandleReportingFlowForURL:(id)arg1 ;
 -(char)showPopoutButton;
 -(char)showsPageTitle;

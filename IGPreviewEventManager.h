@@ -17,12 +17,12 @@
 @property (assign,getter=isLogged,nonatomic) char logged;                    //@synthesize logged=_logged - In the implementation block
 @property (assign,getter=isCommitted,nonatomic) char committed;              //@synthesize committed=_committed - In the implementation block
 @property (assign,nonatomic) double startTime;                               //@synthesize startTime=_startTime - In the implementation block
-+(void)logAction:(id)arg1 ;
++(void)logAction:(id)arg1 module:(id)arg2 ;
 +(void)logShortcutAction:(id)arg1 ;
+-(void)didDisappear;
 -(void)logCommit;
 -(char)isLogged;
 -(void)setLogged:(char)arg1 ;
--(void)didDisappear;
 -(void)setStartTime:(double)arg1 ;
 -(NSString *)type;
 -(NSString *)source;

@@ -34,6 +34,7 @@
 	NSArray* _allComments;
 	NSString* _rankToken;
 	NSString* _exploreContext;
+	NSString* _exploreSourceToken;
 	int _attribution;
 	IGPostFeaturedBadge* _featuredBadge;
 
@@ -62,6 +63,7 @@
 @property (retain) IGDate * lastCommentTimeStamp;                      //@synthesize lastCommentTimeStamp=_lastCommentTimeStamp - In the implementation block
 @property (retain) IGDate * lastReadTimeStamp;                         //@synthesize lastReadTimeStamp=_lastReadTimeStamp - In the implementation block
 @property (copy,readonly) NSString * exploreContext;                   //@synthesize exploreContext=_exploreContext - In the implementation block
+@property (copy,readonly) NSString * exploreSourceToken;               //@synthesize exploreSourceToken=_exploreSourceToken - In the implementation block
 @property (readonly) int attribution;                                  //@synthesize attribution=_attribution - In the implementation block
 @property (readonly) NSArray * items;                                  //@synthesize items=_items - In the implementation block
 @property (readonly) int linkStyle;                                    //@synthesize linkStyle=_linkStyle - In the implementation block
@@ -78,6 +80,10 @@
 +(CGSize)sizeForMediaAspectRatio:(CGSize)arg1 normalizedToViewWidth:(float)arg2 ;
 +(CGSize)sizeForPhoto:(id)arg1 normalizedToViewWidth:(float)arg2 ;
 +(CGSize)sizeForVideo:(id)arg1 normalizedToViewWidth:(float)arg2 ;
++(id)pkFromShortcode:(id)arg1 ;
++(id)encodedPkFromShortcode:(id)arg1 ;
++(long long)decodePk:(id)arg1 ;
++(id)hmacFromShortcode:(id)arg1 ;
 -(NSArray *)activeComments;
 -(char)collapseComments;
 -(NSString *)exploreContext;
@@ -85,6 +91,10 @@
 -(CGSize)sizeForMediaNormalizedToViewWidth:(float)arg1 ;
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
 -(NSString *)rankToken;
+-(void)fetchCommentsWithLoadMore:(char)arg1 completionHandler:(/*^block*/id)arg2 subscriptionHandler:(/*^block*/id)arg3 ;
+-(void)removeCommentWithPK:(id)arg1 ;
+-(void)setCaptionWithDictionary:(id)arg1 notify:(char)arg2 ;
+-(char)moreCommentsAvailable;
 -(void)commentRemoveRequestStarted:(id)arg1 notify:(char)arg2 ;
 -(id)bulkCommentDeletionDidUndoForComments:(id)arg1 ;
 -(void)bulkCommentDeletionDidFinishForComments:(id)arg1 ;
@@ -100,18 +110,15 @@
 -(void)commentRemoveRequestFailed:(id)arg1 ;
 -(void)commentRemoveRequestFinished:(id)arg1 ;
 -(id)urlToFlagComment:(id)arg1 ;
--(void)fetchCommentsWithLoadMore:(char)arg1 completionHandler:(/*^block*/id)arg2 subscriptionHandler:(/*^block*/id)arg3 ;
 -(NSArray *)activeCaptionAndComments;
--(char)moreCommentsAvailable;
--(void)removeCommentWithPK:(id)arg1 ;
--(void)setCaptionWithDictionary:(id)arg1 notify:(char)arg2 ;
 -(NSArray *)allComments;
 -(NSMutableOrderedSet *)likers;
 -(char)postIsBroken;
--(IGDate *)takenAt;
+-(NSString *)exploreSourceToken;
 -(char)hasLiked;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
 -(char)needsFetch;
+-(IGDate *)takenAt;
 -(CLLocation *)mediaCoord;
 -(void)setNeedsFetch:(char)arg1 ;
 -(int)linkStyle;

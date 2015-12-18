@@ -30,6 +30,8 @@
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(id)nameForService:(int)arg1 ;
 -(void)setServiceMap:(NSDictionary *)arg1 ;
@@ -46,6 +48,5 @@
 -(id)serviceTypesForCurrentLocaleMediaType:(int)arg1 locationAvailable:(char)arg2 abbreviatedList:(char)arg3 ;
 -(id)sharingInfoForService:(int)arg1 ;
 -(NSDictionary *)serviceMap;
--(void)archive;
 @end
 

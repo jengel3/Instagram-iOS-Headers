@@ -66,6 +66,8 @@
 -(void)inboxCountDidUpdate:(id)arg1 ;
 -(void)toastCountsReceived:(id)arg1 ;
 -(void)tabBarIsHiding;
+-(char)isDisplayingSwitchUsersTableView;
+-(void)animateSwitchUsersTableView;
 -(void)popularButtonPressed;
 -(void)popularButtonLongPressed:(id)arg1 ;
 -(void)cameraButtonPressed;
@@ -76,9 +78,7 @@
 -(IGNavigationController *)newsNavigationController;
 -(IGDimmedOverlayViewController *)dimmedOverlayViewController;
 -(void)logNavigationEventForClickPoint:(id)arg1 ;
--(void)animateSwitchUsersTableView;
 -(IGSwitchUsersController *)switchUsersController;
--(char)isDisplayingSwitchUsersTableView;
 -(UIWindow *)dimmedOverlayWindow;
 -(void)setIsDisplayingSwitchUsersTableView:(char)arg1 ;
 -(char)itemNeedsAttention:(int)arg1 ;
@@ -105,6 +105,7 @@
 -(IGUnreadBubbleView *)directUnreadBubbleView;
 -(void)setNeedsAttentionItem:(int)arg1 ;
 -(void)moveDownTabBarToOffset:(float)arg1 ;
+-(void)impressionDebugging:(id)arg1 ;
 -(void)setActivityToastView:(IGToastViewPopup *)arg1 ;
 -(int)cameraButtonMode;
 -(void)setCameraButtonMode:(int)arg1 ;
@@ -116,6 +117,8 @@
 -(id)init;
 -(char)shouldAutorotate;
 -(char)shouldAutorotateToInterfaceOrientation:(int)arg1 ;
+-(void)viewDidLoad;
+-(void)viewWillDisappear:(char)arg1 ;
 -(id)childViewControllerForStatusBarStyle;
 -(id)childViewControllerForStatusBarHidden;
 -(UIView *)tabBar;

@@ -51,7 +51,7 @@
 -(IGAudioNUXController *)audioNUXController;
 -(id)initWithImage:(id)arg1 video:(id)arg2 backgroundColor:(id)arg3 ;
 -(void)scaleFromRect:(CGRect)arg1 destinationSize:(CGSize)arg2 resetBlock:(/*^block*/id)arg3 ;
--(void)filterPlayerViewDidFinishPlaying;
+-(void)filterPlayerViewDidFinishPlayingWithAnimation:(char)arg1 ;
 -(id)initWithImage:(id)arg1 video:(id)arg2 ;
 -(void)scaleFromRect:(CGRect)arg1 resetBlock:(/*^block*/id)arg2 ;
 -(void)setDismissed:(char)arg1 ;

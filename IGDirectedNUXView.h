@@ -24,12 +24,12 @@
 @property (nonatomic,retain) UIImageView * rightBGView;                         //@synthesize rightBGView=_rightBGView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                              //@synthesize titleLabel=_titleLabel - In the implementation block
 -(void)showAndHide;
+-(void)showAndHideAfterDelay:(double)arg1 ;
 -(UIImageView *)leftBGView;
 -(UIImageView *)rightBGView;
 -(void)resize;
 -(void)setXAnchorPosition:(float)arg1 flipped:(char)arg2 ;
 -(void)scheduleHideAfterDelay:(double)arg1 ;
--(void)showAndHideAfterDelay:(double)arg1 ;
 -(void)positionOnScreen;
 -(void)setLeftBGView:(UIImageView *)arg1 ;
 -(void)setRightBGView:(UIImageView *)arg1 ;

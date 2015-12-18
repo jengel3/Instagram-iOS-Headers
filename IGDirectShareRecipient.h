@@ -18,14 +18,14 @@
 @property (assign,nonatomic) unsigned recipientType;                  //@synthesize recipientType=_recipientType - In the implementation block
 @property (nonatomic,copy) NSString * threadID;                       //@synthesize threadID=_threadID - In the implementation block
 @property (nonatomic,copy) NSString * userComparisonKey;              //@synthesize userComparisonKey=_userComparisonKey - In the implementation block
-+(id)recipientWithThread:(id)arg1 ;
 +(id)recipientWithUsers:(id)arg1 ;
++(id)recipientWithThread:(id)arg1 ;
 +(id)userComparisonKeyForUsers:(id)arg1 ;
 -(NSString *)userComparisonKey;
+-(unsigned)recipientType;
 -(void)setThreadID:(NSString *)arg1 ;
 -(void)setRecipientType:(unsigned)arg1 ;
 -(void)setUserComparisonKey:(NSString *)arg1 ;
--(unsigned)recipientType;
 -(char)hasSameUsersAsRecipient:(id)arg1 ;
 -(char)isGroupThread;
 -(NSString *)displayText;

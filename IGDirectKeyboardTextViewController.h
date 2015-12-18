@@ -64,6 +64,7 @@
 -(char)deviceHasCamera;
 -(void)setTextViewContainer:(UIControl *)arg1 ;
 -(UIControl *)textViewContainer;
+-(void)dismissButtonTapped;
 -(char)shouldHoldFirstResponder;
 -(void)setShouldHoldFirstResponder:(char)arg1 ;
 -(IGTapButton *)cameraButton;
@@ -71,7 +72,6 @@
 -(int)emojiViewState;
 -(CGRect)emojiViewFrameForViewBounds:(CGRect)arg1 forEmojiViewState:(int)arg2 ;
 -(IGGradientView *)bottomGradientView;
--(void)dismissButtonTapped;
 -(void)sendAction:(id)arg1 ;
 -(void)likeAction:(id)arg1 ;
 -(void)cameraAction:(id)arg1 ;

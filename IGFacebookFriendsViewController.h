@@ -26,11 +26,11 @@
 -(id)analyticsModule;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
--(id)newFindUsersView;
 -(void)authorizeAndFetchUsers;
--(id)findUsersViewDataSource;
 -(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
 -(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
+-(id)newFindUsersView;
+-(id)findUsersViewDataSource;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
 -(char)shouldUseRankedList;
 -(void)setFriendsCount:(int)arg1 ;

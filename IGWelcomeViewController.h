@@ -42,7 +42,9 @@
 -(void)setToggleView:(IGRegistrationToggleView *)arg1 ;
 -(void)onFacebookAuthCancelled;
 -(void)resetPasswordController:(id)arg1 dismissWithTwoFactorInfo:(id)arg2 ;
+-(char)resetPasswordControllerIsSwitchingUsers:(id)arg1 ;
 -(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
+-(char)smsVerificationViewControllerIsSwitchingUsers:(id)arg1 ;
 -(IGSignUpView *)signUpView;
 -(IGLogInView *)logInView;
 -(void)logInWithFacebookTapped;

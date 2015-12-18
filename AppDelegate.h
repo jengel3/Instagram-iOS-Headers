@@ -2,27 +2,50 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIApplicationDelegate.h>
 
-@class UIWindow, NSMutableSet, IGShortcutHandler, NSString;
+@class UIWindow, IGSurveyManager, IGAnalyticsManager, IGFeedItemTrackingManager, IGNavigationEventManager, IGLocalNotificationManager, IGLoggedOutSessionManager, IGTypicalMetricsManager, NSMutableSet, NSTimer, IGShortcutHandler, NSString;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
 
 	char _handledPushNoteInDidFinishLaunching;
 	char _hasSetupLogging;
 	UIWindow* _window;
+	IGSurveyManager* _surveyManager;
+	IGAnalyticsManager* _analyticsManager;
+	IGFeedItemTrackingManager* _feedItemTrackingManager;
+	IGNavigationEventManager* _navigationEventManager;
+	IGLocalNotificationManager* _localNotificationManager;
+	IGLoggedOutSessionManager* _loggedOutSessionManager;
+	IGTypicalMetricsManager* _typicalMetricsManager;
 	NSMutableSet* _seenErrorURLs;
+	NSTimer* _memoryWarningTimer;
 	IGShortcutHandler* _shortcutHandler;
 
 }
 
-@property (nonatomic,retain) UIWindow * window;                                     //@synthesize window=_window - In the implementation block
-@property (assign,nonatomic) char handledPushNoteInDidFinishLaunching;              //@synthesize handledPushNoteInDidFinishLaunching=_handledPushNoteInDidFinishLaunching - In the implementation block
-@property (nonatomic,retain) NSMutableSet * seenErrorURLs;                          //@synthesize seenErrorURLs=_seenErrorURLs - In the implementation block
-@property (assign,nonatomic) char hasSetupLogging;                                  //@synthesize hasSetupLogging=_hasSetupLogging - In the implementation block
-@property (nonatomic,readonly) IGShortcutHandler * shortcutHandler;                 //@synthesize shortcutHandler=_shortcutHandler - In the implementation block
+@property (nonatomic,retain) UIWindow * window;                                                  //@synthesize window=_window - In the implementation block
+@property (nonatomic,retain) IGSurveyManager * surveyManager;                                    //@synthesize surveyManager=_surveyManager - In the implementation block
+@property (nonatomic,retain) IGAnalyticsManager * analyticsManager;                              //@synthesize analyticsManager=_analyticsManager - In the implementation block
+@property (nonatomic,retain) IGFeedItemTrackingManager * feedItemTrackingManager;                //@synthesize feedItemTrackingManager=_feedItemTrackingManager - In the implementation block
+@property (nonatomic,retain) IGNavigationEventManager * navigationEventManager;                  //@synthesize navigationEventManager=_navigationEventManager - In the implementation block
+@property (nonatomic,retain) IGLocalNotificationManager * localNotificationManager;              //@synthesize localNotificationManager=_localNotificationManager - In the implementation block
+@property (nonatomic,retain) IGLoggedOutSessionManager * loggedOutSessionManager;                //@synthesize loggedOutSessionManager=_loggedOutSessionManager - In the implementation block
+@property (nonatomic,retain) IGTypicalMetricsManager * typicalMetricsManager;                    //@synthesize typicalMetricsManager=_typicalMetricsManager - In the implementation block
+@property (assign,nonatomic) char handledPushNoteInDidFinishLaunching;                           //@synthesize handledPushNoteInDidFinishLaunching=_handledPushNoteInDidFinishLaunching - In the implementation block
+@property (nonatomic,retain) NSMutableSet * seenErrorURLs;                                       //@synthesize seenErrorURLs=_seenErrorURLs - In the implementation block
+@property (assign,nonatomic) char hasSetupLogging;                                               //@synthesize hasSetupLogging=_hasSetupLogging - In the implementation block
+@property (nonatomic,retain) NSTimer * memoryWarningTimer;                                       //@synthesize memoryWarningTimer=_memoryWarningTimer - In the implementation block
+@property (nonatomic,readonly) IGShortcutHandler * shortcutHandler;                              //@synthesize shortcutHandler=_shortcutHandler - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setFeedItemTrackingManager:(IGFeedItemTrackingManager *)arg1 ;
+-(void)setAnalyticsManager:(IGAnalyticsManager *)arg1 ;
+-(void)setSurveyManager:(IGSurveyManager *)arg1 ;
+-(void)setNavigationEventManager:(IGNavigationEventManager *)arg1 ;
+-(void)setLocalNotificationManager:(IGLocalNotificationManager *)arg1 ;
+-(void)setLoggedOutSessionManager:(IGLoggedOutSessionManager *)arg1 ;
+-(void)setTypicalMetricsManager:(IGTypicalMetricsManager *)arg1 ;
 -(char)hasSetupLogging;
 -(void)setHasSetupLogging:(char)arg1 ;
 -(void)logMemoryCrashAndPromptToRestartIfNeeded;
@@ -38,8 +61,19 @@
 -(void)networkRequestDidFail:(id)arg1 ;
 -(void)registerForPush;
 -(char)handledPushNoteInDidFinishLaunching;
+-(NSTimer *)memoryWarningTimer;
+-(void)fireMemoryWarning;
+-(void)setMemoryWarningTimer:(NSTimer *)arg1 ;
 -(NSMutableSet *)seenErrorURLs;
 -(void)setSeenErrorURLs:(NSMutableSet *)arg1 ;
+-(void)toggleMemoryWarnings:(char)arg1 ;
+-(IGSurveyManager *)surveyManager;
+-(IGAnalyticsManager *)analyticsManager;
+-(IGFeedItemTrackingManager *)feedItemTrackingManager;
+-(IGNavigationEventManager *)navigationEventManager;
+-(IGLocalNotificationManager *)localNotificationManager;
+-(IGLoggedOutSessionManager *)loggedOutSessionManager;
+-(IGTypicalMetricsManager *)typicalMetricsManager;
 -(void)dealloc;
 -(UIWindow *)window;
 -(char)application:(id)arg1 handleOpenURL:(id)arg2 ;
@@ -63,5 +97,6 @@
 -(void)application:(id)arg1 didRegisterUserNotificationSettings:(id)arg2 ;
 -(void)application:(id)arg1 didFailToRegisterForRemoteNotificationsWithError:(id)arg2 ;
 -(void)application:(id)arg1 didRegisterForRemoteNotificationsWithDeviceToken:(id)arg2 ;
+-(void)handleMemoryWarningNotification:(id)arg1 ;
 @end
 

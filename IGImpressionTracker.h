@@ -7,13 +7,12 @@
 	NSString* _cachePath;
 	IGTimestampContainer* _impressionTimestamps;
 	IGTimestampContainer* _impressionViewedTimestamps;
-	IGTimestampContainer* _deliveryTimestamps;
 	IGTimestampContainer* _viewingStartTimestamps;
 
 }
 -(id)initWithCacheFilePrefix:(id)arg1 ;
--(double)timestampForKey:(id)arg1 withType:(int)arg2 ;
 -(void)updateTimestampForKey:(id)arg1 withType:(int)arg2 ;
+-(double)timestampForKey:(id)arg1 withType:(int)arg2 ;
 -(double)timeIntervalSinceLastUpdateForKey:(id)arg1 withType:(int)arg2 ;
 -(void)removeTimestampForKey:(id)arg1 withType:(int)arg2 ;
 -(void)migrateExistingUserDefaultsCacheToFile;

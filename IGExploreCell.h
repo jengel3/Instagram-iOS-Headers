@@ -2,11 +2,13 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 #import <Instagram/IGThumbnailsGridViewDelegate.h>
+#import <UIKit/UICollectionViewDelegate.h>
+#import <UIKit/UICollectionViewDataSource.h>
 
 @protocol IGExploreCellDelegate;
-@class IGThumbnailsGridView, IGExploreViewModel, UILabel, IGProfilePictureImageView, UIView, IGExploreEmptyView, UIImageView, NSString;
+@class IGThumbnailsGridView, IGExploreViewModel, UILabel, IGProfilePictureImageView, UIView, IGExploreEmptyView, UIImageView, IGCarouselView, NSString;
 
-@interface IGExploreCell : UICollectionViewCell <IGThumbnailsGridViewDelegate> {
+@interface IGExploreCell : UICollectionViewCell <IGThumbnailsGridViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource> {
 
 	id<IGExploreCellDelegate> _delegate;
 	IGThumbnailsGridView* _thumbnailsGridView;
@@ -19,6 +21,7 @@
 	IGExploreEmptyView* _emptyView;
 	unsigned _action;
 	UIImageView* _verifiedImageView;
+	IGCarouselView* _thumbnailsCarouselView;
 
 }
 
@@ -33,6 +36,7 @@
 @property (nonatomic,retain) IGExploreEmptyView * emptyView;                         //@synthesize emptyView=_emptyView - In the implementation block
 @property (assign,nonatomic) unsigned action;                                        //@synthesize action=_action - In the implementation block
 @property (nonatomic,retain) UIImageView * verifiedImageView;                        //@synthesize verifiedImageView=_verifiedImageView - In the implementation block
+@property (nonatomic,retain) IGCarouselView * thumbnailsCarouselView;                //@synthesize thumbnailsCarouselView=_thumbnailsCarouselView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -40,25 +44,33 @@
 +(float)leftRightPaddingForWidth:(float)arg1 ;
 +(float)avatarHeightForWidth:(float)arg1 ;
 +(id)bylineFont;
++(IGCarouselMetrics)thumbnailsCarouselMetricsWithWidth:(float)arg1 ;
 +(float)heightWithConstrainedWidth:(float)arg1 exploreViewModel:(id)arg2 ;
 -(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
 -(UILabel *)bylineLabel;
 -(IGExploreEmptyView *)emptyView;
 -(IGThumbnailsGridView *)thumbnailsGridView;
+-(id)setupThumbnailsCarouselView;
+-(IGCarouselView *)thumbnailsCarouselView;
 -(void)onFollowButton:(id)arg1 ;
 -(void)onFollowingButton:(id)arg1 ;
 -(void)onDismissButton:(id)arg1 ;
+-(void)setupThumbnailsViewFrameWithOrigin:(CGPoint)arg1 ;
 -(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
 -(void)setExploreViewModel:(id)arg1 ;
 -(void)setThumbnailsGridView:(IGThumbnailsGridView *)arg1 ;
 -(void)setBylineLabel:(UILabel *)arg1 ;
 -(void)setEmptyView:(IGExploreEmptyView *)arg1 ;
+-(void)setThumbnailsCarouselView:(IGCarouselView *)arg1 ;
 -(IGExploreViewModel *)viewModel;
 -(void)setViewModel:(IGExploreViewModel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGExploreCellDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(id<IGExploreCellDelegate>)delegate;
+-(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
+-(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
+-(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;
 -(unsigned)action;
 -(id)accessibilityLabel;
 -(UILabel *)titleLabel;

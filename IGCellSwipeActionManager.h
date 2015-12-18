@@ -53,6 +53,12 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setDragging:(char)arg1 ;
+-(id)initWithHostingView:(id)arg1 actionButtons:(id)arg2 actionButtonWidth:(float)arg3 ;
+-(void)setCellSwipeActionManagerDelegate:(id<IGCellSwipeActionManagerDelegate>)arg1 ;
+-(void)showActionView:(char)arg1 ;
+-(void)hideActionView:(char)arg1 ;
+-(void)peekActionView;
+-(id)accessibileElements;
 -(void)removeSwipingView;
 -(void)handlePanGestureRecognizer:(id)arg1 ;
 -(float)actionsViewButtonsTotalWidth;
@@ -74,7 +80,6 @@
 -(float)swipeCompletionThresholdX;
 -(char)disableSwipeToAction;
 -(UIView *)hostingView;
--(void)hideActionView:(char)arg1 ;
 -(char)shouldDrag;
 -(void)setTotalTranslationX:(float)arg1 ;
 -(void)setContentScreenshotViewBeginningX:(float)arg1 ;
@@ -103,11 +108,6 @@
 -(void)handleDoubleTapGestureRecognizer:(id)arg1 ;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
 -(void)handleHideActionView:(id)arg1 ;
--(id)initWithHostingView:(id)arg1 actionButtons:(id)arg2 actionButtonWidth:(float)arg3 ;
--(void)showActionView:(char)arg1 ;
--(void)peekActionView;
--(id)accessibileElements;
--(void)setCellSwipeActionManagerDelegate:(id<IGCellSwipeActionManagerDelegate>)arg1 ;
 -(void)setDisableSwipeToAction:(char)arg1 ;
 -(void)setHostingView:(UIView *)arg1 ;
 -(void)setActionButtonWidth:(float)arg1 ;

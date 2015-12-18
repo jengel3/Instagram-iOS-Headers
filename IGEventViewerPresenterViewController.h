@@ -7,7 +7,7 @@
 #import <Instagram/IGEventViewerSoundStateListenerDelegate.h>
 #import <Instagram/IGTimerProxyObjectType.h>
 
-@class IGEventViewerMediaPreloader, UIView, IGEventViewerLoadingView, IGEventViewerSoundBadge, IGEventService, NSArray, IGEventViewerViewController, IGEventViewerSoundEffectPlayer, IGEventViewerSoundStateListener, NSTimer, IGTimerProxy, IGEventViewerAnalyticsLogger, NSString;
+@class IGEventViewerMediaPreloader, UIView, IGEventViewerLoadingView, IGEventViewerSoundBadge, IGEventService, NSArray, IGEventViewerViewController, IGEventViewerSoundStateListener, NSTimer, IGTimerProxy, IGEventViewerAnalyticsLogger, NSString;
 
 @interface IGEventViewerPresenterViewController : UIViewController <IGEventViewerViewControllerDelegate, IGEventServiceNetworkDelegate, IGEventServiceCacheDelegate, IGEventViewerMediaPreloaderCompletionDelegate, IGEventViewerSoundStateListenerDelegate, IGTimerProxyObjectType> {
 
@@ -20,7 +20,6 @@
 	IGEventService* _eventService;
 	NSArray* _initialPosts;
 	IGEventViewerViewController* _eventViewerController;
-	IGEventViewerSoundEffectPlayer* _player;
 	IGEventViewerSoundStateListener* _soundStateListener;
 	NSTimer* _timer;
 	IGTimerProxy* _timerProxy;
@@ -37,7 +36,6 @@
 @property (nonatomic,copy) NSArray * initialPosts;                                              //@synthesize initialPosts=_initialPosts - In the implementation block
 @property (nonatomic,retain) IGEventViewerViewController * eventViewerController;               //@synthesize eventViewerController=_eventViewerController - In the implementation block
 @property (assign,nonatomic) char shouldHideStatusBar;                                          //@synthesize shouldHideStatusBar=_shouldHideStatusBar - In the implementation block
-@property (nonatomic,retain) IGEventViewerSoundEffectPlayer * player;                           //@synthesize player=_player - In the implementation block
 @property (nonatomic,retain) IGEventViewerSoundStateListener * soundStateListener;              //@synthesize soundStateListener=_soundStateListener - In the implementation block
 @property (nonatomic,retain) NSTimer * timer;                                                   //@synthesize timer=_timer - In the implementation block
 @property (nonatomic,retain) IGTimerProxy * timerProxy;                                         //@synthesize timerProxy=_timerProxy - In the implementation block
@@ -46,7 +44,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithEventId:(id)arg1 ;
 -(void)eventService:(id)arg1 didLoadCachedPosts:(id)arg2 ;
 -(void)eventServiceFailedToLoadFromCache:(id)arg1 ;
 -(void)eventService:(id)arg1 didFailWithError:(id)arg2 ;
@@ -57,7 +54,7 @@
 -(IGTimerProxy *)timerProxy;
 -(void)didFireTimer:(id)arg1 ;
 -(id)initWithEventService:(id)arg1 ;
--(id)initWithEventService:(id)arg1 soundEffectPlayer:(id)arg2 soundStateListener:(id)arg3 logger:(id)arg4 ;
+-(id)initWithEventService:(id)arg1 soundStateListener:(id)arg2 logger:(id)arg3 ;
 -(void)didReceiveStatusBarWillChangeFrameNotification:(id)arg1 ;
 -(void)setupSnapshotView;
 -(void)setupLoadingView;
@@ -74,6 +71,7 @@
 -(IGEventViewerMediaPreloader *)mediaPreloader;
 -(void)presentEventViewer;
 -(void)loadPosts:(id)arg1 ;
+-(void)dismissLoadingView;
 -(void)prepareToDismiss;
 -(NSArray *)initialPosts;
 -(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
@@ -84,8 +82,6 @@
 -(void)soundListenerDidUpdate:(id)arg1 ;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)stopTimer;
--(void)setPlayer:(IGEventViewerSoundEffectPlayer *)arg1 ;
--(IGEventViewerSoundEffectPlayer *)player;
 -(void)dealloc;
 -(UIView *)snapshotView;
 -(int)preferredStatusBarStyle;
@@ -98,6 +94,7 @@
 -(void)setTimer:(NSTimer *)arg1 ;
 -(NSTimer *)timer;
 -(void)setupSubviews;
+-(id)initWithConfiguration:(id)arg1 ;
 -(IGEventViewerLoadingView *)loadingView;
 @end
 

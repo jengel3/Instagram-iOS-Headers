@@ -28,10 +28,10 @@
 @property (nonatomic,readonly) char keyboardAnimating;                                    //@synthesize keyboardAnimating=_keyboardAnimating - In the implementation block
 @property (nonatomic,readonly) char keyboardVisible;                                      //@synthesize keyboardVisible=_keyboardVisible - In the implementation block
 -(void)stopObservingKeyboardNotifications;
+-(void)startObservingKeyboardNotifications;
 -(void)_keyboardFrameWillChange:(id)arg1 ;
 -(void)_keyboardFrameDidChange:(id)arg1 ;
 -(void)_resetKeyboardState;
--(void)startObservingKeyboardNotifications;
 -(char)keyboardAppearing;
 -(char)keyboardDisappearing;
 -(char)keyboardAnimating;

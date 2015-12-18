@@ -23,6 +23,7 @@
 -(void)setLoadTimeBegin:(NSDate *)arg1 ;
 -(NSDate *)loadTimeBegin;
 -(void)configureEvent:(id)arg1 withDataForPost:(id)arg2 atIndexPath:(id)arg3 mediaDuration:(float)arg4 timeSpentSeconds:(float)arg5 ;
+-(void)logVideoTimespentForPost:(id)arg1 ;
 -(void)logEntryPointImpression;
 -(void)logEntryPointTap;
 -(void)logTimeToLoadBegin;
@@ -30,6 +31,8 @@
 -(void)logMediaImpressionForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 ;
 -(void)logMediaLikeForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 ;
 -(void)logUserAttributionTapForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 withOption:(unsigned)arg5 ;
+-(void)logImpressionForPost:(id)arg1 ;
+-(void)logVideoShouldStartPlayingForPost:(id)arg1 ;
 -(float)cachedProgress;
 -(void)setCachedProgress:(float)arg1 ;
 -(void)setCachedDuration:(float)arg1 ;

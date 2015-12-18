@@ -7,8 +7,6 @@
 
 @interface IGAccountSecurityViewController : IGGroupedTableViewController <IGChangePhoneNumberViewControllerDelegate, IGConfirmPhoneNumberViewControllerDelegate> {
 
-	int _dataState;
-	int _twoFactorState;
 	char _hasTwoFactor;
 	char _hasPhoneNumber;
 	NSString* _countryNumber;
@@ -17,6 +15,8 @@
 	IGGroupedTableViewFooterView* _twoFactorFooterView;
 	IGGroupedTableViewFooterView* _backupAccessFooterView;
 	IGSwitch* _twoFactorSwitch;
+	int _dataState;
+	int _twoFactorState;
 
 }
 
@@ -26,20 +26,33 @@
 @property (nonatomic,retain) IGGroupedTableViewFooterView * twoFactorFooterView;                 //@synthesize twoFactorFooterView=_twoFactorFooterView - In the implementation block
 @property (nonatomic,retain) IGGroupedTableViewFooterView * backupAccessFooterView;              //@synthesize backupAccessFooterView=_backupAccessFooterView - In the implementation block
 @property (nonatomic,retain) IGSwitch * twoFactorSwitch;                                         //@synthesize twoFactorSwitch=_twoFactorSwitch - In the implementation block
+@property (assign,nonatomic) int dataState;                                                      //@synthesize dataState=_dataState - In the implementation block
+@property (assign,nonatomic) int twoFactorState;                                                 //@synthesize twoFactorState=_twoFactorState - In the implementation block
+@property (assign,nonatomic) char hasTwoFactor;                                                  //@synthesize hasTwoFactor=_hasTwoFactor - In the implementation block
+@property (assign,nonatomic) char hasPhoneNumber;                                                //@synthesize hasPhoneNumber=_hasPhoneNumber - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)fetchUserData;
 -(void)updateTwoFactorSettings:(char)arg1 ;
+-(void)setTwoFactorSwitch:(IGSwitch *)arg1 ;
+-(void)setTwoFactorState:(int)arg1 ;
+-(int)dataState;
 -(IGSwitch *)twoFactorSwitch;
+-(char)hasTwoFactor;
+-(void)setDataState:(int)arg1 ;
 -(void)adjustTableViewForDataState;
 -(void)dataFetchedWithDictionary:(id)arg1 ;
 -(void)dataFetchFailed:(id)arg1 ;
+-(void)setHasPhoneNumber:(char)arg1 ;
+-(void)setHasTwoFactor:(char)arg1 ;
 -(void)setBackupCodes:(NSArray *)arg1 ;
+-(char)hasPhoneNumber;
 -(void)startAddPhoneNumberFlow;
 -(void)sendTwoFactorSMS;
 -(void)cancelTwoFactor;
+-(int)twoFactorState;
 -(void)configureTwoFactorCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureBackupAccessCell:(id)arg1 forRow:(int)arg2 ;
 -(IGGroupedTableViewFooterView *)twoFactorFooterView;
@@ -53,7 +66,6 @@
 -(void)setCountryNumber:(NSString *)arg1 ;
 -(void)setTwoFactorFooterView:(IGGroupedTableViewFooterView *)arg1 ;
 -(void)setBackupAccessFooterView:(IGGroupedTableViewFooterView *)arg1 ;
--(void)setTwoFactorSwitch:(IGSwitch *)arg1 ;
 -(id)init;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 viewForFooterInSection:(int)arg2 ;

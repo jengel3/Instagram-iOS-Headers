@@ -17,11 +17,11 @@
 @property (nonatomic,readonly) IGEventViewerVideoCell * videoCell; 
 @property (nonatomic,readonly) IGEventViewerPhotoCell * photoCell; 
 -(IGPost *)post;
+-(char)isValidVideoItem;
+-(char)isValidPhotoItem;
 -(IGEventViewerPhotoCell *)photoCell;
 -(id)initWithPost:(id)arg1 indexPath:(id)arg2 cell:(id)arg3 ;
--(char)isValidVideoItem;
 -(IGEventViewerVideoCell *)videoCell;
--(char)isValidPhotoItem;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(NSIndexPath *)indexPath;

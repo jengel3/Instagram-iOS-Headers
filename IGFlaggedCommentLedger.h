@@ -18,6 +18,8 @@
 +(void)clearForUserPK:(id)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(void)migrateUserDefaultsIfNecessary;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(char)containsComment:(id)arg1 ;

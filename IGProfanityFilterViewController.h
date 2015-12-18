@@ -10,8 +10,11 @@
 
 }
 
-@property (nonatomic,retain) UIActivityIndicatorView * spinner;              //@synthesize spinner=_spinner - In the implementation block
+@property (nonatomic,retain) UIActivityIndicatorView * spinner;               //@synthesize spinner=_spinner - In the implementation block
+@property (assign,nonatomic) char initialProfanityFilterSetting;              //@synthesize initialProfanityFilterSetting=_initialProfanityFilterSetting - In the implementation block
 -(char)prefersTabBarHidden;
+-(char)initialProfanityFilterSetting;
+-(void)setInitialProfanityFilterSetting:(char)arg1 ;
 -(id)init;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 ;

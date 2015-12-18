@@ -21,14 +21,17 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
++(id)sessionDirectRecipientManager;
 -(NSString *)userSessionPK;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)followingUsers;
 -(char)useNewEndpoint;
--(void)setLastUserFetchTime:(double)arg1 ;
 -(void)refetchDefaultRecipientsIfNeeded;
+-(void)setLastUserFetchTime:(double)arg1 ;
 -(NSArray *)cachedDefaultUserRecipients;
 -(id)fallbackRecipientsUsersOnly;
 -(double)lastUserFetchTime;
@@ -36,6 +39,6 @@
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(id)defaultRecipientsUsersOnly;
 -(id)defaultRecipientsIncludingThreads;
--(void)archive;
+-(void)dealloc;
 @end
 

@@ -26,12 +26,14 @@
 -(id)initWithSection:(int)arg1 inCollectionView:(id)arg2 sectionOrigin:(CGPoint)arg3 headerIsPinned:(char)arg4 ;
 -(void)setSectionOrigin:(CGPoint)arg1 ;
 -(id)layoutAttributesForHeaderOffset:(CGPoint)arg1 ;
+-(id)layoutAttributesForHeaderWithOffset:(CGPoint)arg1 ;
 -(id)delegateForCollectionView:(id)arg1 ;
 -(CGSize)calculateLayoutAttributesForSection:(int)arg1 inCollectionView:(id)arg2 origin:(CGPoint)arg3 ;
--(char)headerIsPinned;
 -(CGPoint)sectionOrigin;
--(id)layoutAttributesForHeaderWithOffset:(CGPoint)arg1 ;
+-(char)headerIsPinned;
 -(CGRect)frameForItemAtIndexPath:(id)arg1 origin:(CGPoint)arg2 collectionView:(id)arg3 ;
+-(void)reloadCellAtIndexPath:(id)arg1 inCollectionView:(id)arg2 ;
+-(void)moveCellsInSectionBy:(CGSize)arg1 ;
 -(id)attributesForOrigin:(CGPoint)arg1 ;
 -(CGSize)headerSize;
 -(CGRect)frame;

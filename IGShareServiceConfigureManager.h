@@ -23,12 +23,12 @@
 -(void)showAdvancedOptionsForServiceType:(int)arg1 ;
 -(void)configureServiceType:(int)arg1 ;
 -(void)onFlickrLoginCompleted;
+-(void)onTwitterOAuthCompleted;
 -(void)onFacebookLoginCompleted;
 -(void)onFoursquareLoginCompleted;
 -(void)onServiceReauthenticationStarted:(id)arg1 ;
 -(void)onServiceReauthenticationFinished:(id)arg1 ;
 -(void)onServiceReauthenticationLoginNeeded:(id)arg1 ;
--(void)onTwitterLoginCompleted;
 -(void)displayViewController:(id)arg1 forServiceType:(int)arg2 ;
 -(void)onWeiboLoginCompleted;
 -(void)onMixiLoginCompleted;

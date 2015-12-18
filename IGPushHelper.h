@@ -10,19 +10,24 @@
 }
 
 @property (assign,getter=isFreshAppInstall,nonatomic) char freshAppInstall;              //@synthesize freshAppInstall=_freshAppInstall - In the implementation block
-+(char)switchUsersIfNecessary:(id)arg1 ;
 +(id)sharedPushHelper;
++(unsigned)switchUsersIfNecessary:(id)arg1 ;
 -(char)isFreshAppInstall;
+-(char)appHasAskedSystemForPushPermissions;
+-(char)shouldShowInboxPushMegaphone;
+-(void)startPushRegistrationWithForce:(char)arg1 ;
 -(id)categoriesForPushNotifications;
 -(char)appHasPushPermissions;
--(char)appHasAskedSystemForPushPermissions;
 -(char)isTimeToPromptForPushPermissions;
+-(char)eligibleForPushMegaphone;
 -(id)convertTokenToDeviceID:(id)arg1 ;
 -(void)handleBackgroundPushNotification:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)handleForegroundPushNotification:(id)arg1 ;
--(void)showNotificationBarWithUserInfo:(id)arg1 threadId:(id)arg2 ;
--(void)startPushRegistrationWithForce:(char)arg1 ;
--(char)shouldShowPushMegaphone;
+-(void)cacheFeedItemWithFeedItemPK:(id)arg1 completion:(/*^block*/id)arg2 ;
+-(void)performNavigationTaskForAction:(id)arg1 userInfo:(id)arg2 ;
+-(void)showNotificationBarWithUserInfo:(id)arg1 actionBlock:(/*^block*/id)arg2 ;
+-(void)performNonNavigationTaskForAction:(id)arg1 userInfo:(id)arg2 ;
+-(char)shouldShowActivityPushMegaphone;
 -(void)registerForPushWithToken:(id)arg1 ;
 -(void)handlePushNotification:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)onBackTapped:(id)arg1 ;

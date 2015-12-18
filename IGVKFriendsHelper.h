@@ -16,6 +16,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)authorizeAndFetchUsers;
+-(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)onVkontakteAuthSuccessDismissOAuth:(char)arg1 ;
 -(void)onVkontakteAuthSuccess;
 -(void)onVkontakteAuthFailure;

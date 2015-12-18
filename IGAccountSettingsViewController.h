@@ -43,6 +43,7 @@
 -(int)followRowTypeForRow:(int)arg1 ;
 -(void)logTapEventForServiceType:(int)arg1 ;
 -(int)accountRowForRow:(int)arg1 ;
+-(void)sendChangePasswordRequest;
 -(int)settingRowForRow:(int)arg1 ;
 -(int)sessionRowForRow:(int)arg1 ;
 -(void)showLogoutFromCurrentUserAlertViewForCellWithIndexPath:(id)arg1 ;

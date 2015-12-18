@@ -2,7 +2,7 @@
 #import <Instagram/IGFeedStatusViewDataSource.h>
 
 @protocol IGFindUsersViewDataSourceDelegate;
-@class NSArray, IGFeedPromotionBannerConfiguration, NSString, NSMutableDictionary, IGBulkMediaRequestManager;
+@class NSArray, NSString, NSMutableDictionary, IGBulkMediaRequestManager;
 
 @interface IGFindUsersViewDataSource : NSObject <IGFeedStatusViewDataSource> {
 
@@ -13,7 +13,6 @@
 	char _loading;
 	id<IGFindUsersViewDataSourceDelegate> _delegate;
 	NSArray* _featuredUserInfoList;
-	IGFeedPromotionBannerConfiguration* _promotionConfig;
 	int _status;
 	NSString* _errorMessage;
 	NSString* _maxId;
@@ -24,7 +23,6 @@
 
 @property (assign,nonatomic,__weak) id<IGFindUsersViewDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) NSArray * featuredUserInfoList;                                     //@synthesize featuredUserInfoList=_featuredUserInfoList - In the implementation block
-@property (nonatomic,retain) IGFeedPromotionBannerConfiguration * promotionConfig;               //@synthesize promotionConfig=_promotionConfig - In the implementation block
 @property (assign,nonatomic) int status;                                                         //@synthesize status=_status - In the implementation block
 @property (assign,nonatomic) char failedWithAuthorizationError;                                  //@synthesize failedWithAuthorizationError=_failedWithAuthorizationError - In the implementation block
 @property (nonatomic,copy) NSString * errorMessage;                                              //@synthesize errorMessage=_errorMessage - In the implementation block
@@ -49,13 +47,12 @@
 -(void)setFailedWithAuthorizationError:(char)arg1 ;
 -(void)setFeaturedUserInfoList:(NSArray *)arg1 ;
 -(void)fetchListWithRequest:(id)arg1 ;
+-(void)prefetchThumbnailsForUserInfo:(id)arg1 ;
+-(void)fetchThumbnailIURLsForUserIDs:(id)arg1 ;
 -(NSString *)maxId;
 -(void)fetchMoreWithRequest:(id)arg1 ;
 -(id)parseListResponse:(id)arg1 ;
 -(NSArray *)featuredUserInfoList;
--(IGFeedPromotionBannerConfiguration *)promotionConfig;
--(void)prefetchThumbnailsForUserInfo:(id)arg1 ;
--(void)fetchThumbnailIURLsForUserIDs:(id)arg1 ;
 -(void)setMaxId:(NSString *)arg1 ;
 -(void)eagerLoadAvailableThumbnailsForUsers:(id)arg1 ;
 -(void)eagerLoadAllProfilePicturesForUsers:(id)arg1 ;
@@ -63,7 +60,6 @@
 -(void)fetchThumbnailsWithRequest:(id)arg1 ;
 -(char)eagerlyFetchesProfilePictures;
 -(char)eagerlyFetchesThumbnails;
--(void)setPromotionConfig:(IGFeedPromotionBannerConfiguration *)arg1 ;
 -(void)setEagerlyFetchesProfilePictures:(char)arg1 ;
 -(void)setEagerlyFetchesThumbnails:(char)arg1 ;
 -(unsigned)itemCount;

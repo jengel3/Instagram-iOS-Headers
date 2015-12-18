@@ -12,6 +12,7 @@
 -(void)sendPasswordResetEmailForUser:(id)arg1 ;
 -(void)displayToastMessage:(id)arg1 ;
 -(void)sendLoginEmailForUsername:(id)arg1 ;
+-(void)sendLoginEmailForUsernameOrEmail:(id)arg1 ;
 -(void)lookupEmailForUsername:(id)arg1 ;
 -(void)setViewController:(UIViewController *)arg1 ;
 -(UIViewController *)viewController;

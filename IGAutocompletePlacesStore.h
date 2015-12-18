@@ -20,6 +20,8 @@
 +(void)clearForUserPK:(id)arg1 ;
 +(id)archiveURLForUserPK:(id)arg1 ;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)archiveURL;
 -(NSArray *)allPlaces;
 -(void)addPlaceToRecent:(id)arg1 ;

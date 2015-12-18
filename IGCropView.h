@@ -4,7 +4,7 @@
 #import <UIKit/UIScrollViewDelegate.h>
 
 @protocol IGCropViewUserInteractionDelegate;
-@class IGScrollView, UITapGestureRecognizer, UIPanGestureRecognizer, UIView, NSString;
+@class IGScrollView, UIView, UITapGestureRecognizer, UIPanGestureRecognizer, NSString;
 
 @interface IGCropView : UIView <UIScrollViewDelegate> {
 
@@ -13,6 +13,8 @@
 	char _didSetPinchProperties;
 	char _zoomEnabled;
 	char _nonSquareEnabled;
+	UIView* _circularCropperView;
+	char _circularCropMode;
 	float _cropAngle;
 	UITapGestureRecognizer* _tap;
 	UIPanGestureRecognizer* _minimizePan;
@@ -29,6 +31,7 @@
 @property (assign,nonatomic) float cropZoom; 
 @property (assign,nonatomic) float cropAngle;                                                                   //@synthesize cropAngle=_cropAngle - In the implementation block
 @property (assign,nonatomic) int cropMode; 
+@property (assign,nonatomic) char circularCropMode;                                                             //@synthesize circularCropMode=_circularCropMode - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * tap;                                                      //@synthesize tap=_tap - In the implementation block
 @property (nonatomic,retain) UIPanGestureRecognizer * minimizePan;                                              //@synthesize minimizePan=_minimizePan - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCropViewUserInteractionDelegate> userInteractionDelegate;              //@synthesize userInteractionDelegate=_userInteractionDelegate - In the implementation block
@@ -54,10 +57,13 @@
 -(float)cropZoom;
 -(void)maybeSetPinchProperties;
 -(id<IGCropViewUserInteractionDelegate>)userInteractionDelegate;
+-(id)circularCropperView;
 -(void)setNonSquareEnabled:(char)arg1 ;
 -(void)setCropZoom:(float)arg1 ;
 -(IGCropInfo)cropInfo;
+-(void)setCircularCropMode:(char)arg1 ;
 -(char)isNonSquareEnabled;
+-(char)circularCropMode;
 -(void)setUserInteractionDelegate:(id<IGCropViewUserInteractionDelegate>)arg1 ;
 -(CGRect)cropRect;
 -(void)setCropRect:(CGRect)arg1 ;

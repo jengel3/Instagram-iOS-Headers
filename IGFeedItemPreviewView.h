@@ -32,9 +32,10 @@
 -(void)playWithPlayer:(id)arg1 ;
 -(IGProfilePictureImageView *)profileImageView;
 -(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
+-(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 width:(float)arg3 ;
+-(void)endVideoPlaybackWithReason:(int)arg1 ;
 -(void)updateWithFeedItem:(id)arg1 ;
 -(CALayer *)dividerLayer;
--(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 width:(float)arg3 ;
 -(void)setDividerLayer:(CALayer *)arg1 ;
 -(void)setVideoView:(IGFeedItemVideoView *)arg1 ;
 -(float)aspectRatio;

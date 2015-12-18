@@ -1,13 +1,12 @@
 
 
 @protocol IGRealtimeSubscriptionDelegate;
-@class NSString, NSURL, IGSequence;
+@class NSString, IGSequence;
 
 @interface IGRealtimeSubscription : NSObject {
 
 	id<IGRealtimeSubscriptionDelegate> _delegate;
 	NSString* _topic;
-	NSURL* _url;
 	IGSequence* _sequence;
 	NSString* _authToken;
 	unsigned _status;
@@ -16,7 +15,6 @@
 
 @property (assign,nonatomic,__weak) id<IGRealtimeSubscriptionDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,copy,readonly) NSString * topic;                                         //@synthesize topic=_topic - In the implementation block
-@property (nonatomic,copy,readonly) NSURL * url;                                              //@synthesize url=_url - In the implementation block
 @property (nonatomic,copy,readonly) IGSequence * sequence;                                    //@synthesize sequence=_sequence - In the implementation block
 @property (nonatomic,copy,readonly) NSString * authToken;                                     //@synthesize authToken=_authToken - In the implementation block
 @property (assign,nonatomic) unsigned status;                                                 //@synthesize status=_status - In the implementation block
@@ -27,7 +25,6 @@
 -(id)description;
 -(id<IGRealtimeSubscriptionDelegate>)delegate;
 -(id)initWithDictionary:(id)arg1 ;
--(NSURL *)url;
 -(unsigned)status;
 -(void)setStatus:(unsigned)arg1 ;
 -(void)updateStatus:(unsigned)arg1 ;

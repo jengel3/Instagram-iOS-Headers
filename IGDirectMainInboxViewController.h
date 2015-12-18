@@ -4,14 +4,15 @@
 #import <UIKit/UITableViewDataSource.h>
 #import <UIKit/UITableViewDelegate.h>
 #import <Instagram/IGDirectPendingInboxDelegate.h>
+#import <Instagram/IGDirectPushPromptViewDelegate.h>
 #import <Instagram/IGDirectInboxCellDelegate.h>
 #import <Instagram/IGGenericMegaphoneViewDelegate.h>
 #import <Instagram/IGPullToRefreshProtocol.h>
 #import <Instagram/IGDirectThreadViewControllerDelegate.h>
 
-@class NSOrderedSet, IGPlainTableView, NSString, UIBarButtonItem, IGDirectPendingRequestsHeaderView, NSArray, IGPullToRefreshViewManager, IGGenericMegaphone, IGGenericMegaphoneView, IGDirectEmptyInboxView;
+@class NSOrderedSet, IGPlainTableView, NSString, UIBarButtonItem, IGDirectPendingRequestsHeaderView, NSArray, IGPullToRefreshViewManager, IGGenericMegaphone, IGGenericMegaphoneView, IGDirectEmptyInboxView, IGDirectPushPromptView;
 
-@interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGPullToRefreshProtocol, IGDirectThreadViewControllerDelegate> {
+@interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectPushPromptViewDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGPullToRefreshProtocol, IGDirectThreadViewControllerDelegate> {
 
 	char _isFetchingData;
 	char _loadingPreviousThreads;
@@ -31,6 +32,7 @@
 	IGGenericMegaphoneView* _megaphoneView;
 	IGDirectEmptyInboxView* _emptyInboxView;
 	int _unseenPendingRequestCount;
+	IGDirectPushPromptView* _pushPromptView;
 
 }
 
@@ -52,6 +54,7 @@
 @property (nonatomic,retain) IGDirectEmptyInboxView * emptyInboxView;                                //@synthesize emptyInboxView=_emptyInboxView - In the implementation block
 @property (assign,nonatomic) int unseenPendingRequestCount;                                          //@synthesize unseenPendingRequestCount=_unseenPendingRequestCount - In the implementation block
 @property (assign,nonatomic) char needsRefreshForThreadUpdateNotification;                           //@synthesize needsRefreshForThreadUpdateNotification=_needsRefreshForThreadUpdateNotification - In the implementation block
+@property (nonatomic,retain) IGDirectPushPromptView * pushPromptView;                                //@synthesize pushPromptView=_pushPromptView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -71,6 +74,10 @@
 -(IGGenericMegaphone *)megaphone;
 -(void)setMegaphoneView:(IGGenericMegaphoneView *)arg1 ;
 -(IGGenericMegaphoneView *)megaphoneView;
+-(void)updateMegaphoneView;
+-(char)showPushPrompt;
+-(IGDirectPushPromptView *)pushPromptView;
+-(unsigned)inboxSubscriptionStatus;
 -(int)unseenShareCount;
 -(void)refreshDataWithClearCount:(char)arg1 withNextMaxID:(id)arg2 clearOperationCompletion:(/*^block*/id)arg3 fetchCompletion:(/*^block*/id)arg4 ;
 -(void)sendNewDirect;
@@ -118,17 +125,19 @@
 -(void)pendingInbox:(id)arg1 didUpdateThread:(id)arg2 withAccept:(char)arg3 remainingInviter:(id)arg4 ;
 -(void)pendingInboxDidClear:(id)arg1 ;
 -(void)pendingInboxDidActionThreads:(id)arg1 ;
+-(void)pushPromptViewTappedDismiss:(id)arg1 ;
+-(void)pushPromptViewDidTapSettingsButton:(id)arg1 ;
 -(void)megaphone:(id)arg1 didOpenURL:(id)arg2 ;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(void)threadViewController:(id)arg1 didUpdateFromThread:(id)arg2 toThread:(id)arg3 ;
--(unsigned)inboxSubscriptionStatus;
 -(id)endpointPath;
 -(id)threadWithThreadId:(id)arg1 ;
 -(IGDirectPendingRequestsHeaderView *)pendingRequestsHeader;
 -(void)setPendingRequestsHeader:(IGDirectPendingRequestsHeaderView *)arg1 ;
 -(NSString *)countedAt;
 -(void)setCountedAt:(NSString *)arg1 ;
+-(void)setPushPromptView:(IGDirectPushPromptView *)arg1 ;
 -(void)scrollToTopAnimated:(char)arg1 ;
 -(void)dealloc;
 -(id)init;

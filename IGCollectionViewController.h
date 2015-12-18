@@ -54,9 +54,9 @@
 @property (nonatomic,readonly) char isReloadingContent; 
 @property (nonatomic,copy,readonly) NSArray * visibleCells; 
 @property (assign,nonatomic) float pullToRefreshYInset;                                                                  //@synthesize pullToRefreshYInset=_pullToRefreshYInset - In the implementation block
-@property (nonatomic,readonly) char usesIgCollectionViewLayout;                                                          //@synthesize usesIgCollectionViewLayout=_usesIgCollectionViewLayout - In the implementation block
 @property (nonatomic,retain) NSArray * currentLoadingObjects;                                                            //@synthesize currentLoadingObjects=_currentLoadingObjects - In the implementation block
 @property (nonatomic,retain) id currentLoadingContext;                                                                   //@synthesize currentLoadingContext=_currentLoadingContext - In the implementation block
+@property (nonatomic,readonly) char usesIgCollectionViewLayout;                                                          //@synthesize usesIgCollectionViewLayout=_usesIgCollectionViewLayout - In the implementation block
 @property (nonatomic,retain) IGInternalCollectionView * collectionView;                                                  //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshControl * pullToRefreshControl;                                              //@synthesize pullToRefreshControl=_pullToRefreshControl - In the implementation block
 @property (assign,nonatomic) char hasNotifiedForEndOfContentReached;                                                     //@synthesize hasNotifiedForEndOfContentReached=_hasNotifiedForEndOfContentReached - In the implementation block
@@ -70,8 +70,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(float)headerAdjustmentAmount;
--(void)scrollToBottomAnimated:(char)arg1 ;
 -(void)enumerateVisibleViewsWithClass:(Class)arg1 usingBlock:(/*^block*/id)arg2 ;
+-(void)registerClasses;
 -(id)visibleIndexPaths;
 -(id)initWithLayout:(id)arg1 showsPullToRefresh:(char)arg2 ;
 -(void)finishRefreshFromPullToRefreshControl;
@@ -85,17 +85,20 @@
 -(float)supplementaryHeaderViewHeight;
 -(float)currentContentOffsetY;
 -(char)usesIgCollectionViewLayout;
+-(void)configureCollectionViewDataSource:(id)arg1 ;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 synchronus:(char)arg3 forceAnimated:(char)arg4 completionBlock:(/*^block*/id)arg5 ;
+-(void)reloadWithCurrentObjectsAnimated:(char)arg1 ;
+-(NSArray *)currentLoadingObjects;
+-(id)currentLoadingContext;
 -(void)enumerateVisibleCellsWithClass:(Class)arg1 usingBlock:(/*^block*/id)arg2 ;
 -(float)supplementaryFooterViewHeight;
--(void)reloadWithCurrentObjectsAnimated:(char)arg1 ;
--(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
 -(void)reloadWithCurrentObjects;
+-(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
+-(void)reloadWithCurrentObjectsAnimated:(char)arg1 completionBlock:(/*^block*/id)arg2 ;
 -(char)isAtTopOfContent;
 -(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)didChangeHeaderAdjustmentAmount:(float)arg1 ;
--(NSArray *)currentLoadingObjects;
--(void)registerClasses;
+-(id)setupCollectionViewWithLayout:(id)arg1 ;
 -(void)onScrollViewPan:(id)arg1 ;
 -(void)applyContentInset;
 -(char)showsPullToRefreshControl;
@@ -103,7 +106,6 @@
 -(void)setPullToRefreshControl:(IGPullToRefreshControl *)arg1 ;
 -(IGPullToRefreshControl *)pullToRefreshControl;
 -(void)onPullToRefresh:(id)arg1 ;
--(id)currentLoadingContext;
 -(void)updatePullToRefreshControl;
 -(void)notifyChangeFromScrollPosition:(CGPoint)arg1 toScrollPosition:(CGPoint)arg2 ;
 -(void)layoutFooterView;
@@ -163,7 +165,6 @@
 -(void)setContext:(id)arg1 ;
 -(void)setCollectionView:(IGInternalCollectionView *)arg1 ;
 -(void)setCollectionViewLayout:(UICollectionViewLayout*<IGCollectionViewLayoutAdditions>)arg1 ;
--(void)configureCollectionView:(id)arg1 ;
 -(void)scrollToItemAtIndexPath:(id)arg1 animated:(char)arg2 ;
 -(void)setObjects:(NSArray *)arg1 ;
 @end

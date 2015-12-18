@@ -35,6 +35,7 @@
 -(id)userForMemberSectionAtIndexPath:(id)arg1 ;
 -(void)showLeaveActionMenu;
 -(void)leaveThread;
+-(char)popToIGDirectMainInboxViewController;
 -(id)cellForGroupNameAtIndexPath:(id)arg1 ;
 -(id)cellForMuteAtIndexPath:(id)arg1 ;
 -(id)cellForUser:(id)arg1 atIndexPath:(id)arg2 ;

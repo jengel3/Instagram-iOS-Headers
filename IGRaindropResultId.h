@@ -14,10 +14,10 @@
 }
 -(id)toDict;
 -(id)initWithPlaceId:(id)arg1 ;
--(id)placeId_DEPRECATED;
 -(id)initWithHashtagId:(id)arg1 ;
 -(id)initWithUserId:(id)arg1 ;
 -(id)initWithPlaceId_DEPRECATED:(id)arg1 ;
+-(id)placeId_DEPRECATED;
 -(id)init;
 -(id)description;
 -(id)mutableCopyWithZone:(NSZone*)arg1 ;

@@ -1,7 +1,7 @@
 
 
 @protocol IGProfilePictureImageViewDelegate <IGImageViewDelegate>
-@optional
+@required
 -(void)profilePictureTapped:(id)arg1;
 
 @end

@@ -8,7 +8,7 @@
 #import <Instagram/IGExploreCellDelegate.h>
 #import <Instagram/IGMarqueeAttributionViewDelegate.h>
 
-@class NSArray, IGExploreMarqueeItem, UIView, IGExploreTTILogger, IGFeedStatusView, UIActivityIndicatorView, IGPullToRefreshViewManager, UICollectionView, NSMutableSet, IGFeedThumbnailPreviewingHandler, NSString;
+@class NSArray, IGExploreMarqueeItem, UIView, IGExploreTTILogger, IGFeedStatusView, UIActivityIndicatorView, IGPullToRefreshViewManager, UICollectionView, NSMutableSet, IGFeedItemPreviewingHandler, NSString;
 
 @interface IGExploreFeedViewController : IGViewController <UICollectionViewDataSource, UICollectionViewDelegate, IGPullToRefreshProtocol, UICollectionViewDelegateFlowLayout, IGExploreCellDelegate, IGMarqueeAttributionViewDelegate> {
 
@@ -25,26 +25,26 @@
 	NSMutableSet* _lastIndexPaths;
 	NSMutableSet* _lastVisibleImageURLs;
 	NSMutableSet* _lastImageURLs;
-	IGFeedThumbnailPreviewingHandler* _thumbnailPreviewDelegate;
+	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 	UIEdgeInsets _contentInsets;
 
 }
 
-@property (assign,nonatomic) UIEdgeInsets contentInsets;                                               //@synthesize contentInsets=_contentInsets - In the implementation block
-@property (nonatomic,copy) NSArray * items;                                                            //@synthesize items=_items - In the implementation block
-@property (nonatomic,retain) IGExploreMarqueeItem * marqueeItem;                                       //@synthesize marqueeItem=_marqueeItem - In the implementation block
-@property (nonatomic,retain) UIView * headerView;                                                      //@synthesize headerView=_headerView - In the implementation block
-@property (nonatomic,retain) IGExploreTTILogger * ttiLogger;                                           //@synthesize ttiLogger=_ttiLogger - In the implementation block
-@property (nonatomic,retain) IGFeedStatusView * feedStatusView;                                        //@synthesize feedStatusView=_feedStatusView - In the implementation block
-@property (nonatomic,retain) UIActivityIndicatorView * loadingMoreView;                                //@synthesize loadingMoreView=_loadingMoreView - In the implementation block
-@property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;                    //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
-@property (nonatomic,retain) UICollectionView * collectionView;                                        //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,retain) UIActivityIndicatorView * initialIndicatorView;                           //@synthesize initialIndicatorView=_initialIndicatorView - In the implementation block
-@property (nonatomic,retain) NSMutableSet * lastVisibleIndexPaths;                                     //@synthesize lastVisibleIndexPaths=_lastVisibleIndexPaths - In the implementation block
-@property (nonatomic,retain) NSMutableSet * lastIndexPaths;                                            //@synthesize lastIndexPaths=_lastIndexPaths - In the implementation block
-@property (nonatomic,retain) NSMutableSet * lastVisibleImageURLs;                                      //@synthesize lastVisibleImageURLs=_lastVisibleImageURLs - In the implementation block
-@property (nonatomic,retain) NSMutableSet * lastImageURLs;                                             //@synthesize lastImageURLs=_lastImageURLs - In the implementation block
-@property (nonatomic,retain) IGFeedThumbnailPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
+@property (assign,nonatomic) UIEdgeInsets contentInsets;                                          //@synthesize contentInsets=_contentInsets - In the implementation block
+@property (nonatomic,copy) NSArray * items;                                                       //@synthesize items=_items - In the implementation block
+@property (nonatomic,retain) IGExploreMarqueeItem * marqueeItem;                                  //@synthesize marqueeItem=_marqueeItem - In the implementation block
+@property (nonatomic,retain) UIView * headerView;                                                 //@synthesize headerView=_headerView - In the implementation block
+@property (nonatomic,retain) IGExploreTTILogger * ttiLogger;                                      //@synthesize ttiLogger=_ttiLogger - In the implementation block
+@property (nonatomic,retain) IGFeedStatusView * feedStatusView;                                   //@synthesize feedStatusView=_feedStatusView - In the implementation block
+@property (nonatomic,retain) UIActivityIndicatorView * loadingMoreView;                           //@synthesize loadingMoreView=_loadingMoreView - In the implementation block
+@property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;               //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
+@property (nonatomic,retain) UICollectionView * collectionView;                                   //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,retain) UIActivityIndicatorView * initialIndicatorView;                      //@synthesize initialIndicatorView=_initialIndicatorView - In the implementation block
+@property (nonatomic,retain) NSMutableSet * lastVisibleIndexPaths;                                //@synthesize lastVisibleIndexPaths=_lastVisibleIndexPaths - In the implementation block
+@property (nonatomic,retain) NSMutableSet * lastIndexPaths;                                       //@synthesize lastIndexPaths=_lastIndexPaths - In the implementation block
+@property (nonatomic,retain) NSMutableSet * lastVisibleImageURLs;                                 //@synthesize lastVisibleImageURLs=_lastVisibleImageURLs - In the implementation block
+@property (nonatomic,retain) NSMutableSet * lastImageURLs;                                        //@synthesize lastImageURLs=_lastImageURLs - In the implementation block
+@property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -56,8 +56,8 @@
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(IGExploreTTILogger *)ttiLogger;
--(void)setThumbnailPreviewDelegate:(IGFeedThumbnailPreviewingHandler *)arg1 ;
--(IGFeedThumbnailPreviewingHandler *)thumbnailPreviewDelegate;
+-(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
+-(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
 -(void)setTtiLogger:(IGExploreTTILogger *)arg1 ;
 -(void)exploreCell:(id)arg1 didTapMediaAtIndex:(unsigned)arg2 ;
 -(void)exploreCellDidTapFollow:(id)arg1 ;

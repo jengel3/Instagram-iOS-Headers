@@ -31,8 +31,6 @@
 -(id)recipientsForManager:(id)arg1 ;
 -(char)manager:(id)arg1 wantsToSelectUser:(id)arg2 ;
 -(void)manager:(id)arg1 triedToAddFilteredUser:(id)arg2 ;
--(void)keyboardObserver:(id)arg1 keyboardWillShowWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
--(void)keyboardObserver:(id)arg1 keyboardWillHideWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)doneTapped;
 -(void)updateDoneButtonState;
 -(void)setShareManager:(IGDirectShareManager *)arg1 ;
@@ -48,6 +46,8 @@
 -(void)tokenFieldDidRequestSearch:(id)arg1 ;
 -(void)tokenField:(id)arg1 didChangeQuery:(id)arg2 ;
 -(void)tokenField:(id)arg1 didDeleteToken:(id)arg2 ;
+-(void)keyboardObserver:(id)arg1 keyboardWillShowWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
+-(void)keyboardObserver:(id)arg1 keyboardWillHideWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)setKeyboardObserver:(FBKeyboardObserver *)arg1 ;
 -(void)dealloc;
 -(void)viewDidLoad;

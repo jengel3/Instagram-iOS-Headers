@@ -45,8 +45,8 @@
 -(int)numberOfLocalResults;
 -(char)isLocalResult:(id)arg1 ;
 -(char)responseWasFoundInQueryCache;
--(id)initWithMaximumLocalResults:(unsigned)arg1 maximumServerResults:(unsigned)arg2 ;
 -(void)beginFilteringLocationsCloseTo:(id)arg1 rankToken:(id)arg2 analyticsInfo:(id)arg3 ;
+-(id)initWithMaximumLocalResults:(unsigned)arg1 maximumServerResults:(unsigned)arg2 ;
 -(void)beginFilteringLocations:(id)arg1 closeToLocation:(id)arg2 rankToken:(id)arg3 analyticsInfo:(id)arg4 ;
 -(void)beginFilteringLocations:(id)arg1 closeToLocation:(id)arg2 rankToken:(id)arg3 analyticsInfo:(id)arg4 ignoreEmptyQuery:(char)arg5 ;
 -(char)isSearching;

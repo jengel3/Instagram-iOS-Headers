@@ -26,12 +26,12 @@
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
--(void)updateNavigationRightBarButtonItem;
--(id)newFindUsersView;
 -(void)authorizeAndFetchUsers;
--(void)contactsFriendsHelperDidTapLearnMore:(id)arg1 ;
 -(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
 -(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
+-(void)updateNavigationRightBarButtonItem;
+-(id)newFindUsersView;
+-(void)contactsFriendsHelperDidTapLearnMore:(id)arg1 ;
 -(UIBarButtonItem *)configureButton;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
 -(void)onConfigureButtonTapped:(id)arg1 ;

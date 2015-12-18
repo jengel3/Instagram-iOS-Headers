@@ -11,6 +11,7 @@
 	char _inPhotosOfYou;
 	char _isWaitingForPivot;
 	char _isDummyVideo;
+	char _showPivot;
 	char _carouselLinkButtonOverride;
 	char _expanded;
 	NSString* _permalink;
@@ -22,6 +23,7 @@
 	NSString* _organicTrackingToken;
 	NSString* _exploreAlgorithm;
 	NSString* _exploreImpressionToken;
+	NSString* _mediaId;
 	IGPivotMediaInfo* _pivotInfo;
 
 }
@@ -34,6 +36,8 @@
 @property (readonly) NSString * exploreImpressionToken;                           //@synthesize exploreImpressionToken=_exploreImpressionToken - In the implementation block
 @property (assign) char isWaitingForPivot;                                        //@synthesize isWaitingForPivot=_isWaitingForPivot - In the implementation block
 @property (assign) char isDummyVideo;                                             //@synthesize isDummyVideo=_isDummyVideo - In the implementation block
+@property (assign) char showPivot;                                                //@synthesize showPivot=_showPivot - In the implementation block
+@property (readonly) NSString * mediaId;                                          //@synthesize mediaId=_mediaId - In the implementation block
 @property (readonly) IGDirectResponseInfo * directResponseInfo; 
 @property (readonly) int directResponseStyle;                                     //@synthesize directResponseStyle=_directResponseStyle - In the implementation block
 @property (readonly) int directResponseHeaderStyle;                               //@synthesize directResponseHeaderStyle=_directResponseHeaderStyle - In the implementation block
@@ -58,7 +62,7 @@
 -(id)urlToPostComment;
 -(id)urlToDeleteComment:(id)arg1 ;
 -(id)urlToFlagComment:(id)arg1 ;
--(id)getMediaId;
+-(NSString *)mediaId;
 -(id)likeText;
 -(id)defaultStyleString;
 -(id)bylineStyleString;
@@ -76,12 +80,15 @@
 -(id)buildFeaturedBadgeStyledString;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
 -(char)isDummyVideo;
+-(IGPivotMediaInfo *)pivotInfo;
+-(void)fetchPivots:(int)arg1 ;
+-(void)setShowPivot:(char)arg1 ;
 -(NSString *)exploreAlgorithm;
 -(NSString *)exploreImpressionToken;
+-(char)showPivot;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 userInfo:(id)arg4 index:(int)arg5 analyticsMetadata:(id)arg6 completion:(/*^block*/id)arg7 ;
 -(IGDirectResponseInfo *)directResponseInfo;
 -(char)isWaitingForPivot;
--(IGPivotMediaInfo *)pivotInfo;
 -(NSString *)permalink;
 -(char)carouselLinkButtonOverride;
 -(int)directResponseStyle;
@@ -89,16 +96,17 @@
 -(char)isSponsoredApp;
 -(void)markAsSeen;
 -(void)markAsExpanded;
+-(char)hasPivot;
 -(void)setCarouselLinkButtonOverride:(char)arg1 ;
 -(void)setPivotInfo:(IGPivotMediaInfo *)arg1 ;
 -(void)setIsWaitingForPivot:(char)arg1 ;
--(char)hasPivot;
 -(NSString *)ig_productSessionKey;
 -(char)seen;
+-(id)mediaIdFromPK:(id)arg1 ;
+-(void)setMediaIdWithPk:(id)arg1 ;
 -(void)setUsertagsFromEntry:(id)arg1 ;
 -(void)setSponsoredPostInfoFromEntry:(id)arg1 ;
 -(char)inPhotosOfYou;
--(void)fetchPivots:(int)arg1 ;
 -(void)setPermalink:(NSString *)arg1 ;
 -(void)setInPhotosOfYou:(char)arg1 ;
 -(void)setDirectResponseStyle:(int)arg1 ;
@@ -112,6 +120,7 @@
 -(void)setIsDummyVideo:(char)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
+-(char)isEqual:(id)arg1 ;
 -(NSString *)description;
 -(char)isExpanded;
 -(void)setExpanded:(char)arg1 ;

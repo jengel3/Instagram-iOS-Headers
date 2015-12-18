@@ -27,8 +27,8 @@
 @property (nonatomic,readonly) int socialContextType;               //@synthesize socialContextType=_socialContextType - In the implementation block
 -(NSArray *)mediaBundles;
 -(NSArray *)thumbnailURLs;
--(void)setThumbnailURLs:(NSArray *)arg1 ;
 -(NSString *)socialContext;
+-(void)setThumbnailURLs:(NSArray *)arg1 ;
 -(id)initWithDictionary:(id)arg1 maxThumbnailCount:(int)arg2 ;
 -(void)setMediaIDs:(NSArray *)arg1 ;
 -(void)setMediaBundles:(NSArray *)arg1 ;
@@ -42,6 +42,7 @@
 -(void)setUser:(IGUser *)arg1 ;
 -(NSString *)algorithm;
 -(char)isEqual:(id)arg1 ;
+-(unsigned)hash;
 -(id)description;
 -(id)initWithDictionary:(id)arg1 ;
 -(void)setIcon:(NSString *)arg1 ;

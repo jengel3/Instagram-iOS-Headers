@@ -5,12 +5,13 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGFeedPhotoViewDelegate, IGUserInTagDisplayDelegate;
-@class IGUserInTagDisplayView, IGImageProgressView, IGUsertagGroup, NSURL, UITapGestureRecognizer, IGFeedItemPhotoCell, NSString;
+@class IGUserInTagDisplayView, UILabel, IGImageProgressView, IGUsertagGroup, NSURL, UITapGestureRecognizer, IGFeedItemPhotoCell, NSString;
 
 @interface IGFeedPhotoView : IGFeedMediaView <IGImageProgressViewDelegate, UIGestureRecognizerDelegate> {
 
 	IGUserInTagDisplayView* _inTagView;
 	char _isShowingUsertagsIndicator;
+	UILabel* _imageSpecLabel;
 	char _isShowingUsertags;
 	IGImageProgressView* _photoImageView;
 	IGUsertagGroup* _usertags;
@@ -34,6 +35,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(id)imageSpecLabelForURLString:(id)arg1 imageWidth:(float)arg2 imageHeight:(float)arg3 dataLength:(unsigned)arg4 ;
++(id)valueInString:(id)arg1 forPattern:(id)arg2 ;
 -(IGUsertagGroup *)usertags;
 -(void)onTap:(id)arg1 ;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
@@ -48,6 +51,7 @@
 -(void)showUsertagsIndicator:(char)arg1 animated:(char)arg2 ;
 -(void)onTagIndicatorTapped;
 -(CGRect)userTagIndicatorFrame;
+-(void)updateImageSpecLabel:(id)arg1 withDataLength:(unsigned)arg2 ;
 -(char)isShowingUsertags;
 -(id<IGUserInTagDisplayDelegate>)tagViewDelegate;
 -(void)setTagViewDelegate:(id<IGUserInTagDisplayDelegate>)arg1 ;

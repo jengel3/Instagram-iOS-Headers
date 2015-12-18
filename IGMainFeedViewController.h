@@ -68,6 +68,7 @@
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(char)shouldHideFeedItem:(id)arg1 ;
 -(char)allowSponsoredContextForFeedItem:(id)arg1 ;
+-(int)hiddenCellTypeForFeedItem:(id)arg1 ;
 -(id)bugReportDescription;
 -(UIView *)headerContainer;
 -(UIImageView *)logoImageView;
@@ -82,6 +83,9 @@
 -(IGInboxButton *)inboxButton;
 -(NSArray *)uploadCellViews;
 -(void)setUploadCellViews:(NSArray *)arg1 ;
+-(void)hideFeedItemOriginalImmediate:(id)arg1 ;
+-(void)hideWithTombstoneForFeedItem:(id)arg1 ;
+-(void)hideFeedItemLeavingScreen:(id)arg1 withLayoutAttributes:(id)arg2 ;
 -(void)setServerMegaphoneData:(NSDictionary *)arg1 ;
 -(char)shouldShowFavoritesMegaphone;
 -(void)showFavoritesMegaphone;

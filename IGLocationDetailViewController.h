@@ -4,7 +4,7 @@
 #import <Instagram/IGLocationHeaderViewDelegate.h>
 #import <Instagram/IGExploreComposedPeopleYouFollowViewDelegate.h>
 
-@class IGLocation, NSArray, IGRankedMediaView, IGLocationHeaderView, IGExploreComposedPeopleYouFollowView, NSMutableSet, IGFeedThumbnailPreviewingHandler, NSString;
+@class IGLocation, NSArray, IGRankedMediaView, IGLocationHeaderView, IGExploreComposedPeopleYouFollowView, NSMutableSet, IGFeedItemPreviewingHandler, NSString;
 
 @interface IGLocationDetailViewController : IGFeedViewController <IGRankedMediaViewDelegate, IGLocationHeaderViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate> {
 
@@ -14,7 +14,7 @@
 	IGLocationHeaderView* _locationHeaderView;
 	IGExploreComposedPeopleYouFollowView* _peopleYouFollowView;
 	NSMutableSet* _loggedImpressions;
-	IGFeedThumbnailPreviewingHandler* _thumbnailPreviewDelegate;
+	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 
 }
 
@@ -24,7 +24,7 @@
 @property (assign,nonatomic,__weak) IGLocationHeaderView * locationHeaderView;                               //@synthesize locationHeaderView=_locationHeaderView - In the implementation block
 @property (assign,nonatomic,__weak) IGExploreComposedPeopleYouFollowView * peopleYouFollowView;              //@synthesize peopleYouFollowView=_peopleYouFollowView - In the implementation block
 @property (nonatomic,retain) NSMutableSet * loggedImpressions;                                               //@synthesize loggedImpressions=_loggedImpressions - In the implementation block
-@property (nonatomic,retain) IGFeedThumbnailPreviewingHandler * thumbnailPreviewDelegate;                    //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
+@property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;                         //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -34,8 +34,8 @@
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(char)enableNavState;
 -(NSMutableSet *)loggedImpressions;
--(void)setThumbnailPreviewDelegate:(IGFeedThumbnailPreviewingHandler *)arg1 ;
--(IGFeedThumbnailPreviewingHandler *)thumbnailPreviewDelegate;
+-(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
+-(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)updateCellVisibility:(id)arg1 atIndex:(id)arg2 ;
 -(void)handleLoadedContentDidChange;

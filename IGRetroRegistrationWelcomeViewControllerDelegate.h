@@ -6,12 +6,14 @@
 
 @required
 -(void)welcomeViewController:(id)arg1 userEmailTakenAutoLoginWithLoggedInDict:(id)arg2;
+-(void)welcomeViewControllerWantsToDismiss:(id)arg1;
+-(char)welcomeViewControllerIsSwitchingUsers:(id)arg1;
 -(void)welcomeViewControllerDidTapLoginButton:(id)arg1;
 -(void)welcomeViewControllerDidTapSignUpButton:(id)arg1;
 -(void)welcomeViewController:(id)arg1 proceedRegistrationWithFBInfo:(id)arg2;
 -(void)welcomeViewController:(id)arg1 resetPasswordWithViewController:(id)arg2;
 -(void)welcomeViewController:(id)arg1 proceedTwoFactorWithUserInfo:(id)arg2;
--(void)welcomeViewController:(id)arg1 proceedOneClickLoginWithUsername:(id)arg2 token:(id)arg3;
+-(void)welcomeViewController:(id)arg1 proceedOneClickLoginWithUsername:(id)arg2 token:(id)arg3 source:(id)arg4;
 
 @end
 

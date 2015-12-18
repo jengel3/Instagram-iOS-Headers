@@ -7,12 +7,12 @@
 #import <Instagram/IGLocationPickerDelegate.h>
 #import <Instagram/IGLocationDataSourceDelegate.h>
 
-@protocol IGLocationSuggestionDelegate;
+@protocol IGLocationSuggestionDelegateIGLocationSuggestionDataSource;
 @class IGLocationMetadata, IGNearbyLocationDataSource, UIView, UICollectionView, UICollectionViewFlowLayout, IGGradientView, IGLocationSuggestionTitleControl, IGActiveLocationDetailView, IGButton, IGLocationPickerViewController, NSArray, IGLabel, NSString;
 
 @interface IGLocationSuggestionCell : IGCollectionViewCell <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IGLocationPickerDelegate, IGLocationDataSourceDelegate> {
 
-	id<IGLocationSuggestionDelegate> _delegate;
+	id<IGLocationSuggestionDelegate><IGLocationSuggestionDataSource> _delegate;
 	IGLocationMetadata* _locationMetadata;
 	IGNearbyLocationDataSource* _locationDataSource;
 	int _suggestionState;
@@ -29,21 +29,21 @@
 
 }
 
-@property (assign,nonatomic,__weak) id<IGLocationSuggestionDelegate> delegate;               //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGLocationMetadata * locationMetadata;                          //@synthesize locationMetadata=_locationMetadata - In the implementation block
-@property (nonatomic,retain) IGNearbyLocationDataSource * locationDataSource;                //@synthesize locationDataSource=_locationDataSource - In the implementation block
+@property (assign,nonatomic,__weak) id<IGLocationSuggestionDelegate><IGLocationSuggestionDataSource> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGLocationMetadata * locationMetadata;                                                         //@synthesize locationMetadata=_locationMetadata - In the implementation block
+@property (nonatomic,retain) IGNearbyLocationDataSource * locationDataSource;                                               //@synthesize locationDataSource=_locationDataSource - In the implementation block
 @property (nonatomic,readonly) float cellHeight; 
-@property (assign,nonatomic) int suggestionState;                                            //@synthesize suggestionState=_suggestionState - In the implementation block
-@property (nonatomic,retain) UIView * suggestionView;                                        //@synthesize suggestionView=_suggestionView - In the implementation block
-@property (nonatomic,retain) UICollectionView * collectionView;                              //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,retain) UICollectionViewFlowLayout * layout;                            //@synthesize layout=_layout - In the implementation block
-@property (nonatomic,retain) IGGradientView * gradientView;                                  //@synthesize gradientView=_gradientView - In the implementation block
-@property (nonatomic,retain) IGLocationSuggestionTitleControl * titleView;                   //@synthesize titleView=_titleView - In the implementation block
-@property (nonatomic,retain) IGActiveLocationDetailView * activeLocationView;                //@synthesize activeLocationView=_activeLocationView - In the implementation block
-@property (nonatomic,retain) IGButton * clearButton;                                         //@synthesize clearButton=_clearButton - In the implementation block
-@property (nonatomic,retain) IGLocationPickerViewController * locationPickerVC;              //@synthesize locationPickerVC=_locationPickerVC - In the implementation block
-@property (nonatomic,copy) NSArray * locations;                                              //@synthesize locations=_locations - In the implementation block
-@property (nonatomic,retain) IGLabel * nuxLabel;                                             //@synthesize nuxLabel=_nuxLabel - In the implementation block
+@property (assign,nonatomic) int suggestionState;                                                                           //@synthesize suggestionState=_suggestionState - In the implementation block
+@property (nonatomic,retain) UIView * suggestionView;                                                                       //@synthesize suggestionView=_suggestionView - In the implementation block
+@property (nonatomic,retain) UICollectionView * collectionView;                                                             //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,retain) UICollectionViewFlowLayout * layout;                                                           //@synthesize layout=_layout - In the implementation block
+@property (nonatomic,retain) IGGradientView * gradientView;                                                                 //@synthesize gradientView=_gradientView - In the implementation block
+@property (nonatomic,retain) IGLocationSuggestionTitleControl * titleView;                                                  //@synthesize titleView=_titleView - In the implementation block
+@property (nonatomic,retain) IGActiveLocationDetailView * activeLocationView;                                               //@synthesize activeLocationView=_activeLocationView - In the implementation block
+@property (nonatomic,retain) IGButton * clearButton;                                                                        //@synthesize clearButton=_clearButton - In the implementation block
+@property (nonatomic,retain) IGLocationPickerViewController * locationPickerVC;                                             //@synthesize locationPickerVC=_locationPickerVC - In the implementation block
+@property (nonatomic,copy) NSArray * locations;                                                                             //@synthesize locations=_locations - In the implementation block
+@property (nonatomic,retain) IGLabel * nuxLabel;                                                                            //@synthesize nuxLabel=_nuxLabel - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -90,10 +90,10 @@
 -(float)cellHeight;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setLocations:(NSArray *)arg1 ;
--(void)setDelegate:(id<IGLocationSuggestionDelegate>)arg1 ;
+-(void)setDelegate:(id<IGLocationSuggestionDelegate><IGLocationSuggestionDataSource>)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;
--(id<IGLocationSuggestionDelegate>)delegate;
+-(id<IGLocationSuggestionDelegate><IGLocationSuggestionDataSource>)delegate;
 -(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
 -(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(int)numberOfSectionsInCollectionView:(id)arg1 ;

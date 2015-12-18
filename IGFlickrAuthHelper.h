@@ -33,6 +33,7 @@
 -(void)handleCallbackURL:(id)arg1 ;
 -(void)startAuthorization;
 -(void)setDelegate:(id<IGFlickrAuthDelegate>)arg1 ;
+-(void)dealloc;
 -(id)init;
 -(id<IGFlickrAuthDelegate>)delegate;
 -(id)initWithDelegate:(id)arg1 ;

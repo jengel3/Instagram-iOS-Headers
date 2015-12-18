@@ -35,13 +35,13 @@
 +(void)appendTopAggregatorOverride:(id)arg1 ;
 -(void)setNextMaxID:(NSString *)arg1 ;
 -(NSString *)nextMaxID;
+-(NSString *)fetchPath;
 -(id)initWithDelegate:(id)arg1 parser:(id)arg2 delegateQueue:(id)arg3 fetchPath:(id)arg4 fetchType:(unsigned)arg5 constantParameters:(id)arg6 secure:(char)arg7 cancelsPreviousRequest:(char)arg8 ;
+-(void)fetchWithParameters:(id)arg1 ;
+-(void)fetchMoreWithParameters:(id)arg1 ;
 -(void)fetchMore;
 -(char)isMoreAvailable;
--(NSString *)fetchPath;
--(void)fetchWithParameters:(id)arg1 ;
 -(void)fetchWithParameters:(id)arg1 isLoadMore:(char)arg2 ;
--(void)fetchMoreWithParameters:(id)arg1 ;
 -(id)appendParameters:(id)arg1 withMaxID:(id)arg2 ;
 -(char)cancelsPreviousRequest;
 -(IGRequest *)previousRequest;

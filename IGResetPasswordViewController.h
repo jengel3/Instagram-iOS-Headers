@@ -28,6 +28,7 @@
 -(char)validateLengthAllowZeroLength:(char)arg1 ;
 -(char)validateMatching;
 -(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
+-(char)smsVerificationViewControllerIsSwitchingUsers:(id)arg1 ;
 -(void)setUser:(id)arg1 ;
 -(void)setDelegate:(id<IGResetPasswordDelegate>)arg1 ;
 -(void)dealloc;

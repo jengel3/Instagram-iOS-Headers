@@ -3,7 +3,7 @@
 
 @interface IGExplorePlacesNetworkSource : IGExploreNetworkSource
 
-@property (assign,nonatomic) id<IGExplorePlacesNetworkSourceDelegate> delegate; 
+@property (assign,nonatomic,__weak) id<IGExplorePlacesNetworkSourceDelegate> delegate; 
 +(id)explorePlacesFeedNetworkSource;
 -(char)fetchDataWithParameters:(id)arg1 ;
 @end

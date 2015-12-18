@@ -21,10 +21,10 @@
 @property (assign,nonatomic) float headerHeight;                                      //@synthesize headerHeight=_headerHeight - In the implementation block
 @property (assign,nonatomic) char headerIsScrolledAway;                               //@synthesize headerIsScrolledAway=_headerIsScrolledAway - In the implementation block
 @property (nonatomic,__weak,readonly) UIViewController * viewController;              //@synthesize viewController=_viewController - In the implementation block
+-(char)headerIsScrolledAway;
 -(id)initWithViewController:(id)arg1 shouldScrollAwayNavigationBar:(char)arg2 shouldScrollAwayStatusBar:(char)arg3 ;
 -(void)setScrollView:(id)arg1 additionalScrollingViews:(id)arg2 headerHeight:(float)arg3 ;
 -(char)shouldScrollAwayStatusBar;
--(char)headerIsScrolledAway;
 -(char)shouldScrollAwayNavigationBar;
 -(NSArray *)additionalScrollingViews;
 -(void)setHeaderIsScrolledAway:(char)arg1 ;

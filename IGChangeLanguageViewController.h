@@ -12,7 +12,6 @@
 
 @property (nonatomic,readonly) NSArray * locales;                       //@synthesize locales=_locales - In the implementation block
 @property (nonatomic,readonly) NSString * currentLanguage;              //@synthesize currentLanguage=_currentLanguage - In the implementation block
--(void)didTapCancel:(id)arg1 ;
 -(id)localeForIndexPath:(id)arg1 ;
 -(id)localeNameForIndexPath:(id)arg1 ;
 -(char)isCurrentLocale:(id)arg1 ;

@@ -90,6 +90,7 @@
 -(void)setAdjustHintLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGFilterTintControlDelegate>)arg1 ;
+-(void)dealloc;
 -(void)layoutSubviews;
 -(id<IGFilterTintControlDelegate>)delegate;
 -(unsigned)currentState;

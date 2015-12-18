@@ -1,11 +1,10 @@
 
 #import <Instagram/IGStorableObject.h>
 #import <Instagram/IGSearchResultsLoggableItem.h>
-#import <Instagram/IGStoredObject.h>
 
 @class IGLocation, NSArray, NSString;
 
-@interface IGPlace : IGStorableObject <IGSearchResultsLoggableItem, IGStoredObject> {
+@interface IGPlace : IGStorableObject <IGSearchResultsLoggableItem> {
 
 	IGLocation* _location;
 	NSArray* _mediaBundles;
@@ -26,7 +25,7 @@
 @property (nonatomic,readonly) NSString * byline;                   //@synthesize byline=_byline - In the implementation block
 +(id)centralizedStore;
 +(id)loggingLocationIdsForPlaces:(id)arg1 ;
--(id)pk;
++(id)pkFromDict:(id)arg1 ;
 -(char)postIsBroken;
 -(char)needsFetch;
 -(NSArray *)mediaBundles;

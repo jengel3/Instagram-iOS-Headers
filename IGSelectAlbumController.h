@@ -10,7 +10,7 @@
 
 @interface IGSelectAlbumController : UIViewController <UITableViewDataSource, UITableViewDelegate, PHPhotoLibraryChangeObserver> {
 
-	char _showImagesOnly;
+	char _photosOnly;
 	char _needsSetPhotoLibraryOptions;
 	id<IGSelectAlbumDelegate> _delegate;
 	UITableView* _tableView;
@@ -33,7 +33,7 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGSelectAlbumDelegate> delegate;                //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic) char showImagesOnly;                                      //@synthesize showImagesOnly=_showImagesOnly - In the implementation block
+@property (assign,nonatomic) char photosOnly;                                          //@synthesize photosOnly=_photosOnly - In the implementation block
 @property (nonatomic,retain) UITableView * tableView;                                  //@synthesize tableView=_tableView - In the implementation block
 @property (nonatomic,retain) UIVisualEffectView * blurView;                            //@synthesize blurView=_blurView - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * activityIndicator;              //@synthesize activityIndicator=_activityIndicator - In the implementation block
@@ -62,14 +62,14 @@
 -(void)resetCachedAssets;
 -(void)assetsLibraryDidChange:(id)arg1 ;
 -(void)filterAssetsGroup:(id)arg1 ;
--(char)showImagesOnly;
+-(char)photosOnly;
 -(void)updateCachedAssets;
 -(void)setPreviousPreheatRect:(CGRect)arg1 ;
 -(CGRect)previousPreheatRect;
 -(void)computeDifferenceBetweenRect:(CGRect)arg1 andRect:(CGRect)arg2 removedHandler:(/*^block*/id)arg3 addedHandler:(/*^block*/id)arg4 ;
 -(id)assetsAtIndexPaths:(id)arg1 ;
 -(char)needsSetPhotoLibraryOptions;
--(void)setShowImagesOnly:(char)arg1 ;
+-(void)setPhotosOnly:(char)arg1 ;
 -(void)viewDidOpen;
 -(void)setKeyImageFetchResults:(NSMutableDictionary *)arg1 ;
 -(id)filterSmartAlbums:(id)arg1 ;

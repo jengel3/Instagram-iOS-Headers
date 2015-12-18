@@ -63,9 +63,6 @@
 -(id)cdnSuffixFromPath:(id)arg1 ;
 -(char)isInstagramURL:(id)arg1 ;
 -(NSRegularExpression *)cdnSuffixRegex;
--(void)onPermalinkOpen:(id)arg1 ;
--(void)onPermalinkClosed:(id)arg1 ;
--(void)onExploreFetched:(id)arg1 ;
 -(void)setCdnSuffixRegex:(NSRegularExpression *)arg1 ;
 -(void)dealloc;
 -(id)init;

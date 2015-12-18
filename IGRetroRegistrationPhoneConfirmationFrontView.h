@@ -2,11 +2,11 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class UIButton, IGRetroRegistrationTextField, IGCoreTextView, UIImageView, UILabel, NSString;
+@class IGRetroRegistrationNextButton, IGRetroRegistrationTextField, IGCoreTextView, UIImageView, UILabel, NSString;
 
 @interface IGRetroRegistrationPhoneConfirmationFrontView : UIView {
 
-	UIButton* _nextButton;
+	IGRetroRegistrationNextButton* _nextButton;
 	IGRetroRegistrationTextField* _confirmationCodeField;
 	IGCoreTextView* _resendCodeView;
 	UIImageView* _logoView;
@@ -16,7 +16,7 @@
 
 }
 
-@property (nonatomic,retain) UIButton * nextButton;                                             //@synthesize nextButton=_nextButton - In the implementation block
+@property (nonatomic,retain) IGRetroRegistrationNextButton * nextButton;                        //@synthesize nextButton=_nextButton - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationTextField * confirmationCodeField;              //@synthesize confirmationCodeField=_confirmationCodeField - In the implementation block
 @property (nonatomic,retain) IGCoreTextView * resendCodeView;                                   //@synthesize resendCodeView=_resendCodeView - In the implementation block
 @property (nonatomic,retain) UIImageView * logoView;                                            //@synthesize logoView=_logoView - In the implementation block
@@ -33,8 +33,8 @@
 -(UILabel *)messageLabel;
 -(NSString *)phoneNumber;
 -(void)setTitleLabel:(UILabel *)arg1 ;
--(UIButton *)nextButton;
--(void)setNextButton:(UIButton *)arg1 ;
+-(IGRetroRegistrationNextButton *)nextButton;
+-(void)setNextButton:(IGRetroRegistrationNextButton *)arg1 ;
 -(void)setMessageLabel:(UILabel *)arg1 ;
 -(UIImageView *)logoView;
 -(void)setLogoView:(UIImageView *)arg1 ;

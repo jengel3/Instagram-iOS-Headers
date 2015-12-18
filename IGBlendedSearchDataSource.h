@@ -24,7 +24,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGAutocompleteAsyncDataSourceDelegate> delegate; 
-@property (getter=isSearching,nonatomic,readonly) char searching;                                    //@synthesize searching=_searching - In the implementation block
+@property (assign,getter=isSearching,nonatomic) char searching;                                      //@synthesize searching=_searching - In the implementation block
 @property (assign,nonatomic,__weak) id<IGAutocompleteAsyncDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGRequest * currentRequest;                                             //@synthesize currentRequest=_currentRequest - In the implementation block
 @property (nonatomic,retain) IGService * service;                                                    //@synthesize service=_service - In the implementation block
@@ -49,13 +49,16 @@
 -(id)requestForQuery:(id)arg1 location:(id)arg2 rankToken:(id)arg3 ;
 -(NSSet *)hashtags;
 -(void)fetchDataForSearchQuery:(id)arg1 location:(id)arg2 rankToken:(id)arg3 ;
+-(void)fetchFrequentItems;
 -(id)hashtagResults;
 -(id)userResults;
 -(id)blendedResults;
 -(void)setCurrentRequest:(IGRequest *)arg1 ;
 -(char)isSearching;
+-(void)fetchData;
 -(void)setDelegate:(id<IGAutocompleteAsyncDataSourceDelegate>)arg1 ;
 -(id<IGAutocompleteAsyncDataSourceDelegate>)delegate;
+-(void)setSearching:(char)arg1 ;
 -(void)handleResponse:(id)arg1 ;
 -(IGRequest *)currentRequest;
 -(IGService *)service;

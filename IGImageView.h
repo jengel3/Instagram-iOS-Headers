@@ -33,12 +33,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setShouldDecodeAsynchronously:(char)arg1 ;
 -(void)setImageProcessor:(id<IGImageProcessor>)arg1 ;
 -(void)cancelImageLoad;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(void)mediaRequest:(id)arg1 didFailWithError:(id)arg2 forURL:(id)arg3 ;
 -(void)mediaRequest:(id)arg1 didReceiveDownloadBytesRead:(unsigned)arg2 totalBytesRead:(long long)arg3 totalBytesExpectedToRead:(long long)arg4 forURL:(id)arg5 ;
--(void)setShouldDecodeAsynchronously:(char)arg1 ;
 -(char)delegateNeedsImageNow;
 -(void)setImagePriority:(int)arg1 ;
 -(void)notifyDelegateOfSuccess;

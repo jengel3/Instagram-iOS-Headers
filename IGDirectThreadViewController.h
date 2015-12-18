@@ -27,6 +27,7 @@
 	char _isLoadingForFirstTime;
 	char _shouldScrollToBottomAfterContentSizeChange;
 	char _shouldAnimateScrollingToBottom;
+	char _isSpamming;
 	int _state;
 	id<IGDirectThreadViewControllerDelegate> _threadDelegate;
 	id<IGDirectPendingThreadViewDelegate> _pendingDelegate;
@@ -114,16 +115,17 @@
 @property (assign,nonatomic) char shouldScrollToBottomAfterContentSizeChange;                             //@synthesize shouldScrollToBottomAfterContentSizeChange=_shouldScrollToBottomAfterContentSizeChange - In the implementation block
 @property (assign,nonatomic) char shouldAnimateScrollingToBottom;                                         //@synthesize shouldAnimateScrollingToBottom=_shouldAnimateScrollingToBottom - In the implementation block
 @property (nonatomic,retain) NSNotification * deferredThreadUpdatedNotification;                          //@synthesize deferredThreadUpdatedNotification=_deferredThreadUpdatedNotification - In the implementation block
+@property (assign,nonatomic) char isSpamming;                                                             //@synthesize isSpamming=_isSpamming - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(float)textViewHeight;
 -(void)scrollToBottomAnimated:(char)arg1 ;
 -(char)prefersTabBarHidden;
+-(float)textViewHeight;
 -(id)initWithThreadID:(id)arg1 ;
--(void)setThreadDelegate:(id<IGDirectThreadViewControllerDelegate>)arg1 ;
 -(void)fetchAndLoadThreadWithID:(id)arg1 ;
+-(void)setThreadDelegate:(id<IGDirectThreadViewControllerDelegate>)arg1 ;
 -(NSArray *)allContent;
 -(void)threadUpdated:(id)arg1 ;
 -(void)setPendingDelegate:(id<IGDirectPendingThreadViewDelegate>)arg1 ;
@@ -142,7 +144,6 @@
 -(char)contentCellShouldLongPress:(id)arg1 ;
 -(void)contentCellDidLongPress:(id)arg1 ;
 -(void)seenStampFooterView:(id)arg1 wantsExpansion:(char)arg2 fromHeight:(float)arg3 toHeight:(float)arg4 ;
--(void)keyboardObserver:(id)arg1 keyboardFrameWillChangeWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)setShareManager:(IGDirectShareManager *)arg1 ;
 -(IGDirectShareManager *)shareManager;
 -(void)setTokenField:(IGTokenField *)arg1 ;
@@ -156,6 +157,7 @@
 -(void)tokenField:(id)arg1 didChangeQuery:(id)arg2 ;
 -(void)tokenField:(id)arg1 didDeleteToken:(id)arg2 ;
 -(void)tokenFieldWillBeginEditing:(id)arg1 ;
+-(void)keyboardObserver:(id)arg1 keyboardFrameWillChangeWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)setKeyboardObserver:(FBKeyboardObserver *)arg1 ;
 -(void)didTapCloseButtonForViewControllerDidBeginEditing:(id)arg1 ;
 -(void)groupNamingViewControllerDidBeginEditing:(id)arg1 ;
@@ -163,6 +165,7 @@
 -(void)keyboardTextViewController:(id)arg1 didTapSendWithText:(id)arg2 ;
 -(void)keyboardTextViewControllerDidTapCamera:(id)arg1 ;
 -(void)keyboardTextViewControllerDidTapLike:(id)arg1 ;
+-(char)keyboardTextViewController:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
 -(void)keyboardTextViewController:(id)arg1 textViewWillBeginEditing:(id)arg2 ;
 -(void)keyboardTextViewController:(id)arg1 textViewDidBeginEditing:(id)arg2 ;
 -(void)keyboardTextViewController:(id)arg1 textViewDidEndEditing:(id)arg2 ;
@@ -198,6 +201,10 @@
 -(void)sendSeenTimestampForContent:(id)arg1 ;
 -(void)updateLocalThread:(id)arg1 ;
 -(void)onForeground;
+-(char)isSpamming;
+-(void)sendSpam;
+-(void)setIsSpamming:(char)arg1 ;
+-(id)titleForRealtimeToggleButtonForStatus:(unsigned)arg1 ;
 -(void)showGroupNamingBar;
 -(void)hideGroupNamingBar;
 -(void)onDirectPosted:(id)arg1 ;
@@ -246,9 +253,10 @@
 -(void)setUnseenMessageVisible:(char)arg1 ;
 -(float)unseenMessageHeight;
 -(void)unseenMessageIndicatorTapped;
--(char)threadUsersMatchTokenField;
+-(char)currentThreadUsersMatchTokenField;
 -(id)recipientForCurrentState;
 -(void)handleSendWithSuccess:(char)arg1 andResponse:(id)arg2 ;
+-(void)updateFromSend;
 -(void)loadThreadWithID:(id)arg1 performNetworkRefresh:(char)arg2 ;
 -(void)showFailToSend;
 -(void)setKeyboardView:(UIView *)arg1 ;
@@ -260,6 +268,7 @@
 -(void)onQuickCamInteractivePan:(id)arg1 ;
 -(void)setPriorKeyboardState:(int)arg1 ;
 -(int)priorKeyboardState;
+-(char)users:(id)arg1 matchUsersInThread:(id)arg2 ;
 -(void)enumerateVisibleViewsWithClass:(Class)arg1 usingBlock:(/*^block*/id)arg2 ;
 -(void)onInteractivePanGesture:(id)arg1 suggestedTextViewControllerTopY:(float)arg2 shouldCompensateScroll:(char)arg3 ;
 -(UIView *)threadInputView;
@@ -292,6 +301,8 @@
 -(void)onDismissEmojiTap:(id)arg1 ;
 -(void)onTimestampPan:(id)arg1 ;
 -(id)initWithUsers:(id)arg1 ;
+-(void)messageSpamTapped:(id)arg1 ;
+-(void)toggleRealtimeTapped:(id)arg1 ;
 -(void)performHideForContent:(id)arg1 ;
 -(void)setThreadViewer:(IGUser *)arg1 ;
 -(void)setUnseenMessageProfilePicture:(IGProfilePictureImageView *)arg1 ;

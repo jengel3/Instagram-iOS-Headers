@@ -43,8 +43,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)attributedStringWithTitle:(id)arg1 andBody:(id)arg2 ;
-+(char)showWithImageURL:(id)arg1 andAttributedText:(id)arg2 shouldRoundImage:(char)arg3 block:(/*^block*/id)arg4 ;
 +(char)showWithImage:(id)arg1 andAttributedText:(id)arg2 shouldRoundImage:(char)arg3 block:(/*^block*/id)arg4 ;
++(char)showWithImageURL:(id)arg1 andAttributedText:(id)arg2 shouldRoundImage:(char)arg3 block:(/*^block*/id)arg4 ;
 +(char)showBarIfAllowedWithBlock:(/*^block*/id)arg1 ;
 +(id)attributedTextFromString:(id)arg1 ;
 +(id)sharedInstance;

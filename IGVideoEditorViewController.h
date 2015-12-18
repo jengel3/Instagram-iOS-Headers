@@ -163,7 +163,7 @@
 -(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(IGVideoInfo *)videoInfo;
 -(id)initWithVideoInfo:(id)arg1 mediaMetadata:(id)arg2 ;
--(void)filterPlayerViewDidFinishPlaying;
+-(void)filterPlayerViewDidFinishPlayingWithAnimation:(char)arg1 ;
 -(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG43)arg2 ;
 -(id)cachedThumbnailForClip:(id)arg1 andTime:(SCD_Struct_IG43)arg2 ;
 -(void)didTapClipAtIndexPath:(id)arg1 ;
@@ -193,6 +193,7 @@
 -(void)reconcileVideoPlayer;
 -(void)startVideoRender;
 -(void)addScissorsAnimationToImageView:(id)arg1 tintColor:(id)arg2 ;
+-(void)filterPlayerViewDidFinishPlaying;
 -(char)isClipTrimMode;
 -(IGVideoTrimView *)trimView;
 -(void)cancelRenderAndUpload;

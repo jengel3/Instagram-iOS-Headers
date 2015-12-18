@@ -1,13 +1,15 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIWindow.h>
 #import <Instagram/IGRageShakeViewControllerDelegate.h>
 
-@class IGUser, NSString;
+@class IGUser, IGShakeWindowEventLogger, NSString;
 
 @interface IGShakeWindow : UIWindow <IGRageShakeViewControllerDelegate> {
 
 	char _isReporting;
 	IGUser* _userToSuggest;
+	IGShakeWindowEventLogger* _logger;
 	double _motionStart;
 
 }
@@ -23,6 +25,7 @@
 -(id)screenshotData;
 -(void)presentReportThankYouAlert;
 -(void)reportCrash;
+-(id)initWithFrame:(CGRect)arg1 ;
 -(void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;
 -(void)motionEnded:(int)arg1 withEvent:(id)arg2 ;
 -(void)motionBegan:(int)arg1 withEvent:(id)arg2 ;

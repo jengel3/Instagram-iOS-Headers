@@ -35,6 +35,9 @@
 -(id)introImage;
 -(UIImageView *)exampleImageView;
 -(id)introVideoAsset;
+-(CGSize)titleLabelSize;
+-(CGSize)appDescriptionLabelSize;
+-(id)tapGestureRecognizerForConfirmingModal;
 -(id)confirmButtonText;
 -(void)onConfirmModal;
 -(void)setExampleImageView:(UIImageView *)arg1 ;
@@ -51,6 +54,7 @@
 -(UILabel *)titleLabel;
 -(UIButton *)cancelButton;
 -(void)setCancelButton:(UIButton *)arg1 ;
+-(CGSize)contentSizeForViewInPopover;
 -(void)viewDidLoad;
 -(void)setTitleLabel:(UILabel *)arg1 ;
 -(id)titleText;

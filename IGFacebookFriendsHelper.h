@@ -17,6 +17,7 @@
 @property (assign,nonatomic,__weak) id<IGFindFriendsHelperDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)onFacebookAuthSuccess;
 -(void)authorizeAndFetchUsers;
+-(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)onFacebookAuthFailure;
 -(void)setDelegate:(id<IGFindFriendsHelperDelegate>)arg1 ;
 -(void)dealloc;

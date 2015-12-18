@@ -19,8 +19,8 @@
 @property (nonatomic,readonly) float maxWidth; 
 @property (nonatomic,retain) UIButton * replyButton;                                       //@synthesize replyButton=_replyButton - In the implementation block
 @property (nonatomic,retain) UIButton * deleteButton;                                      //@synthesize deleteButton=_deleteButton - In the implementation block
--(UIButton *)replyButton;
 -(void)replyButtonTapped:(id)arg1 ;
+-(UIButton *)replyButton;
 -(void)setDeleteButtonType:(int)arg1 ;
 -(int)deleteButtonType;
 -(void)setReplyButton:(UIButton *)arg1 ;

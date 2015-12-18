@@ -40,40 +40,40 @@
 
 }
 
-@property (assign,nonatomic) int uploadDataType;                                       //@synthesize uploadDataType=_uploadDataType - In the implementation block
+@property (assign,nonatomic) int uploadDataType;                                         //@synthesize uploadDataType=_uploadDataType - In the implementation block
 @property (nonatomic,retain) UIImage * image; 
-@property (nonatomic,readonly) NSData * imageData;                                     //@synthesize imageData=_imageData - In the implementation block
-@property (nonatomic,retain) NSDate * uploadStartTime;                                 //@synthesize uploadStartTime=_uploadStartTime - In the implementation block
-@property (assign,nonatomic) double configureStartTimestamp;                           //@synthesize configureStartTimestamp=_configureStartTimestamp - In the implementation block
-@property (nonatomic,readonly) int postStatus;                                         //@synthesize postStatus=_postStatus - In the implementation block
-@property (assign,nonatomic) int uploadStatus;                                         //@synthesize uploadStatus=_uploadStatus - In the implementation block
-@property (assign,nonatomic) int targetStatus;                                         //@synthesize targetStatus=_targetStatus - In the implementation block
-@property (assign,nonatomic,__weak) IGRequest * request;                               //@synthesize request=_request - In the implementation block
-@property (nonatomic,retain) NSMutableDictionary * postDict;                           //@synthesize postDict=_postDict - In the implementation block
-@property (assign,nonatomic) float uploadProgress;                                     //@synthesize uploadProgress=_uploadProgress - In the implementation block
-@property (assign,nonatomic) unsigned uploadTaskIdentifier;                            //@synthesize uploadTaskIdentifier=_uploadTaskIdentifier - In the implementation block
-@property (assign,nonatomic) unsigned configureTaskIdentifier;                         //@synthesize configureTaskIdentifier=_configureTaskIdentifier - In the implementation block
-@property (assign,nonatomic) char isDirectShare;                                       //@synthesize isDirectShare=_isDirectShare - In the implementation block
+@property (nonatomic,readonly) NSData * imageData;                                       //@synthesize imageData=_imageData - In the implementation block
+@property (nonatomic,retain) NSDate * uploadStartTime;                                   //@synthesize uploadStartTime=_uploadStartTime - In the implementation block
+@property (assign,nonatomic) double configureStartTimestamp;                             //@synthesize configureStartTimestamp=_configureStartTimestamp - In the implementation block
+@property (nonatomic,readonly) int postStatus;                                           //@synthesize postStatus=_postStatus - In the implementation block
+@property (assign,nonatomic) int uploadStatus;                                           //@synthesize uploadStatus=_uploadStatus - In the implementation block
+@property (assign,nonatomic) int targetStatus;                                           //@synthesize targetStatus=_targetStatus - In the implementation block
+@property (assign,nonatomic,__weak) IGRequest * request;                                 //@synthesize request=_request - In the implementation block
+@property (nonatomic,retain) NSMutableDictionary * postDict;                             //@synthesize postDict=_postDict - In the implementation block
+@property (assign,nonatomic) float uploadProgress;                                       //@synthesize uploadProgress=_uploadProgress - In the implementation block
+@property (assign,nonatomic) unsigned uploadTaskIdentifier;                              //@synthesize uploadTaskIdentifier=_uploadTaskIdentifier - In the implementation block
+@property (assign,nonatomic) unsigned configureTaskIdentifier;                           //@synthesize configureTaskIdentifier=_configureTaskIdentifier - In the implementation block
+@property (assign,nonatomic) char isDirectShare;                                         //@synthesize isDirectShare=_isDirectShare - In the implementation block
 @property (nonatomic,readonly) char hasVideo; 
-@property (nonatomic,retain) NSData * videoData;                                       //@synthesize videoData=_videoData - In the implementation block
-@property (nonatomic,copy) NSURL * videoDataFileURL;                                   //@synthesize videoDataFileURL=_videoDataFileURL - In the implementation block
-@property (nonatomic,retain) NSArray * videoUploadURLs;                                //@synthesize videoUploadURLs=_videoUploadURLs - In the implementation block
-@property (assign,nonatomic) unsigned currentVideoUploadURLIndex;                      //@synthesize currentVideoUploadURLIndex=_currentVideoUploadURLIndex - In the implementation block
-@property (nonatomic,copy) NSString * transcodeVideoID;                                //@synthesize transcodeVideoID=_transcodeVideoID - In the implementation block
-@property (nonatomic,copy) NSString * sessionID;                                       //@synthesize sessionID=_sessionID - In the implementation block
-@property (nonatomic,retain) NSString * errorMessage;                                  //@synthesize errorMessage=_errorMessage - In the implementation block
-@property (assign,nonatomic) int numberOfFailedConfigures;                             //@synthesize numberOfFailedConfigures=_numberOfFailedConfigures - In the implementation block
-@property (assign,nonatomic) int numberOfFailedUploads;                                //@synthesize numberOfFailedUploads=_numberOfFailedUploads - In the implementation block
-@property (assign,nonatomic) int numberOfManualRetries;                                //@synthesize numberOfManualRetries=_numberOfManualRetries - In the implementation block
-@property (assign,nonatomic) int numberOfManualCancels;                                //@synthesize numberOfManualCancels=_numberOfManualCancels - In the implementation block
+@property (nonatomic,retain) NSData * videoData;                                         //@synthesize videoData=_videoData - In the implementation block
+@property (nonatomic,copy) NSURL * videoDataFileURL;                                     //@synthesize videoDataFileURL=_videoDataFileURL - In the implementation block
+@property (nonatomic,retain) NSArray * videoUploadURLs;                                  //@synthesize videoUploadURLs=_videoUploadURLs - In the implementation block
+@property (assign,nonatomic) unsigned currentVideoUploadURLIndex;                        //@synthesize currentVideoUploadURLIndex=_currentVideoUploadURLIndex - In the implementation block
+@property (nonatomic,copy) NSString * transcodeVideoID;                                  //@synthesize transcodeVideoID=_transcodeVideoID - In the implementation block
+@property (nonatomic,copy) NSString * sessionID;                                         //@synthesize sessionID=_sessionID - In the implementation block
+@property (nonatomic,retain) NSString * errorMessage;                                    //@synthesize errorMessage=_errorMessage - In the implementation block
+@property (assign,nonatomic) int numberOfFailedConfigures;                               //@synthesize numberOfFailedConfigures=_numberOfFailedConfigures - In the implementation block
+@property (assign,nonatomic) int numberOfFailedUploads;                                  //@synthesize numberOfFailedUploads=_numberOfFailedUploads - In the implementation block
+@property (assign,nonatomic) int numberOfManualRetries;                                  //@synthesize numberOfManualRetries=_numberOfManualRetries - In the implementation block
+@property (assign,nonatomic) int numberOfManualCancels;                                  //@synthesize numberOfManualCancels=_numberOfManualCancels - In the implementation block
 @property (nonatomic,readonly) unsigned totalVideoBytesUploaded; 
 @property (nonatomic,readonly) unsigned totalVideoBytesExpectToUpload; 
-@property (assign,nonatomic) unsigned autoRetryResumeUploadCount;                      //@synthesize autoRetryResumeUploadCount=_autoRetryResumeUploadCount - In the implementation block
-@property (assign,nonatomic) unsigned autoRetryConfigureCount;                         //@synthesize autoRetryConfigureCount=_autoRetryConfigureCount - In the implementation block
-@property (nonatomic,copy) NSMutableArray * currentRangesUploadedAlready;              //@synthesize currentRangesUploadedAlready=_currentRangesUploadedAlready - In the implementation block
-@property (nonatomic,retain) IGAnalyticsWaterfall * waterfall;                         //@synthesize waterfall=_waterfall - In the implementation block
-@property (nonatomic,copy) NSDate * videoStartUploadTime;                              //@synthesize videoStartUploadTime=_videoStartUploadTime - In the implementation block
-@property (assign,nonatomic) float videoUploadSpeed;                                   //@synthesize videoUploadSpeed=_videoUploadSpeed - In the implementation block
+@property (assign,nonatomic) unsigned autoRetryResumeUploadCount;                        //@synthesize autoRetryResumeUploadCount=_autoRetryResumeUploadCount - In the implementation block
+@property (assign,nonatomic) unsigned autoRetryConfigureCount;                           //@synthesize autoRetryConfigureCount=_autoRetryConfigureCount - In the implementation block
+@property (nonatomic,retain) NSMutableArray * currentRangesUploadedAlready;              //@synthesize currentRangesUploadedAlready=_currentRangesUploadedAlready - In the implementation block
+@property (nonatomic,retain) IGAnalyticsWaterfall * waterfall;                           //@synthesize waterfall=_waterfall - In the implementation block
+@property (nonatomic,copy) NSDate * videoStartUploadTime;                                //@synthesize videoStartUploadTime=_videoStartUploadTime - In the implementation block
+@property (assign,nonatomic) float videoUploadSpeed;                                     //@synthesize videoUploadSpeed=_videoUploadSpeed - In the implementation block
 @property (nonatomic,readonly) unsigned suggestedChunkSize; 
 -(void)setUploadStartTime:(NSDate *)arg1 ;
 -(NSDate *)uploadStartTime;
@@ -85,13 +85,13 @@
 -(int)numberOfFailedUploads;
 -(void)setNumberOfFailedUploads:(int)arg1 ;
 -(NSString *)transcodeVideoID;
+-(int)uploadStatusBeforeUploaded;
+-(void)setPostStatus:(int)arg1 uploadStatus:(int)arg2 ;
 -(int)postStatus;
 -(void)setPostDict:(NSMutableDictionary *)arg1 ;
 -(int)uploadDataType;
 -(NSURL *)videoDataFileURL;
--(void)setPostStatus:(int)arg1 uploadStatus:(int)arg2 ;
 -(NSMutableDictionary *)postDict;
--(int)uploadStatusBeforeUploaded;
 -(id)currentNotExpiredVideoUploadURL;
 -(void)setTargetStatus:(int)arg1 ;
 -(void)setUploadDataType:(int)arg1 ;

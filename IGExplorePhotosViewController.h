@@ -5,7 +5,7 @@
 #import <Instagram/FBAnimationPerformanceTrackerDelegate.h>
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 
-@class IGExploreSearchViewController, NSMutableSet, IGExplorePeopleBannerView, IGExploreJumbotronView, IGExploreCarouselsView, IGRelatedItemsHeaderView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, NSArray, NSString, IGExploreTrend, IGFeedThumbnailPreviewingHandler, FBAnimationPerformanceTracker, IGExplorePhotosNetworkSource;
+@class IGExploreSearchViewController, NSMutableSet, IGExplorePeopleBannerView, IGExploreJumbotronView, IGExploreCarouselsView, IGRelatedItemsHeaderView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, NSArray, NSString, IGExploreTrend, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExplorePhotosNetworkSource;
 
 @interface IGExplorePhotosViewController : IGFeedViewController <IGExploreSearchControllerDelegate, FBAnimationPerformanceTrackerDelegate, IGSearchOriginControllerProtocol> {
 
@@ -29,36 +29,36 @@
 	NSArray* _trends;
 	IGExploreTrend* _trendPlace;
 	NSArray* _marqueeItems;
-	IGFeedThumbnailPreviewingHandler* _thumbnailPreviewDelegate;
+	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 	FBAnimationPerformanceTracker* _apTracker;
 	UIEdgeInsets _contentInsets;
 
 }
 
-@property (assign,nonatomic) UIEdgeInsets contentInsets;                                               //@synthesize contentInsets=_contentInsets - In the implementation block
-@property (nonatomic,retain) NSMutableSet * loggedImpressions;                                         //@synthesize loggedImpressions=_loggedImpressions - In the implementation block
-@property (nonatomic,retain) IGExploreSearchViewController * searchController;                         //@synthesize searchController=_searchController - In the implementation block
-@property (assign,nonatomic) char showSearchOnAppear;                                                  //@synthesize showSearchOnAppear=_showSearchOnAppear - In the implementation block
-@property (assign,nonatomic) char showSearchOnViewDidAppear;                                           //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
-@property (assign,nonatomic) char wasFreshExploreLoad;                                                 //@synthesize wasFreshExploreLoad=_wasFreshExploreLoad - In the implementation block
-@property (nonatomic,retain) IGExplorePeopleBannerView * peopleBannerView;                             //@synthesize peopleBannerView=_peopleBannerView - In the implementation block
-@property (nonatomic,retain) IGExploreJumbotronView * jumbotronView;                                   //@synthesize jumbotronView=_jumbotronView - In the implementation block
-@property (nonatomic,retain) IGExploreCarouselsView * carouselsView;                                   //@synthesize carouselsView=_carouselsView - In the implementation block
-@property (nonatomic,retain) IGRelatedItemsHeaderView * textCarouselView;                              //@synthesize textCarouselView=_textCarouselView - In the implementation block
-@property (nonatomic,retain) IGExploreSectionTextHeader * explorePostsLabel;                           //@synthesize explorePostsLabel=_explorePostsLabel - In the implementation block
+@property (assign,nonatomic) UIEdgeInsets contentInsets;                                          //@synthesize contentInsets=_contentInsets - In the implementation block
+@property (nonatomic,retain) NSMutableSet * loggedImpressions;                                    //@synthesize loggedImpressions=_loggedImpressions - In the implementation block
+@property (nonatomic,retain) IGExploreSearchViewController * searchController;                    //@synthesize searchController=_searchController - In the implementation block
+@property (assign,nonatomic) char showSearchOnAppear;                                             //@synthesize showSearchOnAppear=_showSearchOnAppear - In the implementation block
+@property (assign,nonatomic) char showSearchOnViewDidAppear;                                      //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
+@property (assign,nonatomic) char wasFreshExploreLoad;                                            //@synthesize wasFreshExploreLoad=_wasFreshExploreLoad - In the implementation block
+@property (nonatomic,retain) IGExplorePeopleBannerView * peopleBannerView;                        //@synthesize peopleBannerView=_peopleBannerView - In the implementation block
+@property (nonatomic,retain) IGExploreJumbotronView * jumbotronView;                              //@synthesize jumbotronView=_jumbotronView - In the implementation block
+@property (nonatomic,retain) IGExploreCarouselsView * carouselsView;                              //@synthesize carouselsView=_carouselsView - In the implementation block
+@property (nonatomic,retain) IGRelatedItemsHeaderView * textCarouselView;                         //@synthesize textCarouselView=_textCarouselView - In the implementation block
+@property (nonatomic,retain) IGExploreSectionTextHeader * explorePostsLabel;                      //@synthesize explorePostsLabel=_explorePostsLabel - In the implementation block
 @property (nonatomic,retain) IGExplorePhotosNetworkSource * feedSource; 
-@property (assign,nonatomic) char marqueeWasPaging;                                                    //@synthesize marqueeWasPaging=_marqueeWasPaging - In the implementation block
-@property (nonatomic,retain) IGExploreTTILogger * ttiLogger;                                           //@synthesize ttiLogger=_ttiLogger - In the implementation block
-@property (assign,nonatomic) int stalenessThresholdSeconds;                                            //@synthesize stalenessThresholdSeconds=_stalenessThresholdSeconds - In the implementation block
-@property (nonatomic,retain) NSDate * lastFullFetch;                                                   //@synthesize lastFullFetch=_lastFullFetch - In the implementation block
-@property (assign,nonatomic) char shouldShowDummyVideo;                                                //@synthesize shouldShowDummyVideo=_shouldShowDummyVideo - In the implementation block
-@property (nonatomic,copy) NSArray * profileTeaserUsers;                                               //@synthesize profileTeaserUsers=_profileTeaserUsers - In the implementation block
-@property (nonatomic,copy) NSString * peopleTeaserByline;                                              //@synthesize peopleTeaserByline=_peopleTeaserByline - In the implementation block
-@property (nonatomic,copy) NSArray * trends;                                                           //@synthesize trends=_trends - In the implementation block
-@property (nonatomic,retain) IGExploreTrend * trendPlace;                                              //@synthesize trendPlace=_trendPlace - In the implementation block
-@property (nonatomic,copy) NSArray * marqueeItems;                                                     //@synthesize marqueeItems=_marqueeItems - In the implementation block
-@property (nonatomic,retain) IGFeedThumbnailPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
-@property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                                //@synthesize apTracker=_apTracker - In the implementation block
+@property (assign,nonatomic) char marqueeWasPaging;                                               //@synthesize marqueeWasPaging=_marqueeWasPaging - In the implementation block
+@property (nonatomic,retain) IGExploreTTILogger * ttiLogger;                                      //@synthesize ttiLogger=_ttiLogger - In the implementation block
+@property (assign,nonatomic) int stalenessThresholdSeconds;                                       //@synthesize stalenessThresholdSeconds=_stalenessThresholdSeconds - In the implementation block
+@property (nonatomic,retain) NSDate * lastFullFetch;                                              //@synthesize lastFullFetch=_lastFullFetch - In the implementation block
+@property (assign,nonatomic) char shouldShowDummyVideo;                                           //@synthesize shouldShowDummyVideo=_shouldShowDummyVideo - In the implementation block
+@property (nonatomic,copy) NSArray * profileTeaserUsers;                                          //@synthesize profileTeaserUsers=_profileTeaserUsers - In the implementation block
+@property (nonatomic,copy) NSString * peopleTeaserByline;                                         //@synthesize peopleTeaserByline=_peopleTeaserByline - In the implementation block
+@property (nonatomic,copy) NSArray * trends;                                                      //@synthesize trends=_trends - In the implementation block
+@property (nonatomic,retain) IGExploreTrend * trendPlace;                                         //@synthesize trendPlace=_trendPlace - In the implementation block
+@property (nonatomic,copy) NSArray * marqueeItems;                                                //@synthesize marqueeItems=_marqueeItems - In the implementation block
+@property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
+@property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                           //@synthesize apTracker=_apTracker - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -82,8 +82,9 @@
 -(void)appDidBecomeActiveNotification:(id)arg1 ;
 -(char)shouldShowDummyVideo;
 -(IGExploreTTILogger *)ttiLogger;
--(void)setThumbnailPreviewDelegate:(IGFeedThumbnailPreviewingHandler *)arg1 ;
--(IGFeedThumbnailPreviewingHandler *)thumbnailPreviewDelegate;
+-(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
+-(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
+-(void)registerClasses;
 -(void)updateScrollFromContextualFeed;
 -(char)shouldShowNavigationShadow;
 -(void)refreshStaleContent:(char)arg1 ;
@@ -122,10 +123,12 @@
 -(void)reloadMarquee:(char)arg1 carouselIndexes:(id)arg2 ;
 -(void)configureTextCarousel;
 -(void)configureExplorePostsHeaderLabel;
+-(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(void)setShouldShowDummyVideo:(char)arg1 ;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)updateCellVisibility:(id)arg1 atIndex:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
+-(char)showExplorePivotFeedAfterTap;
 -(void)setMarqueeWasPaging:(char)arg1 ;
 -(char)marqueeWasPaging;
 -(id)maxVisibleItemCount;

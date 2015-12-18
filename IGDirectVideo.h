@@ -47,15 +47,15 @@
 @property (nonatomic,retain) IGUploadModel * uploadModel;                         //@synthesize uploadModel=_uploadModel - In the implementation block
 @property (assign,nonatomic) char isFirstAppearance;                              //@synthesize isFirstAppearance=_isFirstAppearance - In the implementation block
 @property (nonatomic,retain) NSString * uploadComment;                            //@synthesize uploadComment=_uploadComment - In the implementation block
+-(NSURL *)cacheKeyURL;
+-(char)useMainCameraUploadFlow;
+-(IGUploadModel *)uploadModel;
+-(void)setUploadModel:(IGUploadModel *)arg1 ;
 -(IGDirectContentUploadInfo *)uploadInfo;
 -(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
 -(id)contentTypeString;
 -(NSString *)uploadComment;
 -(void)setUploadComment:(NSString *)arg1 ;
--(IGUploadModel *)uploadModel;
--(char)useMainCameraUploadFlow;
--(NSURL *)cacheKeyURL;
--(void)setUploadModel:(IGUploadModel *)arg1 ;
 -(char)isFirstAppearance;
 -(void)setIsFirstAppearance:(char)arg1 ;
 -(id)initAsUploadWithComment:(id)arg1 recipient:(id)arg2 useMainCameraUploadFlow:(char)arg3 ;

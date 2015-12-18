@@ -2,17 +2,18 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
 #import <UIKit/UICollectionViewDataSource.h>
-#import <UIKit/UICollectionViewDelegate.h>
+#import <UIKit/UICollectionViewDelegateFlowLayout.h>
 #import <Instagram/IGUserInTaggingViewControllerDelegate.h>
 #import <Instagram/IGLocationPickerDelegate.h>
 #import <Instagram/IGShareListManagerDelegate.h>
+#import <Instagram/IGLocationSuggestionDataSource.h>
 #import <Instagram/IGLocationSuggestionDelegate.h>
 #import <Instagram/IGShareManager.h>
 
 @protocol IGShareManagerDelegate;
 @class NSString, UIViewController, IGMediaMetadata, IGCollectionView, IGSwitch, UIButton, UIView, UIScrollView;
 
-@interface IGBroadcastShareManager : IGViewController <UICollectionViewDataSource, UICollectionViewDelegate, IGUserInTaggingViewControllerDelegate, IGLocationPickerDelegate, IGShareListManagerDelegate, IGLocationSuggestionDelegate, IGShareManager> {
+@interface IGBroadcastShareManager : IGViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGUserInTaggingViewControllerDelegate, IGLocationPickerDelegate, IGShareListManagerDelegate, IGLocationSuggestionDataSource, IGLocationSuggestionDelegate, IGShareManager> {
 
 	NSString* _shareString;
 	UIViewController*<IGShareManagerDelegate> _delegate;
@@ -56,6 +57,7 @@
 -(void)locationSuggestionCell:(id)arg1 stateChanged:(int)arg2 ;
 -(void)locationSuggestionCelldidClearLocation:(id)arg1 ;
 -(void)locationSuggestionCell:(id)arg1 didFinishWithLocation:(id)arg2 ;
+-(id)viewControllerForPresentingLocationPicker;
 -(void)locationSuggestionCell:(id)arg1 didSelectIndex:(unsigned)arg2 locations:(id)arg3 ;
 -(void)locationSuggestionCell:(id)arg1 didLoadLocations:(id)arg2 ;
 -(void)updateFoursquareAvailability;

@@ -27,7 +27,6 @@
 -(void)applyPatches:(id)arg1 withRange:(id)arg2 ;
 -(void)setRateLimitPatchesPerSec:(unsigned)arg1 ;
 -(void)setRateLimitBuffer:(unsigned)arg1 ;
--(void)disconnectClient;
 -(unsigned)rateLimitPatchesPerSec;
 -(unsigned)rateLimitBuffer;
 -(void)subscription:(id)arg1 didReceivePatchEvent:(id)arg2 ;

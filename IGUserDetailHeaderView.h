@@ -13,7 +13,7 @@
 #import <Instagram/IGProfilePictureHelperDelegate.h>
 
 @protocol IGRaindropAnalyticsDelegate;
-@class IGUserDetailViewController, IGUser, NSDictionary, IGProfilePictureImageView, IGStatButton, IGButton, UIImageView, IGFollowButton, IGFriendRequestHeaderView, IGCoreTextView, UIView, IGFeedToggleView, IGProfilePictureHelper, UIButton, IGSimilarAccountsControl, IGSimilarAccountsView, IGProfileMegaphoneView, UIActivityIndicatorView, NSArray, NSString;
+@class IGUserDetailViewController, IGUser, NSDictionary, IGProfilePictureImageView, IGStatButton, IGButton, UIImageView, IGFollowButton, IGFriendRequestHeaderView, IGCoreTextView, UIView, IGFeedToggleView, IGProfilePictureHelper, UIButton, IGSimilarAccountsControl, IGSimilarAccountsView, IGProfileMegaphoneView, UIActivityIndicatorView, IGDirectedNUXView, UITapGestureRecognizer, NSArray, NSString;
 
 @interface IGUserDetailHeaderView : UIView <IGCoreTextLinkHandler, IGFollowButtonDelegate, IGProfileMegaphoneViewDelegate, IGSimilarAccountsControlDelegate, IGFriendRequestHeaderViewDelegate, IGSimilarAccountsViewDelegate, UIGestureRecognizerDelegate, IGProfilePictureImageViewDelegate, IGFeedToggleViewDelegate, IGProfilePictureHelperDelegate> {
 
@@ -44,6 +44,8 @@
 	IGProfileMegaphoneView* _megaphoneView;
 	UIActivityIndicatorView* _spinner;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
+	IGDirectedNUXView* _NUXView;
+	UITapGestureRecognizer* _tapGuesture;
 	NSArray* _accessibleElements;
 
 }
@@ -75,6 +77,8 @@
 @property (nonatomic,retain) IGProfileMegaphoneView * megaphoneView;                                //@synthesize megaphoneView=_megaphoneView - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                     //@synthesize spinner=_spinner - In the implementation block
 @property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
+@property (nonatomic,retain) IGDirectedNUXView * NUXView;                                           //@synthesize NUXView=_NUXView - In the implementation block
+@property (nonatomic,retain) UITapGestureRecognizer * tapGuesture;                                  //@synthesize tapGuesture=_tapGuesture - In the implementation block
 @property (nonatomic,retain) NSArray * accessibleElements;                                          //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -90,6 +94,8 @@
 -(void)setFollowingButton:(IGStatButton *)arg1 ;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
+-(IGDirectedNUXView *)NUXView;
+-(void)setNUXView:(IGDirectedNUXView *)arg1 ;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
 -(NSArray *)accessibleElements;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
@@ -170,12 +176,15 @@
 -(void)setInfoLabelContainerView:(UIView *)arg1 ;
 -(void)setAdditionalInfoContainerView:(UIView *)arg1 ;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
+-(UITapGestureRecognizer *)tapGuesture;
+-(void)setTapGuesture:(UITapGestureRecognizer *)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)setDelegate:(IGUserDetailViewController *)arg1 ;
 -(void)dealloc;
+-(void)layoutSubviews;
 -(IGUserDetailViewController *)delegate;
 -(id)accessibilityIdentifier;
 -(void)updateLayout;

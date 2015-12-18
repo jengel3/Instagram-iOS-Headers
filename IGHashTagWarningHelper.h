@@ -20,10 +20,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sharedHelper;
--(void)checkHashtagForWarning:(id)arg1 decisionBlock:(/*^block*/id)arg2 ;
--(NSDictionary *)hashtagWarningInfo;
--(id)warningForHashTag:(id)arg1 ;
 -(void)userDidAcceptWarning:(char)arg1 ;
+-(void)showHashtagWarning:(id)arg1 forHashtag:(id)arg2 decisionBlock:(/*^block*/id)arg3 ;
+-(NSDictionary *)hashtagWarningInfo;
 -(void)setHashtagWarningInfo:(NSDictionary *)arg1 ;
 -(id)init;
 -(void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;

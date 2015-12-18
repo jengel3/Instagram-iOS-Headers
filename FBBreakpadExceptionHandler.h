@@ -14,8 +14,8 @@
 @property (nonatomic,copy,readonly) NSString * exceptionDirectory;              //@synthesize exceptionDirectory=_exceptionDirectory - In the implementation block
 +(void)setHandleExcResourceMachException:(char)arg1 ;
 -(id)initWithUrl:(id)arg1 exceptionParams:(id)arg2 product:(id)arg3 buildRevision:(id)arg4 exceptionDirectory:(id)arg5 processId:(int)arg6 ;
--(void)setExceptionInfoString:(id)arg1 forKey:(id)arg2 ;
 -(int)crashReportCount;
+-(void)setExceptionInfoString:(id)arg1 forKey:(id)arg2 ;
 -(id)latestBreakpadCrashReport;
 -(void)tearDownExceptionHandlers;
 -(id)initWithUrl:(id)arg1 exceptionParams:(id)arg2 product:(id)arg3 buildRevision:(id)arg4 ;

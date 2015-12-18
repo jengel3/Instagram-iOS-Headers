@@ -18,7 +18,7 @@
 #import <Instagram/IGBugReportingProtocol.h>
 #import <Instagram/IGCollectionViewControllerDataSource.h>
 
-@class NSMutableSet, IGImagePreparer, NSMutableArray, IGPostsFeedVisibleStatus, IGFeedCollectionViewLayoutDataSource, IGItemVisibilityTracker, IGFeedItem, IGStoreProductSessionManager, IGFeedItemViewingSessionManager, UIImageView, IGFeedDataSource, NSMutableDictionary, IGFeedItemVideoCell, NSString, IGUserPreviewingHandler;
+@class NSMutableSet, IGImagePreparer, NSMutableArray, IGPostsFeedVisibleStatus, IGFeedCollectionViewLayoutDataSource, IGItemVisibilityTracker, IGFeedItem, IGStoreProductSessionManager, IGFeedItemViewingSessionManager, IGHeartView, IGPost, IGFeedDataSource, NSMutableDictionary, IGFeedItemVideoCell, NSString, IGFeedPreviewingHandler;
 
 @interface IGFeedViewController : IGFeedNetworkSourceViewController <IGFeedPromotionBannerDelegate, IGUserInTagDisplayDelegate, IGFeedItemVideoCellDelegate, IGFeedItemPageCellDelegate, IGItemVisibilityTrackerDelegate, IGFeedItemLoggingProviderDelegate, IGModernWebViewControllerDelegate, IGFeedItemActionCellDelegate, IGFeedItemAppHeaderDelegate, IGFeedItemHeaderDelegate, IGFeedItemTextCellDelegate, IGFeedItemPhotoCellDelegate, IGFeedCollectionViewLayoutDelegate, IGRaindropAnalyticsDelegate, IGBugReportingProtocol, IGCollectionViewControllerDataSource> {
 
@@ -30,47 +30,50 @@
 	IGPostsFeedVisibleStatus* _postsFeedVisibleStatus;
 	IGFeedCollectionViewLayoutDataSource* _layoutDataSource;
 	IGItemVisibilityTracker* _feedItemVisibility;
+	IGItemVisibilityTracker* _collectionViewContentsVisibility;
 	IGFeedItem* _feedItemForWebview;
 	IGStoreProductSessionManager* _storeProductManager;
 	IGFeedItemViewingSessionManager* _viewingSessionManager;
-	UIImageView* _heartImageView;
-	IGFeedItem* _heartLikeFeedItem;
+	IGHeartView* _heartImageView;
+	IGPost* _heartLikeFeedItem;
 	IGFeedDataSource* _feedDataSource;
 	NSMutableDictionary* _prebufferingURLs;
 	IGFeedItemVideoCell* _videoCellWithPlayer;
 	NSString* _lastPlayedPK;
-	IGUserPreviewingHandler* _userPreviewingDelegate;
+	IGFeedPreviewingHandler* _feedPreviewingDelegate;
 	double _webviewUsageStartTime;
 
 }
 
-@property (assign,nonatomic) int feedLayout;                                                         //@synthesize feedLayout=_feedLayout - In the implementation block
-@property (nonatomic,retain) IGPostsFeedVisibleStatus * postsFeedVisibleStatus;                      //@synthesize postsFeedVisibleStatus=_postsFeedVisibleStatus - In the implementation block
-@property (nonatomic,readonly) IGFeedCollectionViewLayoutDataSource * layoutDataSource;              //@synthesize layoutDataSource=_layoutDataSource - In the implementation block
-@property (nonatomic,retain) IGItemVisibilityTracker * feedItemVisibility;                           //@synthesize feedItemVisibility=_feedItemVisibility - In the implementation block
-@property (assign,nonatomic) double webviewUsageStartTime;                                           //@synthesize webviewUsageStartTime=_webviewUsageStartTime - In the implementation block
-@property (nonatomic,retain) IGFeedItem * feedItemForWebview;                                        //@synthesize feedItemForWebview=_feedItemForWebview - In the implementation block
-@property (nonatomic,retain) IGStoreProductSessionManager * storeProductManager;                     //@synthesize storeProductManager=_storeProductManager - In the implementation block
-@property (nonatomic,retain) IGFeedItemViewingSessionManager * viewingSessionManager;                //@synthesize viewingSessionManager=_viewingSessionManager - In the implementation block
-@property (nonatomic,retain) UIImageView * heartImageView;                                           //@synthesize heartImageView=_heartImageView - In the implementation block
-@property (nonatomic,retain) IGFeedItem * heartLikeFeedItem;                                         //@synthesize heartLikeFeedItem=_heartLikeFeedItem - In the implementation block
-@property (nonatomic,readonly) IGFeedDataSource * feedDataSource;                                    //@synthesize feedDataSource=_feedDataSource - In the implementation block
-@property (nonatomic,retain) NSMutableDictionary * prebufferingURLs;                                 //@synthesize prebufferingURLs=_prebufferingURLs - In the implementation block
-@property (assign,getter=isViewVisible,nonatomic) char viewVisible;                                  //@synthesize viewVisible=_viewVisible - In the implementation block
-@property (nonatomic,retain) IGFeedItemVideoCell * videoCellWithPlayer;                              //@synthesize videoCellWithPlayer=_videoCellWithPlayer - In the implementation block
-@property (nonatomic,copy) NSString * lastPlayedPK;                                                  //@synthesize lastPlayedPK=_lastPlayedPK - In the implementation block
-@property (nonatomic,retain) IGUserPreviewingHandler * userPreviewingDelegate;                       //@synthesize userPreviewingDelegate=_userPreviewingDelegate - In the implementation block
+@property (assign,nonatomic) int feedLayout;                                                          //@synthesize feedLayout=_feedLayout - In the implementation block
+@property (nonatomic,retain) IGPostsFeedVisibleStatus * postsFeedVisibleStatus;                       //@synthesize postsFeedVisibleStatus=_postsFeedVisibleStatus - In the implementation block
+@property (nonatomic,readonly) IGFeedCollectionViewLayoutDataSource * layoutDataSource;               //@synthesize layoutDataSource=_layoutDataSource - In the implementation block
+@property (nonatomic,retain) IGItemVisibilityTracker * feedItemVisibility;                            //@synthesize feedItemVisibility=_feedItemVisibility - In the implementation block
+@property (nonatomic,retain) IGItemVisibilityTracker * collectionViewContentsVisibility;              //@synthesize collectionViewContentsVisibility=_collectionViewContentsVisibility - In the implementation block
+@property (assign,nonatomic) double webviewUsageStartTime;                                            //@synthesize webviewUsageStartTime=_webviewUsageStartTime - In the implementation block
+@property (nonatomic,retain) IGFeedItem * feedItemForWebview;                                         //@synthesize feedItemForWebview=_feedItemForWebview - In the implementation block
+@property (nonatomic,retain) IGStoreProductSessionManager * storeProductManager;                      //@synthesize storeProductManager=_storeProductManager - In the implementation block
+@property (nonatomic,retain) IGFeedItemViewingSessionManager * viewingSessionManager;                 //@synthesize viewingSessionManager=_viewingSessionManager - In the implementation block
+@property (nonatomic,retain) IGHeartView * heartImageView;                                            //@synthesize heartImageView=_heartImageView - In the implementation block
+@property (nonatomic,retain) IGPost * heartLikeFeedItem;                                              //@synthesize heartLikeFeedItem=_heartLikeFeedItem - In the implementation block
+@property (nonatomic,readonly) IGFeedDataSource * feedDataSource;                                     //@synthesize feedDataSource=_feedDataSource - In the implementation block
+@property (nonatomic,retain) NSMutableDictionary * prebufferingURLs;                                  //@synthesize prebufferingURLs=_prebufferingURLs - In the implementation block
+@property (assign,getter=isViewVisible,nonatomic) char viewVisible;                                   //@synthesize viewVisible=_viewVisible - In the implementation block
+@property (nonatomic,retain) IGFeedItemVideoCell * videoCellWithPlayer;                               //@synthesize videoCellWithPlayer=_videoCellWithPlayer - In the implementation block
+@property (nonatomic,copy) NSString * lastPlayedPK;                                                   //@synthesize lastPlayedPK=_lastPlayedPK - In the implementation block
+@property (nonatomic,retain) IGFeedPreviewingHandler * feedPreviewingDelegate;                        //@synthesize feedPreviewingDelegate=_feedPreviewingDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(int)gridLayoutForFeed:(id)arg1 ;
++(char)shouldUseEstimatedLayout:(id)arg1 ;
 +(int)feedLayoutForFeed:(id)arg1 pinnedHeaders:(char)arg2 ;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
--(void)setUserPreviewingDelegate:(IGUserPreviewingHandler *)arg1 ;
--(IGUserPreviewingHandler *)userPreviewingDelegate;
 -(char)enableNavState;
 -(id)initWithFeedNetworkSource:(id)arg1 feedLayout:(int)arg2 showsPullToRefresh:(char)arg3 ;
--(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 ;
+-(void)registerClasses;
+-(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
 -(void)reloadWithNewObjects:(id)arg1 ;
@@ -87,6 +90,7 @@
 -(int)feedItemActionCellPosition:(id)arg1 ;
 -(id)feedItemActionCellCurrentIGAnalyticsMetadata:(id)arg1 ;
 -(void)feedItemActionCellDidTapCustomizableButton:(id)arg1 ;
+-(void)feedItemActionCellDidTapChervonButton:(id)arg1 ;
 -(void)feedItemPageCell:(id)arg1 didScrollToPageIndex:(int)arg2 ;
 -(void)feedItemPageCell:(id)arg1 wantsOpenURL:(id)arg2 modal:(char)arg3 ;
 -(void)feedItemPageCellDidInitialSingleTap:(id)arg1 ;
@@ -126,21 +130,27 @@
 -(CGSize)imageSizeToLoadForGrid;
 -(CGSize)imageSizeToLoadForTimeline;
 -(void)mediaDeleted:(id)arg1 ;
+-(void)configureCollectionViewDataSource:(id)arg1 ;
+-(void)setFeedPreviewingDelegate:(IGFeedPreviewingHandler *)arg1 ;
+-(IGFeedPreviewingHandler *)feedPreviewingDelegate;
 -(char)isDeviceSupportAlwaysAutoPlay;
 -(id)videoCellForAutoPlay;
 -(char)startVideoForCellIfApplicable:(id)arg1 ;
+-(void)beginCollectionViewContentsVisibilityTracking;
 -(void)beginFeedItemVisibilityTracking;
 -(IGFeedItemVideoCell *)videoCellWithPlayer;
 -(void)stopVideoForCell:(id)arg1 ;
 -(void)endFeedItemVisibilityTracking;
+-(void)endCollectionViewContentsVisibilityTracking;
+-(IGFeedDataSource *)feedDataSource;
 -(IGFeedCollectionViewLayoutDataSource *)layoutDataSource;
--(void)setHeartLikeFeedItem:(IGFeedItem *)arg1 ;
--(UIImageView *)heartImageView;
--(IGFeedItem *)heartLikeFeedItem;
+-(void)setHeartLikeFeedItem:(IGPost *)arg1 ;
+-(IGHeartView *)heartImageView;
+-(IGPost *)heartLikeFeedItem;
 -(char)shouldHideFeedItem:(id)arg1 ;
 -(id)promotionBannerForConfiguration:(id)arg1 ;
 -(void)layoutBanners;
--(void)updateFeedItemVisibility;
+-(void)updateItemVisibilityTrackers;
 -(id)visibleCellsOfClass:(Class)arg1 ;
 -(void)showNUXIfNeededForPageCell:(id)arg1 ;
 -(NSString *)lastPlayedPK;
@@ -148,6 +158,7 @@
 -(char)enablePivot:(id)arg1 ;
 -(char)allowSponsoredContextForFeedItem:(id)arg1 ;
 -(id)calculateLayoutAttributesForFeedItems:(id)arg1 ;
+-(int)hiddenCellTypeForFeedItem:(id)arg1 ;
 -(char)isPagingEnabledForFeedItem:(id)arg1 ;
 -(int)numberOfFeedCellsBeforeCommentsForItem:(id)arg1 ;
 -(id)attributesForFeedItem:(id)arg1 fromContext:(id)arg2 ;
@@ -161,6 +172,7 @@
 -(void)handleDidSelectFeedItemFromGrid:(id)arg1 ;
 -(void)startVideoForCellMovingOnScreen;
 -(void)stopVideoForCellMovingOffScreen;
+-(void)animateHeartLikeForCell:(id)arg1 ;
 -(void)showUsertagsIndication:(char)arg1 inCell:(id)arg2 ;
 -(void)scheduleCellForUsertagRemoval:(id)arg1 ;
 -(void)prebufferVideoForPost:(id)arg1 ;
@@ -173,6 +185,8 @@
 -(void)decodeAdjacentGridImagesForIndexPath:(id)arg1 ;
 -(id)gridCellForIndexPath:(id)arg1 ;
 -(id)emptyCellForIndexPath:(id)arg1 ;
+-(id)hideNoReasonSelectCellForIndexPath:(id)arg1 ;
+-(id)hideWithReasonCellForIndexPath:(id)arg1 ;
 -(id)pageCellForIndexPath:(id)arg1 ;
 -(void)decodeAdjacentImageForIndexPath:(id)arg1 ;
 -(id)photoCellForIndexPath:(id)arg1 ;
@@ -185,9 +199,12 @@
 -(char)isDirectResponseFeedItem:(id)arg1 ;
 -(IGFeedItemViewingSessionManager *)viewingSessionManager;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 synchronus:(char)arg3 forceAnimated:(char)arg4 completionBlock:(/*^block*/id)arg5 ;
--(IGFeedDataSource *)feedDataSource;
+-(void)reloadWithCurrentObjectsAnimated:(char)arg1 ;
+-(id)currentLoadingObjects;
+-(id)currentLoadingContext;
 -(char)isNekoStyleDirectResponseInfo:(id)arg1 ;
 -(void)hideUsertagsForFeedItem:(id)arg1 ;
+-(IGItemVisibilityTracker *)collectionViewContentsVisibility;
 -(IGItemVisibilityTracker *)feedItemVisibility;
 -(void)logFullViewEventIfNeededForFeedItem:(id)arg1 visibleContentRect:(CGRect)arg2 mediaRect:(CGRect)arg3 ;
 -(void)handleDidDisplayFeedItem:(id)arg1 ;
@@ -219,13 +236,15 @@
 -(void)webViewDidEndBrowsing:(id)arg1 ;
 -(char)feedViewLayout:(id)arg1 shouldHideHeaderForSection:(unsigned)arg2 withObjects:(id)arg3 ;
 -(id)bugReportDescription;
+-(CGPoint)offsetForFeedItemAtIndex:(int)arg1 ;
 -(void)cancelUsertagRemovalForFeedItem:(id)arg1 ;
 -(void)showPostsFeedForItemAtIndexPath:(id)arg1 ;
--(id)postsFeedViewControllerForRankedIndex:(int)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 ;
+-(id)postsFeedViewControllerForRankedIndex:(int)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(void)setFeedItemVisibility:(IGItemVisibilityTracker *)arg1 ;
+-(void)setCollectionViewContentsVisibility:(IGItemVisibilityTracker *)arg1 ;
 -(void)setStoreProductManager:(IGStoreProductSessionManager *)arg1 ;
 -(void)setViewingSessionManager:(IGFeedItemViewingSessionManager *)arg1 ;
--(void)setHeartImageView:(UIImageView *)arg1 ;
+-(void)setHeartImageView:(IGHeartView *)arg1 ;
 -(NSMutableDictionary *)prebufferingURLs;
 -(void)setPrebufferingURLs:(NSMutableDictionary *)arg1 ;
 -(id)objects;
@@ -247,7 +266,6 @@
 -(void)setCollectionViewLayout:(id)arg1 ;
 -(void)setFeedLayout:(int)arg1 ;
 -(int)feedLayout;
--(void)configureCollectionView:(id)arg1 ;
 -(void)setViewVisible:(char)arg1 ;
 -(char)isViewVisible;
 @end

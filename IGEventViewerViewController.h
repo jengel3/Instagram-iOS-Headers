@@ -2,50 +2,46 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
 #import <Instagram/IGEventServiceNetworkDelegate.h>
-#import <Instagram/IGEventViewerFeedViewControllerDelegate.h>
-#import <Instagram/IGEventViewerTimelineViewControllerDelegate.h>
+#import <Instagram/IGEventViewerFeedViewScrollingDelegate.h>
+#import <Instagram/IGEventViewerFeedViewDraggingDelegate.h>
 #import <Instagram/IGEventViewerHeaderViewDelegate.h>
-#import <Instagram/IGEventViewerVideoPlaybackControllerDelegate.h>
-#import <Instagram/IGEventViewerPhotoPlaybackControllerDelegate.h>
-#import <Instagram/IGEventViewerCollectionViewDataSourceDelegate.h>
+#import <Instagram/IGEventViewerMediaPlaybackDelegate.h>
 #import <Instagram/IGEventViewerSoundStateListenerDelegate.h>
-#import <Instagram/IGEventViewerAttributionHeaderViewDelegate.h>
+#import <Instagram/IGEventViewerMediaPauseViewDelegate.h>
+#import <Instagram/IGEventViewerMediaCellDelegate.h>
+#import <Instagram/IGEventViewerAttributionHeaderCellDelegate.h>
 #import <UIKit/UIActionSheetDelegate.h>
 
 @protocol IGEventViewerViewControllerDelegate;
-@class IGEventViewerMediaPreloader, IGEventViewerSoundStateListener, IGEventViewerHeaderView, IGEventService, IGEventViewerCollectionViewDataSource, IGEventViewerVideoPlaybackController, IGEventViewerPhotoPlaybackController, IGEventViewerFeedViewController, IGEventViewerTimelineViewController, IGEventViewerAnalyticsLogger, UIActionSheet, NSString;
+@class IGEventViewerMediaPreloader, IGEventViewerSoundStateListener, IGEventViewerHeaderView, IGEventService, IGUser, IGEventViewerDataSource, IGEventViewerMediaPlaybackController, IGEventViewerFeedViewController, IGEventViewerAnalyticsLogger, IGEventViewerMediaPauseViewPresenter, NSString;
 
-@interface IGEventViewerViewController : UIViewController <IGEventServiceNetworkDelegate, IGEventViewerFeedViewControllerDelegate, IGEventViewerTimelineViewControllerDelegate, IGEventViewerHeaderViewDelegate, IGEventViewerVideoPlaybackControllerDelegate, IGEventViewerPhotoPlaybackControllerDelegate, IGEventViewerCollectionViewDataSourceDelegate, IGEventViewerSoundStateListenerDelegate, IGEventViewerAttributionHeaderViewDelegate, UIActionSheetDelegate> {
+@interface IGEventViewerViewController : UIViewController <IGEventServiceNetworkDelegate, IGEventViewerFeedViewScrollingDelegate, IGEventViewerFeedViewDraggingDelegate, IGEventViewerHeaderViewDelegate, IGEventViewerMediaPlaybackDelegate, IGEventViewerSoundStateListenerDelegate, IGEventViewerMediaPauseViewDelegate, IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate, UIActionSheetDelegate> {
 
-	char _enableTimeline;
 	IGEventViewerMediaPreloader* _mediaPreloader;
 	id<IGEventViewerViewControllerDelegate> _delegate;
 	IGEventViewerSoundStateListener* _soundStateListener;
 	IGEventViewerHeaderView* _headerView;
 	IGEventService* _eventService;
-	IGEventViewerCollectionViewDataSource* _dataSource;
-	IGEventViewerVideoPlaybackController* _videoPlaybackController;
-	IGEventViewerPhotoPlaybackController* _photoPlaybackController;
+	IGUser* _currentUser;
+	IGEventViewerDataSource* _dataSource;
+	IGEventViewerMediaPlaybackController* _mediaPlaybackController;
 	IGEventViewerFeedViewController* _feedController;
-	IGEventViewerTimelineViewController* _timelineController;
 	IGEventViewerAnalyticsLogger* _logger;
-	UIActionSheet* _actionSheet;
+	IGEventViewerMediaPauseViewPresenter* _pauseViewPresenter;
 
 }
 
-@property (assign,nonatomic,__weak) id<IGEventViewerViewControllerDelegate> delegate;                        //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGEventViewerSoundStateListener * soundStateListener;                           //@synthesize soundStateListener=_soundStateListener - In the implementation block
-@property (nonatomic,__weak,readonly) IGEventViewerHeaderView * headerView;                                  //@synthesize headerView=_headerView - In the implementation block
-@property (nonatomic,readonly) char enableTimeline;                                                          //@synthesize enableTimeline=_enableTimeline - In the implementation block
-@property (nonatomic,readonly) IGEventService * eventService;                                                //@synthesize eventService=_eventService - In the implementation block
-@property (nonatomic,readonly) IGEventViewerMediaPreloader * mediaPreloader;                                 //@synthesize mediaPreloader=_mediaPreloader - In the implementation block
-@property (nonatomic,readonly) IGEventViewerCollectionViewDataSource * dataSource;                           //@synthesize dataSource=_dataSource - In the implementation block
-@property (nonatomic,readonly) IGEventViewerVideoPlaybackController * videoPlaybackController;               //@synthesize videoPlaybackController=_videoPlaybackController - In the implementation block
-@property (nonatomic,readonly) IGEventViewerPhotoPlaybackController * photoPlaybackController;               //@synthesize photoPlaybackController=_photoPlaybackController - In the implementation block
-@property (nonatomic,__weak,readonly) IGEventViewerFeedViewController * feedController;                      //@synthesize feedController=_feedController - In the implementation block
-@property (nonatomic,__weak,readonly) IGEventViewerTimelineViewController * timelineController;              //@synthesize timelineController=_timelineController - In the implementation block
-@property (nonatomic,readonly) IGEventViewerAnalyticsLogger * logger;                                        //@synthesize logger=_logger - In the implementation block
-@property (assign,nonatomic,__weak) UIActionSheet * actionSheet;                                             //@synthesize actionSheet=_actionSheet - In the implementation block
+@property (assign,nonatomic,__weak) id<IGEventViewerViewControllerDelegate> delegate;                       //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGEventViewerSoundStateListener * soundStateListener;                          //@synthesize soundStateListener=_soundStateListener - In the implementation block
+@property (nonatomic,__weak,readonly) IGEventViewerHeaderView * headerView;                                 //@synthesize headerView=_headerView - In the implementation block
+@property (nonatomic,readonly) IGEventService * eventService;                                               //@synthesize eventService=_eventService - In the implementation block
+@property (nonatomic,readonly) IGUser * currentUser;                                                        //@synthesize currentUser=_currentUser - In the implementation block
+@property (nonatomic,readonly) IGEventViewerMediaPreloader * mediaPreloader;                                //@synthesize mediaPreloader=_mediaPreloader - In the implementation block
+@property (nonatomic,readonly) IGEventViewerDataSource * dataSource;                                        //@synthesize dataSource=_dataSource - In the implementation block
+@property (nonatomic,readonly) IGEventViewerMediaPlaybackController * mediaPlaybackController;              //@synthesize mediaPlaybackController=_mediaPlaybackController - In the implementation block
+@property (nonatomic,__weak,readonly) IGEventViewerFeedViewController * feedController;                     //@synthesize feedController=_feedController - In the implementation block
+@property (nonatomic,readonly) IGEventViewerAnalyticsLogger * logger;                                       //@synthesize logger=_logger - In the implementation block
+@property (nonatomic,readonly) IGEventViewerMediaPauseViewPresenter * pauseViewPresenter;                   //@synthesize pauseViewPresenter=_pauseViewPresenter - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -56,63 +52,52 @@
 -(void)eventService:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)eventService:(id)arg1 didLoadInitialPosts:(id)arg2 ;
 -(void)eventService:(id)arg1 didFetchMorePosts:(id)arg2 ;
--(void)didTapAttributionHeaderView:(id)arg1 ;
--(void)dataSource:(id)arg1 configureCell:(id)arg2 atIndexPath:(id)arg3 inCollectionView:(id)arg4 ;
+-(void)didTapAttributionHeaderCell:(id)arg1 ;
+-(void)attributionHeaderCell:(id)arg1 didTapMoreButton:(id)arg2 ;
 -(void)eventViewerFeedViewController:(id)arg1 didScrollToItemAtIndexPath:(id)arg2 ;
 -(void)willBeginDraggingFeedViewController:(id)arg1 ;
 -(void)eventViewerFeedViewController:(id)arg1 willScrollToItemAtIndexPath:(id)arg2 ;
 -(void)didEndDraggingFeedViewController:(id)arg1 ;
--(void)willEndDraggingNearBottomFeedViewController:(id)arg1 ;
+-(void)willScrollNearBottomFeedViewController:(id)arg1 ;
 -(void)eventHeaderView:(id)arg1 didTapCloseButton:(id)arg2 ;
--(void)photoPlaybackController:(id)arg1 didUpdatePhotoProgress:(float)arg2 forItem:(id)arg3 ;
--(void)photoPlaybackController:(id)arg1 didEndPlayingPhotoForItem:(id)arg2 ;
--(void)photoPlaybackController:(id)arg1 didBeginPlayingPhotoForItem:(id)arg2 withDuration:(double)arg3 ;
+-(void)eventHeaderViewDidTapBackground:(id)arg1 ;
+-(void)mediaPauseView:(id)arg1 didTapShare:(id)arg2 ;
+-(void)mediaPauseView:(id)arg1 didTapViewPost:(id)arg2 ;
+-(void)didDismissMediaPauseView:(id)arg1 ;
+-(void)mediaPlaybackController:(id)arg1 didBeginPlayingItem:(id)arg2 withDuration:(double)arg3 ;
+-(void)mediaPlaybackController:(id)arg1 didEndPlayingItem:(id)arg2 ;
+-(void)didSingleTapEventViewerCell:(id)arg1 ;
+-(void)didDoubleTapEventViewerCell:(id)arg1 ;
 -(IGEventViewerSoundStateListener *)soundStateListener;
 -(IGEventService *)eventService;
 -(IGEventViewerMediaPreloader *)mediaPreloader;
--(id)initWithEventService:(id)arg1 initialPosts:(id)arg2 enableTimeline:(char)arg3 logger:(id)arg4 ;
+-(id)initWithEventService:(id)arg1 currentUser:(id)arg2 initialPosts:(id)arg3 logger:(id)arg4 ;
 -(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
 -(void)soundListenerDidUpdate:(id)arg1 ;
--(void)willBeginDraggingTimelineController:(id)arg1 ;
--(void)didEndDraggingTimelineController:(id)arg1 ;
--(void)eventViewerTimelineViewController:(id)arg1 didScrollToItemAtIndexPath:(id)arg2 ;
--(void)videoPlaybackController:(id)arg1 didBeginPlayingItem:(id)arg2 withDuration:(double)arg3 ;
--(void)videoPlaybackController:(id)arg1 didUpdateVideoProgress:(float)arg2 forItem:(id)arg3 ;
--(void)videoPlaybackController:(id)arg1 didPlayVideoToEndForItem:(id)arg2 ;
 -(void)setupFeedController;
--(void)setupTimelineController;
 -(CGRect)frameForFeedView;
--(void)configureEventCollectionView:(id)arg1 ;
--(char)enableTimeline;
--(CGRect)frameForTimelineView;
--(IGEventViewerVideoPlaybackController *)videoPlaybackController;
+-(IGEventViewerMediaPlaybackController *)mediaPlaybackController;
 -(void)setupViewsAndChildViewControllers;
 -(void)resumeCurrentMedia;
--(void)stopCurrentMedia;
 -(IGEventViewerFeedViewController *)feedController;
--(IGEventViewerTimelineViewController *)timelineController;
 -(void)didReceiveAppWillResignActiveNotification:(id)arg1 ;
 -(void)didReceiveAppDidBecomeActiveNotification:(id)arg1 ;
 -(void)loadMorePosts:(id)arg1 ;
--(void)presentActionSheetForCurrentMedia;
 -(void)handleDidScrollToIndexPath:(id)arg1 ;
--(void)handleMediaDidBeginForPost:(id)arg1 withDuration:(double)arg2 ;
--(void)handleMediaUpdateProgress:(float)arg1 forPost:(id)arg2 ;
--(void)handleMediaDidEndForPost:(id)arg1 ;
+-(void)dismissPauseMenuAnimated:(char)arg1 ;
 -(void)presentUserDetailControllerForPost:(id)arg1 ;
+-(void)reportCurrentMedia;
+-(void)presentPauseViewForCurrentMediaCell:(id)arg1 ;
+-(void)handleMediaDidEndForPost:(id)arg1 ;
+-(void)handleMediaPauseViewAction:(unsigned)arg1 ;
 -(void)presentSingleFeedControllerForPost:(id)arg1 ;
--(void)setActionSheet:(UIActionSheet *)arg1 ;
--(float)currentProgressForPost:(id)arg1 ;
--(float)currentDurationForPost:(id)arg1 ;
--(UIActionSheet *)actionSheet;
+-(void)presentDirectShareControllerForPost:(id)arg1 ;
+-(IGEventViewerMediaPauseViewPresenter *)pauseViewPresenter;
 -(void)playMediaAtIndexPath:(id)arg1 ;
--(IGEventViewerPhotoPlaybackController *)photoPlaybackController;
 -(void)preloadNextMediaIfAvailable;
--(id)initWithEventService:(id)arg1 initialPosts:(id)arg2 ;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)setDelegate:(id<IGEventViewerViewControllerDelegate>)arg1 ;
--(void)reloadData;
--(IGEventViewerCollectionViewDataSource *)dataSource;
+-(IGEventViewerDataSource *)dataSource;
 -(id<IGEventViewerViewControllerDelegate>)delegate;
 -(char)prefersStatusBarHidden;
 -(void)viewDidLayoutSubviews;
@@ -124,5 +109,6 @@
 -(void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2 ;
 -(void)registerForNotifications;
 -(void)unregisterForNotifications;
+-(IGUser *)currentUser;
 @end
 

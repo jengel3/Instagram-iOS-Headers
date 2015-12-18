@@ -11,10 +11,10 @@
 @property (assign,nonatomic,__weak) UIViewController * currentTopViewController;              //@synthesize currentTopViewController=_currentTopViewController - In the implementation block
 +(id)currentModule;
 +(id)lastKNavigationEvents:(unsigned)arg1 ;
--(void)locationTapped:(id)arg1 ;
 -(void)handleNavigationViaClickPoint:(id)arg1 ;
 -(void)handleViewDidAppear:(id)arg1 ;
 -(void)userTapped:(id)arg1 ;
+-(void)locationTapped:(id)arg1 ;
 -(void)commentButtonTapped:(id)arg1 ;
 -(void)moreTapped:(id)arg1 ;
 -(void)urlTapped:(id)arg1 ;

@@ -12,9 +12,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
+-(void)authorizeAndFetchUsers;
 -(void)updateNavigationRightBarButtonItem;
 -(id)newFindUsersView;
--(void)authorizeAndFetchUsers;
 -(id)newFindUsersViewDataSource;
 -(id)init;
 @end

@@ -40,6 +40,7 @@
 -(id)analyticsModule;
 -(id)analyticsExtras;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
+-(void)followButtonGroupController:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;

@@ -45,10 +45,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)playFromStart;
 -(void)playFromTime:(SCD_Struct_IG43)arg1 ;
+-(void)stopWithoutAnimation;
 -(void)itemDidFinishPlaying;
 -(NSObject*<OS_dispatch_queue>)videoOutputQueue;
 -(void)displayLinkCallback:(id)arg1 ;
 -(void)loadBufferAtItemTime:(SCD_Struct_IG43)arg1 ;
+-(void)stopHelperAnimated:(char)arg1 ;
 -(void)setVideoOutputQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(void)outputMediaDataWillChange:(id)arg1 ;
 -(void)setLooping:(char)arg1 ;

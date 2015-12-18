@@ -9,7 +9,7 @@
 #import <Instagram/IGRaindropAnalyticsDelegate.h>
 
 @protocol IGNewsTableViewControllerDelegate;
-@class IGViewController, NSArray, IGPullToRefreshViewManager, IGTableViewInsetInfoView, NSMutableDictionary, IGNewsEmptyFeedView, UIView, IGUserThumbnailPreviewingHandler, NSString;
+@class IGViewController, NSArray, IGPullToRefreshViewManager, IGTableViewInsetInfoView, NSMutableDictionary, IGNewsEmptyFeedView, UIView, IGActivityPreviewingHandler, NSString;
 
 @interface IGNewsTableViewController : IGGroupedTableViewController <UITableViewDataSource, UITableViewDelegate, IGNewsTableViewCellDelegate, IGPullToRefreshProtocol, IGWebViewTableViewCellDelegate, IGRaindropAnalyticsDelegate> {
 
@@ -24,7 +24,7 @@
 	NSMutableDictionary* _webViewCellSizes;
 	IGNewsEmptyFeedView* _emptyFeedView;
 	UIView* _lineView;
-	IGUserThumbnailPreviewingHandler* _previewDelegate;
+	IGActivityPreviewingHandler* _previewDelegate;
 
 }
 
@@ -39,7 +39,7 @@
 @property (nonatomic,retain) NSMutableDictionary * webViewCellSizes;                             //@synthesize webViewCellSizes=_webViewCellSizes - In the implementation block
 @property (nonatomic,retain) IGNewsEmptyFeedView * emptyFeedView;                                //@synthesize emptyFeedView=_emptyFeedView - In the implementation block
 @property (nonatomic,retain) UIView * lineView;                                                  //@synthesize lineView=_lineView - In the implementation block
-@property (nonatomic,retain) IGUserThumbnailPreviewingHandler * previewDelegate;                 //@synthesize previewDelegate=_previewDelegate - In the implementation block
+@property (nonatomic,retain) IGActivityPreviewingHandler * previewDelegate;                      //@synthesize previewDelegate=_previewDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -68,8 +68,8 @@
 -(void)scrollViewDidEndScrolling:(id)arg1 ;
 -(void)setWebViewCellSizes:(NSMutableDictionary *)arg1 ;
 -(void)setEmptyFeedView:(IGNewsEmptyFeedView *)arg1 ;
--(IGUserThumbnailPreviewingHandler *)previewDelegate;
--(void)setPreviewDelegate:(IGUserThumbnailPreviewingHandler *)arg1 ;
+-(IGActivityPreviewingHandler *)previewDelegate;
+-(void)setPreviewDelegate:(IGActivityPreviewingHandler *)arg1 ;
 -(void)fetchData;
 -(IGTableViewInsetInfoView *)infoView;
 -(void)setInfoView:(IGTableViewInsetInfoView *)arg1 ;

@@ -14,5 +14,7 @@
 -(void)setForcedUserIDs:(NSString *)arg1 ;
 -(id)initWithPostClass:(Class)arg1 ;
 -(NSString *)forcedUserIDs;
+-(void)loadEntriesFromResponse:(id)arg1 clearOut:(char)arg2 rankToken:(id)arg3 secure:(char)arg4 ;
+-(void)loadPromotionBannerInfoFromResponse:(id)arg1 ;
 @end
 

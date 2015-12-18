@@ -18,10 +18,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
--(id)newFindUsersView;
 -(void)authorizeAndFetchUsers;
 -(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
 -(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
+-(id)newFindUsersView;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
 -(IGVKFriendsHelper *)helper;
 -(void)setHelper:(IGVKFriendsHelper *)arg1 ;

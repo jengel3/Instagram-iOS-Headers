@@ -10,6 +10,7 @@
 -(void)feedNetworkSource:(id)arg1 willLoadItemsFromResponse:(id)arg2;
 -(void)feedNetworkSource:(id)arg1 willAddObjects:(id)arg2 updateObjects:(id)arg3;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2;
+-(id)additionalParamsForFetchRequest;
 
 @end
 

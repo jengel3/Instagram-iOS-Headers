@@ -26,6 +26,8 @@
 -(int)indexOfHashtag:(id)arg1 inArray:(id)arg2 ;
 -(void)setExpiresForHashtag:(id)arg1 ;
 -(void)removeExpiredHashtags;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(void)addHashtagsFromText:(id)arg1 addToRecent:(char)arg2 ;
 -(void)setExpiresForHashtags:(id)arg1 ;
 -(NSMutableArray *)allHashtags;

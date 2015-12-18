@@ -8,7 +8,7 @@
 #import <Instagram/IGFilterTrayManagerViewControllerDelegate.h>
 
 @protocol IGFilterCollectionControllerDelegate;
-@class UICollectionView, NSMutableArray, NSDictionary, NSMutableSet, NSMutableDictionary, NSString;
+@class UICollectionView, NSMutableArray, NSDictionary, NSMutableSet, NSMutableDictionary, NSArray, NSString;
 
 @interface IGFilterCollectionController : NSObject <LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IGFilterTrayManagerViewControllerDelegate> {
 
@@ -17,7 +17,6 @@
 	id<IGFilterCollectionControllerDelegate> _delegate;
 	UICollectionView* _collectionView;
 	NSMutableArray* _orderedFilterClasses;
-	NSMutableArray* _filterClassesInTray;
 	int _pickerType;
 	NSDictionary* _allFiltersById;
 	NSMutableSet* _activeFilterSet;
@@ -30,7 +29,7 @@
 @property (assign,nonatomic,__weak) id<IGFilterCollectionControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) UICollectionView * collectionView;                                     //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,retain) NSMutableArray * orderedFilterClasses;                                 //@synthesize orderedFilterClasses=_orderedFilterClasses - In the implementation block
-@property (nonatomic,copy) NSMutableArray * filterClassesInTray;                                    //@synthesize filterClassesInTray=_filterClassesInTray - In the implementation block
+@property (nonatomic,readonly) NSArray * filterClassesInTray; 
 @property (assign,nonatomic) int pickerType;                                                        //@synthesize pickerType=_pickerType - In the implementation block
 @property (assign,nonatomic) char scrollingToFilter;                                                //@synthesize scrollingToFilter=_scrollingToFilter - In the implementation block
 @property (nonatomic,retain) NSDictionary * allFiltersById;                                         //@synthesize allFiltersById=_allFiltersById - In the implementation block
@@ -71,7 +70,7 @@
 -(void)writeNewFiltersToDefaults;
 -(void)writeFiltersToDefaults;
 -(id)filterManagementState;
--(NSMutableArray *)filterClassesInTray;
+-(NSArray *)filterClassesInTray;
 -(char)isNewFilterClass:(Class)arg1 ;
 -(void)setNewFilterIsNoLongerNew:(Class)arg1 ;
 -(void)setScrollingToFilter:(char)arg1 ;
@@ -79,7 +78,6 @@
 -(NSMutableDictionary *)filterThumbnailsById;
 -(Class)filterClassForId:(int)arg1 ;
 -(void)setSelectedFilterClass:(Class)arg1 ;
--(void)setFilterClassesInTray:(NSMutableArray *)arg1 ;
 -(int)pickerType;
 -(void)setPickerType:(int)arg1 ;
 -(char)scrollingToFilter;

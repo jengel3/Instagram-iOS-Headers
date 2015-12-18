@@ -80,10 +80,10 @@
 -(char)hasAdjustedValues;
 -(void)setPhotoFilterClass:(Class)arg1 ;
 -(void)setLuxEnabled:(char)arg1 ;
--(float)highlights;
--(float)vignette;
 -(float)tintShadowsIntensity;
 -(float)tintHighlightsIntensity;
+-(float)highlights;
+-(float)vignette;
 -(float)localLaplacianAmount;
 -(void)setLocalLaplacianEnabled:(char)arg1 ;
 -(unsigned)tintShadowsColorIndex;

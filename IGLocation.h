@@ -1,10 +1,9 @@
 
 #import <Instagram/IGStorableObject.h>
-#import <Instagram/IGStoredObject.h>
 
 @class CLLocation, NSString, NSNumber;
 
-@interface IGLocation : IGStorableObject <IGStoredObject> {
+@interface IGLocation : IGStorableObject {
 
 	CLLocation* _locationCoord;
 	NSString* _name;
@@ -18,6 +17,8 @@
 
 }
 
+@property (nonatomic,readonly) NSString * loggingId; 
+@property (nonatomic,readonly) int loggingPlaceSource; 
 @property (retain) CLLocation * locationCoord;                      //@synthesize locationCoord=_locationCoord - In the implementation block
 @property (copy) NSString * name;                                   //@synthesize name=_name - In the implementation block
 @property (copy) NSString * streetAddress;                          //@synthesize streetAddress=_streetAddress - In the implementation block
@@ -29,17 +30,12 @@
 @property (copy) NSString * facebookEventsID;                       //@synthesize facebookEventsID=_facebookEventsID - In the implementation block
 @property (readonly) int locationType; 
 @property (copy,readonly) NSString * detailsString; 
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
 +(id)centralizedStore;
 +(id)unmanagedLocationWithDictionary:(id)arg1 ;
-+(id)loggingIdsForLocations:(id)arg1 ;
 +(id)getRaindropPlacesFromLocations:(id)arg1 ;
 -(NSString *)streetAddress;
 -(int)loggingPlaceSource;
--(id)loggingId;
+-(NSString *)loggingId;
 -(CLLocation *)locationCoord;
 -(void)fetchAdditionalInfo;
 -(NSString *)foursquareV2ID;

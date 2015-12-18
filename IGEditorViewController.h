@@ -13,7 +13,7 @@
 #import <Instagram/IGOverlayNuxControllerDelegate.h>
 
 @protocol OS_dispatch_queue;
-@class UIView, UIButton, UIBarButtonItem, IGAdjustController, UIImage, IGFilteredPhotoView, IGMediaMetadata, NSMutableDictionary, IGCameraGuideView, UILongPressGestureRecognizer, IGImageViewTabBar, UIImageView, UICollectionView, IGFilterCollectionController, IGFilterControlView, IGOverlayNuxController, IGTiltShiftGestureController, NSObject, NSString;
+@class UIView, UIButton, UIBarButtonItem, IGAdjustController, UIImage, IGFilteredPhotoView, IGMediaMetadata, NSMutableDictionary, IGCameraGuideView, UILongPressGestureRecognizer, IGImageViewTabBar, UIImageView, UICollectionView, IGFilterCollectionController, IGFilterControlView, IGOverlayNuxController, IGTiltShiftGestureController, NSObject, ALAssetsLibrary, NSString;
 
 @interface IGEditorViewController : IGBaseCameraViewController <IGShareViewControllerDelegate, UIGestureRecognizerDelegate, IGImageViewTabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IGFilterCollectionControllerDelegate, IGFilterControlViewDelegate, IGAdjustControllerDelegate, IGOverlayNuxControllerDelegate> {
 
@@ -59,6 +59,7 @@
 	float _perspectiveYRotateAngle;
 	float _perspectiveZRotateAngle;
 	NSObject*<OS_dispatch_queue> _renderQueue;
+	ALAssetsLibrary* _assetsLibrary;
 	CGSize _maxTextureSize;
 	CGPoint _cropCenter;
 	CGRect _cropRect;
@@ -104,6 +105,7 @@
 @property (assign,nonatomic) char prefersToolbarHidden;                                                 //@synthesize prefersToolbarHidden=_prefersToolbarHidden - In the implementation block
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> renderQueue;                                  //@synthesize renderQueue=_renderQueue - In the implementation block
 @property (assign,nonatomic) char didReorderTray;                                                       //@synthesize didReorderTray=_didReorderTray - In the implementation block
+@property (nonatomic,retain) ALAssetsLibrary * assetsLibrary;                                           //@synthesize assetsLibrary=_assetsLibrary - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -257,11 +259,13 @@
 -(void)setPrefersToolbarHidden:(char)arg1 ;
 -(void)setRenderQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(char)didReorderTray;
+-(void)setAssetsLibrary:(ALAssetsLibrary *)arg1 ;
 -(float)straightenAngle;
 -(CGRect)cropRect;
 -(void)setStraightenAngle:(float)arg1 ;
 -(void)setCropRect:(CGRect)arg1 ;
 -(void)setDefaults;
+-(ALAssetsLibrary *)assetsLibrary;
 -(void)cancel;
 -(void)dealloc;
 -(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
