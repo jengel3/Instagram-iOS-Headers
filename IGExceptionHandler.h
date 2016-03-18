@@ -22,6 +22,7 @@
 -(void)initializeOOMData:(SCD_Struct_IG2*)arg1 ;
 -(char)createOOMFile;
 -(void)updateExceptionAndOOMDataWithAppState:(int)arg1 ;
+-(void)updateTopViewController:(id)arg1 moduleName:(id)arg2 ;
 -(char)appLaunchedAfterMemoryCrash;
 -(void)dealloc;
 -(id)init;

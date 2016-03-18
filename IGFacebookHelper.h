@@ -2,15 +2,17 @@
 #import <Instagram/FBSDKSharingDelegate.h>
 #import <Instagram/IGServiceHelperProtocol.h>
 
-@class IGNonCurrentUserDefaults, NSString;
+@class IGGraphQLService, IGNonCurrentUserDefaults, NSString;
 
 @interface IGFacebookHelper : NSObject <FBSDKSharingDelegate, IGServiceHelperProtocol> {
 
 	char _isAskingForAdditionalPermisons;
+	IGGraphQLService* _graphQLService;
 	IGNonCurrentUserDefaults* _sessionUserDefaults;
 
 }
 
+@property (nonatomic,readonly) IGGraphQLService * graphQLService;                         //@synthesize graphQLService=_graphQLService - In the implementation block
 @property (nonatomic,retain) IGNonCurrentUserDefaults * sessionUserDefaults;              //@synthesize sessionUserDefaults=_sessionUserDefaults - In the implementation block
 @property (assign,nonatomic) char isAskingForAdditionalPermisons;                         //@synthesize isAskingForAdditionalPermisons=_isAskingForAdditionalPermisons - In the implementation block
 @property (readonly) unsigned hash; 
@@ -48,9 +50,11 @@
 -(char)takeIsAskingForAdditionalPermissions;
 -(id)pageName;
 -(void)onLoginSuccessful;
+-(void)refreshCurrentUserInfoIfExpired;
 -(void)restoreSessionForPk:(id)arg1 ;
--(void)accessTokenChanged:(id)arg1 error:(id)arg2 ;
--(void)fbDidLogin;
+-(void)handleAccessTokenChange:(id)arg1 shouldSendCredentials:(char)arg2 error:(id)arg3 ;
+-(void)accessTokenChanged:(id)arg1 shouldSendCredentials:(char)arg2 error:(id)arg3 ;
+-(void)fbDidLoginSendCredentials:(char)arg1 ;
 -(void)fbDidNotLogin;
 -(void)fetchUserInfoWithFetchStrategy:(int)arg1 completionBlock:(/*^block*/id)arg2 ;
 -(void)sendCredentialsToServer;
@@ -64,6 +68,7 @@
 -(void)setIsAskingForAdditionalPermissions:(char)arg1 ;
 -(char)hasAuthorizedManagePages;
 -(void)setPageName:(id)arg1 ;
+-(IGGraphQLService *)graphQLService;
 -(char)isAskingForAdditionalPermisons;
 -(void)setIsAskingForAdditionalPermisons:(char)arg1 ;
 -(void)dealloc;

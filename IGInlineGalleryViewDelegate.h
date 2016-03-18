@@ -3,6 +3,8 @@
 @protocol IGInlineGalleryViewDelegate
 @required
 -(void)didTapOutsideInlineGalleryView:(id)arg1;
+-(void)didTapCancelForInlineGalleryView:(id)arg1;
+-(void)didTapCameraForInlineGalleryView:(id)arg1;
 -(void)dismissButtonTappedForInlineGalleryView:(id)arg1;
 -(void)titleBarTappedForInlineGalleryView:(id)arg1;
 -(void)seeAllTappedForInlineGalleryView:(id)arg1;

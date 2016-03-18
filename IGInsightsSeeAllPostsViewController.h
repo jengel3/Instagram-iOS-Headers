@@ -49,6 +49,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)didGetResponseForDataProvider:(id)arg1 ;
+-(void)failedToGetAccessTokenForDataProvider:(id)arg1 ;
 -(id)initWithQueryItems:(id)arg1 ;
 -(void)setActiveIndex:(unsigned)arg1 ;
 -(unsigned)activeIndex;

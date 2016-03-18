@@ -18,12 +18,14 @@
 	char _rejects_staff_privileges;
 	char _hasChainingUsers;
 	char _unpublished;
+	char _isActive;
 	char _geoIPBlocked;
 	char _followRestricted;
 	char _verified;
 	char _needy;
 	char _adRater;
 	char _canBoostPost;
+	char _isBusiness;
 	NSString* _publicEmail;
 	NSString* _publicPhoneNumber;
 	NSString* _pageCategory;
@@ -68,6 +70,7 @@
 @property (assign) char rejects_staff_privileges;                         //@synthesize rejects_staff_privileges=_rejects_staff_privileges - In the implementation block
 @property (assign) char hasChainingUsers;                                 //@synthesize hasChainingUsers=_hasChainingUsers - In the implementation block
 @property (getter=isUnpublished) char unpublished;                        //@synthesize unpublished=_unpublished - In the implementation block
+@property (getter=isActive) char isActive;                                //@synthesize isActive=_isActive - In the implementation block
 @property (getter=isGeoIPBlocked) char geoIPBlocked;                      //@synthesize geoIPBlocked=_geoIPBlocked - In the implementation block
 @property (getter=isFollowRestricted) char followRestricted;              //@synthesize followRestricted=_followRestricted - In the implementation block
 @property (getter=isVerified) char verified;                              //@synthesize verified=_verified - In the implementation block
@@ -77,6 +80,7 @@
 @property (readonly) char hasContactOptions; 
 @property (readonly) char hasLocation; 
 @property (assign) char canBoostPost;                                     //@synthesize canBoostPost=_canBoostPost - In the implementation block
+@property (assign) char isBusiness;                                       //@synthesize isBusiness=_isBusiness - In the implementation block
 @property (copy) NSString * publicEmail;                                  //@synthesize publicEmail=_publicEmail - In the implementation block
 @property (copy) NSString * publicPhoneNumber;                            //@synthesize publicPhoneNumber=_publicPhoneNumber - In the implementation block
 @property (copy) NSString * pageCategory;                                 //@synthesize pageCategory=_pageCategory - In the implementation block
@@ -148,12 +152,15 @@
 -(NSNumber *)followerCount;
 -(NSNumber *)followingCount;
 -(void)setProfilePicURL:(NSURL *)arg1 ;
+-(char)isBusiness;
 -(NSString *)trackingToken;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setSocialContext:(NSString *)arg1 ;
 -(void)setIncomingRequestPending:(char)arg1 ;
 -(NSNumber *)mutualFollowersCount;
 -(NSNumber *)friendScore;
+-(NSString *)publicEmail;
+-(void)setPublicEmail:(NSString *)arg1 ;
 -(void)onFriendStatusReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onFriendStatusFailed:(id)arg1 fromRequest:(id)arg2 ;
 -(void)setLastFollowStatus:(int)arg1 ;
@@ -181,7 +188,6 @@
 -(char)profileActionNeeded;
 -(char)onDirectBlacklist;
 -(NSString *)profileContext;
--(NSString *)publicEmail;
 -(NSString *)publicPhoneNumber;
 -(NSString *)pageCategory;
 -(CLLocation *)publicLocationCoordinates;
@@ -203,7 +209,7 @@
 -(void)setOnDirectBlacklist:(char)arg1 ;
 -(void)setProfileContext:(NSString *)arg1 ;
 -(void)setCanBoostPost:(char)arg1 ;
--(void)setPublicEmail:(NSString *)arg1 ;
+-(void)setIsBusiness:(char)arg1 ;
 -(void)setPublicLocationCoordinates:(CLLocation *)arg1 ;
 -(void)setPublicLocationName:(NSString *)arg1 ;
 -(void)setPublicPhoneNumber:(NSString *)arg1 ;
@@ -216,6 +222,8 @@
 -(void)setDirectShareBlocked:(char)arg1 ;
 -(char)rejects_staff_privileges;
 -(id)HDProfilePicURL;
+-(void)convertUserToBusinessWithPageInfo:(id)arg1 ;
+-(void)convertBusinessBackToUser;
 -(char)friendshipStatusPending;
 -(char)hasContactOptions;
 -(char)directShareBlocked;
@@ -228,6 +236,8 @@
 -(void)encodeWithCoder:(id)arg1 ;
 -(unsigned)hash;
 -(NSString *)description;
+-(char)isActive;
+-(void)setIsActive:(char)arg1 ;
 -(NSString *)searchString;
 -(NSString *)displayName;
 -(char)hasLocation;

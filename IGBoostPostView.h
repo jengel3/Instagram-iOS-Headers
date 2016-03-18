@@ -28,9 +28,13 @@
 -(id)createInitialHeader;
 -(IGCameraBar *)headerBar;
 -(void)setUpNavigationBarWithParams:(id)arg1 ;
+-(unsigned)actionForScreen:(id)arg1 isRootScreen:(char)arg2 ;
 -(id)headerBarForParams:(id)arg1 ;
+-(void)updateHeaderForCurrentStateWithParams:(id)arg1 ;
 -(void)setUpLeftButtonForHeader:(id)arg1 withValue:(id)arg2 ;
+-(void)setUpRightButtonForHeader:(id)arg1 withTextValue:(id)arg2 activeValue:(id)arg3 ;
 -(void)callBackToJSCode;
+-(void)callNextToJSCode;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGBoostPostViewDelegate>)arg1 ;
 -(void)layoutSubviews;

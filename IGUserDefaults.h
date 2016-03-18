@@ -6,6 +6,7 @@
 -(id)objectForKey:(id)arg1 andService:(id)arg2 ;
 -(void)setObject:(id)arg1 forKey:(id)arg2 andService:(id)arg3 ;
 -(void)removeObjectForKey:(id)arg1 inUserInfoForService:(id)arg2 ;
+-(void)setDouble:(double)arg1 forkey:(id)arg2 ;
 -(id)accessTokenForService:(id)arg1 ;
 -(id)refreshTokenForService:(id)arg1 ;
 -(void)deleteAccessTokenForService:(id)arg1 ;
@@ -23,7 +24,6 @@
 -(void)deletePasswordForUsername:(id)arg1 andService:(id)arg2 ;
 -(id)userInfoKeyForService:(id)arg1 ;
 -(void)setUserInfo:(id)arg1 forService:(id)arg2 ;
--(void)setDouble:(double)arg1 forkey:(id)arg2 ;
 -(double)doubleForKey:(id)arg1 ;
 -(void)setInteger:(int)arg1 forKey:(id)arg2 ;
 -(id)objectForKey:(id)arg1 ;

@@ -61,8 +61,6 @@
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(float)defaultHeight;
 -(char)deviceHasCamera;
--(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
--(IGChevronTitleButton *)chevronTitleButton;
 -(void)setTextViewContainer:(UIControl *)arg1 ;
 -(UIControl *)textViewContainer;
 -(void)dismissButtonTapped;
@@ -70,6 +68,8 @@
 -(void)setShouldHoldFirstResponder:(char)arg1 ;
 -(IGTapButton *)cameraButton;
 -(UILabel *)warningView;
+-(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
+-(IGChevronTitleButton *)chevronTitleButton;
 -(void)onChevronTitleButtonTapped;
 -(IGGradientView *)bottomGradientView;
 -(void)sendAction:(id)arg1 ;
@@ -79,7 +79,6 @@
 -(float)maxTextHeight;
 -(float)textContentLayoutHeight;
 -(void)showPickDisabledAssetAnimation;
--(void)setLikeButtonToFilledState:(char)arg1 ;
 -(void)setLikeButton:(IGTapButton *)arg1 ;
 -(void)setCameraButton:(IGTapButton *)arg1 ;
 -(void)setBottomGradientView:(IGGradientView *)arg1 ;

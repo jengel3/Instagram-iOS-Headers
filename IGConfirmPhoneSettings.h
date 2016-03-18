@@ -13,14 +13,14 @@
 @property (assign,nonatomic) int numSMSResendsBeforeRobocall;              //@synthesize numSMSResendsBeforeRobocall=_numSMSResendsBeforeRobocall - In the implementation block
 @property (assign,nonatomic) char robocallEnabled;                         //@synthesize robocallEnabled=_robocallEnabled - In the implementation block
 @property (assign,nonatomic) int robocallDelay;                            //@synthesize robocallDelay=_robocallDelay - In the implementation block
--(id)initWithSMSResendDelay:(int)arg1 numSMSResendsBeforeRobocall:(int)arg2 robocallDelay:(int)arg3 robocallEnabled:(char)arg4 ;
--(int)smsResendDelay;
--(void)setSmsResendDelay:(int)arg1 ;
--(int)numSMSResendsBeforeRobocall;
--(void)setNumSMSResendsBeforeRobocall:(int)arg1 ;
--(char)robocallEnabled;
--(void)setRobocallEnabled:(char)arg1 ;
 -(int)robocallDelay;
+-(int)numSMSResendsBeforeRobocall;
+-(char)robocallEnabled;
+-(int)smsResendDelay;
+-(id)initWithSMSResendDelay:(int)arg1 numSMSResendsBeforeRobocall:(int)arg2 robocallDelay:(int)arg3 robocallEnabled:(char)arg4 ;
+-(void)setSmsResendDelay:(int)arg1 ;
+-(void)setNumSMSResendsBeforeRobocall:(int)arg1 ;
+-(void)setRobocallEnabled:(char)arg1 ;
 -(void)setRobocallDelay:(int)arg1 ;
 -(id)initWithDictionary:(id)arg1 ;
 @end

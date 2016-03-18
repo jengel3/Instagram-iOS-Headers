@@ -3,6 +3,7 @@
 @protocol IGInlineGalleryDataSource
 @property (assign,nonatomic,__weak) id<IGInlineGalleryDataSourceDelegate> delegate; 
 @required
+-(char)hasCameraRollAccess;
 -(void)startDataFetchWithCompletion:(/*^block*/id)arg1;
 -(void)pauseDataFetch;
 -(int)numMediaSince:(double)arg1;

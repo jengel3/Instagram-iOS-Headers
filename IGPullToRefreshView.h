@@ -1,4 +1,5 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
 @protocol IGPullRefreshControlDelegate;
@@ -56,8 +57,8 @@
 -(void)setAngleSpeed:(float)arg1 ;
 -(float)discreteProgress:(float)arg1 ;
 -(void)setSpinnerView:(UIView *)arg1 ;
--(char)hasEverPullBeyondRefreshThreshold;
 -(float)startingContentOffsetY;
+-(char)hasEverPullBeyondRefreshThreshold;
 -(void)updateSpinnerWithPullOffset:(float)arg1 ;
 -(void)setHasEverPullBeyondRefreshThreshold:(char)arg1 ;
 -(void)setStartingContentOffsetY:(float)arg1 ;
@@ -65,8 +66,9 @@
 -(void)startSpinningAndTriggerNetworkFetchIfPulledPastThreshold;
 -(void)stopSpinning;
 -(void)ensureHiddenIfNotSpinning;
+-(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGPullRefreshControlDelegate>)arg1 ;
--(id)init;
+-(void)layoutSubviews;
 -(id<IGPullRefreshControlDelegate>)delegate;
 -(int)state;
 -(void)setState:(int)arg1 ;

@@ -36,17 +36,15 @@
 +(id)storyStyledStringForDictionary:(id)arg1 ;
 +(id)mediaForDictionary:(id)arg1 ;
 +(int)requestCountForDictionary:(id)arg1 ;
-+(int)unseenCountForDictionary:(id)arg1 ;
 +(id)payloadForDictionary:(id)arg1 ;
 +(double)timestampForDictionary:(id)arg1 ;
 +(id)threadIDForDictionary:(id)arg1 ;
 +(id)followRequestStyledString;
-+(id)titleAndSubtitleStringForDictionary:(id)arg1 ;
 +(id)styledStringForRegularStoryWithText:(id)arg1 links:(id)arg2 ;
 +(id)styledStringForTimestamp:(int)arg1 ;
-+(id)styledStringForTitle:(id)arg1 andSubtitle:(id)arg2 ;
 +(id)urlForLinkWithType:(id)arg1 target:(id)arg2 ;
 +(char)isLinkBold:(id)arg1 ;
++(id)styledStringForTitle:(id)arg1 andSubtitle:(id)arg2 ;
 -(NSString *)pk;
 -(void)setStyledString:(IGStyledString *)arg1 ;
 -(void)setPk:(NSString *)arg1 ;

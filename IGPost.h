@@ -87,9 +87,9 @@
 +(CGSize)sizeForPhoto:(id)arg1 normalizedToViewWidth:(float)arg2 ;
 +(CGSize)sizeForVideo:(id)arg1 normalizedToViewWidth:(float)arg2 ;
 +(id)pkFromShortcode:(id)arg1 ;
++(id)hmacFromShortcode:(id)arg1 ;
 +(id)encodedPkFromShortcode:(id)arg1 ;
 +(long long)decodePk:(id)arg1 ;
-+(id)hmacFromShortcode:(id)arg1 ;
 -(CGSize)sizeForMediaNormalizedToViewWidth:(float)arg1 ;
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
 -(id)filteredActiveComments;
@@ -136,7 +136,7 @@
 -(char)needsFetch;
 -(id)ig_accessibilityLabel;
 -(void)fetchAdditionalInfo;
--(void)postPostUpdatedNotification;
+-(void)postPostUpdatedNotification:(int)arg1 ;
 -(void)updateLocalLikeStatus:(char)arg1 withUser:(id)arg2 ;
 -(void)removeLocalLocationInformation;
 -(NSNumber *)commentCursor;
@@ -157,6 +157,7 @@
 -(void)commentRemoveRequestFailed:(id)arg1 notify:(char)arg2 ;
 -(void)setLastCommentTimeStamp:(IGDate *)arg1 ;
 -(void)setLastReadTimeStamp:(IGDate *)arg1 ;
+-(void)postPostUpdatedNotification;
 -(IGDate *)lastCommentTimeStamp;
 -(IGDate *)lastReadTimeStamp;
 -(void)setFeaturedBadge:(IGPostFeaturedBadge *)arg1 ;

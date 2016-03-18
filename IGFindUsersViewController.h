@@ -5,13 +5,12 @@
 #import <Instagram/IGFeedStatusViewDynamicHeightProtocol.h>
 #import <Instagram/IGFindUsersViewDelegate.h>
 
-@class IGFindUsersView, UIBarButtonItem, IGFindUsersViewDataSource, IGFeedStatusView, IGPullToRefreshViewManager, NSString;
+@class IGFindUsersView, IGFindUsersViewDataSource, IGFeedStatusView, IGPullToRefreshViewManager, NSString;
 
 @interface IGFindUsersViewController : IGViewController <IGPullToRefreshProtocol, IGFeedStatusViewDynamicHeightProtocol, IGFindUsersViewDelegate> {
 
 	char _loading;
 	IGFindUsersView* _usersView;
-	UIBarButtonItem* _refreshButton;
 	IGFindUsersViewDataSource* _findUsersViewDataSource;
 	IGFeedStatusView* _feedStatusView;
 	IGPullToRefreshViewManager* _pullToRefreshViewManager;
@@ -20,7 +19,6 @@
 
 @property (nonatomic,retain) IGFindUsersView * usersView;                                        //@synthesize usersView=_usersView - In the implementation block
 @property (assign,getter=isLoading,nonatomic) char loading;                                      //@synthesize loading=_loading - In the implementation block
-@property (nonatomic,retain) UIBarButtonItem * refreshButton;                                    //@synthesize refreshButton=_refreshButton - In the implementation block
 @property (nonatomic,retain) IGFindUsersViewDataSource * findUsersViewDataSource;                //@synthesize findUsersViewDataSource=_findUsersViewDataSource - In the implementation block
 @property (nonatomic,retain) IGFeedStatusView * feedStatusView;                                  //@synthesize feedStatusView=_feedStatusView - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;              //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
@@ -66,8 +64,6 @@
 -(void)viewDidAppear:(char)arg1 ;
 -(UIEdgeInsets)preferredContentInsets;
 -(char)isLoading;
--(void)setRefreshButton:(UIBarButtonItem *)arg1 ;
--(UIBarButtonItem *)refreshButton;
 -(void)setLoading:(char)arg1 ;
 @end
 

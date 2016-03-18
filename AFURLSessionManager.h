@@ -77,9 +77,9 @@
 -(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
 -(id<AFURLResponseSerialization>)responseSerializer;
 -(AFSecurityPolicy *)securityPolicy;
+-(id)initWithSessionConfiguration:(id)arg1 ;
 -(id)downloadTaskDidFinishDownloading;
 -(void)setDownloadTaskDidFinishDownloading:(id)arg1 ;
--(id)initWithSessionConfiguration:(id)arg1 ;
 -(void)setMutableTaskDelegatesKeyedByTaskIdentifier:(NSMutableDictionary *)arg1 ;
 -(NSArray *)dataTasks;
 -(NSArray *)uploadTasks;

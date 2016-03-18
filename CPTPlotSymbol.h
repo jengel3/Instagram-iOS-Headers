@@ -46,9 +46,9 @@
 +(id)customPlotSymbolWithPath:(CGPathRef)arg1 ;
 +(id)plotSymbol;
 -(CPTLineStyle *)lineStyle;
+-(void)setLineStyle:(CPTLineStyle *)arg1 ;
 -(char)usesEvenOddClipRule;
 -(void)setUsesEvenOddClipRule:(char)arg1 ;
--(void)setLineStyle:(CPTLineStyle *)arg1 ;
 -(const CGPathRef)customSymbolPath;
 -(void)setCachedSymbolPath:(CGPathRef)arg1 ;
 -(void)setCachedLayer:(CGLayerRef)arg1 ;

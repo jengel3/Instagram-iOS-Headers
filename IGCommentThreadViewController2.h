@@ -48,6 +48,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
+-(id)analyticsExtras;
 -(IGCommentCellRevealManager *)cellRevealManager;
 -(IGBulkCommentDeleteManager *)bulkDeleteManager;
 -(void)commentController:(id)arg1 didDeleteComment:(id)arg2 ;
@@ -91,6 +93,7 @@
 -(char)growingTextViewShouldReturn:(id)arg1 ;
 -(id)initWithFeedItem:(id)arg1 prefillText:(id)arg2 currentUser:(id)arg3 multiAccounts:(char)arg4 showKeyboardOnAppear:(char)arg5 ;
 -(char)prefersTabBarHidden;
+-(char)enableNavState;
 -(NSString *)placeholderText;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)scrollViewWillBeginDragging:(id)arg1 ;

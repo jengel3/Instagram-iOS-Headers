@@ -6,12 +6,13 @@
 #import <Instagram/IGSearchResultCellDelegate.h>
 #import <Instagram/IGNavigationContext.h>
 #import <UIKit/UICollectionViewDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGExploreSearchChildViewController.h>
 
 @protocol IGAutocompleteAsyncDataSourceIGAutocompleteNetworkDataSourceAnalytics, IGSearchResultsTab, IGSearchResultsViewControllerDelegate;
-@class NSString, IGExploreSearchViewController, NSOrderedSet, NSMutableArray, IGListCollectionView, IGListAdapter;
+@class NSString, IGSearchViewController, NSOrderedSet, NSMutableArray, IGListCollectionView, IGListAdapter;
 
-@interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate, IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate, IGNavigationContext, UICollectionViewDelegate, IGExploreSearchChildViewController> {
+@interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate, IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate, IGNavigationContext, UICollectionViewDelegate, IGAnalyticsModule, IGExploreSearchChildViewController> {
 
 	char _isSearching;
 	char _isBackSpace;
@@ -20,7 +21,7 @@
 	id<IGSearchResultsTab> _searchResultsTab;
 	id<IGSearchResultsViewControllerDelegate> _delegate;
 	NSString* _searchText;
-	IGExploreSearchViewController* _hostingViewController;
+	IGSearchViewController* _hostingViewController;
 	unsigned _minUnSeenRow;
 	NSOrderedSet* _sectionControllers;
 	NSMutableArray* _searchQueryArray;
@@ -34,7 +35,7 @@
 @property (assign,nonatomic,__weak) id<IGSearchResultsViewControllerDelegate> delegate;                                             //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,copy) NSString * searchText;                                                                                   //@synthesize searchText=_searchText - In the implementation block
 @property (nonatomic,readonly) char isSearching;                                                                                    //@synthesize isSearching=_isSearching - In the implementation block
-@property (assign,nonatomic,__weak) IGExploreSearchViewController * hostingViewController;                                          //@synthesize hostingViewController=_hostingViewController - In the implementation block
+@property (assign,nonatomic,__weak) IGSearchViewController * hostingViewController;                                                 //@synthesize hostingViewController=_hostingViewController - In the implementation block
 @property (assign,nonatomic) unsigned minUnSeenRow;                                                                                 //@synthesize minUnSeenRow=_minUnSeenRow - In the implementation block
 @property (nonatomic,readonly) NSOrderedSet * sectionControllers;                                                                   //@synthesize sectionControllers=_sectionControllers - In the implementation block
 @property (nonatomic,retain) NSMutableArray * searchQueryArray;                                                                     //@synthesize searchQueryArray=_searchQueryArray - In the implementation block
@@ -54,6 +55,7 @@
 +(id)hiddenItemIds;
 +(id)filteredItems:(id)arg1 hiddenSet:(id)arg2 ;
 +(id)raindropInstagramEntityFromItem:(id)arg1 ;
+-(id)analyticsModule;
 -(id)analyticsExtras;
 -(id)searchingCellForTableView:(id)arg1 ;
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
@@ -66,16 +68,12 @@
 -(void)onSearchTextDidChange:(id)arg1 ;
 -(id)initWithHostingViewController:(id)arg1 dataSource:(id)arg2 searchResultsTab:(id)arg3 ;
 -(int)searchResultState;
--(void)searchDidEnd;
--(void)searchDidStart;
--(id<IGSearchResultsTab>)searchResultsTab;
--(void)transitionToVisibleState;
--(void)logSearchCancelEvent;
--(void)logItemTap:(id)arg1 atRow:(int)arg2 searchString:(id)arg3 ;
+-(void)logItemTap:(id)arg1 atRow:(int)arg2 searchString:(id)arg3 type:(id)arg4 ;
 -(void)logItemHide:(id)arg1 atIndexPath:(id)arg2 ;
 -(void)clearSuggestions;
 -(char)searchResultCellShouldLongPress:(id)arg1 ;
 -(void)searchResultCellDidLongPress:(id)arg1 ;
+-(id<IGSearchResultsTab>)searchResultsTab;
 -(void)logSearchBackSpaceRaindropEvent;
 -(void)reloadTableView;
 -(void)saveSearchQueryText:(id)arg1 ;
@@ -106,12 +104,16 @@
 -(id)newSectionTitleWithFrame:(CGRect)arg1 title:(id)arg2 isHistory:(char)arg3 ;
 -(void)didSelectResultRowAtIndexPath:(id)arg1 ;
 -(void)hideButtonTappedWithItemID:(id)arg1 indexPath:(id)arg2 item:(id)arg3 ;
+-(void)transitionToVisibleState;
+-(void)searchDidStart;
+-(void)searchDidEnd;
+-(void)logSearchCancelEvent;
 -(NSMutableArray *)searchQueryArray;
 -(void)setSearchQueryArray:(NSMutableArray *)arg1 ;
 -(char)isBackSpace;
 -(void)setIsBackSpace:(char)arg1 ;
 -(void)setSuggestionCollectionView:(IGListCollectionView *)arg1 ;
--(void)setHostingViewController:(IGExploreSearchViewController *)arg1 ;
+-(void)setHostingViewController:(IGSearchViewController *)arg1 ;
 -(char)isSearching;
 -(void)setSearchText:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGSearchResultsViewControllerDelegate>)arg1 ;
@@ -143,7 +145,7 @@
 -(void)pushViewController:(id)arg1 animated:(char)arg2 ;
 -(UIEdgeInsets)preferredContentInsets;
 -(NSString *)searchText;
--(IGExploreSearchViewController *)hostingViewController;
+-(IGSearchViewController *)hostingViewController;
 -(void)setSections:(id)arg1 ;
 -(void)configure;
 -(char)prefersNavigationBarHidden;

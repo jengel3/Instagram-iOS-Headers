@@ -5,6 +5,6 @@
 +(char)useUpdatedTypography;
 +(char)useUpdatedTextColors;
 +(char)useBlackCameraTab;
-+(char)useWhiteCamera;
++(char)useVibrantTabs;
 @end
 

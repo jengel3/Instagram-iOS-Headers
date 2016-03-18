@@ -25,6 +25,7 @@
 -(void)assetsLibraryDidChange:(id)arg1 ;
 -(void)filterAssetsGroup:(id)arg1 ;
 -(void)refreshAssetGroup:(id)arg1 ;
+-(char)hasCameraRollAccess;
 -(void)assignDefaultPhotoGroupWithCompletion:(/*^block*/id)arg1 ;
 -(ALAssetsGroup *)savedPhotosGroup;
 -(id)extractAssetsForGroup:(id)arg1 ;

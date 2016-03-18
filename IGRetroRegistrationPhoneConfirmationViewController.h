@@ -1,4 +1,5 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
 #import <Instagram/IGCoreTextLinkHandler.h>
 #import <Instagram/IGTextFieldDelegate.h>
@@ -34,6 +35,8 @@
 -(id<IGRetroRegistrationPhoneConfirmationViewControllerDelegate>)delegate;
 -(char)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2 ;
 -(char)prefersStatusBarHidden;
+-(void)textFieldDidBeginEditing:(id)arg1 ;
+-(char)textField:(id)arg1 shouldChangeCharactersInRange:(NSRange)arg2 replacementString:(id)arg3 ;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewWillDisappear:(char)arg1 ;

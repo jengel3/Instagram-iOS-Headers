@@ -5,19 +5,20 @@
 #import <Instagram/IGFeedStatusViewDynamicHeightProtocol.h>
 #import <Instagram/IGCollectionViewControllerDelegate.h>
 
-@protocol IGFeedConfigurationType;
-@class NSMapTable, IGFeedNetworkSource, IGFeedStatusView, UIBarButtonItem, NSArray, NSString;
+@protocol IGFeedItemConfigurationType, IGFeedConfigurationType;
+@class IGFeedNetworkSource, NSMapTable, IGFeedStatusView, UIBarButtonItem, NSArray, NSString;
 
 @interface IGFeedNetworkSourceViewController : IGCollectionViewController <IGFeedNetworkSourceDelegate, IGFeedStatusViewDynamicHeightProtocol, IGCollectionViewControllerDelegate> {
 
-	NSMapTable* _headerViewsToRank;
-	NSMapTable* _footerViewsToRank;
 	char _showRefreshButton;
 	char _allowEmptyStateAndEmptyFeedLoadingIndicator;
 	char _shouldAnnounceFeedRefreshEvents;
+	id<IGFeedItemConfigurationType> _feedItemConfiguration;
 	id<IGFeedConfigurationType> _feedConfiguration;
 	IGFeedNetworkSource* _feedSource;
 	unsigned _videoSizeToPrefetch;
+	NSMapTable* _headerViewsToRank;
+	NSMapTable* _footerViewsToRank;
 	IGFeedStatusView* _feedStatusView;
 	UIBarButtonItem* _refreshButton;
 	int _imageURLOptionToPrefetch;
@@ -25,17 +26,20 @@
 
 }
 
-@property (nonatomic,retain) id<IGFeedConfigurationType> feedConfiguration;                 //@synthesize feedConfiguration=_feedConfiguration - In the implementation block
-@property (nonatomic,retain) IGFeedNetworkSource * feedSource;                              //@synthesize feedSource=_feedSource - In the implementation block
-@property (assign,nonatomic) char showRefreshButton;                                        //@synthesize showRefreshButton=_showRefreshButton - In the implementation block
+@property (nonatomic,retain) id<IGFeedItemConfigurationType> feedItemConfiguration;              //@synthesize feedItemConfiguration=_feedItemConfiguration - In the implementation block
+@property (nonatomic,retain) id<IGFeedConfigurationType> feedConfiguration;                      //@synthesize feedConfiguration=_feedConfiguration - In the implementation block
+@property (nonatomic,retain) IGFeedNetworkSource * feedSource;                                   //@synthesize feedSource=_feedSource - In the implementation block
+@property (assign,nonatomic) char showRefreshButton;                                             //@synthesize showRefreshButton=_showRefreshButton - In the implementation block
 @property (nonatomic,readonly) NSArray * promotionBannerConfigurations; 
-@property (assign,nonatomic) char allowEmptyStateAndEmptyFeedLoadingIndicator;              //@synthesize allowEmptyStateAndEmptyFeedLoadingIndicator=_allowEmptyStateAndEmptyFeedLoadingIndicator - In the implementation block
-@property (assign,nonatomic) CGSize imageSizeToPrefetch;                                    //@synthesize imageSizeToPrefetch=_imageSizeToPrefetch - In the implementation block
-@property (assign,nonatomic) unsigned videoSizeToPrefetch;                                  //@synthesize videoSizeToPrefetch=_videoSizeToPrefetch - In the implementation block
-@property (nonatomic,retain) IGFeedStatusView * feedStatusView;                             //@synthesize feedStatusView=_feedStatusView - In the implementation block
-@property (nonatomic,retain) UIBarButtonItem * refreshButton;                               //@synthesize refreshButton=_refreshButton - In the implementation block
-@property (assign,nonatomic) int imageURLOptionToPrefetch;                                  //@synthesize imageURLOptionToPrefetch=_imageURLOptionToPrefetch - In the implementation block
-@property (assign,nonatomic) char shouldAnnounceFeedRefreshEvents;                          //@synthesize shouldAnnounceFeedRefreshEvents=_shouldAnnounceFeedRefreshEvents - In the implementation block
+@property (assign,nonatomic) char allowEmptyStateAndEmptyFeedLoadingIndicator;                   //@synthesize allowEmptyStateAndEmptyFeedLoadingIndicator=_allowEmptyStateAndEmptyFeedLoadingIndicator - In the implementation block
+@property (assign,nonatomic) CGSize imageSizeToPrefetch;                                         //@synthesize imageSizeToPrefetch=_imageSizeToPrefetch - In the implementation block
+@property (assign,nonatomic) unsigned videoSizeToPrefetch;                                       //@synthesize videoSizeToPrefetch=_videoSizeToPrefetch - In the implementation block
+@property (nonatomic,readonly) NSMapTable * headerViewsToRank;                                   //@synthesize headerViewsToRank=_headerViewsToRank - In the implementation block
+@property (nonatomic,readonly) NSMapTable * footerViewsToRank;                                   //@synthesize footerViewsToRank=_footerViewsToRank - In the implementation block
+@property (nonatomic,retain) IGFeedStatusView * feedStatusView;                                  //@synthesize feedStatusView=_feedStatusView - In the implementation block
+@property (nonatomic,retain) UIBarButtonItem * refreshButton;                                    //@synthesize refreshButton=_refreshButton - In the implementation block
+@property (assign,nonatomic) int imageURLOptionToPrefetch;                                       //@synthesize imageURLOptionToPrefetch=_imageURLOptionToPrefetch - In the implementation block
+@property (assign,nonatomic) char shouldAnnounceFeedRefreshEvents;                               //@synthesize shouldAnnounceFeedRefreshEvents=_shouldAnnounceFeedRefreshEvents - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -52,14 +56,13 @@
 -(void)feedNetworkSource:(id)arg1 willLoadItemsFromResponse:(id)arg2 ;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
--(void)setFeedConfiguration:(id<IGFeedConfigurationType>)arg1 ;
+-(void)setFeedItemConfiguration:(id<IGFeedItemConfigurationType>)arg1 ;
 -(void)removeHeaderView:(id)arg1 animated:(char)arg2 ;
 -(void)addHeaderView:(id)arg1 withRank:(int)arg2 animated:(char)arg3 ;
 -(void)layoutHeaderViews;
 -(void)handleLoadedContentDidChange;
 -(void)reloadWithNewObjects:(id)arg1 ;
 -(void)showErrorLoadMessageIfPossible;
--(void)onTabBarTapped:(id)arg1 ;
 -(void)addFooterView:(id)arg1 withRank:(int)arg2 animated:(char)arg3 ;
 -(IGFeedStatusView *)feedStatusView;
 -(void)setFeedStatusView:(IGFeedStatusView *)arg1 ;
@@ -69,10 +72,11 @@
 -(void)setRestrictedView:(id)arg1 ;
 -(void)removeFooterView:(id)arg1 animated:(char)arg2 ;
 -(void)updateRestrictedViewWithName:(id)arg1 ;
--(char)showRefreshButton;
 -(NSArray *)promotionBannerConfigurations;
 -(void)setShowRefreshButton:(char)arg1 ;
+-(char)showRefreshButton;
 -(void)onNetworkTransferRateChanged:(id)arg1 ;
+-(void)setViews:(id)arg1 toWidth:(float)arg2 ;
 -(id<IGFeedConfigurationType>)feedConfiguration;
 -(CGSize)imageSizeToPrefetch;
 -(int)imageURLOptionToPrefetch;
@@ -93,14 +97,19 @@
 -(id)initWithFeedNetworkSource:(id)arg1 layout:(id)arg2 showsPullToRefresh:(char)arg3 ;
 -(void)collectionViewControllerDidScrollToEndOfContent:(id)arg1 ;
 -(void)performMediaPrefetchWithProfiles:(char)arg1 ;
+-(id<IGFeedItemConfigurationType>)feedItemConfiguration;
+-(void)setFeedConfiguration:(id<IGFeedConfigurationType>)arg1 ;
 -(void)setAllowEmptyStateAndEmptyFeedLoadingIndicator:(char)arg1 ;
 -(void)setImageSizeToPrefetch:(CGSize)arg1 ;
 -(void)setVideoSizeToPrefetch:(unsigned)arg1 ;
+-(NSMapTable *)headerViewsToRank;
+-(NSMapTable *)footerViewsToRank;
 -(void)setImageURLOptionToPrefetch:(int)arg1 ;
 -(void)dealloc;
 -(void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(char)arg2 ;
 -(void)scrollViewDidEndDecelerating:(id)arg1 ;
 -(void)applicationWillEnterForeground:(id)arg1 ;
+-(void)viewDidLayoutSubviews;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;

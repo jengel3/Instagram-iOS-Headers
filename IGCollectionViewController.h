@@ -60,7 +60,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(float)headerAdjustmentAmount;
--(void)registerClasses;
 -(void)reloadWithCurrentObjects;
 -(id)initWithLayout:(id)arg1 showsPullToRefresh:(char)arg2 ;
 -(id)currentReloadContext;
@@ -74,6 +73,7 @@
 -(float)supplementaryHeaderViewHeight;
 -(char)usesIgCollectionViewLayout;
 -(void)configureCollectionViewDataSource:(id)arg1 ;
+-(void)registerClasses;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 synchronus:(char)arg3 forceAnimated:(char)arg4 completionBlock:(/*^block*/id)arg5 ;
 -(void)reloadWithCurrentObjectsAnimated:(char)arg1 ;
 -(NSArray *)currentLoadingObjects;

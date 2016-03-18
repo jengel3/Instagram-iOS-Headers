@@ -10,12 +10,12 @@
 @required
 -(id)initWithMediaMetadata:(id)arg1;
 -(void)setShareString:(id)arg1;
+-(void)configureWithHeaderView:(id)arg1;
 -(NSString *)shareString;
 -(char)isReadyToShare;
 -(void)setDelegate:(id)arg1;
 -(UIViewController *)delegate;
 -(UIScrollView *)scrollView;
--(void)setHeaderView:(id)arg1;
 
 @end
 

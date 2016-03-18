@@ -23,7 +23,6 @@
 	IGFollowButton* _followButton;
 	UIButton* _chevronButton;
 	IGStringStyle* _boldLinkStyle;
-	IGStringStyle* _boldAlternateLinkStyle;
 	IGStringStyle* _boldGrayStyle;
 	IGStringStyle* _grayStyle;
 	IGStringStyle* _boldGray7Style;
@@ -41,7 +40,6 @@
 @property (nonatomic,retain) IGFollowButton * followButton;                                   //@synthesize followButton=_followButton - In the implementation block
 @property (nonatomic,retain) UIButton * chevronButton;                                        //@synthesize chevronButton=_chevronButton - In the implementation block
 @property (nonatomic,retain) IGStringStyle * boldLinkStyle;                                   //@synthesize boldLinkStyle=_boldLinkStyle - In the implementation block
-@property (nonatomic,retain) IGStringStyle * boldAlternateLinkStyle;                          //@synthesize boldAlternateLinkStyle=_boldAlternateLinkStyle - In the implementation block
 @property (nonatomic,retain) IGStringStyle * boldGrayStyle;                                   //@synthesize boldGrayStyle=_boldGrayStyle - In the implementation block
 @property (nonatomic,retain) IGStringStyle * grayStyle;                                       //@synthesize grayStyle=_grayStyle - In the implementation block
 @property (nonatomic,retain) IGStringStyle * boldGray7Style;                                  //@synthesize boldGray7Style=_boldGray7Style - In the implementation block
@@ -81,10 +79,9 @@
 -(void)onUserInfoChanged;
 -(void)updateAppearance;
 -(IGStringStyle *)boldGray7Style;
--(IGStringStyle *)boldAlternateLinkStyle;
--(IGStringStyle *)grayStyle;
 -(void)updateAccessoryViewAppearance;
 -(UIButton *)chevronButton;
+-(IGStringStyle *)grayStyle;
 -(void)onLocationTapped;
 -(void)onChevronTapped:(id)arg1 ;
 -(void)openUserViewFrom:(id)arg1 ;
@@ -92,7 +89,6 @@
 -(void)setUsernameButton:(UIButton *)arg1 ;
 -(void)setLocationButton:(UIButton *)arg1 ;
 -(void)setChevronButton:(UIButton *)arg1 ;
--(void)setBoldAlternateLinkStyle:(IGStringStyle *)arg1 ;
 -(void)setGrayStyle:(IGStringStyle *)arg1 ;
 -(void)setBoldGray7Style:(IGStringStyle *)arg1 ;
 -(IGFeedItemHeaderViewModel *)viewModel;

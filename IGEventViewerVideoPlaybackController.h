@@ -44,9 +44,9 @@
 -(void)setPlaybackItem:(IGEventViewerPlaybackItem *)arg1 ;
 -(id)initWithFeedVideoManager:(id)arg1 logger:(id)arg2 ;
 -(void)setCurrentVideoStartTime:(float)arg1 ;
--(void)prepareToReusePlayer:(id)arg1 ;
 -(IGFeedVideoManager *)feedVideoManager;
 -(char)currentVideoDidPlayToEnd;
+-(void)prepareToFinishUsingPlayer:(id)arg1 ;
 -(void)setVideoRetryCount:(unsigned)arg1 ;
 -(void)setCurrentVideoDidPlayToEnd:(char)arg1 ;
 -(unsigned)videoRetryCount;
@@ -61,6 +61,7 @@
 -(id)feedItemVideoViewCurrentIGAnalyticsMetadata:(id)arg1 ;
 -(int)feedItemVideoViewPosition:(id)arg1 ;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
+-(void)feedItemVideoViewDidPlay:(id)arg1 ;
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
 -(IGEventViewerAnalyticsLogger *)logger;

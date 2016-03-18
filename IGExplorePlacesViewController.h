@@ -1,10 +1,11 @@
 
 #import <Instagram/IGExploreFeedViewController.h>
 #import <Instagram/IGExplorePlacesNetworkSourceDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 
 @class IGExplorePlacesNetworkSource, NSMutableSet, NSString;
 
-@interface IGExplorePlacesViewController : IGExploreFeedViewController <IGExplorePlacesNetworkSourceDelegate> {
+@interface IGExplorePlacesViewController : IGExploreFeedViewController <IGExplorePlacesNetworkSourceDelegate, IGAnalyticsModule> {
 
 	IGExplorePlacesNetworkSource* _dataSource;
 	NSMutableSet* _loggedImpressions;

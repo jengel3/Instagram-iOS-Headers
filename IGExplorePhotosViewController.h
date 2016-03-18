@@ -1,20 +1,20 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGFeedViewController_DEPRECATED.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGExploreSearchControllerDelegate.h>
 #import <Instagram/FBAnimationPerformanceTrackerDelegate.h>
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 
-@class IGExploreSearchViewController, NSMutableSet, IGExploreJumbotronView, IGExploreCarouselsView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, NSArray, NSString, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExplorePhotosNetworkSource;
+@class IGSearchViewController, NSMutableSet, IGExploreJumbotronView, IGExploreCarouselsView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, NSArray, NSString, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExplorePhotosNetworkSource;
 
-@interface IGExplorePhotosViewController : IGFeedViewController_DEPRECATED <IGExploreSearchControllerDelegate, FBAnimationPerformanceTrackerDelegate, IGSearchOriginControllerProtocol> {
+@interface IGExplorePhotosViewController : IGFeedViewController_DEPRECATED <IGAnalyticsModule, IGExploreSearchControllerDelegate, FBAnimationPerformanceTrackerDelegate, IGSearchOriginControllerProtocol> {
 
-	char _showSearchOnAppear;
 	char _showSearchOnViewDidAppear;
 	char _wasFreshExploreLoad;
 	char _marqueeWasPaging;
 	NSMutableSet* _loggedImpressions;
-	IGExploreSearchViewController* _searchController;
+	IGSearchViewController* _searchController;
 	IGExploreJumbotronView* _jumbotronView;
 	IGExploreCarouselsView* _carouselsView;
 	IGExploreSectionTextHeader* _explorePostsLabel;
@@ -31,10 +31,13 @@
 
 }
 
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic) UIEdgeInsets contentInsets;                                          //@synthesize contentInsets=_contentInsets - In the implementation block
 @property (nonatomic,retain) NSMutableSet * loggedImpressions;                                    //@synthesize loggedImpressions=_loggedImpressions - In the implementation block
-@property (nonatomic,retain) IGExploreSearchViewController * searchController;                    //@synthesize searchController=_searchController - In the implementation block
-@property (assign,nonatomic) char showSearchOnAppear;                                             //@synthesize showSearchOnAppear=_showSearchOnAppear - In the implementation block
+@property (nonatomic,retain) IGSearchViewController * searchController;                           //@synthesize searchController=_searchController - In the implementation block
 @property (assign,nonatomic) char showSearchOnViewDidAppear;                                      //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
 @property (assign,nonatomic) char wasFreshExploreLoad;                                            //@synthesize wasFreshExploreLoad=_wasFreshExploreLoad - In the implementation block
 @property (nonatomic,retain) IGExploreJumbotronView * jumbotronView;                              //@synthesize jumbotronView=_jumbotronView - In the implementation block
@@ -51,10 +54,7 @@
 @property (nonatomic,copy) NSArray * marqueeItems;                                                //@synthesize marqueeItems=_marqueeItems - In the implementation block
 @property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                           //@synthesize apTracker=_apTracker - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(id)analyticsModule;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
@@ -78,7 +78,6 @@
 -(void)configureExplorePostsHeaderLabel;
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
--(void)registerClasses;
 -(void)updateScrollFromContextualFeed;
 -(char)shouldShowNavigationShadow;
 -(void)refreshStaleContent:(char)arg1 ;
@@ -116,14 +115,13 @@
 -(void)searchControllerCancelButtonTapped:(id)arg1 ;
 -(void)searchController:(id)arg1 switchedToViewController:(id)arg2 ;
 -(void)searchControllerPeopleIconTapped:(id)arg1 ;
+-(void)searchControllerDirectIconTapped:(id)arg1 ;
 -(void)reportDurationInMS:(int)arg1 smallDropEvent:(double)arg2 largeDropEvent:(double)arg3 ;
 -(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
 -(void)navigationControllerWillShowSearch;
 -(void)prepareForPopToRootTransition;
 -(char)showSearchOnViewDidAppear;
 -(void)setShowSearchOnViewDidAppear:(char)arg1 ;
--(char)showSearchOnAppear;
--(void)setShowSearchOnAppear:(char)arg1 ;
 -(char)shouldShowPeopleEntryBanner;
 -(void)onPeopleBannerTapped:(id)arg1 ;
 -(void)showErrorLoadMessageIfPossible;
@@ -163,7 +161,7 @@
 -(void)viewDidAppear:(char)arg1 ;
 -(void)viewWillDisappear:(char)arg1 ;
 -(UIEdgeInsets)preferredContentInsets;
--(IGExploreSearchViewController *)searchController;
--(void)setSearchController:(IGExploreSearchViewController *)arg1 ;
+-(IGSearchViewController *)searchController;
+-(void)setSearchController:(IGSearchViewController *)arg1 ;
 @end
 

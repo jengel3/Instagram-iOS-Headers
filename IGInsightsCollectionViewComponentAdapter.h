@@ -38,12 +38,8 @@
 -(void)setMediaBundles:(NSArray *)arg1 ;
 -(NSArray *)mediaIDs;
 -(NSDictionary *)buttonQueryItems;
--(void)_fetchFeedItemsFromMediaIDs:(id)arg1 ;
--(void)_initializeComponentView;
--(void)setInsightsCollectionViewController:(IGInsightsCollectionViewController *)arg1 ;
--(IGInsightsCollectionViewController *)insightsCollectionViewController;
--(void)_updateViewWithMediaBundle:(id)arg1 ;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
+-(void)failedToGetAccessTokenForDataProvider:(id)arg1 ;
 -(void)didSelectNavigateInComponentViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
 -(id)initWithComponent:(id)arg1 ;
 -(IGInsightsCollectionView *)componentView;
@@ -51,6 +47,11 @@
 -(void)setComponentView:(IGInsightsCollectionView *)arg1 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
+-(void)_fetchFeedItemsFromMediaIDs:(id)arg1 ;
+-(void)_initializeComponentView;
+-(void)setInsightsCollectionViewController:(IGInsightsCollectionViewController *)arg1 ;
+-(IGInsightsCollectionViewController *)insightsCollectionViewController;
+-(void)_updateViewWithMediaBundle:(id)arg1 ;
 -(void)setHeader:(NSString *)arg1 ;
 -(NSString *)header;
 -(id<IGInsightsComponentNavigationDelegate>)navigationDelegate;

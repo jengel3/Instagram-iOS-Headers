@@ -2,13 +2,13 @@
 #import <UIKit/UIViewController.h>
 #import <Instagram/IGTextFieldDelegate.h>
 #import <Instagram/IGCountryCodeViewControllerDelegate.h>
-#import <Instagram/IGCoreTextLinkHandler.h>
 #import <Instagram/IGFacebookAuthHelperDelegate.h>
+#import <Instagram/IGRetroRegistrationRequestSupportDelegate.h>
 
 @protocol IGRetroRegistrationSignInHelperViewControllerDelegate;
 @class NSString, IGRetroRegistrationSignInHelperView, UITapGestureRecognizer, IGFacebookAuthHelper;
 
-@interface IGRetroRegistrationSignInHelperViewController : UIViewController <IGTextFieldDelegate, IGCountryCodeViewControllerDelegate, IGCoreTextLinkHandler, IGFacebookAuthHelperDelegate> {
+@interface IGRetroRegistrationSignInHelperViewController : UIViewController <IGTextFieldDelegate, IGCountryCodeViewControllerDelegate, IGFacebookAuthHelperDelegate, IGRetroRegistrationRequestSupportDelegate> {
 
 	char _isSubmitting;
 	NSString* _username;
@@ -33,8 +33,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)backgroundTapped;
 -(void)userDidSelectCountryWithName:(id)arg1 countryNumber:(id)arg2 ;
 -(void)facebookAuthHelper:(id)arg1 willProceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
@@ -45,6 +43,8 @@
 -(void)facebookAuthHelper:(id)arg1 willResetPasswordWithViewController:(id)arg2 ;
 -(void)onFacebookAuthSuccess:(id)arg1 ;
 -(void)onFacebookAuthCancelled:(id)arg1 ;
+-(id)actionTypes;
+-(void)requestSupportViewControllerWantsToDismiss:(id)arg1 ;
 -(char)isSubmitting;
 -(void)setIsSubmitting:(char)arg1 ;
 -(void)facebookButtonTapped;
@@ -59,6 +59,7 @@
 -(void)switchButtonTapped;
 -(void)switchToUsernameButtonTapped;
 -(void)switchToPhoneButtonTapped;
+-(void)helperButtonTapped;
 -(void)setHelperView:(IGRetroRegistrationSignInHelperView *)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)setDelegate:(id<IGRetroRegistrationSignInHelperViewControllerDelegate>)arg1 ;

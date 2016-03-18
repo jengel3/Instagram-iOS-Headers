@@ -1,17 +1,16 @@
 
 #import <Instagram/IGFeedViewController_DEPRECATED.h>
 #import <Instagram/IGPageViewControllerChildViewController.h>
+#import <Instagram/IGAnalyticsModule.h>
 
-@class IGFeedSingleFeedConfiguration, UINavigationItem, NSString;
+@class UINavigationItem, NSString;
 
-@interface IGSingleFeedViewController : IGFeedViewController_DEPRECATED <IGPageViewControllerChildViewController> {
+@interface IGSingleFeedViewController : IGFeedViewController_DEPRECATED <IGPageViewControllerChildViewController, IGAnalyticsModule> {
 
-	IGFeedSingleFeedConfiguration* _configuration;
 	UINavigationItem* _pageViewControllerNavigationItem;
 
 }
 
-@property (nonatomic,readonly) IGFeedSingleFeedConfiguration * configuration;                    //@synthesize configuration=_configuration - In the implementation block
 @property (nonatomic,readonly) UINavigationItem * pageViewControllerNavigationItem;              //@synthesize pageViewControllerNavigationItem=_pageViewControllerNavigationItem - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -27,11 +26,11 @@
 -(UINavigationItem *)pageViewControllerNavigationItem;
 -(void)didBecomeCurrentInPageViewController:(id)arg1 ;
 -(void)didResignCurrentInPageViewController:(id)arg1 ;
+-(id)singleFeedItemConfiguration;
 -(void)dealloc;
 -(id)init;
 -(id)navigationItem;
 -(int)viewType;
 -(void)viewDidLoad;
--(IGFeedSingleFeedConfiguration *)configuration;
 @end
 

@@ -8,6 +8,7 @@
 -(id)feedItemVideoViewCurrentIGAnalyticsMetadata:(id)arg1;
 -(int)feedItemVideoViewPosition:(id)arg1;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1;
+-(void)feedItemVideoViewDidPlay:(id)arg1;
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1;
 -(void)feedItemVideoViewDidLongPress:(id)arg1;
 

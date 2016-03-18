@@ -31,7 +31,9 @@
 -(IGRetroRegistrationTextField *)codeField;
 -(IGCoreTextView *)resendCodeTextView;
 -(IGCoreTextView *)requestSupportTextView;
+-(id)resendCodeStyledString;
 -(void)updateDescriptionWithPhoneNumber:(id)arg1 ;
+-(void)updateResendCodeTextViewWithSecondsLeft:(int)arg1 ;
 -(void)setCodeField:(IGRetroRegistrationTextField *)arg1 ;
 -(void)setResendCodeTextView:(IGCoreTextView *)arg1 ;
 -(void)setRequestSupportTextView:(IGCoreTextView *)arg1 ;

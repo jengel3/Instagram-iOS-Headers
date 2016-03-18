@@ -84,7 +84,7 @@
 -(void)setLabelShadow:(CPTShadow *)arg1 ;
 -(void)setPlotSpace:(CPTPlotSpace *)arg1 ;
 -(void)setLabelFormatter:(NSFormatter *)arg1 ;
--(SCD_Struct_CP79)cachedDecimalForField:(unsigned)arg1 recordIndex:(unsigned)arg2 ;
+-(SCD_Struct_CP80)cachedDecimalForField:(unsigned)arg1 recordIndex:(unsigned)arg2 ;
 -(id)cachedNumberForField:(unsigned)arg1 recordIndex:(unsigned)arg2 ;
 -(void)setDataNeedsReloading;
 -(id)fieldIdentifiersForCoordinate:(int)arg1 ;

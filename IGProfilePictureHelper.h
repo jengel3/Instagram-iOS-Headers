@@ -24,8 +24,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(void)logProfilePictureUpdatedWithOption:(int)arg1 ;
 -(void)cameraControllerDidCancel;
--(void)cameraControllerDidFinishWithPhoto:(id)arg1 ;
+-(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
 -(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
@@ -37,7 +38,7 @@
 -(void)showActionSheet;
 -(void)openCameraWithMode:(int)arg1 ;
 -(id<UIViewControllerTransitioningDelegate>)cameraTransitionDelegate;
--(void)delegateDidFinishDownloadingProfilePicture:(id)arg1 ;
+-(void)delegateDidFinishDownloadingProfilePicture:(id)arg1 fromOption:(int)arg2 ;
 -(void)delegateDidFailDownloadingProfilePicture;
 -(void)delegateWillStartDownloadingProfilePicture;
 -(void)loadFacebookProfilePictureWithFacebookUserInfo:(id)arg1 ;

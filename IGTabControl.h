@@ -7,6 +7,7 @@
 
 @interface IGTabControl : UIView {
 
+	char _shouldHideBottomSeparator;
 	char _canUseFallbackIcons;
 	char _scrollable;
 	char _showButtonBorder;
@@ -28,6 +29,7 @@
 @property (nonatomic,retain) UIScrollView * connectedScrollView;                    //@synthesize connectedScrollView=_connectedScrollView - In the implementation block
 @property (nonatomic,readonly) UIView * inchwormView;                               //@synthesize inchwormView=_inchwormView - In the implementation block
 @property (nonatomic,copy) NSString * title;                                        //@synthesize title=_title - In the implementation block
+@property (assign,nonatomic) char shouldHideBottomSeparator;                        //@synthesize shouldHideBottomSeparator=_shouldHideBottomSeparator - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * contentOffsetHandle;                     //@synthesize contentOffsetHandle=_contentOffsetHandle - In the implementation block
 @property (nonatomic,retain) CALayer * bottomSeparator;                             //@synthesize bottomSeparator=_bottomSeparator - In the implementation block
 @property (nonatomic,readonly) char canUseFallbackIcons;                            //@synthesize canUseFallbackIcons=_canUseFallbackIcons - In the implementation block
@@ -38,6 +40,7 @@
 @property (nonatomic,readonly) char showButtonBorder;                               //@synthesize showButtonBorder=_showButtonBorder - In the implementation block
 +(float)preferredHeight;
 -(void)setConnectedScrollView:(UIScrollView *)arg1 ;
+-(void)setShouldHideBottomSeparator:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 scrollable:(char)arg2 tabFont:(id)arg3 showButtonBorder:(char)arg4 ;
 -(UIView *)inchwormView;
 -(void)applyStyle;
@@ -58,6 +61,7 @@
 -(void)_stretchLayoutButtons;
 -(char)canUseFallbackIcons;
 -(CGRect)frameForSegment:(unsigned)arg1 withLayoutParameters:(IGTabControlLayoutParameters)arg2 ;
+-(char)shouldHideBottomSeparator;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGTabControlDelegate>)arg1 ;
 -(void)dealloc;

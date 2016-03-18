@@ -35,10 +35,10 @@
 @property (nonatomic,copy) NSString * aboutAdsServerParams;              //@synthesize aboutAdsServerParams=_aboutAdsServerParams - In the implementation block
 @property (nonatomic,copy) NSArray * cookies;                            //@synthesize cookies=_cookies - In the implementation block
 -(NSString *)adTitle;
+-(char)isHoldout;
 -(char)hideCommentButton;
 -(NSArray *)possibleHideAnswers;
 -(char)hideComments;
--(char)isHoldout;
 -(int)hideFlowVersion;
 -(id)initWithDictionary:(id)arg1 secure:(char)arg2 ;
 -(NSArray *)viewTags;

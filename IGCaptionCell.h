@@ -5,16 +5,16 @@
 #import <Instagram/IGAutocompleteControllerTextInput.h>
 
 @protocol IGCaptionCellDelegate;
-@class UIImageView, UITextView, IGProfilePictureImageView, IGSimpleFrameButton, UIView, IGGradientView, NSString;
+@class UIImageView, IGProfilePictureImageView, IGSimpleFrameButton, UITextView, UIView, IGGradientView, NSString;
 
 @interface IGCaptionCell : UICollectionViewCell <UITextViewDelegate, IGAutocompleteControllerTextInput> {
 
 	char _shouldShowProfileInCaption;
 	UIImageView* _thumbnailView;
-	UITextView* _textView;
 	id<IGCaptionCellDelegate> _delegate;
 	IGProfilePictureImageView* _profilePictureImageView;
 	IGSimpleFrameButton* _photoFrameView;
+	UITextView* _textView;
 	UIView* _bottomLine;
 	IGGradientView* _topGradientView;
 	IGGradientView* _bottomGradientView;
@@ -24,10 +24,10 @@
 
 @property (nonatomic,retain) UIImageView * thumbnailView;                                      //@synthesize thumbnailView=_thumbnailView - In the implementation block
 @property (nonatomic,retain) NSString * text; 
-@property (nonatomic,retain) UITextView * textView;                                            //@synthesize textView=_textView - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCaptionCellDelegate> delegate;                        //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGProfilePictureImageView * profilePictureImageView;              //@synthesize profilePictureImageView=_profilePictureImageView - In the implementation block
 @property (nonatomic,retain) IGSimpleFrameButton * photoFrameView;                             //@synthesize photoFrameView=_photoFrameView - In the implementation block
+@property (nonatomic,retain) UITextView * textView;                                            //@synthesize textView=_textView - In the implementation block
 @property (nonatomic,retain) UIView * bottomLine;                                              //@synthesize bottomLine=_bottomLine - In the implementation block
 @property (nonatomic,retain) IGGradientView * topGradientView;                                 //@synthesize topGradientView=_topGradientView - In the implementation block
 @property (nonatomic,retain) IGGradientView * bottomGradientView;                              //@synthesize bottomGradientView=_bottomGradientView - In the implementation block
@@ -82,6 +82,8 @@
 -(id)positionFromPosition:(id)arg1 offset:(int)arg2 ;
 -(int)offsetFromPosition:(id)arg1 toPosition:(id)arg2 ;
 -(id)closestPositionToPoint:(CGPoint)arg1 ;
+-(void)setKeyboardType:(int)arg1 ;
+-(void)selectAll;
 -(void)textViewDidBeginEditing:(id)arg1 ;
 -(void)textViewDidEndEditing:(id)arg1 ;
 -(char)textViewShouldBeginEditing:(id)arg1 ;

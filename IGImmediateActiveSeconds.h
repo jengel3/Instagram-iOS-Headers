@@ -16,9 +16,9 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGAnalyticsImmediateActiveSecondsDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(char)shouldReportCurrentActiveSecond:(double)arg1 ;
--(void)maybeReportActiveSecond:(double)arg1 forModule:(id)arg2 ;
 -(void)setLastForegroundTime:(double)arg1 ;
+-(void)maybeReportActiveSecond:(double)arg1 forModule:(id)arg2 ;
+-(char)shouldReportCurrentActiveSecond:(double)arg1 ;
 -(void)setDelegate:(id<IGAnalyticsImmediateActiveSecondsDelegate>)arg1 ;
 -(id<IGAnalyticsImmediateActiveSecondsDelegate>)delegate;
 -(id)initWithDelegate:(id)arg1 ;

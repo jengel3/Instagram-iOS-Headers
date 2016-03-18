@@ -2,7 +2,7 @@
 #import <Instagram/IGFeedNetworkSourceDelegate.h>
 
 @protocol IGInsightsDataProviderDelegate;
-@class NSArray, NSString;
+@class NSArray, IGGraphQLRequest, NSString;
 
 @interface IGInsightsDataProvider : NSObject <IGFeedNetworkSourceDelegate> {
 
@@ -13,6 +13,7 @@
 	NSArray* _mediaOrderSelectorTabs;
 	NSArray* _components;
 	NSArray* _mediaBundle;
+	IGGraphQLRequest* _request;
 	NSString* _dataSourceFileName;
 
 }
@@ -24,6 +25,7 @@
 @property (nonatomic,copy) NSArray * mediaOrderSelectorTabs;                                  //@synthesize mediaOrderSelectorTabs=_mediaOrderSelectorTabs - In the implementation block
 @property (nonatomic,copy) NSArray * components;                                              //@synthesize components=_components - In the implementation block
 @property (nonatomic,copy) NSArray * mediaBundle;                                             //@synthesize mediaBundle=_mediaBundle - In the implementation block
+@property (nonatomic,retain) IGGraphQLRequest * request;                                      //@synthesize request=_request - In the implementation block
 @property (nonatomic,copy) NSString * dataSourceFileName;                                     //@synthesize dataSourceFileName=_dataSourceFileName - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -34,16 +36,17 @@
 -(id)getMediaBundle;
 -(void)queryMediaBundleWithMediaIDs:(id)arg1 ;
 -(void)setMediaOrderSelectorTabs:(NSArray *)arg1 ;
--(NSArray *)mediaOrderSelectorTabs;
+-(id)getMediaOrderSelectorTabs;
 -(id)getSubtabs;
 -(void)queryInsightsItemsWithQueryItems:(id)arg1 ;
 -(NSArray *)dropDownCells;
 -(id)getDropDownCells;
 -(void)setDropDownCells:(NSArray *)arg1 ;
 -(id)getComponents;
--(id)getMediaOrderSelectorTabs;
 -(void)queryInsightsItemsWithQueryItemsIGRequest:(id)arg1 readLocal:(char)arg2 localFileName:(id)arg3 ;
 -(void)onDataReceived:(id)arg1 readLocal:(char)arg2 localFileName:(id)arg3 ;
+-(void)handleGraphQLRequestError:(id)arg1 ;
+-(void)getAccessTokenAndRestartRequestIfPossible;
 -(id)loadDummyDataFromFile:(id)arg1 ;
 -(void)parseAndSaveResponse:(id)arg1 ;
 -(void)setTabs:(NSArray *)arg1 ;
@@ -52,16 +55,19 @@
 -(void)setMediaBundle:(NSArray *)arg1 ;
 -(void)queryTabBarItemsAndDefaultTabContent;
 -(void)querySeeAllPostsViewTabBarItemsAndDefaultTabContent;
--(void)queryInsightsItemsWithQueryItemsWithFBSDK:(id)arg1 readLocal:(char)arg2 localFileName:(id)arg3 ;
 -(id)getTabs;
 -(NSArray *)subtabs;
+-(NSArray *)mediaOrderSelectorTabs;
 -(NSArray *)mediaBundle;
 -(NSString *)dataSourceFileName;
 -(void)setDataSourceFileName:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGInsightsDataProviderDelegate>)arg1 ;
 -(id<IGInsightsDataProviderDelegate>)delegate;
+-(IGGraphQLRequest *)request;
 -(NSArray *)components;
+-(void)setRequest:(IGGraphQLRequest *)arg1 ;
 -(void)setComponents:(NSArray *)arg1 ;
+-(void)restartRequest;
 -(NSArray *)tabs;
 @end
 

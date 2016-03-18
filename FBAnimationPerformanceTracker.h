@@ -23,7 +23,6 @@
 @property (assign,nonatomic,__weak) id<FBAnimationPerformanceTrackerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(FBAnimationPerformanceTrackerConfig)standardConfig;
 +(void)_trackerLoop;
--(id)initWithConfig:(FBAnimationPerformanceTrackerConfig)arg1 runLoop:(id)arg2 ;
 -(void)_setupSignal;
 -(void)_tearDownCADisplayLink;
 -(void)_setUpCADisplayLink;

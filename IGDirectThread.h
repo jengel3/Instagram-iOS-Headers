@@ -8,6 +8,7 @@
 
 @interface IGDirectThread : NSObject <NSCopying, NSCoding> {
 
+	char _moreHistoryAvailable;
 	char _isNamed;
 	char _isPending;
 	char _isMuted;
@@ -29,6 +30,7 @@
 
 }
 
+@property (nonatomic,readonly) char disabled; 
 @property (nonatomic,copy) NSString * threadId;                                             //@synthesize threadId=_threadId - In the implementation block
 @property (nonatomic,readonly) NSArray * allContent; 
 @property (nonatomic,readonly) NSArray * allVisibleContent; 
@@ -37,6 +39,7 @@
 @property (nonatomic,retain) NSArray * users;                                               //@synthesize users=_users - In the implementation block
 @property (nonatomic,copy) NSString * nextMinId;                                            //@synthesize nextMinId=_nextMinId - In the implementation block
 @property (nonatomic,copy) NSString * nextMaxId;                                            //@synthesize nextMaxId=_nextMaxId - In the implementation block
+@property (assign,nonatomic) char moreHistoryAvailable;                                     //@synthesize moreHistoryAvailable=_moreHistoryAvailable - In the implementation block
 @property (nonatomic,copy) NSString * name;                                                 //@synthesize name=_name - In the implementation block
 @property (nonatomic,copy,readonly) NSString * defaultNameString; 
 @property (nonatomic,readonly) IGDate * lastSeenAt; 
@@ -54,6 +57,7 @@
 @property (nonatomic,retain) NSDictionary * lastSeenAtForItemIds;                           //@synthesize lastSeenAtForItemIds=_lastSeenAtForItemIds - In the implementation block
 @property (nonatomic,retain) IGDate * lastActivityDate;                                     //@synthesize lastActivityDate=_lastActivityDate - In the implementation block
 @property (nonatomic,retain) NSArray * leftUsers;                                           //@synthesize leftUsers=_leftUsers - In the implementation block
+@property (nonatomic,readonly) NSArray * activeUsers; 
 +(id)usernameStringForUsernames:(id)arg1 maxUsers:(int)arg2 ;
 +(id)usernameStringForUsers:(id)arg1 ;
 +(id)shortUsernameStringForUsers:(id)arg1 ;
@@ -62,9 +66,9 @@
 +(id)contentArrayFromDictionary:(id)arg1 ;
 +(id)lastMediaItemFromDictionary:(id)arg1 ;
 +(void)lastSeenAtsFromDictionary:(id)arg1 userIdsToDates:(id*)arg2 itemIdsToDates:(id*)arg3 ;
-+(id)mergeDataFromThread:(id)arg1 intoThread:(id)arg2 ;
++(void)mergePublicContentFromThread:(id)arg1 intoThread:(id)arg2 ;
 +(id)contentFromDictionary:(id)arg1 ;
-+(id)updatedThread:(id)arg1 withDictionary:(id)arg2 ;
++(id)mergeDataFromThread:(id)arg1 intoThread:(id)arg2 alwaysMerge:(char)arg3 ;
 +(id)threadIdFromDictionary:(id)arg1 ;
 +(id)threadFromDictionary:(id)arg1 ;
 -(id)lastSeenAtForUserWithId:(id)arg1 ;
@@ -81,6 +85,8 @@
 -(NSString *)uploadIndexKey;
 -(NSString *)nextMinId;
 -(void)setNextMinId:(NSString *)arg1 ;
+-(char)moreHistoryAvailable;
+-(void)setMoreHistoryAvailable:(char)arg1 ;
 -(NSDictionary *)lastSeenAtForUserIds;
 -(void)setLastSeenAtForUserIds:(NSDictionary *)arg1 ;
 -(NSDictionary *)lastSeenAtForItemIds;
@@ -97,6 +103,7 @@
 -(NSArray *)leftUsers;
 -(void)setLeftUsers:(NSArray *)arg1 ;
 -(id)allContentsWithUploads:(id)arg1 ;
+-(NSArray *)activeUsers;
 -(id)initLocalThreadWithUsers:(id)arg1 lastActivityDate:(id)arg2 ;
 -(id)copyByTrimmingContentToCount:(unsigned)arg1 ;
 -(id)copyForcingLastSeenToDate:(id)arg1 ;
@@ -123,6 +130,7 @@
 -(void)setName:(NSString *)arg1 ;
 -(NSString *)name;
 -(id)copyWithZone:(NSZone*)arg1 ;
+-(char)disabled;
 -(char)isPending;
 -(IGUser *)inviter;
 -(NSArray *)users;

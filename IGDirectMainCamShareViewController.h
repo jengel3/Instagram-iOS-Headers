@@ -5,12 +5,13 @@
 #import <Instagram/IGTextFieldDelegate.h>
 #import <Instagram/IGTokenFieldDelegate.h>
 #import <Instagram/IGDirectRecipientDataSourceDelegate.h>
-#import <Instagram/IGShareManager.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGAnalyticsRaindropProtocol.h>
+#import <Instagram/IGShareManager.h>
 
-@class NSString, UIScrollView, UIViewController, IGAnalyticsMetadata, IGRaindropNavEvent, IGMutableRaindropRankInfo, IGRaindropNavState, IGMediaMetadata, UIView, NSOrderedSet, IGDirectThread, IGDirectRecipientDataSource, IGTokenField, NSArray;
+@class IGAnalyticsMetadata, IGRaindropNavEvent, IGMutableRaindropRankInfo, NSString, UIScrollView, UIViewController, IGRaindropNavState, IGMediaMetadata, UIView, NSOrderedSet, IGDirectThread, IGDirectRecipientDataSource, IGTokenField, NSArray;
 
-@interface IGDirectMainCamShareViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, IGTextFieldDelegate, IGTokenFieldDelegate, IGDirectRecipientDataSourceDelegate, IGShareManager, IGAnalyticsRaindropProtocol> {
+@interface IGDirectMainCamShareViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, IGTextFieldDelegate, IGTokenFieldDelegate, IGDirectRecipientDataSourceDelegate, IGAnalyticsModule, IGAnalyticsRaindropProtocol, IGShareManager> {
 
 	char _collapseGroups;
 	char _forceHide;
@@ -53,16 +54,16 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,copy) NSString * shareString;                                       //@synthesize shareString=_shareString - In the implementation block
-@property (nonatomic,readonly) char isReadyToShare; 
-@property (nonatomic,readonly) UIScrollView * scrollView; 
-@property (assign,nonatomic,__weak) UIViewController * delegate;                         //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) IGAnalyticsMetadata * analyticsMetadata; 
 @property (nonatomic,readonly) IGRaindropNavEvent * currentNavEvent; 
 @property (nonatomic,readonly) int viewType; 
 @property (nonatomic,readonly) char enableNavState; 
+@property (nonatomic,copy) NSString * shareString;                                       //@synthesize shareString=_shareString - In the implementation block
+@property (nonatomic,readonly) char isReadyToShare; 
+@property (nonatomic,readonly) UIScrollView * scrollView; 
+@property (assign,nonatomic,__weak) UIViewController * delegate;                         //@synthesize delegate=_delegate - In the implementation block
+-(id)analyticsModule;
 -(id)initWithMediaMetadata:(id)arg1 ;
--(int)shareType;
 -(IGAnalyticsMetadata *)analyticsMetadata;
 -(char)enableNavState;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
@@ -105,10 +106,11 @@
 -(void)handleSelectionForUser:(id)arg1 atIndexPath:(id)arg2 fromSearch:(char)arg3 ;
 -(void)setSelectedGroup:(IGDirectThread *)arg1 ;
 -(void)setShareString:(NSString *)arg1 ;
--(NSString *)shareString;
--(char)isReadyToShare;
 -(IGRaindropNavEvent *)currentNavEvent;
 -(IGMutableRaindropRankInfo *)surfaceRankInfo;
+-(void)configureWithHeaderView:(id)arg1 ;
+-(NSString *)shareString;
+-(char)isReadyToShare;
 -(IGRaindropNavState *)navState;
 -(void)setDataSource:(IGDirectRecipientDataSource *)arg1 ;
 -(void)setDelegate:(UIViewController *)arg1 ;

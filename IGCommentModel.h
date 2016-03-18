@@ -41,6 +41,7 @@
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
 -(IGPost *)post;
 -(void)setPost:(IGPost *)arg1 ;
+-(id)initWithText:(id)arg1 post:(id)arg2 user:(id)arg3 ;
 -(id)styledStringForWidth:(float)arg1 feedItem:(id)arg2 shouldCollapseCaption:(char)arg3 ;
 -(void)reportWithReason:(int)arg1 ;
 -(char)didReportAsSpam;
@@ -48,7 +49,6 @@
 -(int)postedState;
 -(void)setPostedState:(int)arg1 ;
 -(id)buildStyledStringWithNewline:(char)arg1 ;
--(id)initWithText:(id)arg1 post:(id)arg2 user:(id)arg3 ;
 -(void)postComment;
 -(void)setPk:(NSString *)arg1 ;
 -(NSString *)idempotenceToken;

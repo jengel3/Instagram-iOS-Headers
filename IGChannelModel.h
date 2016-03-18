@@ -26,7 +26,7 @@
 -(void)setPost:(IGFeedItem *)arg1 ;
 -(id)diffIdentifier;
 -(unsigned)channelType;
--(id)initWithChannelId:(id)arg1 channelType:(unsigned)arg2 header:(id)arg3 title:(id)arg4 IGFeedItem:(id)arg5 ;
+-(id)initWithChannelId:(id)arg1 channelType:(unsigned)arg2 header:(id)arg3 title:(id)arg4 feedItem:(id)arg5 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(id)initWithDictionary:(id)arg1 ;

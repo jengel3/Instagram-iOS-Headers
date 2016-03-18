@@ -45,6 +45,10 @@
 +(char)needsDisplayForKey:(id)arg1 ;
 -(CPTGraphHostingView *)hostingView;
 -(void)setHostingView:(CPTGraphHostingView *)arg1 ;
+-(CPTPlotAreaFrame *)plotAreaFrame;
+-(CPTPlotSpace *)defaultPlotSpace;
+-(void)setAxisSet:(CPTAxisSet *)arg1 ;
+-(void)addPlot:(id)arg1 ;
 -(char)pointingDeviceDraggedEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceCancelledEvent:(UIEvent*)arg1 ;
 -(char)pointingDeviceDownEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
@@ -56,15 +60,12 @@
 -(id)newPlotSpace;
 -(void)addPlotSpace:(id)arg1 ;
 -(id)newAxisSet;
--(void)setAxisSet:(CPTAxisSet *)arg1 ;
--(CPTPlotAreaFrame *)plotAreaFrame;
 -(NSMutableArray *)plotSpaces;
 -(int)titlePlotAreaFrameAnchor;
 -(CGPoint)titleDisplacement;
 -(CPTLayerAnnotation *)legendAnnotation;
 -(int)legendAnchor;
 -(CGPoint)legendDisplacement;
--(CPTPlotSpace *)defaultPlotSpace;
 -(void)addPlot:(id)arg1 toPlotSpace:(id)arg2 ;
 -(void)insertPlot:(id)arg1 atIndex:(unsigned)arg2 intoPlotSpace:(id)arg3 ;
 -(void)plotSpaceMappingDidChange:(id)arg1 ;
@@ -83,7 +84,6 @@
 -(void)setTitlePlotAreaFrameAnchor:(int)arg1 ;
 -(void)setPlotSpaces:(NSMutableArray *)arg1 ;
 -(void)layoutAndRenderInContext:(CGContextRef)arg1 ;
--(void)addPlot:(id)arg1 ;
 -(id)allPlots;
 -(NSMutableArray *)plots;
 -(id)plotWithIdentifier:(id)arg1 ;

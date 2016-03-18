@@ -1,12 +1,13 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGAnalyticsRaindropProtocol.h>
 #import <Instagram/IGViewControllerType.h>
 
-@class UIBarButtonItem, IGAnalyticsMetadata, NSString, IGMutableRaindropRankInfo, IGRaindropNavState, IGKeyboardManager, UILongPressGestureRecognizer, NSMutableArray, IGNavigationController, IGTabBarController, IGRaindropNavEvent;
+@class UIBarButtonItem, IGAnalyticsMetadata, NSString, IGScreenshotObserver, IGMutableRaindropRankInfo, IGRaindropNavState, IGKeyboardManager, UILongPressGestureRecognizer, NSMutableArray, IGNavigationController, IGTabBarController, IGRaindropNavEvent;
 
-@interface IGViewController : UIViewController <IGAnalyticsRaindropProtocol, IGViewControllerType> {
+@interface IGViewController : UIViewController <IGAnalyticsModule, IGAnalyticsRaindropProtocol, IGViewControllerType> {
 
 	UIBarButtonItem* _backItem;
 	IGAnalyticsMetadata* _analyticsMetadata;
@@ -16,6 +17,7 @@
 	int _statusBarStyle;
 	NSString* _clickPoint;
 	NSString* _entityId;
+	IGScreenshotObserver* _screenshotObserver;
 	IGMutableRaindropRankInfo* _surfaceRankInfo;
 	IGRaindropNavState* _navState;
 	int _cancelButtonSide;
@@ -36,6 +38,7 @@
 @property (assign,nonatomic) int statusBarStyle;                                              //@synthesize statusBarStyle=_statusBarStyle - In the implementation block
 @property (nonatomic,retain) NSString * clickPoint;                                           //@synthesize clickPoint=_clickPoint - In the implementation block
 @property (nonatomic,retain) NSString * entityId;                                             //@synthesize entityId=_entityId - In the implementation block
+@property (nonatomic,readonly) IGScreenshotObserver * screenshotObserver;                     //@synthesize screenshotObserver=_screenshotObserver - In the implementation block
 @property (nonatomic,readonly) IGMutableRaindropRankInfo * surfaceRankInfo;                   //@synthesize surfaceRankInfo=_surfaceRankInfo - In the implementation block
 @property (nonatomic,retain) IGRaindropNavState * navState;                                   //@synthesize navState=_navState - In the implementation block
 @property (assign,nonatomic) int cancelButtonSide;                                            //@synthesize cancelButtonSide=_cancelButtonSide - In the implementation block
@@ -52,6 +55,7 @@
 @property (nonatomic,readonly) char enableNavState; 
 -(void)showModalDismissButtonWithTitle:(id)arg1 side:(int)arg2 ;
 -(void)onCancelModal;
+-(id)analyticsModule;
 -(UIBarButtonItem *)loadingBarButtonItem;
 -(IGAnalyticsMetadata *)analyticsMetadata;
 -(char)prefersTabBarHidden;
@@ -62,12 +66,13 @@
 -(IGMutableRaindropRankInfo *)surfaceRankInfo;
 -(IGRaindropNavState *)navState;
 -(UILongPressGestureRecognizer *)longPressRecognizer;
+-(NSString *)entityId;
 -(void)setEntityId:(NSString *)arg1 ;
+-(IGScreenshotObserver *)screenshotObserver;
 -(id)previewActionBarItems;
 -(void)updateAnalyticsMetadata:(id)arg1 ;
 -(IGKeyboardManager *)keyboardManager;
 -(void)setNavState:(IGRaindropNavState *)arg1 ;
--(NSString *)entityId;
 -(void)hideModalDismissButton;
 -(int)cancelButtonSide;
 -(void)didLongPress:(id)arg1 ;

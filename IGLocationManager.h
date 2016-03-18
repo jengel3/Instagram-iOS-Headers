@@ -19,9 +19,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)setHasPreviouslyEnabledLocation;
 +(char)isLocationUseAuthorized;
-+(char)hasPreviouslyEnabledLocation;
 +(id)sharedLocationManager;
 +(int)authorizationStatus;
 -(id)recentLocation;

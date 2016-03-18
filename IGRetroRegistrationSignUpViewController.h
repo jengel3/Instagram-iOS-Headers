@@ -69,7 +69,7 @@
 -(void)setSubmitting:(char)arg1 ;
 -(char)submitting;
 -(void)nextButtonTapped;
--(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 ;
+-(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(IGProfilePictureHelper *)profilePictureHelper;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
 -(FBSDKAccessToken *)facebookAccessToken;
@@ -81,7 +81,7 @@
 -(void)setSuggestedUsernames:(NSMutableArray *)arg1 ;
 -(void)setSignUpView:(IGRetroRegistrationSignUpView *)arg1 ;
 -(IGRetroRegistrationSignUpView *)signUpView;
--(void)fillSuggestedUsername;
+-(void)refreshButtonTapped;
 -(void)pasteFacebookUserInfo;
 -(NSString *)userDisplayName;
 -(NSDictionary *)facebookUserInfo;
@@ -92,6 +92,7 @@
 -(void)validateUsernameField:(id)arg1 requestDelay:(char)arg2 completionBlock:(/*^block*/id)arg3 ;
 -(int)suggestedUsernameIndex;
 -(void)setSuggestedUsernameIndex:(int)arg1 ;
+-(void)fillSuggestedUsername;
 -(void)cleanUpUsernameField:(id)arg1 ;
 -(void)startOrRestartUsernameCheckTimer;
 -(void)validateUsernameField:(id)arg1 completionBlock:(/*^block*/id)arg2 ;
@@ -100,12 +101,12 @@
 -(void)setUsernameRequest:(IGRequest *)arg1 ;
 -(void)validateUsername;
 -(void)setUsernameCheckTimer:(NSTimer *)arg1 ;
--(UIImage *)profilePhoto;
 -(void)signUpSuccessHandler:(id)arg1 ;
 -(void)signUpfailureHandler:(id)arg1 ;
 -(void)setSignUpRequest:(IGRequest *)arg1 ;
 -(void)accountCreatedWithUserInformation:(id)arg1 ;
 -(void)accountRegistrationFailedWithResponse:(id)arg1 ;
+-(UIImage *)profilePhoto;
 -(char)skipEmail;
 -(void)setUserDisplayName:(NSString *)arg1 ;
 -(NSString *)SMSSignUpCode;

@@ -1,17 +1,17 @@
 
 #import <Instagram/IGViewController.h>
-#import <Instagram/IGSearchBarDelegate.h>
-#import <UIKit/UITableViewDataSource.h>
+#import <Instagram/IGNavSearchBarDelegate.h>
 #import <Instagram/IGRaindropAnalyticsDelegate.h>
 #import <Instagram/IGProfilePictureImageViewDelegate.h>
 #import <Instagram/IGUserListNetworkDataSourceDelegate.h>
 #import <UIKit/UITableViewDelegate.h>
+#import <UIKit/UITableViewDataSource.h>
 #import <Instagram/IGFeedStatusViewDynamicHeightProtocol.h>
 #import <Instagram/IGFollowListUserCellDelegate.h>
 
-@class IGUserListNetworkDataSource, IGPlainTableView, NSString, NSMutableIndexSet, IGFeedStatusView, IGFeedItem;
+@class IGUserListNetworkDataSource, IGPlainTableView, NSString, IGFeedItem, NSMutableIndexSet, IGFeedStatusView, IGNavSearchBar;
 
-@interface IGUserListViewController : IGViewController <IGSearchBarDelegate, UITableViewDataSource, IGRaindropAnalyticsDelegate, IGProfilePictureImageViewDelegate, IGUserListNetworkDataSourceDelegate, UITableViewDelegate, IGFeedStatusViewDynamicHeightProtocol, IGFollowListUserCellDelegate> {
+@interface IGUserListViewController : IGViewController <IGNavSearchBarDelegate, IGRaindropAnalyticsDelegate, IGProfilePictureImageViewDelegate, IGUserListNetworkDataSourceDelegate, UITableViewDelegate, UITableViewDataSource, IGFeedStatusViewDynamicHeightProtocol, IGFollowListUserCellDelegate> {
 
 	IGUserListNetworkDataSource* _networkDataSource;
 	IGPlainTableView* _tableView;
@@ -19,9 +19,10 @@
 	int _userListType;
 	NSString* _listContextPK;
 	NSString* _rankToken;
+	IGFeedItem* _feedItem;
 	NSMutableIndexSet* _expandedIndices;
 	IGFeedStatusView* _feedStatusView;
-	IGFeedItem* _feedItem;
+	IGNavSearchBar* _searchBar;
 
 }
 
@@ -31,9 +32,10 @@
 @property (assign,nonatomic) int userListType;                                             //@synthesize userListType=_userListType - In the implementation block
 @property (nonatomic,copy) NSString * listContextPK;                                       //@synthesize listContextPK=_listContextPK - In the implementation block
 @property (nonatomic,copy) NSString * rankToken;                                           //@synthesize rankToken=_rankToken - In the implementation block
+@property (nonatomic,retain) IGFeedItem * feedItem;                                        //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,retain) NSMutableIndexSet * expandedIndices;                          //@synthesize expandedIndices=_expandedIndices - In the implementation block
 @property (nonatomic,retain) IGFeedStatusView * feedStatusView;                            //@synthesize feedStatusView=_feedStatusView - In the implementation block
-@property (nonatomic,retain) IGFeedItem * feedItem;                                        //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,retain) IGNavSearchBar * searchBar;                                   //@synthesize searchBar=_searchBar - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -59,21 +61,19 @@
 -(void)setFeedStatusView:(IGFeedStatusView *)arg1 ;
 -(id)indexPathForUser:(id)arg1 ;
 -(void)feedStatusView:(id)arg1 wantsChangeToHeight:(float)arg2 ;
+-(void)makeSearchBar;
+-(void)searchBarWillBeginEditing:(id)arg1 ;
 -(void)didTapOnSeeAllAccounts:(id)arg1 withUser:(id)arg2 ;
 -(void)removeUserFromList:(id)arg1 ;
 -(IGUserListNetworkDataSource *)networkDataSource;
 -(int)userCellAccessory;
 -(void)loadMoreUsers;
--(char)shouldShowViewCountSection;
--(char)shouldShowLikeCountSection;
+-(int)userListType;
 -(char)isShowingSimilarAccountsViewForCellAtIndexPath:(id)arg1 ;
 -(id)statusCell;
--(id)viewCountCell;
--(id)likesCountCell;
 -(id)userCellForIndexPath:(id)arg1 ;
 -(void)presentSimilarAccountsViewForCellAtIndexPath:(id)arg1 expand:(char)arg2 ;
 -(void)logAnalyticsEvent:(id)arg1 forUser:(id)arg2 ;
--(int)userListType;
 -(NSString *)listContextPK;
 -(NSMutableIndexSet *)expandedIndices;
 -(void)setExpandedIndices:(NSMutableIndexSet *)arg1 ;
@@ -85,9 +85,14 @@
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 ;
 -(int)numberOfSectionsInTableView:(id)arg1 ;
+-(void)viewWillLayoutSubviews;
 -(void)viewDidLayoutSubviews;
 -(IGPlainTableView *)tableView;
 -(void)setTableView:(IGPlainTableView *)arg1 ;
 -(void)viewWillAppear:(char)arg1 ;
+-(void)viewDidLoad;
+-(IGNavSearchBar *)searchBar;
+-(void)searchBar:(id)arg1 textDidChange:(id)arg2 ;
+-(void)setSearchBar:(IGNavSearchBar *)arg1 ;
 @end
 

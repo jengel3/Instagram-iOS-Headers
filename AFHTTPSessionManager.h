@@ -19,9 +19,9 @@
 @property (nonatomic,retain) AFHTTPResponseSerializer*<AFURLResponseSerialization> responseSerializer; 
 @property (nonatomic,retain) AFNetworkReachabilityManager * reachabilityManager; 
 +(id)manager;
--(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(void)setRequestSerializer:(AFHTTPRequestSerializer*<AFURLRequestSerialization>)arg1 ;
 -(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
+-(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(id)GET:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)HEAD:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)POST:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;

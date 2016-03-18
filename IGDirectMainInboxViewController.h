@@ -24,7 +24,6 @@
 	UIBarButtonItem* _createMessageButton;
 	IGDirectPendingRequestsHeaderView* _pendingRequestsHeader;
 	NSString* _countedAt;
-	int _unseenShareCount;
 	NSArray* _pendingRequestUsers;
 	int _pendingRequestCount;
 	IGPullToRefreshViewManager* _pullToRefreshViewManager;
@@ -45,7 +44,6 @@
 @property (nonatomic,retain) UIBarButtonItem * createMessageButton;                                  //@synthesize createMessageButton=_createMessageButton - In the implementation block
 @property (nonatomic,retain) IGDirectPendingRequestsHeaderView * pendingRequestsHeader;              //@synthesize pendingRequestsHeader=_pendingRequestsHeader - In the implementation block
 @property (nonatomic,copy) NSString * countedAt;                                                     //@synthesize countedAt=_countedAt - In the implementation block
-@property (assign,nonatomic) int unseenShareCount;                                                   //@synthesize unseenShareCount=_unseenShareCount - In the implementation block
 @property (nonatomic,retain) NSArray * pendingRequestUsers;                                          //@synthesize pendingRequestUsers=_pendingRequestUsers - In the implementation block
 @property (assign,nonatomic) int pendingRequestCount;                                                //@synthesize pendingRequestCount=_pendingRequestCount - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;                  //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
@@ -67,8 +65,6 @@
 -(void)inboxUpdateNotificationReceivedWithMegaphone:(id)arg1 ;
 -(void)inboxUpdateNotificationReceived:(id)arg1 ;
 -(void)threadUpdateNotificationReceived;
--(void)unseenShareCountUpdated:(id)arg1 ;
--(void)setUnseenShareCount:(int)arg1 ;
 -(void)setNeedsRefreshForThreadUpdateNotification:(char)arg1 ;
 -(void)setThreads:(NSOrderedSet *)arg1 ;
 -(void)updateNux;
@@ -80,13 +76,12 @@
 -(IGGenericMegaphone *)megaphone;
 -(IGDefaultGenericMegaphoneLogger *)megaphoneLogger;
 -(IGDirectPushPromptView *)pushPromptView;
--(unsigned)inboxSubscriptionStatus;
--(int)unseenShareCount;
 -(void)refreshDataWithClearCount:(char)arg1 withNextMaxID:(id)arg2 clearOperationCompletion:(/*^block*/id)arg3 fetchCompletion:(/*^block*/id)arg4 ;
 -(void)sendNewDirect;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
 -(void)onAppForeground:(id)arg1 ;
+-(void)pushComposer;
 -(char)isFetchingData;
 -(char)needsRefreshForThreadUpdateNotification;
 -(int)unseenPendingRequestCount;
@@ -133,6 +128,7 @@
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(void)threadViewController:(id)arg1 didUpdateFromThread:(id)arg2 toThread:(id)arg3 ;
+-(unsigned)inboxSubscriptionStatus;
 -(UIBarButtonItem *)createMessageButton;
 -(void)setCreateMessageButton:(UIBarButtonItem *)arg1 ;
 -(IGDirectPendingRequestsHeaderView *)pendingRequestsHeader;

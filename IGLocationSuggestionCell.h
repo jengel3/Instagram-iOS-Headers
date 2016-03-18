@@ -51,6 +51,7 @@
 -(IGLocationMetadata *)locationMetadata;
 -(IGNearbyLocationDataSource *)locationDataSource;
 -(void)setLocationDataSource:(IGNearbyLocationDataSource *)arg1 ;
+-(void)setLocationMetadata:(IGLocationMetadata *)arg1 ;
 -(void)setNuxLabel:(IGLabel *)arg1 ;
 -(IGLabel *)nuxLabel;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
@@ -71,9 +72,8 @@
 -(void)onLocationTitleControlTapped;
 -(void)locationClearButtonTapped;
 -(void)showLocationSettingInstruction;
--(char)isGeotagEnabled;
 -(void)showActiveLocation:(id)arg1 ;
--(void)setGeotagEnabled:(char)arg1 ;
+-(void)updateSuggestionStateUsingLocations;
 -(void)setSuggestionState:(int)arg1 ;
 -(void)showClearButton:(char)arg1 ;
 -(void)configureLocationSuggestionCell:(id)arg1 indexPath:(id)arg2 ;
@@ -81,7 +81,6 @@
 -(id)cellFontAttribute;
 -(CGSize)searchButtonCellSize;
 -(void)presentLocationPickerVC;
--(void)setLocationMetadata:(IGLocationMetadata *)arg1 ;
 -(void)setSuggestionView:(UIView *)arg1 ;
 -(void)setActiveLocationView:(IGActiveLocationDetailView *)arg1 ;
 -(void)setClearButton:(IGButton *)arg1 ;

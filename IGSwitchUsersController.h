@@ -30,7 +30,6 @@
 -(void)setUsersArray:(NSArray *)arg1 ;
 -(unsigned)switchUsersMode;
 -(NSArray *)usersArray;
--(id)currentUserCellForTableView:(id)arg1 ;
 -(id)userCellForTableView:(id)arg1 indexPath:(id)arg2 ;
 -(id)addAccountCellForTableView:(id)arg1 indexPath:(id)arg2 ;
 -(void)setSwitchUsersMode:(unsigned)arg1 ;

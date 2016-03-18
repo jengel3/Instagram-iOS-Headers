@@ -35,6 +35,7 @@
 @property (assign,nonatomic,__weak) id<IGInlineGalleryDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(PHImageRequestOptions *)imageRequestOptions;
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
+-(char)hasCameraRollAccess;
 -(int)maxItems;
 -(id)assetForIndexPath:(id)arg1 ;
 -(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;

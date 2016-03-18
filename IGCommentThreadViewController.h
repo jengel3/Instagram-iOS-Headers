@@ -1,6 +1,7 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGCommentReshareBannerDelegate.h>
 #import <Instagram/IGCommentReshareHelperDelegate.h>
 #import <Instagram/IGCommentThreadTableSourceDelegate.h>
@@ -10,7 +11,7 @@
 
 @class IGFeedItem, IGCommentThreadTableSource, IGPlainTableView, NSString, IGUserPreviewingHandler, UIView, IGGrowingTextView, IGButton, IGCommentModel, IGAutocompleteController, IGBulkMediaRequestManager, IGCommentReshareHelper, IGCommentReshareBanner, UIButton, UIImageView;
 
-@interface IGCommentThreadViewController : IGViewController <IGCommentReshareBannerDelegate, IGCommentReshareHelperDelegate, IGCommentThreadTableSourceDelegate, IGAutocompleteControllerDelegate, IGGrowingTextViewDelegate, UITextFieldDelegate> {
+@interface IGCommentThreadViewController : IGViewController <IGAnalyticsModule, IGCommentReshareBannerDelegate, IGCommentReshareHelperDelegate, IGCommentThreadTableSourceDelegate, IGAutocompleteControllerDelegate, IGGrowingTextViewDelegate, UITextFieldDelegate> {
 
 	char _navBarWasHidden;
 	char _skipDismissKeyboardAnimation;
@@ -45,13 +46,17 @@
 	IGCommentReshareBanner* _reshareBanner;
 	UIButton* _reshareButton;
 	UIImageView* _carrot;
-	UIImageView* _reshareLogo;
+	UIButton* _reshareEnabledButton;
 	UIView* _commentsOverlay;
 	UIButton* _postButton;
-	UIImageView* _commentLogo;
+	UIButton* _reshareDisabledButton;
 
 }
 
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,retain) IGFeedItem * feedItem;                                          //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,readonly) IGCommentThreadTableSource * dataSource;                      //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,retain) IGPlainTableView * tableView;                                   //@synthesize tableView=_tableView - In the implementation block
@@ -85,14 +90,10 @@
 @property (nonatomic,retain) IGCommentReshareBanner * reshareBanner;                         //@synthesize reshareBanner=_reshareBanner - In the implementation block
 @property (nonatomic,retain) UIButton * reshareButton;                                       //@synthesize reshareButton=_reshareButton - In the implementation block
 @property (nonatomic,retain) UIImageView * carrot;                                           //@synthesize carrot=_carrot - In the implementation block
-@property (nonatomic,retain) UIImageView * reshareLogo;                                      //@synthesize reshareLogo=_reshareLogo - In the implementation block
+@property (nonatomic,retain) UIButton * reshareEnabledButton;                                //@synthesize reshareEnabledButton=_reshareEnabledButton - In the implementation block
 @property (nonatomic,retain) UIView * commentsOverlay;                                       //@synthesize commentsOverlay=_commentsOverlay - In the implementation block
 @property (nonatomic,retain) UIButton * postButton;                                          //@synthesize postButton=_postButton - In the implementation block
-@property (nonatomic,retain) UIImageView * commentLogo;                                      //@synthesize commentLogo=_commentLogo - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
+@property (nonatomic,retain) UIButton * reshareDisabledButton;                               //@synthesize reshareDisabledButton=_reshareDisabledButton - In the implementation block
 -(id)analyticsModule;
 -(id)analyticsExtras;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
@@ -113,6 +114,7 @@
 -(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
 -(char)growingTextViewShouldReturn:(id)arg1 ;
 -(char)prefersTabBarHidden;
+-(char)enableNavState;
 -(void)postComment;
 -(void)didDismissCommentReshareBanner:(id)arg1 ;
 -(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
@@ -134,7 +136,6 @@
 -(void)commentThreadDataSourceDidStartBulkCommentDeletion:(id)arg1 ;
 -(void)commentThreadDataSourceDidFinishBulkCommentDeletion:(id)arg1 ;
 -(void)commentThreadDataSourceDidFailBulkCommentDeletion:(id)arg1 ;
--(char)enableNavState;
 -(void)logCommentEventWithText:(id)arg1 mediaID:(id)arg2 userPK:(id)arg3 ;
 -(char)keyboardShowing;
 -(char)tableViewIsAtBottom;
@@ -178,8 +179,8 @@
 -(void)animateKeyboardReturnToOriginalPositionWithDuration:(float)arg1 ;
 -(void)setKeyboardIsAnimating:(char)arg1 ;
 -(void)updateReshareStateAndUIIfNeeded:(id)arg1 ;
--(UIImageView *)commentLogo;
--(UIImageView *)reshareLogo;
+-(UIButton *)reshareDisabledButton;
+-(UIButton *)reshareEnabledButton;
 -(IGButton *)postButtonLegacy;
 -(UIButton *)reshareButton;
 -(void)saveScrollPosition;
@@ -199,9 +200,10 @@
 -(void)setReshareBanner:(IGCommentReshareBanner *)arg1 ;
 -(void)setReshareButton:(UIButton *)arg1 ;
 -(void)setCarrot:(UIImageView *)arg1 ;
--(void)setReshareLogo:(UIImageView *)arg1 ;
+-(void)setReshareEnabledButton:(UIButton *)arg1 ;
+-(void)didToggleReshareMode:(id)arg1 ;
 -(void)setPostButton:(UIButton *)arg1 ;
--(void)setCommentLogo:(UIImageView *)arg1 ;
+-(void)setReshareDisabledButton:(UIButton *)arg1 ;
 -(void)setCommentsOverlay:(UIView *)arg1 ;
 -(id)initWithKeyboardShowing:(char)arg1 text:(id)arg2 ;
 -(char)disableNavigationGesture;

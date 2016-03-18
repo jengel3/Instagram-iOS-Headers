@@ -3,7 +3,7 @@
 #import <Instagram/IGPost.h>
 #import <Instagram/IGStoredObject.h>
 
-@class IGUsertagGroup, NSString, NSNumber, IGSponsoredPostInfo, IGPivotMediaInfo, NSArray, IGDirectResponseInfo;
+@class IGUsertagGroup, NSString, NSNumber, IGSponsoredPostInfo, IGPivotMediaInfo, NSArray, IGDirectResponseInfo, IGCommentModel;
 
 @interface IGFeedItem : IGPost <IGStoredObject> {
 
@@ -11,7 +11,6 @@
 	IGUsertagGroup* _usertags;
 	char _inPhotosOfYou;
 	char _isWaitingForPivot;
-	char _isDummyVideo;
 	char _showPivot;
 	char _carouselLinkButtonOverride;
 	char _expanded;
@@ -27,6 +26,7 @@
 	IGPivotMediaInfo* _pivotInfo;
 	NSArray* _albumItems;
 	int _currentAlbumItem;
+	float _currentAlbumViewHeight;
 	NSString* _parentPK;
 
 }
@@ -37,7 +37,6 @@
 @property (readonly) NSString * exploreAlgorithm;                                 //@synthesize exploreAlgorithm=_exploreAlgorithm - In the implementation block
 @property (readonly) NSString * exploreImpressionToken;                           //@synthesize exploreImpressionToken=_exploreImpressionToken - In the implementation block
 @property (assign) char isWaitingForPivot;                                        //@synthesize isWaitingForPivot=_isWaitingForPivot - In the implementation block
-@property (assign) char isDummyVideo;                                             //@synthesize isDummyVideo=_isDummyVideo - In the implementation block
 @property (assign) char showPivot;                                                //@synthesize showPivot=_showPivot - In the implementation block
 @property (readonly) NSString * mediaId;                                          //@synthesize mediaId=_mediaId - In the implementation block
 @property (readonly) IGDirectResponseInfo * directResponseInfo; 
@@ -46,12 +45,14 @@
 @property (readonly) NSNumber * iTunesItemIdentifier;                             //@synthesize iTunesItemIdentifier=_iTunesItemIdentifier - In the implementation block
 @property (readonly) IGSponsoredPostInfo * sponsoredPostInfo;                     //@synthesize sponsoredPostInfo=_sponsoredPostInfo - In the implementation block
 @property (copy) NSString * organicTrackingToken;                                 //@synthesize organicTrackingToken=_organicTrackingToken - In the implementation block
+@property (readonly) IGCommentModel * headline; 
 @property (readonly) char isDirectResponse; 
 @property (readonly) char isPagingEnabled; 
 @property (assign) char carouselLinkButtonOverride;                               //@synthesize carouselLinkButtonOverride=_carouselLinkButtonOverride - In the implementation block
 @property (retain) IGPivotMediaInfo * pivotInfo;                                  //@synthesize pivotInfo=_pivotInfo - In the implementation block
 @property (retain) NSArray * albumItems;                                          //@synthesize albumItems=_albumItems - In the implementation block
 @property (assign) int currentAlbumItem;                                          //@synthesize currentAlbumItem=_currentAlbumItem - In the implementation block
+@property (assign) float currentAlbumViewHeight;                                  //@synthesize currentAlbumViewHeight=_currentAlbumViewHeight - In the implementation block
 @property (readonly) NSString * parentPK;                                         //@synthesize parentPK=_parentPK - In the implementation block
 @property (assign) char expanded;                                                 //@synthesize expanded=_expanded - In the implementation block
 @property (readonly) unsigned hash; 
@@ -63,6 +64,7 @@
 -(char)isAlbum;
 -(int)currentAlbumItem;
 -(id)albumAwareFeedItem;
+-(float)currentAlbumViewHeight;
 -(id)albumAwarePK;
 -(id)albumAwareComments;
 -(id)albumAwareCaption;
@@ -77,6 +79,7 @@
 -(char)albumAwareHasLiked;
 -(int)albumAwareLikeCount;
 -(id)albumAwareLikers;
+-(id)albumAwareLatestPostPhoto;
 -(CGSize)albumAwareSizeForMediaNormalizedToViewWidth:(float)arg1 ;
 -(NSString *)mediaId;
 -(char)carouselLinkButtonOverride;
@@ -113,40 +116,39 @@
 -(id)buildShortFormatTimestamp;
 -(id)simplifiedLikeText;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
--(char)isDummyVideo;
 -(void)fetchAndShowPivotIfNeededForRequestEntry:(int)arg1 ;
 -(NSString *)exploreAlgorithm;
 -(NSString *)exploreImpressionToken;
--(char)isWaitingForPivot;
 -(IGPivotMediaInfo *)pivotInfo;
 -(void)fetchPivotsWithRequestEntry:(int)arg1 ;
 -(void)setPivotInfo:(IGPivotMediaInfo *)arg1 ;
 -(void)setIsWaitingForPivot:(char)arg1 ;
 -(char)isDirectResponse;
 -(char)showPivot;
--(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 userInfo:(id)arg4 index:(int)arg5 analyticsMetadata:(id)arg6 analyticsModule:(id)arg7 completion:(/*^block*/id)arg8 ;
 -(void)setCurrentAlbumItem:(int)arg1 ;
+-(void)setCurrentAlbumViewHeight:(float)arg1 ;
 -(NSString *)permalink;
+-(NSString *)parentPK;
 -(void)deleteItem;
--(void)markAsSeen;
--(void)markAsExpanded;
--(void)setCarouselLinkButtonOverride:(char)arg1 ;
--(char)hasPivot;
--(void)setShowPivot:(char)arg1 ;
--(NSString *)ig_productSessionKey;
 -(char)seen;
+-(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 userInfo:(id)arg4 index:(int)arg5 analyticsMetadata:(id)arg6 analyticsModule:(id)arg7 requestSourceParams:(id)arg8 completion:(/*^block*/id)arg9 ;
+-(void)markAsSeen;
+-(void)setCarouselLinkButtonOverride:(char)arg1 ;
+-(void)markAsExpanded;
+-(NSString *)ig_productSessionKey;
 -(void)setMediaIdWithPk:(id)arg1 ;
 -(void)setUsertagsFromEntry:(id)arg1 ;
 -(void)setSponsoredPostInfoFromEntry:(id)arg1 ;
 -(id)albumItemsArrayForPostDictionary:(id)arg1 ;
--(void)postPostUpdatedNotification;
 -(id)mediaIdFromPK:(id)arg1 ;
--(NSString *)parentPK;
+-(char)isWaitingForPivot;
+-(void)setShowPivot:(char)arg1 ;
 -(void)setInPhotosOfYou:(char)arg1 ;
+-(char)hasPivot;
 -(char)inPhotosOfYou;
--(void)setIsDummyVideo:(char)arg1 ;
 -(NSString *)organicTrackingToken;
 -(void)setOrganicTrackingToken:(NSString *)arg1 ;
+-(IGCommentModel *)headline;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;

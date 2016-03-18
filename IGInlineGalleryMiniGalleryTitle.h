@@ -9,13 +9,14 @@
 @interface IGInlineGalleryMiniGalleryTitle : UIView <IGInlineGalleryTitleBar> {
 
 	UILabel* _label;
-	UIButton* _seeAllButton;
+	UIButton* _cameraButton;
 	id<IGInlineGalleryTitleBarDelegate> _delegate;
 
 }
 
 @property (assign,nonatomic,__weak) id<IGInlineGalleryTitleBarDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)didTapTitleBar;
+-(void)didTapCamera;
 -(void)didTapSeeAll;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGInlineGalleryTitleBarDelegate>)arg1 ;

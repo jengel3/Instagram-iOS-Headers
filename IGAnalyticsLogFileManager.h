@@ -13,9 +13,9 @@
 -(void)deleteLogFile:(id)arg1 ;
 -(id)initWithLogFileDirectory:(id)arg1 ;
 -(id)allLogFiles;
+-(id)createLogFileWithData:(id)arg1 binary:(char)arg2 ;
 -(void)deleteLogFiles:(id)arg1 keepNewestFiles:(unsigned)arg2 ;
 -(char)isBinaryFile:(id)arg1 ;
--(id)createLogFileWithData:(id)arg1 binary:(char)arg2 ;
 -(NSString *)logFileDirectory;
 @end
 

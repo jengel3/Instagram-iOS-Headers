@@ -3,12 +3,13 @@
 #import <UIKit/UIView.h>
 
 @protocol IGGenericMegaphoneViewV2Delegate;
-@class IGGenericMegaphone, UILabel, IGImageView, UIButton, UIView, NSString;
+@class IGGenericMegaphone, UIImage, UILabel, IGImageView, UIButton, UIView, NSString;
 
 @interface IGGenericMegaphoneViewV2 : UIView {
 
 	char _megaphoneSeen;
 	IGGenericMegaphone* _megaphone;
+	UIImage* _megaphoneImage;
 	id<IGGenericMegaphoneViewV2Delegate> _delegate;
 	UILabel* _titleView;
 	UILabel* _messageView;
@@ -22,6 +23,7 @@
 }
 
 @property (nonatomic,retain) IGGenericMegaphone * megaphone;                                    //@synthesize megaphone=_megaphone - In the implementation block
+@property (nonatomic,retain) UIImage * megaphoneImage;                                          //@synthesize megaphoneImage=_megaphoneImage - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGenericMegaphoneViewV2Delegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) UILabel * titleView;                                               //@synthesize titleView=_titleView - In the implementation block
 @property (nonatomic,retain) UILabel * messageView;                                             //@synthesize messageView=_messageView - In the implementation block
@@ -40,6 +42,7 @@
 -(NSString *)displaySource;
 -(void)layoutButtons;
 -(id)initWithMegaphone:(id)arg1 ;
+-(void)setMegaphoneImage:(UIImage *)arg1 ;
 -(char)megaphoneSeen;
 -(void)setMegaphoneSeen:(char)arg1 ;
 -(UIButton *)buttonOne;
@@ -58,8 +61,9 @@
 -(id)createButtonOne;
 -(id)createButtonTwo;
 -(void)layoutImageView;
+-(char)megaphoneHasImage;
+-(UIImage *)megaphoneImage;
 -(id)createButtonForMegaphoneButton:(id)arg1 ;
--(id)megaphoneImage;
 -(void)setDisplaySource:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGGenericMegaphoneViewV2Delegate>)arg1 ;
 -(void)layoutSubviews;

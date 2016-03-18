@@ -4,12 +4,11 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 #import <Instagram/IGSwitchUsersControllerDelegate.h>
 #import <Instagram/IGDimmedOverlayViewControllerDelegate.h>
-#import <Instagram/IGNavigationControllerDelegate.h>
 #import <Instagram/IGInlineGalleryPresenter.h>
 
-@class IGTabBar, IGTabBarButton, NSArray, IGToastViewPopup, IGToastData, IGSwitchUsersController, UIWindow, IGDimmedOverlayViewController, IGInlineGalleryViewController, IGNavigationController, UIViewController, UIView, IGNewsViewController, NSString;
+@class IGTabBar, IGTabBarButton, NSArray, IGToastViewPopup, IGToastData, IGSwitchUsersController, UIWindow, IGDimmedOverlayViewController, IGInlineGalleryViewController, UIViewController, UIView, IGNavigationController, IGNewsViewController, NSString;
 
-@interface IGTabBarController : UIViewController <IGToastViewDelegate, UIGestureRecognizerDelegate, IGSwitchUsersControllerDelegate, IGDimmedOverlayViewControllerDelegate, IGNavigationControllerDelegate, IGInlineGalleryPresenter> {
+@interface IGTabBarController : UIViewController <IGToastViewDelegate, UIGestureRecognizerDelegate, IGSwitchUsersControllerDelegate, IGDimmedOverlayViewControllerDelegate, IGInlineGalleryPresenter> {
 
 	IGTabBar* _tabBar;
 	IGTabBarButton* _homeButton;
@@ -19,7 +18,6 @@
 	IGTabBarButton* _profileButton;
 	char _isPerformingTabBarAction;
 	char _isDisplayingSwitchUsersTableView;
-	char _openInlineGalleryUponTimelineEntry;
 	NSArray* _viewControllers;
 	int _selectedTabBarItem;
 	IGToastViewPopup* _activityToastView;
@@ -30,7 +28,6 @@
 	UIWindow* _dimmedOverlayWindow;
 	IGDimmedOverlayViewController* _dimmedOverlayViewController;
 	IGInlineGalleryViewController* _inlineGalleryController;
-	IGNavigationController* _timelineNavController;
 
 }
 
@@ -52,8 +49,6 @@
 @property (nonatomic,retain) IGDimmedOverlayViewController * dimmedOverlayViewController;              //@synthesize dimmedOverlayViewController=_dimmedOverlayViewController - In the implementation block
 @property (assign,nonatomic) char isDisplayingSwitchUsersTableView;                                    //@synthesize isDisplayingSwitchUsersTableView=_isDisplayingSwitchUsersTableView - In the implementation block
 @property (nonatomic,retain) IGInlineGalleryViewController * inlineGalleryController;                  //@synthesize inlineGalleryController=_inlineGalleryController - In the implementation block
-@property (nonatomic,retain) IGNavigationController * timelineNavController;                           //@synthesize timelineNavController=_timelineNavController - In the implementation block
-@property (assign,nonatomic) char openInlineGalleryUponTimelineEntry;                                  //@synthesize openInlineGalleryUponTimelineEntry=_openInlineGalleryUponTimelineEntry - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -61,15 +56,13 @@
 -(int)pendingRequestCount;
 -(void)setPendingRequestCount:(int)arg1 ;
 -(char)isTabBarVisible;
+-(void)openURLInNewsTab:(id)arg1 ;
 -(void)setSelectedTabBarItem:(int)arg1 animated:(char)arg2 ;
 -(id)navigationControllerForTabBarItem:(int)arg1 ;
--(void)openURLInNewsTab:(id)arg1 ;
 -(int)selectedTabBarItem;
 -(void)prefetchAndFocusInboxInNewsTab;
 -(void)grayOverlayViewTapped;
 -(void)dimmedOverlayViewControllerDidTapDimmedOverlay:(id)arg1 ;
--(void)navigationController:(id)arg1 willNavigateToViewController:(id)arg2 ;
--(void)navigationController:(id)arg1 didNavigateToViewController:(id)arg2 animated:(char)arg3 ;
 -(void)inboxCountDidUpdate:(id)arg1 ;
 -(void)toastCountsReceived:(id)arg1 ;
 -(void)tabBarIsHiding;
@@ -85,19 +78,15 @@
 -(void)initializeInlineGalleryVCIfNeeded;
 -(IGNavigationController *)newsNavigationController;
 -(IGDimmedOverlayViewController *)dimmedOverlayViewController;
--(void)setOpenInlineGalleryUponTimelineEntry:(char)arg1 ;
 -(IGInlineGalleryViewController *)inlineGalleryController;
--(IGNavigationController *)timelineNavController;
 -(void)setInlineGalleryController:(IGInlineGalleryViewController *)arg1 ;
 -(void)logNavigationEventForClickPoint:(id)arg1 ;
--(void)presentInlineGalleryWithStyle:(int)arg1 animated:(char)arg2 ;
+-(char)presentInlineGalleryWithStyle:(int)arg1 animated:(char)arg2 ;
 -(IGSwitchUsersController *)switchUsersController;
 -(UIWindow *)dimmedOverlayWindow;
 -(void)setIsDisplayingSwitchUsersTableView:(char)arg1 ;
 -(char)itemNeedsAttention:(int)arg1 ;
 -(void)updateTabBarButtonsToSelectedItem:(int)arg1 ;
--(char)openInlineGalleryUponTimelineEntry;
--(char)isCurrentlyOnMainFeed;
 -(void)hideActivityToastAnimated:(char)arg1 ;
 -(char)isPerformingTabBarAction;
 -(void)setIsPerformingTabBarAction:(char)arg1 ;
@@ -129,7 +118,6 @@
 -(void)setSwitchUsersController:(IGSwitchUsersController *)arg1 ;
 -(void)setDimmedOverlayWindow:(UIWindow *)arg1 ;
 -(void)setDimmedOverlayViewController:(IGDimmedOverlayViewController *)arg1 ;
--(void)setTimelineNavController:(IGNavigationController *)arg1 ;
 -(void)dealloc;
 -(id)init;
 -(char)shouldAutorotate;

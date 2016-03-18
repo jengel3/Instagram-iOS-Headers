@@ -9,24 +9,22 @@
 #import <UIKit/UICollectionViewDelegate.h>
 #import <Instagram/IGExploreSearchControllerDelegate.h>
 #import <Instagram/IGPullToRefreshProtocol.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGSearchOriginControllerProtocol.h>
-#import <Instagram/IGEventViewerViewControllerDelegate.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
 
-@class IGListCollectionView, IGListAdapter, IGExploreSearchViewController, IGExploreMainFeedNetworkSource, IGExploreMainFeedLayout, NSMutableArray, IGSpinnerModel, NSMutableDictionary, IGFeedVideoCellManager, IGPullToRefreshViewManager, NSString, IGExploreMainFeedPreviewingHandler, NSIndexPath, IGFeedFocusCoordinator, IGChannelFocusCoordinator, NSMutableSet, IGExploreMainFeedLogger, NSArray;
+@class IGListCollectionView, IGListAdapter, IGSearchViewController, IGExploreMainFeedNetworkSource, IGExploreMainFeedLayout, NSMutableArray, IGSpinnerModel, IGFeedVideoCellManager, IGPullToRefreshViewManager, NSString, IGExploreMainFeedPreviewingHandler, NSIndexPath, IGFeedFocusCoordinator, IGChannelFocusCoordinator, IGExploreMainFeedLogger, IGCollectionViewVisibility, IGExploreTTILogger, NSArray;
 
-@interface IGExploreMainFeedViewController : IGViewController <IGExploreMainFeedNetworkSourceDelegate, IGFeedNetworkSourceDelegate, IGExploreMainFeedLayoutDataSource, IGListAdapterDataSource, IGListAdapterDelegate, UICollectionViewDelegate, IGExploreSearchControllerDelegate, IGPullToRefreshProtocol, IGSearchOriginControllerProtocol, IGEventViewerViewControllerDelegate, UIViewControllerTransitioningDelegate> {
+@interface IGExploreMainFeedViewController : IGViewController <IGExploreMainFeedNetworkSourceDelegate, IGFeedNetworkSourceDelegate, IGExploreMainFeedLayoutDataSource, IGListAdapterDataSource, IGListAdapterDelegate, UICollectionViewDelegate, IGExploreSearchControllerDelegate, IGPullToRefreshProtocol, IGAnalyticsModule, IGSearchOriginControllerProtocol, UIViewControllerTransitioningDelegate> {
 
-	char _showSearchOnAppear;
 	char _showSearchOnViewDidAppear;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
-	IGExploreSearchViewController* _searchController;
+	IGSearchViewController* _searchController;
 	IGExploreMainFeedNetworkSource* _networkSource;
 	IGExploreMainFeedLayout* _feedLayout;
 	NSMutableArray* _items;
 	IGSpinnerModel* _spinner;
-	NSMutableDictionary* _cachedItemPositions;
 	IGFeedVideoCellManager* _videoCellManager;
 	IGPullToRefreshViewManager* _pullToRefreshManager;
 	NSString* _currentUserPK;
@@ -34,31 +32,31 @@
 	NSIndexPath* _currentActiveChannelIndexPath;
 	IGFeedFocusCoordinator* _mediaFocusCoordinator;
 	IGChannelFocusCoordinator* _channelFocusCoordinator;
-	NSMutableSet* _loggedImpression;
 	IGExploreMainFeedLogger* _logger;
+	IGCollectionViewVisibility* _collectionViewVisibility;
+	IGExploreTTILogger* _ttiLogger;
 
 }
 
-@property (nonatomic,readonly) IGListCollectionView * collectionView;                            //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,readonly) IGListAdapter * listAdapter;                                      //@synthesize listAdapter=_listAdapter - In the implementation block
+@property (nonatomic,readonly) IGListCollectionView * collectionView;                              //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,readonly) IGListAdapter * listAdapter;                                        //@synthesize listAdapter=_listAdapter - In the implementation block
 @property (nonatomic,readonly) NSArray * allItems; 
-@property (nonatomic,readonly) IGExploreSearchViewController * searchController;                 //@synthesize searchController=_searchController - In the implementation block
-@property (assign,nonatomic) char showSearchOnAppear;                                            //@synthesize showSearchOnAppear=_showSearchOnAppear - In the implementation block
-@property (assign,nonatomic) char showSearchOnViewDidAppear;                                     //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
-@property (nonatomic,readonly) IGExploreMainFeedNetworkSource * networkSource;                   //@synthesize networkSource=_networkSource - In the implementation block
-@property (nonatomic,retain) IGExploreMainFeedLayout * feedLayout;                               //@synthesize feedLayout=_feedLayout - In the implementation block
-@property (nonatomic,retain) NSMutableArray * items;                                             //@synthesize items=_items - In the implementation block
-@property (nonatomic,readonly) IGSpinnerModel * spinner;                                         //@synthesize spinner=_spinner - In the implementation block
-@property (nonatomic,retain) NSMutableDictionary * cachedItemPositions;                          //@synthesize cachedItemPositions=_cachedItemPositions - In the implementation block
-@property (nonatomic,retain) IGFeedVideoCellManager * videoCellManager;                          //@synthesize videoCellManager=_videoCellManager - In the implementation block
-@property (nonatomic,readonly) IGPullToRefreshViewManager * pullToRefreshManager;                //@synthesize pullToRefreshManager=_pullToRefreshManager - In the implementation block
-@property (nonatomic,readonly) NSString * currentUserPK;                                         //@synthesize currentUserPK=_currentUserPK - In the implementation block
-@property (nonatomic,retain) IGExploreMainFeedPreviewingHandler * previewDelegate;               //@synthesize previewDelegate=_previewDelegate - In the implementation block
-@property (nonatomic,retain) NSIndexPath * currentActiveChannelIndexPath;                        //@synthesize currentActiveChannelIndexPath=_currentActiveChannelIndexPath - In the implementation block
-@property (nonatomic,readonly) IGFeedFocusCoordinator * mediaFocusCoordinator;                   //@synthesize mediaFocusCoordinator=_mediaFocusCoordinator - In the implementation block
-@property (nonatomic,readonly) IGChannelFocusCoordinator * channelFocusCoordinator;              //@synthesize channelFocusCoordinator=_channelFocusCoordinator - In the implementation block
-@property (nonatomic,retain) NSMutableSet * loggedImpression;                                    //@synthesize loggedImpression=_loggedImpression - In the implementation block
-@property (nonatomic,retain) IGExploreMainFeedLogger * logger;                                   //@synthesize logger=_logger - In the implementation block
+@property (nonatomic,readonly) IGSearchViewController * searchController;                          //@synthesize searchController=_searchController - In the implementation block
+@property (assign,nonatomic) char showSearchOnViewDidAppear;                                       //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
+@property (nonatomic,readonly) IGExploreMainFeedNetworkSource * networkSource;                     //@synthesize networkSource=_networkSource - In the implementation block
+@property (nonatomic,retain) IGExploreMainFeedLayout * feedLayout;                                 //@synthesize feedLayout=_feedLayout - In the implementation block
+@property (nonatomic,retain) NSMutableArray * items;                                               //@synthesize items=_items - In the implementation block
+@property (nonatomic,readonly) IGSpinnerModel * spinner;                                           //@synthesize spinner=_spinner - In the implementation block
+@property (nonatomic,retain) IGFeedVideoCellManager * videoCellManager;                            //@synthesize videoCellManager=_videoCellManager - In the implementation block
+@property (nonatomic,readonly) IGPullToRefreshViewManager * pullToRefreshManager;                  //@synthesize pullToRefreshManager=_pullToRefreshManager - In the implementation block
+@property (nonatomic,readonly) NSString * currentUserPK;                                           //@synthesize currentUserPK=_currentUserPK - In the implementation block
+@property (nonatomic,retain) IGExploreMainFeedPreviewingHandler * previewDelegate;                 //@synthesize previewDelegate=_previewDelegate - In the implementation block
+@property (nonatomic,retain) NSIndexPath * currentActiveChannelIndexPath;                          //@synthesize currentActiveChannelIndexPath=_currentActiveChannelIndexPath - In the implementation block
+@property (nonatomic,readonly) IGFeedFocusCoordinator * mediaFocusCoordinator;                     //@synthesize mediaFocusCoordinator=_mediaFocusCoordinator - In the implementation block
+@property (nonatomic,readonly) IGChannelFocusCoordinator * channelFocusCoordinator;                //@synthesize channelFocusCoordinator=_channelFocusCoordinator - In the implementation block
+@property (nonatomic,readonly) IGExploreMainFeedLogger * logger;                                   //@synthesize logger=_logger - In the implementation block
+@property (nonatomic,readonly) IGCollectionViewVisibility * collectionViewVisibility;              //@synthesize collectionViewVisibility=_collectionViewVisibility - In the implementation block
+@property (nonatomic,readonly) IGExploreTTILogger * ttiLogger;                                     //@synthesize ttiLogger=_ttiLogger - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -77,17 +75,16 @@
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(NSString *)currentUserPK;
--(void)didDismissEventViewerViewController:(id)arg1 ;
+-(IGExploreTTILogger *)ttiLogger;
 -(void)searchControllerSearchBarTapped:(id)arg1 ;
 -(void)searchControllerCancelButtonTapped:(id)arg1 ;
 -(void)searchController:(id)arg1 switchedToViewController:(id)arg2 ;
 -(void)searchControllerPeopleIconTapped:(id)arg1 ;
+-(void)searchControllerDirectIconTapped:(id)arg1 ;
 -(void)navigationControllerWillShowSearch;
 -(void)prepareForPopToRootTransition;
 -(char)showSearchOnViewDidAppear;
 -(void)setShowSearchOnViewDidAppear:(char)arg1 ;
--(char)showSearchOnAppear;
--(void)setShowSearchOnAppear:(char)arg1 ;
 -(IGFeedVideoCellManager *)videoCellManager;
 -(IGChannelFocusCoordinator *)channelFocusCoordinator;
 -(CGSize)collectionView:(id)arg1 exploreMainFeedLayout:(id)arg2 sizeForItemAtIndexPath:(id)arg3 ;
@@ -95,33 +92,28 @@
 -(void)exploreMainFeedNetworkSource:(id)arg1 didLoadMoreExploreItems:(id)arg2 ;
 -(void)setupLocationManager;
 -(void)setupVideoCellManager;
+-(void)setupLogger;
 -(IGPullToRefreshViewManager *)pullToRefreshManager;
 -(void)setupPreview;
 -(void)syncWithContexualFeedAndImmersiveViewer;
--(void)onTabBarTapped:(id)arg1 ;
 -(void)updateFeedWithItems:(id)arg1 ;
 -(void)removeLastSpinner;
 -(id)generateRankToken;
 -(id)generateLocation;
 -(IGFeedFocusCoordinator *)mediaFocusCoordinator;
 -(void)setCurrentActiveChannelIndexPath:(NSIndexPath *)arg1 ;
--(NSMutableSet *)loggedImpression;
--(NSRange)positionForItemAtIndexPath:(id)arg1 ;
 -(void)loadNextPage;
 -(void)scrollViewDidEndScrolling;
 -(NSIndexPath *)currentActiveChannelIndexPath;
 -(void)setVideoCellManager:(IGFeedVideoCellManager *)arg1 ;
 -(void)updateChannelFromImmersiveViewer;
--(id)targetMediaFromContexualFeedPost:(id)arg1 ;
+-(void)scrollToItem:(id)arg1 animated:(char)arg2 ;
 -(void)playVideoForChannel:(id)arg1 startTime:(float)arg2 ;
--(NSMutableDictionary *)cachedItemPositions;
--(void)updateCacheWithPosition:(NSRange)arg1 atIndexPath:(id)arg2 ;
+-(void)logImpressions;
+-(IGCollectionViewVisibility *)collectionViewVisibility;
 -(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
 -(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
--(void)setCachedItemPositions:(NSMutableDictionary *)arg1 ;
--(void)setLoggedImpression:(NSMutableSet *)arg1 ;
 -(IGExploreMainFeedLogger *)logger;
--(void)setLogger:(IGExploreMainFeedLogger *)arg1 ;
 -(IGExploreMainFeedPreviewingHandler *)previewDelegate;
 -(void)setPreviewDelegate:(IGExploreMainFeedPreviewingHandler *)arg1 ;
 -(void)scrollToTopAnimated:(char)arg1 ;
@@ -144,8 +136,7 @@
 -(void)viewDidDisappear:(char)arg1 ;
 -(id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3 ;
 -(id)animationControllerForDismissedController:(id)arg1 ;
--(IGExploreSearchViewController *)searchController;
--(CGRect)frameForItemAtIndexPath:(id)arg1 ;
+-(IGSearchViewController *)searchController;
 -(IGSpinnerModel *)spinner;
 -(void)setFeedLayout:(IGExploreMainFeedLayout *)arg1 ;
 -(IGExploreMainFeedLayout *)feedLayout;

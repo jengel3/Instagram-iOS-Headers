@@ -14,7 +14,7 @@
 @property (assign,nonatomic) char enabled; 
 @property (nonatomic,retain) UIButton * mainButton;                    //@synthesize mainButton=_mainButton - In the implementation block
 @property (assign,nonatomic) CGSize touchTargetInflation;              //@synthesize touchTargetInflation=_touchTargetInflation - In the implementation block
-+(id)barButtonItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 tintColor:(id)arg4 ;
++(id)barButtonItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 tintColor:(id)arg4 semiBold:(char)arg5 ;
 +(id)barButtonItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 ;
 +(id)barButtonItemWithImage:(id)arg1 accessibilityLabel:(id)arg2 target:(id)arg3 action:(SEL)arg4 ;
 +(id)doneItemWithTarget:(id)arg1 action:(SEL)arg2 ;
@@ -29,7 +29,7 @@
 +(id)cameraShareItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)loadingBarButtonItem;
 +(id)refreshBarButtonItemWithTarget:(id)arg1 action:(SEL)arg2 ;
--(id)initWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 image:(id)arg4 accessibilityLabel:(id)arg5 ;
+-(id)initWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 image:(id)arg4 accessibilityLabel:(id)arg5 semiBold:(char)arg6 ;
 -(void)setMainButton:(UIButton *)arg1 ;
 -(UIButton *)mainButton;
 -(CGSize)touchTargetInflation;

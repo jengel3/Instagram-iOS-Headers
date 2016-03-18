@@ -34,10 +34,10 @@
 -(unsigned)displaySource;
 -(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 ;
 -(id)viewForMegaphone;
--(char)megaphoneSeen;
--(void)setMegaphoneSeen:(char)arg1 ;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
+-(char)megaphoneSeen;
+-(void)setMegaphoneSeen:(char)arg1 ;
 -(IGGenericMegaphoneViewV2 *)megaphoneView2;
 -(id<IGGenericMegaphoneLogger>)logger;
 -(void)setDelegate:(id<IGMegaphonePresenterDelegate>)arg1 ;

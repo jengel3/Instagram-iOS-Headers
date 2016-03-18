@@ -24,12 +24,12 @@
 @property (nonatomic,retain) IGPathStyleOuterShadow * outerShadow;                    //@synthesize outerShadow=_outerShadow - In the implementation block
 +(id)styleSetWithStyles:(/*function pointer*/void*)arg1 ;
 -(IGPathStyleInnerFill *)innerFill;
+-(void)applyToPath:(id)arg1 inContext:(CGContextRef)arg2 ;
+-(IGPathStyleBackgroundFill *)backgroundFill;
 -(IGPathStyleOuterFill *)outerFill;
 -(IGPathStyleGradientFill *)gradientFill;
 -(IGPathStyleInnerShadow *)innerShadow;
 -(IGPathStyleOuterShadow *)outerShadow;
--(void)applyToPath:(id)arg1 inContext:(CGContextRef)arg2 ;
--(IGPathStyleBackgroundFill *)backgroundFill;
 -(void)setBackgroundFill:(IGPathStyleBackgroundFill *)arg1 ;
 -(void)setOuterFill:(IGPathStyleOuterFill *)arg1 ;
 -(void)setInnerFill:(IGPathStyleInnerFill *)arg1 ;

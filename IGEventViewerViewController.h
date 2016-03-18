@@ -5,6 +5,7 @@
 #import <Instagram/IGEventServiceNetworkDelegate.h>
 #import <Instagram/IGEventViewerFeedViewScrollingDelegate.h>
 #import <Instagram/IGEventViewerFeedViewDraggingDelegate.h>
+#import <Instagram/IGEventViewerFeedViewGestureDelegate.h>
 #import <Instagram/IGEventViewerHeaderViewDelegate.h>
 #import <Instagram/IGEventViewerMediaPlaybackDelegate.h>
 #import <Instagram/IGEventViewerSoundStateListenerDelegate.h>
@@ -16,7 +17,7 @@
 @protocol IGEventViewerViewControllerDelegate;
 @class IGEventViewerMediaPreloader, IGEventViewerSoundStateListener, IGEventViewerHeaderView, IGEventService, IGUser, IGEventViewerDataSource, IGEventViewerMediaPlaybackController, IGEventViewerFeedViewController, IGEventViewerAnalyticsLogger, IGEventViewerMediaPauseViewPresenter, IGChannelFocusCoordinator, NSString;
 
-@interface IGEventViewerViewController : UIViewController <IGEventViewerMediaPreloaderVideoProgressDelegate, IGEventServiceNetworkDelegate, IGEventViewerFeedViewScrollingDelegate, IGEventViewerFeedViewDraggingDelegate, IGEventViewerHeaderViewDelegate, IGEventViewerMediaPlaybackDelegate, IGEventViewerSoundStateListenerDelegate, IGEventViewerMediaPauseViewDelegate, IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate, UIActionSheetDelegate> {
+@interface IGEventViewerViewController : UIViewController <IGEventViewerMediaPreloaderVideoProgressDelegate, IGEventServiceNetworkDelegate, IGEventViewerFeedViewScrollingDelegate, IGEventViewerFeedViewDraggingDelegate, IGEventViewerFeedViewGestureDelegate, IGEventViewerHeaderViewDelegate, IGEventViewerMediaPlaybackDelegate, IGEventViewerSoundStateListenerDelegate, IGEventViewerMediaPauseViewDelegate, IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate, UIActionSheetDelegate> {
 
 	char _isPreloadPresenterUsed;
 	IGEventViewerMediaPreloader* _mediaPreloader;
@@ -62,7 +63,10 @@
 -(void)eventViewerFeedViewController:(id)arg1 didScrollToItemAtIndexPath:(id)arg2 ;
 -(void)willBeginDraggingFeedViewController:(id)arg1 ;
 -(void)eventViewerFeedViewController:(id)arg1 willScrollToItemAtIndexPath:(id)arg2 ;
+-(void)didScrollUpToTopFeedViewController:(id)arg1 ;
+-(void)didScrollDownToBottomFeedViewController:(id)arg1 ;
 -(void)didEndDraggingFeedViewController:(id)arg1 ;
+-(void)didSwipeRightFeedViewController:(id)arg1 ;
 -(void)willScrollNearBottomFeedViewController:(id)arg1 ;
 -(void)eventHeaderView:(id)arg1 didTapCloseButton:(id)arg2 ;
 -(void)eventHeaderViewDidTapBackground:(id)arg1 ;
@@ -82,7 +86,7 @@
 -(id)initWithEventService:(id)arg1 currentUser:(id)arg2 initialPosts:(id)arg3 logger:(id)arg4 focusCoordinator:(id)arg5 ;
 -(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
 -(void)soundListenerDidUpdate:(id)arg1 ;
--(id)postsFromInitialPosts:(id)arg1 focusCoordinator:(id)arg2 ;
+-(id)postsFromInitialPosts:(id)arg1 focusCoordinator:(id)arg2 cachedPosts:(id)arg3 ;
 -(void)setupFeedController;
 -(CGRect)frameForFeedView;
 -(IGEventViewerMediaPlaybackController *)mediaPlaybackController;
@@ -93,8 +97,9 @@
 -(void)setIsPreloadPresenterUsed:(char)arg1 ;
 -(void)didReceiveAppWillResignActiveNotification:(id)arg1 ;
 -(void)didReceiveAppDidBecomeActiveNotification:(id)arg1 ;
+-(void)resetHeaderViewWithTitle:(id)arg1 ;
 -(void)loadMorePosts:(id)arg1 ;
--(void)updateFocusCoordinator;
+-(void)exitEventViewer:(id)arg1 ;
 -(void)handleDidScrollToIndexPath:(id)arg1 ;
 -(void)dismissPauseMenuAnimated:(char)arg1 ;
 -(void)presentUserDetailControllerForPost:(id)arg1 ;
@@ -109,6 +114,7 @@
 -(void)playMediaAtIndexPath:(id)arg1 ;
 -(void)preloadNextMediaIfAvailable;
 -(void)updateDoubleTapForIndexPath:(id)arg1 ;
+-(void)updateFocusCoordinator;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)setDelegate:(id<IGEventViewerViewControllerDelegate>)arg1 ;
 -(IGEventViewerDataSource *)dataSource;

@@ -1,4 +1,5 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
 #import <UIKit/UICollectionViewDataSource.h>
 #import <UIKit/UICollectionViewDelegate.h>
@@ -49,6 +50,7 @@
 -(void)setBouncesOnFirstPage:(char)arg1 ;
 -(void)setIndexToScrollToOnViewDidLoad:(int)arg1 ;
 -(void)setIndexesToCachedViewControllers:(NSMapTable *)arg1 ;
+-(CGRect)collectionViewFrame;
 -(int)indexToScrollToOnViewDidLoad;
 -(char)bouncesOnFirstPage;
 -(int)numberOfCachedAdjacentViewControllers;
@@ -79,6 +81,7 @@
 -(void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3 ;
 -(void)didReceiveMemoryWarning;
 -(id)initWithNibName:(id)arg1 bundle:(id)arg2 ;
+-(void)viewDidLayoutSubviews;
 -(UICollectionView *)collectionView;
 -(int)currentIndex;
 -(void)viewDidLoad;

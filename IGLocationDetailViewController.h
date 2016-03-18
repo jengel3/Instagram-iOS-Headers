@@ -4,10 +4,11 @@
 #import <Instagram/IGLocationHeaderViewDelegate.h>
 #import <Instagram/IGExploreComposedPeopleYouFollowViewDelegate.h>
 #import <Instagram/IGRelatedItemsHeaderViewDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 
 @class IGLocation, NSArray, IGRankedMediaView, IGLocationHeaderView, IGExploreComposedPeopleYouFollowView, NSMutableSet, IGFeedItemPreviewingHandler, IGRelatedItemsService, IGRelatedItemsHeaderView, IGVisitedRelatedItemsStore, NSString;
 
-@interface IGLocationDetailViewController : IGFeedViewController_DEPRECATED <IGRankedMediaViewDelegate, IGLocationHeaderViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate, IGRelatedItemsHeaderViewDelegate> {
+@interface IGLocationDetailViewController : IGFeedViewController_DEPRECATED <IGRankedMediaViewDelegate, IGLocationHeaderViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate, IGRelatedItemsHeaderViewDelegate, IGAnalyticsModule> {
 
 	char _shouldUpdateLocationHeaderView;
 	IGLocation* _location;

@@ -32,8 +32,6 @@
 -(int)numberOfSectionsInTableView:(id)arg1 ;
 -(id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2 ;
 -(id<IGCountryCodeViewControllerDelegate>)delegate;
--(int)preferredStatusBarStyle;
--(char)prefersStatusBarHidden;
 -(void)viewDidLoad;
 -(void)dismiss;
 @end

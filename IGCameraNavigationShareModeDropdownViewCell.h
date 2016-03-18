@@ -10,6 +10,7 @@
 }
 
 @property (nonatomic,retain) IGCameraNavigationShareModeSelectorItem * item;              //@synthesize item=_item - In the implementation block
+-(void)layoutSubviews;
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;
 -(IGCameraNavigationShareModeSelectorItem *)item;
 -(void)setSelected:(char)arg1 ;

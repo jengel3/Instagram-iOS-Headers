@@ -9,7 +9,7 @@
 #import <Instagram/IGInsightsSeeAllPostsTabContentViewDataSourceDelegate.h>
 
 @protocol IGInsightsSeeAllPostsTabContentViewControllerDelegate;
-@class IGListAdapter, NSMutableArray, IGListCollectionView, IGInsightsMediaFeedListItemController, NSArray, IGInsightsInsightsDataOrderingSelectorView, UIActivityIndicatorView, NSDictionary, IGPullToRefreshViewManager, IGPullToRefreshView, IGInsightsSeeAllPostsTabContentViewDataSource, NSString;
+@class IGListAdapter, NSMutableArray, IGListCollectionView, IGInsightsMediaFeedListItemController, IGInsightsInsightsDataOrderingSelectorView, UIActivityIndicatorView, NSDictionary, IGPullToRefreshViewManager, IGPullToRefreshView, IGInsightsSeeAllPostsTabContentViewDataSource, NSString;
 
 @interface IGInsightsSeeAllPostsTabContentViewController : UIViewController <IGFeedNetworkSourceDelegate, IGListAdapterDataSource, UICollectionViewDelegate, IGInsightsInsightsDataOrderingSelectorViewDelegate, IGPullToRefreshProtocol, IGInsightsSeeAllPostsTabContentViewDataSourceDelegate> {
 
@@ -19,12 +19,10 @@
 	NSMutableArray* _objects;
 	IGListCollectionView* _collectionView;
 	IGInsightsMediaFeedListItemController* _feedListItemController;
-	NSArray* _mediaBundles;
 	int _mediaCellCategory;
 	IGInsightsInsightsDataOrderingSelectorView* _orderingSelectorView;
 	UIActivityIndicatorView* _spinner;
 	NSDictionary* _buttonToMediaCellCategoryMapping;
-	NSArray* _mediaOrderSelectorTabs;
 	IGPullToRefreshViewManager* _pullToRefreshViewManager;
 	IGPullToRefreshView* _pullRefreshControlView;
 	IGInsightsSeeAllPostsTabContentViewDataSource* _dataSource;
@@ -36,12 +34,10 @@
 @property (nonatomic,retain) NSMutableArray * objects;                                                               //@synthesize objects=_objects - In the implementation block
 @property (nonatomic,retain) IGListCollectionView * collectionView;                                                  //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,retain) IGInsightsMediaFeedListItemController * feedListItemController;                         //@synthesize feedListItemController=_feedListItemController - In the implementation block
-@property (nonatomic,copy) NSArray * mediaBundles;                                                                   //@synthesize mediaBundles=_mediaBundles - In the implementation block
 @property (assign,nonatomic) int mediaCellCategory;                                                                  //@synthesize mediaCellCategory=_mediaCellCategory - In the implementation block
 @property (nonatomic,retain) IGInsightsInsightsDataOrderingSelectorView * orderingSelectorView;                      //@synthesize orderingSelectorView=_orderingSelectorView - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                                      //@synthesize spinner=_spinner - In the implementation block
 @property (nonatomic,copy) NSDictionary * buttonToMediaCellCategoryMapping;                                          //@synthesize buttonToMediaCellCategoryMapping=_buttonToMediaCellCategoryMapping - In the implementation block
-@property (nonatomic,copy) NSArray * mediaOrderSelectorTabs;                                                         //@synthesize mediaOrderSelectorTabs=_mediaOrderSelectorTabs - In the implementation block
 @property (assign,nonatomic) char isDefaultTab;                                                                      //@synthesize isDefaultTab=_isDefaultTab - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;                                  //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshView * pullRefreshControlView;                                           //@synthesize pullRefreshControlView=_pullRefreshControlView - In the implementation block
@@ -59,21 +55,17 @@
 -(IGPullToRefreshView *)pullRefreshControlView;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
--(NSArray *)mediaBundles;
 -(void)setListAdapter:(IGListAdapter *)arg1 ;
--(void)setMediaBundles:(NSArray *)arg1 ;
 -(void)scrollViewDidEndScrolling:(id)arg1 ;
 -(void)setPullRefreshControlView:(IGPullToRefreshView *)arg1 ;
 -(id)initWithQueryItems:(id)arg1 ;
 -(int)mediaCellCategory;
 -(void)setMediaCellCategory:(int)arg1 ;
--(void)setMediaOrderSelectorTabs:(NSArray *)arg1 ;
 -(void)_initializeButtonToMediaCellCategoryMapping;
 -(char)shouldFetchOnInit;
 -(void)setButtonToMediaCellCategoryMapping:(NSDictionary *)arg1 ;
 -(void)setOrderingSelectorView:(IGInsightsInsightsDataOrderingSelectorView *)arg1 ;
 -(IGInsightsInsightsDataOrderingSelectorView *)orderingSelectorView;
--(NSArray *)mediaOrderSelectorTabs;
 -(id)getOrderingStringArrayFromTabDictionary:(id)arg1 ;
 -(void)initializeSpinner;
 -(char)shouldFetchOnViewDidLoad;
@@ -81,8 +73,8 @@
 -(IGInsightsMediaFeedListItemController *)feedListItemController;
 -(NSDictionary *)buttonToMediaCellCategoryMapping;
 -(void)didTapOrderingSelectorView:(id)arg1 index:(unsigned*)arg2 ;
--(void)insightsSeeAllPostsTabContentViewDataSource:(id)arg1 didUpdateMediaBundle:(id)arg2 ;
--(void)insightsSeeAllPostsTabContentViewDataSource:(id)arg1 didGetMediaOrderSelectorTabs:(id)arg2 ;
+-(void)didUpdateMediaBundlesForInsightsSeeAllPostsTabContentViewDataSource:(id)arg1 ;
+-(void)didUpdateMediaOrderSelectorTabsForInsightsSeeAllPostsTabContentViewDataSource:(id)arg1 ;
 -(id)initWithCollectionViewComponent:(id)arg1 mediaOrderSelectorTabs:(id)arg2 queryItems:(id)arg3 ;
 -(void)setFeedListItemController:(IGInsightsMediaFeedListItemController *)arg1 ;
 -(void)setIsDefaultTab:(char)arg1 ;

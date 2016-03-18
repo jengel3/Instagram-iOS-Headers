@@ -43,9 +43,10 @@
 -(id)feedItemVideoViewCurrentIGAnalyticsMetadata:(id)arg1 ;
 -(int)feedItemVideoViewPosition:(id)arg1 ;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
+-(void)feedItemVideoViewDidPlay:(id)arg1 ;
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
--(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 width:(float)arg3 ;
+-(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 width:(float)arg3 showTimestamp:(char)arg4 ;
 -(void)endVideoPlaybackWithReason:(int)arg1 ;
 -(void)updateWithFeedItem:(id)arg1 ;
 -(CALayer *)dividerLayer;

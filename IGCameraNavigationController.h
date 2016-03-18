@@ -36,7 +36,7 @@
 -(float)originalToolbarY;
 -(IGCameraNavigationBar *)customNavbar;
 -(IGCameraToolbar *)customToolbar;
--(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2 ;
+-(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2 fromOrigin:(int)arg3 ;
 -(void)mediaCaptureViewController:(id)arg1 didProduceVideoComposition:(id)arg2 ;
 -(id)ig_keyViewControllers;
 -(id)initWithMetadata:(id)arg1 mode:(int)arg2 ;

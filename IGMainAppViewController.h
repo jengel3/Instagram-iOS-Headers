@@ -31,14 +31,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)presentCameraWithMetadata:(id)arg1 mode:(int)arg2 ;
 -(char)isUserInCamera;
 -(void)cameraControllerDidCancel;
--(void)cameraControllerDidFinishWithPhoto:(id)arg1 ;
+-(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
 -(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
 -(id)ig_keyViewControllers;
--(unsigned)inboxSubscriptionStatus;
+-(void)presentCameraWithMetadata:(id)arg1 mode:(int)arg2 ;
 -(char)isUserInInbox;
+-(unsigned)inboxSubscriptionStatus;
 -(char)isUserViewingThreadWithThreadId:(id)arg1 ;
 -(char)popToThreadVcWithThreadId:(id)arg1 ;
 -(void)presentInboxAnimated:(char)arg1 withThreadId:(id)arg2 viaPush:(char)arg3 ;

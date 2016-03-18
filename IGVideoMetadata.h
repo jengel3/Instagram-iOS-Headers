@@ -29,7 +29,6 @@
 -(void)prepareToShare;
 -(id)sharingInfo;
 -(NSString *)rawVideoLocationString;
--(void)setRawVideoLocationString:(NSString *)arg1 ;
 -(id)initWithVideo:(id)arg1 ;
 -(void)updateKeyPosition:(float)arg1 ;
 -(void)updateIsAudioMuted:(char)arg1 ;
@@ -45,6 +44,7 @@
 -(void)updateWithVideo:(id)arg1 ;
 -(char)isFastVideo;
 -(char)isBoomerang;
+-(void)setRawVideoLocationString:(NSString *)arg1 ;
 -(void)setPosterFrameIndex:(int)arg1 ;
 -(void)setIsAudioMuted:(char)arg1 ;
 -(IGVideoComposition *)videoComposition;

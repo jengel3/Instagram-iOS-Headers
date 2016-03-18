@@ -32,8 +32,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)ig_keyViewControllers;
--(void)pageViewControllerDidFinishScrolling:(id)arg1 ;
 -(int)numberOfPagesForPageViewController:(id)arg1 ;
+-(void)pageViewControllerDidFinishScrolling:(id)arg1 ;
 -(id)pageViewController:(id)arg1 controllerForIndex:(int)arg2 ;
 -(void)pageViewController:(id)arg1 willShowViewController:(id)arg2 ;
 -(IGTabControl *)tabControl;

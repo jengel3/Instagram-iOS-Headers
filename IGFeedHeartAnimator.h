@@ -16,8 +16,8 @@
 @property (nonatomic,readonly) UICollectionView * collectionView;              //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) char usesLegacyAnimation;                       //@synthesize usesLegacyAnimation=_usesLegacyAnimation - In the implementation block
 -(IGHeartView *)heartImageView;
--(void)animateHeartLikeForCell:(id)arg1 ;
 -(id)initWithCollectionView:(id)arg1 usesLegacyAnimation:(char)arg2 ;
+-(void)animateHeartLikeForCell:(id)arg1 ;
 -(char)usesLegacyAnimation;
 -(void)setHeartLikeFeedItem:(id)arg1 ;
 -(void)animateHeartLikeForCell:(id)arg1 completion:(/*^block*/id)arg2 ;

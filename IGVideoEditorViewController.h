@@ -8,13 +8,14 @@
 #import <Instagram/IGImageViewTabBarDelegate.h>
 #import <Instagram/IGVideoScrubberViewDelegate.h>
 #import <Instagram/IGFilterControlViewDelegate.h>
-#import <Instagram/IGVideoTrimViewControlDelegate.h>
 #import <Instagram/IGOverlayNuxControllerDelegate.h>
 #import <Instagram/IGCameraNavigationControllerDelegate.h>
+#import <Instagram/IGVideoTrimControllerDelegate.h>
+#import <Instagram/IGVideoTrimConfirmationDelegate.h>
 
-@class IGVideoInfo, IGVideoComposition, IGVideoPlaybackView, IGVideoPlayButton, IGMediaMetadata, NSMutableDictionary, UIBarButtonItem, UIImageView, UIView, UILabel, IGImageViewTabBar, UICollectionView, IGFilterCollectionController, IGFilterControlView, IGClipCollectionController, IGVideoTrimView, IGVideoTrimViewControl, IGVideoScrubberView, IGOverlayNuxController, NSString;
+@class IGVideoInfo, IGVideoComposition, IGVideoPlaybackView, IGVideoPlayButton, IGMediaMetadata, NSMutableDictionary, UIBarButtonItem, UIImageView, UIView, UILabel, IGImageViewTabBar, UICollectionView, IGFilterCollectionController, IGFilterControlView, IGClipCollectionController, IGVideoTrimViewController, IGVideoScrubberView, IGOverlayNuxController, NSString;
 
-@interface IGVideoEditorViewController : IGBaseCameraViewController <IGFilterCollectionControllerDelegate, IGClipCollectionControllerDelegate, IGVideoPlaybackViewDelegate, IGShareViewControllerDelegate, IGImageViewTabBarDelegate, IGVideoScrubberViewDelegate, IGFilterControlViewDelegate, IGVideoTrimViewControlDelegate, IGOverlayNuxControllerDelegate, IGCameraNavigationControllerDelegate> {
+@interface IGVideoEditorViewController : IGBaseCameraViewController <IGFilterCollectionControllerDelegate, IGClipCollectionControllerDelegate, IGVideoPlaybackViewDelegate, IGShareViewControllerDelegate, IGImageViewTabBarDelegate, IGVideoScrubberViewDelegate, IGFilterControlViewDelegate, IGOverlayNuxControllerDelegate, IGCameraNavigationControllerDelegate, IGVideoTrimControllerDelegate, IGVideoTrimConfirmationDelegate> {
 
 	char _prefersToolbarHidden;
 	char _needsVideoUpdate;
@@ -52,14 +53,14 @@
 	IGFilterCollectionController* _filterTrayController;
 	IGFilterControlView* _filterControlView;
 	IGClipCollectionController* _clipTrayController;
-	IGVideoTrimView* _trimView;
-	IGVideoTrimViewControl* _trimViewControl;
+	IGVideoTrimViewController* _videoTrimViewController;
 	IGVideoScrubberView* _scrubberView;
 	IGOverlayNuxController* _overlayNuxController;
 	IGClipCollectionController* _clipCollectionController;
 	int _videoOrigin;
 	CGSize _videoDisplaySize;
 	SCD_Struct_IG44 _keyTime;
+	SCD_Struct_IG46 _previousTrimmedRange;
 
 }
 
@@ -93,8 +94,8 @@
 @property (nonatomic,retain) IGFilterCollectionController * filterTrayController;                //@synthesize filterTrayController=_filterTrayController - In the implementation block
 @property (nonatomic,retain) IGFilterControlView * filterControlView;                            //@synthesize filterControlView=_filterControlView - In the implementation block
 @property (nonatomic,retain) IGClipCollectionController * clipTrayController;                    //@synthesize clipTrayController=_clipTrayController - In the implementation block
-@property (nonatomic,retain) IGVideoTrimView * trimView;                                         //@synthesize trimView=_trimView - In the implementation block
-@property (nonatomic,retain) IGVideoTrimViewControl * trimViewControl;                           //@synthesize trimViewControl=_trimViewControl - In the implementation block
+@property (nonatomic,retain) IGVideoTrimViewController * videoTrimViewController;                //@synthesize videoTrimViewController=_videoTrimViewController - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG46 previousTrimmedRange;                               //@synthesize previousTrimmedRange=_previousTrimmedRange - In the implementation block
 @property (nonatomic,retain) IGVideoScrubberView * scrubberView;                                 //@synthesize scrubberView=_scrubberView - In the implementation block
 @property (nonatomic,retain) IGOverlayNuxController * overlayNuxController;                      //@synthesize overlayNuxController=_overlayNuxController - In the implementation block
 @property (assign,nonatomic) char prefersToolbarHidden;                                          //@synthesize prefersToolbarHidden=_prefersToolbarHidden - In the implementation block
@@ -165,7 +166,7 @@
 -(void)setPrefersToolbarHidden:(char)arg1 ;
 -(char)didReorderTray;
 -(id)initWithAssetInMediaMetadata:(id)arg1 ;
--(void)cameraControllerDidFinishWithPhoto:(id)arg1 ;
+-(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
 -(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
 -(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(IGVideoInfo *)videoInfo;
@@ -209,21 +210,16 @@
 -(char)isAudioMutingEnabled;
 -(UILabel *)audioOnLabel;
 -(UILabel *)audioMutedLabel;
--(void)trimValueChanged:(id)arg1 ;
--(void)trimWillStart;
--(void)trimmerDidScrub:(id)arg1 ;
 -(void)reconcileVideoPlayer;
 -(void)startVideoRender;
 -(void)addScissorsAnimationToImageView:(id)arg1 tintColor:(id)arg2 ;
 -(void)filterPlayerViewDidFinishPlaying;
 -(char)isClipTrimMode;
--(IGVideoTrimView *)trimView;
 -(void)cancelRenderAndUpload;
 -(UIView *)rearrangeClipOverlayView;
 -(void)setNeedsVideoUpdate:(char)arg1 ;
 -(void)setIsClipTrimMode:(char)arg1 ;
 -(id)titleForItem:(id)arg1 ;
--(IGVideoTrimViewControl *)trimViewControl;
 -(UIView *)audioMuteOverlayView;
 -(id)trimmerAnimationImagesWithTintColor:(id)arg1 ;
 -(void)setTrimAnimationAlreadyShown:(char)arg1 ;
@@ -232,16 +228,14 @@
 -(void)showFilters;
 -(void)showClips;
 -(void)showCoverFramePicker;
--(void)exitTrimControlView;
 -(void)updateVideoDisplaySize;
 -(void)trimClips;
 -(char)needsVideoUpdate;
 -(void)generateScrubberFrames;
--(void)setKeyTime:(SCD_Struct_IG44)arg1 ;
 -(void)populateThumbnailCacheForClipIndex:(unsigned)arg1 ;
 -(void)cacheThumbnail:(id)arg1 forClip:(id)arg2 andTime:(SCD_Struct_IG44)arg3 ;
 -(id)cacheKeyForClip:(id)arg1 filter:(id)arg2 time:(SCD_Struct_IG44)arg3 ;
--(SCD_Struct_IG44)keyTime;
+-(void)exitTrimControlView;
 -(void)setVideoDisplaySize:(CGSize)arg1 ;
 -(void)setOriginalVideoLength:(float)arg1 ;
 -(void)setVideoIsReady:(char)arg1 ;
@@ -250,8 +244,12 @@
 -(void)scrubberViewDidMoveHandleToPosition:(float)arg1 ;
 -(void)scrubberViewFinishedMovingHandle;
 -(void)scrubberViewDidTapOnHandle;
--(void)videoTrimViewDidPressDone;
--(void)videoTrimViewDidPressCancel;
+-(void)videoTrimController:(id)arg1 willBeginUpdatingWithTrimmedRange:(SCD_Struct_IG46)arg2 ;
+-(void)videoTrimController:(id)arg1 didUpdateWithTrimmedRange:(SCD_Struct_IG46)arg2 ;
+-(void)videoTrimController:(id)arg1 didFinishUpdatingWithTrimmedRange:(SCD_Struct_IG46)arg2 ;
+-(void)videoTrimController:(id)arg1 didConfirmTrimmedRange:(SCD_Struct_IG46)arg2 ;
+-(void)videoTrimControllerDidRejectChanges:(id)arg1 ;
+-(SCD_Struct_IG44)keyTime;
 -(IGVideoComposition *)workingVideoComposition;
 -(void)setWorkingVideoComposition:(IGVideoComposition *)arg1 ;
 -(void)setCinemaButton:(UIImageView *)arg1 ;
@@ -272,9 +270,12 @@
 -(void)setRearrangeClipOverlayView:(UIView *)arg1 ;
 -(IGClipCollectionController *)clipTrayController;
 -(void)setClipTrayController:(IGClipCollectionController *)arg1 ;
--(void)setTrimView:(IGVideoTrimView *)arg1 ;
--(void)setTrimViewControl:(IGVideoTrimViewControl *)arg1 ;
+-(IGVideoTrimViewController *)videoTrimViewController;
+-(void)setVideoTrimViewController:(IGVideoTrimViewController *)arg1 ;
+-(SCD_Struct_IG46)previousTrimmedRange;
+-(void)setPreviousTrimmedRange:(SCD_Struct_IG46)arg1 ;
 -(void)setScrubberView:(IGVideoScrubberView *)arg1 ;
+-(void)setKeyTime:(SCD_Struct_IG44)arg1 ;
 -(void)setClipCollectionController:(IGClipCollectionController *)arg1 ;
 -(char)viewLoaded;
 -(void)setViewLoaded:(char)arg1 ;

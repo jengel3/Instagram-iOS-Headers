@@ -16,13 +16,13 @@
 @property (assign,nonatomic,__weak) UIView * navigationBarSuperview;                            //@synthesize navigationBarSuperview=_navigationBarSuperview - In the implementation block
 @property (assign,nonatomic) char isDismiss;                                                    //@synthesize isDismiss=_isDismiss - In the implementation block
 @property (assign,nonatomic,__weak) IGNavSearchBar * searchBar;                                 //@synthesize searchBar=_searchBar - In the implementation block
--(id)initWithNavigationController:(id)arg1 isDismiss:(char)arg2 ;
 -(void)setNavigationBarSuperview:(UIView *)arg1 ;
 -(char)isDismiss;
 -(void)animatePopTransition:(id)arg1 ;
 -(void)animatePushTransition:(id)arg1 ;
 -(void)setNavigationBar:(id)arg1 hidden:(char)arg2 ;
 -(UIView *)navigationBarSuperview;
+-(id)initWithNavigationController:(id)arg1 isDismiss:(char)arg2 ;
 -(void)setIsDismiss:(char)arg1 ;
 -(double)transitionDuration:(id)arg1 ;
 -(void)animateTransition:(id)arg1 ;

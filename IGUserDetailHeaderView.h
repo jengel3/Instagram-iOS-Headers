@@ -107,14 +107,13 @@
 -(void)setSimilarAccountsView:(IGSimilarAccountsView *)arg1 ;
 -(void)setSimilarAccountsControl:(IGSimilarAccountsControl *)arg1 ;
 -(void)onFollowButtonTapped:(id)arg1 ;
--(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 ;
+-(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(char)profilePictureHelperShouldShowRemovePicture:(id)arg1 ;
 -(void)profilePictureHelperRemovePictureButtonTapped:(id)arg1 ;
 -(void)requestHeaderIsShowing:(char)arg1 ;
 -(IGStatButton *)mediaButton;
 -(UIView *)additionalInfoContainerView;
 -(UIView *)infoLabelContainerView;
--(id)newStatButton;
 -(void)mediaButtonTapped:(id)arg1 ;
 -(void)followersButtonTapped:(id)arg1 ;
 -(void)followingButtonTapped:(id)arg1 ;
@@ -132,8 +131,8 @@
 -(void)updateAllContentViews;
 -(void)toggleSimilarAccountsView:(char)arg1 ;
 -(char)showingSimilarAccountsView;
--(void)setShowingSimilarAccountsView:(char)arg1 ;
 -(IGButton *)similarAccountsButton;
+-(void)setShowingSimilarAccountsView:(char)arg1 ;
 -(IGFeedToggleView *)toggleBar;
 -(void)fetchSimilarUsersWithCompletion:(/*^block*/id)arg1 ;
 -(void)setRequestHeaderShowing:(char)arg1 ;
@@ -149,6 +148,7 @@
 -(CGRect)frameForModifiedMainButton;
 -(char)requestHeaderShowing;
 -(char)showingProfileMegaphone;
+-(void)updateStatButtonsLayout;
 -(CGRect)frameForContactButton;
 -(void)updateRequestHeader;
 -(void)updateCountLabels;
@@ -158,6 +158,9 @@
 -(void)presentUserListWithURL:(id)arg1 title:(id)arg2 asListType:(int)arg3 contextPK:(id)arg4 ;
 -(IGProfilePictureHelper *)profilePictureHelper;
 -(void)onWebsiteExternalLinkTapped;
+-(void)logWebsiteTap;
+-(void)logWebsiteOpen;
+-(void)logWebsiteCancel;
 -(void)setShowingProfileMegaphone:(char)arg1 ;
 -(void)setMediaButton:(IGStatButton *)arg1 ;
 -(void)setEditProfileButton:(IGButton *)arg1 ;
@@ -184,6 +187,7 @@
 -(int)indexOfAccessibilityElement:(id)arg1 ;
 -(UIActivityIndicatorView *)spinner;
 -(void)setSpinner:(UIActivityIndicatorView *)arg1 ;
+-(void)logEvent:(id)arg1 ;
 -(IGFriendRequestHeaderView *)requestHeader;
 @end
 

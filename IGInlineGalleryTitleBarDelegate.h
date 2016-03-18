@@ -4,6 +4,7 @@
 @required
 -(void)didTapTitleBar;
 -(void)didTapDismiss;
+-(void)didTapCamera;
 -(void)didTapSeeAll;
 
 @end

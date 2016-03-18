@@ -2,11 +2,13 @@
 #import <UIKit/UIViewController.h>
 #import <Instagram/IGTextFieldDelegate.h>
 #import <Instagram/IGFacebookAuthHelperDelegate.h>
+#import <Instagram/IGCoreTextLinkHandler.h>
+#import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGRetroRegistrationLoginViewControllerDelegate;
 @class IGRetroRegistrationLoginView, IGRetroRegistrationLoginHelper, IGFacebookAuthHelper, NSString;
 
-@interface IGRetroRegistrationLoginViewController : UIViewController <IGTextFieldDelegate, IGFacebookAuthHelperDelegate> {
+@interface IGRetroRegistrationLoginViewController : UIViewController <IGTextFieldDelegate, IGFacebookAuthHelperDelegate, IGCoreTextLinkHandler, UIGestureRecognizerDelegate> {
 
 	char _isSubmitting;
 	id<IGRetroRegistrationLoginViewControllerDelegate> _delegate;
@@ -25,6 +27,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)dismissButtonTapped;
 -(void)facebookAuthHelper:(id)arg1 willProceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelperDidTapSignUpButton:(id)arg1 ;
@@ -40,7 +44,6 @@
 -(void)loginButtonTapped;
 -(void)setLoginView:(IGRetroRegistrationLoginView *)arg1 ;
 -(IGRetroRegistrationLoginView *)loginView;
--(void)loginHelperButtonTapped;
 -(void)facebookButtonTapped;
 -(void)signUpButtonTapped;
 -(void)keyboardWillHide;
@@ -48,6 +51,7 @@
 -(IGFacebookAuthHelper *)fbAuthHelper;
 -(void)logInWithUsernameAndPassword;
 -(void)authWithFacebookForRegistration;
+-(void)loginHelperButtonTapped;
 -(id)createIndicatorViewAndAddToLoginButton;
 -(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
 -(void)handleLoginErrors:(id)arg1 ;
@@ -68,6 +72,7 @@
 -(void)dealloc;
 -(id)init;
 -(id<IGRetroRegistrationLoginViewControllerDelegate>)delegate;
+-(char)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2 ;
 -(char)prefersStatusBarHidden;
 -(char)textFieldShouldReturn:(id)arg1 ;
 -(void)viewWillAppear:(char)arg1 ;

@@ -27,6 +27,7 @@
 @property (nonatomic,readonly) float secondsPerThumbnail; 
 -(void)setLoadedImagesSet:(NSMutableIndexSet *)arg1 ;
 -(float)pixelsPerSecond;
+-(void)updateThumbnailLayout;
 -(float)secondsPerThumbnail;
 -(NSMutableIndexSet *)loadedImagesSet;
 -(void)generateVisibleThumbnails:(id)arg1 ;
@@ -34,7 +35,6 @@
 -(void)setThumbnail:(id)arg1 forIndex:(unsigned)arg2 ;
 -(void)updateVisibleThumbnails;
 -(id)cacheKeyForIndex:(unsigned)arg1 ;
--(void)updateThumbnailLayout;
 -(void)setThumbnailSize:(CGSize)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

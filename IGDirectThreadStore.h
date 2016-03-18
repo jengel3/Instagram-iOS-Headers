@@ -63,13 +63,13 @@
 -(void)removeThreadWithID:(id)arg1 ;
 -(void)handleRealtimeAddContent:(id)arg1 threadID:(id)arg2 ;
 -(void)handleReplaceContent:(id)arg1 forThreadID:(id)arg2 needsForceUpdate:(char)arg3 ;
--(id)updateStoreWithThreadDictionary:(id)arg1 ;
+-(id)updateStoreWithThreadDictionary:(id)arg1 alwaysMerge:(char)arg2 ;
 -(void)handleAddMessageRealtimeEventWithDictionary:(id)arg1 forThreadId:(id)arg2 ;
 -(void)handleRemoveRealtimeEventForItemWithId:(id)arg1 forThreadId:(id)arg2 ;
 -(void)handleReplaceMessageRealtimeEventWithDictionary:(id)arg1 forThreadID:(id)arg2 ;
 -(void)handleRealtimeSeenEventForUserId:(id)arg1 contentInfo:(id)arg2 andThreadId:(id)arg3 ;
 -(void)handleRealtimeThreadEventWithThreadInfo:(id)arg1 ;
--(void)handleRealtimeUnseenCountEventWithCount:(id)arg1 ;
+-(void)handleRealtimeUnseenCountEventWithCount:(id)arg1 withSequenceString:(id)arg2 ;
 -(void)refreshInbox;
 -(void)postThreadsNeedRefreshNotification;
 -(id)storedThreadWithUsers:(id)arg1 ;
@@ -78,6 +78,7 @@
 -(void)updateThreadStoreWithUpload:(id)arg1 isNewUpload:(char)arg2 ;
 -(void)postLocalThreadUpdatedFromUploadKey:(id)arg1 toThreadID:(id)arg2 ;
 -(void)setDirectThreadDiskCache:(IGDirectThreadDiskCache *)arg1 ;
+-(void)fetchThreadWithID:(id)arg1 retryCount:(int)arg2 successfulThreadHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)deleteContent:(id)arg1 fromThread:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)leaveThreadWithID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)sendSeenTimestampForThreadID:(id)arg1 forContent:(id)arg2 ;

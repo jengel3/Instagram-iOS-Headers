@@ -4,11 +4,12 @@
 #import <Instagram/IGExploreComposedPeopleYouFollowViewDelegate.h>
 #import <Instagram/IGRelatedItemsHeaderViewDelegate.h>
 #import <Instagram/IGGenericMegaphoneViewDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGFeedPromotionBannerDelegate.h>
 
 @class IGRankedMediaView, IGExploreComposedPeopleYouFollowView, UIBarButtonItem, IGHashtagModel, NSArray, IGVisitedRelatedItemsStore, NSMutableSet, IGRelatedItemsHeaderView, IGRelatedItemsService, NSDictionary, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGFeedItemPreviewingHandler, NSString;
 
-@interface IGHashtagFeedViewController : IGFeedViewController_DEPRECATED <IGRankedMediaViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate, IGRelatedItemsHeaderViewDelegate, IGGenericMegaphoneViewDelegate, IGFeedPromotionBannerDelegate> {
+@interface IGHashtagFeedViewController : IGFeedViewController_DEPRECATED <IGRankedMediaViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate, IGRelatedItemsHeaderViewDelegate, IGGenericMegaphoneViewDelegate, IGAnalyticsModule, IGFeedPromotionBannerDelegate> {
 
 	IGRankedMediaView* _rankedMediaView;
 	IGExploreComposedPeopleYouFollowView* _peopleYouFollowView;

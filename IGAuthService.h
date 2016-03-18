@@ -16,6 +16,7 @@
 -(id)cookieWithName:(id)arg1 ;
 -(void)logInWithDictionary:(id)arg1 ;
 -(void)logOutWithCompletionHandler:(/*^block*/id)arg1 ;
+-(id)sessionCookieString;
 -(void)logInWithUsername:(id)arg1 password:(id)arg2 completionHandler:(/*^block*/id)arg3 ;
 -(void)logInWithUserID:(id)arg1 token:(id)arg2 source:(id)arg3 completionHandler:(/*^block*/id)arg4 ;
 -(void)logInWithUsername:(id)arg1 twoFactorIdentifier:(id)arg2 verificationCode:(id)arg3 completionHandler:(/*^block*/id)arg4 ;

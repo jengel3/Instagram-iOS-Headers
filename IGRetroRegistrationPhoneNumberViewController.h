@@ -39,6 +39,7 @@
 -(void)setDelegate:(id<IGRetroRegistrationPhoneNumberViewControllerDelegate>)arg1 ;
 -(id<IGRetroRegistrationPhoneNumberViewControllerDelegate>)delegate;
 -(char)prefersStatusBarHidden;
+-(void)textFieldDidBeginEditing:(id)arg1 ;
 -(char)textFieldShouldReturn:(id)arg1 ;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;

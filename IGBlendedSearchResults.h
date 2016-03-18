@@ -9,6 +9,7 @@
 	char _canShowLocationCell;
 	char _shouldShowSectionHeader;
 	char _enableFrequentItems;
+	NSString* _moduleName;
 	int _raindropViewType;
 	int _raindropSearchType;
 	int _raindropViewSubType;
@@ -30,6 +31,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+@property (nonatomic,copy) NSString * moduleName;                                            //@synthesize moduleName=_moduleName - In the implementation block
 @property (assign,nonatomic) int raindropViewType;                                           //@synthesize raindropViewType=_raindropViewType - In the implementation block
 @property (assign,nonatomic) char raindropEnableNavState;                                    //@synthesize raindropEnableNavState=_raindropEnableNavState - In the implementation block
 @property (assign,nonatomic) int raindropSearchType;                                         //@synthesize raindropSearchType=_raindropSearchType - In the implementation block
@@ -64,6 +66,8 @@
 -(int)filterResultState:(int)arg1 ;
 -(void)addLoadedNotifications;
 -(void)addLocationTracker;
+-(NSString *)moduleName;
+-(void)setModuleName:(NSString *)arg1 ;
 -(int)raindropViewType;
 -(void)setRaindropViewType:(int)arg1 ;
 -(char)raindropEnableNavState;

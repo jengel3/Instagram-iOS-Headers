@@ -11,6 +11,9 @@
 
 	char _editing;
 	char _hasCalculatedFrames;
+	char _showCancelButton;
+	char _showPeopleIcon;
+	char _showDirectIcon;
 	id<IGNavSearchBarDelegate> _delegate;
 	IGTextField* _searchTextField;
 	IGButton* _cancelButton;
@@ -19,6 +22,7 @@
 	UIImage* _searchIcon;
 	UIImage* _searchIconOn;
 	UIButton* _peopleIconButton;
+	UIButton* _directIconButton;
 	double _searchBarAnimationDuration;
 	CGRect _backgroundButtonFrameInactive;
 	CGRect _backgroundButtonFrameActive;
@@ -44,6 +48,7 @@
 @property (nonatomic,retain) UIImage * searchIcon;                                       //@synthesize searchIcon=_searchIcon - In the implementation block
 @property (nonatomic,retain) UIImage * searchIconOn;                                     //@synthesize searchIconOn=_searchIconOn - In the implementation block
 @property (nonatomic,retain) UIButton * peopleIconButton;                                //@synthesize peopleIconButton=_peopleIconButton - In the implementation block
+@property (nonatomic,retain) UIButton * directIconButton;                                //@synthesize directIconButton=_directIconButton - In the implementation block
 @property (assign,nonatomic) CGRect backgroundButtonFrameInactive;                       //@synthesize backgroundButtonFrameInactive=_backgroundButtonFrameInactive - In the implementation block
 @property (assign,nonatomic) CGRect backgroundButtonFrameActive;                         //@synthesize backgroundButtonFrameActive=_backgroundButtonFrameActive - In the implementation block
 @property (assign,nonatomic) CGRect cancelButtonFrameInactive;                           //@synthesize cancelButtonFrameInactive=_cancelButtonFrameInactive - In the implementation block
@@ -53,6 +58,9 @@
 @property (assign,nonatomic) CGRect searchLabelViewFrameInactive;                        //@synthesize searchLabelViewFrameInactive=_searchLabelViewFrameInactive - In the implementation block
 @property (assign,nonatomic) CGRect searchLabelViewFrameActive;                          //@synthesize searchLabelViewFrameActive=_searchLabelViewFrameActive - In the implementation block
 @property (assign,nonatomic) char hasCalculatedFrames;                                   //@synthesize hasCalculatedFrames=_hasCalculatedFrames - In the implementation block
+@property (assign,nonatomic) char showCancelButton;                                      //@synthesize showCancelButton=_showCancelButton - In the implementation block
+@property (assign,nonatomic) char showPeopleIcon;                                        //@synthesize showPeopleIcon=_showPeopleIcon - In the implementation block
+@property (assign,nonatomic) char showDirectIcon;                                        //@synthesize showDirectIcon=_showDirectIcon - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -65,19 +73,22 @@
 @property (assign,nonatomic) int returnKeyType; 
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
--(void)setSearchBarAnimationDuration:(double)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 showPeopleIcon:(char)arg2 showCancelButton:(char)arg3 showDirectIcon:(char)arg4 ;
 -(void)setSearchIcon:(UIImage *)arg1 ;
 -(void)setSearchIconOn:(UIImage *)arg1 ;
 -(UIButton *)backgroundButton;
 -(UIView *)searchLabelView;
 -(IGTextField *)searchTextField;
+-(UIButton *)directIconButton;
 -(UIButton *)peopleIconButton;
 -(UIImage *)searchIconOn;
 -(UIImage *)searchIcon;
 -(void)searchBarTapped;
 -(void)peopleIconButtonTapped;
+-(void)directIconButtonTapped;
 -(void)setHasCalculatedFrames:(char)arg1 ;
 -(char)hasCalculatedFrames;
+-(char)showDirectIcon;
 -(void)setBackgroundButtonFrameInactive:(CGRect)arg1 ;
 -(void)setSearchLabelViewFrameInactive:(CGRect)arg1 ;
 -(void)setCancelButtonFrameInactive:(CGRect)arg1 ;
@@ -97,10 +108,16 @@
 -(void)addSpringAnimations:(/*^block*/id)arg1 duration:(double)arg2 complete:(/*^block*/id)arg3 ;
 -(CGRect)searchLabelViewFrameInactive;
 -(CGRect)searchTextFieldFrameInactive;
+-(void)setSearchBarAnimationDuration:(double)arg1 ;
 -(void)setSearchTextField:(IGTextField *)arg1 ;
 -(void)setBackgroundButton:(UIButton *)arg1 ;
 -(void)setSearchLabelView:(UIView *)arg1 ;
 -(void)setPeopleIconButton:(UIButton *)arg1 ;
+-(void)setDirectIconButton:(UIButton *)arg1 ;
+-(void)setShowCancelButton:(char)arg1 ;
+-(char)showPeopleIcon;
+-(void)setShowPeopleIcon:(char)arg1 ;
+-(void)setShowDirectIcon:(char)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)makeInactive:(char)arg1 ;
 -(void)makeActive:(char)arg1 ;
@@ -143,6 +160,7 @@
 -(IGButton *)cancelButton;
 -(void)setCancelButton:(IGButton *)arg1 ;
 -(char)canResignFirstResponder;
+-(char)showCancelButton;
 -(NSString *)placeholder;
 -(void)setAttributedPlaceholder:(NSAttributedString *)arg1 ;
 -(NSAttributedString *)attributedPlaceholder;

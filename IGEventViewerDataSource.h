@@ -1,12 +1,10 @@
 
-#import <Instagram/Instagram-Structs.h>
-#import <UIKit/UICollectionViewDataSource.h>
-#import <Instagram/IGEventViewerFeedLayoutDataSource.h>
+#import <Instagram/IGListAdapterDataSource.h>
 
 @protocol IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate;
 @class NSArray, NSString;
 
-@interface IGEventViewerDataSource : NSObject <UICollectionViewDataSource, IGEventViewerFeedLayoutDataSource> {
+@interface IGEventViewerDataSource : NSObject <IGListAdapterDataSource> {
 
 	id<IGEventViewerMediaCellDelegate> _mediaCellDelegate;
 	id<IGEventViewerAttributionHeaderCellDelegate> _headerCellDelegate;
@@ -22,27 +20,23 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)itemsForListAdapter:(id)arg1 ;
+-(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
+-(id)emptyViewForListAdapter:(id)arg1 ;
 -(NSArray *)posts;
 -(id)initWithPosts:(id)arg1 ;
 -(void)setPosts:(NSArray *)arg1 ;
--(id)postAtIndexPath:(id)arg1 ;
--(id)headerCellForPost:(id)arg1 atIndexPath:(id)arg2 inCollectionView:(id)arg3 ;
--(id)mediaCellForPost:(id)arg1 atIndexPath:(id)arg2 inCollectionView:(id)arg3 ;
--(id<IGEventViewerAttributionHeaderCellDelegate>)headerCellDelegate;
--(id)cellIdForPostMediaType:(int)arg1 ;
--(id<IGEventViewerMediaCellDelegate>)mediaCellDelegate;
--(CGSize)eventViewerFeedLayout:(id)arg1 sizeForMediaItemAtIndexPath:(id)arg2 inCollectionView:(id)arg3 ;
 -(id)allPosts;
+-(id<IGEventViewerAttributionHeaderCellDelegate>)headerCellDelegate;
+-(id<IGEventViewerMediaCellDelegate>)mediaCellDelegate;
 -(void)appendPosts:(id)arg1 ;
 -(void)replacePostsWithPosts:(id)arg1 ;
 -(void)deletePostAtIndexPath:(id)arg1 ;
+-(id)postAtIndexPath:(id)arg1 ;
 -(id)indexPathForPost:(id)arg1 ;
 -(void)setMediaCellDelegate:(id<IGEventViewerMediaCellDelegate>)arg1 ;
 -(void)setHeaderCellDelegate:(id<IGEventViewerAttributionHeaderCellDelegate>)arg1 ;
 -(unsigned)count;
 -(id)init;
--(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
--(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
--(int)numberOfSectionsInCollectionView:(id)arg1 ;
 @end
 

@@ -44,6 +44,7 @@
 -(void)assistedAccountRecoveryAction:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)requestSupportForSupportType:(unsigned)arg1 user:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)resendTwoFactorLoginSMSForUser:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
+-(void)robocallTwoFactorLoginForUser:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)accountSecurityInfoWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(void)sendTwoFactorSMSToPhoneNumber:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)disableTwoFactorWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
@@ -88,7 +89,7 @@
 -(char)hasMaximumNumberOfAccounts;
 -(void)switchToLastAccessedUserWithForceDueToAddUserCancel;
 -(void)switchToNilUserWithEntryPoint:(unsigned)arg1 ;
--(void)uploadProfilePicture:(id)arg1 ;
+-(void)uploadProfilePicture:(id)arg1 fromOption:(int)arg2 ;
 -(void)removeProfilePicture;
 -(void)setCurrentUserSession:(IGUserSession *)arg1 ;
 -(void)setLastAccountSwitchEntryPoint:(unsigned)arg1 ;

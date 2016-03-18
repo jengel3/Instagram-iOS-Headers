@@ -1,13 +1,13 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGFeedItemMediaCell.h>
-#import <Instagram/IGFeedItemVideoViewDelegate.h>
 #import <Instagram/IGFeedVideoCell.h>
+#import <Instagram/IGFeedItemVideoViewDelegate.h>
 
 @protocol IGFeedVideoCellInteractionDelegate, IGFeedVideoCellAnalyticsDelegate, IGFeedVideoCellPlayerDelegate;
 @class IGPost, IGFeedItemVideoView, NSString;
 
-@interface IGFeedItemVideoCell : IGFeedItemMediaCell <IGFeedItemVideoViewDelegate, IGFeedVideoCell> {
+@interface IGFeedItemVideoCell : IGFeedItemMediaCell <IGFeedVideoCell, IGFeedItemVideoViewDelegate> {
 
 	IGPost* _post;
 	float _percentVisible;
@@ -39,6 +39,7 @@
 -(id)feedItemVideoViewCurrentIGAnalyticsMetadata:(id)arg1 ;
 -(int)feedItemVideoViewPosition:(id)arg1 ;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
+-(void)feedItemVideoViewDidPlay:(id)arg1 ;
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
 -(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
@@ -53,5 +54,6 @@
 -(int)accessibilityElementCount;
 -(id)accessibilityElementAtIndex:(int)arg1 ;
 -(int)indexOfAccessibilityElement:(id)arg1 ;
+-(char)isSponsored;
 @end
 

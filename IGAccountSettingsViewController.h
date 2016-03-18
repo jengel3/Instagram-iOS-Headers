@@ -32,6 +32,8 @@
 -(void)clusterBrowsingV2ViewController:(id)arg1 willContinueToViewController:(id)arg2 ;
 -(void)didDismissRageShakeViewController:(id)arg1 didSendReport:(char)arg2 ;
 -(void)presentReportThankYouAlert;
+-(void)businessConversionViewControllerDidDismiss:(id)arg1 ;
+-(void)businessConversionViewControllerDidCompleteFlow:(id)arg1 ;
 -(void)setPrivateAccount:(char)arg1 ;
 -(IGSwitch *)privateAccountSwitch;
 -(char)isPrivateAccount;
@@ -67,8 +69,6 @@
 -(void)configureAboutCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureSupportCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureSessionCell:(id)arg1 forRow:(int)arg2 ;
--(void)businessConversionViewControllerDidDismiss:(id)arg1 ;
--(void)businessConversionViewController:(id)arg1 didCompleteFlowWithInfo:(id)arg2 ;
 -(void)setPrivacySettingsFooterView:(IGGroupedTableViewFooterView *)arg1 ;
 -(void)dealloc;
 -(id)init;

@@ -36,6 +36,9 @@
 +(void)setTag:(int)arg1 ;
 +(void)setHeaderView:(id)arg1 ;
 +(void)dismissAnimated:(char)arg1 ;
++(void)dismissAnimated:(char)arg1 completion:(/*^block*/id)arg2 ;
+-(void)addButtonWithTitle:(id)arg1 style:(int)arg2 ;
+-(void)showWithDelegate:(id)arg1 ;
 -(void)onOverlayTapped;
 -(UIScrollView *)buttonView;
 -(void)onAppDidBackground;
@@ -43,7 +46,7 @@
 -(void)addButtonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 -(id)buttonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 -(void)layoutHeaderAndButtons;
--(void)animateVisible:(char)arg1 ;
+-(void)performAnimationVisible:(char)arg1 animated:(char)arg2 completion:(/*^block*/id)arg3 ;
 -(void)hideAndReset;
 -(void)cancelAndDismiss;
 -(void)setButtonView:(UIScrollView *)arg1 ;
@@ -52,6 +55,7 @@
 -(void)show;
 -(void)dealloc;
 -(id)init;
+-(void)setTitle:(id)arg1 ;
 -(id)rootViewController;
 -(void)becomeKeyWindow;
 -(void)buttonTapped:(id)arg1 ;
@@ -62,9 +66,9 @@
 -(void)setCancelButton:(UIButton *)arg1 ;
 -(UIView *)headerView;
 -(void)setHeaderView:(UIView *)arg1 ;
--(void)dismissAnimated:(char)arg1 ;
 -(void)setTitleLabel:(UILabel *)arg1 ;
 -(NSMutableArray *)buttons;
+-(void)dismissAnimated:(char)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setOverlayView:(UIView *)arg1 ;
 -(UIView *)overlayView;
 -(void)setButtons:(NSMutableArray *)arg1 ;

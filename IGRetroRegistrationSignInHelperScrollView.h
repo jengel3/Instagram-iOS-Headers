@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIScrollView.h>
 
-@class UIButton, IGRetroRegistrationSignInHelperToggleView, IGRetroRegistrationTextField, IGRetroRegistrationPhoneNumberField, IGRetroRegistrationNextButton, IGTextField, IGCoreTextView, IGFacebookButton, UIImageView, UILabel, IGRetroRegistrationFacebookButtonSeperator;
+@class UIButton, IGRetroRegistrationSignInHelperToggleView, IGRetroRegistrationTextField, IGRetroRegistrationPhoneNumberField, IGRetroRegistrationNextButton, IGTextField, IGFacebookButton, UIImageView, UILabel, IGRetroRegistrationFacebookButtonSeperator;
 
 @interface IGRetroRegistrationSignInHelperScrollView : UIScrollView {
 
@@ -14,7 +14,7 @@
 	IGRetroRegistrationNextButton* _sendButton;
 	IGTextField* _inputView;
 	int _inputMode;
-	IGCoreTextView* _loginHelperView;
+	UIButton* _loginHelperButton;
 	IGFacebookButton* _facebookButton;
 	UIImageView* _iconView;
 	UILabel* _titleLabel;
@@ -30,13 +30,13 @@
 @property (nonatomic,retain) IGRetroRegistrationNextButton * sendButton;                                        //@synthesize sendButton=_sendButton - In the implementation block
 @property (nonatomic,retain) IGTextField * inputView;                                                           //@synthesize inputView=_inputView - In the implementation block
 @property (assign,nonatomic) int inputMode;                                                                     //@synthesize inputMode=_inputMode - In the implementation block
-@property (nonatomic,retain) IGCoreTextView * loginHelperView;                                                  //@synthesize loginHelperView=_loginHelperView - In the implementation block
+@property (nonatomic,retain) UIButton * loginHelperButton;                                                      //@synthesize loginHelperButton=_loginHelperButton - In the implementation block
 @property (nonatomic,retain) IGFacebookButton * facebookButton;                                                 //@synthesize facebookButton=_facebookButton - In the implementation block
+@property (assign,nonatomic) char isTabEnabled;                                                                 //@synthesize isTabEnabled=_isTabEnabled - In the implementation block
 @property (nonatomic,retain) UIImageView * iconView;                                                            //@synthesize iconView=_iconView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                                              //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * descriptionLabel;                                                        //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationFacebookButtonSeperator * facebookButtonSeparator;              //@synthesize facebookButtonSeparator=_facebookButtonSeparator - In the implementation block
-@property (assign,nonatomic) char isTabEnabled;                                                                 //@synthesize isTabEnabled=_isTabEnabled - In the implementation block
 +(id)createTitleLabel;
 +(id)createDescriptionLabel;
 +(id)createIconView;
@@ -45,7 +45,7 @@
 +(id)createEmailField;
 +(id)createPhoneNumberField;
 +(id)createSendButton;
-+(id)createLoginHelperView;
++(id)createLoginHelperButton;
 +(id)createFacebookButton;
 -(IGRetroRegistrationSignInHelperToggleView *)toggleView;
 -(void)setToggleView:(IGRetroRegistrationSignInHelperToggleView *)arg1 ;
@@ -55,15 +55,15 @@
 -(IGFacebookButton *)facebookButton;
 -(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
--(IGCoreTextView *)loginHelperView;
--(void)setLoginHelperView:(IGCoreTextView *)arg1 ;
 -(IGRetroRegistrationPhoneNumberField *)phoneNumberField;
 -(void)setPhoneNumberField:(IGRetroRegistrationPhoneNumberField *)arg1 ;
 -(void)switchToEmailView;
 -(char)isTabEnabled;
 -(UIButton *)switchButton;
+-(UIButton *)loginHelperButton;
 -(void)switchToPhoneNumberView;
 -(void)setSwitchButton:(UIButton *)arg1 ;
+-(void)setLoginHelperButton:(UIButton *)arg1 ;
 -(void)setIsTabEnabled:(char)arg1 ;
 -(UILabel *)descriptionLabel;
 -(id)initWithFrame:(CGRect)arg1 ;

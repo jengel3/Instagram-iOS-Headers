@@ -36,6 +36,7 @@
 -(id)initWithUrl:(id)arg1 exceptionParams:(id)arg2 ;
 -(void)setReportUrl:(id)arg1 ;
 -(int)crashReportCountExcludingExplicitlyGeneratedStacktraces;
+-(char)checkForCrashWhileExceptionHandlingInLastSession;
 -(void)breakpadGenerateReportWithParams:(id)arg1 isQuickReport:(char)arg2 ;
 -(void)registerPostExceptionUnsafeCallback:(/*function pointer*/void*)arg1 ;
 -(void)dealloc;

@@ -29,11 +29,13 @@
 	char _confirmedEmailInSession;
 	char _confirmedPhoneInSession;
 	UIImage* _profilePicture;
+	int _profilePictureOption;
 	NSString* _phoneNumber;
 
 }
 
 @property (nonatomic,retain) UIImage * profilePicture;                  //@synthesize profilePicture=_profilePicture - In the implementation block
+@property (assign,nonatomic) int profilePictureOption;                  //@synthesize profilePictureOption=_profilePictureOption - In the implementation block
 @property (nonatomic,retain) NSString * phoneNumber;                    //@synthesize phoneNumber=_phoneNumber - In the implementation block
 @property (assign,nonatomic) char emptyEmailConfirmed;                  //@synthesize emptyEmailConfirmed=_emptyEmailConfirmed - In the implementation block
 @property (assign,nonatomic) char submitting;                           //@synthesize submitting=_submitting - In the implementation block
@@ -90,9 +92,11 @@
 -(int)pickerIndexForGender:(int)arg1 ;
 -(void)setNeedEmailConfirm:(char)arg1 ;
 -(void)setNeedPhoneConfirm:(char)arg1 ;
--(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 ;
+-(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(char)profilePictureHelperShouldShowRemovePicture:(id)arg1 ;
 -(void)profilePictureHelperRemovePictureButtonTapped:(id)arg1 ;
+-(int)profilePictureOption;
+-(void)setProfilePictureOption:(int)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
@@ -110,6 +114,7 @@
 -(char)textFieldShouldReturn:(id)arg1 ;
 -(void)viewDidLoad;
 -(void)keyboardDidShow:(id)arg1 ;
+-(void)dismiss;
 -(NSString *)phoneNumber;
 -(void)setCurrentField:(id)arg1 ;
 -(void)setPhoneNumber:(NSString *)arg1 ;

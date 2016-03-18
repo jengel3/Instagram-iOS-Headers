@@ -25,9 +25,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)serializer;
--(id)multipartFormRequestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 constructingBodyWithBlock:(/*^block*/id)arg4 ;
 -(void)setStringEncoding:(unsigned)arg1 ;
 -(id)requestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 ;
+-(id)multipartFormRequestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 constructingBodyWithBlock:(/*^block*/id)arg4 ;
 -(void)setMutableHTTPRequestHeaders:(NSMutableDictionary *)arg1 ;
 -(void)setHTTPMethodsEncodingParametersInURI:(NSSet *)arg1 ;
 -(NSMutableDictionary *)mutableHTTPRequestHeaders;

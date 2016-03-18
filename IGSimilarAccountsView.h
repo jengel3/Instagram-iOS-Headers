@@ -1,4 +1,5 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UITableView.h>
 
 @protocol IGSimilarAccountsViewDelegate;
@@ -25,7 +26,8 @@
 @property (nonatomic,retain) UIView * triangleView;                                                                    //@synthesize triangleView=_triangleView - In the implementation block
 @property (nonatomic,retain) UIButton * seeAllButton;                                                                  //@synthesize seeAllButton=_seeAllButton - In the implementation block
 @property (nonatomic,readonly) char isChainingSeeAllButtonEnabled;                                                     //@synthesize isChainingSeeAllButtonEnabled=_isChainingSeeAllButtonEnabled - In the implementation block
-+(int)defaultHeight;
++(CGSize)sizeForWidth:(float)arg1 ;
++(float)defaultHeight;
 -(void)onCloseTapped:(id)arg1 ;
 -(UIView *)topHeaderView;
 -(UIView *)topHeaderInnerView;
@@ -41,6 +43,7 @@
 -(void)setTriangleView:(UIView *)arg1 ;
 -(void)setSeeAllButton:(UIButton *)arg1 ;
 -(void)setCloseButton:(UIButton *)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 ;
 -(id)init;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;

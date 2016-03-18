@@ -32,13 +32,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGConfirmPhoneSettings *)confirmPhoneSettings;
 -(id)initWithConfirmationType:(int)arg1 confirmPhoneSettings:(id)arg2 phoneNumber:(id)arg3 ;
 -(void)setSubmitting:(char)arg1 ;
 -(char)submitting;
 -(void)setupNavigationItems;
 -(IGTextField *)confirmNumberTextField;
 -(IGSMSConfirmationController *)smsConfirmationController;
--(IGConfirmPhoneSettings *)confirmPhoneSettings;
 -(void)callUserWithConfirmationCode;
 -(int)confirmationType;
 -(id)smsURLForConfirmationType;
@@ -55,7 +55,6 @@
 -(void)setConfirmationType:(int)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)setDelegate:(id<IGConfirmPhoneNumberViewControllerDelegate>)arg1 ;
--(void)dealloc;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 viewForFooterInSection:(int)arg2 ;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;
@@ -68,6 +67,7 @@
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewWillDisappear:(char)arg1 ;
+-(void)viewDidDisappear:(char)arg1 ;
 -(NSString *)phoneNumber;
 -(void)doneButtonTapped;
 -(void)setPhoneNumber:(NSString *)arg1 ;

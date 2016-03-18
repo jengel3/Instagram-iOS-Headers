@@ -1,12 +1,12 @@
 
 
 @interface IGFeedItemInvalidationHelper : NSObject
-+(int)adHideFlowVersionForFeedItem:(id)arg1 ;
-+(char)isFeedItemWaitingForExpansionAfterHide:(id)arg1 ;
-+(void)hideFeedItem:(id)arg1 forReason:(id)arg2 withExtraDictionary:(id)arg3 ;
 +(char)isFeedItemInvalid:(id)arg1 ;
++(int)adHideFlowVersionForFeedItem:(id)arg1 ;
 +(char)shouldFeedItemDisplay:(id)arg1 ;
 +(char)hasSelectedReasonForInvalidFeedItem:(id)arg1 ;
++(char)isFeedItemWaitingForExpansionAfterHide:(id)arg1 ;
++(void)hideFeedItem:(id)arg1 forReason:(id)arg2 withExtraDictionary:(id)arg3 ;
 +(id)dictionaryForHiddenAds;
 +(id)reasonForInvalidFeedItem:(id)arg1 ;
 +(id)reasonForUserHidingFeedItem:(id)arg1 ;

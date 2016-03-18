@@ -59,13 +59,14 @@
 -(void)setCoreTextView:(IGCoreTextView *)arg1 ;
 -(IGStyledString *)styledString;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(char)showExploreContext;
+-(void)setShowExploreContext:(char)arg1 ;
 -(IGCoreTextView *)auxLabel;
 -(float)textHorizontalPadding;
 -(char)showTimeStamp;
 -(void)setTextHorizontalPadding:(float)arg1 ;
 -(void)setShowTimeStamp:(char)arg1 ;
 -(void)setAccessibilityLabelForStyledString:(NSString *)arg1 ;
--(void)setShowExploreContext:(char)arg1 ;
 -(void)handleTapOnString:(id)arg1 URL:(id)arg2 ;
 -(void)updateAuxLabel;
 -(void)updateIconWithType:(int)arg1 ;
@@ -82,7 +83,6 @@
 -(id)styledStringforFeaturedBadgeWithFeedItem:(id)arg1 ;
 -(id)styledStringForViewCountWithFeedItem:(id)arg1 ;
 -(id)styledStringForTimeStampExploreContextWithFeedItem:(id)arg1 ;
--(char)showExploreContext;
 -(void)setAuxLabelString:(id)arg1 ;
 -(void)boomerangAttributionTapped;
 -(char)isLongTapAllowedForCellType:(int)arg1 ;

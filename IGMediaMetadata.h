@@ -32,7 +32,7 @@
 @property (assign,nonatomic) char shouldKeepCaptionOnMediaChange;                    //@synthesize shouldKeepCaptionOnMediaChange=_shouldKeepCaptionOnMediaChange - In the implementation block
 @property (assign,nonatomic) int shareType;                                          //@synthesize shareType=_shareType - In the implementation block
 @property (nonatomic,retain) IGDirectShareRecipient * dv2Recipient;                  //@synthesize dv2Recipient=_dv2Recipient - In the implementation block
-@property (nonatomic,readonly) IGLocationMetadata * locationMetadata;                //@synthesize locationMetadata=_locationMetadata - In the implementation block
+@property (nonatomic,retain) IGLocationMetadata * locationMetadata;                  //@synthesize locationMetadata=_locationMetadata - In the implementation block
 @property (nonatomic,readonly) IGUsertagsMetadata * usertagsMetadata;                //@synthesize usertagsMetadata=_usertagsMetadata - In the implementation block
 @property (nonatomic,readonly) IGAddToPostMetadata * addToPostMetadata;              //@synthesize addToPostMetadata=_addToPostMetadata - In the implementation block
 @property (nonatomic,retain) IGShareListManager * shareListManager;                  //@synthesize shareListManager=_shareListManager - In the implementation block
@@ -54,8 +54,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(float)deviceAngle;
--(void)setShareType:(int)arg1 ;
--(IGAddToPostMetadata *)addToPostMetadata;
 -(void)cancelCurrentUpload;
 -(void)updateEditsInfo:(id)arg1 ;
 -(void)setUploadStartTime:(NSDate *)arg1 ;
@@ -71,8 +69,10 @@
 -(IGUploadModel *)upload;
 -(IGVideoMetadata *)videoMetadata;
 -(IGUsertagsMetadata *)usertagsMetadata;
+-(IGAddToPostMetadata *)addToPostMetadata;
 -(IGEditsMetadata *)editsMetadata;
 -(int)shareType;
+-(void)setShareType:(int)arg1 ;
 -(IGShareListManager *)shareListManager;
 -(void)prepareForNewPhotoFromSource:(int)arg1 EXIFDictionary:(id)arg2 deviceOrientation:(int)arg3 cameraPosition:(int)arg4 deviceAngle:(float)arg5 ;
 -(void)prepareForNewVideo:(id)arg1 editsMetadata:(id)arg2 ;
@@ -80,6 +80,7 @@
 -(char)shouldKeepCaptionOnMediaChange;
 -(IGDirectShareRecipient *)dv2Recipient;
 -(void)setDv2Recipient:(IGDirectShareRecipient *)arg1 ;
+-(void)setLocationMetadata:(IGLocationMetadata *)arg1 ;
 -(void)setShareListManager:(IGShareListManager *)arg1 ;
 -(NSArray *)preselectedIdentifiers;
 -(void)setEditsMetadata:(IGEditsMetadata *)arg1 ;

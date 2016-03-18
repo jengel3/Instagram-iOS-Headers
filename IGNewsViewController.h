@@ -17,7 +17,6 @@
 -(void)focusInbox;
 -(void)fetchInbox;
 -(void)onShouldReload;
--(void)tabBarTapped:(id)arg1 ;
 -(IGNewsFollowingTableViewController *)followingViewController;
 -(IGNewsInboxTableViewController *)inboxViewController;
 -(int)currentSegment;

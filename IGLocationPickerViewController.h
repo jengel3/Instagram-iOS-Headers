@@ -1,6 +1,7 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
+#import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGLocationPickerDelegate.h>
 #import <UIKit/UITableViewDelegate.h>
 #import <Instagram/IGSearchControllerDelegate.h>
@@ -9,7 +10,7 @@
 @protocol IGLocationPickerDelegate;
 @class IGSearchController, IGSearchBar, IGPlainTableView, UIBarButtonItem, NSString, IGLocationDataSource, IGKVOHandle;
 
-@interface IGLocationPickerViewController : IGViewController <IGLocationPickerDelegate, UITableViewDelegate, IGSearchControllerDelegate, IGLocationDataSourceDelegate> {
+@interface IGLocationPickerViewController : IGViewController <IGAnalyticsModule, IGLocationPickerDelegate, UITableViewDelegate, IGSearchControllerDelegate, IGLocationDataSourceDelegate> {
 
 	IGSearchController* _searchController;
 	IGSearchBar* _locationSearchBar;
@@ -25,17 +26,18 @@
 
 }
 
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,retain) IGLocationDataSource * locationDataSource;                 //@synthesize locationDataSource=_locationDataSource - In the implementation block
 @property (assign,nonatomic) char isInteractive;                                        //@synthesize isInteractive=_isInteractive - In the implementation block
 @property (assign,nonatomic,__weak) id<IGLocationPickerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int numOfViewedResults;                                    //@synthesize numOfViewedResults=_numOfViewedResults - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * contentOffsetObserver;                       //@synthesize contentOffsetObserver=_contentOffsetObserver - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
 -(void)onCancelModal;
 -(void)onLocationDenied:(id)arg1 ;
+-(id)analyticsModule;
 -(IGLocationDataSource *)locationDataSource;
 -(void)setLocationDataSource:(IGLocationDataSource *)arg1 ;
 -(char)enableNavState;

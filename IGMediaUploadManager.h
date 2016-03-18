@@ -32,7 +32,7 @@
 -(void)retryUploadWithStartTime:(id)arg1 ;
 -(void)unarchiveUploads;
 -(id)validUploadsBroadcastUploads;
--(void)configureUploadForStartTime:(id)arg1 ;
+-(void)shareUploadForStartTime:(id)arg1 ;
 -(void)onAppWillBackground:(id)arg1 ;
 -(void)onAppWillResume:(id)arg1 ;
 -(void)onAppWillTerminate:(id)arg1 ;
@@ -47,6 +47,7 @@
 -(void)showAlertProcessingFailed;
 -(void)uploadVideoForStartTime:(id)arg1 ;
 -(void)startConfigureBackgroundTaskForUpload:(id)arg1 ;
+-(void)configureUploadForStartTime:(id)arg1 ;
 -(void)uploadVideoDataForUpload:(id)arg1 ;
 -(id)validUploadsForDirectedSharing:(char)arg1 ;
 -(id)uploadIdForUpload:(id)arg1 ;

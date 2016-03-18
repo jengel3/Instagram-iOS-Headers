@@ -23,9 +23,9 @@
 +(id)arrayForImageVersions:(id)arg1 ;
 +(CGSize)aspectRatioForImageVersions:(id)arg1 ;
 +(CGSize)imageSizeForImageVersion:(id)arg1 ;
--(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(id)imageURLForWidth:(float)arg1 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
+-(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(id)initWithFeedItemDictionary:(id)arg1 ;
 -(id)initWithImageVersions:(id)arg1 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;

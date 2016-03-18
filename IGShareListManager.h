@@ -28,7 +28,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)sharingInfo;
--(char)locationEnabled;
 -(id)initWithMediaType:(int)arg1 locationAvailable:(char)arg2 ;
 -(int)numberOfShareServices;
 -(void)toggleShareServiceAtIndex:(int)arg1 ;
@@ -38,8 +37,10 @@
 -(char)readyToShare;
 -(IGShareServiceConfigureManager *)configureManager;
 -(id)orderedServiceTypesForServiceList:(id)arg1 ;
+-(void)configureStickyShareService:(id)arg1 withValue:(char)arg2 ;
 -(char)serviceWillShare:(id)arg1 ;
 -(void)setShortListCount:(int)arg1 ;
+-(char)locationEnabled;
 -(char)showFullList;
 -(void)setShowFullList:(char)arg1 ;
 -(int)shortListCount;

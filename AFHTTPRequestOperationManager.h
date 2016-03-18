@@ -28,7 +28,6 @@
 @property (nonatomic,retain) AFSecurityPolicy * securityPolicy;                                                     //@synthesize securityPolicy=_securityPolicy - In the implementation block
 @property (nonatomic,retain) AFNetworkReachabilityManager * reachabilityManager;                                    //@synthesize reachabilityManager=_reachabilityManager - In the implementation block
 +(id)manager;
--(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(void)setRequestSerializer:(AFHTTPRequestSerializer*<AFURLRequestSerialization>)arg1 ;
 -(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
 -(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
@@ -36,6 +35,7 @@
 -(char)shouldUseCredentialStorage;
 -(void)setShouldUseCredentialStorage:(char)arg1 ;
 -(AFSecurityPolicy *)securityPolicy;
+-(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(id)HTTPRequestOperationWithRequest:(id)arg1 success:(/*^block*/id)arg2 failure:(/*^block*/id)arg3 ;
 -(id)GET:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)HEAD:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;

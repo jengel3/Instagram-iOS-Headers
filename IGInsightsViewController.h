@@ -1,12 +1,12 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
-#import <Instagram/IGInsightsTabContentViewControllerDelegate.h>
+#import <Instagram/IGInsightsComponentListViewControllerDelegate.h>
 #import <Instagram/IGInsightsDataProviderDelegate.h>
 
 @class UIActivityIndicatorView, NSArray, IGInsightsTabBarController, IGInsightsDataProvider, NSString;
 
-@interface IGInsightsViewController : IGViewController <IGInsightsTabContentViewControllerDelegate, IGInsightsDataProviderDelegate> {
+@interface IGInsightsViewController : IGViewController <IGInsightsComponentListViewControllerDelegate, IGInsightsDataProviderDelegate> {
 
 	char _defaultTabCreated;
 	UIActivityIndicatorView* _spinner;
@@ -28,18 +28,19 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)didGetResponseForDataProvider:(id)arg1 ;
+-(void)failedToGetAccessTokenForDataProvider:(id)arg1 ;
 -(IGInsightsTabBarController *)tabBarViewController;
 -(void)setDefaultTabComponents:(NSArray *)arg1 ;
 -(NSArray *)defaultTabComponents;
 -(void)setTabBarViewController:(IGInsightsTabBarController *)arg1 ;
--(void)didSelectNavigateInTabContentViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
+-(void)didSelectComponentListViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
 -(void)_initializeSpinner;
 -(void)_startRequest;
 -(void)_setupTabBarViewController;
 -(void)_requestTabBarItemsAndDefaultTabContent;
--(id)_createTabPageViewControllerForTab:(id)arg1 ;
--(char)defaultTabCreated;
 -(id)_createTabContentViewControllerWithQueryItems:(id)arg1 ;
+-(id)_createViewControllerForTab:(id)arg1 ;
+-(char)defaultTabCreated;
 -(void)setDefaultTabCreated:(char)arg1 ;
 -(id)init;
 -(UIEdgeInsets)contentInsets;

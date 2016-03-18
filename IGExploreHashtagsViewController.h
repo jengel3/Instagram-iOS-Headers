@@ -1,10 +1,11 @@
 
 #import <Instagram/IGExploreFeedViewController.h>
 #import <Instagram/IGFeedNetworkSourceDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 
 @class IGExploreNetworkSource, NSMutableSet, NSString;
 
-@interface IGExploreHashtagsViewController : IGExploreFeedViewController <IGFeedNetworkSourceDelegate> {
+@interface IGExploreHashtagsViewController : IGExploreFeedViewController <IGFeedNetworkSourceDelegate, IGAnalyticsModule> {
 
 	IGExploreNetworkSource* _dataSource;
 	NSMutableSet* _loggedImpressions;

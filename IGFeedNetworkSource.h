@@ -4,7 +4,7 @@
 #import <Instagram/IGFetchedResultsControllerDelegate.h>
 
 @protocol IGFeedNetworkSourceDelegate, OS_dispatch_queue;
-@class NSArray, NSString, NSMutableArray, NSDictionary, IGFetchedResultsController, IGBulkMediaRequestManager, NSObject;
+@class NSArray, NSString, NSMutableArray, NSDictionary, IGFetchedResultsController, IGBulkMediaRequestManager, NSObject, NSDate;
 
 @interface IGFeedNetworkSource : NSObject <IGFeedStatusViewDataSource, IGFetchedResultsControllerDelegate> {
 
@@ -44,6 +44,7 @@
 	Class _postClass;
 	NSObject*<OS_dispatch_queue> _responseLoadQueue;
 	NSString* _nextMaxID;
+	NSDate* _lastFetchTime;
 
 }
 
@@ -79,6 +80,7 @@
 @property (assign,nonatomic) Class postClass;                                                    //@synthesize postClass=_postClass - In the implementation block
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> responseLoadQueue;                     //@synthesize responseLoadQueue=_responseLoadQueue - In the implementation block
 @property (copy) NSString * nextMaxID;                                                           //@synthesize nextMaxID=_nextMaxID - In the implementation block
+@property (nonatomic,retain) NSDate * lastFetchTime;                                             //@synthesize lastFetchTime=_lastFetchTime - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -86,7 +88,7 @@
 +(id)feedWithFeedItem:(id)arg1 ;
 +(id)feedWithPopular;
 +(id)feedWithItems:(id)arg1 ;
-+(id)fetchPatchForMediaID:(id)arg1 ;
++(id)fetchPathForMediaID:(id)arg1 ;
 +(id)feedWithLatest;
 +(id)feedWithUser:(id)arg1 ;
 +(id)feedWithTag:(id)arg1 loadedPosts:(id)arg2 ;
@@ -106,6 +108,7 @@
 -(NSString *)fetchPath;
 -(void)setPosts:(NSArray *)arg1 ;
 -(void)setShouldEagerLoadImages:(char)arg1 ;
+-(char)fetchDataWithParameters:(id)arg1 priority:(int)arg2 ;
 -(id)initWithPostClass:(Class)arg1 ;
 -(void)eagerLoadMediaForPosts:(id)arg1 ;
 -(NSArray *)socialPosts;
@@ -134,6 +137,7 @@
 -(void)setFeedRestricted:(char)arg1 ;
 -(char)isFullyLoaded;
 -(id)singleFeedTitleFromPost:(id)arg1 ;
+-(NSDate *)lastFetchTime;
 -(void)deletePost:(id)arg1 ;
 -(void)notifyDelegateDeserialization;
 -(void)deserializeEntriesAtPath:(id)arg1 ;
@@ -142,6 +146,7 @@
 -(id)URLToFetch:(id)arg1 parameters:(id)arg2 ;
 -(char)sendInstalledAppsHeader;
 -(char)sendAdsHeader;
+-(void)setLastFetchTime:(NSDate *)arg1 ;
 -(NSString *)currentRankToken;
 -(void)handleFailureResponse:(id)arg1 ;
 -(void)handleAuthorizationError:(id)arg1 ;
@@ -160,6 +165,7 @@
 -(char)feedRestricted;
 -(void)fetchedResultsController:(id)arg1 didRefreshObjects:(id)arg2 allObjects:(id)arg3 ;
 -(NSObject*<OS_dispatch_queue>)responseLoadQueue;
+-(double)timeSinceLastFetch;
 -(void)insertPost:(id)arg1 ;
 -(void)truncateItemsWithMaxCount:(unsigned)arg1 ;
 -(void)loadFromFile:(id)arg1 ;

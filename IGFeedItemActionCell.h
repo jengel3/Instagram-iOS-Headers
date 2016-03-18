@@ -19,9 +19,7 @@
 	int _accessoryViewType;
 	id<IGFeedItemActionCellDelegate> _delegate;
 	id<IGFeedItemLoggingProviderDelegate> _loggingDelegate;
-	int _secondaryAccessoryViewType;
 	UIView* _lineView;
-	UIButton* _addToPostButton;
 	UIButton*<IGSponsorableButton> _sponsoredButton;
 	NSArray* _accessibilityElements;
 	UIButton* _chevronButton;
@@ -41,9 +39,7 @@
 @property (assign,nonatomic) char sponsoredPostAllowed;                                                 //@synthesize sponsoredPostAllowed=_sponsoredPostAllowed - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemActionCellDelegate> delegate;                          //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
-@property (assign,nonatomic) int secondaryAccessoryViewType;                                            //@synthesize secondaryAccessoryViewType=_secondaryAccessoryViewType - In the implementation block
 @property (nonatomic,retain) UIView * lineView;                                                         //@synthesize lineView=_lineView - In the implementation block
-@property (nonatomic,retain) UIButton * addToPostButton;                                                //@synthesize addToPostButton=_addToPostButton - In the implementation block
 @property (nonatomic,retain) UIButton*<IGSponsorableButton> sponsoredButton;                            //@synthesize sponsoredButton=_sponsoredButton - In the implementation block
 @property (nonatomic,retain) NSArray * accessibilityElements;                                           //@synthesize accessibilityElements=_accessibilityElements - In the implementation block
 @property (nonatomic,retain) UIButton * chevronButton;                                                  //@synthesize chevronButton=_chevronButton - In the implementation block
@@ -57,7 +53,6 @@
 -(void)setAccessoryViewType:(int)arg1 ;
 -(void)setCustomizableButtonHidden:(char)arg1 animated:(char)arg2 ;
 -(UIButton *)customizableButton;
--(void)setSecondaryAccessoryViewType:(int)arg1 ;
 -(id)accessibleElements;
 -(void)setLineView:(UIView *)arg1 ;
 -(void)setLikeButton:(UIButton *)arg1 ;
@@ -69,24 +64,18 @@
 -(void)setChevronButton:(UIButton *)arg1 ;
 -(UIButton *)commentButton;
 -(UIButton*<IGSponsorableButton>)sponsoredButton;
--(UIButton *)addToPostButton;
--(void)updateMoreButton;
 -(void)onMoreButtonPressed;
--(void)onAddToPostButtonPressed;
 -(void)onCommentButtonPressed:(id)arg1 ;
 -(void)pageControlDidChangeValue:(id)arg1 ;
 -(void)onSendButtonPressed:(id)arg1 ;
 -(void)onLikeButtonPressed:(id)arg1 ;
--(void)onChevronButtonPressed:(id)arg1 ;
--(float)seperatorLineHInset;
 -(void)updateLikeButton;
 -(char)sponsoredPostAllowed;
--(void)updateChevronButton;
+-(float)seperatorLineHInset;
 -(UIView *)chevronSeperatorView;
+-(void)updateChevronButton;
 -(void)setCommentButton:(UIButton *)arg1 ;
 -(void)setAlbumPageIndicator:(IGAlbumPageIndicator *)arg1 ;
--(int)secondaryAccessoryViewType;
--(void)setAddToPostButton:(UIButton *)arg1 ;
 -(void)setSponsoredButton:(UIButton*<IGSponsorableButton>)arg1 ;
 -(void)setChevronSeperatorView:(UIView *)arg1 ;
 -(void)setPageControl:(IGPageCellPageControl *)arg1 ;
@@ -103,6 +92,7 @@
 -(int)indexOfAccessibilityElement:(id)arg1 ;
 -(NSArray *)accessibilityElements;
 -(void)setAccessibilityElements:(NSArray *)arg1 ;
+-(void)applyLayoutAttributes:(id)arg1 ;
 -(IGPageCellPageControl *)pageControl;
 -(UIView *)lineView;
 -(UIButton *)sendButton;

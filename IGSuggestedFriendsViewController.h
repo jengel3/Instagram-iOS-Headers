@@ -14,7 +14,6 @@
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)authorizeAndFetchUsers;
 -(id)newFindUsersView;
--(void)updateNavigationRightBarButtonItem;
 -(id)newFindUsersViewDataSource;
 -(id)init;
 @end

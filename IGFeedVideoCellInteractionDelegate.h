@@ -2,7 +2,7 @@
 
 @protocol IGFeedVideoCellInteractionDelegate <NSObject>
 @required
--(void)feedVideoCellDidDoubleTap:(id)arg1;
+-(void)videoCellDidDoubleTap:(id)arg1;
 
 @end
 

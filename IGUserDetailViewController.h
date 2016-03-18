@@ -6,11 +6,12 @@
 #import <Instagram/IGSwitchUsersControllerDelegate.h>
 #import <Instagram/IGDirectedNUXViewDelegate.h>
 #import <Instagram/IGMegaphonePresenterDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 
 @protocol IGMegaphonePresenterProtocol;
 @class UIBarButtonItem, IGUser, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, NSArray, IGSwitchUsersTitleButton, IGSwitchUsersController, IGFeedItemPreviewingHandler, IGDirectedNUXView, UITapGestureRecognizer, NSString;
 
-@interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate> {
+@interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate, IGAnalyticsModule> {
 
 	UIBarButtonItem* _configureBarButton;
 	UIBarButtonItem* _insightsBarButton;
@@ -24,6 +25,7 @@
 	UIView* _blockedFooterView;
 	UILabel* _emptyFeedLabel;
 	NSDictionary* _userRestrictionData;
+	UIView* _genericHeaderMegaphoneView;
 	NSArray* _accessibleElements;
 	UIView* _overlayViewForTabBar;
 	UIView* _overlayForMainView;
@@ -47,6 +49,7 @@
 @property (nonatomic,retain) UILabel * emptyFeedLabel;                                                       //@synthesize emptyFeedLabel=_emptyFeedLabel - In the implementation block
 @property (assign,nonatomic) char hasLoggedAdditionalUserDataLoadOnce;                                       //@synthesize hasLoggedAdditionalUserDataLoadOnce=_hasLoggedAdditionalUserDataLoadOnce - In the implementation block
 @property (nonatomic,retain) NSDictionary * userRestrictionData;                                             //@synthesize userRestrictionData=_userRestrictionData - In the implementation block
+@property (nonatomic,retain) UIView * genericHeaderMegaphoneView;                                            //@synthesize genericHeaderMegaphoneView=_genericHeaderMegaphoneView - In the implementation block
 @property (nonatomic,retain) NSArray * accessibleElements;                                                   //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (nonatomic,retain) UIView * overlayViewForTabBar;                                                  //@synthesize overlayViewForTabBar=_overlayViewForTabBar - In the implementation block
 @property (nonatomic,retain) UIView * overlayForMainView;                                                    //@synthesize overlayForMainView=_overlayForMainView - In the implementation block
@@ -72,9 +75,9 @@
 -(IGDirectedNUXView *)NUXView;
 -(void)setNUXView:(IGDirectedNUXView *)arg1 ;
 -(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
+-(char)enableNavState;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
 -(NSArray *)accessibleElements;
--(char)enableNavState;
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
 -(void)updateScrollFromContextualFeed;
@@ -83,6 +86,7 @@
 -(void)megaphonePresenterDidDismiss:(id)arg1 ;
 -(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
 -(void)megaphonePresenterPopViewController:(id)arg1 ;
+-(void)megaphonePresenter:(id)arg1 presentViewController:(id)arg2 animated:(char)arg3 completion:(/*^block*/id)arg4 ;
 -(void)megaphonePresenter:(id)arg1 handleURL:(id)arg2 ;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 completionBlock:(/*^block*/id)arg3 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
@@ -98,6 +102,7 @@
 -(void)switchUsersController:(id)arg1 tableViewDidSelectRowWithUser:(id)arg2 ;
 -(void)switchUsersControllerDidSelectAddAccountRow:(id)arg1 ;
 -(void)setSwitchUsersController:(IGSwitchUsersController *)arg1 ;
+-(void)directedNUXViewDidTap:(id)arg1 ;
 -(void)overlayViewTapped:(id)arg1 ;
 -(UIView *)overlayForMainView;
 -(UIView *)overlayViewForTabBar;
@@ -120,6 +125,8 @@
 -(NSDictionary *)userRestrictionData;
 -(UIView *)blockedFooterView;
 -(void)setBlockedFooterView:(UIView *)arg1 ;
+-(UIView *)genericHeaderMegaphoneView;
+-(void)setGenericHeaderMegaphoneView:(UIView *)arg1 ;
 -(char)enableAppColdStartLogging;
 -(char)hasLoggedAdditionalUserDataLoadOnce;
 -(void)setHasLoggedAdditionalUserDataLoadOnce:(char)arg1 ;
@@ -147,7 +154,6 @@
 -(void)showAccountSwitchingNUXInner;
 -(UITapGestureRecognizer *)titleViewNUXDismissTapGuestureRecognizer;
 -(UITapGestureRecognizer *)mainViewNUXDismissTapGuestureRecognizer;
--(void)directedNUXViewDidTap:(id)arg1 ;
 -(void)togglePrerelease:(id)arg1 ;
 -(UILabel *)emptyFeedLabel;
 -(void)setEmptyFeedLabel:(UILabel *)arg1 ;

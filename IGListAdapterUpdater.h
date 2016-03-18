@@ -50,7 +50,7 @@
 -(void)deleteItemsFromCollectionView:(id)arg1 indexPaths:(id)arg2 ;
 -(void)reloadItemsInCollectionView:(id)arg1 indexPaths:(id)arg2 ;
 -(void)reloadDataWithCollectionView:(id)arg1 itemUpdateBlock:(/*^block*/id)arg2 completion:(/*^block*/id)arg3 ;
--(void)reloadCollectionView:(id)arg1 sections:(id)arg2 ;
+-(void)reloadCollectionView:(id)arg1 sections:(id)arg2 animated:(char)arg3 ;
 -(id)trimmedIndexPaths:(id)arg1 inSections:(id)arg2 ;
 -(char)hasChanges;
 -(id)init;

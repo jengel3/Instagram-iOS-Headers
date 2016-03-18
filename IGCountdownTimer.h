@@ -17,12 +17,12 @@
 @property (nonatomic,retain) NSTimer * countdownTimer;                                  //@synthesize countdownTimer=_countdownTimer - In the implementation block
 @property (assign,nonatomic) int secondsLeft;                                           //@synthesize secondsLeft=_secondsLeft - In the implementation block
 -(void)invalidateTimer;
+-(void)continueTimer;
 -(void)setSecondsLeft:(int)arg1 ;
 -(void)setCountdownTimer:(NSTimer *)arg1 ;
 -(void)timerFired;
 -(NSTimer *)countdownTimer;
 -(int)secondsLeft;
--(void)continueTimer;
 -(id)newTimer;
 -(id)initWithDuration:(int)arg1 ;
 -(void)setDelegate:(id<IGCountdownTimerDelegate>)arg1 ;

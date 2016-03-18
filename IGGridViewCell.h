@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 
-@class UIColor, PHImageManager, PHImageRequestOptions, UIImageView, UIView, IGGradientView, UILabel, NSNumber;
+@class UIColor, PHImageManager, PHImageRequestOptions, UIImageView, UIView, IGGradientView, UILabel, NSNumber, NSString;
 
 @interface IGGridViewCell : UICollectionViewCell {
 
@@ -24,6 +24,7 @@
 	IGGradientView* _gradientView;
 	UILabel* _durationLabel;
 	UILabel* _assetNumberLabel;
+	UILabel* _overlayTextLabel;
 	CGSize _thumbnailSize;
 
 }
@@ -33,6 +34,7 @@
 @property (nonatomic,readonly) NSNumber * duration; 
 @property (assign,getter=isDisabled,nonatomic) char disabled;                          //@synthesize disabled=_disabled - In the implementation block
 @property (nonatomic,retain) UIColor * defaultBackgroundColor;                         //@synthesize defaultBackgroundColor=_defaultBackgroundColor - In the implementation block
+@property (nonatomic,retain) NSString * overlayText; 
 @property (nonatomic,retain) PHImageManager * imageManager;                            //@synthesize imageManager=_imageManager - In the implementation block
 @property (nonatomic,retain) PHImageRequestOptions * imageRequestOptions;              //@synthesize imageRequestOptions=_imageRequestOptions - In the implementation block
 @property (assign,nonatomic) CGSize thumbnailSize;                                     //@synthesize thumbnailSize=_thumbnailSize - In the implementation block
@@ -49,11 +51,14 @@
 @property (nonatomic,retain) IGGradientView * gradientView;                            //@synthesize gradientView=_gradientView - In the implementation block
 @property (nonatomic,retain) UILabel * durationLabel;                                  //@synthesize durationLabel=_durationLabel - In the implementation block
 @property (nonatomic,retain) UILabel * assetNumberLabel;                               //@synthesize assetNumberLabel=_assetNumberLabel - In the implementation block
+@property (nonatomic,retain) UILabel * overlayTextLabel;                               //@synthesize overlayTextLabel=_overlayTextLabel - In the implementation block
 @property (getter=isHighFrameRate,nonatomic,readonly) char highFrameRate; 
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)cancelImageRequest;
 -(void)setSelectedOverlay:(UIView *)arg1 ;
 -(UIView *)selectedOverlay;
+-(void)setOverlayTextLabel:(UILabel *)arg1 ;
+-(UILabel *)overlayTextLabel;
 -(void)setDisabledOverlay:(UIView *)arg1 ;
 -(UIView *)disabledOverlay;
 -(void)setInICloudView:(UIImageView *)arg1 ;
@@ -68,12 +73,14 @@
 -(char)usePhotosFramework;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(void)updateLabelVisibility;
+-(NSString *)overlayText;
 -(char)inICloud;
 -(char)isAssetPhotoOrVideo;
 -(char)isAssetPhoto;
 -(char)isHighFrameRate;
 -(char)showSelectedOverlay;
 -(void)setAssetNumber:(unsigned)arg1 ;
+-(void)setOverlayText:(NSString *)arg1 ;
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
 -(char)showAssetNumber;
 -(unsigned)assetNumber;

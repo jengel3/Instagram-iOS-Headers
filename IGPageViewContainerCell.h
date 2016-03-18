@@ -9,9 +9,10 @@
 
 }
 
-@property (nonatomic,retain) UIViewController * controller;              //@synthesize controller=_controller - In the implementation block
+@property (nonatomic,readonly) UIViewController * controller;              //@synthesize controller=_controller - In the implementation block
+-(void)setController:(id)arg1 parentViewController:(id)arg2 ;
+-(void)layoutSubviews;
 -(void)prepareForReuse;
 -(UIViewController *)controller;
--(void)setController:(UIViewController *)arg1 ;
 @end
 

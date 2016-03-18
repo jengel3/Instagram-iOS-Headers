@@ -21,6 +21,7 @@
 -(void)presentWithViewController:(id)arg1 ;
 -(void)setProductVC:(SKStoreProductViewController *)arg1 ;
 -(SKStoreProductViewController *)productVC;
+-(id)storeViewController;
 -(void)dealloc;
 -(NSDictionary *)parameters;
 -(void)setParameters:(NSDictionary *)arg1 ;

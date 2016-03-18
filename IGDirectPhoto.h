@@ -47,9 +47,9 @@
 @property (assign,nonatomic) char reactionsNeedsReRender;                                                    //@synthesize reactionsNeedsReRender=_reactionsNeedsReRender - In the implementation block
 @property (assign,nonatomic) unsigned lastReactionType;                                                      //@synthesize lastReactionType=_lastReactionType - In the implementation block
 @property (nonatomic,readonly) IGDirectItemIdBasedImageURLProcessor * previewImageURLProcessor;              //@synthesize previewImageURLProcessor=_previewImageURLProcessor - In the implementation block
--(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(id)imageURLForWidth:(float)arg1 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
+-(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(NSURL *)cacheKeyURL;
 -(char)useMainCameraUploadFlow;
 -(IGUploadModel *)uploadModel;

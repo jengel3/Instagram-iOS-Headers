@@ -4,13 +4,13 @@
 #import <Instagram/IGBusinessConversionFlowStep.h>
 
 @protocol IGBusinessConversionViewControllerDelegate;
-@class NSDictionary, UIView, UIButton, NSString;
+@class IGFacebookPageInfo, UIView, UIButton, NSDictionary, NSString;
 
 @interface IGBusinessConversionEditProfileViewController : IGGroupedTableViewController <IGBusinessConversionEditableProfileCellDelegate, IGBusinessConversionFlowStep> {
 
 	char _isEditingInfo;
 	id<IGBusinessConversionViewControllerDelegate> _delegate;
-	NSDictionary* _pageInfo;
+	IGFacebookPageInfo* _pageInfo;
 	UIView* _headerView;
 	UIButton* _bottomButton;
 	UIButton* _saveButton;
@@ -19,7 +19,7 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGBusinessConversionViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) NSDictionary * pageInfo;                                                     //@synthesize pageInfo=_pageInfo - In the implementation block
+@property (nonatomic,retain) IGFacebookPageInfo * pageInfo;                                               //@synthesize pageInfo=_pageInfo - In the implementation block
 @property (nonatomic,retain) UIView * headerView;                                                         //@synthesize headerView=_headerView - In the implementation block
 @property (nonatomic,retain) UIButton * bottomButton;                                                     //@synthesize bottomButton=_bottomButton - In the implementation block
 @property (nonatomic,retain) UIButton * saveButton;                                                       //@synthesize saveButton=_saveButton - In the implementation block
@@ -31,21 +31,21 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(UIButton *)bottomButton;
 -(void)setBottomButton:(UIButton *)arg1 ;
+-(IGFacebookPageInfo *)pageInfo;
 -(id)newBottomButton;
 -(id)newHeaderViewWithWidth:(float)arg1 ;
 -(void)validateCurrentState;
 -(NSDictionary *)validationErrors;
 -(void)setIsEditingInfo:(char)arg1 ;
 -(void)setValidationErrors:(NSDictionary *)arg1 ;
--(NSDictionary *)pageInfo;
 -(void)finishConversion;
--(void)setPageInfo:(NSDictionary *)arg1 ;
 -(char)isEditingInfo;
 -(void)editableProfileCell:(id)arg1 didUpdateValue:(id)arg2 forDataKey:(id)arg3 ;
 -(void)editableProfileCellDidBeginEditing:(id)arg1 ;
 -(char)editableProfileCell:(id)arg1 wantsToSaveValue:(id)arg2 forKey:(id)arg3 ;
 -(id)analyticsInfoForFlowStep;
 -(id)initWithPageInfoDictionary:(id)arg1 ;
+-(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
 -(void)saveChanges;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

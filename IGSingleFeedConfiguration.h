@@ -1,0 +1,27 @@
+
+#import <Instagram/IGFeedConfigurationType.h>
+
+@class IGDefaultFeedConfiguration, NSString;
+
+@interface IGSingleFeedConfiguration : NSObject <IGFeedConfigurationType> {
+
+	IGDefaultFeedConfiguration* _defaultConfig;
+
+}
+
+@property (nonatomic,readonly) IGDefaultFeedConfiguration * defaultConfig;              //@synthesize defaultConfig=_defaultConfig - In the implementation block
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
+-(char)showRefreshButton;
+-(char)shouldAutoplayVideos;
+-(double)warmStartRefreshInterval;
+-(char)showFindFriendsWhenEmpty;
+-(char)loadsTitleFromNetworkSource;
+-(char)shouldPrefetchMediaForFeedItems;
+-(id)init;
+-(IGDefaultFeedConfiguration *)defaultConfig;
+@end
+

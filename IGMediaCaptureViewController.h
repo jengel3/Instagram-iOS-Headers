@@ -14,7 +14,7 @@
 #import <UIKit/UIScrollViewDelegate.h>
 
 @protocol IGMediaCaptureViewControllerDelegate, OS_dispatch_queue;
-@class IGMediaMetadata, IGGridViewController, IGMediaTabBar, IGPagingScrollView, NSArray, IGCameraAccessPromptView, IGSampleBuffer, UIView, NSOperationQueue, IGCaptureManager, IGVideoRecorder, NSObject, IGVideoInfo, IGCameraFocusIndicator, IGCameraModeTransitionOverlayView, IGMediaCaptureButton, IGVideoCaptureDeleteButton, IGTapButton, IGVideoProgressView, IGStabilizationSampler, IGDirectedNUXView, IGDeviceAngleSampler, IGAppInstallationsHelper, IGCropView, IGCircularProgressView, UIImageView, IGNuxButton, IGAssetPlayerView, IGVideoPlayButton, UITapGestureRecognizer, IGCameraGuideView, IGLabel, IGEmptyLibraryView, UIPanGestureRecognizer, NSMutableDictionary, NSDictionary, UIBarButtonItem, IGChevronTitleButton, IGSelectAlbumController, IGEditorViewController, IGAppInstallAlertViewController, NSString;
+@class IGMediaMetadata, IGGridViewController, IGMediaTabBar, IGPagingScrollView, NSArray, IGCameraAccessPromptView, IGSampleBuffer, UIView, NSOperationQueue, IGCaptureManager, IGVideoRecorder, NSObject, IGVideoInfo, IGCameraFocusIndicator, IGCameraModeTransitionOverlayView, IGMediaCaptureButton, IGVideoCaptureDeleteButton, IGTapButton, IGVideoProgressView, IGStabilizationSampler, IGDirectedNUXView, IGDeviceAngleSampler, IGAppInstallationsHelper, IGCropView, IGCircularProgressView, UIImageView, IGNuxButton, IGAssetPlayerView, IGVideoPlayButton, UITapGestureRecognizer, IGCameraGuideView, IGLabel, IGEmptyLibraryView, UIPanGestureRecognizer, NSMutableDictionary, NSDictionary, UIBarButtonItem, IGCameraNavigationSelectorButton, IGSelectAlbumController, IGEditorViewController, IGAppInstallAlertViewController, NSString;
 
 @interface IGMediaCaptureViewController : IGBaseCameraViewController <IGAssetPlayerViewDelegate, IGCaptureManagerDelegate, IGGridViewControllerDelegate, IGGridViewControllerScrollDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGMediaCaptureButtonDelegate, IGSelectAlbumDelegate, IGAppInstallAlertViewControllerDelegate, IGCropViewUserInteractionDelegate, UIScrollViewDelegate> {
 
@@ -102,7 +102,7 @@
 	UIBarButtonItem* _libraryNextButtonItem;
 	UIBarButtonItem* _libraryLoadingNextButtonItem;
 	UIBarButtonItem* _videoNextButtonItem;
-	IGChevronTitleButton* _chevronTitleButton;
+	IGCameraNavigationSelectorButton* _albumSelectButton;
 	IGSelectAlbumController* _selectAlbumVC;
 	IGEditorViewController* _currentEditor;
 	IGAppInstallAlertViewController* _layoutAlertViewController;
@@ -195,7 +195,7 @@
 @property (nonatomic,retain) UIBarButtonItem * libraryNextButtonItem;                                          //@synthesize libraryNextButtonItem=_libraryNextButtonItem - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * libraryLoadingNextButtonItem;                                   //@synthesize libraryLoadingNextButtonItem=_libraryLoadingNextButtonItem - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * videoNextButtonItem;                                            //@synthesize videoNextButtonItem=_videoNextButtonItem - In the implementation block
-@property (nonatomic,retain) IGChevronTitleButton * chevronTitleButton;                                        //@synthesize chevronTitleButton=_chevronTitleButton - In the implementation block
+@property (nonatomic,retain) IGCameraNavigationSelectorButton * albumSelectButton;                             //@synthesize albumSelectButton=_albumSelectButton - In the implementation block
 @property (nonatomic,retain) IGSelectAlbumController * selectAlbumVC;                                          //@synthesize selectAlbumVC=_selectAlbumVC - In the implementation block
 @property (assign,nonatomic,__weak) IGEditorViewController * currentEditor;                                    //@synthesize currentEditor=_currentEditor - In the implementation block
 @property (nonatomic,retain) IGAppInstallAlertViewController * layoutAlertViewController;                      //@synthesize layoutAlertViewController=_layoutAlertViewController - In the implementation block
@@ -306,6 +306,7 @@
 -(NSMutableDictionary *)selectedVideos;
 -(void)panCrop:(id)arg1 ;
 -(void)onCropViewSingleTap;
+-(char)layoutButtonEnabled;
 -(void)setLayoutButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)layoutButton;
 -(void)layoutButtonTapped;
@@ -337,8 +338,8 @@
 -(void)setLibraryNextButtonItem:(UIBarButtonItem *)arg1 ;
 -(void)setLibraryLoadingNextButtonItem:(UIBarButtonItem *)arg1 ;
 -(UIBarButtonItem *)libraryLoadingNextButtonItem;
--(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
--(IGChevronTitleButton *)chevronTitleButton;
+-(void)setAlbumSelectButton:(IGCameraNavigationSelectorButton *)arg1 ;
+-(IGCameraNavigationSelectorButton *)albumSelectButton;
 -(void)onAlbumTitleTapped;
 -(IGSelectAlbumController *)selectAlbumVC;
 -(id)selectedAsset;
@@ -358,6 +359,7 @@
 -(void)updateStabilizationSampler;
 -(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
 -(void)stopVideoPlayer;
+-(CGSize)sizeForButtonAreaForParentSize:(CGSize)arg1 ;
 -(IGCameraAccessPromptView *)cameraPermissionDeniedView;
 -(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
 -(float)cropOffsetY;

@@ -6,16 +6,17 @@
 
 @interface IGVideoGlyphView : UIView {
 
-	UIImageView* _innerDot;
+	UIImageView* _innerIcon;
+	UIImageView* _containerIcon;
 
 }
 
-@property (nonatomic,retain) UIImageView * innerDot;              //@synthesize innerDot=_innerDot - In the implementation block
--(UIImageView *)innerDot;
+@property (nonatomic,readonly) UIImageView * innerIcon;                  //@synthesize innerIcon=_innerIcon - In the implementation block
+@property (nonatomic,readonly) UIImageView * containerIcon;              //@synthesize containerIcon=_containerIcon - In the implementation block
+-(id)initWithFrame:(CGRect)arg1 innerIconImage:(id)arg2 containerIconImage:(id)arg3 ;
+-(UIImageView *)innerIcon;
 -(void)animateLayer:(id)arg1 ;
--(void)setInnerDot:(UIImageView *)arg1 ;
--(id)initWithFrame:(CGRect)arg1 ;
--(id)init;
+-(UIImageView *)containerIcon;
 -(void)stopAnimating;
 -(void)startAnimating;
 -(void)setAnimating:(char)arg1 ;

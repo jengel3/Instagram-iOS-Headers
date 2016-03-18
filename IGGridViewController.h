@@ -67,7 +67,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(float)cellSpacing;
++(float)cellSpacingForWidth:(float)arg1 ;
 -(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
 -(NSArray *)preselectedIdentifiers;
 -(void)setShowSelectedOverlay:(char)arg1 ;

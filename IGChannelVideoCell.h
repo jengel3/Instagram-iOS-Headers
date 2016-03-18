@@ -15,6 +15,8 @@
 @property (nonatomic,readonly) CALayer * touchDownLayer;                        //@synthesize touchDownLayer=_touchDownLayer - In the implementation block
 -(void)setupSubviewsWithFrame:(CGRect)arg1 ;
 -(void)configureVideoView;
+-(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
+-(void)feedItemVideoViewDidPlay:(id)arg1 ;
 -(void)configureWithChannel:(id)arg1 playerDelegate:(id)arg2 ;
 -(void)setupOverlayViewWithFrame:(CGRect)arg1 ;
 -(void)setupTouchDownLayer;

@@ -4,12 +4,11 @@
 #import <Instagram/IGRageShakeViewControllerDelegate.h>
 #import <UIKit/UIAlertViewDelegate.h>
 
-@class IGUser, IGShakeWindowEventLogger, NSString;
+@class IGShakeWindowEventLogger, NSString;
 
 @interface IGShakeWindow : UIWindow <IGRageShakeViewControllerDelegate, UIAlertViewDelegate> {
 
 	char _isReporting;
-	IGUser* _userToSuggest;
 	IGShakeWindowEventLogger* _logger;
 	double _motionStart;
 
@@ -25,6 +24,7 @@
 -(void)showBugReporterForType:(int)arg1 ;
 -(id)screenshotData;
 -(void)presentReportThankYouAlert;
+-(void)onFlexTapGesture:(id)arg1 ;
 -(void)reportCrash;
 -(void)reportBug;
 -(void)showAnalyticsEvents;

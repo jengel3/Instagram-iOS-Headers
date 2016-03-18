@@ -8,23 +8,24 @@
 #import <Instagram/IGDirectRecipientDataSourceDelegate.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
 #import <Instagram/IGDirectGrowingMessageTextViewDelegate.h>
+#import <Instagram/IGDirectSlideableViewController.h>
 
-@class NSArray, IGDirectShareRecipient, UICollectionView, UIView, UIButton, UILabel, UITextField, IGDirectGrowingMessageTextView, UITextView, IGDirectRecipientDataSource, NSString;
+@class NSArray, IGDirectShareRecipient, UIView, UICollectionView, UIButton, UILabel, UITextField, IGDirectGrowingMessageTextView, UITextView, IGDirectRecipientDataSource, NSString;
 
-@interface IGDirectShareSheet : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, IGDirectRecipientDataSourceDelegate, UIViewControllerTransitioningDelegate, IGDirectGrowingMessageTextViewDelegate> {
+@interface IGDirectShareSheet : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, IGDirectRecipientDataSourceDelegate, UIViewControllerTransitioningDelegate, IGDirectGrowingMessageTextViewDelegate, IGDirectSlideableViewController> {
 
 	char _loadingResults;
 	NSArray* _defaultRecipients;
 	NSArray* _searchResults;
 	IGDirectShareRecipient* _selectedRecipient;
-	UICollectionView* _collectionView;
 	UIView* _overlayView;
+	UIView* _contentContainerView;
+	UICollectionView* _collectionView;
 	UIButton* _bottomButton;
 	UILabel* _titleLabel;
 	UILabel* _subtitleLabel;
 	unsigned _shareState;
 	UIButton* _searchButton;
-	UIView* _contentContainerView;
 	UITextField* _searchBar;
 	UIView* _topLine;
 	IGDirectGrowingMessageTextView* _messageView;
@@ -39,15 +40,15 @@
 @property (nonatomic,retain) NSArray * defaultRecipients;                               //@synthesize defaultRecipients=_defaultRecipients - In the implementation block
 @property (nonatomic,retain) NSArray * searchResults;                                   //@synthesize searchResults=_searchResults - In the implementation block
 @property (nonatomic,retain) IGDirectShareRecipient * selectedRecipient;                //@synthesize selectedRecipient=_selectedRecipient - In the implementation block
-@property (nonatomic,retain) UICollectionView * collectionView;                         //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,retain) UIView * overlayView;                                      //@synthesize overlayView=_overlayView - In the implementation block
+@property (nonatomic,retain) UIView * contentContainerView;                             //@synthesize contentContainerView=_contentContainerView - In the implementation block
+@property (nonatomic,retain) UICollectionView * collectionView;                         //@synthesize collectionView=_collectionView - In the implementation block
 @property (assign,nonatomic) CGRect keyboardFrame;                                      //@synthesize keyboardFrame=_keyboardFrame - In the implementation block
 @property (nonatomic,retain) UIButton * bottomButton;                                   //@synthesize bottomButton=_bottomButton - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                      //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * subtitleLabel;                                   //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 @property (assign,nonatomic) unsigned shareState;                                       //@synthesize shareState=_shareState - In the implementation block
 @property (nonatomic,retain) UIButton * searchButton;                                   //@synthesize searchButton=_searchButton - In the implementation block
-@property (nonatomic,retain) UIView * contentContainerView;                             //@synthesize contentContainerView=_contentContainerView - In the implementation block
 @property (nonatomic,retain) UITextField * searchBar;                                   //@synthesize searchBar=_searchBar - In the implementation block
 @property (assign,nonatomic) char loadingResults;                                       //@synthesize loadingResults=_loadingResults - In the implementation block
 @property (nonatomic,retain) UIView * topLine;                                          //@synthesize topLine=_topLine - In the implementation block
@@ -65,6 +66,7 @@
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
+-(void)onOverlayTapped;
 -(void)messageViewClearButtonTappedWhileNoText:(id)arg1 ;
 -(void)messageView:(id)arg1 didUpdateToHeight:(float)arg2 ;
 -(void)uploadCurrentContentToRecipient:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
@@ -80,7 +82,6 @@
 -(void)searchBarClearButtonTapped;
 -(void)handleNewQueryString:(id)arg1 ;
 -(void)setSearchBarClearButtonAlpha:(float)arg1 ;
--(void)onOverlayTapped;
 -(void)contentContainerSwipedDown:(id)arg1 ;
 -(void)onBottomButtonTapped;
 -(void)onSearchButtonTapped;

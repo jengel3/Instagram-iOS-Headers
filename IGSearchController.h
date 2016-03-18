@@ -37,9 +37,9 @@
 +(int)preferredStatusBarStyle;
 -(IGKVOHandle *)contentOffsetObserver;
 -(void)setContentOffsetObserver:(IGKVOHandle *)arg1 ;
--(NSDate *)lastSearch;
 -(void)setContentsController:(IGViewController *)arg1 ;
 -(void)setLastSearch:(NSDate *)arg1 ;
+-(NSDate *)lastSearch;
 -(UIView *)searchBarSuperview;
 -(void)setSearchBarSuperview:(UIView *)arg1 ;
 -(float)originalSearchBarY;

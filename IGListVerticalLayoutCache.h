@@ -24,9 +24,8 @@
 -(unsigned)headerCount;
 -(void)clearAllData;
 -(void)clearEstimatedData;
--(void)invalidateWithUpdateItems:(id)arg1 ;
--(void)saveHeaderAttributes:(id)arg1 ;
--(void)saveItemAttributes:(id)arg1 ;
+-(void)invalidateElementsAtIndexPaths:(id)arg1 ;
+-(void)saveAttributes:(id)arg1 ;
 -(unsigned)itemCount;
 -(id)init;
 -(id)description;

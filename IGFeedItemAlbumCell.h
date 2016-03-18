@@ -39,14 +39,14 @@
 -(IGFeedItem *)feedItem;
 -(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
 -(IGBulkMediaRequestManager *)requestManager;
+-(int)pageForOffset:(float)arg1 ;
+-(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(void)reloadWithFeedItem:(id)arg1 ;
 -(float)maxHeightForAlbum:(id)arg1 ;
 -(void)prefetchMedia;
 -(void)preloadAdjacentCellsForIndex:(int)arg1 ;
 -(IGImagePreparer *)imagePreparer;
--(int)pageForOffset:(float)arg1 ;
 -(void)handleDidEndScrolling:(id)arg1 ;
--(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(void)photoCellDidInitialSingleTap:(id)arg1 ;
 -(void)photoCellDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
 -(void)photoCellDidDoubleTapToLike:(id)arg1 ;
@@ -54,7 +54,7 @@
 -(void)videoCellDidRequestVideoPlayback:(id)arg1 ;
 -(void)videoCellDidLoadImage:(id)arg1 ;
 -(void)videoCellDidPlayToEnd:(id)arg1 ;
--(void)feedVideoCellDidDoubleTap:(id)arg1 ;
+-(void)videoCellDidDoubleTap:(id)arg1 ;
 -(unsigned)updatePercentVisible:(float)arg1 ;
 -(float)percentVisible;
 -(id)contentViewForHeartAnimation;
@@ -75,5 +75,6 @@
 -(CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForFooterInSection:(int)arg3 ;
 -(void)setCollectionView:(UICollectionView *)arg1 ;
 -(void)setPage:(int)arg1 ;
+-(char)isSponsored;
 @end
 

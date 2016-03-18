@@ -34,10 +34,10 @@
 @property (nonatomic,copy,readonly) NSString * overlaySubtitle;              //@synthesize overlaySubtitle=_overlaySubtitle - In the implementation block
 +(char)hasDirectResponseInfo:(id)arg1 ;
 -(NSString *)overlayTitle;
+-(NSString *)overlayText;
 -(NSString *)actionText;
 -(char)hideNUXText;
 -(NSString *)actionHintText;
--(NSString *)overlayText;
 -(NSString *)overlaySubtitle;
 -(char)forceOverlay;
 -(NSURL *)actionURL;

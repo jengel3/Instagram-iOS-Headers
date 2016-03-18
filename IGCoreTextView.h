@@ -41,6 +41,7 @@
 -(CGPoint)lineOrigin:(CGPoint)arg1 FromRelativeToPath:(CGPathRef)arg2 toRelativeToContext:(CGContextRef)arg3 ;
 -(char)handleTapAtIndex:(int)arg1 forTouchEvent:(unsigned)arg2 ;
 -(id<IGCoreTextLinkHandler>)linkHandler;
+-(float)heightForWidth:(float)arg1 ;
 -(void)drawRect:(CGRect)arg1 ;
 -(void)setFrame:(CGRect)arg1 ;
 -(void)setBounds:(CGRect)arg1 ;

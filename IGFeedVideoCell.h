@@ -1,6 +1,6 @@
 
 
-@protocol IGFeedVideoCell <IGPercentVisible,IGHeartAnimatable>
+@protocol IGFeedVideoCell <IGPercentVisible,IGHeartAnimatable,IGSponsoring>
 @required
 -(id)videoView;
 

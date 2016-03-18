@@ -29,6 +29,7 @@
 -(IGProfilePictureImageView *)profileImageView;
 -(UIImageView *)verifiedBadgeImageView;
 -(void)setMoreButtonHidden:(char)arg1 ;
+-(void)layoutMoreButton;
 -(void)configureWithImageURL:(id)arg1 username:(id)arg2 isVerified:(char)arg3 ;
 -(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)setVerifiedBadgeImageView:(UIImageView *)arg1 ;

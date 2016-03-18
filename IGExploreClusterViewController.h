@@ -2,10 +2,11 @@
 #import <Instagram/IGExploreFeedViewController.h>
 #import <Instagram/IGFeedStatusViewDataSource.h>
 #import <Instagram/IGNetworkSourceDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 
 @class IGNetworkSource, NSMutableSet, NSString;
 
-@interface IGExploreClusterViewController : IGExploreFeedViewController <IGFeedStatusViewDataSource, IGNetworkSourceDelegate> {
+@interface IGExploreClusterViewController : IGExploreFeedViewController <IGFeedStatusViewDataSource, IGNetworkSourceDelegate, IGAnalyticsModule> {
 
 	IGNetworkSource* _networkSource;
 	int _networkSourceStatus;

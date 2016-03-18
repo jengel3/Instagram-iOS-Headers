@@ -3,6 +3,7 @@
 
 
 @protocol IGSearchResultsTab <NSObject,IGExploreSearchChildViewController,IGListAdapterDataSource>
+@property (nonatomic,copy) NSString * moduleName; 
 @property (assign,nonatomic) int raindropViewType; 
 @property (assign,nonatomic) char raindropEnableNavState; 
 @property (assign,nonatomic) int raindropSearchType; 
@@ -30,6 +31,8 @@
 -(int)filterResultState:(int)arg1;
 -(void)addLoadedNotifications;
 -(void)addLocationTracker;
+-(NSString *)moduleName;
+-(void)setModuleName:(id)arg1;
 -(int)raindropViewType;
 -(void)setRaindropViewType:(int)arg1;
 -(char)raindropEnableNavState;

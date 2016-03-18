@@ -13,7 +13,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)didSelectClosePaymentsView:(id)arg1 ;
 -(IGPaymentsView *)paymentsView;
--(id)init;
 -(char)prefersStatusBarHidden;
 -(int)preferredStatusBarUpdateAnimation;
 -(void)loadView;

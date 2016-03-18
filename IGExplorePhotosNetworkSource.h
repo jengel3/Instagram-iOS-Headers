@@ -21,6 +21,7 @@
 -(NSArray *)marqueeItems;
 -(char)hasPeopleEntryInfo;
 -(char)hasJumbotronInfo;
+-(char)fetchDataWithParameters:(id)arg1 priority:(int)arg2 ;
 -(NSArray *)profileTeaserUsers;
 -(void)setProfileTeaserUsers:(NSArray *)arg1 ;
 -(NSString *)peopleTeaserByline;

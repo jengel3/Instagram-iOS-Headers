@@ -4,13 +4,14 @@
 #import <Instagram/IGInlineGalleryTitleBarDelegate.h>
 
 @protocol IGInlineGalleryTitleBar, IGInlineGalleryViewDelegate;
-@class UIView, UICollectionView;
+@class UIView, UICollectionView, UIButton;
 
 @interface IGInlineGalleryView : UIView <IGInlineGalleryTitleBarDelegate> {
 
 	float _photoThumbnailSize;
 	UIView*<IGInlineGalleryTitleBar> _titleBar;
 	UICollectionView* _collectionView;
+	UIButton* _cancelButton;
 	int _state;
 	int _style;
 	id<IGInlineGalleryViewDelegate> _delegate;
@@ -23,8 +24,12 @@
 @property (assign,nonatomic,__weak) id<IGInlineGalleryViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)didTapTitleBar;
 -(void)didTapDismiss;
+-(void)didTapCamera;
 -(void)didTapSeeAll;
 -(id)createNewTitleBarForStyle:(int)arg1 ;
+-(void)didTapCancel;
+-(char)hasVerticalPaddingAroundScrollView;
+-(char)hasCancelButton;
 -(id)initWithWidth:(float)arg1 delegate:(id)arg2 photoThumbnailSize:(float)arg3 style:(int)arg4 ;
 -(void)setDelegate:(id<IGInlineGalleryViewDelegate>)arg1 ;
 -(void)layoutSubviews;

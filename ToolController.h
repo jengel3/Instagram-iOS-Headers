@@ -28,6 +28,7 @@
 -(NSArray *)tools;
 -(void)setCurrentToolIndex:(int)arg1 ;
 -(void)setTools:(NSArray *)arg1 ;
+-(id)toolCellWithToolTile:(id)arg1 ;
 -(int)currentToolIndex;
 -(void)_updateLayout;
 -(void)setDelegate:(NSObject*<ToolControllerDelegate>)arg1 ;

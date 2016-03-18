@@ -8,8 +8,8 @@
 
 @property (nonatomic,retain) NSNumber * location; 
 @property (nonatomic,retain) NSNumber * length; 
-@property (assign,nonatomic) SCD_Struct_CP79 locationDecimal; 
-@property (assign,nonatomic) SCD_Struct_CP79 lengthDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP80 locationDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP80 lengthDecimal; 
 @property (assign,nonatomic) double locationDouble; 
 @property (assign,nonatomic) double lengthDouble; 
 @property (assign,nonatomic) char inValueUpdate; 

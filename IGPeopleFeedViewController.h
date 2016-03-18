@@ -2,10 +2,11 @@
 #import <Instagram/IGExploreFeedViewController.h>
 #import <Instagram/IGFindUsersViewDataSourceDelegate.h>
 #import <Instagram/IGContactsFriendsViewControllerDelegate.h>
+#import <Instagram/IGAnalyticsModule.h>
 
 @class NSArray, NSMutableSet, IGFindUsersViewDataSource, UIView, IGDiscoverMorePeopleConnectionView, NSString;
 
-@interface IGPeopleFeedViewController : IGExploreFeedViewController <IGFindUsersViewDataSourceDelegate, IGContactsFriendsViewControllerDelegate> {
+@interface IGPeopleFeedViewController : IGExploreFeedViewController <IGFindUsersViewDataSourceDelegate, IGContactsFriendsViewControllerDelegate, IGAnalyticsModule> {
 
 	id _delegate;
 	NSArray* _forcedUserIDs;
