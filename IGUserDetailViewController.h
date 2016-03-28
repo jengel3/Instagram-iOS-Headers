@@ -9,7 +9,7 @@
 #import <Instagram/IGAnalyticsModule.h>
 
 @protocol IGMegaphonePresenterProtocol;
-@class UIBarButtonItem, IGUser, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, NSArray, IGSwitchUsersTitleButton, IGSwitchUsersController, IGFeedItemPreviewingHandler, IGDirectedNUXView, UITapGestureRecognizer, NSString;
+@class UIBarButtonItem, IGUser, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, NSArray, IGChevronTitleButton, IGSwitchUsersController, IGFeedItemPreviewingHandler, IGDirectedNUXView, UITapGestureRecognizer, NSString;
 
 @interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate, IGAnalyticsModule> {
 
@@ -29,7 +29,7 @@
 	NSArray* _accessibleElements;
 	UIView* _overlayViewForTabBar;
 	UIView* _overlayForMainView;
-	IGSwitchUsersTitleButton* _titleButton;
+	IGChevronTitleButton* _titleButton;
 	IGSwitchUsersController* _switchUsersController;
 	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 	IGDirectedNUXView* _NUXView;
@@ -53,7 +53,7 @@
 @property (nonatomic,retain) NSArray * accessibleElements;                                                   //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (nonatomic,retain) UIView * overlayViewForTabBar;                                                  //@synthesize overlayViewForTabBar=_overlayViewForTabBar - In the implementation block
 @property (nonatomic,retain) UIView * overlayForMainView;                                                    //@synthesize overlayForMainView=_overlayForMainView - In the implementation block
-@property (nonatomic,retain) IGSwitchUsersTitleButton * titleButton;                                         //@synthesize titleButton=_titleButton - In the implementation block
+@property (nonatomic,retain) IGChevronTitleButton * titleButton;                                             //@synthesize titleButton=_titleButton - In the implementation block
 @property (nonatomic,retain) IGSwitchUsersController * switchUsersController;                                //@synthesize switchUsersController=_switchUsersController - In the implementation block
 @property (assign,nonatomic) char displayingSwitchUsersTableView;                                            //@synthesize displayingSwitchUsersTableView=_displayingSwitchUsersTableView - In the implementation block
 @property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;                         //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
@@ -67,6 +67,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
+-(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(id)analyticsModule;
 -(id)analyticsExtras;
 -(void)onFriendStatusReceived:(id)arg1 ;
@@ -74,7 +75,6 @@
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(IGDirectedNUXView *)NUXView;
 -(void)setNUXView:(IGDirectedNUXView *)arg1 ;
--(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(char)enableNavState;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
 -(NSArray *)accessibleElements;
@@ -88,6 +88,7 @@
 -(void)megaphonePresenterPopViewController:(id)arg1 ;
 -(void)megaphonePresenter:(id)arg1 presentViewController:(id)arg2 animated:(char)arg3 completion:(/*^block*/id)arg4 ;
 -(void)megaphonePresenter:(id)arg1 handleURL:(id)arg2 ;
+-(void)megaphonePresenterNeedsMegaphoneResize:(id)arg1 ;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 completionBlock:(/*^block*/id)arg3 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(void)collectionViewControllerDidStartPullToRefreshAction:(id)arg1 ;
@@ -101,14 +102,15 @@
 -(void)switchUsersControllerDidSelectRowWithCurrentUser:(id)arg1 ;
 -(void)switchUsersController:(id)arg1 tableViewDidSelectRowWithUser:(id)arg2 ;
 -(void)switchUsersControllerDidSelectAddAccountRow:(id)arg1 ;
+-(void)switchUsersController:(id)arg1 wantsToUpdateNeedsAttention:(char)arg2 ;
 -(void)setSwitchUsersController:(IGSwitchUsersController *)arg1 ;
+-(void)hideToolTip;
 -(void)directedNUXViewDidTap:(id)arg1 ;
--(void)overlayViewTapped:(id)arg1 ;
+-(void)setOverlayForMainView:(UIView *)arg1 ;
 -(UIView *)overlayForMainView;
--(UIView *)overlayViewForTabBar;
+-(void)overlayViewTapped:(id)arg1 ;
 -(void)showPostNotificationsNUX;
 -(void)seeAllButtonTappedWithView:(id)arg1 ;
--(void)hideToolTip;
 -(void)configureUserDetailFooterView;
 -(char)needsFeedRefresh;
 -(void)setNeedsFeedRefresh:(char)arg1 ;
@@ -119,12 +121,15 @@
 -(void)presentOrTearDownCameraNUX;
 -(char)displayingSwitchUsersTableView;
 -(char)shouldShowCameraNux;
+-(void)showEmptyFeedNux;
+-(void)dismissNUXAnimated:(char)arg1 ;
 -(IGNuxTapOnCameraView *)emptyFeedNUX;
 -(void)setUserRestrictionData:(NSDictionary *)arg1 ;
 -(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 ;
 -(NSDictionary *)userRestrictionData;
 -(UIView *)blockedFooterView;
 -(void)setBlockedFooterView:(UIView *)arg1 ;
+-(void)updateConfigureButtonsForCurrentUser;
 -(UIView *)genericHeaderMegaphoneView;
 -(void)setGenericHeaderMegaphoneView:(UIView *)arg1 ;
 -(char)enableAppColdStartLogging;
@@ -138,17 +143,16 @@
 -(void)checkFriendshipStatus;
 -(void)presentFriendshipActionSheet;
 -(void)onFriendStatusFailed:(id)arg1 ;
--(void)updateConfigureButtonsForCurrentUser;
 -(void)onNeedsFullReload;
 -(void)dismissNUX:(id)arg1 ;
 -(void)pushAccountSettings;
 -(id)insightsBarButton;
 -(void)setSwitchUsersTitleView;
 -(void)switchUsersControllerResetTableView:(id)arg1 ;
--(void)dismissNUXAnimated:(char)arg1 ;
 -(/*^block*/id)friendshipActionSheetCallback;
 -(void)pushInsights;
 -(void)setEmptyFeedNUX:(IGNuxTapOnCameraView *)arg1 ;
+-(UIView *)overlayViewForTabBar;
 -(void)setDisplayingSwitchUsersTableView:(char)arg1 ;
 -(void)showPostNotificationsNUXInner;
 -(void)showAccountSwitchingNUXInner;
@@ -158,7 +162,6 @@
 -(UILabel *)emptyFeedLabel;
 -(void)setEmptyFeedLabel:(UILabel *)arg1 ;
 -(void)setOverlayViewForTabBar:(UIView *)arg1 ;
--(void)setOverlayForMainView:(UIView *)arg1 ;
 -(void)setMainViewNUXDismissTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(void)setTitleViewNUXDismissTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(UIBarButtonItem *)envSwitchButtonItem;
@@ -166,12 +169,13 @@
 -(id)initWithUser:(id)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
--(void)setTitleButton:(IGSwitchUsersTitleButton *)arg1 ;
--(IGSwitchUsersTitleButton *)titleButton;
+-(void)setTitleButton:(IGChevronTitleButton *)arg1 ;
+-(IGChevronTitleButton *)titleButton;
 -(void)dealloc;
 -(id)init;
 -(void)setTitle:(id)arg1 ;
 -(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;
+-(void)viewDidLayoutSubviews;
 -(int)viewType;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;

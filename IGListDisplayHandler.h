@@ -16,11 +16,11 @@
 -(NSMapTable *)visibleCellListMap;
 -(NSMapTable *)visibleCellObjectMap;
 -(NSCountedSet *)visibleListSections;
+-(void)willDisplayCell:(id)arg1 inListAdapter:(id)arg2 forListItemController:(id)arg3 object:(id)arg4 atIndexPath:(id)arg5 ;
+-(void)didEndDisplayingCell:(id)arg1 inListAdapter:(id)arg2 atIndexPath:(id)arg3 ;
 -(void)setVisibleListSections:(NSCountedSet *)arg1 ;
 -(void)setVisibleCellListMap:(NSMapTable *)arg1 ;
 -(void)setVisibleCellObjectMap:(NSMapTable *)arg1 ;
--(void)willDisplayCell:(id)arg1 inListAdapter:(id)arg2 forListItemController:(id)arg3 object:(id)arg4 atIndexPath:(id)arg5 ;
--(void)didEndDisplayingCell:(id)arg1 inListAdapter:(id)arg2 atIndexPath:(id)arg3 ;
 -(id)init;
 @end
 

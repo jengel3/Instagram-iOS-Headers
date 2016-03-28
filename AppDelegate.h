@@ -39,6 +39,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)exitIfSafe;
 -(void)setFeedItemTrackingManager:(IGFeedItemTrackingManager *)arg1 ;
 -(void)setAnalyticsManager:(IGAnalyticsManager *)arg1 ;
 -(void)setSurveyManager:(IGSurveyManager *)arg1 ;
@@ -57,7 +58,6 @@
 -(void)setHandledPushNoteInDidFinishLaunching:(char)arg1 ;
 -(void)toggleMemoryProfiler;
 -(void)configureFLEX;
--(void)exitIfSafe;
 -(void)applicationLifecycleChange:(id)arg1 ;
 -(void)userLoginCompleted:(id)arg1 ;
 -(void)userLogout:(id)arg1 ;

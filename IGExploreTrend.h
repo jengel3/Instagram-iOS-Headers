@@ -11,18 +11,14 @@
 
 }
 
-@property (nonatomic,copy,readonly) NSArray * items;                //@synthesize items=_items - In the implementation block
-@property (nonatomic,copy,readonly) NSString * title;               //@synthesize title=_title - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
+@property (nonatomic,copy,readonly) NSArray * items;               //@synthesize items=_items - In the implementation block
+@property (nonatomic,copy,readonly) NSString * title;              //@synthesize title=_title - In the implementation block
 -(id)diffIdentifier;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
--(NSString *)description;
+-(id)description;
 -(id)initWithDictionary:(id)arg1 ;
 -(NSString *)title;
 -(NSArray *)items;

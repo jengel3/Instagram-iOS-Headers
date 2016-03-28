@@ -7,12 +7,13 @@
 #import <Instagram/IGNavigationContext.h>
 #import <UIKit/UICollectionViewDelegate.h>
 #import <Instagram/IGAnalyticsModule.h>
+#import <Instagram/IGAnalyticsSearchInfo.h>
 #import <Instagram/IGExploreSearchChildViewController.h>
 
 @protocol IGAutocompleteAsyncDataSourceIGAutocompleteNetworkDataSourceAnalytics, IGSearchResultsTab, IGSearchResultsViewControllerDelegate;
-@class NSString, IGSearchViewController, NSOrderedSet, NSMutableArray, IGListCollectionView, IGListAdapter;
+@class NSString, IGSearchViewController, NSOrderedSet, NSMutableArray, IGListCollectionView, IGListAdapter, IGAnalyticsSearchRankInfo;
 
-@interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate, IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate, IGNavigationContext, UICollectionViewDelegate, IGAnalyticsModule, IGExploreSearchChildViewController> {
+@interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate, IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate, IGNavigationContext, UICollectionViewDelegate, IGAnalyticsModule, IGAnalyticsSearchInfo, IGExploreSearchChildViewController> {
 
 	char _isSearching;
 	char _isBackSpace;
@@ -27,6 +28,7 @@
 	NSMutableArray* _searchQueryArray;
 	IGListCollectionView* _suggestionCollectionView;
 	IGListAdapter* _suggestionListAdapter;
+	IGAnalyticsSearchRankInfo* _searchInfo;
 
 }
 
@@ -37,12 +39,13 @@
 @property (nonatomic,readonly) char isSearching;                                                                                    //@synthesize isSearching=_isSearching - In the implementation block
 @property (assign,nonatomic,__weak) IGSearchViewController * hostingViewController;                                                 //@synthesize hostingViewController=_hostingViewController - In the implementation block
 @property (assign,nonatomic) unsigned minUnSeenRow;                                                                                 //@synthesize minUnSeenRow=_minUnSeenRow - In the implementation block
-@property (nonatomic,readonly) NSOrderedSet * sectionControllers;                                                                   //@synthesize sectionControllers=_sectionControllers - In the implementation block
+@property (nonatomic,retain) NSOrderedSet * sectionControllers;                                                                     //@synthesize sectionControllers=_sectionControllers - In the implementation block
 @property (nonatomic,retain) NSMutableArray * searchQueryArray;                                                                     //@synthesize searchQueryArray=_searchQueryArray - In the implementation block
 @property (assign,nonatomic) char isBackSpace;                                                                                      //@synthesize isBackSpace=_isBackSpace - In the implementation block
 @property (assign,nonatomic) char hasInteraction;                                                                                   //@synthesize hasInteraction=_hasInteraction - In the implementation block
 @property (nonatomic,retain) IGListCollectionView * suggestionCollectionView;                                                       //@synthesize suggestionCollectionView=_suggestionCollectionView - In the implementation block
 @property (nonatomic,retain) IGListAdapter * suggestionListAdapter;                                                                 //@synthesize suggestionListAdapter=_suggestionListAdapter - In the implementation block
+@property (nonatomic,retain) IGAnalyticsSearchRankInfo * searchInfo;                                                                //@synthesize searchInfo=_searchInfo - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -74,6 +77,8 @@
 -(char)searchResultCellShouldLongPress:(id)arg1 ;
 -(void)searchResultCellDidLongPress:(id)arg1 ;
 -(id<IGSearchResultsTab>)searchResultsTab;
+-(void)setSearchInfo:(IGAnalyticsSearchRankInfo *)arg1 ;
+-(IGAnalyticsSearchRankInfo *)searchInfo;
 -(void)logSearchBackSpaceRaindropEvent;
 -(void)reloadTableView;
 -(void)saveSearchQueryText:(id)arg1 ;
@@ -108,6 +113,7 @@
 -(void)searchDidStart;
 -(void)searchDidEnd;
 -(void)logSearchCancelEvent;
+-(void)setSectionControllers:(NSOrderedSet *)arg1 ;
 -(NSMutableArray *)searchQueryArray;
 -(void)setSearchQueryArray:(NSMutableArray *)arg1 ;
 -(char)isBackSpace;

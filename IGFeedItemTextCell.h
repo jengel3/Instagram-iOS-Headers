@@ -43,9 +43,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)heightWithStyledString:(id)arg1 showTimeStamp:(char)arg2 constrainedToWidth:(float)arg3 ;
--(void)appInstallAlertViewDidConfirm:(id)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
+-(void)appInstallAlertViewDidConfirm:(id)arg1 ;
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
 -(void)showBoomerangAppInstallAlertViewPopover;

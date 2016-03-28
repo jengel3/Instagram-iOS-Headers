@@ -46,13 +46,13 @@
 -(void)updateNavigationRightBarButtonItem;
 -(void)findUsersView:(id)arg1 didTapOnUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(id)newFindUsersViewDataSource;
--(IGFindUsersView *)usersView;
--(void)findUsersView:(id)arg1 scrollViewWillEndDragging:(id)arg2 withVelocity:(CGPoint)arg3 targetContentOffset:(inout CGPoint*)arg4 ;
 -(void)findUsersView:(id)arg1 scrollViewDidScroll:(id)arg2 ;
+-(void)findUsersView:(id)arg1 scrollViewWillEndDragging:(id)arg2 withVelocity:(CGPoint)arg3 targetContentOffset:(inout CGPoint*)arg4 ;
 -(void)findUsersView:(id)arg1 scrollViewDidEndDragging:(id)arg2 ;
 -(void)findUsersView:(id)arg1 scrollViewDidEndScrolling:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didTapOnItemWithMediaID:(id)arg2 atIndex:(unsigned)arg3 ;
 -(void)findUsersView:(id)arg1 didFailWithError:(id)arg2 ;
+-(IGFindUsersView *)usersView;
 -(void)fetchUsers;
 -(void)showErrorLoadMessageIfPossible:(id)arg1 ;
 -(void)onCloseTapped:(id)arg1 ;

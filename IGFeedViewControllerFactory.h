@@ -6,5 +6,6 @@
 +(char)useNewContextualFeed;
 +(void)configureContextualFeed:(id)arg1 title:(id)arg2 subtitle:(id)arg3 ;
 +(id)mainFeedViewController;
++(id)albumFeedViewController;
 @end
 

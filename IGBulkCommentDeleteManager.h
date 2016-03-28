@@ -23,8 +23,8 @@
 -(char)addCommentToDelete:(id)arg1 ;
 -(id)initWithPost:(id)arg1 ;
 -(void)setCommentDeleteManagerDelegate:(id<IGBulkCommentDeleteManagerDelegate>)arg1 ;
--(id)undoBulkCommentDeletion;
 -(void)commitBulkCommentDeletion;
+-(id)undoBulkCommentDeletion;
 -(NSMutableArray *)commentsToDelete;
 -(id<IGBulkCommentDeleteManagerDelegate>)commentDeleteManagerDelegate;
 -(void)bulkDeleteComments:(id)arg1 ;

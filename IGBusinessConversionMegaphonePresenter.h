@@ -27,6 +27,7 @@
 -(void)businessConversionViewControllerDidCompleteFlow:(id)arg1 ;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
+-(void)megaphoneViewNeedsResize:(id)arg1 ;
 -(id)initWithMegaphone:(id)arg1 delegate:(id)arg2 ;
 -(void)setDelegate:(id<IGMegaphonePresenterDelegate>)arg1 ;
 -(id<IGMegaphonePresenterDelegate>)delegate;

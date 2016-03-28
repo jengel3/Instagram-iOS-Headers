@@ -62,7 +62,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)allAlbumTitle;
--(char)usePhotosFramework;
+-(void)setSelectAlbumAppearanceType:(int)arg1 ;
+-(void)setAssetFilterType:(unsigned)arg1 ;
+-(void)setTableViewViewHeight:(float)arg1 ;
+-(void)viewDidOpen;
 -(void)setNeedsSetPhotoLibraryOptions:(char)arg1 ;
 -(void)setPhotosLibraryOptions;
 -(void)resetCachedAssets;
@@ -75,9 +78,6 @@
 -(id)assetsAtIndexPaths:(id)arg1 ;
 -(char)needsSetPhotoLibraryOptions;
 -(unsigned)assetFilterType;
--(void)setAssetFilterType:(unsigned)arg1 ;
--(void)setSelectAlbumAppearanceType:(int)arg1 ;
--(void)viewDidOpen;
 -(void)setTopSeparatorLine:(UIView *)arg1 ;
 -(UIView *)topSeparatorLine;
 -(void)setKeyImageFetchResults:(NSMutableDictionary *)arg1 ;
@@ -99,7 +99,6 @@
 -(id)collectionFetchResultAtIndexPath:(id)arg1 ;
 -(void)configureCellAppearance:(id)arg1 ;
 -(float)tableViewViewHeight;
--(void)setTableViewViewHeight:(float)arg1 ;
 -(PHFetchResult *)unfilteredSmartAlbums;
 -(void)setUnfilteredSmartAlbums:(PHFetchResult *)arg1 ;
 -(void)setAssetsLibrary:(ALAssetsLibrary *)arg1 ;

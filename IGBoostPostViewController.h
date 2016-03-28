@@ -1,25 +1,25 @@
 
 #import <UIKit/UIViewController.h>
-#import <Instagram/IGBoostPostViewDelegate.h>
+#import <Instagram/IGHybridWebViewDelegate.h>
 
-@class IGFeedItem, IGBoostPostView, NSString;
+@class IGFeedItem, IGHybridWebView, NSString;
 
-@interface IGBoostPostViewController : UIViewController <IGBoostPostViewDelegate> {
+@interface IGBoostPostViewController : UIViewController <IGHybridWebViewDelegate> {
 
 	IGFeedItem* _feedItem;
 
 }
 
-@property (nonatomic,readonly) IGBoostPostView * boostPostView; 
+@property (nonatomic,readonly) IGHybridWebView * boostPostView; 
 @property (nonatomic,readonly) IGFeedItem * feedItem;                        //@synthesize feedItem=_feedItem - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)didSelectCloseBoostPostView:(id)arg1 ;
--(IGBoostPostView *)boostPostView;
--(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
+-(IGFeedItem *)feedItem;
+-(IGHybridWebView *)boostPostView;
+-(void)didSelectCloseHybridWebView:(id)arg1 ;
 -(char)prefersStatusBarHidden;
 -(int)preferredStatusBarUpdateAnimation;
 -(void)loadView;

@@ -18,10 +18,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) char isFromLibrary; 
 @property (assign,nonatomic) int devicePosition;                    //@synthesize devicePosition=_devicePosition - In the implementation block
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(IGVideoInfo *)videoInfo;
+-(void)setDevicePosition:(int)arg1 ;
 -(char)isFromLibrary;
 -(int)devicePosition;
--(void)setDevicePosition:(int)arg1 ;
+-(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 @end
 

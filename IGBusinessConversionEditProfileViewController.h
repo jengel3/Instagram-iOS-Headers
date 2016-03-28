@@ -1,19 +1,19 @@
 
 #import <Instagram/IGGroupedTableViewController.h>
 #import <Instagram/IGBusinessConversionEditableProfileCellDelegate.h>
+#import <Instagram/IGBusinessConversionAddressViewControllerDelegate.h>
 #import <Instagram/IGBusinessConversionFlowStep.h>
 
 @protocol IGBusinessConversionViewControllerDelegate;
 @class IGFacebookPageInfo, UIView, UIButton, NSDictionary, NSString;
 
-@interface IGBusinessConversionEditProfileViewController : IGGroupedTableViewController <IGBusinessConversionEditableProfileCellDelegate, IGBusinessConversionFlowStep> {
+@interface IGBusinessConversionEditProfileViewController : IGGroupedTableViewController <IGBusinessConversionEditableProfileCellDelegate, IGBusinessConversionAddressViewControllerDelegate, IGBusinessConversionFlowStep> {
 
 	char _isEditingInfo;
 	id<IGBusinessConversionViewControllerDelegate> _delegate;
 	IGFacebookPageInfo* _pageInfo;
 	UIView* _headerView;
 	UIButton* _bottomButton;
-	UIButton* _saveButton;
 	NSDictionary* _validationErrors;
 
 }
@@ -22,7 +22,6 @@
 @property (nonatomic,retain) IGFacebookPageInfo * pageInfo;                                               //@synthesize pageInfo=_pageInfo - In the implementation block
 @property (nonatomic,retain) UIView * headerView;                                                         //@synthesize headerView=_headerView - In the implementation block
 @property (nonatomic,retain) UIButton * bottomButton;                                                     //@synthesize bottomButton=_bottomButton - In the implementation block
-@property (nonatomic,retain) UIButton * saveButton;                                                       //@synthesize saveButton=_saveButton - In the implementation block
 @property (assign,nonatomic) char isEditingInfo;                                                          //@synthesize isEditingInfo=_isEditingInfo - In the implementation block
 @property (nonatomic,retain) NSDictionary * validationErrors;                                             //@synthesize validationErrors=_validationErrors - In the implementation block
 @property (readonly) unsigned hash; 
@@ -32,6 +31,12 @@
 -(UIButton *)bottomButton;
 -(void)setBottomButton:(UIButton *)arg1 ;
 -(IGFacebookPageInfo *)pageInfo;
+-(void)addressViewController:(id)arg1 didUpdateInfo:(id)arg2 ;
+-(void)editableProfileCell:(id)arg1 didUpdateValue:(id)arg2 forDataKey:(id)arg3 ;
+-(void)editableProfileCellDidBeginEditing:(id)arg1 ;
+-(char)editableProfileCellWantsReturn:(id)arg1 withValue:(id)arg2 forKey:(id)arg3 ;
+-(id)initWithPageInfo:(id)arg1 ;
+-(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
 -(id)newBottomButton;
 -(id)newHeaderViewWithWidth:(float)arg1 ;
 -(void)validateCurrentState;
@@ -40,12 +45,7 @@
 -(void)setValidationErrors:(NSDictionary *)arg1 ;
 -(void)finishConversion;
 -(char)isEditingInfo;
--(void)editableProfileCell:(id)arg1 didUpdateValue:(id)arg2 forDataKey:(id)arg3 ;
--(void)editableProfileCellDidBeginEditing:(id)arg1 ;
--(char)editableProfileCell:(id)arg1 wantsToSaveValue:(id)arg2 forKey:(id)arg3 ;
 -(id)analyticsInfoForFlowStep;
--(id)initWithPageInfoDictionary:(id)arg1 ;
--(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
 -(void)saveChanges;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;
@@ -63,10 +63,7 @@
 -(void)viewDidLoad;
 -(UIView *)headerView;
 -(void)setHeaderView:(UIView *)arg1 ;
--(UIButton *)saveButton;
--(void)setSaveButton:(UIButton *)arg1 ;
 -(void)backButtonTapped;
 -(void)updateButtonState;
--(char)prefersNavigationBarHidden;
 @end
 

@@ -28,9 +28,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGFeedNetworkSource *)feedSource;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
+-(IGFeedNetworkSource *)feedSource;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(id)previewActionBarItems;
 -(void)setPreviewWidth:(float)arg1 ;

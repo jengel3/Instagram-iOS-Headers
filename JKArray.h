@@ -14,7 +14,7 @@
 
 }
 +(id)allocWithZone:(NSZone*)arg1 ;
--(unsigned)countByEnumeratingWithState:(SCD_Struct_IG1*)arg1 objects:(id*)arg2 count:(unsigned)arg3 ;
+-(unsigned)countByEnumeratingWithState:(SCD_Struct_IG3*)arg1 objects:(id*)arg2 count:(unsigned)arg3 ;
 -(void)dealloc;
 -(unsigned)count;
 -(id)objectAtIndex:(unsigned)arg1 ;

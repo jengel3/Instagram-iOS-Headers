@@ -35,6 +35,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)cellHeightForReshare:(id)arg1 withWidth:(float)arg2 ;
+-(UILabel *)usernameLabel;
 -(id)highlightedBackgroundColor;
 -(IGPost *)post;
 -(void)setPost:(IGPost *)arg1 ;
@@ -42,14 +43,13 @@
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(CGRect)tapTargetFrame;
 -(UIView *)shareContainerView;
+-(void)setShareContainerView:(UIView *)arg1 ;
 -(IGImageProgressView *)postImageView;
 -(IGProfilePictureImageView *)postProfilePicture;
--(UILabel *)usernameLabel;
 -(UIView *)photoSeparatorTopLine;
 -(UIView *)photoSeparatorBottomLine;
 -(IGVideoIndicatorView *)videoIndicatorView;
 -(IGCoreTextView *)captionView;
--(void)setShareContainerView:(UIView *)arg1 ;
 -(void)setPostImageView:(IGImageProgressView *)arg1 ;
 -(void)setPostProfilePicture:(IGProfilePictureImageView *)arg1 ;
 -(void)setUsernameLabel:(UILabel *)arg1 ;

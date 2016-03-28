@@ -7,11 +7,12 @@
 @interface IGGridViewCell : UICollectionViewCell {
 
 	char _disabled;
-	char _showSelectedOverlay;
+	char _canShowSelectedOverlay;
 	char _showAssetNumber;
 	char _inICloud;
 	id _asset;
 	UIColor* _defaultBackgroundColor;
+	UIColor* _selectedOverlayColor;
 	PHImageManager* _imageManager;
 	PHImageRequestOptions* _imageRequestOptions;
 	unsigned _assetNumber;
@@ -35,10 +36,11 @@
 @property (assign,getter=isDisabled,nonatomic) char disabled;                          //@synthesize disabled=_disabled - In the implementation block
 @property (nonatomic,retain) UIColor * defaultBackgroundColor;                         //@synthesize defaultBackgroundColor=_defaultBackgroundColor - In the implementation block
 @property (nonatomic,retain) NSString * overlayText; 
+@property (nonatomic,retain) UIColor * selectedOverlayColor;                           //@synthesize selectedOverlayColor=_selectedOverlayColor - In the implementation block
 @property (nonatomic,retain) PHImageManager * imageManager;                            //@synthesize imageManager=_imageManager - In the implementation block
 @property (nonatomic,retain) PHImageRequestOptions * imageRequestOptions;              //@synthesize imageRequestOptions=_imageRequestOptions - In the implementation block
 @property (assign,nonatomic) CGSize thumbnailSize;                                     //@synthesize thumbnailSize=_thumbnailSize - In the implementation block
-@property (assign,nonatomic) char showSelectedOverlay;                                 //@synthesize showSelectedOverlay=_showSelectedOverlay - In the implementation block
+@property (assign,nonatomic) char canShowSelectedOverlay;                              //@synthesize canShowSelectedOverlay=_canShowSelectedOverlay - In the implementation block
 @property (assign,nonatomic) char showAssetNumber;                                     //@synthesize showAssetNumber=_showAssetNumber - In the implementation block
 @property (assign,nonatomic) unsigned assetNumber;                                     //@synthesize assetNumber=_assetNumber - In the implementation block
 @property (nonatomic,retain) UIImageView * imageView;                                  //@synthesize imageView=_imageView - In the implementation block
@@ -53,6 +55,7 @@
 @property (nonatomic,retain) UILabel * assetNumberLabel;                               //@synthesize assetNumberLabel=_assetNumberLabel - In the implementation block
 @property (nonatomic,retain) UILabel * overlayTextLabel;                               //@synthesize overlayTextLabel=_overlayTextLabel - In the implementation block
 @property (getter=isHighFrameRate,nonatomic,readonly) char highFrameRate; 
+-(void)setCanShowSelectedOverlay:(char)arg1 ;
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)cancelImageRequest;
 -(void)setSelectedOverlay:(UIView *)arg1 ;
@@ -67,10 +70,8 @@
 -(UIImageView *)slomoView;
 -(void)setDurationLabel:(UILabel *)arg1 ;
 -(UILabel *)durationLabel;
--(void)setShowSelectedOverlay:(char)arg1 ;
 -(void)setShowAssetNumber:(char)arg1 ;
 -(void)setInICloud:(char)arg1 ;
--(char)usePhotosFramework;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(void)updateLabelVisibility;
 -(NSString *)overlayText;
@@ -78,9 +79,11 @@
 -(char)isAssetPhotoOrVideo;
 -(char)isAssetPhoto;
 -(char)isHighFrameRate;
--(char)showSelectedOverlay;
+-(char)canShowSelectedOverlay;
 -(void)setAssetNumber:(unsigned)arg1 ;
 -(void)setOverlayText:(NSString *)arg1 ;
+-(void)setSelectedOverlayColor:(UIColor *)arg1 ;
+-(UIColor *)selectedOverlayColor;
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
 -(char)showAssetNumber;
 -(unsigned)assetNumber;

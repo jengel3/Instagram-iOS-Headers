@@ -46,10 +46,10 @@
 +(char)isLinkBold:(id)arg1 ;
 +(id)styledStringForTitle:(id)arg1 andSubtitle:(id)arg2 ;
 -(NSString *)pk;
+-(void)setThreadID:(NSString *)arg1 ;
 -(void)setStyledString:(IGStyledString *)arg1 ;
 -(void)setPk:(NSString *)arg1 ;
 -(IGStyledString *)styledString;
--(void)setThreadID:(NSString *)arg1 ;
 -(int)storyType;
 -(NSURL *)profilePictureURL;
 -(NSArray *)mediaDictionaries;

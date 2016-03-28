@@ -23,9 +23,10 @@
 @property (assign,nonatomic) char showIcon;                                                             //@synthesize showIcon=_showIcon - In the implementation block
 @property (nonatomic,retain) IGFeedItem * feedItem;                                                     //@synthesize feedItem=_feedItem - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
++(id)button;
 +(id)chevronImage;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;

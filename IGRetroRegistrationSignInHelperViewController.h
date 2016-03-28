@@ -3,12 +3,11 @@
 #import <Instagram/IGTextFieldDelegate.h>
 #import <Instagram/IGCountryCodeViewControllerDelegate.h>
 #import <Instagram/IGFacebookAuthHelperDelegate.h>
-#import <Instagram/IGRetroRegistrationRequestSupportDelegate.h>
 
 @protocol IGRetroRegistrationSignInHelperViewControllerDelegate;
 @class NSString, IGRetroRegistrationSignInHelperView, UITapGestureRecognizer, IGFacebookAuthHelper;
 
-@interface IGRetroRegistrationSignInHelperViewController : UIViewController <IGTextFieldDelegate, IGCountryCodeViewControllerDelegate, IGFacebookAuthHelperDelegate, IGRetroRegistrationRequestSupportDelegate> {
+@interface IGRetroRegistrationSignInHelperViewController : UIViewController <IGTextFieldDelegate, IGCountryCodeViewControllerDelegate, IGFacebookAuthHelperDelegate> {
 
 	char _isSubmitting;
 	NSString* _username;
@@ -41,12 +40,11 @@
 -(void)facebookAuthHelper:(id)arg1 willProceedEmailTakenAutoLoginWithLoggedInDict:(id)arg2 ;
 -(void)facebookAuthHelper:(id)arg1 willProceedRegistrationWithFBInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelper:(id)arg1 willResetPasswordWithViewController:(id)arg2 ;
+-(char)isSubmitting;
+-(void)setIsSubmitting:(char)arg1 ;
 -(void)onFacebookAuthSuccess:(id)arg1 ;
 -(void)onFacebookAuthCancelled:(id)arg1 ;
 -(id)actionTypes;
--(void)requestSupportViewControllerWantsToDismiss:(id)arg1 ;
--(char)isSubmitting;
--(void)setIsSubmitting:(char)arg1 ;
 -(void)facebookButtonTapped;
 -(void)setFacebookButtonLoading:(char)arg1 ;
 -(IGFacebookAuthHelper *)fbAuthHelper;

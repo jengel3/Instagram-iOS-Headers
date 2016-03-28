@@ -17,6 +17,7 @@
 	IGTouchGestureRecognizer* _touch;
 	UILongPressGestureRecognizer* _longPress;
 	UITapGestureRecognizer* _tap;
+	float _kCaptureButtonVideoSize;
 	UIView* _innerCircle;
 
 }
@@ -30,19 +31,22 @@
 @property (nonatomic,retain) IGTouchGestureRecognizer * touch;                                 //@synthesize touch=_touch - In the implementation block
 @property (nonatomic,retain) UILongPressGestureRecognizer * longPress;                         //@synthesize longPress=_longPress - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * tap;                                     //@synthesize tap=_tap - In the implementation block
+@property (assign,nonatomic) float kCaptureButtonVideoSize;                                    //@synthesize kCaptureButtonVideoSize=_kCaptureButtonVideoSize - In the implementation block
 @property (nonatomic,retain) UIView * innerCircle;                                             //@synthesize innerCircle=_innerCircle - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(UITapGestureRecognizer *)tap;
+-(void)setButtonState:(int)arg1 ;
+-(void)setVideoRecordProgress:(float)arg1 ;
 -(void)setTap:(UITapGestureRecognizer *)arg1 ;
+-(UITapGestureRecognizer *)tap;
+-(void)setKCaptureButtonVideoSize:(float)arg1 ;
+-(float)kCaptureButtonVideoSize;
 -(void)setConfirmOverlay:(UIView *)arg1 ;
 -(UIView *)confirmOverlay;
 -(void)setInnerCircle:(UIView *)arg1 ;
 -(UIView *)innerCircle;
--(void)setButtonState:(int)arg1 ;
--(void)setVideoRecordProgress:(float)arg1 ;
 -(int)buttonState;
 -(float)videoRecordProgress;
 -(void)setLongPress:(UILongPressGestureRecognizer *)arg1 ;

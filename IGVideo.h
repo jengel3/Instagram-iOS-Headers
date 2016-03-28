@@ -22,9 +22,9 @@
 +(int)videoVersionForCurrentNetworkConditions;
 +(CGSize)aspectRatioForVideoVersions:(id)arg1 ;
 +(id)videoInfoDictionaryForVideoVersion:(int)arg1 fromVideoVersions:(id)arg2 ;
+-(id)videoURLForCurrentNetworkConditions;
 -(id)videoURLForVideoVersion:(int)arg1 ;
 -(id)initWithFeedItemDictionary:(id)arg1 ;
--(id)videoURLForCurrentNetworkConditions;
 -(id)isAudioDetected;
 -(id)initWithVideoVersions:(id)arg1 videoLength:(int)arg2 audioDetected:(id)arg3 ;
 -(NSArray *)videoVersions;

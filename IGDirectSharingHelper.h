@@ -28,6 +28,7 @@
 +(char)showDoubleTapToLikeNuxForContent:(id)arg1 ;
 +(id)igSequence2Date:(id)arg1 ;
 +(id)postsInContentArray:(id)arg1 ;
++(id)suppressedContentAfterContent:(id)arg1 allContent:(id)arg2 ;
 +(void)getOrFetchThreadFromResponse:(id)arg1 completion:(/*^block*/id)arg2 ;
 +(id)keyboardWindow;
 @end

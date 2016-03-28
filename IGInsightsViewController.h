@@ -38,8 +38,7 @@
 -(void)_startRequest;
 -(void)_setupTabBarViewController;
 -(void)_requestTabBarItemsAndDefaultTabContent;
--(id)_createTabContentViewControllerWithQueryItems:(id)arg1 ;
--(id)_createViewControllerForTab:(id)arg1 ;
+-(id)_createTabContentViewControllerWithQuery:(id)arg1 ;
 -(char)defaultTabCreated;
 -(void)setDefaultTabCreated:(char)arg1 ;
 -(id)init;

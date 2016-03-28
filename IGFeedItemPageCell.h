@@ -2,73 +2,82 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 #import <Instagram/IGPageMediaViewDelegate.h>
-#import <Instagram/IGDismissableOverlay.h>
+#import <Instagram/IGPageCellIndicatorControllerDelegate.h>
+#import <Instagram/IGOverlayable.h>
 #import <Instagram/IGHeartAnimatable.h>
 #import <Instagram/IGFeedVideoCell.h>
 
-@protocol IGFeedItemPageCellDelegate, IGFeedVideoCellPlayerDelegate;
-@class IGFeedItem, IGFeedItemPageCellState, IGMediaOverlayIndicator, IGPageMediaView, NSString;
+@protocol IGFeedItemPageCellDelegate, IGFeedVideoCellPlayerDelegate, IGFeedItemLoggingProviderDelegate;
+@class IGFeedItem, IGFeedItemPageCellState, IGMediaOverlayIndicator, IGPageMediaView, IGPageCellIndicatorController, NSString;
 
-@interface IGFeedItemPageCell : UICollectionViewCell <IGPageMediaViewDelegate, IGDismissableOverlay, IGHeartAnimatable, IGFeedVideoCell> {
+@interface IGFeedItemPageCell : UICollectionViewCell <IGPageMediaViewDelegate, IGPageCellIndicatorControllerDelegate, IGOverlayable, IGHeartAnimatable, IGFeedVideoCell> {
 
-	char _hasShownNUX;
 	IGFeedItem* _feedItem;
 	IGFeedItemPageCellState* _pageCellState;
 	float _percentVisible;
 	id<IGFeedItemPageCellDelegate> _delegate;
 	id<IGFeedVideoCellPlayerDelegate> _playerDelegate;
-	IGMediaOverlayIndicator* _nuxOverlayView;
+	id<IGFeedItemLoggingProviderDelegate> _loggingDelegate;
+	IGMediaOverlayIndicator* _indicatorView;
 	IGPageMediaView* _pageMediaView;
+	IGPageCellIndicatorController* _indicatorController;
 
 }
 
-@property (nonatomic,retain) IGFeedItem * feedItem;                                                //@synthesize feedItem=_feedItem - In the implementation block
-@property (nonatomic,retain) IGFeedItemPageCellState * pageCellState;                              //@synthesize pageCellState=_pageCellState - In the implementation block
-@property (assign,nonatomic) float percentVisible;                                                 //@synthesize percentVisible=_percentVisible - In the implementation block
-@property (assign,nonatomic,__weak) id<IGFeedItemPageCellDelegate> delegate;                       //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGFeedVideoCellPlayerDelegate> playerDelegate;              //@synthesize playerDelegate=_playerDelegate - In the implementation block
-@property (nonatomic,retain) IGMediaOverlayIndicator * nuxOverlayView;                             //@synthesize nuxOverlayView=_nuxOverlayView - In the implementation block
-@property (nonatomic,retain) IGPageMediaView * pageMediaView;                                      //@synthesize pageMediaView=_pageMediaView - In the implementation block
-@property (assign,nonatomic) char hasShownNUX;                                                     //@synthesize hasShownNUX=_hasShownNUX - In the implementation block
+@property (nonatomic,retain) IGFeedItem * feedItem;                                                     //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,retain) IGFeedItemPageCellState * pageCellState;                                   //@synthesize pageCellState=_pageCellState - In the implementation block
+@property (assign,nonatomic) float percentVisible;                                                      //@synthesize percentVisible=_percentVisible - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFeedItemPageCellDelegate> delegate;                            //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFeedVideoCellPlayerDelegate> playerDelegate;                   //@synthesize playerDelegate=_playerDelegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
+@property (nonatomic,retain) IGMediaOverlayIndicator * indicatorView;                                   //@synthesize indicatorView=_indicatorView - In the implementation block
+@property (nonatomic,retain) IGPageMediaView * pageMediaView;                                           //@synthesize pageMediaView=_pageMediaView - In the implementation block
+@property (nonatomic,readonly) IGPageCellIndicatorController * indicatorController;                     //@synthesize indicatorController=_indicatorController - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
--(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
+-(void)requestVideoPlayback;
+-(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
+-(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(unsigned)updatePercentVisible:(float)arg1 ;
 -(float)percentVisible;
 -(id)contentViewForHeartAnimation;
 -(IGPageMediaView *)pageMediaView;
--(IGMediaOverlayIndicator *)nuxOverlayView;
--(char)hasShownNUX;
+-(IGPageCellIndicatorController *)indicatorController;
 -(IGFeedItemPageCellState *)pageCellState;
--(void)setHasShownNUX:(char)arg1 ;
+-(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
 -(void)dismissOverlayAnimated:(char)arg1 ;
 -(void)scrollToPage:(int)arg1 animated:(char)arg2 ;
 -(void)setPercentVisible:(float)arg1 ;
--(void)requestVideoPlaybackIfNeeded;
 -(void)pageMediaViewWillDisplayOverlay:(id)arg1 ;
+-(void)pageMediaViewDidInitialSingleTap:(id)arg1 ;
 -(void)pageMediaViewDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
 -(void)pageMediaViewDidDoubleTap:(id)arg1 ;
 -(void)pageMediaViewCurrentVideoCellDidLoadImage:(id)arg1 ;
 -(void)pageMediaViewDidRequestVideoPlayback:(id)arg1 ;
--(void)pageMediaView:(id)arg1 didScrollToPageIndex:(int)arg2 ;
+-(void)pageMediaView:(id)arg1 didToggleVideoAudio:(char)arg2 ;
+-(void)pageMediaView:(id)arg1 willScrollToPageIndex:(int)arg2 fromIndex:(int)arg3 ;
+-(void)pageMediaView:(id)arg1 didScrollToPageIndex:(int)arg2 fromIndex:(int)arg3 ;
 -(void)pageMediaViewDidScroll:(id)arg1 ;
 -(void)pageMediaView:(id)arg1 itemDidAppear:(id)arg2 ;
 -(void)pageMediaView:(id)arg1 itemDidDisappear:(id)arg2 ;
 -(void)pageMediaView:(id)arg1 itemDidStartViewing:(id)arg2 ;
--(void)showNUXIfNeeded;
--(void)setNuxOverlayView:(IGMediaOverlayIndicator *)arg1 ;
+-(void)pageCellIndicatorControllerDidShowNUX:(id)arg1 ;
+-(void)showNUXIfNeededWithPercentVisible:(float)arg1 ;
 -(void)setPageMediaView:(IGPageMediaView *)arg1 ;
 -(id)videoView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGFeedItemPageCellDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(id<IGFeedItemPageCellDelegate>)delegate;
+-(IGMediaOverlayIndicator *)indicatorView;
+-(void)setIndicatorView:(IGMediaOverlayIndicator *)arg1 ;
 -(char)isSponsored;
 @end
 

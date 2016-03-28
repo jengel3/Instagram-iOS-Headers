@@ -44,10 +44,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)analyticsModule;
--(id)analyticsExtras;
--(id)rankToken;
--(IGFeedNetworkSource *)feedSource;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didChangeToObjects:(id)arg2 ;
@@ -55,6 +51,10 @@
 -(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 willLoadItemsFromResponse:(id)arg2 ;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
+-(id)analyticsModule;
+-(id)analyticsExtras;
+-(id)rankToken;
+-(IGFeedNetworkSource *)feedSource;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(void)setFeedItemConfiguration:(id<IGFeedItemConfigurationType>)arg1 ;
 -(void)removeHeaderView:(id)arg1 animated:(char)arg2 ;

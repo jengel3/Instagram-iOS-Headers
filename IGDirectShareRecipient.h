@@ -21,9 +21,9 @@
 +(id)recipientWithUsers:(id)arg1 ;
 +(id)recipientWithThread:(id)arg1 ;
 +(id)userComparisonKeyForUsers:(id)arg1 ;
+-(void)setThreadID:(NSString *)arg1 ;
 -(NSString *)userComparisonKey;
 -(unsigned)recipientType;
--(void)setThreadID:(NSString *)arg1 ;
 -(void)setRecipientType:(unsigned)arg1 ;
 -(void)setUserComparisonKey:(NSString *)arg1 ;
 -(char)hasSameUsersAsRecipient:(id)arg1 ;

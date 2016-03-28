@@ -31,7 +31,6 @@
 	char _bordersEnabled;
 	char _readyToProceed;
 	char _didReceiveFullSizedBuffer;
-	char _prefersToolbarHidden;
 	char _didReorderTray;
 	UIImage* _image;
 	IGFilteredPhotoView* _editView;
@@ -107,7 +106,6 @@
 @property (assign,nonatomic) float perspectiveZRotateAngle;                                             //@synthesize perspectiveZRotateAngle=_perspectiveZRotateAngle - In the implementation block
 @property (assign,getter=isReadyToProceed,nonatomic) char readyToProceed;                               //@synthesize readyToProceed=_readyToProceed - In the implementation block
 @property (assign,nonatomic) char didReceiveFullSizedBuffer;                                            //@synthesize didReceiveFullSizedBuffer=_didReceiveFullSizedBuffer - In the implementation block
-@property (assign,nonatomic) char prefersToolbarHidden;                                                 //@synthesize prefersToolbarHidden=_prefersToolbarHidden - In the implementation block
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> renderQueue;                                  //@synthesize renderQueue=_renderQueue - In the implementation block
 @property (assign,nonatomic) char didReorderTray;                                                       //@synthesize didReorderTray=_didReorderTray - In the implementation block
 @property (nonatomic,retain) ALAssetsLibrary * assetsLibrary;                                           //@synthesize assetsLibrary=_assetsLibrary - In the implementation block
@@ -260,8 +258,6 @@
 -(void)setToolCollectionView:(UICollectionView *)arg1 ;
 -(void)setLuxControlView:(IGFilterControlView *)arg1 ;
 -(void)setMaxTextureSize:(CGSize)arg1 ;
--(char)prefersToolbarHidden;
--(void)setPrefersToolbarHidden:(char)arg1 ;
 -(void)setRenderQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(char)didReorderTray;
 -(void)setAssetsLibrary:(ALAssetsLibrary *)arg1 ;

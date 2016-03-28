@@ -4,7 +4,7 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGVideoTrimViewDelegate;
-@class UIScrollView, IGFilmStripView, IGVideoTrimViewControl, UIView, UIImageView, IGTimeRulerView, NSString;
+@class UIScrollView, IGFilmStripView, IGVideoTrimViewControl, UIView, UIImageView, IGTimeRulerView, UILabel, NSString;
 
 @interface IGVideoTrimView : UIView <UIGestureRecognizerDelegate> {
 
@@ -19,13 +19,14 @@
 	UIScrollView* _scrollView;
 	IGFilmStripView* _filmstripView;
 	IGVideoTrimViewControl* _confirmationControl;
+	unsigned _panningTrimHandle;
 	UIView* _leftDistortionView;
 	UIImageView* _trimHandlesView;
 	UIView* _rightDistortionView;
 	IGTimeRulerView* _rulerView;
 	UIImageView* _playheadImageView;
+	UILabel* _playheadLabel;
 	float _previousPanningOffset;
-	unsigned _panningTrimHandle;
 	IGRange _trimmedRange;
 
 }
@@ -42,29 +43,33 @@
 @property (nonatomic,retain) UIScrollView * scrollView;                                   //@synthesize scrollView=_scrollView - In the implementation block
 @property (nonatomic,retain) IGFilmStripView * filmstripView;                             //@synthesize filmstripView=_filmstripView - In the implementation block
 @property (nonatomic,readonly) IGVideoTrimViewControl * confirmationControl;              //@synthesize confirmationControl=_confirmationControl - In the implementation block
+@property (nonatomic,readonly) unsigned panningTrimHandle;                                //@synthesize panningTrimHandle=_panningTrimHandle - In the implementation block
 @property (nonatomic,retain) UIView * leftDistortionView;                                 //@synthesize leftDistortionView=_leftDistortionView - In the implementation block
 @property (nonatomic,retain) UIImageView * trimHandlesView;                               //@synthesize trimHandlesView=_trimHandlesView - In the implementation block
 @property (nonatomic,retain) UIView * rightDistortionView;                                //@synthesize rightDistortionView=_rightDistortionView - In the implementation block
 @property (nonatomic,retain) IGTimeRulerView * rulerView;                                 //@synthesize rulerView=_rulerView - In the implementation block
 @property (nonatomic,retain) UIImageView * playheadImageView;                             //@synthesize playheadImageView=_playheadImageView - In the implementation block
+@property (nonatomic,retain) UILabel * playheadLabel;                                     //@synthesize playheadLabel=_playheadLabel - In the implementation block
 @property (assign,nonatomic) float previousPanningOffset;                                 //@synthesize previousPanningOffset=_previousPanningOffset - In the implementation block
-@property (assign,nonatomic) unsigned panningTrimHandle;                                  //@synthesize panningTrimHandle=_panningTrimHandle - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setShowsConfirmationControl:(char)arg1 ;
+-(id)durationStringForNumber:(id)arg1 ;
+-(void)setTimeScale:(float)arg1 ;
+-(unsigned)panningTrimHandle;
 -(void)userDidPanTrimHandles:(id)arg1 ;
 -(CGRect)rectForTrimRange:(IGRange)arg1 ;
+-(void)updatePlayheadLabel;
 -(void)setPlayheadHidden:(char)arg1 animated:(char)arg2 ;
 -(CGRect)touchRectForTrimHandle:(unsigned)arg1 ;
 -(unsigned)trimHandleAtPoint:(CGPoint)arg1 ;
 -(char)pointInsideTrimHandles:(CGPoint)arg1 ;
 -(void)scrollToTrimHandles;
 -(void)setTrimmedRange:(IGRange)arg1 ;
+-(void)setShowsConfirmationControl:(char)arg1 ;
 -(void)setPlaybackOffset:(float)arg1 ;
 -(void)setPlayheadHidden:(char)arg1 ;
--(void)setTimeScale:(float)arg1 ;
 -(char)showsConfirmationControl;
 -(IGRange)trimmedRange;
 -(float)playbackOffset;
@@ -80,10 +85,10 @@
 -(void)setRulerView:(IGTimeRulerView *)arg1 ;
 -(UIImageView *)playheadImageView;
 -(void)setPlayheadImageView:(UIImageView *)arg1 ;
+-(UILabel *)playheadLabel;
+-(void)setPlayheadLabel:(UILabel *)arg1 ;
 -(float)previousPanningOffset;
 -(void)setPreviousPanningOffset:(float)arg1 ;
--(unsigned)panningTrimHandle;
--(void)setPanningTrimHandle:(unsigned)arg1 ;
 -(float)timeScale;
 -(IGFilmStripView *)filmstripView;
 -(void)setFilmstripView:(IGFilmStripView *)arg1 ;

@@ -26,8 +26,8 @@
 @property (nonatomic,readonly) NSSet * scrollingViews;                                     //@synthesize scrollingViews=_scrollingViews - In the implementation block
 @property (assign,nonatomic) float headerAnchor;                                           //@synthesize headerAnchor=_headerAnchor - In the implementation block
 @property (assign,nonatomic) char isAnimatingTransition;                                   //@synthesize isAnimatingTransition=_isAnimatingTransition - In the implementation block
-+(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
 +(id)scrollingHeaderItemForViewController:(id)arg1 ;
++(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
 +(unsigned)statusBarStateForViewController:(id)arg1 ;
 +(unsigned)navigationBarStateForViewController:(id)arg1 ;
 +(id)headerSnapshotForViewController:(id)arg1 navigationBar:(id)arg2 ;

@@ -30,8 +30,10 @@
 -(CGPoint)targetContentOffsetForLayoutAttributes:(id)arg1 ;
 -(NSMutableDictionary *)cachedItemFrames;
 -(void)configureItemLayoutAttributes:(id)arg1 ;
+-(void)configureSingleCellSectionItemLayoutAttributes:(id)arg1 ;
 -(void)configureHeaderCellItemLayoutAttributes:(id)arg1 ;
 -(void)configureMediaCellItemLayoutAttributes:(id)arg1 ;
+-(CGRect)frameForSingleCellSectionAtIndexPath:(id)arg1 ;
 -(CGRect)frameForMediaCellAtIndexPath:(id)arg1 ;
 -(NSIndexPath *)currentlyCenteredIndexPath;
 -(CGRect)frameForHeaderCellAtIndexPath:(id)arg1 ;

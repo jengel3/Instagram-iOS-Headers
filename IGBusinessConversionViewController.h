@@ -4,14 +4,13 @@
 #import <Instagram/IGBusinessConversionFlowStep.h>
 
 @protocol IGBusinessConversionViewControllerDelegate;
-@class UILabel, UIButton, IGButton, UIImageView, NSString;
+@class UILabel, IGButton, UIImageView, NSString;
 
 @interface IGBusinessConversionViewController : IGViewController <IGBusinessConversionFlowStep> {
 
 	id<IGBusinessConversionViewControllerDelegate> _delegate;
 	UILabel* _titleLabel;
 	UILabel* _subtitleLabel;
-	UIButton* _dismissButton;
 	IGButton* _continueButton;
 	UIImageView* _businessIconImageView;
 	UILabel* _disclaimerLabel;
@@ -21,7 +20,6 @@
 @property (assign,nonatomic,__weak) id<IGBusinessConversionViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                                        //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * subtitleLabel;                                                     //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
-@property (nonatomic,retain) UIButton * dismissButton;                                                    //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) IGButton * continueButton;                                                   //@synthesize continueButton=_continueButton - In the implementation block
 @property (nonatomic,retain) UIImageView * businessIconImageView;                                         //@synthesize businessIconImageView=_businessIconImageView - In the implementation block
 @property (nonatomic,retain) UILabel * disclaimerLabel;                                                   //@synthesize disclaimerLabel=_disclaimerLabel - In the implementation block
@@ -47,11 +45,7 @@
 -(UILabel *)titleLabel;
 -(UILabel *)subtitleLabel;
 -(void)viewDidLoad;
--(void)dismiss;
 -(void)setTitleLabel:(UILabel *)arg1 ;
 -(void)setSubtitleLabel:(UILabel *)arg1 ;
--(UIButton *)dismissButton;
--(void)setDismissButton:(UIButton *)arg1 ;
--(char)prefersNavigationBarHidden;
 @end
 

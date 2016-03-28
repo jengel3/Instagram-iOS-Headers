@@ -28,7 +28,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setFeedView:(IGCollectionView *)arg1 ;
 -(IGCollectionView *)feedView;
 -(void)onCancelTapped:(id)arg1 ;
 -(void)onTitleViewTap;
@@ -43,6 +42,7 @@
 -(void)selectAllButtonTapped:(id)arg1 ;
 -(void)onEditOrDoneTapped:(id)arg1 ;
 -(void)showBottomBar:(char)arg1 animated:(char)arg2 ;
+-(void)setFeedView:(IGCollectionView *)arg1 ;
 -(void)setDelegate:(id<IGPhotoMapGridviewOverlayDelegate>)arg1 ;
 -(void)dealloc;
 -(void)reloadData;

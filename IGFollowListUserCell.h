@@ -36,7 +36,7 @@
 -(void)setDismissActionBlock:(id)arg1 ;
 -(id)dismissActionBlock;
 -(id<IGFollowListUserCellDelegate>)followListUserCelldelegate;
--(void)configureCellWithUser:(id)arg1 showSimilarAccountsView:(char)arg2 followActionBlock:(/*^block*/id)arg3 dismissActionBlock:(/*^block*/id)arg4 ;
+-(void)configureCellWithUser:(id)arg1 showSimilarAccountsView:(char)arg2 showSocialContext:(char)arg3 followActionBlock:(/*^block*/id)arg4 dismissActionBlock:(/*^block*/id)arg5 ;
 -(void)setSimilarAccountsView:(IGSimilarAccountsView *)arg1 ;
 -(void)setSimilarAccountsControl:(IGSimilarAccountsControl *)arg1 ;
 -(void)setFollowListUserCelldelegate:(id<IGFollowListUserCellDelegate>)arg1 ;

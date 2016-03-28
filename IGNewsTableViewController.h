@@ -3,15 +3,13 @@
 #import <Instagram/IGGroupedTableViewController.h>
 #import <UIKit/UITableViewDataSource.h>
 #import <UIKit/UITableViewDelegate.h>
-#import <Instagram/IGNewsTableViewCellDelegate.h>
 #import <Instagram/IGPullToRefreshProtocol.h>
-#import <Instagram/IGWebViewTableViewCellDelegate.h>
-#import <Instagram/IGRaindropAnalyticsDelegate.h>
+#import <Instagram/IGNewsDataSourceSectionDelegate.h>
 
 @protocol IGNewsTableViewControllerDelegate;
 @class IGViewController, NSArray, IGPullToRefreshViewManager, IGTableViewInsetInfoView, NSMutableDictionary, IGNewsEmptyFeedView, UIView, IGActivityPreviewingHandler, NSString;
 
-@interface IGNewsTableViewController : IGGroupedTableViewController <UITableViewDataSource, UITableViewDelegate, IGNewsTableViewCellDelegate, IGPullToRefreshProtocol, IGWebViewTableViewCellDelegate, IGRaindropAnalyticsDelegate> {
+@interface IGNewsTableViewController : IGGroupedTableViewController <UITableViewDataSource, UITableViewDelegate, IGPullToRefreshProtocol, IGNewsDataSourceSectionDelegate> {
 
 	char _loading;
 	id<IGNewsTableViewControllerDelegate> _delegate;
@@ -44,23 +42,23 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(id)storiesWithDictionaries:(id)arg1 ;
--(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(void)setLineView:(UIView *)arg1 ;
--(void)newsCell:(id)arg1 openURL:(id)arg2 ;
--(void)webNewsCell:(id)arg1 didCalculateHeight:(float)arg2 ;
+-(NSMutableDictionary *)webViewCellSizes;
+-(void)newsDataSection:(id)arg1 showViewController:(id)arg2 ;
+-(void)newsDataSection:(id)arg1 openURL:(id)arg2 ;
+-(void)needsUpdateHeightsWithNewsDataSection:(id)arg1 ;
+-(void)newsDataSection:(id)arg1 logRaindropEvent:(id)arg2 ;
 -(void)onFetchFailed:(id)arg1 ;
 -(void)finishedLoadingData;
 -(id)newEmptyFeedView;
--(void)onDataReceived:(id)arg1 ;
 -(void)showNuxIfAppropriate;
+-(void)onDataReceived:(id)arg1 ;
 -(void)refreshFromInfoView;
--(id)storyForRowAtIndexPath:(id)arg1 ;
--(NSMutableDictionary *)webViewCellSizes;
+-(id)sectionAtSectionIndex:(unsigned)arg1 ;
 -(id)labelForHeaderInSection:(int)arg1 ;
 -(IGNewsEmptyFeedView *)emptyFeedView;
 -(void)scrollViewDidEndScrolling:(id)arg1 ;

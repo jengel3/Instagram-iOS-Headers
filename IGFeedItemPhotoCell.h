@@ -3,12 +3,12 @@
 #import <Instagram/IGFeedItemMediaCell.h>
 #import <Instagram/IGFeedPhotoViewDelegate.h>
 #import <Instagram/IGDirectResponseOverlayViewDelegate.h>
-#import <Instagram/IGDismissableOverlay.h>
+#import <Instagram/IGOverlayable.h>
 
 @protocol IGFeedItemPhotoCellDelegate, IGDirectResponseOverlayable;
 @class IGPost, IGFeedPhotoView, UIView, NSString;
 
-@interface IGFeedItemPhotoCell : IGFeedItemMediaCell <IGFeedPhotoViewDelegate, IGDirectResponseOverlayViewDelegate, IGDismissableOverlay> {
+@interface IGFeedItemPhotoCell : IGFeedItemMediaCell <IGFeedPhotoViewDelegate, IGDirectResponseOverlayViewDelegate, IGOverlayable> {
 
 	IGPost* _post;
 	IGFeedPhotoView* _photoView;
@@ -31,11 +31,11 @@
 -(void)feedPhotoViewDidLoadImage:(id)arg1 ;
 -(void)feedPhotoDidDoubleTapToLike:(id)arg1 ;
 -(void)feedPhotoViewDidTap:(id)arg1 ;
+-(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
 -(void)dismissOverlayAnimated:(char)arg1 ;
 -(void)hideUsertagsIndicatorForPost:(id)arg1 ;
 -(void)overlayViewDidTap:(id)arg1 ;
 -(void)overlayViewDidTapOnButton:(id)arg1 ;
--(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
 -(void)peekUsertagsIndicator;
 -(IGFeedPhotoView *)photoView;
 -(void)setPhotoView:(IGFeedPhotoView *)arg1 ;

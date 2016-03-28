@@ -9,6 +9,7 @@
 	double _lastExposureEventTime;
 	IGQEExperimentUserGroup* _exposedGroup;
 	NSMutableArray* _storedBackgroundRequests;
+	char _needRestart;
 	char _isHoldoutUniverse;
 	NSString* _key;
 	NSArray* _userGroups;
@@ -30,6 +31,7 @@
 @property (nonatomic,retain) IGQEExperimentUserGroup * serverSideUserGroup;              //@synthesize serverSideUserGroup=_serverSideUserGroup - In the implementation block
 @property (nonatomic,readonly) IGQEExperimentUserGroup * defaultUserGroup;               //@synthesize defaultUserGroup=_defaultUserGroup - In the implementation block
 @property (assign,nonatomic) int experimentType;                                         //@synthesize experimentType=_experimentType - In the implementation block
+@property (assign,nonatomic) char needRestart;                                           //@synthesize needRestart=_needRestart - In the implementation block
 @property (nonatomic,retain) NSDictionary * exposeData;                                  //@synthesize exposeData=_exposeData - In the implementation block
 @property (nonatomic,copy) NSString * associatedHoldoutUniverse;                         //@synthesize associatedHoldoutUniverse=_associatedHoldoutUniverse - In the implementation block
 @property (assign,nonatomic) char isHoldoutUniverse;                                     //@synthesize isHoldoutUniverse=_isHoldoutUniverse - In the implementation block
@@ -39,15 +41,16 @@
 -(NSString *)descriptiveName;
 -(NSArray *)userGroups;
 -(IGQEExperimentUserGroup *)overrideUserGroup;
+-(id)effectiveGroup;
 -(void)clearUserGroupOverride;
 -(void)setOverrideUserGroup:(IGQEExperimentUserGroup *)arg1 ;
+-(char)needRestart;
 -(id)initWithKey:(id)arg1 name:(id)arg2 category:(int)arg3 holdout:(id)arg4 groups:(id)arg5 experimentType:(int)arg6 isSelfHoldoutUniverse:(char)arg7 ;
 -(char)wasExposed;
 -(IGQEExperimentUserGroup *)serverSideUserGroup;
 -(int)experimentType;
 -(NSDictionary *)exposeData;
 -(void)sendBackgroundExposure;
--(id)effectiveGroup;
 -(void)sendExposureEventIfNecessary;
 -(IGQEExperimentUserGroup *)defaultUserGroup;
 -(id)overrideUserGroupIndexKey;
@@ -56,6 +59,7 @@
 -(id)exposeValueForParameterNamed:(id)arg1 ;
 -(id)generateServerSideUserGroupParameters:(id)arg1 ;
 -(void)setExperimentType:(int)arg1 ;
+-(void)setNeedRestart:(char)arg1 ;
 -(void)setExposeData:(NSDictionary *)arg1 ;
 -(NSString *)associatedHoldoutUniverse;
 -(void)setAssociatedHoldoutUniverse:(NSString *)arg1 ;

@@ -15,9 +15,9 @@
 -(void)onAppNeedsStateSave;
 -(void)onNewItemAvailable:(id)arg1 ;
 -(void)deserializeData;
--(char)isSeamlessFeedEnabled;
 -(void)loadPromotionBannerInfoFromResponse:(id)arg1 ;
 -(NSArray *)followAccountList;
+-(char)fetchData;
 -(void)dealloc;
 -(id)init;
 @end

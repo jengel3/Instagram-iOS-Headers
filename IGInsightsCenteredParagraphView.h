@@ -2,25 +2,31 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class UILabel, UIView;
+@class UILabel, UIButton, NSURL;
 
 @interface IGInsightsCenteredParagraphView : UIView {
 
 	UILabel* _titleLabel;
 	UILabel* _subtitleLabel;
-	UIView* _bottomSeparator;
+	UIButton* _urlbutton;
+	NSURL* _url;
+	CGRect _frame;
 
 }
 
 @property (nonatomic,readonly) UILabel * titleLabel;                 //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,readonly) UILabel * subtitleLabel;              //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
-@property (nonatomic,retain) UIView * bottomSeparator;               //@synthesize bottomSeparator=_bottomSeparator - In the implementation block
--(id)initWithTitle:(id)arg1 subtitle:(id)arg2 ;
+@property (nonatomic,readonly) UIButton * urlbutton;                 //@synthesize urlbutton=_urlbutton - In the implementation block
+@property (nonatomic,copy,readonly) NSURL * url;                     //@synthesize url=_url - In the implementation block
+@property (nonatomic,readonly) CGRect frame;                         //@synthesize frame=_frame - In the implementation block
+-(id)initWithFrame:(CGRect)arg1 paragraphUnit:(id)arg2 ;
+-(void)onWebsiteExternalLinkTapped:(id)arg1 ;
+-(UIButton *)urlbutton;
 -(void)layoutSubviews;
+-(CGRect)frame;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
+-(NSURL *)url;
 -(UILabel *)titleLabel;
 -(UILabel *)subtitleLabel;
--(void)setBottomSeparator:(UIView *)arg1 ;
--(UIView *)bottomSeparator;
 @end
 

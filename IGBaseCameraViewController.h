@@ -12,7 +12,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) IGCameraNavigationController * navController; 
 -(char)overlayIsOpaque;
--(char)prefersToolbarHidden;
 -(char)prefersNavbarBottomBorderHidden;
 -(char)prefersStatusBarHidden;
 -(void)viewDidLoad;

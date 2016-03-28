@@ -35,10 +35,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(UILabel *)usernameLabel;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(IGFollowButton *)followButton;
--(UILabel *)usernameLabel;
 -(IGProfilePictureImageView *)profilePicImageView;
 -(UILabel *)userDetailLabel;
 -(UIScrollView *)swipableContentScrollView;

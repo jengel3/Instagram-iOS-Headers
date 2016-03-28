@@ -58,7 +58,6 @@
 -(IGFeedItemMediaCell*<IGEventViewerCellType>)currentlyCenteredCell;
 -(id)cellAtIndexPath:(id)arg1 ;
 -(void)setCurrentlyCenteredHeaderCellMoreButtonHidden:(char)arg1 ;
--(void)adjustContentOffsetAfterLoadMoreForIndexPath:(id)arg1 ;
 -(float)currentTimeForCenteredCell;
 -(void)setScrollingDelegate:(id<IGEventViewerFeedViewScrollingDelegate>)arg1 ;
 -(void)handlePanGesture:(id)arg1 ;

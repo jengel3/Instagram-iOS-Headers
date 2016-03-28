@@ -14,6 +14,7 @@
 @property (nonatomic,copy) id trackingTokenBlock;                  //@synthesize trackingTokenBlock=_trackingTokenBlock - In the implementation block
 @property (assign,nonatomic) char trackWithNoLatency;              //@synthesize trackWithNoLatency=_trackWithNoLatency - In the implementation block
 @property (nonatomic,copy) NSString * eventPrefix;                 //@synthesize eventPrefix=_eventPrefix - In the implementation block
+-(id)trackEvent:(id)arg1 forFeedItem:(id)arg2 ;
 -(void)setTrackWithNoLatency:(char)arg1 ;
 -(void)setEventPrefix:(NSString *)arg1 ;
 -(id)trackEvent:(id)arg1 module:(id)arg2 forFeedItem:(id)arg3 ;
@@ -21,7 +22,6 @@
 -(char)trackWithNoLatency;
 -(id)trackingTokenBlock;
 -(NSString *)eventPrefix;
--(id)trackEvent:(id)arg1 forFeedItem:(id)arg2 ;
 -(id)trackTimespentForFeedItem:(id)arg1 withTimespent:(double)arg2 ;
 -(void)setTrackingTokenBlock:(id)arg1 ;
 @end

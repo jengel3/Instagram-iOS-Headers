@@ -6,7 +6,6 @@
 @property (nonatomic,readonly) IGCameraNavigationController * navController; 
 @required
 -(char)overlayIsOpaque;
--(char)prefersToolbarHidden;
 -(char)prefersNavbarBottomBorderHidden;
 -(IGCameraNavigationController *)navController;
 

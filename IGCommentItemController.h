@@ -30,6 +30,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)cellClasses;
+-(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
+-(id)cellForItemAtIndex:(int)arg1 ;
+-(id)supplementaryViewSource;
+-(id)displayDelegate;
 -(void)didTapReplyForCommentCell:(id)arg1 ;
 -(void)didTapReportForCommentCell:(id)arg1 ;
 -(void)didTapDeleteForCommentCell:(id)arg1 ;
@@ -43,11 +48,6 @@
 -(void)contentView:(id)arg1 didLongTapUser:(id)arg2 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
--(id)cellForItemAtIndex:(int)arg1 ;
--(id)supplementaryViewSource;
--(id)displayDelegate;
 -(id)initWithBulkDeleteManager:(id)arg1 cellRevealManager:(id)arg2 isCurrentUser:(char)arg3 ;
 -(int)cellActions;
 -(char)isCurrentUser;

@@ -1,5 +1,4 @@
 
-#import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGPost.h>
 #import <Instagram/IGStoredObject.h>
 
@@ -7,7 +6,6 @@
 
 @interface IGFeedItem : IGPost <IGStoredObject> {
 
-	char _seen;
 	IGUsertagGroup* _usertags;
 	char _inPhotosOfYou;
 	char _isWaitingForPivot;
@@ -25,9 +23,6 @@
 	NSString* _organicTrackingToken;
 	IGPivotMediaInfo* _pivotInfo;
 	NSArray* _albumItems;
-	int _currentAlbumItem;
-	float _currentAlbumViewHeight;
-	NSString* _parentPK;
 
 }
 
@@ -47,13 +42,10 @@
 @property (copy) NSString * organicTrackingToken;                                 //@synthesize organicTrackingToken=_organicTrackingToken - In the implementation block
 @property (readonly) IGCommentModel * headline; 
 @property (readonly) char isDirectResponse; 
-@property (readonly) char isPagingEnabled; 
+@property (readonly) char isAdsCarousel; 
 @property (assign) char carouselLinkButtonOverride;                               //@synthesize carouselLinkButtonOverride=_carouselLinkButtonOverride - In the implementation block
 @property (retain) IGPivotMediaInfo * pivotInfo;                                  //@synthesize pivotInfo=_pivotInfo - In the implementation block
 @property (retain) NSArray * albumItems;                                          //@synthesize albumItems=_albumItems - In the implementation block
-@property (assign) int currentAlbumItem;                                          //@synthesize currentAlbumItem=_currentAlbumItem - In the implementation block
-@property (assign) float currentAlbumViewHeight;                                  //@synthesize currentAlbumViewHeight=_currentAlbumViewHeight - In the implementation block
-@property (readonly) NSString * parentPK;                                         //@synthesize parentPK=_parentPK - In the implementation block
 @property (assign) char expanded;                                                 //@synthesize expanded=_expanded - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -61,27 +53,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)centralizedStore;
 -(id)usertags;
--(char)isAlbum;
--(int)currentAlbumItem;
--(id)albumAwareFeedItem;
--(float)currentAlbumViewHeight;
--(id)albumAwarePK;
--(id)albumAwareComments;
--(id)albumAwareCaption;
--(int)albumAwareCommentCount;
--(int)albumAwareNumCommentsInPreview;
--(char)albumAwareMoreCommentsAvailable;
--(char)albumAwareCollapseComments;
--(int)albumAwareAttribution;
--(id)albumAwareLocation;
--(id)albumAwareMediaCoord;
--(id)albumAwareTakenAtDate;
--(char)albumAwareHasLiked;
--(int)albumAwareLikeCount;
--(id)albumAwareLikers;
--(id)albumAwareLatestPostPhoto;
--(CGSize)albumAwareSizeForMediaNormalizedToViewWidth:(float)arg1 ;
 -(NSString *)mediaId;
+-(char)isAdsCarousel;
 -(char)carouselLinkButtonOverride;
 -(IGDirectResponseInfo *)directResponseInfo;
 -(int)directResponseStyle;
@@ -125,21 +98,15 @@
 -(void)setIsWaitingForPivot:(char)arg1 ;
 -(char)isDirectResponse;
 -(char)showPivot;
--(void)setCurrentAlbumItem:(int)arg1 ;
--(void)setCurrentAlbumViewHeight:(float)arg1 ;
 -(NSString *)permalink;
--(NSString *)parentPK;
 -(void)deleteItem;
--(char)seen;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 userInfo:(id)arg4 index:(int)arg5 analyticsMetadata:(id)arg6 analyticsModule:(id)arg7 requestSourceParams:(id)arg8 completion:(/*^block*/id)arg9 ;
--(void)markAsSeen;
 -(void)setCarouselLinkButtonOverride:(char)arg1 ;
 -(void)markAsExpanded;
 -(NSString *)ig_productSessionKey;
 -(void)setMediaIdWithPk:(id)arg1 ;
 -(void)setUsertagsFromEntry:(id)arg1 ;
 -(void)setSponsoredPostInfoFromEntry:(id)arg1 ;
--(id)albumItemsArrayForPostDictionary:(id)arg1 ;
 -(id)mediaIdFromPK:(id)arg1 ;
 -(char)isWaitingForPivot;
 -(void)setShowPivot:(char)arg1 ;
@@ -153,7 +120,6 @@
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(NSString *)description;
--(char)isPagingEnabled;
 -(char)isExpanded;
 -(void)setExpanded:(char)arg1 ;
 -(char)expanded;

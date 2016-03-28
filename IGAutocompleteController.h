@@ -54,6 +54,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setFeedItem:(id)arg1 ;
 -(NSString *)analyticsModule;
 -(void)displayAutocompleteOptionsForString:(id)arg1 isDeleting:(char)arg2 ;
 -(void)hideAndResetResults;
@@ -81,7 +82,6 @@
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFinishLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFailLoad:(id)arg1 ;
--(void)setFeedItem:(id)arg1 ;
 -(void)textInputDidChange;
 -(void)setReverseScroll:(char)arg1 ;
 -(void)displayAutocompleteOptionsForString:(id)arg1 ;

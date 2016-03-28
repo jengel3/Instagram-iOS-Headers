@@ -4,7 +4,7 @@
 #import <Instagram/IGFollowButtonDelegate.h>
 
 @protocol IGUserCellDelegate, IGRaindropAnalyticsDelegate;
-@class IGUser, IGProfilePictureImageView, IGFollowButton, IGFavoriteButton, UIButton, IGKVOHandle, UILabel, UIView, UIImageView, IGFollowerListChainingButtonController, NSString;
+@class IGUser, IGProfilePictureImageView, IGFollowButton, UIButton, IGKVOHandle, UILabel, UIView, UIImageView, IGFollowerListChainingButtonController, NSString;
 
 @interface IGUserCell : IGPlainTableViewCell <IGFollowButtonDelegate> {
 
@@ -20,7 +20,6 @@
 	float _textLabelSpacing;
 	id<IGUserCellDelegate> _delegate;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
-	IGFavoriteButton* _favoriteButton;
 	UIButton* _dismissButton;
 	IGKVOHandle* _favoriteButtonWidthListener;
 	UILabel* _bylineLabel;
@@ -44,7 +43,6 @@
 @property (assign,nonatomic) char showShortByline;                                                                 //@synthesize showShortByline=_showShortByline - In the implementation block
 @property (assign,nonatomic) char showVerifiedBadge;                                                               //@synthesize showVerifiedBadge=_showVerifiedBadge - In the implementation block
 @property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;                             //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
-@property (nonatomic,retain) IGFavoriteButton * favoriteButton;                                                    //@synthesize favoriteButton=_favoriteButton - In the implementation block
 @property (nonatomic,retain) UIButton * dismissButton;                                                             //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * favoriteButtonWidthListener;                                            //@synthesize favoriteButtonWidthListener=_favoriteButtonWidthListener - In the implementation block
 @property (nonatomic,retain) UILabel * bylineLabel;                                                                //@synthesize bylineLabel=_bylineLabel - In the implementation block
@@ -86,13 +84,10 @@
 -(void)setTopLineSeperator:(UIView *)arg1 ;
 -(IGFollowerListChainingButtonController *)chainingFollowButtonController;
 -(void)setChainingFollowButtonController:(IGFollowerListChainingButtonController *)arg1 ;
--(IGFavoriteButton *)favoriteButton;
--(void)setUpFavoriteButton;
 -(void)createChainingFollowButton;
 -(char)showByline;
 -(char)showShortByline;
 -(char)showVerifiedBadge;
--(void)setFavoriteButtonWidthListener:(IGKVOHandle *)arg1 ;
 -(void)setupBylineLabel;
 -(void)setupVerifiedBadgeImageView;
 -(int)layoutOption;
@@ -102,7 +97,7 @@
 -(void)setShowByline:(char)arg1 ;
 -(void)setShowShortByline:(char)arg1 ;
 -(void)setShowVerifiedBadge:(char)arg1 ;
--(void)setFavoriteButton:(IGFavoriteButton *)arg1 ;
+-(void)setFavoriteButtonWidthListener:(IGKVOHandle *)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(void)setDelegate:(id<IGUserCellDelegate>)arg1 ;

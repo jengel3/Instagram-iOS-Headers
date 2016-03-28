@@ -13,6 +13,7 @@
 
 @interface IGUserListViewController : IGViewController <IGNavSearchBarDelegate, IGRaindropAnalyticsDelegate, IGProfilePictureImageViewDelegate, IGUserListNetworkDataSourceDelegate, UITableViewDelegate, UITableViewDataSource, IGFeedStatusViewDynamicHeightProtocol, IGFollowListUserCellDelegate> {
 
+	char _showSocialContext;
 	IGUserListNetworkDataSource* _networkDataSource;
 	IGPlainTableView* _tableView;
 	int _userCellAccessory;
@@ -23,6 +24,8 @@
 	NSMutableIndexSet* _expandedIndices;
 	IGFeedStatusView* _feedStatusView;
 	IGNavSearchBar* _searchBar;
+	NSString* _searchString;
+	NSString* _sessionId;
 
 }
 
@@ -36,23 +39,28 @@
 @property (nonatomic,retain) NSMutableIndexSet * expandedIndices;                          //@synthesize expandedIndices=_expandedIndices - In the implementation block
 @property (nonatomic,retain) IGFeedStatusView * feedStatusView;                            //@synthesize feedStatusView=_feedStatusView - In the implementation block
 @property (nonatomic,retain) IGNavSearchBar * searchBar;                                   //@synthesize searchBar=_searchBar - In the implementation block
+@property (nonatomic,retain) NSString * searchString;                                      //@synthesize searchString=_searchString - In the implementation block
+@property (nonatomic,retain) NSString * sessionId;                                         //@synthesize sessionId=_sessionId - In the implementation block
+@property (assign,nonatomic) char showSocialContext;                                       //@synthesize showSocialContext=_showSocialContext - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(char)shouldShowFullName;
 +(id)nameOfUserListType:(int)arg1 ;
 -(void)setUserCellAccessory:(int)arg1 ;
 -(void)setNetworkDataSource:(IGUserListNetworkDataSource *)arg1 ;
 -(void)setUserListType:(int)arg1 ;
 -(void)setListContextPK:(NSString *)arg1 ;
+-(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(id)analyticsModule;
 -(id)analyticsExtras;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(NSString *)rankToken;
 -(void)setRankToken:(NSString *)arg1 ;
--(IGFeedItem *)feedItem;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)followButtonGroupController:(id)arg1 logfollowButtonTapWithAction:(int)arg2 user:(id)arg3 ;
+-(char)enableNavState;
 -(void)profilePictureTapped:(id)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
@@ -69,6 +77,8 @@
 -(int)userCellAccessory;
 -(void)loadMoreUsers;
 -(int)userListType;
+-(char)showSocialContext;
+-(void)setShowSocialContext:(char)arg1 ;
 -(char)isShowingSimilarAccountsViewForCellAtIndexPath:(id)arg1 ;
 -(id)statusCell;
 -(id)userCellForIndexPath:(id)arg1 ;
@@ -89,10 +99,15 @@
 -(void)viewDidLayoutSubviews;
 -(IGPlainTableView *)tableView;
 -(void)setTableView:(IGPlainTableView *)arg1 ;
+-(int)viewType;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(IGNavSearchBar *)searchBar;
+-(NSString *)searchString;
 -(void)searchBar:(id)arg1 textDidChange:(id)arg2 ;
 -(void)setSearchBar:(IGNavSearchBar *)arg1 ;
+-(void)setSearchString:(NSString *)arg1 ;
+-(void)setSessionId:(NSString *)arg1 ;
+-(NSString *)sessionId;
 @end
 

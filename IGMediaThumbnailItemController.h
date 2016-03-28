@@ -23,13 +23,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGFeedItem *)feedItem;
+-(IGFeedFocusCoordinator *)focusCoordinator;
 -(id)cellClasses;
 -(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(id)supplementaryViewSource;
 -(id)displayDelegate;
 -(IGFeedNetworkSource *)networkSource;
--(IGFeedFocusCoordinator *)focusCoordinator;
 -(void)configureCell:(id)arg1 atIndex:(int)arg2 ;
 -(IGExploreMainFeedLayoutConfiguration *)layoutConfig;
 -(id)newContexualFeedController;

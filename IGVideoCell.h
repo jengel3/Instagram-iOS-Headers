@@ -19,16 +19,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setPost:(id)arg1 ;
 -(void)feedItemVideoViewDidRequestVideoPlayback:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
 -(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
--(id)feedItemVideoViewCurrentIGAnalyticsMetadata:(id)arg1 ;
--(int)feedItemVideoViewPosition:(id)arg1 ;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
 -(void)feedItemVideoViewDidPlay:(id)arg1 ;
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
+-(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
+-(void)setPost:(id)arg1 ;
 -(void)setVideoView:(IGFeedItemVideoView *)arg1 ;
 -(IGFeedItemVideoView *)videoView;
 -(id)initWithFrame:(CGRect)arg1 ;

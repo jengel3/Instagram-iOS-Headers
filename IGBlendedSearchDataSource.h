@@ -56,7 +56,7 @@
 -(unsigned)recentUserThreshold;
 -(NSSet *)hashtags;
 -(void)fetchDataForSearchQuery:(id)arg1 location:(id)arg2 rankToken:(id)arg3 ;
--(void)fetchFrequentItems;
+-(void)fetchFrequentItemsWithRankToken:(id)arg1 ;
 -(id)hashtagResults;
 -(id)userResults;
 -(id)blendedResults;

@@ -26,6 +26,7 @@
 @property (nonatomic,retain) UILabel * appDescriptionLabel;                                            //@synthesize appDescriptionLabel=_appDescriptionLabel - In the implementation block
 @property (nonatomic,retain) UIButton * cancelButton;                                                  //@synthesize cancelButton=_cancelButton - In the implementation block
 @property (nonatomic,retain) IGButton * confirmButton;                                                 //@synthesize confirmButton=_confirmButton - In the implementation block
+-(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
 -(UILabel *)appDescriptionLabel;
 -(id)introImage;
 -(UIImageView *)exampleImageView;
@@ -36,7 +37,6 @@
 -(id)confirmButtonText;
 -(void)onConfirmModal;
 -(void)setExampleImageView:(UIImageView *)arg1 ;
--(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
 -(void)setAppDescriptionLabel:(UILabel *)arg1 ;
 -(void)setConfirmButton:(IGButton *)arg1 ;
 -(id)initWithAlertType:(int)arg1 ;

@@ -5,6 +5,7 @@
 
 @interface IGBackupCodesViewController : IGGroupedTableViewController {
 
+	char _showBackupCodeAlert;
 	char _submitting;
 	NSArray* _backupCodes;
 	IGGroupedTableViewFooterView* _backupCodeFooterView;
@@ -15,10 +16,14 @@
 @property (nonatomic,retain) NSArray * backupCodes;                                            //@synthesize backupCodes=_backupCodes - In the implementation block
 @property (nonatomic,retain) IGGroupedTableViewFooterView * backupCodeFooterView;              //@synthesize backupCodeFooterView=_backupCodeFooterView - In the implementation block
 @property (nonatomic,retain) IGGroupedTableViewFooterView * actionsFooterView;                 //@synthesize actionsFooterView=_actionsFooterView - In the implementation block
+@property (assign,nonatomic) char showBackupCodeAlert;                                         //@synthesize showBackupCodeAlert=_showBackupCodeAlert - In the implementation block
 @property (assign,nonatomic) char submitting;                                                  //@synthesize submitting=_submitting - In the implementation block
 -(void)setBackupCodes:(NSArray *)arg1 ;
 -(NSArray *)backupCodes;
--(id)initWithBackupCodes:(id)arg1 ;
+-(id)initWithBackupCodes:(id)arg1 showBackupCodeAlert:(char)arg2 ;
+-(char)showBackupCodeAlert;
+-(void)setShowBackupCodeAlert:(char)arg1 ;
+-(void)backupCodesScreenshot;
 -(void)saveImageToLibrary:(id)arg1 ;
 -(void)configureBackupCodeCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureActionCell:(id)arg1 forRow:(int)arg2 ;
@@ -28,7 +33,6 @@
 -(void)selectedBackupCodeActionRow:(int)arg1 ;
 -(void)fetchNewBackupCodes;
 -(void)copyBackupCodesToClipboard;
--(void)backupCodesScreenshot;
 -(void)setSubmitting:(char)arg1 ;
 -(void)dataFetchedWithResponse:(id)arg1 ;
 -(void)dataFetchFailedWithError:(id)arg1 ;
@@ -43,5 +47,6 @@
 -(id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 ;
 -(int)numberOfSectionsInTableView:(id)arg1 ;
 -(void)viewDidLoad;
+-(void)viewDidAppear:(char)arg1 ;
 @end
 

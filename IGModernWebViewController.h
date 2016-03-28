@@ -46,6 +46,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(char)prefersTabBarHidden;
+-(void)onBackButtonTapped;
 -(void)setNavigationBarTitle:(id)arg1 forURL:(id)arg2 ;
 -(void)handleInfoViewTap:(id)arg1 ;
 -(void)setWebViewInitialPageLoadStartTime:(double)arg1 ;
@@ -55,7 +56,6 @@
 -(id)currentPageURLStringForLogging;
 -(IGModernWebViewToolbar *)toolBar;
 -(void)setToolBar:(IGModernWebViewToolbar *)arg1 ;
--(void)onBackButtonTapped;
 -(void)onForwardButtonTapped;
 -(void)startHideProgressViewTimer;
 -(char)isInitialPageLoaded;

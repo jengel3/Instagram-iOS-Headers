@@ -25,9 +25,9 @@
 +(void)logoutFromDefaults:(id)arg1 ;
 +(id)serviceName;
 +(id)sharedHelper;
+-(id)sharingInfo;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(id)sharingInfo;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(void)logoutAndUnlink;
 -(id)currentUsername;

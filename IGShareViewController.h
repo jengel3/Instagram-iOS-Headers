@@ -2,17 +2,17 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGViewController.h>
 #import <Instagram/IGAutocompleteControllerDelegate.h>
-#import <Instagram/IGCameraNavigationShareModeDropdownViewDataSource.h>
-#import <Instagram/IGCameraNavigationShareModeDropdownViewDelegate.h>
+#import <Instagram/IGShareModeDropdownViewDataSource.h>
+#import <Instagram/IGShareModeDropdownViewDelegate.h>
 #import <Instagram/IGCaptionCellDelegate.h>
 #import <Instagram/IGMediaRequestDelegate.h>
 #import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGCameraViewControllerProtocol.h>
 
 @protocol IGShareViewControllerDelegate, IGShareManager;
-@class IGKVOHandle, IGVideoComposition, IGMediaMetadata, UIViewController, IGBroadcastShareManager, IGDirectMainCamShareViewController, IGShareToggle, IGCaptionCell, IGAutocompleteController, UIView, IGShareButton, IGCameraNavigationSelectorButton, IGCameraNavigationShareModeDropdownView, IGCameraNavigationController, NSString;
+@class IGKVOHandle, IGVideoComposition, IGMediaMetadata, IGChevronTitleButton, UIBarButtonItem, IGShareModeDropdownView, UIViewController, IGBroadcastShareManager, IGDirectMainCamShareViewController, IGCaptionCell, IGAutocompleteController, UIView, IGShareToggle, IGShareButton, IGCameraNavigationController, NSString;
 
-@interface IGShareViewController : IGViewController <IGAutocompleteControllerDelegate, IGCameraNavigationShareModeDropdownViewDataSource, IGCameraNavigationShareModeDropdownViewDelegate, IGCaptionCellDelegate, IGMediaRequestDelegate, IGAnalyticsModule, IGCameraViewControllerProtocol> {
+@interface IGShareViewController : IGViewController <IGAutocompleteControllerDelegate, IGShareModeDropdownViewDataSource, IGShareModeDropdownViewDelegate, IGCaptionCellDelegate, IGMediaRequestDelegate, IGAnalyticsModule, IGCameraViewControllerProtocol> {
 
 	IGKVOHandle* _readyToShareObserver;
 	IGKVOHandle* _scrollViewObserver;
@@ -20,45 +20,49 @@
 	char _overlayIsOpaque;
 	char _overlayHasDropShadow;
 	char _renderInProgress;
-	char _addToPostSelectionAvailable;
+	char _shouldUseNavBarShareButton;
+	char _shouldUseDropDownTitleButton;
 	id<IGShareViewControllerDelegate> _delegate;
 	IGVideoComposition* _video;
 	IGMediaMetadata* _mediaMetadata;
 	int _shareMode;
+	IGChevronTitleButton* _chevronTitleButton;
+	UIBarButtonItem* _shareItem;
+	IGShareModeDropdownView* _shareModeDropdownView;
 	UIViewController*<IGShareManager> _shareManager;
 	IGBroadcastShareManager* _broadcastShareManager;
 	IGDirectMainCamShareViewController* _directShareManager;
-	IGShareToggle* _toggleView;
 	IGCaptionCell* _captionCell;
 	IGAutocompleteController* _autocompleteController;
 	UIView* _headerView;
-	IGShareButton* _shareButton;
-	IGCameraNavigationSelectorButton* _titleShareModeButton;
-	IGCameraNavigationShareModeDropdownView* _titleShareModeDropdownView;
+	IGShareToggle* _legacyShareToggle;
+	IGShareButton* _bottomShareButton;
 	UIView* _overlayView;
 
 }
 
 @property (nonatomic,readonly) IGCameraNavigationController * navController; 
-@property (assign,nonatomic) char overlayIsOpaque;                                                              //@synthesize overlayIsOpaque=_overlayIsOpaque - In the implementation block
-@property (assign,nonatomic) char overlayHasDropShadow;                                                         //@synthesize overlayHasDropShadow=_overlayHasDropShadow - In the implementation block
-@property (assign,nonatomic,__weak) id<IGShareViewControllerDelegate> delegate;                                 //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGVideoComposition * video;                                                        //@synthesize video=_video - In the implementation block
-@property (assign,nonatomic) char renderInProgress;                                                             //@synthesize renderInProgress=_renderInProgress - In the implementation block
-@property (nonatomic,retain) IGMediaMetadata * mediaMetadata;                                                   //@synthesize mediaMetadata=_mediaMetadata - In the implementation block
-@property (assign,nonatomic) int shareMode;                                                                     //@synthesize shareMode=_shareMode - In the implementation block
-@property (nonatomic,retain) UIViewController*<IGShareManager> shareManager;                                    //@synthesize shareManager=_shareManager - In the implementation block
-@property (nonatomic,retain) IGBroadcastShareManager * broadcastShareManager;                                   //@synthesize broadcastShareManager=_broadcastShareManager - In the implementation block
-@property (nonatomic,retain) IGDirectMainCamShareViewController * directShareManager;                           //@synthesize directShareManager=_directShareManager - In the implementation block
-@property (nonatomic,retain) IGShareToggle * toggleView;                                                        //@synthesize toggleView=_toggleView - In the implementation block
-@property (nonatomic,retain) IGCaptionCell * captionCell;                                                       //@synthesize captionCell=_captionCell - In the implementation block
-@property (nonatomic,retain) IGAutocompleteController * autocompleteController;                                 //@synthesize autocompleteController=_autocompleteController - In the implementation block
-@property (nonatomic,retain) UIView * headerView;                                                               //@synthesize headerView=_headerView - In the implementation block
-@property (nonatomic,retain) IGShareButton * shareButton;                                                       //@synthesize shareButton=_shareButton - In the implementation block
-@property (nonatomic,retain) IGCameraNavigationSelectorButton * titleShareModeButton;                           //@synthesize titleShareModeButton=_titleShareModeButton - In the implementation block
-@property (nonatomic,retain) IGCameraNavigationShareModeDropdownView * titleShareModeDropdownView;              //@synthesize titleShareModeDropdownView=_titleShareModeDropdownView - In the implementation block
-@property (nonatomic,readonly) char addToPostSelectionAvailable;                                                //@synthesize addToPostSelectionAvailable=_addToPostSelectionAvailable - In the implementation block
-@property (nonatomic,retain) UIView * overlayView;                                                              //@synthesize overlayView=_overlayView - In the implementation block
+@property (assign,nonatomic) char overlayIsOpaque;                                                 //@synthesize overlayIsOpaque=_overlayIsOpaque - In the implementation block
+@property (assign,nonatomic) char overlayHasDropShadow;                                            //@synthesize overlayHasDropShadow=_overlayHasDropShadow - In the implementation block
+@property (assign,nonatomic,__weak) id<IGShareViewControllerDelegate> delegate;                    //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGVideoComposition * video;                                           //@synthesize video=_video - In the implementation block
+@property (assign,nonatomic) char renderInProgress;                                                //@synthesize renderInProgress=_renderInProgress - In the implementation block
+@property (nonatomic,retain) IGMediaMetadata * mediaMetadata;                                      //@synthesize mediaMetadata=_mediaMetadata - In the implementation block
+@property (assign,nonatomic) int shareMode;                                                        //@synthesize shareMode=_shareMode - In the implementation block
+@property (nonatomic,retain) IGChevronTitleButton * chevronTitleButton;                            //@synthesize chevronTitleButton=_chevronTitleButton - In the implementation block
+@property (nonatomic,retain) UIBarButtonItem * shareItem;                                          //@synthesize shareItem=_shareItem - In the implementation block
+@property (nonatomic,retain) IGShareModeDropdownView * shareModeDropdownView;                      //@synthesize shareModeDropdownView=_shareModeDropdownView - In the implementation block
+@property (nonatomic,retain) UIViewController*<IGShareManager> shareManager;                       //@synthesize shareManager=_shareManager - In the implementation block
+@property (nonatomic,retain) IGBroadcastShareManager * broadcastShareManager;                      //@synthesize broadcastShareManager=_broadcastShareManager - In the implementation block
+@property (nonatomic,retain) IGDirectMainCamShareViewController * directShareManager;              //@synthesize directShareManager=_directShareManager - In the implementation block
+@property (nonatomic,retain) IGCaptionCell * captionCell;                                          //@synthesize captionCell=_captionCell - In the implementation block
+@property (nonatomic,retain) IGAutocompleteController * autocompleteController;                    //@synthesize autocompleteController=_autocompleteController - In the implementation block
+@property (nonatomic,retain) UIView * headerView;                                                  //@synthesize headerView=_headerView - In the implementation block
+@property (nonatomic,retain) IGShareToggle * legacyShareToggle;                                    //@synthesize legacyShareToggle=_legacyShareToggle - In the implementation block
+@property (nonatomic,retain) IGShareButton * bottomShareButton;                                    //@synthesize bottomShareButton=_bottomShareButton - In the implementation block
+@property (nonatomic,retain) UIView * overlayView;                                                 //@synthesize overlayView=_overlayView - In the implementation block
+@property (nonatomic,readonly) char shouldUseNavBarShareButton;                                    //@synthesize shouldUseNavBarShareButton=_shouldUseNavBarShareButton - In the implementation block
+@property (nonatomic,readonly) char shouldUseDropDownTitleButton;                                  //@synthesize shouldUseDropDownTitleButton=_shouldUseDropDownTitleButton - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -71,19 +75,20 @@
 -(id)initWithMediaMetadata:(id)arg1 ;
 -(void)setRenderInProgress:(char)arg1 ;
 -(char)overlayIsOpaque;
--(char)prefersToolbarHidden;
 -(char)prefersNavbarBottomBorderHidden;
 -(id)analyticsMetadata;
 -(id)ig_keyViewControllers;
+-(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
+-(IGChevronTitleButton *)chevronTitleButton;
 -(IGAutocompleteController *)autocompleteController;
 -(char)enableNavState;
 -(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
--(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
+-(void)onBackButtonTapped;
+-(void)onChevronTitleButtonTapped;
 -(void)setShareManager:(UIViewController*<IGShareManager>)arg1 ;
 -(UIViewController*<IGShareManager>)shareManager;
 -(void)setShareMode:(int)arg1 ;
 -(int)shareMode;
--(void)onBackButtonTapped;
 -(char)captionCellMediaOverlayViewTapEnabled;
 -(void)captionCellMediaOverlayViewTapped;
 -(void)captionTextViewDidChange:(id)arg1 ;
@@ -91,52 +96,52 @@
 -(void)captionTextViewDidBeginEditing:(id)arg1 ;
 -(void)captionTextViewDidEndEditing:(id)arg1 text:(id)arg2 ;
 -(char)captionTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
--(int)dropdownViewNumberOfItems;
--(id)dropdownViewItemForIndex:(int)arg1 ;
--(void)dropdownViewDidSelectItemAtIndex:(int)arg1 ;
+-(int)numberOfItemsInDropdownView:(id)arg1 ;
+-(id)dropdownView:(id)arg1 titleForItemForIndex:(int)arg2 ;
+-(void)dropdownView:(id)arg1 didSelectItemAtIndex:(int)arg2 ;
 -(id)allResultsList:(id)arg1 ;
 -(void)logAutocomplete:(id)arg1 clickEventAtIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
 -(void)setOverlayIsOpaque:(char)arg1 ;
--(void)fetchAddToPostThumbnail:(id)arg1 ;
--(void)setTitleShareModeButton:(IGCameraNavigationSelectorButton *)arg1 ;
--(IGCameraNavigationSelectorButton *)titleShareModeButton;
--(void)titleShareModeButtonTapped;
--(void)updateShareModeButtonWithItem:(id)arg1 ;
 -(void)updateNavigationItemWithModeTitle:(id)arg1 animated:(char)arg2 ;
 -(void)stopProgressHUDIfSlowDevice;
 -(void)keyboardWillChangeFrame:(id)arg1 ;
 -(IGCaptionCell *)captionCell;
 -(void)onOverlayViewTapped:(id)arg1 ;
--(void)onShareButtonTapped;
--(IGCameraNavigationShareModeDropdownView *)titleShareModeDropdownView;
+-(CGRect)viewRectMinusNavigationBarAndShareButton;
 -(void)updateShareButton;
 -(void)updateCaptionOffset;
--(IGShareToggle *)toggleView;
+-(char)shouldUseNavBarShareButton;
+-(void)onShareButtonTapped;
+-(void)setShareItem:(UIBarButtonItem *)arg1 ;
+-(UIBarButtonItem *)shareItem;
+-(IGShareButton *)bottomShareButton;
+-(CGRect)viewRectMinusNavigationBar;
+-(char)shouldUseDropDownTitleButton;
 -(char)renderInProgress;
 -(void)startProgressHUDIfSlowDevice;
--(char)addToPostSelectionAvailable;
--(void)setTitleShareModeDropdownView:(IGCameraNavigationShareModeDropdownView *)arg1 ;
+-(void)setBottomShareButton:(IGShareButton *)arg1 ;
+-(void)setShareModeDropdownView:(IGShareModeDropdownView *)arg1 ;
+-(IGShareModeDropdownView *)shareModeDropdownView;
+-(void)setLegacyShareToggle:(IGShareToggle *)arg1 ;
+-(IGShareToggle *)legacyShareToggle;
 -(void)internalSetShareMode:(int)arg1 ;
 -(void)toggleTitleShareMode;
 -(void)addOverlayViewHidden;
+-(float)navigationBarMaxY;
 -(void)removeOverlayView;
--(void)addToPostThumbnailReceived:(id)arg1 ;
 -(IGDirectMainCamShareViewController *)directShareManager;
 -(void)setDirectShareManager:(IGDirectMainCamShareViewController *)arg1 ;
 -(IGBroadcastShareManager *)broadcastShareManager;
 -(void)setBroadcastShareManager:(IGBroadcastShareManager *)arg1 ;
 -(void)layoutAutocompleteTableForKeyboardHeight:(float)arg1 ;
 -(void)enterCaptionMode;
--(void)onTitleTapped;
 -(void)onCaptionModeOKButtonTapped;
 -(void)exitCaptionMode;
 -(void)configureStickySharingSelections;
 -(char)shouldEnableStickySharing;
 -(char)overlayHasDropShadow;
 -(void)setOverlayHasDropShadow:(char)arg1 ;
--(void)setToggleView:(IGShareToggle *)arg1 ;
 -(void)setCaptionCell:(IGCaptionCell *)arg1 ;
--(void)setShareButton:(IGShareButton *)arg1 ;
 -(void)setDelegate:(id<IGShareViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGShareViewControllerDelegate>)delegate;
@@ -145,8 +150,6 @@
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
--(void)viewWillDisappear:(char)arg1 ;
--(void)viewDidDisappear:(char)arg1 ;
 -(UIView *)headerView;
 -(void)setHeaderView:(UIView *)arg1 ;
 -(IGCameraNavigationController *)navController;
@@ -157,7 +160,6 @@
 -(void)setMediaMetadata:(IGMediaMetadata *)arg1 ;
 -(char)prefersNavigationBarHidden;
 -(void)setOverlayView:(UIView *)arg1 ;
--(IGShareButton *)shareButton;
 -(UIView *)overlayView;
 @end
 

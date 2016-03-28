@@ -9,10 +9,11 @@
 #import <Instagram/IGGenericMegaphoneViewDelegate.h>
 #import <Instagram/IGPullToRefreshProtocol.h>
 #import <Instagram/IGDirectThreadViewControllerDelegate.h>
+#import <Instagram/IGUIPerfLoggable.h>
 
-@class NSOrderedSet, IGPlainTableView, NSString, UIBarButtonItem, IGDirectPendingRequestsHeaderView, NSArray, IGPullToRefreshViewManager, IGGenericMegaphone, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGDirectEmptyInboxView, IGDirectPushPromptView;
+@class NSOrderedSet, IGPlainTableView, NSString, UIBarButtonItem, IGDirectPendingRequestsHeaderView, NSArray, IGPullToRefreshViewManager, IGGenericMegaphone, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGDirectEmptyInboxView, IGDirectUIPerfLogProxy, IGDirectPushPromptView;
 
-@interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectPushPromptViewDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGPullToRefreshProtocol, IGDirectThreadViewControllerDelegate> {
+@interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectPushPromptViewDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGPullToRefreshProtocol, IGDirectThreadViewControllerDelegate, IGUIPerfLoggable> {
 
 	char _isFetchingData;
 	char _loadingPreviousThreads;
@@ -32,6 +33,7 @@
 	IGDefaultGenericMegaphoneLogger* _megaphoneLogger;
 	IGDirectEmptyInboxView* _emptyInboxView;
 	int _unseenPendingRequestCount;
+	IGDirectUIPerfLogProxy* _perfLogProxy;
 	IGDirectPushPromptView* _pushPromptView;
 
 }
@@ -54,11 +56,15 @@
 @property (nonatomic,retain) IGDirectEmptyInboxView * emptyInboxView;                                //@synthesize emptyInboxView=_emptyInboxView - In the implementation block
 @property (assign,nonatomic) int unseenPendingRequestCount;                                          //@synthesize unseenPendingRequestCount=_unseenPendingRequestCount - In the implementation block
 @property (assign,nonatomic) char needsRefreshForThreadUpdateNotification;                           //@synthesize needsRefreshForThreadUpdateNotification=_needsRefreshForThreadUpdateNotification - In the implementation block
+@property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                                  //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
 @property (nonatomic,retain) IGDirectPushPromptView * pushPromptView;                                //@synthesize pushPromptView=_pushPromptView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(char)shouldLogEvent:(unsigned)arg1 ;
+-(unsigned)lastLogEvent;
+-(void)allEventsLoggedWithResult:(id)arg1 ;
 -(char)inboxCellWantsToPan:(id)arg1 ;
 -(id)cachedThreads;
 -(void)refreshDataWithClearCount:(char)arg1 ;
@@ -86,7 +92,7 @@
 -(char)needsRefreshForThreadUpdateNotification;
 -(int)unseenPendingRequestCount;
 -(void)setUnseenPendingRequestCount:(int)arg1 ;
--(void)pushToThread:(id)arg1 animated:(char)arg2 ;
+-(void)pushToThread:(id)arg1 animated:(char)arg2 logResult:(id)arg3 ;
 -(int)pendingRequestCount;
 -(void)setIsFetchingData:(char)arg1 ;
 -(void)setPendingRequestUsers:(NSArray *)arg1 ;
@@ -110,7 +116,7 @@
 -(void)inboxCell:(id)arg1 wantsMuteForThread:(id)arg2 ;
 -(void)pushToPendingInboxAnimated:(char)arg1 ;
 -(char)findAndCloseActionCellsExcludingCell:(id)arg1 ;
--(void)pushToThreadWithThreadId:(id)arg1 animated:(char)arg2 ;
+-(void)pushToThreadWithThreadId:(id)arg1 animated:(char)arg2 logResult:(id)arg3 ;
 -(void)loadMoreThreads;
 -(char)isFirstDelete;
 -(void)performHideForThread:(id)arg1 ;
@@ -118,6 +124,7 @@
 -(void)threadUpdated:(id)arg1 ;
 -(char)hasLoadedOnce;
 -(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
+-(IGDirectUIPerfLogProxy *)perfLogProxy;
 -(void)pendingInbox:(id)arg1 didUpdateThread:(id)arg2 withAccept:(char)arg3 remainingInviter:(id)arg4 ;
 -(void)pendingInboxDidClear:(id)arg1 ;
 -(void)pendingInboxDidActionThreads:(id)arg1 ;
@@ -135,6 +142,7 @@
 -(void)setPendingRequestsHeader:(IGDirectPendingRequestsHeaderView *)arg1 ;
 -(NSString *)countedAt;
 -(void)setCountedAt:(NSString *)arg1 ;
+-(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
 -(void)setPushPromptView:(IGDirectPushPromptView *)arg1 ;
 -(void)scrollToTopAnimated:(char)arg1 ;
 -(void)dealloc;

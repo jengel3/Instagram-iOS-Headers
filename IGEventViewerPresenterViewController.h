@@ -46,6 +46,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGChannelFocusCoordinator *)focusCoordinator;
+-(void)setFocusCoordinator:(IGChannelFocusCoordinator *)arg1 ;
 -(void)didFireTimer:(id)arg1 ;
 -(void)eventService:(id)arg1 didLoadCachedPosts:(id)arg2 ;
 -(void)eventServiceFailedToLoadFromCache:(id)arg1 ;
@@ -75,7 +77,6 @@
 -(void)loadPosts:(id)arg1 ;
 -(void)dismissLoadingView;
 -(void)prepareToDismiss;
--(IGChannelFocusCoordinator *)focusCoordinator;
 -(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
 -(void)setEventViewerController:(IGEventViewerViewController *)arg1 ;
 -(void)setShouldHideStatusBar:(char)arg1 ;
@@ -83,7 +84,6 @@
 -(void)didDismissEventViewerViewController:(id)arg1 ;
 -(void)soundListenerDidUpdate:(id)arg1 ;
 -(id)initWithConfiguration:(id)arg1 focusCoordinator:(id)arg2 ;
--(void)setFocusCoordinator:(IGChannelFocusCoordinator *)arg1 ;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)stopTimer;
 -(void)dealloc;

@@ -18,9 +18,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) char isFromLibrary; 
 @property (assign,nonatomic) int devicePosition;                    //@synthesize devicePosition=_devicePosition - In the implementation block
+-(void)setDevicePosition:(int)arg1 ;
 -(char)isFromLibrary;
 -(int)devicePosition;
--(void)setDevicePosition:(int)arg1 ;
 -(void)setImage:(UIImage *)arg1 ;
 -(UIImage *)image;
 @end

@@ -14,9 +14,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)initWithEditsInfo:(id)arg1 ;
 -(void)prepareToShare;
 -(id)sharingInfo;
 -(NSDictionary *)editsInfo;
--(id)initWithEditsInfo:(id)arg1 ;
 @end
 

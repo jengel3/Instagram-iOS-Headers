@@ -19,11 +19,11 @@
 @property (assign,nonatomic) UIEdgeInsets inset;                                                //@synthesize inset=_inset - In the implementation block
 @property (assign,nonatomic) float minimumLineSpacing;                                          //@synthesize minimumLineSpacing=_minimumLineSpacing - In the implementation block
 @property (assign,nonatomic) float minimumInteritemSpacing;                                     //@synthesize minimumInteritemSpacing=_minimumInteritemSpacing - In the implementation block
+-(id<IGListCollectionContext>)collectionContext;
+-(id<IGPresentationContext>)presentationContext;
+-(id<IGNavigationContext>)navigationContext;
 -(void)setPresentationContext:(id<IGPresentationContext>)arg1 ;
 -(void)setNavigationContext:(id<IGNavigationContext>)arg1 ;
--(id<IGListCollectionContext>)collectionContext;
--(id<IGNavigationContext>)navigationContext;
--(id<IGPresentationContext>)presentationContext;
 -(void)setCollectionContext:(id<IGListCollectionContext>)arg1 ;
 -(void)setInset:(UIEdgeInsets)arg1 ;
 -(id)init;

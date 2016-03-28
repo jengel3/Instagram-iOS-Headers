@@ -12,7 +12,7 @@
 #import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGShareManager.h>
 
-@class NSString, UIViewController, IGMediaMetadata, IGCollectionView, UIView, IGDirectedNUXView, NSIndexPath, UIScrollView;
+@class NSString, UIViewController, IGMediaMetadata, IGCollectionView, UIView, IGDirectedNUXView, NSIndexPath, UITapGestureRecognizer, UIScrollView;
 
 @interface IGBroadcastShareManager : IGViewController <IGLocationPickerDelegate, IGLocationSuggestionDataSource, IGLocationSuggestionDelegate, IGShareListManagerDelegate, IGUserInTaggingViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGDirectedNUXViewDelegate, IGAnalyticsModule, IGShareManager> {
 
@@ -27,30 +27,32 @@
 	float _locationSuggestionCellHeight;
 	NSString* _searchSessionId;
 	NSIndexPath* _shareIndexPath;
+	UITapGestureRecognizer* _dismissNUXTapGuestureRecognizer;
 
 }
 
-@property (nonatomic,retain) IGMediaMetadata * mediaMetadata;                     //@synthesize mediaMetadata=_mediaMetadata - In the implementation block
-@property (nonatomic,retain) IGCollectionView * collectionView;                   //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,retain) UIView * headerView;                                 //@synthesize headerView=_headerView - In the implementation block
-@property (nonatomic,retain) UIView * headerBackgroundView;                       //@synthesize headerBackgroundView=_headerBackgroundView - In the implementation block
-@property (nonatomic,retain) IGDirectedNUXView * stickyShareNUXView;              //@synthesize stickyShareNUXView=_stickyShareNUXView - In the implementation block
-@property (assign,nonatomic) float locationSuggestionCellHeight;                  //@synthesize locationSuggestionCellHeight=_locationSuggestionCellHeight - In the implementation block
-@property (nonatomic,retain) NSString * searchSessionId;                          //@synthesize searchSessionId=_searchSessionId - In the implementation block
-@property (assign,nonatomic) char isStickyEnabled;                                //@synthesize isStickyEnabled=_isStickyEnabled - In the implementation block
-@property (nonatomic,retain) NSIndexPath * shareIndexPath;                        //@synthesize shareIndexPath=_shareIndexPath - In the implementation block
+@property (nonatomic,retain) IGMediaMetadata * mediaMetadata;                                       //@synthesize mediaMetadata=_mediaMetadata - In the implementation block
+@property (nonatomic,retain) IGCollectionView * collectionView;                                     //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,retain) UIView * headerView;                                                   //@synthesize headerView=_headerView - In the implementation block
+@property (nonatomic,retain) UIView * headerBackgroundView;                                         //@synthesize headerBackgroundView=_headerBackgroundView - In the implementation block
+@property (nonatomic,retain) IGDirectedNUXView * stickyShareNUXView;                                //@synthesize stickyShareNUXView=_stickyShareNUXView - In the implementation block
+@property (assign,nonatomic) float locationSuggestionCellHeight;                                    //@synthesize locationSuggestionCellHeight=_locationSuggestionCellHeight - In the implementation block
+@property (nonatomic,retain) NSString * searchSessionId;                                            //@synthesize searchSessionId=_searchSessionId - In the implementation block
+@property (assign,nonatomic) char isStickyEnabled;                                                  //@synthesize isStickyEnabled=_isStickyEnabled - In the implementation block
+@property (nonatomic,retain) NSIndexPath * shareIndexPath;                                          //@synthesize shareIndexPath=_shareIndexPath - In the implementation block
+@property (nonatomic,retain) UITapGestureRecognizer * dismissNUXTapGuestureRecognizer;              //@synthesize dismissNUXTapGuestureRecognizer=_dismissNUXTapGuestureRecognizer - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,copy) NSString * shareString;                                //@synthesize shareString=_shareString - In the implementation block
+@property (nonatomic,copy) NSString * shareString;                                                  //@synthesize shareString=_shareString - In the implementation block
 @property (nonatomic,readonly) char isReadyToShare; 
 @property (nonatomic,readonly) UIScrollView * scrollView; 
-@property (assign,nonatomic,__weak) UIViewController * delegate;                  //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic,__weak) UIViewController * delegate;                                    //@synthesize delegate=_delegate - In the implementation block
+-(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(id)analyticsModule;
 -(id)initWithMediaMetadata:(id)arg1 ;
 -(id)analyticsMetadata;
--(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(char)enableNavState;
 -(void)setShareString:(NSString *)arg1 ;
 -(void)configureWithHeaderView:(id)arg1 ;
@@ -66,10 +68,13 @@
 -(void)locationSuggestionCell:(id)arg1 didLoadLocations:(id)arg2 ;
 -(void)updateLocationEnabled;
 -(void)showStickyShareTooltip;
+-(void)hideToolTip;
+-(char)isExpiringPost;
 -(float)locationSuggestionCellHeight;
 -(void)configureCaptionCell:(id)arg1 ;
 -(void)configurePeopleCell:(id)arg1 ;
 -(void)configureLocationCell:(id)arg1 ;
+-(void)configureSetExpiringCell:(id)arg1 ;
 -(void)configureShareCell:(id)arg1 index:(int)arg2 ;
 -(NSIndexPath *)shareIndexPath;
 -(void)setShareIndexPath:(NSIndexPath *)arg1 ;
@@ -80,6 +85,7 @@
 -(void)setLocationSuggestionCellHeight:(float)arg1 ;
 -(NSString *)searchSessionId;
 -(char)isStickyEnabled;
+-(UITapGestureRecognizer *)dismissNUXTapGuestureRecognizer;
 -(void)shareListNeedsFullReload;
 -(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
 -(id)viewControllerForShareConfiguration;
@@ -87,6 +93,7 @@
 -(void)setStickyShareNUXView:(IGDirectedNUXView *)arg1 ;
 -(void)setSearchSessionId:(NSString *)arg1 ;
 -(void)setIsStickyEnabled:(char)arg1 ;
+-(void)setDismissNUXTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(void)setDelegate:(UIViewController *)arg1 ;
 -(void)dealloc;
 -(UIViewController *)delegate;

@@ -22,13 +22,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
--(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(id)cellClasses;
 -(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(id)supplementaryViewSource;
 -(id)displayDelegate;
+-(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
+-(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(unsigned)maxThumbnails;
 -(void)exploreCell:(id)arg1 didTapMediaAtIndex:(unsigned)arg2 ;
 -(void)updateCellVisibility:(id)arg1 imageView:(id)arg2 mediaIndex:(unsigned)arg3 ;

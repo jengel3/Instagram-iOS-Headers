@@ -1,6 +1,6 @@
 
 
-@protocol IGDKDiffable <NSObject>
+@protocol IGDKDiffable
 @required
 -(id)diffIdentifier;
 -(char)isEqual:(id)arg1;

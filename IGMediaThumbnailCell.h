@@ -29,9 +29,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)videoPool;
--(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;
 -(id)dequeueReusablePlayer;
 -(void)finishUsingPlayer:(id)arg1 ;
+-(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;
 -(void)videoPlayer:(id)arg1 didLoadVideoInView:(id)arg2 ;
 -(void)videoPlayerLoadedFirstFrame:(id)arg1 ;
 -(void)videoPlayerDidPlayToEnd:(id)arg1 ;

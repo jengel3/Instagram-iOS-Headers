@@ -2,10 +2,11 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGDirectContentCell.h>
 
-@class IGCoreTextView, UILabel, UIImageView, IGShareThumbnailView, NSArray;
+@class UIView, IGCoreTextView, UILabel, UIImageView, IGShareThumbnailView, NSArray;
 
 @interface IGDirectGenericShareContentCell : IGDirectContentCell {
 
+	UIView* _shareContainerView;
 	IGCoreTextView* _titleLabel;
 	UILabel* _subtitleLabel;
 	UIImageView* _sideImageView;
@@ -15,6 +16,7 @@
 
 }
 
+@property (nonatomic,retain) UIView * shareContainerView;                        //@synthesize shareContainerView=_shareContainerView - In the implementation block
 @property (nonatomic,retain) IGCoreTextView * titleLabel;                        //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * subtitleLabel;                            //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 @property (nonatomic,retain) UIImageView * sideImageView;                        //@synthesize sideImageView=_sideImageView - In the implementation block
@@ -31,6 +33,8 @@
 -(id)highlightedBackgroundImage;
 -(id)previewMedia;
 -(CGRect)tapTargetFrame;
+-(UIView *)shareContainerView;
+-(id)createShareContainerView;
 -(UIImageView *)sideImageView;
 -(IGShareThumbnailView *)thumbnailViews;
 -(NSArray *)previewMediaPhotos;
@@ -39,6 +43,7 @@
 -(id)defaultBackgoundImageNotForSameUser;
 -(id)highlightedBackgoundImageForSameUser;
 -(id)highlightedBackgoundImageNotForSameUser;
+-(void)setShareContainerView:(UIView *)arg1 ;
 -(void)setSideImageView:(UIImageView *)arg1 ;
 -(void)setThumbnailViews:(IGShareThumbnailView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

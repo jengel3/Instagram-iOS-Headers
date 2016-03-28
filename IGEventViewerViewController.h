@@ -52,6 +52,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGChannelFocusCoordinator *)focusCoordinator;
 -(id)analyticsModule;
 -(id)analyticsExtras;
 -(char)shouldLogNetworkContent;
@@ -82,17 +83,16 @@
 -(IGEventViewerSoundStateListener *)soundStateListener;
 -(IGEventService *)eventService;
 -(IGEventViewerMediaPreloader *)mediaPreloader;
--(IGChannelFocusCoordinator *)focusCoordinator;
 -(id)initWithEventService:(id)arg1 currentUser:(id)arg2 initialPosts:(id)arg3 logger:(id)arg4 focusCoordinator:(id)arg5 ;
 -(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
 -(void)soundListenerDidUpdate:(id)arg1 ;
 -(id)postsFromInitialPosts:(id)arg1 focusCoordinator:(id)arg2 cachedPosts:(id)arg3 ;
 -(void)setupFeedController;
+-(char)isPreloadPresenterUsed;
 -(CGRect)frameForFeedView;
 -(IGEventViewerMediaPlaybackController *)mediaPlaybackController;
 -(void)setupViewsAndChildViewControllers;
 -(IGEventViewerFeedViewController *)feedController;
--(char)isPreloadPresenterUsed;
 -(void)resumeCurrentMedia;
 -(void)setIsPreloadPresenterUsed:(char)arg1 ;
 -(void)didReceiveAppWillResignActiveNotification:(id)arg1 ;

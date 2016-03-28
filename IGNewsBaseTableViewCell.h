@@ -6,7 +6,7 @@
 #import <Instagram/IGFollowButtonDelegate.h>
 
 @protocol IGNewsTableViewCellDelegate, IGRaindropAnalyticsDelegate;
-@class UIView, IGNewsStory, IGFollowButton, IGProfilePictureImageView, IGCoreTextView, NSMutableArray, IGUnreadBubbleView, UIImageView, NSString;
+@class UIView, IGNewsStory, IGFollowButton, IGProfilePictureImageView, IGCoreTextView, NSMutableArray, UILabel, IGUnreadBubbleView, UIImageView, NSString;
 
 @interface IGNewsBaseTableViewCell : UITableViewCell <IGProfilePictureImageViewDelegate, IGCoreTextLinkHandler, IGTappableImageViewDelegate, IGFollowButtonDelegate> {
 
@@ -20,6 +20,7 @@
 	IGProfilePictureImageView* _profilePictureView;
 	IGCoreTextView* _textView;
 	NSMutableArray* _imageViews;
+	UILabel* _socialContextLabel;
 	IGUnreadBubbleView* _requestCountBubbleView;
 	UIImageView* _chevronView;
 
@@ -34,6 +35,7 @@
 @property (nonatomic,retain) IGProfilePictureImageView * profilePictureView;                        //@synthesize profilePictureView=_profilePictureView - In the implementation block
 @property (nonatomic,retain) IGCoreTextView * textView;                                             //@synthesize textView=_textView - In the implementation block
 @property (nonatomic,retain) NSMutableArray * imageViews;                                           //@synthesize imageViews=_imageViews - In the implementation block
+@property (nonatomic,retain) UILabel * socialContextLabel;                                          //@synthesize socialContextLabel=_socialContextLabel - In the implementation block
 @property (nonatomic,retain) IGUnreadBubbleView * requestCountBubbleView;                           //@synthesize requestCountBubbleView=_requestCountBubbleView - In the implementation block
 @property (nonatomic,retain) UIImageView * chevronView;                                             //@synthesize chevronView=_chevronView - In the implementation block
 @property (readonly) unsigned hash; 
@@ -51,14 +53,16 @@
 -(void)profilePictureTapped:(id)arg1 ;
 -(IGProfilePictureImageView *)profilePictureView;
 -(void)setProfilePictureView:(IGProfilePictureImageView *)arg1 ;
+-(UILabel *)socialContextLabel;
 -(void)imageViewTapped:(id)arg1 ;
--(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 analyticsDelegate:(id)arg3 ;
--(void)createImageViews:(int)arg1 ;
--(IGNewsStory *)story;
--(void)applyHighlight:(char)arg1 ;
 -(void)setStory:(IGNewsStory *)arg1 ;
 -(void)setHidesCellDivider:(char)arg1 ;
+-(IGNewsStory *)story;
+-(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 analyticsDelegate:(id)arg3 ;
+-(void)createImageViews:(int)arg1 ;
+-(void)applyHighlight:(char)arg1 ;
 -(char)hidesCellDivider;
+-(void)setSocialContextLabel:(UILabel *)arg1 ;
 -(IGUnreadBubbleView *)requestCountBubbleView;
 -(void)setRequestCountBubbleView:(IGUnreadBubbleView *)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

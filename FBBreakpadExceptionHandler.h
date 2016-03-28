@@ -39,6 +39,7 @@
 -(char)checkForCrashWhileExceptionHandlingInLastSession;
 -(void)breakpadGenerateReportWithParams:(id)arg1 isQuickReport:(char)arg2 ;
 -(void)registerPostExceptionUnsafeCallback:(/*function pointer*/void*)arg1 ;
+-(void)setBreakpadFilterCallback:(/*function pointer*/void*)arg1 withContext:(void*)arg2 ;
 -(void)dealloc;
 -(void)send;
 -(void)process:(id)arg1 ;

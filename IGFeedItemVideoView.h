@@ -60,6 +60,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)heightForWidth:(float)arg1 ;
+-(void)playVideoURL:(id)arg1 withPlayer:(id)arg2 config:(id)arg3 ;
+-(id)relinquishPlayer;
+-(void)setAllowHardwareSoundControl:(char)arg1 ;
+-(void)setVideo:(id)arg1 coverPhoto:(id)arg2 videoCacheKey:(id)arg3 logger:(id)arg4 ;
+-(void)disableIndicator:(char)arg1 ;
 -(void)didPressVolumeButton:(id)arg1 ;
 -(void)onTap:(id)arg1 ;
 -(char)hasPlayer;
@@ -80,16 +85,11 @@
 -(char)hasPlaybackError;
 -(void)setAudioNUXController:(IGAudioNUXController *)arg1 ;
 -(UILongPressGestureRecognizer *)longPressRecognizer;
--(id)relinquishPlayer;
--(void)playVideoURL:(id)arg1 withPlayer:(id)arg2 config:(id)arg3 ;
 -(void)logVideoStoppedForReason:(int)arg1 ;
--(void)setAllowHardwareSoundControl:(char)arg1 ;
--(void)setVideo:(id)arg1 coverPhoto:(id)arg2 videoCacheKey:(id)arg3 logger:(id)arg4 ;
--(void)disableIndicator:(char)arg1 ;
+-(void)showOneTapIndicatorNUXAnimated:(char)arg1 ;
 -(char)audioNUXControllerVideoHasSound:(id)arg1 ;
 -(char)audioNUXControllerIsPlayingSound:(id)arg1 ;
 -(char)audioNUXControllerIsVideoPlaying:(id)arg1 ;
--(void)showOneTapIndicatorNUX;
 -(void)onDoubleTap:(id)arg1 ;
 -(void)onLongTap:(id)arg1 ;
 -(void)setHasStartedPlayback:(char)arg1 ;
@@ -113,6 +113,7 @@
 -(IGPhoto *)photo;
 -(void)setPlayer:(IGFeedVideoPlayer *)arg1 ;
 -(id)photoImageView;
+-(void)setAudioEnabled:(char)arg1 ;
 -(char)isPlaying;
 -(IGFeedVideoPlayer *)player;
 -(id)initWithFrame:(CGRect)arg1 ;

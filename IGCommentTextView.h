@@ -1,10 +1,11 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
+#import <Instagram/IGCommentTextViewProtocol.h>
 
-@class UIImageView, IGGrowingTextView, UIButton;
+@class UIImageView, IGGrowingTextView, UIButton, NSString;
 
-@interface IGCommentTextView : UIView {
+@interface IGCommentTextView : UIView <IGCommentTextViewProtocol> {
 
 	UIImageView* _backgroundView;
 	IGGrowingTextView* _growingTextView;
@@ -15,6 +16,10 @@
 @property (nonatomic,readonly) UIImageView * backgroundView;                     //@synthesize backgroundView=_backgroundView - In the implementation block
 @property (nonatomic,readonly) IGGrowingTextView * growingTextView;              //@synthesize growingTextView=_growingTextView - In the implementation block
 @property (nonatomic,readonly) UIButton * sendButton;                            //@synthesize sendButton=_sendButton - In the implementation block
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 -(void)setupBackgroundView;
 -(void)setupGrowingTextView;
 -(IGGrowingTextView *)growingTextView;

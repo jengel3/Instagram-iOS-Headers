@@ -17,9 +17,9 @@
 @property (nonatomic,retain) IGFeedItem * feedItem;                  //@synthesize feedItem=_feedItem - In the implementation block
 -(id)pk;
 -(IGUsertagGroup *)usertags;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
--(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
+-(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(char)hasChangedCaption;
 -(char)hasChangedLocation;

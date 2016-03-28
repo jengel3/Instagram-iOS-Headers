@@ -20,11 +20,12 @@
 +(char)exposeCachedValueForBoolExperiment:(id)arg1 ;
 +(id)effectiveGroupNameForExperiment:(id)arg1 ;
 +(id)experiments;
++(void)requestColdStart:(id)arg1 ;
 +(void)refreshExperimentsIfNecessary;
 +(char)wantsColdStart;
 +(id)experimentForKey:(id)arg1 ;
 +(id)cachedExperimentForKey:(id)arg1 ;
-+(id)exposeValueForExperiment:(id)arg1 parameterName:(id)arg2 respectingHoldout:(id)arg3 ;
++(id)exposeValueFromExperiment:(id)arg1 parameterName:(id)arg2 respectingHoldout:(id)arg3 ;
 +(id)experimentsByCategory;
 +(void)disableExperiments;
 +(id)sharedInstance;

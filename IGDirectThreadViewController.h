@@ -18,11 +18,12 @@
 #import <Instagram/IGDirectGroupNamingViewControllerDelegate.h>
 #import <Instagram/IGSelectAlbumDelegate.h>
 #import <Instagram/IGDirectReactionDecoratorDelegate.h>
+#import <Instagram/IGUIPerfLoggable.h>
 
 @protocol IGDirectThreadViewControllerDelegate, IGDirectPendingThreadViewDelegate;
-@class NSNumber, IGDirectMenuController, IGDirectThread, NSArray, NSMutableArray, IGUser, UICollectionView, IGDirectThreadCellFactory, IGDirectThreadCellExpansionAnimator, IGDirectThreadLayout, UIBarButtonItem, IGDirectContent, IGDirectPendingRequestButtons, IGDirectGroupNamingViewController, UIView, IGProfilePictureImageView, UIButton, IGQuickCamViewController, IGQuickCamViewController2, IGDirectShareManager, IGTokenField, FBKeyboardObserver, IGDirectKeyboardTextViewController, UIPanGestureRecognizer, IGAlertBar, NSNotification, NSString;
+@class NSNumber, IGDirectMenuController, IGDirectThread, NSArray, NSMutableArray, IGUser, UICollectionView, IGDirectThreadCellFactory, IGDirectThreadCellExpansionAnimator, IGDirectThreadLayout, UIBarButtonItem, IGDirectContent, IGDirectPendingRequestButtons, IGDirectGroupNamingViewController, UIView, IGProfilePictureImageView, UIButton, IGQuickCamViewController, IGQuickCamViewController2, IGDirectShareManager, IGTokenField, FBKeyboardObserver, IGDirectKeyboardTextViewController, UIPanGestureRecognizer, IGAlertBar, NSNotification, IGDirectUIPerfLogProxy, NSString;
 
-@interface IGDirectThreadViewController : IGViewController <UICollectionViewDelegate, UICollectionViewDataSource, IGDirectContentUpoadCellDelegate, IGDirectContentCellTextLinkDelegate, FBKeyboardObserverDelegate, IGDirectPendingRequestButtonDelegate, IGDirectKeyboardTextViewControllerDelegate, IGSeenStampFooterDelegate, UIGestureRecognizerDelegate, IGDirectThreadInfoDelegate, IGQuickCamViewControllerDelegate, IGDirectShareManagerDataSource, IGTokenFieldDelegate, IGImageViewDelegate, IGDirectGroupNamingViewControllerDelegate, IGSelectAlbumDelegate, IGDirectReactionDecoratorDelegate> {
+@interface IGDirectThreadViewController : IGViewController <UICollectionViewDelegate, UICollectionViewDataSource, IGDirectContentUpoadCellDelegate, IGDirectContentCellTextLinkDelegate, FBKeyboardObserverDelegate, IGDirectPendingRequestButtonDelegate, IGDirectKeyboardTextViewControllerDelegate, IGSeenStampFooterDelegate, UIGestureRecognizerDelegate, IGDirectThreadInfoDelegate, IGQuickCamViewControllerDelegate, IGDirectShareManagerDataSource, IGTokenFieldDelegate, IGImageViewDelegate, IGDirectGroupNamingViewControllerDelegate, IGSelectAlbumDelegate, IGDirectReactionDecoratorDelegate, IGUIPerfLoggable> {
 
 	char _loadingPreviousMessages;
 	char _unseenMessageVisible;
@@ -73,6 +74,7 @@
 	IGAlertBar* _loadingAlertBar;
 	NSNumber* _distanceToBottomToKeep;
 	NSNotification* _deferredThreadUpdatedNotification;
+	IGDirectUIPerfLogProxy* _perfLogProxy;
 
 }
 
@@ -126,20 +128,26 @@
 @property (assign,nonatomic) char shouldAnimateScrollingToBottom;                                         //@synthesize shouldAnimateScrollingToBottom=_shouldAnimateScrollingToBottom - In the implementation block
 @property (nonatomic,retain) NSNotification * deferredThreadUpdatedNotification;                          //@synthesize deferredThreadUpdatedNotification=_deferredThreadUpdatedNotification - In the implementation block
 @property (assign,nonatomic) char isSpamming;                                                             //@synthesize isSpamming=_isSpamming - In the implementation block
+@property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                                       //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)enumerateVisibleViewsWithClass:(Class)arg1 usingBlock:(/*^block*/id)arg2 ;
 -(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
+-(char)shouldLogEvent:(unsigned)arg1 ;
+-(unsigned)lastLogEvent;
+-(void)allEventsLoggedWithResult:(id)arg1 ;
+-(id)initWithThreadID:(id)arg1 ;
+-(void)fetchAndLoadThreadWithID:(id)arg1 ;
 -(void)scrollToBottomAnimated:(char)arg1 ;
 -(char)prefersTabBarHidden;
 -(float)textViewHeight;
--(id)initWithThreadID:(id)arg1 ;
--(void)fetchAndLoadThreadWithID:(id)arg1 ;
 -(void)setThreadDelegate:(id<IGDirectThreadViewControllerDelegate>)arg1 ;
 -(NSArray *)allContent;
 -(void)threadUpdated:(id)arg1 ;
+-(IGDirectUIPerfLogProxy *)perfLogProxy;
+-(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
 -(void)setPendingDelegate:(id<IGDirectPendingThreadViewDelegate>)arg1 ;
 -(char)disableNonEdgeNavigationGesture;
 -(void)pendingRequestButtonDidDenyThread:(id)arg1 ;
@@ -148,10 +156,10 @@
 -(id)currentQueryForManager:(id)arg1 ;
 -(id)recipientsForManager:(id)arg1 ;
 -(char)manager:(id)arg1 wantsToSelectUser:(id)arg2 ;
+-(void)quickCamViewController:(id)arg1 didPickAsset:(id)arg2 ;
 -(void)quickCamViewController:(id)arg1 didEnterState:(int)arg2 ;
 -(void)quickCamViewController:(id)arg1 didClickDisabledAsset:(id)arg2 ;
 -(void)quickCamViewControllerLibraryDidLoad:(id)arg1 ;
--(void)quickCamViewController:(id)arg1 didPickAsset:(id)arg2 ;
 -(void)contentCell:(id)arg1 didTapText:(id)arg2 withURL:(id)arg3 ;
 -(void)directContentUploadCell:(id)arg1 wantsDeleteForContent:(id)arg2 ;
 -(void)contentCell:(id)arg1 profilePictureWasTappedWithUser:(id)arg2 ;

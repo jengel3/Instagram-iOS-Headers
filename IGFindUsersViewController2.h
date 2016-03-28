@@ -45,13 +45,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSString *)analyticsModule;
--(void)setAnalyticsModule:(NSString *)arg1 ;
--(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
+-(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
+-(NSString *)analyticsModule;
+-(void)setAnalyticsModule:(NSString *)arg1 ;
+-(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
 -(id)currentActiveScrollView;
@@ -68,7 +69,6 @@
 -(id)initWithDataSource:(id)arg1 helper:(id)arg2 maxThumbnails:(unsigned)arg3 ;
 -(void)handleEmptyStateViewTap;
 -(void)setEmptyStateView:(IGFeedStatusView *)arg1 ;
--(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(void)authorizeAndFetchUsers;
 -(IGFeedStatusView *)emptyStateView;
 -(int)lastThumbnailFetchOffset;

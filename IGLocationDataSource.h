@@ -18,7 +18,6 @@
 	NSString* _responseQueryText;
 	id<IGLocationDataSourceDelegate> _delegate;
 	int _fetchStatus;
-	int _resultsType;
 	CLLocation* _lastKnownLocation;
 	NSDictionary* _lastKnownResponse;
 
@@ -35,7 +34,6 @@
 @property (nonatomic,retain) NSString * responseQueryText;                                  //@synthesize responseQueryText=_responseQueryText - In the implementation block
 @property (assign,nonatomic,__weak) id<IGLocationDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int fetchStatus;                                               //@synthesize fetchStatus=_fetchStatus - In the implementation block
-@property (assign,nonatomic) int resultsType;                                               //@synthesize resultsType=_resultsType - In the implementation block
 @property (nonatomic,retain) CLLocation * lastKnownLocation;                                //@synthesize lastKnownLocation=_lastKnownLocation - In the implementation block
 @property (nonatomic,retain) NSDictionary * lastKnownResponse;                              //@synthesize lastKnownResponse=_lastKnownResponse - In the implementation block
 @property (assign,nonatomic) char locationIsFromEXIF;                                       //@synthesize locationIsFromEXIF=_locationIsFromEXIF - In the implementation block
@@ -47,15 +45,12 @@
 -(NSString *)responseQueryText;
 -(void)setResponseQueryText:(NSString *)arg1 ;
 -(IGRequest *)locationRequest;
--(void)setResultsType:(int)arg1 ;
 -(int)fetchStatus;
 -(char)isLocating;
--(int)resultsType;
 -(id)locationForIndexPath:(id)arg1 ;
 -(char)locationIsFromEXIF;
 -(id)tableView:(id)arg1 errorCellForRowAtIndexPath:(id)arg2 ;
 -(id)tableView:(id)arg1 statusCellForRowAtIndexPath:(id)arg2 ;
--(id)tableView:(id)arg1 attributionCellForRowAtIndexPath:(id)arg2 ;
 -(id)tableView:(id)arg1 locationCellForRowAtIndexPath:(id)arg2 ;
 -(void)setEXIFLocations:(NSArray *)arg1 ;
 -(void)setFetchStatus:(int)arg1 ;

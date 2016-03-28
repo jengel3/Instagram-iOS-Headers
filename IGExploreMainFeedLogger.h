@@ -32,7 +32,6 @@
 -(void)logRaindropClickForChannel:(id)arg1 position:(NSRange)arg2 ;
 -(NSString *)module;
 -(id)stringForPosition:(NSRange)arg1 ;
--(id)channelType:(id)arg1 ;
 -(IGAnalyticsMetadata *)raindropMetadata;
 -(id)initWithModule:(id)arg1 raindropAnalyticsMedataData:(id)arg2 raindropRankInfo:(id)arg3 ;
 -(void)logImpressionForItem:(id)arg1 position:(NSRange)arg2 ;

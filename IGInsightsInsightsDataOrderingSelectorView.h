@@ -24,9 +24,9 @@
 @property (nonatomic,copy) NSMutableDictionary * buttonIndexToTintedImageMapping;                                 //@synthesize buttonIndexToTintedImageMapping=_buttonIndexToTintedImageMapping - In the implementation block
 -(void)setActiveIndex:(unsigned)arg1 ;
 -(unsigned)activeIndex;
+-(void)buttonClick:(id)arg1 ;
 -(void)initializeButtonTitleToImageNameMapping;
 -(NSDictionary *)buttonTitleToImageNameMapping;
--(void)buttonClick:(id)arg1 ;
 -(void)activateButtonAtIndex:(unsigned)arg1 ;
 -(void)deactivateButtonAtIndex:(unsigned)arg1 ;
 -(NSMutableDictionary *)buttonIndexToTintedImageMapping;

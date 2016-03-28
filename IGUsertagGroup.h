@@ -17,8 +17,8 @@
 @property (nonatomic,retain) NSMutableSet * inTagsSet;                  //@synthesize inTagsSet=_inTagsSet - In the implementation block
 -(id)currentUserUsertag;
 -(void)removeUsertag:(id)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(NSSet *)inTags;
 -(char)currentUserIsTagged;
 -(void)setInTagsSet:(NSMutableSet *)arg1 ;

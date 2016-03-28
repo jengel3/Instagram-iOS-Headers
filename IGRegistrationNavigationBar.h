@@ -6,14 +6,12 @@
 
 @interface IGRegistrationNavigationBar : UIView {
 
-	UIButton* _leftButton;
 	UIButton* _rightButton;
 	UILabel* _titleLabel;
 	UIActivityIndicatorView* _spinner;
 
 }
 
-@property (nonatomic,retain) UIButton * leftButton;                          //@synthesize leftButton=_leftButton - In the implementation block
 @property (nonatomic,retain) UIButton * rightButton;                         //@synthesize rightButton=_rightButton - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                           //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;              //@synthesize spinner=_spinner - In the implementation block
@@ -26,9 +24,7 @@
 -(void)setTitleLabel:(UILabel *)arg1 ;
 -(UIActivityIndicatorView *)spinner;
 -(void)setSpinner:(UIActivityIndicatorView *)arg1 ;
--(UIButton *)leftButton;
 -(UIButton *)rightButton;
--(void)setLeftButton:(UIButton *)arg1 ;
 -(void)setRightButton:(UIButton *)arg1 ;
 @end
 

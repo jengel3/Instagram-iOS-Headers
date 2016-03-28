@@ -35,9 +35,9 @@
 +(SCD_Struct_IG68)calibrationParameters:(int)arg1 ;
 +(id)identityWarp;
 +(id)platform;
+-(id)initWithCameraPosition:(int)arg1 gyroTrack:(id)arg2 frameTrack:(id)arg3 ;
 -(char)canStabilize;
 -(char)motionTrailsVisible;
--(id)initWithCameraPosition:(int)arg1 gyroTrack:(id)arg2 frameTrack:(id)arg3 ;
 -(SCD_Struct_IG68)calibrationParameters;
 -(unsigned long)frameIndexForPresentationTime:(SCD_Struct_IG44)arg1 ;
 -(id)warpForFrameIndex:(unsigned long)arg1 ;

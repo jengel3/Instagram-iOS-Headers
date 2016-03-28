@@ -20,8 +20,8 @@
 @property (nonatomic,retain) IGUser * user;                               //@synthesize user=_user - In the implementation block
 @property (nonatomic,retain) IGFeedItem * feedItem;                       //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,retain) IGHashtagModel * hashtag;                    //@synthesize hashtag=_hashtag - In the implementation block
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGHashtagModel *)hashtag;
 -(void)setHashtag:(IGHashtagModel *)arg1 ;
 -(NSDictionary *)logEntryDict;

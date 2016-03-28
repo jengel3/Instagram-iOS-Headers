@@ -53,9 +53,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)initWithHashtag:(id)arg1 ;
+-(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(id)analyticsModule;
 -(id)analyticsExtras;
--(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(char)enableNavState;
 -(void)setMegaphoneLogger:(IGDefaultGenericMegaphoneLogger *)arg1 ;
 -(void)setMegaphoneView:(IGGenericMegaphoneView *)arg1 ;

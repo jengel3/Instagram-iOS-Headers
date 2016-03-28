@@ -7,12 +7,17 @@
 #import <Instagram/IGCommentLoadItemDelegate.h>
 #import <Instagram/IGBulkCommentDeleteManagerDelegate.h>
 #import <Instagram/IGGrowingTextViewDelegate.h>
+#import <Instagram/IGAutocompleteControllerDelegate.h>
 #import <Instagram/IGCommentItemDelegate.h>
+#import <Instagram/IGCommentReshareHelperDelegate.h>
+#import <Instagram/IGCommentReshareUIManagerDelegate.h>
 
-@class IGListCollectionView, IGListAdapter, IGCommentThreadManager, IGBulkCommentDeleteManager, IGCommentTextView, IGKeyboardInputManager, IGCommentCellRevealManager, IGAutocompleteController, NSString;
+@protocol IGCommentTextViewProtocol;
+@class IGListCollectionView, IGListAdapter, IGCommentThreadManager, IGBulkCommentDeleteManager, UIView, IGKeyboardInputManager, IGCommentCellRevealManager, IGAutocompleteController, IGCommentReshareHelper, IGCommentReshareUIManager, IGCommentReshareRecord, NSString;
 
-@interface IGCommentThreadViewController2 : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGCommentThreadManagerDelegate, IGCommentLoadItemDelegate, IGBulkCommentDeleteManagerDelegate, IGGrowingTextViewDelegate, IGCommentItemDelegate> {
+@interface IGCommentThreadViewController2 : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGCommentThreadManagerDelegate, IGCommentLoadItemDelegate, IGBulkCommentDeleteManagerDelegate, IGGrowingTextViewDelegate, IGAutocompleteControllerDelegate, IGCommentItemDelegate, IGCommentReshareHelperDelegate, IGCommentReshareUIManagerDelegate> {
 
+	char _shouldSupportReshare;
 	char _showKeyboardOnAppear;
 	char _appearedOnce;
 	char _scrolledToBottomOnce;
@@ -21,35 +26,53 @@
 	IGListAdapter* _listAdapter;
 	IGCommentThreadManager* _threadManager;
 	IGBulkCommentDeleteManager* _bulkDeleteManager;
-	IGCommentTextView* _commentTextView;
+	UIView*<IGCommentTextViewProtocol> _commentTextView;
 	IGKeyboardInputManager* _keyboardInputManager;
 	IGCommentCellRevealManager* _cellRevealManager;
 	IGAutocompleteController* _autocompleteController;
+	IGCommentReshareHelper* _commentReshareHelper;
+	IGCommentReshareUIManager* _commentReshareUIManager;
+	IGCommentReshareRecord* _commentReshareRecord;
+	float _textViewMinHeight;
 	NSString* _prefillText;
 	NSString* _placeholderText;
 
 }
 
-@property (nonatomic,readonly) IGListCollectionView * collectionView;                          //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,readonly) IGListAdapter * listAdapter;                                    //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGCommentThreadManager * threadManager;                         //@synthesize threadManager=_threadManager - In the implementation block
-@property (nonatomic,readonly) IGBulkCommentDeleteManager * bulkDeleteManager;                 //@synthesize bulkDeleteManager=_bulkDeleteManager - In the implementation block
-@property (nonatomic,readonly) IGCommentTextView * commentTextView;                            //@synthesize commentTextView=_commentTextView - In the implementation block
-@property (nonatomic,readonly) IGKeyboardInputManager * keyboardInputManager;                  //@synthesize keyboardInputManager=_keyboardInputManager - In the implementation block
-@property (nonatomic,readonly) IGCommentCellRevealManager * cellRevealManager;                 //@synthesize cellRevealManager=_cellRevealManager - In the implementation block
-@property (nonatomic,readonly) IGAutocompleteController * autocompleteController;              //@synthesize autocompleteController=_autocompleteController - In the implementation block
-@property (nonatomic,readonly) NSString * prefillText;                                         //@synthesize prefillText=_prefillText - In the implementation block
-@property (nonatomic,readonly) NSString * placeholderText;                                     //@synthesize placeholderText=_placeholderText - In the implementation block
-@property (nonatomic,readonly) char showKeyboardOnAppear;                                      //@synthesize showKeyboardOnAppear=_showKeyboardOnAppear - In the implementation block
-@property (assign,nonatomic) char appearedOnce;                                                //@synthesize appearedOnce=_appearedOnce - In the implementation block
-@property (assign,nonatomic) char scrolledToBottomOnce;                                        //@synthesize scrolledToBottomOnce=_scrolledToBottomOnce - In the implementation block
-@property (assign,nonatomic) char autoScrollPaused;                                            //@synthesize autoScrollPaused=_autoScrollPaused - In the implementation block
+@property (nonatomic,readonly) IGListCollectionView * collectionView;                                                 //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,readonly) IGListAdapter * listAdapter;                                                           //@synthesize listAdapter=_listAdapter - In the implementation block
+@property (nonatomic,readonly) IGCommentThreadManager * threadManager;                                                //@synthesize threadManager=_threadManager - In the implementation block
+@property (nonatomic,readonly) IGBulkCommentDeleteManager * bulkDeleteManager;                                        //@synthesize bulkDeleteManager=_bulkDeleteManager - In the implementation block
+@property (nonatomic,readonly) UIView*<IGCommentTextViewProtocol> commentTextView;                                    //@synthesize commentTextView=_commentTextView - In the implementation block
+@property (nonatomic,readonly) UIView*<IGCommentTextViewWithReshareProtocol> commentTextViewWithReshare; 
+@property (nonatomic,readonly) IGKeyboardInputManager * keyboardInputManager;                                         //@synthesize keyboardInputManager=_keyboardInputManager - In the implementation block
+@property (nonatomic,readonly) IGCommentCellRevealManager * cellRevealManager;                                        //@synthesize cellRevealManager=_cellRevealManager - In the implementation block
+@property (nonatomic,readonly) IGAutocompleteController * autocompleteController;                                     //@synthesize autocompleteController=_autocompleteController - In the implementation block
+@property (nonatomic,readonly) char shouldSupportReshare;                                                             //@synthesize shouldSupportReshare=_shouldSupportReshare - In the implementation block
+@property (nonatomic,readonly) IGCommentReshareHelper * commentReshareHelper;                                         //@synthesize commentReshareHelper=_commentReshareHelper - In the implementation block
+@property (nonatomic,readonly) IGCommentReshareUIManager * commentReshareUIManager;                                   //@synthesize commentReshareUIManager=_commentReshareUIManager - In the implementation block
+@property (nonatomic,retain) IGCommentReshareRecord * commentReshareRecord;                                           //@synthesize commentReshareRecord=_commentReshareRecord - In the implementation block
+@property (nonatomic,readonly) float textViewMinHeight;                                                               //@synthesize textViewMinHeight=_textViewMinHeight - In the implementation block
+@property (nonatomic,readonly) NSString * prefillText;                                                                //@synthesize prefillText=_prefillText - In the implementation block
+@property (nonatomic,readonly) NSString * placeholderText;                                                            //@synthesize placeholderText=_placeholderText - In the implementation block
+@property (nonatomic,readonly) char showKeyboardOnAppear;                                                             //@synthesize showKeyboardOnAppear=_showKeyboardOnAppear - In the implementation block
+@property (assign,nonatomic) char appearedOnce;                                                                       //@synthesize appearedOnce=_appearedOnce - In the implementation block
+@property (assign,nonatomic) char scrolledToBottomOnce;                                                               //@synthesize scrolledToBottomOnce=_scrolledToBottomOnce - In the implementation block
+@property (assign,nonatomic) char autoScrollPaused;                                                                   //@synthesize autoScrollPaused=_autoScrollPaused - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGListAdapter *)listAdapter;
+-(id)itemsForListAdapter:(id)arg1 ;
+-(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
+-(id)emptyViewForListAdapter:(id)arg1 ;
 -(id)analyticsModule;
 -(id)analyticsExtras;
+-(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
+-(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
+-(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
+-(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
 -(IGCommentCellRevealManager *)cellRevealManager;
 -(IGBulkCommentDeleteManager *)bulkDeleteManager;
 -(void)commentController:(id)arg1 didDeleteComment:(id)arg2 ;
@@ -61,25 +84,34 @@
 -(void)setupCollectionViewAndAdapter;
 -(void)setupTextViewAndAutocomplete;
 -(IGCommentThreadManager *)threadManager;
--(IGCommentTextView *)commentTextView;
+-(UIView*<IGCommentTextViewProtocol>)commentTextView;
+-(void)commentCreateRequestFailed:(id)arg1 ;
+-(void)setupReshareUIManager;
 -(char)showKeyboardOnAppear;
 -(char)appearedOnce;
 -(void)setAppearedOnce:(char)arg1 ;
 -(IGAutocompleteController *)autocompleteController;
 -(IGKeyboardInputManager *)keyboardInputManager;
+-(float)textViewMinHeight;
+-(char)shouldSupportReshare;
 -(NSString *)prefillText;
 -(void)onSendButtonTapped:(id)arg1 ;
+-(UIView*<IGCommentTextViewWithReshareProtocol>)commentTextViewWithReshare;
+-(void)onModeSwitchButtonTapped:(id)arg1 ;
 -(char)scrolledToBottomOnce;
 -(char)autoScrollPaused;
 -(char)collectionViewIsAtBottom;
+-(IGCommentReshareHelper *)commentReshareHelper;
+-(void)updateText:(id)arg1 ;
+-(void)resharePost;
+-(void)setCommentReshareRecord:(IGCommentReshareRecord *)arg1 ;
+-(void)commitAutoCorrectSuggestionsAndUpdateTextForReshare;
 -(void)setAutoScrollPaused:(char)arg1 ;
--(IGListAdapter *)listAdapter;
+-(IGCommentReshareRecord *)commentReshareRecord;
 -(char)shouldAutoScrollToBottom;
 -(void)setScrolledToBottomOnce:(char)arg1 ;
 -(id)commentDeleteUndoMessageForNumberOfComments:(int)arg1 ;
--(id)itemsForListAdapter:(id)arg1 ;
--(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
--(id)emptyViewForListAdapter:(id)arg1 ;
+-(IGCommentReshareUIManager *)commentReshareUIManager;
 -(void)commentDeleteManagerDidAddCommentToDelete:(id)arg1 numberOfCommentsToDelete:(int)arg2 ;
 -(void)commentDeleteManagerDidStartCommentDeletion:(id)arg1 ;
 -(void)commentDeleteManagerDidFinishCommentDeletion:(id)arg1 ;
@@ -91,10 +123,13 @@
 -(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
 -(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
 -(char)growingTextViewShouldReturn:(id)arg1 ;
--(id)initWithFeedItem:(id)arg1 prefillText:(id)arg2 currentUser:(id)arg3 multiAccounts:(char)arg4 showKeyboardOnAppear:(char)arg5 ;
+-(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
+-(void)didDismissReshareUI;
+-(id)initWithFeedItem:(id)arg1 prefillText:(id)arg2 currentUser:(id)arg3 multiAccounts:(char)arg4 shouldSupportReshare:(char)arg5 showKeyboardOnAppear:(char)arg6 ;
 -(char)prefersTabBarHidden;
 -(char)enableNavState;
 -(NSString *)placeholderText;
+-(void)dealloc;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)scrollViewWillBeginDragging:(id)arg1 ;
 -(void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(char)arg2 ;

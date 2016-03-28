@@ -55,7 +55,7 @@
 -(UIBarButtonItem *)shareBarButtonItem;
 -(void)setShareBarButtonItem:(UIBarButtonItem *)arg1 ;
 -(void)webView:(id)arg1 progressChanged:(double)arg2 ;
--(char)webView:(id)arg1 shouldStartNavigationRequest:(id)arg2 navigationType:(int)arg3 ;
+-(char)webView:(id)arg1 shouldStartNavigationRequest:(id)arg2 navigationType:(int)arg3 sourceFrame:(id)arg4 targetFrame:(id)arg5 ;
 -(void)webView:(id)arg1 didStartNavigationRequest:(id)arg2 ;
 -(void)webView:(id)arg1 didFinishNavigationRequest:(id)arg2 ;
 -(void)webView:(id)arg1 didFailNavigationRequest:(id)arg2 withError:(id)arg3 ;

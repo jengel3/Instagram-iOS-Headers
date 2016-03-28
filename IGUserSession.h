@@ -55,8 +55,8 @@
 -(IGAutocompleteUsersStore *)autocompleteUsersStore;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(IGFlaggedCommentLedger *)flaggedCommentLedger;
 -(IGDirectThreadStore *)directThreadStore;
+-(IGFlaggedCommentLedger *)flaggedCommentLedger;
 -(IGDirectRecipientManager *)directRecipientManager;
 -(IGRealtimeClient *)realtimeClient;
 -(IGMediaUploadManager *)mediaUploadManager;

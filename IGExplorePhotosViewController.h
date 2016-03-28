@@ -6,27 +6,27 @@
 #import <Instagram/FBAnimationPerformanceTrackerDelegate.h>
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 
-@class IGSearchViewController, NSMutableSet, IGExploreJumbotronView, IGExploreCarouselsView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, NSArray, NSString, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExplorePhotosNetworkSource;
+@class NSMutableSet, IGExploreJumbotronView, IGExploreCarouselsView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, IGSearchViewController, NSArray, NSString, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExploreVolumeViewController, IGExplorePhotosNetworkSource;
 
 @interface IGExplorePhotosViewController : IGFeedViewController_DEPRECATED <IGAnalyticsModule, IGExploreSearchControllerDelegate, FBAnimationPerformanceTrackerDelegate, IGSearchOriginControllerProtocol> {
 
-	char _showSearchOnViewDidAppear;
 	char _wasFreshExploreLoad;
 	char _marqueeWasPaging;
 	NSMutableSet* _loggedImpressions;
-	IGSearchViewController* _searchController;
 	IGExploreJumbotronView* _jumbotronView;
 	IGExploreCarouselsView* _carouselsView;
 	IGExploreSectionTextHeader* _explorePostsLabel;
 	IGExploreTTILogger* _ttiLogger;
 	int _stalenessThresholdSeconds;
 	NSDate* _lastFullFetch;
+	IGSearchViewController* _searchController;
 	NSArray* _profileTeaserUsers;
 	NSString* _peopleTeaserByline;
 	NSArray* _trends;
 	NSArray* _marqueeItems;
 	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 	FBAnimationPerformanceTracker* _apTracker;
+	IGExploreVolumeViewController* _volumeViewController;
 	UIEdgeInsets _contentInsets;
 
 }
@@ -37,8 +37,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic) UIEdgeInsets contentInsets;                                          //@synthesize contentInsets=_contentInsets - In the implementation block
 @property (nonatomic,retain) NSMutableSet * loggedImpressions;                                    //@synthesize loggedImpressions=_loggedImpressions - In the implementation block
-@property (nonatomic,retain) IGSearchViewController * searchController;                           //@synthesize searchController=_searchController - In the implementation block
-@property (assign,nonatomic) char showSearchOnViewDidAppear;                                      //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
 @property (assign,nonatomic) char wasFreshExploreLoad;                                            //@synthesize wasFreshExploreLoad=_wasFreshExploreLoad - In the implementation block
 @property (nonatomic,retain) IGExploreJumbotronView * jumbotronView;                              //@synthesize jumbotronView=_jumbotronView - In the implementation block
 @property (nonatomic,retain) IGExploreCarouselsView * carouselsView;                              //@synthesize carouselsView=_carouselsView - In the implementation block
@@ -48,18 +46,20 @@
 @property (nonatomic,retain) IGExploreTTILogger * ttiLogger;                                      //@synthesize ttiLogger=_ttiLogger - In the implementation block
 @property (assign,nonatomic) int stalenessThresholdSeconds;                                       //@synthesize stalenessThresholdSeconds=_stalenessThresholdSeconds - In the implementation block
 @property (nonatomic,retain) NSDate * lastFullFetch;                                              //@synthesize lastFullFetch=_lastFullFetch - In the implementation block
+@property (nonatomic,retain) IGSearchViewController * searchController;                           //@synthesize searchController=_searchController - In the implementation block
 @property (nonatomic,copy) NSArray * profileTeaserUsers;                                          //@synthesize profileTeaserUsers=_profileTeaserUsers - In the implementation block
 @property (nonatomic,copy) NSString * peopleTeaserByline;                                         //@synthesize peopleTeaserByline=_peopleTeaserByline - In the implementation block
 @property (nonatomic,copy) NSArray * trends;                                                      //@synthesize trends=_trends - In the implementation block
 @property (nonatomic,copy) NSArray * marqueeItems;                                                //@synthesize marqueeItems=_marqueeItems - In the implementation block
 @property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                           //@synthesize apTracker=_apTracker - In the implementation block
--(id)analyticsModule;
--(id)analyticsModule;
+@property (nonatomic,readonly) IGExploreVolumeViewController * volumeViewController;              //@synthesize volumeViewController=_volumeViewController - In the implementation block
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
+-(id)analyticsModule;
+-(id)analyticsModule;
 -(char)enableNavState;
 -(NSMutableSet *)loggedImpressions;
 -(void)_setSurfaceRankInfoForSection:(unsigned)arg1 ;
@@ -82,6 +82,8 @@
 -(char)shouldShowNavigationShadow;
 -(void)refreshStaleContent:(char)arg1 ;
 -(IGExploreJumbotronView *)jumbotronView;
+-(void)navigationControllerWillShowSearch;
+-(void)showSearchController;
 -(NSArray *)marqueeItems;
 -(IGExploreSectionTextHeader *)explorePostsLabel;
 -(IGExploreCarouselsView *)carouselsView;
@@ -118,10 +120,8 @@
 -(void)searchControllerDirectIconTapped:(id)arg1 ;
 -(void)reportDurationInMS:(int)arg1 smallDropEvent:(double)arg2 largeDropEvent:(double)arg3 ;
 -(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
--(void)navigationControllerWillShowSearch;
+-(void)resetSearchControllerIfNeeded;
 -(void)prepareForPopToRootTransition;
--(char)showSearchOnViewDidAppear;
--(void)setShowSearchOnViewDidAppear:(char)arg1 ;
 -(char)shouldShowPeopleEntryBanner;
 -(void)onPeopleBannerTapped:(id)arg1 ;
 -(void)showErrorLoadMessageIfPossible;
@@ -163,5 +163,6 @@
 -(UIEdgeInsets)preferredContentInsets;
 -(IGSearchViewController *)searchController;
 -(void)setSearchController:(IGSearchViewController *)arg1 ;
+-(IGExploreVolumeViewController *)volumeViewController;
 @end
 

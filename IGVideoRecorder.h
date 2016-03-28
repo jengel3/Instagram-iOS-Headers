@@ -17,8 +17,8 @@
 @property (assign,nonatomic) CGSize videoSize;                                //@synthesize videoSize=_videoSize - In the implementation block
 @property (assign) int position;                                              //@synthesize position=_position - In the implementation block
 @property (nonatomic,retain) IGVideoClipRecorder * clipRecorder;              //@synthesize clipRecorder=_clipRecorder - In the implementation block
--(float)runningTime;
 -(char)handleVideoSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
+-(float)runningTime;
 -(void)handleAudioSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(IGVideoClipRecorder *)clipRecorder;
 -(void)setClipRecorder:(IGVideoClipRecorder *)arg1 ;

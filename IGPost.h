@@ -37,6 +37,7 @@
 	IGPostFeaturedBadge* _featuredBadge;
 	int _numCommentInPreview;
 	NSString* _showTopLikerQEGroup;
+	IGDate* _expiringAt;
 	NSNumber* _insightsImpressionCount;
 	NSNumber* _insightsReachCount;
 	NSMutableDictionary* _pendingComments;
@@ -74,6 +75,7 @@
 @property (retain) IGPostFeaturedBadge * featuredBadge;                //@synthesize featuredBadge=_featuredBadge - In the implementation block
 @property (assign) int numCommentInPreview;                            //@synthesize numCommentInPreview=_numCommentInPreview - In the implementation block
 @property (retain) NSString * showTopLikerQEGroup;                     //@synthesize showTopLikerQEGroup=_showTopLikerQEGroup - In the implementation block
+@property (readonly) IGDate * expiringAt;                              //@synthesize expiringAt=_expiringAt - In the implementation block
 @property (retain) NSNumber * insightsImpressionCount;                 //@synthesize insightsImpressionCount=_insightsImpressionCount - In the implementation block
 @property (retain) NSNumber * insightsReachCount;                      //@synthesize insightsReachCount=_insightsReachCount - In the implementation block
 @property (assign,nonatomic) char needsFetch;                          //@synthesize needsFetch=_needsFetch - In the implementation block
@@ -92,23 +94,18 @@
 +(long long)decodePk:(id)arg1 ;
 -(CGSize)sizeForMediaNormalizedToViewWidth:(float)arg1 ;
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
--(id)filteredActiveComments;
--(int)numCommentInPreview;
--(char)moreCommentsAvailable;
--(char)collapseComments;
--(CLLocation *)mediaCoord;
--(IGDate *)takenAtDate;
--(char)hasLiked;
--(NSMutableOrderedSet *)likers;
+-(id)diffIdentifier;
 -(NSString *)rankToken;
 -(int)linkStyle;
+-(char)collapseComments;
 -(NSString *)exploreContext;
 -(id)ig_summaryForAccessibilityLabel;
 -(unsigned long long)ig_accessibilityTraits;
--(id)diffIdentifier;
 -(void)fetchCommentsWithLoadMore:(char)arg1 completionHandler:(/*^block*/id)arg2 subscriptionHandler:(/*^block*/id)arg3 ;
 -(void)removeCommentWithPK:(id)arg1 ;
 -(void)setCaptionWithDictionary:(id)arg1 notify:(char)arg2 ;
+-(char)moreCommentsAvailable;
+-(id)filteredActiveComments;
 -(void)commentRemoveRequestStarted:(id)arg1 notify:(char)arg2 ;
 -(id)bulkCommentDeletionDidUndoForComments:(id)arg1 ;
 -(void)bulkCommentDeletionDidFinishForComments:(id)arg1 ;
@@ -127,14 +124,20 @@
 -(NSArray *)activeComments;
 -(id)filteredActiveCaptionAndComments;
 -(NSArray *)allComments;
+-(IGDate *)takenAtDate;
+-(NSMutableOrderedSet *)likers;
 -(NSString *)showTopLikerQEGroup;
 -(IGPostFeaturedBadge *)featuredBadge;
 -(char)shouldDisableVideoIndicator;
 -(char)postIsBroken;
 -(NSString *)exploreSourceToken;
+-(char)hasLiked;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
 -(char)needsFetch;
+-(CLLocation *)mediaCoord;
+-(IGDate *)expiringAt;
 -(id)ig_accessibilityLabel;
+-(int)numCommentInPreview;
 -(void)fetchAdditionalInfo;
 -(void)postPostUpdatedNotification:(int)arg1 ;
 -(void)updateLocalLikeStatus:(char)arg1 withUser:(id)arg2 ;

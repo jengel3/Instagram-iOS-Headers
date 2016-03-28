@@ -28,13 +28,13 @@
 @property (assign,nonatomic) float supplementaryFooterViewHeight;                                             //@synthesize supplementaryFooterViewHeight=_supplementaryFooterViewHeight - In the implementation block
 @property (assign,nonatomic) float headerAdjustmentAmount;                                                    //@synthesize headerAdjustmentAmount=_headerAdjustmentAmount - In the implementation block
 -(float)headerAdjustmentAmount;
+-(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(id)initWithFloatingHeaders:(char)arg1 ;
 -(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
 -(void)setSupplementaryFooterViewHeight:(float)arg1 ;
 -(float)supplementaryHeaderViewHeight;
 -(NSRange)rangeOfSectionsInRect:(CGRect)arg1 ;
 -(float)supplementaryFooterViewHeight;
--(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(IGEstimatingFeedLayoutSectionCache *)sectionCache;
 -(id)sectionAttributesForSection:(int)arg1 ;
 -(CGSize)contentOffsetDelta;

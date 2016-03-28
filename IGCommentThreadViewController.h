@@ -57,7 +57,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,retain) IGFeedItem * feedItem;                                          //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,readonly) IGFeedItem * feedItem;                                        //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,readonly) IGCommentThreadTableSource * dataSource;                      //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,retain) IGPlainTableView * tableView;                                   //@synthesize tableView=_tableView - In the implementation block
 @property (assign,nonatomic) char navBarWasHidden;                                           //@synthesize navBarWasHidden=_navBarWasHidden - In the implementation block
@@ -94,17 +94,20 @@
 @property (nonatomic,retain) UIView * commentsOverlay;                                       //@synthesize commentsOverlay=_commentsOverlay - In the implementation block
 @property (nonatomic,retain) UIButton * postButton;                                          //@synthesize postButton=_postButton - In the implementation block
 @property (nonatomic,retain) UIButton * reshareDisabledButton;                               //@synthesize reshareDisabledButton=_reshareDisabledButton - In the implementation block
+-(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
+-(IGBulkMediaRequestManager *)requestManager;
 -(id)analyticsModule;
 -(id)analyticsExtras;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
 -(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
 -(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
--(IGFeedItem *)feedItem;
 -(IGGrowingTextView *)growingTextView;
+-(UIButton *)reshareButton;
 -(IGAutocompleteController *)autocompleteController;
 -(NSString *)prefillText;
+-(IGCommentReshareHelper *)commentReshareHelper;
 -(id)commentDeleteUndoMessageForNumberOfComments:(int)arg1 ;
 -(void)growingTextViewDidBeginEditing:(id)arg1 ;
 -(void)growingTextViewDidEndEditing:(id)arg1 ;
@@ -113,11 +116,15 @@
 -(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
 -(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
 -(char)growingTextViewShouldReturn:(id)arg1 ;
+-(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
 -(char)prefersTabBarHidden;
 -(char)enableNavState;
 -(void)postComment;
 -(void)didDismissCommentReshareBanner:(id)arg1 ;
--(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
+-(IGCommentReshareBanner *)reshareBanner;
+-(UIImageView *)carrot;
+-(UIView *)commentsOverlay;
+-(void)setFramesForReshareStatus:(int)arg1 ;
 -(void)commentThreadDataSource:(id)arg1 didAddNewCommentAtIndexPath:(id)arg2 ;
 -(void)commentThreadDataSourceDidStartLoading:(id)arg1 isLoadingMore:(char)arg2 ;
 -(void)commentThreadDataSourceDidFinishLoading:(id)arg1 ;
@@ -167,13 +174,8 @@
 -(void)updateUserActivity;
 -(void)setPushPerformed:(char)arg1 ;
 -(void)animateKeyboardOffscreenWithDuration:(float)arg1 ;
--(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
--(IGBulkMediaRequestManager *)requestManager;
--(void)setEnableReshareFromAtMention:(char)arg1 ;
--(IGCommentReshareHelper *)commentReshareHelper;
 -(void)setKeyboardShowing:(char)arg1 ;
 -(char)keyboardIsAnimating;
--(void)setFramesForReshareStatus:(int)arg1 ;
 -(char)skipDismissKeyboardAnimation;
 -(void)setSkipDismissKeyboardAnimation:(char)arg1 ;
 -(void)animateKeyboardReturnToOriginalPositionWithDuration:(float)arg1 ;
@@ -182,10 +184,10 @@
 -(UIButton *)reshareDisabledButton;
 -(UIButton *)reshareEnabledButton;
 -(IGButton *)postButtonLegacy;
--(UIButton *)reshareButton;
 -(void)saveScrollPosition;
 -(void)updateScrollPositionUsingSavedScrollPosition;
 -(void)appendUsernameToTextView:(id)arg1 ;
+-(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
 -(void)setContentOffsetYBeforeReload:(float)arg1 ;
 -(void)setBottomCellOffsetBeforeReload:(float)arg1 ;
 -(void)setBottomCommentBeforeReload:(IGCommentModel *)arg1 ;
@@ -193,9 +195,6 @@
 -(float)bottomCellOffsetBeforeReload;
 -(float)contentOffsetYBeforeReload;
 -(void)setPostButtonLegacy:(IGButton *)arg1 ;
--(UIView *)commentsOverlay;
--(IGCommentReshareBanner *)reshareBanner;
--(UIImageView *)carrot;
 -(CGRect)sendButtonFrameForButtonSize:(CGSize)arg1 ;
 -(void)setReshareBanner:(IGCommentReshareBanner *)arg1 ;
 -(void)setReshareButton:(UIButton *)arg1 ;
@@ -205,7 +204,7 @@
 -(void)setPostButton:(UIButton *)arg1 ;
 -(void)setReshareDisabledButton:(UIButton *)arg1 ;
 -(void)setCommentsOverlay:(UIView *)arg1 ;
--(id)initWithKeyboardShowing:(char)arg1 text:(id)arg2 ;
+-(id)initWithFeedItem:(id)arg1 keyboardShowing:(char)arg2 text:(id)arg3 ;
 -(char)disableNavigationGesture;
 -(char)navBarWasHidden;
 -(void)setNavBarWasHidden:(char)arg1 ;
@@ -215,6 +214,7 @@
 -(int)originalLocation;
 -(void)setOriginalLocation:(int)arg1 ;
 -(void)setCommentReshareHelper:(IGCommentReshareHelper *)arg1 ;
+-(void)setEnableReshareFromAtMention:(char)arg1 ;
 -(void)setAppearing:(char)arg1 ;
 -(UIButton *)postButton;
 -(void)dealloc;

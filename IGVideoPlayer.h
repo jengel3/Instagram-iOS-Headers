@@ -8,8 +8,8 @@
 @interface IGVideoPlayer : NSObject <AVPlayerItemOutputPullDelegate> {
 
 	id _displayLinkTarget;
-	char _looping;
-	char _seeking;
+	char _isLooping;
+	char _isSeeking;
 	AVAsset* _asset;
 	id<IGVideoPlayerDelegate> _delegate;
 	AVPlayer* _player;
@@ -24,20 +24,20 @@
 }
 
 @property (nonatomic,retain) AVAsset * asset;                                            //@synthesize asset=_asset - In the implementation block
-@property (nonatomic,readonly) float progress; 
 @property (assign,nonatomic) SCD_Struct_IG44 startTime;                                  //@synthesize startTime=_startTime - In the implementation block
 @property (assign,nonatomic) SCD_Struct_IG44 endTime;                                    //@synthesize endTime=_endTime - In the implementation block
 @property (nonatomic,readonly) SCD_Struct_IG44 currentTime; 
 @property (nonatomic,readonly) SCD_Struct_IG44 duration; 
-@property (assign,getter=isMuted,nonatomic) char muted; 
-@property (assign,getter=isLooping,nonatomic) char looping;                              //@synthesize looping=_looping - In the implementation block
+@property (nonatomic,readonly) float progress; 
+@property (assign,nonatomic) char isMuted; 
+@property (assign,nonatomic) char isLooping;                                             //@synthesize isLooping=_isLooping - In the implementation block
 @property (assign,nonatomic,__weak) id<IGVideoPlayerDelegate> delegate;                  //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) AVPlayer * player;                                          //@synthesize player=_player - In the implementation block
 @property (nonatomic,retain) AVPlayerItem * playerItem;                                  //@synthesize playerItem=_playerItem - In the implementation block
 @property (nonatomic,retain) AVPlayerItemVideoOutput * videoOutput;                      //@synthesize videoOutput=_videoOutput - In the implementation block
 @property (nonatomic,retain) CADisplayLink * displayLink;                                //@synthesize displayLink=_displayLink - In the implementation block
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> videoOutputQueue;              //@synthesize videoOutputQueue=_videoOutputQueue - In the implementation block
-@property (assign,getter=isSeeking,nonatomic) char seeking;                              //@synthesize seeking=_seeking - In the implementation block
+@property (assign,nonatomic) char isSeeking;                                             //@synthesize isSeeking=_isSeeking - In the implementation block
 @property (assign,nonatomic) SCD_Struct_IG44 seekTime;                                   //@synthesize seekTime=_seekTime - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -49,16 +49,14 @@
 -(void)itemDidFinishPlaying;
 -(NSObject*<OS_dispatch_queue>)videoOutputQueue;
 -(void)displayLinkCallback:(id)arg1 ;
+-(void)setIsSeeking:(char)arg1 ;
 -(void)loadBufferAtItemTime:(SCD_Struct_IG44)arg1 ;
 -(void)stopHelperAnimated:(char)arg1 ;
 -(void)setVideoOutputQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(void)outputMediaDataWillChange:(id)arg1 ;
--(void)setLooping:(char)arg1 ;
 -(char)isSeeking;
 -(void)outputSequenceWasFlushed:(id)arg1 ;
 -(void)seekToTime:(SCD_Struct_IG44)arg1 ;
--(void)setMuted:(char)arg1 ;
--(void)setSeeking:(char)arg1 ;
 -(SCD_Struct_IG44)currentTime;
 -(void)setPlayer:(AVPlayer *)arg1 ;
 -(AVPlayerItem *)playerItem;
@@ -83,7 +81,9 @@
 -(AVPlayerItemVideoOutput *)videoOutput;
 -(SCD_Struct_IG44)endTime;
 -(void)setEndTime:(SCD_Struct_IG44)arg1 ;
+-(void)setIsLooping:(char)arg1 ;
 -(char)isMuted;
+-(void)setIsMuted:(char)arg1 ;
 -(char)isLooping;
 @end
 

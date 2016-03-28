@@ -13,14 +13,12 @@
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
 
-@class IGListCollectionView, IGListAdapter, IGSearchViewController, IGExploreMainFeedNetworkSource, IGExploreMainFeedLayout, NSMutableArray, IGSpinnerModel, IGFeedVideoCellManager, IGPullToRefreshViewManager, NSString, IGExploreMainFeedPreviewingHandler, NSIndexPath, IGFeedFocusCoordinator, IGChannelFocusCoordinator, IGExploreMainFeedLogger, IGCollectionViewVisibility, IGExploreTTILogger, NSArray;
+@class IGListCollectionView, IGListAdapter, IGExploreMainFeedNetworkSource, IGExploreMainFeedLayout, NSMutableArray, IGSpinnerModel, IGFeedVideoCellManager, IGPullToRefreshViewManager, NSString, IGExploreMainFeedPreviewingHandler, NSIndexPath, IGFeedFocusCoordinator, IGChannelFocusCoordinator, IGExploreMainFeedLogger, IGCollectionViewVisibility, IGExploreTTILogger, IGSearchViewController, IGExploreVolumeViewController, NSArray;
 
 @interface IGExploreMainFeedViewController : IGViewController <IGExploreMainFeedNetworkSourceDelegate, IGFeedNetworkSourceDelegate, IGExploreMainFeedLayoutDataSource, IGListAdapterDataSource, IGListAdapterDelegate, UICollectionViewDelegate, IGExploreSearchControllerDelegate, IGPullToRefreshProtocol, IGAnalyticsModule, IGSearchOriginControllerProtocol, UIViewControllerTransitioningDelegate> {
 
-	char _showSearchOnViewDidAppear;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
-	IGSearchViewController* _searchController;
 	IGExploreMainFeedNetworkSource* _networkSource;
 	IGExploreMainFeedLayout* _feedLayout;
 	NSMutableArray* _items;
@@ -35,14 +33,14 @@
 	IGExploreMainFeedLogger* _logger;
 	IGCollectionViewVisibility* _collectionViewVisibility;
 	IGExploreTTILogger* _ttiLogger;
+	IGSearchViewController* _searchController;
+	IGExploreVolumeViewController* _volumeViewController;
 
 }
 
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                              //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                        //@synthesize listAdapter=_listAdapter - In the implementation block
 @property (nonatomic,readonly) NSArray * allItems; 
-@property (nonatomic,readonly) IGSearchViewController * searchController;                          //@synthesize searchController=_searchController - In the implementation block
-@property (assign,nonatomic) char showSearchOnViewDidAppear;                                       //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
 @property (nonatomic,readonly) IGExploreMainFeedNetworkSource * networkSource;                     //@synthesize networkSource=_networkSource - In the implementation block
 @property (nonatomic,retain) IGExploreMainFeedLayout * feedLayout;                                 //@synthesize feedLayout=_feedLayout - In the implementation block
 @property (nonatomic,retain) NSMutableArray * items;                                               //@synthesize items=_items - In the implementation block
@@ -57,37 +55,40 @@
 @property (nonatomic,readonly) IGExploreMainFeedLogger * logger;                                   //@synthesize logger=_logger - In the implementation block
 @property (nonatomic,readonly) IGCollectionViewVisibility * collectionViewVisibility;              //@synthesize collectionViewVisibility=_collectionViewVisibility - In the implementation block
 @property (nonatomic,readonly) IGExploreTTILogger * ttiLogger;                                     //@synthesize ttiLogger=_ttiLogger - In the implementation block
+@property (nonatomic,retain) IGSearchViewController * searchController;                            //@synthesize searchController=_searchController - In the implementation block
+@property (nonatomic,readonly) IGExploreVolumeViewController * volumeViewController;               //@synthesize volumeViewController=_volumeViewController - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)analyticsModule;
--(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
--(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
--(id)additionalParamsForFetchRequest;
--(void)setupCollectionViewAndAdapter;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
+-(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
+-(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
+-(id)additionalParamsForFetchRequest;
+-(id)analyticsModule;
+-(void)setupCollectionViewAndAdapter;
 -(char)enableNavState;
 -(IGExploreMainFeedNetworkSource *)networkSource;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(NSString *)currentUserPK;
 -(IGExploreTTILogger *)ttiLogger;
+-(void)navigationControllerWillShowSearch;
+-(void)showSearchController;
 -(void)searchControllerSearchBarTapped:(id)arg1 ;
 -(void)searchControllerCancelButtonTapped:(id)arg1 ;
 -(void)searchController:(id)arg1 switchedToViewController:(id)arg2 ;
 -(void)searchControllerPeopleIconTapped:(id)arg1 ;
 -(void)searchControllerDirectIconTapped:(id)arg1 ;
--(void)navigationControllerWillShowSearch;
+-(void)resetSearchControllerIfNeeded;
 -(void)prepareForPopToRootTransition;
--(char)showSearchOnViewDidAppear;
--(void)setShowSearchOnViewDidAppear:(char)arg1 ;
 -(IGFeedVideoCellManager *)videoCellManager;
 -(IGChannelFocusCoordinator *)channelFocusCoordinator;
 -(CGSize)collectionView:(id)arg1 exploreMainFeedLayout:(id)arg2 sizeForItemAtIndexPath:(id)arg3 ;
+-(void)exploreMainFeedNetworkSource:(id)arg1 didChangeToNewExploreItems:(id)arg2 ;
 -(void)exploreMainFeedNetworkSource:(id)arg1 didLoadInitialExploreItems:(id)arg2 ;
 -(void)exploreMainFeedNetworkSource:(id)arg1 didLoadMoreExploreItems:(id)arg2 ;
 -(void)setupLocationManager;
@@ -133,15 +134,18 @@
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
+-(void)viewWillDisappear:(char)arg1 ;
 -(void)viewDidDisappear:(char)arg1 ;
 -(id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3 ;
 -(id)animationControllerForDismissedController:(id)arg1 ;
 -(IGSearchViewController *)searchController;
+-(void)setSearchController:(IGSearchViewController *)arg1 ;
 -(IGSpinnerModel *)spinner;
 -(void)setFeedLayout:(IGExploreMainFeedLayout *)arg1 ;
 -(IGExploreMainFeedLayout *)feedLayout;
 -(void)registerForNotifications;
 -(void)unregisterForNotifications;
 -(NSArray *)allItems;
+-(IGExploreVolumeViewController *)volumeViewController;
 @end
 

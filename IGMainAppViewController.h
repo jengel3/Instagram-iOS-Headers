@@ -41,7 +41,7 @@
 -(unsigned)inboxSubscriptionStatus;
 -(char)isUserViewingThreadWithThreadId:(id)arg1 ;
 -(char)popToThreadVcWithThreadId:(id)arg1 ;
--(void)presentInboxAnimated:(char)arg1 withThreadId:(id)arg2 viaPush:(char)arg3 ;
+-(void)presentInboxAnimated:(char)arg1 withThreadId:(id)arg2 viaEntryPoint:(id)arg3 ;
 -(void)openURLInNewsTab:(id)arg1 ;
 -(void)reloadInboxIfVisible;
 -(IGViewController *)inboxController;

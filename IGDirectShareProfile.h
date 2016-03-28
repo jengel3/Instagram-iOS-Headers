@@ -3,13 +3,18 @@
 #import <Instagram/IGDirectContent.h>
 #import <Instagram/IGDirectContentUploadable.h>
 #import <Instagram/IGDirectCommentable.h>
+#import <Instagram/IGDirectContentReactable.h>
 
-@class IGDirectContentUploadInfo, NSString, IGUser, NSArray;
+@class IGDirectContentUploadInfo, NSString, NSArray, IGUser;
 
-@interface IGDirectShareProfile : IGDirectContent <IGDirectContentUploadable, IGDirectCommentable> {
+@interface IGDirectShareProfile : IGDirectContent <IGDirectContentUploadable, IGDirectCommentable, IGDirectContentReactable> {
 
+	char _reactionsNeedsReRender;
 	IGDirectContentUploadInfo* _uploadInfo;
 	NSString* _uploadComment;
+	NSArray* _reactions;
+	unsigned _likeCount;
+	unsigned _lastReactionType;
 	IGUser* _sharedUser;
 	NSArray* _previewMedia;
 
@@ -23,8 +28,19 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,retain) IGDirectContentUploadInfo * uploadInfo;              //@synthesize uploadInfo=_uploadInfo - In the implementation block
 @property (nonatomic,retain) NSString * uploadComment;                            //@synthesize uploadComment=_uploadComment - In the implementation block
+@property (nonatomic,retain) NSArray * reactions;                                 //@synthesize reactions=_reactions - In the implementation block
+@property (assign,nonatomic) unsigned likeCount;                                  //@synthesize likeCount=_likeCount - In the implementation block
+@property (assign,nonatomic) char reactionsNeedsReRender;                         //@synthesize reactionsNeedsReRender=_reactionsNeedsReRender - In the implementation block
+@property (assign,nonatomic) unsigned lastReactionType;                           //@synthesize lastReactionType=_lastReactionType - In the implementation block
 -(IGDirectContentUploadInfo *)uploadInfo;
 -(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
+-(NSArray *)reactions;
+-(id)copyOfContentWithReactionFilter:(id)arg1 ;
+-(void)setReactions:(NSArray *)arg1 ;
+-(char)reactionsNeedsReRender;
+-(void)setReactionsNeedsReRender:(char)arg1 ;
+-(unsigned)lastReactionType;
+-(void)setLastReactionType:(unsigned)arg1 ;
 -(id)contentTypeString;
 -(NSString *)uploadComment;
 -(void)setUploadComment:(NSString *)arg1 ;
@@ -34,12 +50,13 @@
 -(void)setSharedUser:(IGUser *)arg1 ;
 -(id)initAsUploadWithComment:(id)arg1 sharedUser:(id)arg2 recipient:(id)arg3 ;
 -(char)isUploading;
+-(unsigned)likeCount;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
--(char)isEqual:(id)arg1 ;
 -(NSString *)description;
 -(id)initWithDictionary:(id)arg1 ;
 -(id)copyWithZone:(NSZone*)arg1 ;
 -(id)digestDescription;
+-(void)setLikeCount:(unsigned)arg1 ;
 @end
 

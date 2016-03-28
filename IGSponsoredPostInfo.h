@@ -39,7 +39,6 @@
 -(char)hideCommentButton;
 -(NSArray *)possibleHideAnswers;
 -(char)hideComments;
--(int)hideFlowVersion;
 -(id)initWithDictionary:(id)arg1 secure:(char)arg2 ;
 -(NSArray *)viewTags;
 -(char)showAdChoicesIcon;
@@ -59,6 +58,7 @@
 -(void)prepareCookies:(id)arg1 ;
 -(void)setCookies:(NSArray *)arg1 ;
 -(void)setPossibleHideAnswers:(NSArray *)arg1 ;
+-(int)hideFlowVersion;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)description;

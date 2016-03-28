@@ -61,7 +61,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(SCD_Struct_IG16)playbackEndTimeForAsset:(id)arg1 ;
++(SCD_Struct_IG0)playbackEndTimeForAsset:(id)arg1 ;
 -(void)loadVideoForURL:(id)arg1 ;
 -(void)prepareForReuseWithCompletion:(/*^block*/id)arg1 ;
 -(char)requiresResetPlayer;
@@ -95,10 +95,10 @@
 -(void)prepareToPlayURL:(id)arg1 resourceLoaderDelegate:(id)arg2 queue:(id)arg3 ;
 -(char)playedFirstFrame;
 -(char)readyToPlay;
--(void)onPlaybackTimeChanged:(SCD_Struct_IG16)arg1 ;
+-(void)onPlaybackTimeChanged:(SCD_Struct_IG0)arg1 ;
 -(void)videoPlayerViewIsReadyToDisplay:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didChangePlaybackRate:(float)arg2 ;
--(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG16)arg2 ;
+-(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG0)arg2 ;
 -(char)assetHasAudio;
 -(void)setPlayerQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(void)setVideoTargetView:(IGVideoPlayerTargetView *)arg1 ;

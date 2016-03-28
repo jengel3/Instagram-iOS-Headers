@@ -29,6 +29,7 @@
 -(char)shouldCollapseCaptionForFeedItem:(id)arg1 ;
 -(char)showExploreContextForFeedItem:(id)arg1 ;
 -(char)showFollowButtonForFeedItem:(id)arg1 ;
+-(char)shouldTightenUpWhiteSpace:(id)arg1 ;
 -(int)timestampTypeForFeedItem:(id)arg1 ;
 -(char)enablePivotGridAfterCommentForFeedItem:(id)arg1 ;
 -(char)enablePlaceHolderForPivotGrid:(id)arg1 ;

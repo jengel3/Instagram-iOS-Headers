@@ -21,8 +21,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGNewsStory *)story;
 -(void)setStory:(IGNewsStory *)arg1 ;
+-(IGNewsStory *)story;
 -(void)setDelegate:(id<IGWebViewTableViewCellDelegate>)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;

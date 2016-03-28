@@ -20,13 +20,13 @@
 -(id)listItemControllerForItem:(id)arg1 ;
 -(NSMapTable *)listIndexMap;
 -(NSMapTable *)itemListMap;
--(id)itemForSection:(unsigned)arg1 ;
 -(NSMutableSet *)registeredListSections;
+-(void)enumerateItemsAndItemControllersUsingBlock:(/*^block*/id)arg1 ;
+-(id)initWithMapTable:(id)arg1 ;
+-(id)itemForSection:(unsigned)arg1 ;
 -(id)listItemControllerForSection:(unsigned)arg1 ;
 -(void)updateWithItems:(id)arg1 listItemControllers:(id)arg2 ;
 -(char)hasTypeOfListItemController:(id)arg1 ;
--(void)enumerateItemsAndItemControllersUsingBlock:(/*^block*/id)arg1 ;
--(id)init;
 -(void)reset;
 -(NSArray *)items;
 -(void)setItems:(NSArray *)arg1 ;

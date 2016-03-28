@@ -64,8 +64,10 @@
 -(void)grayOverlayViewTapped;
 -(void)dimmedOverlayViewControllerDidTapDimmedOverlay:(id)arg1 ;
 -(void)inboxCountDidUpdate:(id)arg1 ;
+-(void)settingsCountDidUpdate:(id)arg1 ;
 -(void)toastCountsReceived:(id)arg1 ;
 -(void)tabBarIsHiding;
+-(void)otherUserDidReceiveNotifications:(id)arg1 ;
 -(char)isDisplayingSwitchUsersTableView;
 -(void)animateSwitchUsersTableView;
 -(void)popularButtonPressed;
@@ -75,6 +77,7 @@
 -(void)newsButtonPressed;
 -(void)profileButtonPressed;
 -(void)profileButtonLongPressed:(id)arg1 ;
+-(IGSwitchUsersController *)switchUsersController;
 -(void)initializeInlineGalleryVCIfNeeded;
 -(IGNavigationController *)newsNavigationController;
 -(IGDimmedOverlayViewController *)dimmedOverlayViewController;
@@ -82,16 +85,15 @@
 -(void)setInlineGalleryController:(IGInlineGalleryViewController *)arg1 ;
 -(void)logNavigationEventForClickPoint:(id)arg1 ;
 -(char)presentInlineGalleryWithStyle:(int)arg1 animated:(char)arg2 ;
--(IGSwitchUsersController *)switchUsersController;
 -(UIWindow *)dimmedOverlayWindow;
 -(void)setIsDisplayingSwitchUsersTableView:(char)arg1 ;
+-(void)setNeedsAttention:(char)arg1 forItem:(int)arg2 ;
 -(char)itemNeedsAttention:(int)arg1 ;
 -(void)updateTabBarButtonsToSelectedItem:(int)arg1 ;
 -(void)hideActivityToastAnimated:(char)arg1 ;
 -(char)isPerformingTabBarAction;
 -(void)setIsPerformingTabBarAction:(char)arg1 ;
 -(IGToastViewPopup *)activityToastView;
--(void)setNeedsAttention:(char)arg1 forItem:(int)arg2 ;
 -(void)layoutToast;
 -(void)hideActivityToastWithAnimation;
 -(IGNewsViewController *)newsViewController;
@@ -106,6 +108,7 @@
 -(void)switchUsersControllerDidSelectRowWithCurrentUser:(id)arg1 ;
 -(void)switchUsersController:(id)arg1 tableViewDidSelectRowWithUser:(id)arg2 ;
 -(void)switchUsersControllerDidSelectAddAccountRow:(id)arg1 ;
+-(void)switchUsersController:(id)arg1 wantsToUpdateNeedsAttention:(char)arg2 ;
 -(float)referenceYPositionForInlineGallery:(id)arg1 ;
 -(void)inlineGallery:(id)arg1 didUpdateToState:(int)arg2 ;
 -(void)autoPromptInlineGallery:(id)arg1 ;

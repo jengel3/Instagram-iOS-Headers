@@ -1,22 +1,22 @@
 
 #import <UIKit/UICollectionViewLayoutInvalidationContext.h>
 
-@class NSArray;
+@class NSSet;
 
 @interface IGListVerticalLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext {
 
 	char _invalidateEstimatedAttributes;
-	NSArray* _invalidatedIndexPaths;
+	NSSet* _invalidatedIndexPaths;
 
 }
 
 @property (assign,nonatomic) char invalidateEstimatedAttributes;              //@synthesize invalidateEstimatedAttributes=_invalidateEstimatedAttributes - In the implementation block
-@property (nonatomic,copy) NSArray * invalidatedIndexPaths;                   //@synthesize invalidatedIndexPaths=_invalidatedIndexPaths - In the implementation block
+@property (nonatomic,copy) NSSet * invalidatedIndexPaths;                     //@synthesize invalidatedIndexPaths=_invalidatedIndexPaths - In the implementation block
 -(char)invalidateEstimatedAttributes;
--(void)setInvalidatedIndexPaths:(NSArray *)arg1 ;
 -(void)setInvalidateEstimatedAttributes:(char)arg1 ;
+-(void)setInvalidatedIndexPaths:(NSSet *)arg1 ;
 -(id)init;
 -(id)description;
--(NSArray *)invalidatedIndexPaths;
+-(NSSet *)invalidatedIndexPaths;
 @end
 

@@ -30,12 +30,12 @@
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(id)storedThreadWithID:(id)arg1 ;
 -(IGRealtimeManager *)realtimeManager;
 -(void)handleRealtimeOperation:(id)arg1 ;
 -(id)pkForRealtimeOperation:(id)arg1 ;
 -(void)handleRealtimeRefreshRequest;
 -(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
--(id)storedThreadWithID:(id)arg1 ;
 -(id)allThreadsSorted;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(void)fetchThreadWithID:(id)arg1 withNextMaxID:(id)arg2 successfulThreadHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
@@ -55,6 +55,7 @@
 -(void)storeThread:(id)arg1 withID:(id)arg2 ;
 -(void)postInboxUpdatedNotification;
 -(void)cacheThreadsToDisk:(id)arg1 ;
+-(void)cacheThreadToDisk:(id)arg1 withAdditionalContent:(char)arg2 ;
 -(id)_sortedThreadsWithPending:(char)arg1 withUploads:(char)arg2 ;
 -(void)postThreadUpdatedNotificationForThread:(id)arg1 withReason:(int)arg2 ;
 -(void)postNotificationForAddedContent:(id)arg1 thread:(id)arg2 ;
@@ -78,6 +79,7 @@
 -(void)updateThreadStoreWithUpload:(id)arg1 isNewUpload:(char)arg2 ;
 -(void)postLocalThreadUpdatedFromUploadKey:(id)arg1 toThreadID:(id)arg2 ;
 -(void)setDirectThreadDiskCache:(IGDirectThreadDiskCache *)arg1 ;
+-(void)logRequestTimePerfWithView:(id)arg1 duration:(double)arg2 threadID:(id)arg3 succeeded:(char)arg4 isFirstPage:(char)arg5 ;
 -(void)fetchThreadWithID:(id)arg1 retryCount:(int)arg2 successfulThreadHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)deleteContent:(id)arg1 fromThread:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)leaveThreadWithID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;

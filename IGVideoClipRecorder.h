@@ -37,8 +37,8 @@
 @property (assign,nonatomic) SCD_Struct_IG44 lastAudioFrameSourceTime;              //@synthesize lastAudioFrameSourceTime=_lastAudioFrameSourceTime - In the implementation block
 @property (assign,nonatomic) CFArrayRef savedAudioBuffers;                          //@synthesize savedAudioBuffers=_savedAudioBuffers - In the implementation block
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> writeQueue;               //@synthesize writeQueue=_writeQueue - In the implementation block
--(float)runningTime;
 -(char)handleVideoSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
+-(float)runningTime;
 -(void)handleAudioSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)relaseSavedAudioBuffers;
 -(AVAssetWriterInput *)videoWriterInput;

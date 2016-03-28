@@ -24,6 +24,13 @@
 @property (nonatomic,copy) id reloadUpdates;                                                //@synthesize reloadUpdates=_reloadUpdates - In the implementation block
 @property (assign,getter=hasQueuedReloadData,nonatomic) char queuedReloadData;              //@synthesize queuedReloadData=_queuedReloadData - In the implementation block
 @property (assign,nonatomic) char batchUpdateInProgress;                                    //@synthesize batchUpdateInProgress=_batchUpdateInProgress - In the implementation block
+-(id)itemLookupPointerFunctions;
+-(void)performUpdateWithCollectionView:(id)arg1 fromItems:(id)arg2 toItems:(id)arg3 itemUpdateBlock:(/*^block*/id)arg4 completion:(/*^block*/id)arg5 ;
+-(void)reloadDataWithCollectionView:(id)arg1 itemUpdateBlock:(/*^block*/id)arg2 completion:(/*^block*/id)arg3 ;
+-(void)reloadCollectionView:(id)arg1 sections:(id)arg2 animated:(char)arg3 ;
+-(void)reloadItemsInCollectionView:(id)arg1 indexPaths:(id)arg2 ;
+-(void)insertItemsIntoCollectionView:(id)arg1 indexPaths:(id)arg2 ;
+-(void)deleteItemsFromCollectionView:(id)arg1 indexPaths:(id)arg2 ;
 -(char)hasQueuedReloadData;
 -(NSArray *)fromItems;
 -(NSArray *)toItems;
@@ -45,12 +52,6 @@
 -(void)performReloadDataWithCollectionView:(id)arg1 ;
 -(void)performBatchUpdatesWithCollectionView:(id)arg1 ;
 -(NSArray *)pendingTransitionToItems;
--(void)performUpdateWithCollectionView:(id)arg1 fromItems:(id)arg2 toItems:(id)arg3 itemUpdateBlock:(/*^block*/id)arg4 completion:(/*^block*/id)arg5 ;
--(void)insertItemsIntoCollectionView:(id)arg1 indexPaths:(id)arg2 ;
--(void)deleteItemsFromCollectionView:(id)arg1 indexPaths:(id)arg2 ;
--(void)reloadItemsInCollectionView:(id)arg1 indexPaths:(id)arg2 ;
--(void)reloadDataWithCollectionView:(id)arg1 itemUpdateBlock:(/*^block*/id)arg2 completion:(/*^block*/id)arg3 ;
--(void)reloadCollectionView:(id)arg1 sections:(id)arg2 animated:(char)arg3 ;
 -(id)trimmedIndexPaths:(id)arg1 inSections:(id)arg2 ;
 -(char)hasChanges;
 -(id)init;

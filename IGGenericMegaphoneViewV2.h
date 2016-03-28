@@ -1,11 +1,12 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
+#import <Instagram/IGImageViewDelegate.h>
 
 @protocol IGGenericMegaphoneViewV2Delegate;
 @class IGGenericMegaphone, UIImage, UILabel, IGImageView, UIButton, UIView, NSString;
 
-@interface IGGenericMegaphoneViewV2 : UIView {
+@interface IGGenericMegaphoneViewV2 : UIView <IGImageViewDelegate> {
 
 	char _megaphoneSeen;
 	IGGenericMegaphone* _megaphone;
@@ -34,6 +35,11 @@
 @property (nonatomic,retain) UIButton * buttonTwo;                                              //@synthesize buttonTwo=_buttonTwo - In the implementation block
 @property (assign,nonatomic) char megaphoneSeen;                                                //@synthesize megaphoneSeen=_megaphoneSeen - In the implementation block
 @property (nonatomic,copy) NSString * displaySource;                                            //@synthesize displaySource=_displaySource - In the implementation block
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
+-(void)imageViewLoadedImage:(id)arg1 ;
 -(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
 -(IGGenericMegaphone *)megaphone;
 -(void)setLineView:(UIView *)arg1 ;
@@ -42,7 +48,6 @@
 -(NSString *)displaySource;
 -(void)layoutButtons;
 -(id)initWithMegaphone:(id)arg1 ;
--(void)setMegaphoneImage:(UIImage *)arg1 ;
 -(char)megaphoneSeen;
 -(void)setMegaphoneSeen:(char)arg1 ;
 -(UIButton *)buttonOne;
@@ -64,6 +69,7 @@
 -(char)megaphoneHasImage;
 -(UIImage *)megaphoneImage;
 -(id)createButtonForMegaphoneButton:(id)arg1 ;
+-(void)setMegaphoneImage:(UIImage *)arg1 ;
 -(void)setDisplaySource:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGGenericMegaphoneViewV2Delegate>)arg1 ;
 -(void)layoutSubviews;

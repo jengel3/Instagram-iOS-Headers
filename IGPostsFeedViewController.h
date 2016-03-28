@@ -28,9 +28,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)additionalParamsForFetchRequest;
 -(void)setEntryPoint:(int)arg1 ;
 -(id)analyticsModule;
--(id)additionalParamsForFetchRequest;
 -(char)enableNavState;
 -(void)handleLoadedContentDidChange;
 -(void)reloadWithNewObjects:(id)arg1 ;

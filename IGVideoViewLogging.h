@@ -15,6 +15,7 @@
 -(void)logVideoStartForPlayer:(id)arg1 playbackReason:(int)arg2 videoStartDelay:(float)arg3;
 -(void)logVideoComplete;
 -(void)logVideoTapForPlayer:(id)arg1;
+-(void)logVideoDisplayed;
 -(NSNumber *)lastPlaybackTime;
 -(int)originalPlaybackReason;
 -(void)logVideoShouldStart;

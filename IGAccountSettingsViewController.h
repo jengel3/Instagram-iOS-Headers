@@ -15,6 +15,7 @@
 	NSArray* _aboutSectionRowTypes;
 	NSArray* _settingSectionRowTypes;
 	NSArray* _sessionSectionRowTypes;
+	NSArray* _developerSectionRowTypes;
 	IGGroupedTableViewFooterView* _privacySettingsFooterView;
 	IGSwitch* _privateAccountSwitch;
 
@@ -43,6 +44,7 @@
 -(id)followSectionRows;
 -(id)settingSectionRows;
 -(id)sessionSectionRows;
+-(id)developerSectionRows;
 -(int)followRowTypeForRow:(int)arg1 ;
 -(void)logTapEventForServiceType:(int)arg1 ;
 -(int)accountRowForRow:(int)arg1 ;
@@ -69,6 +71,7 @@
 -(void)configureAboutCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureSupportCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureSessionCell:(id)arg1 forRow:(int)arg2 ;
+-(int)developerRowForRow:(int)arg1 ;
 -(void)setPrivacySettingsFooterView:(IGGroupedTableViewFooterView *)arg1 ;
 -(void)dealloc;
 -(id)init;

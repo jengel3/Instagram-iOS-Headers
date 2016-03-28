@@ -10,9 +10,9 @@
 }
 
 @property (nonatomic,retain) IGInsightsComponentListViewController * componentListViewController;              //@synthesize componentListViewController=_componentListViewController - In the implementation block
--(id)initWithQueryItems:(id)arg1 ;
 -(IGInsightsComponentListViewController *)componentListViewController;
 -(void)setComponentListViewController:(IGInsightsComponentListViewController *)arg1 ;
+-(id)initWithQuery:(id)arg1 ;
 -(void)loadView;
 -(void)viewDidLayoutSubviews;
 -(void)viewDidLoad;

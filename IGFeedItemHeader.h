@@ -21,7 +21,8 @@
 	UIButton* _customizableButton;
 	UIButton*<IGSponsorableButton> _sponsoredPostButton;
 	IGFollowButton* _followButton;
-	UIButton* _chevronButton;
+	UIButton* _moreButton;
+	UIButton* _expiringButton;
 	IGStringStyle* _boldLinkStyle;
 	IGStringStyle* _boldGrayStyle;
 	IGStringStyle* _grayStyle;
@@ -38,7 +39,8 @@
 @property (nonatomic,retain) UIButton * customizableButton;                                   //@synthesize customizableButton=_customizableButton - In the implementation block
 @property (nonatomic,retain) UIButton*<IGSponsorableButton> sponsoredPostButton;              //@synthesize sponsoredPostButton=_sponsoredPostButton - In the implementation block
 @property (nonatomic,retain) IGFollowButton * followButton;                                   //@synthesize followButton=_followButton - In the implementation block
-@property (nonatomic,retain) UIButton * chevronButton;                                        //@synthesize chevronButton=_chevronButton - In the implementation block
+@property (nonatomic,retain) UIButton * moreButton;                                           //@synthesize moreButton=_moreButton - In the implementation block
+@property (nonatomic,retain) UIButton * expiringButton;                                       //@synthesize expiringButton=_expiringButton - In the implementation block
 @property (nonatomic,retain) IGStringStyle * boldLinkStyle;                                   //@synthesize boldLinkStyle=_boldLinkStyle - In the implementation block
 @property (nonatomic,retain) IGStringStyle * boldGrayStyle;                                   //@synthesize boldGrayStyle=_boldGrayStyle - In the implementation block
 @property (nonatomic,retain) IGStringStyle * grayStyle;                                       //@synthesize grayStyle=_grayStyle - In the implementation block
@@ -49,12 +51,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGProfilePictureImageView *)profilePic;
+-(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(IGFollowButton *)followButton;
 -(void)setFollowButton:(IGFollowButton *)arg1 ;
--(IGProfilePictureImageView *)profilePic;
--(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(UIButton *)customizableButton;
 -(void)configureWithViewModel:(id)arg1 analyticsDelegate:(id)arg2 loggingDelegate:(id)arg3 delegate:(id)arg4 ;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
@@ -80,17 +82,18 @@
 -(void)updateAppearance;
 -(IGStringStyle *)boldGray7Style;
 -(void)updateAccessoryViewAppearance;
--(UIButton *)chevronButton;
+-(UIButton *)expiringButton;
 -(IGStringStyle *)grayStyle;
 -(void)onLocationTapped;
--(void)onChevronTapped:(id)arg1 ;
+-(void)onMoreButtonTapped:(id)arg1 ;
 -(void)openUserViewFrom:(id)arg1 ;
 -(char)alternateAccessibility;
 -(void)setUsernameButton:(UIButton *)arg1 ;
 -(void)setLocationButton:(UIButton *)arg1 ;
--(void)setChevronButton:(UIButton *)arg1 ;
+-(void)setExpiringButton:(UIButton *)arg1 ;
 -(void)setGrayStyle:(IGStringStyle *)arg1 ;
 -(void)setBoldGray7Style:(IGStringStyle *)arg1 ;
+-(UIButton *)moreButton;
 -(IGFeedItemHeaderViewModel *)viewModel;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;
@@ -100,5 +103,6 @@
 -(int)accessibilityElementCount;
 -(id)accessibilityElementAtIndex:(int)arg1 ;
 -(int)indexOfAccessibilityElement:(id)arg1 ;
+-(void)setMoreButton:(UIButton *)arg1 ;
 @end
 

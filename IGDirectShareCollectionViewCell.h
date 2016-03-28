@@ -27,11 +27,11 @@
 @property (nonatomic,retain) UIView * blueRing;                                   //@synthesize blueRing=_blueRing - In the implementation block
 +(float)contractedCellWidth;
 +(float)cellHeight;
+-(UILabel *)usernameLabel;
 -(void)setShowWhiteOverlay:(char)arg1 ;
 -(UIView *)whiteOverlay;
 -(char)showWhiteOverlay;
 -(void)setWhiteOverlay:(UIView *)arg1 ;
--(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
 -(IGDirectThreadAvatarView *)profileView;
 -(char)showBlueRing;

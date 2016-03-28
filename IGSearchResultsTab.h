@@ -1,23 +1,25 @@
 
-@class NSString, IGSearchResultsEnableLocationCell;
+@class NSString;
 
 
 @protocol IGSearchResultsTab <NSObject,IGExploreSearchChildViewController,IGListAdapterDataSource>
-@property (nonatomic,copy) NSString * moduleName; 
-@property (assign,nonatomic) int raindropViewType; 
-@property (assign,nonatomic) char raindropEnableNavState; 
-@property (assign,nonatomic) int raindropSearchType; 
-@property (assign,nonatomic) int raindropViewSubType; 
-@property (assign,nonatomic) char canShowLocationCell; 
-@property (assign,nonatomic) char shouldShowSectionHeader; 
-@property (nonatomic,retain) NSString * noResultsMessage; 
-@property (nonatomic,retain) NSString * queryType; 
-@property (nonatomic,retain) NSString * tapEventName; 
-@property (nonatomic,retain) NSString * tapCancelEventName; 
-@property (nonatomic,retain) IGSearchResultsEnableLocationCell * locationCell; 
+@property (nonatomic,copy,readonly) NSString * moduleName; 
+@property (nonatomic,copy,readonly) NSString * searchType; 
+@property (nonatomic,copy,readonly) NSString * viewSubType; 
+@property (nonatomic,readonly) int raindropViewType; 
+@property (nonatomic,readonly) char raindropEnableNavState; 
+@property (nonatomic,readonly) int raindropSearchType; 
+@property (nonatomic,readonly) int raindropViewSubType; 
+@property (nonatomic,readonly) char canShowLocationCell; 
+@property (nonatomic,readonly) char shouldShowSectionHeader; 
+@property (nonatomic,copy,readonly) NSString * noResultsMessage; 
+@property (nonatomic,copy,readonly) NSString * queryType; 
+@property (nonatomic,copy,readonly) NSString * tapEventName; 
+@property (nonatomic,copy,readonly) NSString * tapCancelEventName; 
 @property (assign,nonatomic) char enableFrequentItems; 
 @required
 -(unsigned)numberOfLocalResults;
+-(NSString *)viewSubType;
 -(char)enableFrequentItems;
 -(char)shouldShowFrequentSection;
 -(void)filterBySearchString:(id)arg1 surfaceRankInfo:(id)arg2;
@@ -32,30 +34,18 @@
 -(void)addLoadedNotifications;
 -(void)addLocationTracker;
 -(NSString *)moduleName;
--(void)setModuleName:(id)arg1;
 -(int)raindropViewType;
--(void)setRaindropViewType:(int)arg1;
 -(char)raindropEnableNavState;
--(void)setRaindropEnableNavState:(char)arg1;
 -(int)raindropSearchType;
--(void)setRaindropSearchType:(int)arg1;
 -(int)raindropViewSubType;
--(void)setRaindropViewSubType:(int)arg1;
 -(char)canShowLocationCell;
--(void)setCanShowLocationCell:(char)arg1;
 -(char)shouldShowSectionHeader;
--(void)setShouldShowSectionHeader:(char)arg1;
 -(NSString *)queryType;
--(void)setQueryType:(id)arg1;
 -(NSString *)tapEventName;
--(void)setTapEventName:(id)arg1;
 -(NSString *)tapCancelEventName;
--(void)setTapCancelEventName:(id)arg1;
--(IGSearchResultsEnableLocationCell *)locationCell;
--(void)setLocationCell:(id)arg1;
 -(void)setEnableFrequentItems:(char)arg1;
 -(NSString *)noResultsMessage;
--(void)setNoResultsMessage:(id)arg1;
+-(NSString *)searchType;
 
 @end
 

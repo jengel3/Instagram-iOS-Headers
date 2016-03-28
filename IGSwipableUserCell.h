@@ -37,13 +37,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(UILabel *)usernameLabel;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(IGFollowButton *)followButton;
 -(void)setFollowButton:(IGFollowButton *)arg1 ;
--(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
 -(IGProfilePictureImageView *)profilePicImageView;

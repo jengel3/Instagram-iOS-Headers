@@ -1,80 +1,50 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
-#import <Instagram/IGPhotoCellDelegate.h>
-#import <Instagram/IGVideoCellDelegate.h>
-#import <UIKit/UICollectionViewDataSource.h>
-#import <UIKit/UICollectionViewDelegateFlowLayout.h>
-#import <UIKit/UICollectionViewDelegate.h>
+#import <Instagram/IGAlbumPlayerViewDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
 #import <Instagram/IGFeedVideoCell.h>
 
 @protocol IGFeedItemAlbumCellDelegate, IGFeedVideoCellPlayerDelegate;
-@class IGFeedItem, UICollectionView, IGBulkMediaRequestManager, IGImagePreparer, NSString;
+@class IGAlbumPlayerView, UITapGestureRecognizer, NSString;
 
-@interface IGFeedItemAlbumCell : UICollectionViewCell <IGPhotoCellDelegate, IGVideoCellDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate, IGFeedVideoCell> {
+@interface IGFeedItemAlbumCell : UICollectionViewCell <IGAlbumPlayerViewDelegate, UIGestureRecognizerDelegate, IGFeedVideoCell> {
 
 	float _percentVisible;
-	IGFeedItem* _feedItem;
 	id<IGFeedItemAlbumCellDelegate> _delegate;
 	id<IGFeedVideoCellPlayerDelegate> _playerDelegate;
-	UICollectionView* _collectionView;
-	IGBulkMediaRequestManager* _requestManager;
-	IGImagePreparer* _imagePreparer;
+	IGAlbumPlayerView* _albumPlayerView;
+	UITapGestureRecognizer* _tap;
 
 }
 
-@property (nonatomic,retain) IGFeedItem * feedItem;                                                //@synthesize feedItem=_feedItem - In the implementation block
-@property (assign,nonatomic,__weak) id<IGFeedItemAlbumCellDelegate> delegate;                      //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGFeedVideoCellPlayerDelegate> playerDelegate;              //@synthesize playerDelegate=_playerDelegate - In the implementation block
-@property (nonatomic,retain) UICollectionView * collectionView;                                    //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,readonly) IGBulkMediaRequestManager * requestManager;                         //@synthesize requestManager=_requestManager - In the implementation block
-@property (nonatomic,readonly) IGImagePreparer * imagePreparer;                                    //@synthesize imagePreparer=_imagePreparer - In the implementation block
+@property (nonatomic,__weak,readonly) id<IGFeedItemAlbumCellDelegate> delegate;                      //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,__weak,readonly) id<IGFeedVideoCellPlayerDelegate> playerDelegate;              //@synthesize playerDelegate=_playerDelegate - In the implementation block
+@property (nonatomic,readonly) IGAlbumPlayerView * albumPlayerView;                                  //@synthesize albumPlayerView=_albumPlayerView - In the implementation block
+@property (nonatomic,retain) UITapGestureRecognizer * tap;                                           //@synthesize tap=_tap - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,readonly) float percentVisible;                                               //@synthesize percentVisible=_percentVisible - In the implementation block
--(void)setFeedItem:(IGFeedItem *)arg1 ;
--(IGFeedItem *)feedItem;
--(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
--(IGBulkMediaRequestManager *)requestManager;
--(int)pageForOffset:(float)arg1 ;
+@property (nonatomic,readonly) float percentVisible;                                                 //@synthesize percentVisible=_percentVisible - In the implementation block
+-(IGAlbumPlayerView *)albumPlayerView;
+-(void)setTap:(UITapGestureRecognizer *)arg1 ;
+-(UITapGestureRecognizer *)tap;
+-(void)albumPlayerView:(id)arg1 didChangeToPage:(int)arg2 ;
+-(void)albumPlayerView:(id)arg1 didRequestVideoPlaybackWithConfig:(id)arg2 ;
+-(void)albumPlayerViewDidRequestVideoStop:(id)arg1 ;
+-(void)configureWithFocusCoordinator:(id)arg1 delegate:(id)arg2 playerDelegate:(id)arg3 ;
+-(void)albumCellTapped;
 -(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
--(void)reloadWithFeedItem:(id)arg1 ;
--(float)maxHeightForAlbum:(id)arg1 ;
--(void)prefetchMedia;
--(void)preloadAdjacentCellsForIndex:(int)arg1 ;
--(IGImagePreparer *)imagePreparer;
--(void)handleDidEndScrolling:(id)arg1 ;
--(void)photoCellDidInitialSingleTap:(id)arg1 ;
--(void)photoCellDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
--(void)photoCellDidDoubleTapToLike:(id)arg1 ;
--(void)photoCellImageDidLoadImage:(id)arg1 ;
--(void)videoCellDidRequestVideoPlayback:(id)arg1 ;
--(void)videoCellDidLoadImage:(id)arg1 ;
--(void)videoCellDidPlayToEnd:(id)arg1 ;
--(void)videoCellDidDoubleTap:(id)arg1 ;
 -(unsigned)updatePercentVisible:(float)arg1 ;
 -(float)percentVisible;
 -(id)contentViewForHeartAnimation;
+-(void)play;
 -(id)videoView;
--(void)scrollToPage:(int)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
--(void)setDelegate:(id<IGFeedItemAlbumCellDelegate>)arg1 ;
--(void)dealloc;
--(void)scrollViewWillEndDragging:(id)arg1 withVelocity:(CGPoint)arg2 targetContentOffset:(inout CGPoint*)arg3 ;
--(void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(char)arg2 ;
--(void)scrollViewDidEndDecelerating:(id)arg1 ;
 -(id<IGFeedItemAlbumCellDelegate>)delegate;
--(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
--(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
--(int)numberOfSectionsInCollectionView:(id)arg1 ;
--(UICollectionView *)collectionView;
--(CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3 ;
--(CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForFooterInSection:(int)arg3 ;
--(void)setCollectionView:(UICollectionView *)arg1 ;
--(void)setPage:(int)arg1 ;
+-(void)stop;
+-(void)prepareForReuse;
 -(char)isSponsored;
 @end
 

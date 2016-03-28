@@ -6,7 +6,7 @@
 
 @interface IGDirectoryEnumerator : NSEnumerator {
 
-	SCD_Struct_IG0* _tree;
+	SCD_Struct_IG2* _tree;
 	unsigned _traversal;
 	NSURL* _baseURL;
 	NSArray* _properties;
@@ -24,7 +24,7 @@
 -(unsigned)traversal;
 -(id)initWithURL:(id)arg1 includingPropertiesForKeys:(id)arg2 traversal:(unsigned)arg3 ;
 -(void)setFileAttributes:(NSDictionary *)arg1 ;
--(unsigned)countByEnumeratingWithState:(SCD_Struct_IG1*)arg1 objects:(id*)arg2 count:(unsigned)arg3 ;
+-(unsigned)countByEnumeratingWithState:(SCD_Struct_IG3*)arg1 objects:(id*)arg2 count:(unsigned)arg3 ;
 -(void)dealloc;
 -(id)init;
 -(void)setLevel:(unsigned)arg1 ;

@@ -4,10 +4,11 @@
 #import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGAnalyticsRaindropProtocol.h>
 #import <Instagram/IGViewControllerType.h>
+#import <Instagram/IGInlineGalleryHost.h>
 
 @class UIBarButtonItem, IGAnalyticsMetadata, NSString, IGScreenshotObserver, IGMutableRaindropRankInfo, IGRaindropNavState, IGKeyboardManager, UILongPressGestureRecognizer, NSMutableArray, IGNavigationController, IGTabBarController, IGRaindropNavEvent;
 
-@interface IGViewController : UIViewController <IGAnalyticsModule, IGAnalyticsRaindropProtocol, IGViewControllerType> {
+@interface IGViewController : UIViewController <IGAnalyticsModule, IGAnalyticsRaindropProtocol, IGViewControllerType, IGInlineGalleryHost> {
 
 	UIBarButtonItem* _backItem;
 	IGAnalyticsMetadata* _analyticsMetadata;
@@ -68,6 +69,7 @@
 -(UILongPressGestureRecognizer *)longPressRecognizer;
 -(NSString *)entityId;
 -(void)setEntityId:(NSString *)arg1 ;
+-(char)canHostInlineGallery:(char)arg1 ;
 -(IGScreenshotObserver *)screenshotObserver;
 -(id)previewActionBarItems;
 -(void)updateAnalyticsMetadata:(id)arg1 ;

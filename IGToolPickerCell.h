@@ -32,6 +32,7 @@
 @property (nonatomic,retain) UIView * iconBackgroundView;                        //@synthesize iconBackgroundView=_iconBackgroundView - In the implementation block
 @property (nonatomic,retain) UIImageView * iconContainerBorderView;              //@synthesize iconContainerBorderView=_iconContainerBorderView - In the implementation block
 +(float)iconPaddingForCellSize:(CGSize)arg1 ;
++(CGSize)cellSizeToFit:(CGSize)arg1 ;
 +(float)iconSizeForCellSize:(CGSize)arg1 ;
 -(id)LX_snapshotView;
 -(void)setShowsHighlightBar:(char)arg1 ;

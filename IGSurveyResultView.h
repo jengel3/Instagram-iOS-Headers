@@ -21,7 +21,7 @@
 @property (nonatomic,retain) UILabel * subtitleLabel;                       //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 -(IGSurveyQuestion *)question;
 -(void)setQuestion:(IGSurveyQuestion *)arg1 ;
--(id)checkmarkImageForAnswer:(id)arg1 ;
+-(void)updateCheckmark;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;

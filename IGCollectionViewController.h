@@ -61,6 +61,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(float)headerAdjustmentAmount;
 -(void)reloadWithCurrentObjects;
+-(void)setHeaderAdjustmentAmount:(float)arg1 ;
+-(void)didChangeHeaderAdjustmentAmount:(float)arg1 ;
 -(id)initWithLayout:(id)arg1 showsPullToRefresh:(char)arg2 ;
 -(id)currentReloadContext;
 -(void)finishRefreshFromPullToRefreshControl;
@@ -81,7 +83,6 @@
 -(float)supplementaryFooterViewHeight;
 -(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
 -(void)reloadWithCurrentObjectsAnimated:(char)arg1 completionBlock:(/*^block*/id)arg2 ;
--(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(id)setupCollectionViewWithLayout:(id)arg1 ;
 -(void)onScrollViewPan:(id)arg1 ;
 -(void)applyContentInset;
@@ -103,7 +104,6 @@
 -(void)setPullToRefreshStartTime:(NSDate *)arg1 ;
 -(NSDate *)pullToRefreshStartTime;
 -(void)scrollToTopOfContentInsetAnimated:(char)arg1 ;
--(void)didChangeHeaderAdjustmentAmount:(float)arg1 ;
 -(void)setBackgroundSupplementaryHeaderView:(UIView *)arg1 ;
 -(void)setBackgroundSupplementaryFooterView:(UIView *)arg1 ;
 -(char)hasNotifiedForEndOfContentReached;

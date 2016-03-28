@@ -6,6 +6,7 @@
 -(void)onNewsFeedLoaded:(id)arg1 ;
 -(void)onNewsFeedFailed:(id)arg1 ;
 -(void)onImageLoaded:(id)arg1 ;
+-(void)onImageFailedToLoad:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
 @end

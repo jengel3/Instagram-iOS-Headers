@@ -14,10 +14,10 @@
 @property (assign,nonatomic) char isSizeEstimated;                //@synthesize isSizeEstimated=_isSizeEstimated - In the implementation block
 @property (assign,nonatomic) CGPoint origin; 
 +(id)layoutAttributesForHeaderViewWithIndexPath:(id)arg1 ;
--(char)isSizeEstimated;
 -(char)isOriginEstimated;
--(void)setIsSizeEstimated:(char)arg1 ;
+-(char)isSizeEstimated;
 -(void)setIsOriginEstimated:(char)arg1 ;
+-(void)setIsSizeEstimated:(char)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(id)description;

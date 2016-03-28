@@ -46,9 +46,9 @@
 -(void)playFromStart;
 -(void)playFromTime:(SCD_Struct_IG44)arg1 ;
 -(id)initWithVideo:(id)arg1 size:(CGSize)arg2 ;
+-(void)setPlayableRange:(SCD_Struct_IG46)arg1 ;
 -(void)makeKey;
 -(void)setIsPlaying:(char)arg1 ;
--(void)setPlayableRange:(SCD_Struct_IG46)arg1 ;
 -(void)seekToPosition:(float)arg1 ;
 -(void)stopOnGoingIntoBackground;
 -(void)reloadPlayerAsset;
@@ -56,8 +56,8 @@
 -(void)setStabilizedFrame:(IGSurface *)arg1 ;
 -(IGStabilizationFilter *)stabilizationFilter;
 -(IGSurfaceView *)filteredView;
--(void)videoPlayerDidLoadPixelBuffer:(CVBufferRef)arg1 withTime:(SCD_Struct_IG44)arg2 ;
--(void)videoPlayerDidFinishPlayingWithAnimation:(char)arg1 ;
+-(void)videoPlayer:(id)arg1 didLoadPixelBuffer:(CVBufferRef)arg2 withTime:(SCD_Struct_IG44)arg3 ;
+-(void)videoPlayer:(id)arg1 didFinishPlayingWithAnimation:(char)arg2 ;
 -(SCD_Struct_IG46)playableRange;
 -(void)setStabilizationFilter:(IGStabilizationFilter *)arg1 ;
 -(void)setFilteredView:(IGSurfaceView *)arg1 ;

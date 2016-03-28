@@ -28,16 +28,16 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)initWithToken:(id)arg1 user:(id)arg2 facebookAccessToken:(id)arg3 ;
+-(char)isSubmitting;
+-(void)setIsSubmitting:(char)arg1 ;
 -(void)userUpdated:(id)arg1 ;
 -(FBSDKAccessToken *)facebookAccessToken;
 -(void)setFacebookAccessToken:(FBSDKAccessToken *)arg1 ;
 -(void)requestSupportViewControllerWantsToDismiss:(id)arg1 ;
 -(void)signIn;
 -(char)validateLengthAllowZeroLength:(char)arg1 ;
--(char)isSubmitting;
 -(char)validateMatching;
 -(void)requestSignIn;
--(void)setIsSubmitting:(char)arg1 ;
 -(void)logIn;
 -(id)createSMSVerificationViewControllerWithTwoFactorInfo:(id)arg1 ;
 -(void)handleLogInForUser:(id)arg1 withResponse:(id)arg2 isTwoFactorRequired:(char)arg3 twoFactorInfo:(id)arg4 ;

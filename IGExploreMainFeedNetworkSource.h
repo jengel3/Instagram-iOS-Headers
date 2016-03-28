@@ -15,6 +15,7 @@
 @property (retain) NSArray * items;                                                                          //@synthesize items=_items - In the implementation block
 -(id)initWithPostClass:(Class)arg1 ;
 -(void)refreshWithNewItems:(id)arg1 clearOut:(char)arg2 ;
+-(void)deletePost:(id)arg1 ;
 -(id<IGExploreMainFeedNetworkSourceDelegate>)exploreDelegate;
 -(id)regularPostsFromResponse:(id)arg1 clearOut:(char)arg2 usingStore:(id)arg3 rankToken:(id)arg4 secure:(char)arg5 ;
 -(void)setExploreDelegate:(id<IGExploreMainFeedNetworkSourceDelegate>)arg1 ;

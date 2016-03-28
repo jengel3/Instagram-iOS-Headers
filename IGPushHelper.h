@@ -30,6 +30,7 @@
 -(void)performNavigationTaskForAction:(id)arg1 userInfo:(id)arg2 ;
 -(void)showNotificationBarWithUserInfo:(id)arg1 actionBlock:(/*^block*/id)arg2 ;
 -(void)performNonNavigationTaskForAction:(id)arg1 userInfo:(id)arg2 ;
+-(void)logPushNogification:(id)arg1 applicationState:(int)arg2 ;
 -(void)markAsNeedToUpdatePushToken;
 -(char)shouldShowActivityPushMegaphone;
 -(void)registerForPushWithToken:(id)arg1 ;
@@ -39,5 +40,6 @@
 -(void)setFreshAppInstall:(char)arg1 ;
 -(void)dealloc;
 -(id)init;
+-(id)stringForAppState:(int)arg1 ;
 @end
 

@@ -18,7 +18,6 @@
 -(void)appendLinkedString:(id)arg1 ;
 -(void)appendStyledString:(id)arg1 ;
 -(void)appendLinkedTitleString:(id)arg1 ;
--(void)applyBaseStyleToAttributedString:(id)arg1 ;
 -(void)prependAttributedString:(id)arg1 ;
 -(void)appendLinkedString:(id)arg1 withExternalURLs:(char)arg2 ;
 -(id)initWithBaseStyle:(id)arg1 ;

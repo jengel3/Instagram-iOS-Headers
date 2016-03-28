@@ -116,12 +116,12 @@
 -(void)logNoLatencyUploadSuccessWithResponseData:(id)arg1 rawResponse:(id)arg2 ;
 -(IGAnalyticsUploader *)uploader;
 -(void)immediateActiveSeconds:(id)arg1 didProduceData:(id)arg2 forModule:(id)arg3 ;
--(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 channel:(int)arg6 ;
 -(void)logBinaryEvent:(id)arg1 data:(id)arg2 ;
 -(IGAnalyticsConnectionObserver *)connectionObserver;
 -(NSTimer *)uploadTimer;
 -(void)setUploadTimer:(NSTimer *)arg1 ;
 -(void)connectionObserver:(id)arg1 connectionChangedWithReachability:(id)arg2 radioTechnology:(id)arg3 ;
+-(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 channel:(int)arg6 ;
 -(void)analyticsLoggerForEvent:(id)arg1 addExtraEventInfoTo:(id)arg2 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
 -(NSString *)facebookID;

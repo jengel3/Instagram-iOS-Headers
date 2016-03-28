@@ -83,12 +83,12 @@
 @property (assign,nonatomic) float videoUploadSpeed;                                     //@synthesize videoUploadSpeed=_videoUploadSpeed - In the implementation block
 @property (nonatomic,readonly) unsigned suggestedChunkSize; 
 +(int)version;
+-(void)setShareType:(int)arg1 ;
 -(void)setUploadStartTime:(NSDate *)arg1 ;
 -(NSDate *)uploadStartTime;
--(NSString *)albumPK;
 -(void)setAlbumPK:(NSString *)arg1 ;
+-(void)setPostDict:(NSMutableDictionary *)arg1 ;
 -(int)shareType;
--(void)setShareType:(int)arg1 ;
 -(void)setUploadProgress:(float)arg1 ;
 -(float)uploadProgress;
 -(int)numberOfFailedUploads;
@@ -96,7 +96,6 @@
 -(NSString *)transcodeVideoID;
 -(void)didFailUpload;
 -(int)postStatus;
--(void)setPostDict:(NSMutableDictionary *)arg1 ;
 -(void)setPostAction:(int)arg1 ;
 -(int)uploadDataType;
 -(NSString *)userPK;
@@ -124,7 +123,11 @@
 -(void)setAutoRetryResumeUploadCount:(unsigned)arg1 ;
 -(id)advanceToNextNotExpiredVideoUploadURL;
 -(void)updateUploadRangesInfo:(id)arg1 ;
+-(char)isInitialAlbumUpload;
+-(char)isConfigureAlbumUpload;
+-(char)isAddToAlbumUpload;
 -(IGAnalyticsWaterfall *)waterfall;
+-(NSString *)albumPK;
 -(unsigned)autoRetryConfigureCount;
 -(void)setAutoRetryConfigureCount:(unsigned)arg1 ;
 -(unsigned)uploadTaskIdentifier;
@@ -160,7 +163,9 @@
 -(int)targetUploadStatus;
 -(double)configureStartTimestamp;
 -(int)postAction;
+-(id)videoAnalyticsExtraData;
 -(void)setVideoDataFileURL:(NSURL *)arg1 ;
+-(char)isAlbumUpload;
 -(NSMutableArray *)currentRangesUploadedAlready;
 -(float)videoUploadSpeed;
 -(NSData *)imageData;

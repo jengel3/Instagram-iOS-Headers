@@ -11,6 +11,7 @@
 	IGUser* _user;
 	NSDate* _takenAt;
 	NSString* _primaryName;
+	NSDate* _expiringAt;
 	CLLocation* _mediaCoord;
 	int _accessoryViewType;
 	NSString* _customizableButtonTitle;
@@ -23,6 +24,8 @@
 @property (nonatomic,retain) IGUser * user;                                     //@synthesize user=_user - In the implementation block
 @property (nonatomic,retain) NSDate * takenAt;                                  //@synthesize takenAt=_takenAt - In the implementation block
 @property (nonatomic,retain) NSString * primaryName;                            //@synthesize primaryName=_primaryName - In the implementation block
+@property (nonatomic,readonly) char canShowExpiringIcon; 
+@property (nonatomic,retain) NSDate * expiringAt;                               //@synthesize expiringAt=_expiringAt - In the implementation block
 @property (nonatomic,retain) CLLocation * mediaCoord;                           //@synthesize mediaCoord=_mediaCoord - In the implementation block
 @property (nonatomic,readonly) NSString * locationName; 
 @property (nonatomic,readonly) char showSponsoredPostIcon;                      //@synthesize showSponsoredPostIcon=_showSponsoredPostIcon - In the implementation block
@@ -30,16 +33,19 @@
 @property (nonatomic,readonly) int accessoryViewType;                           //@synthesize accessoryViewType=_accessoryViewType - In the implementation block
 @property (nonatomic,readonly) NSString * customizableButtonTitle;              //@synthesize customizableButtonTitle=_customizableButtonTitle - In the implementation block
 @property (nonatomic,retain) IGLocation * location;                             //@synthesize location=_location - In the implementation block
--(CLLocation *)mediaCoord;
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 configuration:(id)arg2 ;
 -(int)accessoryViewType;
+-(CLLocation *)mediaCoord;
 -(NSString *)sponsoredPostLabel;
 -(char)showSponsoredPostIcon;
 -(NSDate *)takenAt;
 -(NSString *)customizableButtonTitle;
--(id)initWithUser:(id)arg1 location:(id)arg2 takenAt:(id)arg3 mediaCoord:(id)arg4 editing:(char)arg5 ;
+-(char)canShowExpiringIcon;
+-(NSDate *)expiringAt;
+-(id)initWithUser:(id)arg1 location:(id)arg2 takenAt:(id)arg3 expiringAt:(id)arg4 mediaCoord:(id)arg5 editing:(char)arg6 ;
 -(void)setTakenAt:(NSDate *)arg1 ;
+-(void)setExpiringAt:(NSDate *)arg1 ;
 -(void)setMediaCoord:(CLLocation *)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;

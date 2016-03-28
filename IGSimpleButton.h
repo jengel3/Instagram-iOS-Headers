@@ -69,6 +69,7 @@
 @property (assign,nonatomic) char enabled;                                              //@synthesize enabled=_enabled - In the implementation block
 @property (assign,nonatomic) char highlighted;                                          //@synthesize highlighted=_highlighted - In the implementation block
 @property (assign,nonatomic) char selected;                                             //@synthesize selected=_selected - In the implementation block
+-(void)setTapPadding:(UIOffset)arg1 ;
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)setDefaultTitleLabelText:(NSString *)arg1 ;
 -(void)setSelectedTitleLabelText:(NSString *)arg1 ;
@@ -83,8 +84,6 @@
 -(void)setDefaultTitleLabelShadowColor:(UIColor *)arg1 ;
 -(void)setHighlightedTitleLabelShadowColor:(UIColor *)arg1 ;
 -(void)setSelectedTitleLabelShadowColor:(UIColor *)arg1 ;
--(void)setDelaysSelection:(char)arg1 ;
--(void)setForwardsContentTouches:(char)arg1 ;
 -(void)setAccessibilityTraitsEnabled:(char)arg1 ;
 -(UIColor *)highlightedBackgroundColor;
 -(UIColor *)selectedBackgroundColor;
@@ -119,8 +118,9 @@
 -(char)animatesDeselection;
 -(void)setAnimatesDeselection:(char)arg1 ;
 -(char)delaysSelection;
+-(void)setDelaysSelection:(char)arg1 ;
 -(char)forwardsContentTouches;
--(void)setTapPadding:(UIOffset)arg1 ;
+-(void)setForwardsContentTouches:(char)arg1 ;
 -(void)updateTitleLabel;
 -(char)enabled;
 -(id)initWithFrame:(CGRect)arg1 ;

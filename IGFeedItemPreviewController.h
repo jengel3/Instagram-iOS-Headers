@@ -34,8 +34,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)analyticsModule;
 -(IGFeedItem *)feedItem;
+-(id)analyticsModule;
 -(void)postUpdated:(id)arg1 ;
 -(id)previewActionBarItems;
 -(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 showViewProfileAction:(char)arg3 showTimestamp:(char)arg4 analyticsSourceModule:(id)arg5 ;

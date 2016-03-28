@@ -30,8 +30,8 @@
 @property (assign,nonatomic) int displayType;                               //@synthesize displayType=_displayType - In the implementation block
 @property (assign,nonatomic) float currentScale;                            //@synthesize currentScale=_currentScale - In the implementation block
 @property (assign,nonatomic,__weak) IGDynamics1D * spring;                  //@synthesize spring=_spring - In the implementation block
--(UIImageView *)springContentView;
 -(UIImageView *)accessoryImageView;
+-(UIImageView *)springContentView;
 -(char)shouldShowTitle;
 -(void)setCurrentScale:(float)arg1 ;
 -(void)scaleUp:(char)arg1 withVelocity:(char)arg2 ;

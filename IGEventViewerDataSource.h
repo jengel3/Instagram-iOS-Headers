@@ -2,13 +2,15 @@
 #import <Instagram/IGListAdapterDataSource.h>
 
 @protocol IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate;
-@class NSArray, NSString;
+@class NSArray, IGSpinnerModel, NSString;
 
 @interface IGEventViewerDataSource : NSObject <IGListAdapterDataSource> {
 
+	char _isSpinnerHidden;
 	id<IGEventViewerMediaCellDelegate> _mediaCellDelegate;
 	id<IGEventViewerAttributionHeaderCellDelegate> _headerCellDelegate;
 	NSArray* _posts;
+	IGSpinnerModel* _spinner;
 
 }
 
@@ -16,6 +18,8 @@
 @property (assign,nonatomic,__weak) id<IGEventViewerAttributionHeaderCellDelegate> headerCellDelegate;              //@synthesize headerCellDelegate=_headerCellDelegate - In the implementation block
 @property (nonatomic,readonly) unsigned count; 
 @property (nonatomic,copy) NSArray * posts;                                                                         //@synthesize posts=_posts - In the implementation block
+@property (nonatomic,readonly) IGSpinnerModel * spinner;                                                            //@synthesize spinner=_spinner - In the implementation block
+@property (assign,setter=setSpinnerHidden:,nonatomic) char isSpinnerHidden;                                         //@synthesize isSpinnerHidden=_isSpinnerHidden - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -27,6 +31,7 @@
 -(id)initWithPosts:(id)arg1 ;
 -(void)setPosts:(NSArray *)arg1 ;
 -(id)allPosts;
+-(char)isSpinnerHidden;
 -(id<IGEventViewerAttributionHeaderCellDelegate>)headerCellDelegate;
 -(id<IGEventViewerMediaCellDelegate>)mediaCellDelegate;
 -(void)appendPosts:(id)arg1 ;
@@ -38,5 +43,7 @@
 -(void)setHeaderCellDelegate:(id<IGEventViewerAttributionHeaderCellDelegate>)arg1 ;
 -(unsigned)count;
 -(id)init;
+-(void)setSpinnerHidden:(char)arg1 ;
+-(IGSpinnerModel *)spinner;
 @end
 

@@ -37,7 +37,8 @@
 -(id)initWithCollectionView:(id)arg1 collectionViewVisibility:(id)arg2 prebufferingHelper:(id)arg3 supportsAutoplay:(char)arg4 defaultPlaybackConfiguration:(id)arg5 ;
 -(void)startVideoForCell:(id)arg1 config:(id)arg2 ;
 -(IGCollectionViewVisibility *)collectionViewVisibility;
--(void)feedVideoCellDidRequestVideoPlayback:(id)arg1 ;
+-(void)feedVideoCellDidRequestVideoPlayback:(id)arg1 config:(id)arg2 ;
+-(void)feedVideoCellDidRequestCurrentVideoStopWithReason:(int)arg1 ;
 -(void)feedVideoCellDidLoadImage:(id)arg1 ;
 -(void)feedVideoCellDidPlayToEnd:(id)arg1 ;
 -(UICollectionViewCell*<IGFeedVideoCell>)currentlyPlayingVideoCell;

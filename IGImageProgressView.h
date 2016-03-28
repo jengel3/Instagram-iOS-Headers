@@ -11,7 +11,7 @@
 	IGRequest* _imageLoadRequest;
 	IGSimpleButton* _failureView;
 	UIImageView* _loadingImageView;
-	double _imageLoadTime;
+	double _loadingStartTime;
 	char _delegateNeedsImageNow;
 	NSURL* _imageURL;
 	IGImageView* _photoImageView;

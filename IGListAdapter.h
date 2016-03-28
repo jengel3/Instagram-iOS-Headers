@@ -6,7 +6,7 @@
 #import <Instagram/IGListVerticalLayoutEstimatingDataSource.h>
 #import <Instagram/IGListCollectionContext.h>
 
-@protocol IGNavigationContext, IGPresentationContext, IGListAdapterDelegate, UICollectionViewDelegate, IGListAdapterDataSource, IGListUpdatingDelegate;
+@protocol IGNavigationContext, IGPresentationContext, IGListAdapterDataSource, IGListAdapterDelegate, UICollectionViewDelegate, IGListUpdatingDelegate;
 @class UICollectionView, IGListItemMap, IGListDisplayHandler, IGListAdapterProxy, UIView, NSString;
 
 @interface IGListAdapter : NSObject <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGListVerticalLayoutDataSource, IGListVerticalLayoutEstimatingDataSource, IGListCollectionContext> {
@@ -14,9 +14,9 @@
 	UICollectionView* _collectionView;
 	id<IGNavigationContext> _navigationContext;
 	id<IGPresentationContext> _presentationContext;
+	id<IGListAdapterDataSource> _dataSource;
 	id<IGListAdapterDelegate> _delegate;
 	id<UICollectionViewDelegate> _collectionViewDelegate;
-	id<IGListAdapterDataSource> _dataSource;
 	id<IGListUpdatingDelegate> _updatingDelegate;
 	IGListItemMap* _itemMap;
 	IGListDisplayHandler* _displayHandler;
@@ -27,9 +27,9 @@
 
 @property (nonatomic,__weak,readonly) id<IGNavigationContext> navigationContext;                      //@synthesize navigationContext=_navigationContext - In the implementation block
 @property (nonatomic,__weak,readonly) id<IGPresentationContext> presentationContext;                  //@synthesize presentationContext=_presentationContext - In the implementation block
+@property (assign,nonatomic,__weak) id<IGListAdapterDataSource> dataSource;                           //@synthesize dataSource=_dataSource - In the implementation block
 @property (assign,nonatomic,__weak) id<IGListAdapterDelegate> delegate;                               //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<UICollectionViewDelegate> collectionViewDelegate;              //@synthesize collectionViewDelegate=_collectionViewDelegate - In the implementation block
-@property (nonatomic,__weak,readonly) id<IGListAdapterDataSource> dataSource;                         //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,readonly) id<IGListUpdatingDelegate> updatingDelegate;                           //@synthesize updatingDelegate=_updatingDelegate - In the implementation block
 @property (nonatomic,readonly) IGListItemMap * itemMap;                                               //@synthesize itemMap=_itemMap - In the implementation block
 @property (nonatomic,readonly) IGListDisplayHandler * displayHandler;                                 //@synthesize displayHandler=_displayHandler - In the implementation block
@@ -41,18 +41,19 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) CGSize containerSize; 
 -(id)dequeReusableCellOfClass:(Class)arg1 forListItemController:(id)arg2 atIndex:(int)arg3 ;
--(id)cellForItemAtIndex:(int)arg1 listItemController:(id)arg2 ;
+-(id<IGPresentationContext>)presentationContext;
+-(id)initWithCollectionView:(id)arg1 navigationContext:(id)arg2 presentationContext:(id)arg3 ;
+-(void)reloadDataWithCompletion:(/*^block*/id)arg1 ;
 -(id<IGNavigationContext>)navigationContext;
+-(id)cellForItemAtIndex:(int)arg1 listItemController:(id)arg2 ;
 -(void)reloadItemsInListItemController:(id)arg1 atIndexes:(id)arg2 ;
--(id)initWithCollectionView:(id)arg1 dataSource:(id)arg2 navigationContext:(id)arg3 presentationContext:(id)arg4 ;
 -(void)setCollectionViewDelegate:(id<UICollectionViewDelegate>)arg1 ;
 -(void)performUpdatesWithCompletion:(/*^block*/id)arg1 ;
 -(CGSize)sizeForItemAtIndexPath:(id)arg1 ;
 -(void)reloadItems:(id)arg1 ;
--(id<IGPresentationContext>)presentationContext;
+-(id)itemAtSection:(unsigned)arg1 ;
 -(unsigned)sectionForItem:(id)arg1 ;
 -(void)scrollToItem:(id)arg1 scrollDirection:(int)arg2 animated:(char)arg3 ;
--(void)reloadDataWithCompletion:(/*^block*/id)arg1 ;
 -(void)deleteItemsInListItemController:(id)arg1 atIndexes:(id)arg2 ;
 -(void)insertItemsInListItemController:(id)arg1 atIndexes:(id)arg2 ;
 -(void)reloadListItemController:(id)arg1 animated:(char)arg2 ;
@@ -61,8 +62,8 @@
 -(id)dequeReusableSupplementaryViewOfKind:(id)arg1 forListItemController:(id)arg2 class:(Class)arg3 atIndex:(int)arg4 ;
 -(void)deselectItemAtIndex:(int)arg1 listItemController:(id)arg2 animated:(char)arg3 ;
 -(id)listItemControllerForItem:(id)arg1 ;
+-(id)initWithCollectionView:(id)arg1 updatingDelegate:(id)arg2 navigationContext:(id)arg3 presentationContext:(id)arg4 ;
 -(void)updateItems:(id)arg1 ;
--(id)initWithCollectionView:(id)arg1 dataSource:(id)arg2 updatingDelegate:(id)arg3 navigationContext:(id)arg4 presentationContext:(id)arg5 ;
 -(id)layoutAttributesForIndexPath:(id)arg1 ;
 -(IGListItemMap *)itemMap;
 -(id<IGListUpdatingDelegate>)updatingDelegate;
@@ -78,15 +79,15 @@
 -(id)indexPathForItemController:(id)arg1 index:(int)arg2 ;
 -(id)indexPathsFromListItemController:(id)arg1 indexes:(id)arg2 ;
 -(id)validSupplementaryViewKindsForItemControllerAtIndexPath:(id)arg1 ;
--(id)itemAtSection:(unsigned)arg1 ;
+-(CGSize)sizeForItemAtIndexPath:(id)arg1 layout:(id)arg2 ;
+-(CGSize)sizeForHeaderAtIndexPath:(id)arg1 layout:(id)arg2 ;
+-(CGSize)estimatedSizeForItemAtIndexPath:(id)arg1 layout:(id)arg2 ;
+-(CGSize)estimatedSizeForHeaderAtIndexPath:(id)arg1 layout:(id)arg2 ;
 -(UIView *)emptyBackgroundView;
 -(void)setEmptyBackgroundView:(UIView *)arg1 ;
--(CGSize)estimatedSizeForItemAtIndexPath:(id)arg1 layout:(id)arg2 ;
--(CGSize)sizeForItemAtIndexPath:(id)arg1 layout:(id)arg2 ;
--(CGSize)estimatedSizeForHeaderAtIndexPath:(id)arg1 layout:(id)arg2 ;
--(CGSize)sizeForHeaderAtIndexPath:(id)arg1 layout:(id)arg2 ;
 -(id)cellIdentifierForClass:(Class)arg1 ;
 -(IGListAdapterProxy *)delegateProxy;
+-(void)setDataSource:(id<IGListAdapterDataSource>)arg1 ;
 -(void)setDelegate:(id<IGListAdapterDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGListAdapterDataSource>)dataSource;

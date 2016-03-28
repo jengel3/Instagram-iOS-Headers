@@ -21,7 +21,7 @@
 -(UILabel *)reasonHeaderLabel;
 -(CALayer *)topLineLayer;
 -(CALayer *)bottomLineLayer;
--(id)initWithFrame:(CGRect)arg1 withAdHideFlowVersion:(int)arg2 ;
+-(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 @end
 

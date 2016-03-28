@@ -32,11 +32,11 @@
 @property (assign,nonatomic) CGRect cropRect;                                          //@synthesize cropRect=_cropRect - In the implementation block
 @property (nonatomic,readonly) _GLKMatrix4 playbackTransform;                          //@synthesize playbackTransform=_playbackTransform - In the implementation block
 @property (nonatomic,retain) IGTrackStabilizer * trackStabilizer;                      //@synthesize trackStabilizer=_trackStabilizer - In the implementation block
+-(id)initWithAsset:(id)arg1 position:(int)arg2 sourceType:(int)arg3 ;
+-(void)setTrackStabilizer:(IGTrackStabilizer *)arg1 ;
 -(NSString *)assetIdentifier;
 -(float)trimmedDuration;
 -(IGTrackStabilizer *)trackStabilizer;
--(void)setTrackStabilizer:(IGTrackStabilizer *)arg1 ;
--(id)initWithAsset:(id)arg1 position:(int)arg2 sourceType:(int)arg3 ;
 -(void)setAssetIdentifier:(NSString *)arg1 ;
 -(void)resetTimes;
 -(CGAffineTransform)videoTrackTransform;

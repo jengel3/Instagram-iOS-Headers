@@ -5,11 +5,12 @@
 #import <UIKit/UITableViewDelegate.h>
 #import <Instagram/IGDirectPendingThreadViewDelegate.h>
 #import <Instagram/IGPullToRefreshProtocol.h>
+#import <Instagram/IGUIPerfLoggable.h>
 
 @protocol IGDirectPendingInboxDelegate;
-@class NSNumber, UITableView, NSOrderedSet, NSString, IGPullToRefreshViewManager, UIView, NSSet, UIButton, UIBarButtonItem;
+@class NSNumber, UITableView, NSOrderedSet, NSString, IGPullToRefreshViewManager, UIView, NSSet, UIButton, UIBarButtonItem, IGDirectUIPerfLogProxy;
 
-@interface IGDirectPendingInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingThreadViewDelegate, IGPullToRefreshProtocol> {
+@interface IGDirectPendingInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingThreadViewDelegate, IGPullToRefreshProtocol, IGUIPerfLoggable> {
 
 	char _loadingPreviousThreads;
 	char _hasFakedPullToRefresh;
@@ -28,6 +29,7 @@
 	UIBarButtonItem* _editButton;
 	UIBarButtonItem* _doneButton;
 	UIBarButtonItem* _spinnerButton;
+	IGDirectUIPerfLogProxy* _perfLogProxy;
 
 }
 
@@ -48,10 +50,14 @@
 @property (nonatomic,retain) UIBarButtonItem * editButton;                                       //@synthesize editButton=_editButton - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * doneButton;                                       //@synthesize doneButton=_doneButton - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * spinnerButton;                                    //@synthesize spinnerButton=_spinnerButton - In the implementation block
+@property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                              //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(char)shouldLogEvent:(unsigned)arg1 ;
+-(unsigned)lastLogEvent;
+-(void)allEventsLoggedWithResult:(id)arg1 ;
 -(char)prefersTabBarHidden;
 -(void)setThreads:(NSOrderedSet *)arg1 ;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
@@ -61,8 +67,10 @@
 -(void)setLoadingPreviousThreads:(char)arg1 ;
 -(float)cellProfilePictureVerticalPadding;
 -(void)loadMoreThreads;
+-(IGDirectUIPerfLogProxy *)perfLogProxy;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
+-(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
 -(void)toggleEditMode;
 -(void)updateRightButton;
 -(char)hasFakedPullToRefresh;

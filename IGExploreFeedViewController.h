@@ -49,8 +49,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)analyticsModule;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
+-(id)analyticsModule;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
 -(id)currentActiveScrollView;

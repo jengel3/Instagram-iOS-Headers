@@ -1,9 +1,10 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGStorableObject.h>
 #import <Instagram/IGSearchResultsLoggableItem.h>
 #import <Instagram/IGSearchResultsLoggableItem.h>
 
-@class NSArray, NSString, CLLocation, NSNumber, NSURL;
+@class NSArray, NSString, CLLocation, NSNumber, NSURL, NSDictionary;
 
 @interface IGUser : IGStorableObject <IGSearchResultsLoggableItem, IGSearchResultsLoggableItem> {
 
@@ -25,6 +26,7 @@
 	char _needy;
 	char _adRater;
 	char _canBoostPost;
+	char _canSeeOrganicInsights;
 	char _isBusiness;
 	NSString* _publicEmail;
 	NSString* _publicPhoneNumber;
@@ -51,8 +53,10 @@
 	NSURL* _externalURL;
 	NSURL* _profilePicURL;
 	NSArray* _HDProfilePicVersions;
+	NSDictionary* _HDProfilePicURLInfo;
 	NSArray* _similarUsers;
 	NSNumber* _mutualFollowersCount;
+	NSNumber* _unseenCount;
 	int _lastFollowStatus;
 
 }
@@ -80,6 +84,7 @@
 @property (readonly) char hasContactOptions; 
 @property (readonly) char hasLocation; 
 @property (assign) char canBoostPost;                                     //@synthesize canBoostPost=_canBoostPost - In the implementation block
+@property (assign) char canSeeOrganicInsights;                            //@synthesize canSeeOrganicInsights=_canSeeOrganicInsights - In the implementation block
 @property (assign) char isBusiness;                                       //@synthesize isBusiness=_isBusiness - In the implementation block
 @property (copy) NSString * publicEmail;                                  //@synthesize publicEmail=_publicEmail - In the implementation block
 @property (copy) NSString * publicPhoneNumber;                            //@synthesize publicPhoneNumber=_publicPhoneNumber - In the implementation block
@@ -107,8 +112,10 @@
 @property (retain) NSURL * externalURL;                                   //@synthesize externalURL=_externalURL - In the implementation block
 @property (retain) NSURL * profilePicURL;                                 //@synthesize profilePicURL=_profilePicURL - In the implementation block
 @property (retain) NSArray * HDProfilePicVersions;                        //@synthesize HDProfilePicVersions=_HDProfilePicVersions - In the implementation block
+@property (retain) NSDictionary * HDProfilePicURLInfo;                    //@synthesize HDProfilePicURLInfo=_HDProfilePicURLInfo - In the implementation block
 @property (retain) NSArray * similarUsers;                                //@synthesize similarUsers=_similarUsers - In the implementation block
 @property (retain) NSNumber * mutualFollowersCount;                       //@synthesize mutualFollowersCount=_mutualFollowersCount - In the implementation block
+@property (retain) NSNumber * unseenCount;                                //@synthesize unseenCount=_unseenCount - In the implementation block
 @property (assign) int lastFollowStatus;                                  //@synthesize lastFollowStatus=_lastFollowStatus - In the implementation block
 +(id)unmanagedUserWithUsername:(id)arg1 ;
 +(id)centralizedStore;
@@ -125,8 +132,6 @@
 -(id)toDict;
 -(NSURL *)profilePicURL;
 -(char)canBoostPost;
--(char)favorited;
--(void)toggleFavoritedStatusShowSuccessAlert:(char)arg1 ;
 -(int)toggleFollowStatus;
 -(char)incomingRequestPending;
 -(char)isFollowRestricted;
@@ -144,18 +149,21 @@
 -(void)setByline:(NSString *)arg1 ;
 -(void)changeFriendshipStatusWithAction:(int)arg1 ;
 -(void)setFollowStatus:(int)arg1 ;
+-(char)favorited;
+-(void)toggleFavoritedStatusShowSuccessAlert:(char)arg1 ;
 -(NSArray *)similarUsers;
 -(void)setSimilarUsers:(NSArray *)arg1 ;
 -(void)fetchAdditionalUserDataWithCompletion:(/*^block*/id)arg1 ;
 -(void)setProfileActionNeeded:(char)arg1 ;
 -(void)setPrivacyStatus:(int)arg1 ;
+-(void)setProfilePicURL:(NSURL *)arg1 ;
 -(NSNumber *)followerCount;
 -(NSNumber *)followingCount;
--(void)setProfilePicURL:(NSURL *)arg1 ;
+-(void)setUnseenCount:(NSNumber *)arg1 ;
+-(NSNumber *)unseenCount;
 -(char)isBusiness;
 -(NSString *)trackingToken;
 -(void)setTrackingToken:(NSString *)arg1 ;
--(void)setSocialContext:(NSString *)arg1 ;
 -(void)setIncomingRequestPending:(char)arg1 ;
 -(NSNumber *)mutualFollowersCount;
 -(NSNumber *)friendScore;
@@ -192,6 +200,7 @@
 -(NSString *)pageCategory;
 -(CLLocation *)publicLocationCoordinates;
 -(NSString *)publicLocationName;
+-(char)canSeeOrganicInsights;
 -(void)setNeedy:(char)arg1 ;
 -(void)setBiography:(NSString *)arg1 ;
 -(void)setExternalURL:(NSURL *)arg1 ;
@@ -206,9 +215,12 @@
 -(void)setMutualFollowersCount:(NSNumber *)arg1 ;
 -(void)setFriendScore:(NSNumber *)arg1 ;
 -(void)setHDProfilePicVersions:(NSArray *)arg1 ;
+-(void)setHDProfilePicURLInfo:(NSDictionary *)arg1 ;
 -(void)setOnDirectBlacklist:(char)arg1 ;
+-(void)setSocialContext:(NSString *)arg1 ;
 -(void)setProfileContext:(NSString *)arg1 ;
 -(void)setCanBoostPost:(char)arg1 ;
+-(void)setCanSeeOrganicInsights:(char)arg1 ;
 -(void)setIsBusiness:(char)arg1 ;
 -(void)setPublicLocationCoordinates:(CLLocation *)arg1 ;
 -(void)setPublicLocationName:(NSString *)arg1 ;
@@ -217,11 +229,13 @@
 -(id)userInfoDict;
 -(id)similarUserInfoDict;
 -(NSArray *)HDProfilePicVersions;
+-(NSDictionary *)HDProfilePicURLInfo;
 -(unsigned)geoMediaCount;
 -(id)fullOrDisplayName;
 -(void)setDirectShareBlocked:(char)arg1 ;
 -(char)rejects_staff_privileges;
 -(id)HDProfilePicURL;
+-(CGSize)HDProfilePicSize;
 -(void)convertUserToBusinessWithPageInfo:(id)arg1 ;
 -(void)convertBusinessBackToUser;
 -(char)friendshipStatusPending;

@@ -32,15 +32,15 @@
 @property (assign,nonatomic) char shouldMuteAudio;                            //@synthesize shouldMuteAudio=_shouldMuteAudio - In the implementation block
 @property (assign,nonatomic) float renderProgress;                            //@synthesize renderProgress=_renderProgress - In the implementation block
 +(CGSize)calculateDownscaleSizeForInputSize:(CGSize)arg1 outputSize:(CGSize)arg2 clip:(id)arg3 ;
+-(void)setStabilizationMode:(unsigned)arg1 ;
+-(void)addClip:(id)arg1 ;
 -(Class)filterClass;
 -(void)setFilterClass:(Class)arg1 ;
 -(NSArray *)clips;
 -(float)keyPosition;
 -(char)shouldMuteAudio;
--(void)setStabilizationMode:(unsigned)arg1 ;
 -(void)refreshThumbnail;
 -(void)removeLastClip;
--(void)addClip:(id)arg1 ;
 -(float)filterStrength;
 -(void)moveClipAtIndex:(id)arg1 toIndex:(id)arg2 ;
 -(void)removeClipAtIndex:(id)arg1 ;

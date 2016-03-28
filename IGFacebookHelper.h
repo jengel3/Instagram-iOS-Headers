@@ -7,6 +7,7 @@
 @interface IGFacebookHelper : NSObject <FBSDKSharingDelegate, IGServiceHelperProtocol> {
 
 	char _isAskingForAdditionalPermisons;
+	char _debugWasEverExplicitLogin;
 	IGGraphQLService* _graphQLService;
 	IGNonCurrentUserDefaults* _sessionUserDefaults;
 
@@ -15,6 +16,7 @@
 @property (nonatomic,readonly) IGGraphQLService * graphQLService;                         //@synthesize graphQLService=_graphQLService - In the implementation block
 @property (nonatomic,retain) IGNonCurrentUserDefaults * sessionUserDefaults;              //@synthesize sessionUserDefaults=_sessionUserDefaults - In the implementation block
 @property (assign,nonatomic) char isAskingForAdditionalPermisons;                         //@synthesize isAskingForAdditionalPermisons=_isAskingForAdditionalPermisons - In the implementation block
+@property (assign,nonatomic) char debugWasEverExplicitLogin;                              //@synthesize debugWasEverExplicitLogin=_debugWasEverExplicitLogin - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -27,9 +29,9 @@
 +(id)loadAccessTokenWithPk:(id)arg1 ;
 +(id)serviceName;
 +(id)sharedHelper;
+-(id)sharingInfo;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(id)sharingInfo;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(char)canShare;
 -(void)shareFeedItem:(id)arg1 fromViewController:(id)arg2 ;
@@ -49,15 +51,17 @@
 -(id)viewControllerForAdvancedOptions;
 -(char)takeIsAskingForAdditionalPermissions;
 -(id)pageName;
--(void)onLoginSuccessful;
+-(void)onLoginSuccessful:(id)arg1 ;
 -(void)refreshCurrentUserInfoIfExpired;
 -(void)restoreSessionForPk:(id)arg1 ;
 -(void)handleAccessTokenChange:(id)arg1 shouldSendCredentials:(char)arg2 error:(id)arg3 ;
+-(void)setDebugWasEverExplicitLogin:(char)arg1 ;
 -(void)accessTokenChanged:(id)arg1 shouldSendCredentials:(char)arg2 error:(id)arg3 ;
 -(void)fbDidLoginSendCredentials:(char)arg1 ;
 -(void)fbDidNotLogin;
 -(void)fetchUserInfoWithFetchStrategy:(int)arg1 completionBlock:(/*^block*/id)arg2 ;
--(void)sendCredentialsToServer;
+-(void)sendCredentialsToServer:(id)arg1 ;
+-(char)debugWasEverExplicitLogin;
 -(void)notifyAuthCompleted;
 -(void)storeCurrentUserInfoToIGUserDefaultsForUserPK:(id)arg1 ;
 -(char)hasAuthorizedWallPost;

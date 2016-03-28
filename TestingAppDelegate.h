@@ -14,7 +14,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setUpAssetCache;
 -(UIWindow *)window;
 -(char)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 ;
 -(void)setWindow:(UIWindow *)arg1 ;

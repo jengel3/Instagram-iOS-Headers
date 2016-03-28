@@ -57,8 +57,8 @@
 -(void)unsubscribeFromRealtime;
 -(IGBulkCommentDeleteManager *)bulkCommentDeleteManager;
 -(char)isLoadingMore;
--(void)undoBulkCommentDeletion;
 -(void)commitBulkCommentDeletion;
+-(void)undoBulkCommentDeletion;
 -(void)commentDeleteManagerDidAddCommentToDelete:(id)arg1 numberOfCommentsToDelete:(int)arg2 ;
 -(void)commentDeleteManagerDidStartCommentDeletion:(id)arg1 ;
 -(void)commentDeleteManagerDidFinishCommentDeletion:(id)arg1 ;

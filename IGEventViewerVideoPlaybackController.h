@@ -13,7 +13,6 @@
 	IGFeedVideoManager* _feedVideoManager;
 	IGEventViewerAnalyticsLogger* _logger;
 	IGEventViewerPlaybackItem* _playbackItem;
-	IGFeedVideoPlayer* _currentPlayer;
 	unsigned _videoRetryCount;
 	float _currentVideoStartTime;
 
@@ -26,7 +25,7 @@
 @property (nonatomic,readonly) IGFeedVideoManager * feedVideoManager;                                       //@synthesize feedVideoManager=_feedVideoManager - In the implementation block
 @property (nonatomic,readonly) IGEventViewerAnalyticsLogger * logger;                                       //@synthesize logger=_logger - In the implementation block
 @property (nonatomic,retain) IGEventViewerPlaybackItem * playbackItem;                                      //@synthesize playbackItem=_playbackItem - In the implementation block
-@property (nonatomic,retain) IGFeedVideoPlayer * currentPlayer;                                             //@synthesize currentPlayer=_currentPlayer - In the implementation block
+@property (nonatomic,readonly) IGFeedVideoPlayer * currentPlayer; 
 @property (assign,nonatomic) char currentVideoDidPlayToEnd;                                                 //@synthesize currentVideoDidPlayToEnd=_currentVideoDidPlayToEnd - In the implementation block
 @property (assign,nonatomic) unsigned videoRetryCount;                                                      //@synthesize videoRetryCount=_videoRetryCount - In the implementation block
 @property (assign,nonatomic) float currentVideoStartTime;                                                   //@synthesize currentVideoStartTime=_currentVideoStartTime - In the implementation block
@@ -34,6 +33,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGFeedVideoManager *)feedVideoManager;
+-(void)feedItemVideoViewDidRequestVideoPlayback:(id)arg1 ;
+-(void)feedItemVideoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
+-(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
+-(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
+-(void)feedItemVideoViewDidPlay:(id)arg1 ;
+-(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
+-(void)feedItemVideoViewDidLongPress:(id)arg1 ;
+-(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
 -(char)audioEnabled;
 -(void)videoPlayerDidPlayToEnd:(id)arg1 ;
 -(id)initWithLogger:(id)arg1 ;
@@ -44,7 +52,6 @@
 -(void)setPlaybackItem:(IGEventViewerPlaybackItem *)arg1 ;
 -(id)initWithFeedVideoManager:(id)arg1 logger:(id)arg2 ;
 -(void)setCurrentVideoStartTime:(float)arg1 ;
--(IGFeedVideoManager *)feedVideoManager;
 -(char)currentVideoDidPlayToEnd;
 -(void)prepareToFinishUsingPlayer:(id)arg1 ;
 -(void)setVideoRetryCount:(unsigned)arg1 ;
@@ -55,22 +62,12 @@
 -(void)videoPlayer:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(void)videoPlayer:(id)arg1 isWaitingForBuffer:(char)arg2 ;
 -(void)videoPlayer:(id)arg1 didFailWithError:(id)arg2 ;
--(void)feedItemVideoViewDidRequestVideoPlayback:(id)arg1 ;
--(void)feedItemVideoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
--(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
--(id)feedItemVideoViewCurrentIGAnalyticsMetadata:(id)arg1 ;
--(int)feedItemVideoViewPosition:(id)arg1 ;
--(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
--(void)feedItemVideoViewDidPlay:(id)arg1 ;
--(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
--(void)feedItemVideoViewDidLongPress:(id)arg1 ;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(float)currentProgress;
 -(void)setAudioEnabled:(char)arg1 ;
 -(void)setDelegate:(id<IGEventViewerVideoPlaybackControllerDelegate>)arg1 ;
 -(id<IGEventViewerVideoPlaybackControllerDelegate>)delegate;
 -(IGFeedVideoPlayer *)currentPlayer;
--(void)setCurrentPlayer:(IGFeedVideoPlayer *)arg1 ;
 -(float)currentDuration;
 @end
 

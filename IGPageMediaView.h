@@ -8,19 +8,19 @@
 #import <UIKit/UICollectionViewDelegateFlowLayout.h>
 #import <UIKit/UICollectionViewDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
-#import <Instagram/IGDismissableOverlay.h>
+#import <Instagram/IGOverlayable.h>
 
 @protocol IGPageMediaViewDelegate;
-@class NSArray, IGFeedItemPageCellState, IGVideoViewLogger, UICollectionView, IGBulkMediaRequestManager, IGItemVisibilityTracker, IGImagePreparer, IGFeedItemVideoView, NSString;
+@class NSArray, IGFeedItemPageCellState, IGPageMediaVideoViewLoggerProvider, UICollectionView, IGBulkMediaRequestManager, IGItemVisibilityTracker, IGImagePreparer, IGFeedItemVideoView, NSString;
 
-@interface IGPageMediaView : UIView <IGItemVisibilityTrackerDelegate, IGPhotoCellDelegate, IGVideoCellDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate, IGDismissableOverlay> {
+@interface IGPageMediaView : UIView <IGItemVisibilityTrackerDelegate, IGPhotoCellDelegate, IGVideoCellDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate, IGOverlayable> {
 
 	char _onScreen;
 	NSArray* _items;
 	IGFeedItemPageCellState* _pageCellState;
 	float _percentVisible;
 	id<IGPageMediaViewDelegate> _delegate;
-	IGVideoViewLogger* _videoLogger;
+	IGPageMediaVideoViewLoggerProvider* _videoLoggerProvider;
 	UICollectionView* _collectionView;
 	IGBulkMediaRequestManager* _requestManager;
 	IGItemVisibilityTracker* _itemVisibilityTracker;
@@ -28,54 +28,59 @@
 
 }
 
-@property (nonatomic,retain) NSArray * items;                                              //@synthesize items=_items - In the implementation block
-@property (nonatomic,retain) IGFeedItemPageCellState * pageCellState;                      //@synthesize pageCellState=_pageCellState - In the implementation block
-@property (assign,nonatomic) float percentVisible;                                         //@synthesize percentVisible=_percentVisible - In the implementation block
-@property (assign,nonatomic,__weak) id<IGPageMediaViewDelegate> delegate;                  //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,readonly) IGFeedItemVideoView * videoView; 
-@property (nonatomic,retain) IGVideoViewLogger * videoLogger;                              //@synthesize videoLogger=_videoLogger - In the implementation block
-@property (nonatomic,retain) UICollectionView * collectionView;                            //@synthesize collectionView=_collectionView - In the implementation block
-@property (nonatomic,retain) IGBulkMediaRequestManager * requestManager;                   //@synthesize requestManager=_requestManager - In the implementation block
-@property (nonatomic,retain) IGItemVisibilityTracker * itemVisibilityTracker;              //@synthesize itemVisibilityTracker=_itemVisibilityTracker - In the implementation block
-@property (assign,getter=isOnScreen,nonatomic) char onScreen;                              //@synthesize onScreen=_onScreen - In the implementation block
-@property (nonatomic,retain) IGImagePreparer * imagePreparer;                              //@synthesize imagePreparer=_imagePreparer - In the implementation block
+@property (nonatomic,retain) NSArray * items;                                                       //@synthesize items=_items - In the implementation block
+@property (nonatomic,retain) IGFeedItemPageCellState * pageCellState;                               //@synthesize pageCellState=_pageCellState - In the implementation block
+@property (assign,nonatomic) float percentVisible;                                                  //@synthesize percentVisible=_percentVisible - In the implementation block
+@property (assign,nonatomic,__weak) id<IGPageMediaViewDelegate> delegate;                           //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,readonly) IGFeedItemVideoView * currentVideoView; 
+@property (nonatomic,retain) IGPageMediaVideoViewLoggerProvider * videoLoggerProvider;              //@synthesize videoLoggerProvider=_videoLoggerProvider - In the implementation block
+@property (nonatomic,retain) UICollectionView * collectionView;                                     //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,retain) IGBulkMediaRequestManager * requestManager;                            //@synthesize requestManager=_requestManager - In the implementation block
+@property (nonatomic,retain) IGItemVisibilityTracker * itemVisibilityTracker;                       //@synthesize itemVisibilityTracker=_itemVisibilityTracker - In the implementation block
+@property (assign,getter=isOnScreen,nonatomic) char onScreen;                                       //@synthesize onScreen=_onScreen - In the implementation block
+@property (nonatomic,retain) IGImagePreparer * imagePreparer;                                       //@synthesize imagePreparer=_imagePreparer - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
--(IGBulkMediaRequestManager *)requestManager;
--(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(void)prefetchMedia;
 -(IGImagePreparer *)imagePreparer;
+-(IGBulkMediaRequestManager *)requestManager;
+-(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
+-(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
+-(float)percentVisible;
+-(IGFeedItemPageCellState *)pageCellState;
+-(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
+-(void)dismissOverlayAnimated:(char)arg1 ;
+-(void)scrollToPage:(int)arg1 animated:(char)arg2 ;
+-(void)setVideoLoggerProvider:(IGPageMediaVideoViewLoggerProvider *)arg1 ;
+-(void)setPercentVisible:(float)arg1 ;
+-(void)videoCellDidDoubleTap:(id)arg1 ;
 -(void)photoCellDidInitialSingleTap:(id)arg1 ;
--(void)photoCellDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
 -(void)photoCellDidDoubleTapToLike:(id)arg1 ;
 -(void)photoCellImageDidLoadImage:(id)arg1 ;
+-(void)photoCellDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
 -(void)videoCellDidRequestVideoPlayback:(id)arg1 ;
 -(void)videoCellDidLoadImage:(id)arg1 ;
 -(void)videoCellDidPlayToEnd:(id)arg1 ;
--(void)videoCellDidDoubleTap:(id)arg1 ;
--(float)percentVisible;
--(IGFeedItemPageCellState *)pageCellState;
--(void)dismissOverlayAnimated:(char)arg1 ;
--(void)scrollToPage:(int)arg1 animated:(char)arg2 ;
--(void)setVideoLogger:(IGVideoViewLogger *)arg1 ;
--(void)setPercentVisible:(float)arg1 ;
+-(void)videoCell:(id)arg1 didToggleAudio:(char)arg2 ;
 -(void)setOnScreen:(char)arg1 ;
 -(IGItemVisibilityTracker *)itemVisibilityTracker;
 -(void)dismissCurrentPhotoCellOverlayAnimated:(char)arg1 ;
 -(void)updateItemVisibility;
--(IGVideoViewLogger *)videoLogger;
+-(id)photoCellForItem:(id)arg1 indexPath:(id)arg2 ;
+-(void)decodeAdjacentPhotosForItemAtIndex:(int)arg1 ;
+-(id)videoCellForItem:(id)arg1 indexPath:(id)arg2 ;
 -(void)handleIndexingForDidScroll:(id)arg1 ;
 -(float)percentVisibleForCell:(id)arg1 ;
+-(IGPageMediaVideoViewLoggerProvider *)videoLoggerProvider;
 -(void)itemVisibilityTracker:(id)arg1 itemDidAppear:(id)arg2 ;
 -(void)itemVisibilityTracker:(id)arg1 itemDidDisappear:(id)arg2 ;
 -(void)itemVisibilityTracker:(id)arg1 itemDidStartViewing:(id)arg2 ;
 -(void)updateCollectionViewCellTransform:(CGAffineTransform)arg1 ;
 -(void)setItemVisibilityTracker:(IGItemVisibilityTracker *)arg1 ;
 -(void)setImagePreparer:(IGImagePreparer *)arg1 ;
--(IGFeedItemVideoView *)videoView;
+-(IGFeedItemVideoView *)currentVideoView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGPageMediaViewDelegate>)arg1 ;
 -(void)dealloc;

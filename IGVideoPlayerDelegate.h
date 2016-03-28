@@ -2,8 +2,8 @@
 
 @protocol IGVideoPlayerDelegate <NSObject>
 @required
--(void)videoPlayerDidLoadPixelBuffer:(CVBufferRef)arg1 withTime:(SCD_Struct_IG44)arg2;
--(void)videoPlayerDidFinishPlayingWithAnimation:(char)arg1;
+-(void)videoPlayer:(id)arg1 didLoadPixelBuffer:(CVBufferRef)arg2 withTime:(SCD_Struct_IG44)arg3;
+-(void)videoPlayer:(id)arg1 didFinishPlayingWithAnimation:(char)arg2;
 
 @end
 

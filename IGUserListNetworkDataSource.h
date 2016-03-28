@@ -24,6 +24,7 @@
 	NSString* _maxID;
 	int _status;
 	NSCache* _searchCache;
+	NSArray* _allUsersCache;
 
 }
 
@@ -43,6 +44,7 @@
 @property (nonatomic,copy) NSString * maxID;                                                       //@synthesize maxID=_maxID - In the implementation block
 @property (assign,nonatomic) int status;                                                           //@synthesize status=_status - In the implementation block
 @property (nonatomic,retain) NSCache * searchCache;                                                //@synthesize searchCache=_searchCache - In the implementation block
+@property (nonatomic,retain) NSArray * allUsersCache;                                              //@synthesize allUsersCache=_allUsersCache - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -70,12 +72,15 @@
 -(NSString *)maxID;
 -(void)onMoreUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onUserFetchFailed:(id)arg1 fromRequest:(id)arg2 ;
+-(NSArray *)allUsersCache;
+-(void)setAllUsersCache:(NSArray *)arg1 ;
 -(void)onUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)setMoreUsersAvailable:(char)arg1 ;
 -(void)setMaxID:(NSString *)arg1 ;
 -(id)sortingBlock;
 -(char)moreUsersAvailable;
 -(unsigned)indexOfUser:(id)arg1 ;
+-(void)filterBySearchString:(id)arg1 ;
 -(char)hasCachedResultsForQuery:(id)arg1 ;
 -(NSArray *)augmentedUsers;
 -(int)userCellAccessory;

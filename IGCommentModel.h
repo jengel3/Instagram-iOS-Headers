@@ -16,6 +16,7 @@
 	IGDate* _createdAt;
 	int _postedState;
 	NSString* _idempotenceToken;
+	NSString* _failureReason;
 
 }
 
@@ -30,22 +31,19 @@
 @property (assign,nonatomic) char didReportAsSpam;                     //@synthesize didReportAsSpam=_didReportAsSpam - In the implementation block
 @property (nonatomic,readonly) char canDelete; 
 @property (nonatomic,retain) NSString * idempotenceToken;              //@synthesize idempotenceToken=_idempotenceToken - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
+@property (nonatomic,copy) NSString * failureReason;                   //@synthesize failureReason=_failureReason - In the implementation block
 +(id)postCommentWithText:(id)arg1 forPost:(id)arg2 ;
 +(id)defaultTruncationTokenString;
 +(id)moreTruncationTokenString;
 -(NSString *)pk;
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
+-(id)diffIdentifier;
 -(IGPost *)post;
 -(void)setPost:(IGPost *)arg1 ;
 -(id)initWithText:(id)arg1 post:(id)arg2 user:(id)arg3 ;
 -(id)styledStringForWidth:(float)arg1 feedItem:(id)arg2 shouldCollapseCaption:(char)arg3 ;
 -(void)reportWithReason:(int)arg1 ;
 -(char)didReportAsSpam;
--(id)diffIdentifier;
 -(int)postedState;
 -(void)setPostedState:(int)arg1 ;
 -(id)buildStyledStringWithNewline:(char)arg1 ;
@@ -53,6 +51,7 @@
 -(void)setPk:(NSString *)arg1 ;
 -(NSString *)idempotenceToken;
 -(void)forceRemoveAndReportWithReason:(int)arg1 ;
+-(void)setFailureReason:(NSString *)arg1 ;
 -(void)onCommentDeleted;
 -(void)setDidReportAsSpam:(char)arg1 ;
 -(id)buildStyledStringWithNewline:(char)arg1 width:(float)arg2 numberOfLines:(int)arg3 truncationToken:(id)arg4 ;
@@ -66,7 +65,7 @@
 -(void)setUser:(IGUser *)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
--(NSString *)description;
+-(id)description;
 -(id)initWithDictionary:(id)arg1 ;
 -(void)setType:(int)arg1 ;
 -(int)type;
@@ -74,6 +73,7 @@
 -(void)setText:(NSString *)arg1 ;
 -(char)canDelete;
 -(void)setCreatedAt:(IGDate *)arg1 ;
+-(NSString *)failureReason;
 -(IGDate *)createdAt;
 @end
 

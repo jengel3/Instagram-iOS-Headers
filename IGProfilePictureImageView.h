@@ -7,6 +7,7 @@
 @interface IGProfilePictureImageView : IGImageView {
 
 	char _buttonDisabled;
+	char _useHDPictureIfAvailable;
 	IGUser* _user;
 	IGSimpleButton* _profilePicButton;
 	int _borderStyle;
@@ -19,13 +20,17 @@
 @property (nonatomic,readonly) IGSimpleButton * profilePicButton;              //@synthesize profilePicButton=_profilePicButton - In the implementation block
 @property (assign,nonatomic) int borderStyle;                                  //@synthesize borderStyle=_borderStyle - In the implementation block
 @property (assign,nonatomic) char buttonDisabled;                              //@synthesize buttonDisabled=_buttonDisabled - In the implementation block
+@property (assign,nonatomic) char useHDPictureIfAvailable;                     //@synthesize useHDPictureIfAvailable=_useHDPictureIfAvailable - In the implementation block
 @property (nonatomic,retain) UIColor * borderColor;                            //@synthesize borderColor=_borderColor - In the implementation block
 @property (assign,nonatomic) float borderWidth;                                //@synthesize borderWidth=_borderWidth - In the implementation block
+-(void)setButtonDisabled:(char)arg1 ;
 -(IGSimpleButton *)profilePicButton;
 -(id)initWithFrame:(CGRect)arg1 user:(id)arg2 ;
--(void)setButtonDisabled:(char)arg1 ;
+-(void)setUseHDPictureIfAvailable:(char)arg1 ;
 -(void)tapped:(id)arg1 ;
 -(void)userUpdated:(id)arg1 ;
+-(id)profilePicURLForUser:(id)arg1 ;
+-(char)useHDPictureIfAvailable;
 -(char)buttonDisabled;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;

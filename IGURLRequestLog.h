@@ -27,8 +27,8 @@
 +(void)setLoggingEnabled:(char)arg1 ;
 -(NSNumber *)totalBytesUp;
 -(NSNumber *)totalBytesDown;
--(NSNumber *)domainError;
 -(void)markEvent:(int)arg1 ;
+-(NSNumber *)domainError;
 -(void)setDomainError:(NSNumber *)arg1 ;
 -(void)setTotalBytesUp:(NSNumber *)arg1 ;
 -(void)setTotalBytesDown:(NSNumber *)arg1 ;

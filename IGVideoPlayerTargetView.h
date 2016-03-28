@@ -29,6 +29,7 @@
 -(id)playerPlaybackObserver;
 -(void)setPlayerRateObserver:(IGKVOHandle *)arg1 ;
 -(void)setPlayerPlaybackObserver:(id)arg1 ;
+-(char)shouldDeallocInWorkingQueue;
 -(IGKVOHandle *)readyToDisplayObserver;
 -(void)setReadyToDisplayObserver:(IGKVOHandle *)arg1 ;
 -(void)setPlayer:(AVQueuePlayer *)arg1 ;

@@ -37,6 +37,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(UIView *)cropView;
 -(void)updateCropView;
 -(id)perspectiveContentRegion;
 -(CGPoint)cropCenter;
@@ -55,7 +56,6 @@
 -(CGSize)largestOutputSizeWithNoUpscaling;
 -(void)cropViewWillUpdateCropRegion:(id)arg1 ;
 -(void)cropViewDidUpdateCropRegion:(id)arg1 ;
--(UIView *)cropView;
 -(void)prepareInitialCropAspectRatio:(float)arg1 cropCenter:(CGPoint)arg2 cropZoomScale:(float)arg3 ;
 -(float)perspectiveRotateAngleForRotateMode:(unsigned)arg1 ;
 -(void)setPerspectiveRotationWithXRotatationAngle:(float)arg1 YRotationAngle:(float)arg2 ZRotationAngle:(float)arg3 ;

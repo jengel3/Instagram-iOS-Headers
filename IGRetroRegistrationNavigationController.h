@@ -72,8 +72,6 @@
 -(void)smsVerificationViewController:(id)arg1 didRequestSupportWithUsername:(id)arg2 twoFactorIdentifier:(id)arg3 ;
 -(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
 -(char)smsVerificationViewControllerIsSwitchingUsers:(id)arg1 ;
--(void)setFollowCount:(int)arg1 ;
--(int)followCount;
 -(void)addEmailViewControllerDidTapPhoneRegiButton:(id)arg1 ;
 -(void)addEmailViewControllerDidTapLoginButton:(id)arg1 ;
 -(void)addEmailViewController:(id)arg1 proceedWithValidatedEmail:(id)arg2 usernameSuggestions:(id)arg3 ;
@@ -83,6 +81,8 @@
 -(void)findFriendsControllerSkipButtonTapped:(id)arg1 ;
 -(void)findFriendsController:(id)arg1 wantsToPresentViewController:(id)arg2 animated:(char)arg3 completion:(/*^block*/id)arg4 ;
 -(void)findFriendsController:(id)arg1 wantsToDismissViewControllerAnimated:(char)arg2 completion:(/*^block*/id)arg3 ;
+-(void)setFollowCount:(int)arg1 ;
+-(int)followCount;
 -(void)findFriendsController:(id)arg1 wasTappedOnURL:(id)arg2 ;
 -(char)loginViewControllerIsSwitchingUsers:(id)arg1 ;
 -(void)loginViewControllerDidTapLoginButton:(id)arg1 ;
@@ -106,6 +106,7 @@
 -(id)createEmailConfirmationViewController;
 -(id)createAccountTakeOverViewController;
 -(id)createSignInHelperViewController;
+-(id)createRequestSupportFormViewController;
 -(Class)viewControllerClassForStep:(int)arg1 ;
 -(int)indexOfViewControllerClass:(Class)arg1 ;
 -(void)userLoggedInOperations;
@@ -156,6 +157,7 @@
 -(void)signInHelperViewController:(id)arg1 userEmailTakenAutoLoginWithLoggedInDicted:(id)arg2 ;
 -(void)signInHelperViewController:(id)arg1 resetPasswordWithViewController:(id)arg2 ;
 -(void)signInHelperViewController:(id)arg1 proceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
+-(void)signInHelperViewController:(id)arg1 didRequestSupportWithUsername:(id)arg2 ;
 -(id)initWithIsSwitchingUsers:(char)arg1 ;
 -(void)setIsSwitchingUsers:(char)arg1 ;
 -(void)dealloc;

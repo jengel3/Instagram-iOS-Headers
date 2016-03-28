@@ -32,8 +32,8 @@
 @property (nonatomic,retain) IGStringStyle * boldGrayStyle;                                             //@synthesize boldGrayStyle=_boldGrayStyle - In the implementation block
 @property (nonatomic,retain) IGStringStyle * boldLinkStyle;                                             //@synthesize boldLinkStyle=_boldLinkStyle - In the implementation block
 @property (nonatomic,retain) UIButton * imageButton;                                                    //@synthesize imageButton=_imageButton - In the implementation block
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setAccessoryViewType:(int)arg1 ;
 -(UIButton *)customizableButton;

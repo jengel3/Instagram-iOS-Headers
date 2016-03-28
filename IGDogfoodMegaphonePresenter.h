@@ -24,8 +24,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)newDogfoodMegaphone;
 +(char)shouldShowDogfooderSoftNagMegaphone;
-+(double)buildAgeInSeconds;
 +(id)dogfoodMegaphoneMessageForUpdate;
++(double)buildAgeInSeconds;
 -(IGGenericMegaphoneView *)megaphoneView;
 -(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
 -(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;

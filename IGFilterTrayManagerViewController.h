@@ -46,5 +46,6 @@
 -(id)initWithNibName:(id)arg1 bundle:(id)arg2 ;
 -(void)viewWillLayoutSubviews;
 -(void)viewDidLoad;
+-(char)automaticallyAdjustsScrollViewInsets;
 @end
 

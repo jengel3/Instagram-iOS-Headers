@@ -46,6 +46,8 @@
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(float)height;
+-(void)setTopGradientView:(IGGradientView *)arg1 ;
+-(IGGradientView *)topGradientView;
 -(UIView *)bottomLine;
 -(void)setBottomLine:(UIView *)arg1 ;
 -(IGProfilePictureImageView *)profilePictureImageView;
@@ -59,11 +61,9 @@
 -(CGRect)photoFrameRectForAspectRatio:(float)arg1 ;
 -(CGRect)profilePictureRect;
 -(void)onMediaTap;
--(IGGradientView *)topGradientView;
 -(IGSimpleFrameButton *)photoFrameView;
 -(void)setThumbnailViewHidden:(char)arg1 ;
 -(void)setPhotoFrameView:(IGSimpleFrameButton *)arg1 ;
--(void)setTopGradientView:(IGGradientView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGCaptionCellDelegate>)arg1 ;
 -(void)dealloc;

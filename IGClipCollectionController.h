@@ -7,12 +7,12 @@
 #import <UIKit/UICollectionViewDelegateFlowLayout.h>
 
 @protocol IGClipCollectionControllerDelegate;
-@class UIView, IGVideoClip, IGClipTrayView, IGVideoComposition, NSString;
+@class IGClipTrayView, IGVideoClip, IGVideoComposition, NSString;
 
 @interface IGClipCollectionController : NSObject <LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
 
 	char _scrollingToClip;
-	UIView* _view;
+	IGClipTrayView* _view;
 	IGVideoClip* _selectedClip;
 	id<IGClipCollectionControllerDelegate> _delegate;
 	IGClipTrayView* _clipTrayView;
@@ -20,7 +20,7 @@
 
 }
 
-@property (nonatomic,readonly) UIView * view;                                                     //@synthesize view=_view - In the implementation block
+@property (nonatomic,readonly) IGClipTrayView * view;                                             //@synthesize view=_view - In the implementation block
 @property (nonatomic,readonly) IGVideoClip * selectedClip;                                        //@synthesize selectedClip=_selectedClip - In the implementation block
 @property (assign,nonatomic,__weak) id<IGClipCollectionControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGClipTrayView * clipTrayView;                                       //@synthesize clipTrayView=_clipTrayView - In the implementation block
@@ -34,7 +34,7 @@
 -(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canMoveToIndexPath:(id)arg3 ;
 -(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canBeRemovedAtPoint:(CGPoint)arg3 ;
 -(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 wasRemovedAtPoint:(CGPoint)arg3 ;
--(void)collectionView:(id)arg1 layout:(id)arg2 didBeginDraggingItemAtIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 layout:(id)arg2 willBeginDraggingItemAtIndexPath:(id)arg3 ;
 -(void)collectionView:(id)arg1 layout:(id)arg2 didEndDraggingItemAtIndexPath:(id)arg3 ;
 -(void)reloadCollectionWithVideoComposition:(id)arg1 ;
 -(void)reloadClipAtIndex:(unsigned)arg1 ;
@@ -48,7 +48,7 @@
 -(void)setDelegate:(id<IGClipCollectionControllerDelegate>)arg1 ;
 -(id)init;
 -(id<IGClipCollectionControllerDelegate>)delegate;
--(UIView *)view;
+-(IGClipTrayView *)view;
 -(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
 -(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(int)numberOfSectionsInCollectionView:(id)arg1 ;

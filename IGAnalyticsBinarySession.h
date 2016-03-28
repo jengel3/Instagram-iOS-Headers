@@ -23,9 +23,9 @@
 @property (nonatomic,readonly) NSString * deviceSoftwareVersion;              //@synthesize deviceSoftwareVersion=_deviceSoftwareVersion - In the implementation block
 @property (nonatomic,readonly) NSString * deviceHardwareVersion;              //@synthesize deviceHardwareVersion=_deviceHardwareVersion - In the implementation block
 @property (nonatomic,readonly) NSString * appVersion;                         //@synthesize appVersion=_appVersion - In the implementation block
--(void)beginNewBatch;
 -(id)initWithAppID:(id)arg1 appVersion:(id)arg2 deviceID:(id)arg3 deviceSoftwareVersion:(id)arg4 deviceHardwareVersion:(id)arg5 ;
 -(id)loggingDataForCurrentBatch;
+-(void)beginNewBatch;
 -(void)addEvent:(id)arg1 ;
 -(NSDate *)startTime;
 -(NSString *)deviceSoftwareVersion;

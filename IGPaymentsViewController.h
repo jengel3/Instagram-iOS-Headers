@@ -1,22 +1,21 @@
 
 #import <UIKit/UIViewController.h>
-#import <Instagram/IGPaymentsViewDelegate.h>
+#import <Instagram/IGHybridWebViewDelegate.h>
 
-@class IGPaymentsView, NSString;
+@class IGHybridWebView, NSString;
 
-@interface IGPaymentsViewController : UIViewController <IGPaymentsViewDelegate>
+@interface IGPaymentsViewController : UIViewController <IGHybridWebViewDelegate>
 
-@property (nonatomic,readonly) IGPaymentsView * paymentsView; 
+@property (nonatomic,readonly) IGHybridWebView * paymentsView; 
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)didSelectClosePaymentsView:(id)arg1 ;
--(IGPaymentsView *)paymentsView;
--(char)prefersStatusBarHidden;
--(int)preferredStatusBarUpdateAnimation;
+-(void)didSelectCloseHybridWebView:(id)arg1 ;
+-(IGHybridWebView *)paymentsView;
 -(void)loadView;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
+-(char)prefersNavigationBarHidden;
 @end
 

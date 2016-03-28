@@ -18,9 +18,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)presentWithViewController:(id)arg1 ;
 -(void)setProductVC:(SKStoreProductViewController *)arg1 ;
 -(SKStoreProductViewController *)productVC;
+-(void)presentWithViewController:(id)arg1 ;
 -(id)storeViewController;
 -(void)dealloc;
 -(NSDictionary *)parameters;

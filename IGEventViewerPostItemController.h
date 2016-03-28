@@ -21,12 +21,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGPost *)post;
 -(id)cellClasses;
 -(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(id)supplementaryViewSource;
 -(id)displayDelegate;
+-(IGPost *)post;
 -(id<IGEventViewerAttributionHeaderCellDelegate>)headerCellDelegate;
 -(id<IGEventViewerMediaCellDelegate>)mediaCellDelegate;
 -(id)initWithPost:(id)arg1 headerCellDelegate:(id)arg2 mediaCellDelegate:(id)arg3 ;

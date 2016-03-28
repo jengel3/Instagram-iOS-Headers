@@ -47,8 +47,6 @@
 +(id)createSendButton;
 +(id)createLoginHelperButton;
 +(id)createFacebookButton;
--(IGRetroRegistrationSignInHelperToggleView *)toggleView;
--(void)setToggleView:(IGRetroRegistrationSignInHelperToggleView *)arg1 ;
 -(IGRetroRegistrationTextField *)emailField;
 -(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
 -(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
@@ -59,10 +57,12 @@
 -(void)setPhoneNumberField:(IGRetroRegistrationPhoneNumberField *)arg1 ;
 -(void)switchToEmailView;
 -(char)isTabEnabled;
+-(IGRetroRegistrationSignInHelperToggleView *)toggleView;
 -(UIButton *)switchButton;
 -(UIButton *)loginHelperButton;
 -(void)switchToPhoneNumberView;
 -(void)setSwitchButton:(UIButton *)arg1 ;
+-(void)setToggleView:(IGRetroRegistrationSignInHelperToggleView *)arg1 ;
 -(void)setLoginHelperButton:(UIButton *)arg1 ;
 -(void)setIsTabEnabled:(char)arg1 ;
 -(UILabel *)descriptionLabel;
