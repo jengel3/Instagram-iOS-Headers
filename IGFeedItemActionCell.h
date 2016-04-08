@@ -41,6 +41,11 @@
 @property (nonatomic,retain) NSArray * accessibilityElements;                                           //@synthesize accessibilityElements=_accessibilityElements - In the implementation block
 @property (nonatomic,retain) IGToastStyleNUXView * reshareNUXView;                                      //@synthesize reshareNUXView=_reshareNUXView - In the implementation block
 +(float)height;
+-(void)setSaveButton:(id)arg1 ;
+-(id)saveButton;
+-(void)shareItem:(id)arg1 ;
+-(void)saveNow;
+-(void)saveItem:(id)arg1 ;
 -(IGFeedItem *)feedItem;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;

@@ -41,6 +41,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)closeController;
 -(void)setShowPopoutButton:(char)arg1 ;
 -(void)dismissWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)onCancelModal;

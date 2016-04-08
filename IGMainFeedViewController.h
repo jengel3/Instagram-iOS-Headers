@@ -50,6 +50,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)changeView;
 -(void)albumNetworkSource:(id)arg1 didReceiveItems:(id)arg2 ;
 -(id)analyticsModule;
 -(char)enableNavState;

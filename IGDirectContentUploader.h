@@ -28,9 +28,9 @@
 +(void)fetchThreadIfRealtimeNotReceivingAndUploadIsVideo:(id)arg1 ;
 +(id)firstThreadIDFromResponse:(id)arg1 ;
 +(void)precacheUploadImagesIfNeeded:(id)arg1 response:(id)arg2 completion:(/*^block*/id)arg3 ;
++(void)sendHttpUpload:(id)arg1 withProgress:(/*^block*/id)arg2 andCompletion:(/*^block*/id)arg3 ;
 +(char)realtimeIsReadyForSending;
 +(void)sendRealtimeUpload:(id)arg1 withProgress:(/*^block*/id)arg2 andCompletion:(/*^block*/id)arg3 ;
-+(void)sendHttpUpload:(id)arg1 withProgress:(/*^block*/id)arg2 andCompletion:(/*^block*/id)arg3 ;
 +(char)realtimeIsReadyForReceiving;
 +(void)saveUpload:(id)arg1 ;
 +(void)sendUpload:(id)arg1 withProgress:(/*^block*/id)arg2 andCompletion:(/*^block*/id)arg3 ;

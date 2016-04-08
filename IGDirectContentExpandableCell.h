@@ -38,6 +38,8 @@
 +(float)expandedHeightForWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
 +(CGSize)contractedOffsetForUploadSpinner;
 +(CGSize)expandedOffsetForUploadSpinner;
+-(void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;
+-(void)callShare:(id)arg1 ;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(id)timestampText;
 -(void)setCellDecorator:(id)arg1 ;

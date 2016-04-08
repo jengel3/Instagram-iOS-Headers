@@ -66,6 +66,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(id)analyticsModule;

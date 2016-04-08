@@ -22,9 +22,9 @@
 -(int)keyboardAnimationCurve;
 -(void)setKeyboardAnimationCurve:(int)arg1 ;
 -(void)setKeyboardAnimationDuration:(float)arg1 ;
--(char)keyboardIsVisible;
 -(void)warmKeyboard;
 -(void)setKeyboardHeight:(float)arg1 ;
+-(char)keyboardIsVisible;
 -(void)dealloc;
 -(id)init;
 -(UIView *)keyboard;

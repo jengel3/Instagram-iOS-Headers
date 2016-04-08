@@ -95,6 +95,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)getMutedList:(id)arg1 ;
 -(IGFeedFocusCoordinator *)focusCoordinator;
 -(void)albumFullscreenViewControllerShouldDismiss:(id)arg1 ;
 -(void)setFocusCoordinator:(IGFeedFocusCoordinator *)arg1 ;

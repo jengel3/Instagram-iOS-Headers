@@ -23,6 +23,8 @@
 @property (nonatomic,retain) IGStyledString * styledString;                             //@synthesize styledString=_styledString - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCoreTextLinkHandler> linkHandler;              //@synthesize linkHandler=_linkHandler - In the implementation block
 @property (assign,nonatomic) char usePaddedTapDetection;                                //@synthesize usePaddedTapDetection=_usePaddedTapDetection - In the implementation block
+-(void)callShare:(id)arg1 ;
+-(void)layoutSubviews;
 -(void)setLinkHandler:(id<IGCoreTextLinkHandler>)arg1 ;
 -(void)setStyledString:(IGStyledString *)arg1 ;
 -(id)initWithWidth:(float)arg1 ;

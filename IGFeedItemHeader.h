@@ -51,6 +51,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)showTimestamp;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;

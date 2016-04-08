@@ -14,6 +14,7 @@
 @property (assign,nonatomic) UIColor * overlayColor; 
 @property (assign,nonatomic) float overlayAlpha;                       //@synthesize overlayAlpha=_overlayAlpha - In the implementation block
 @property (nonatomic,retain) UIView * contentOverlayView;              //@synthesize contentOverlayView=_contentOverlayView - In the implementation block
+-(void)_UIAppearance_setOverlayColor:(id)arg1 ;
 -(void)setDisplaysShadow:(char)arg1 animated:(char)arg2 ;
 -(void)setOverlayAlpha:(float)arg1 ;
 -(float)overlayAlpha;

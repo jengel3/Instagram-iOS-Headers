@@ -82,6 +82,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setStatusLabel:(id)arg1 ;
+-(id)statusLabel;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;

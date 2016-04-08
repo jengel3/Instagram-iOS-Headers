@@ -53,10 +53,10 @@
 -(void)setPostImageView:(IGImageProgressView *)arg1 ;
 -(void)setPostProfilePicture:(IGProfilePictureImageView *)arg1 ;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
--(void)setCaptionView:(IGCoreTextView *)arg1 ;
 -(void)setPhotoSeparatorTopLine:(UIView *)arg1 ;
 -(void)setPhotoSeparatorBottomLine:(UIView *)arg1 ;
 -(void)setVideoIndicatorView:(IGVideoIndicatorView *)arg1 ;
+-(void)setCaptionView:(IGCoreTextView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(id)defaultBorderColor;

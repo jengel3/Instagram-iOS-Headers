@@ -45,6 +45,8 @@
 +(id)urlForLinkWithType:(id)arg1 target:(id)arg2 ;
 +(char)isLinkBold:(id)arg1 ;
 +(id)styledStringForTitle:(id)arg1 andSubtitle:(id)arg2 ;
+-(void)setShouldMute:(char)arg1 ;
+-(char)shouldMute;
 -(NSString *)pk;
 -(void)setThreadID:(NSString *)arg1 ;
 -(void)setStyledString:(IGStyledString *)arg1 ;
