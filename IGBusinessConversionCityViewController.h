@@ -9,6 +9,7 @@
 
 @interface IGBusinessConversionCityViewController : IGViewController <IGSearchBarDelegate, UITableViewDataSource, UITableViewDelegate> {
 
+	char _showStatusBar;
 	char _noResultsFound;
 	id<IGBusinessConversionCityViewControllerDelegate> _delegate;
 	UITableView* _tableView;
@@ -19,6 +20,7 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGBusinessConversionCityViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic) char showStatusBar;                                                              //@synthesize showStatusBar=_showStatusBar - In the implementation block
 @property (nonatomic,retain) UITableView * tableView;                                                         //@synthesize tableView=_tableView - In the implementation block
 @property (nonatomic,retain) NSArray * searchResults;                                                         //@synthesize searchResults=_searchResults - In the implementation block
 @property (nonatomic,retain) IGSearchBar * searchBar;                                                         //@synthesize searchBar=_searchBar - In the implementation block
@@ -28,6 +30,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setShowStatusBar:(char)arg1 ;
 -(char)noResultsFound;
 -(void)setNoResultsFound:(char)arg1 ;
 -(void)fetchResultsForQuery:(id)arg1 ;
@@ -52,5 +55,6 @@
 -(NSArray *)searchResults;
 -(void)setCurrentQuery:(NSString *)arg1 ;
 -(NSString *)currentQuery;
+-(char)showStatusBar;
 @end
 

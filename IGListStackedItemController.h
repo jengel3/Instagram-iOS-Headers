@@ -30,7 +30,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) CGSize containerSize; 
+-(void)setPresentationContext:(id)arg1 ;
 -(id)dequeReusableCellOfClass:(Class)arg1 forListItemController:(id)arg2 atIndex:(int)arg3 ;
+-(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 ;
+-(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
+-(void)listAdapter:(id)arg1 didScrollListItemController:(id)arg2 ;
 -(id)cellClasses;
 -(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
@@ -42,13 +48,9 @@
 -(void)insertItemsInListItemController:(id)arg1 atIndexes:(id)arg2 ;
 -(void)reloadListItemController:(id)arg1 animated:(char)arg2 ;
 -(unsigned)indexForCell:(id)arg1 listItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
--(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
--(void)setPresentationContext:(id)arg1 ;
 -(unsigned)sectionForListItemController:(id)arg1 ;
 -(id)dequeReusableSupplementaryViewOfKind:(id)arg1 forListItemController:(id)arg2 class:(Class)arg3 atIndex:(int)arg4 ;
+-(void)performBatchItemUpdates:(/*^block*/id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)deselectItemAtIndex:(int)arg1 listItemController:(id)arg2 animated:(char)arg3 ;
 -(NSOrderedSet *)itemControllers;
 -(void)setNavigationContext:(id)arg1 ;

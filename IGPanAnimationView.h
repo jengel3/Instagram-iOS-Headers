@@ -3,7 +3,7 @@
 #import <UIKit/UIView.h>
 
 @protocol IGPanAnimationViewDelegate;
-@class UIImageView;
+@class UIImageView, UIImage;
 
 @interface IGPanAnimationView : UIView {
 
@@ -16,10 +16,16 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGPanAnimationViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) UIImage * centerImage; 
+@property (nonatomic,retain) UIImage * leftImage; 
+@property (nonatomic,retain) UIImage * rightImage; 
 @property (nonatomic,retain) UIImageView * centerImageView;                               //@synthesize centerImageView=_centerImageView - In the implementation block
 @property (nonatomic,retain) UIImageView * leftNewImageView;                              //@synthesize leftNewImageView=_leftNewImageView - In the implementation block
 @property (nonatomic,retain) UIImageView * rightNewImageView;                             //@synthesize rightNewImageView=_rightNewImageView - In the implementation block
 @property (assign,nonatomic) CGRect viewBound;                                            //@synthesize viewBound=_viewBound - In the implementation block
+-(void)setRightImage:(UIImage *)arg1 ;
+-(void)setLeftImage:(id)arg1 centerImage:(id)arg2 rightImage:(id)arg3 ;
+-(UIImage *)rightImage;
 -(void)setCenterImageView:(UIImageView *)arg1 ;
 -(void)setLeftNewImageView:(UIImageView *)arg1 ;
 -(UIImageView *)leftNewImageView;
@@ -37,15 +43,15 @@
 -(void)cancelRightPanAnimation:(/*^block*/id*)arg1 completion:(/*^block*/id*)arg2 duration:(float)arg3 ;
 -(void)finishLeftPanAnimation:(/*^block*/id*)arg1 completion:(/*^block*/id*)arg2 duration:(float)arg3 ;
 -(char)shouldFinishPanAnimation:(id)arg1 ;
--(void)setLeftImage:(id)arg1 centerImage:(id)arg2 rightImage:(id)arg3 ;
--(void)setRightImage:(id)arg1 ;
--(void)setLeftImage:(id)arg1 ;
+-(void)setLeftImage:(UIImage *)arg1 ;
+-(UIImage *)leftImage;
 -(void)setDelegate:(id<IGPanAnimationViewDelegate>)arg1 ;
 -(id)init;
 -(void)layoutSubviews;
 -(id<IGPanAnimationViewDelegate>)delegate;
 -(void)reset;
 -(void)handlePan:(id)arg1 ;
--(void)setCenterImage:(id)arg1 ;
+-(void)setCenterImage:(UIImage *)arg1 ;
+-(UIImage *)centerImage;
 @end
 

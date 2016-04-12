@@ -51,7 +51,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)showTimestamp;
+-(void)configureWithViewModel:(id)arg1 ;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
@@ -65,7 +65,6 @@
 -(void)profilePictureTapped:(id)arg1 ;
 -(UILabel *)timestampLabel;
 -(void)setTimestampLabel:(UILabel *)arg1 ;
--(void)configureWithViewModel:(id)arg1 ;
 -(UIButton*<IGSponsorableButton>)sponsoredPostButton;
 -(void)onCustomizableButtonPressed:(id)arg1 ;
 -(IGStringStyle *)boldGrayStyle;

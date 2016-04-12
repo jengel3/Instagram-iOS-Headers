@@ -17,11 +17,11 @@
 @property (nonatomic,retain) UILabel * titleLabel;                          //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (assign,nonatomic) char isLabelPaddingAdded;                      //@synthesize isLabelPaddingAdded=_isLabelPaddingAdded - In the implementation block
 @property (nonatomic,retain) CALayer * touchDownLayer;                      //@synthesize touchDownLayer=_touchDownLayer - In the implementation block
+-(void)configureWithViewModel:(id)arg1 ;
 -(CALayer *)touchDownLayer;
 -(void)setImageBorderVisible:(char)arg1 ;
 -(void)setIsLabelPaddingAdded:(char)arg1 ;
 -(char)isLabelPaddingAdded;
--(void)configureWithViewModel:(id)arg1 ;
 -(void)setVideoIconVisible:(char)arg1 ;
 -(void)setTouchDownLayer:(CALayer *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

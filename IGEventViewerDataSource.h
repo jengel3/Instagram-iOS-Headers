@@ -2,14 +2,14 @@
 #import <Instagram/IGListAdapterDataSource.h>
 
 @protocol IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate;
-@class NSArray, IGSpinnerModel, NSString;
+@class NSMutableArray, IGSpinnerModel, NSString;
 
 @interface IGEventViewerDataSource : NSObject <IGListAdapterDataSource> {
 
 	char _isSpinnerHidden;
 	id<IGEventViewerMediaCellDelegate> _mediaCellDelegate;
 	id<IGEventViewerAttributionHeaderCellDelegate> _headerCellDelegate;
-	NSArray* _posts;
+	NSMutableArray* _posts;
 	IGSpinnerModel* _spinner;
 
 }
@@ -17,7 +17,7 @@
 @property (assign,nonatomic,__weak) id<IGEventViewerMediaCellDelegate> mediaCellDelegate;                           //@synthesize mediaCellDelegate=_mediaCellDelegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGEventViewerAttributionHeaderCellDelegate> headerCellDelegate;              //@synthesize headerCellDelegate=_headerCellDelegate - In the implementation block
 @property (nonatomic,readonly) unsigned count; 
-@property (nonatomic,copy) NSArray * posts;                                                                         //@synthesize posts=_posts - In the implementation block
+@property (nonatomic,retain) NSMutableArray * posts;                                                                //@synthesize posts=_posts - In the implementation block
 @property (nonatomic,readonly) IGSpinnerModel * spinner;                                                            //@synthesize spinner=_spinner - In the implementation block
 @property (assign,setter=setSpinnerHidden:,nonatomic) char isSpinnerHidden;                                         //@synthesize isSpinnerHidden=_isSpinnerHidden - In the implementation block
 @property (readonly) unsigned hash; 
@@ -27,10 +27,10 @@
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(NSArray *)posts;
--(id)initWithPosts:(id)arg1 ;
--(void)setPosts:(NSArray *)arg1 ;
+-(NSMutableArray *)posts;
 -(id)allPosts;
+-(id)initWithPosts:(id)arg1 ;
+-(void)setPosts:(NSMutableArray *)arg1 ;
 -(char)isSpinnerHidden;
 -(id<IGEventViewerAttributionHeaderCellDelegate>)headerCellDelegate;
 -(id<IGEventViewerMediaCellDelegate>)mediaCellDelegate;

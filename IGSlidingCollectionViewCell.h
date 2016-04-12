@@ -5,8 +5,8 @@
 @property (nonatomic,readonly) float maxSlideAmount; 
 @required
 -(void)setSlideAmount:(float)arg1;
--(float)slideAmount;
 -(float)maxSlideAmount;
+-(float)slideAmount;
 
 @end
 

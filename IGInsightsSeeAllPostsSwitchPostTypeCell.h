@@ -24,7 +24,7 @@
 -(void)fetchFeedItemsFromMediaIDs:(id)arg1 ;
 -(void)updateViewWithMediaBundle:(id)arg1 ;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
--(void)failedToGetAccessTokenForDataProvider:(id)arg1 ;
+-(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
 -(id)initWithSampleImageMediaID:(id)arg1 title:(id)arg2 ;

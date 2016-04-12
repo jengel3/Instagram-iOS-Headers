@@ -27,6 +27,7 @@
 -(void)didTapCamera;
 -(void)didTapSeeAll;
 -(id)createNewTitleBarForStyle:(int)arg1 ;
+-(id)scrollViewBGColor;
 -(void)didTapCancel;
 -(char)hasVerticalPaddingAroundScrollView;
 -(char)hasCancelButton;

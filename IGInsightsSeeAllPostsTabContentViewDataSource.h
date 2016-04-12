@@ -2,7 +2,7 @@
 #import <Instagram/IGInsightsDataProviderDelegate.h>
 
 @protocol IGInsightsSeeAllPostsTabContentViewDataSourceDelegate;
-@class NSString, NSArray, IGInsightsQuery, IGInsightsCollectionViewComponent, IGInsightsDataProvider;
+@class NSString, NSArray, IGInsightsQuery, IGInsightsFilterUnit, IGInsightsCollectionViewComponent, IGInsightsDataProvider;
 
 @interface IGInsightsSeeAllPostsTabContentViewDataSource : NSObject <IGInsightsDataProviderDelegate> {
 
@@ -12,7 +12,7 @@
 	id<IGInsightsSeeAllPostsTabContentViewDataSourceDelegate> _delegate;
 	NSArray* _allMediaBundles;
 	IGInsightsQuery* _query;
-	NSArray* _filterMediaTypeUnits;
+	IGInsightsFilterUnit* _filterUnit;
 	IGInsightsCollectionViewComponent* _collectionViewComponent;
 	IGInsightsDataProvider* _insightsDataProvider;
 	IGInsightsDataProvider* _mediaBundleDataProvider;
@@ -27,7 +27,7 @@
 @property (assign,nonatomic) char moreAvailable;                                                                     //@synthesize moreAvailable=_moreAvailable - In the implementation block
 @property (nonatomic,retain) NSArray * allMediaBundles;                                                              //@synthesize allMediaBundles=_allMediaBundles - In the implementation block
 @property (nonatomic,retain) IGInsightsQuery * query;                                                                //@synthesize query=_query - In the implementation block
-@property (nonatomic,copy) NSArray * filterMediaTypeUnits;                                                           //@synthesize filterMediaTypeUnits=_filterMediaTypeUnits - In the implementation block
+@property (nonatomic,retain) IGInsightsFilterUnit * filterUnit;                                                      //@synthesize filterUnit=_filterUnit - In the implementation block
 @property (nonatomic,retain) IGInsightsCollectionViewComponent * collectionViewComponent;                            //@synthesize collectionViewComponent=_collectionViewComponent - In the implementation block
 @property (nonatomic,retain) IGInsightsDataProvider * insightsDataProvider;                                          //@synthesize insightsDataProvider=_insightsDataProvider - In the implementation block
 @property (nonatomic,retain) IGInsightsDataProvider * mediaBundleDataProvider;                                       //@synthesize mediaBundleDataProvider=_mediaBundleDataProvider - In the implementation block
@@ -42,21 +42,20 @@
 -(void)setMaxId:(NSString *)arg1 ;
 -(void)fetchFeedItemsFromMediaIDs:(id)arg1 ;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
--(void)failedToGetAccessTokenForDataProvider:(id)arg1 ;
+-(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
 -(void)setCollectionViewComponent:(IGInsightsCollectionViewComponent *)arg1 ;
--(void)setFilterMediaTypeUnits:(NSArray *)arg1 ;
+-(void)setFilterUnit:(IGInsightsFilterUnit *)arg1 ;
 -(void)fetchMediaBundles;
 -(void)setFilterSummaryTitle:(NSString *)arg1 ;
 -(void)setEducationUnits:(NSArray *)arg1 ;
--(id)getFilterMediaTypeUnits;
--(id)getAllMediaBundles;
 -(void)cleanupQueryHistory;
+-(id)getAllMediaBundles;
+-(id)getFilterUnit;
 -(id)getEducationUnits;
 -(NSArray *)educationUnits;
 -(NSString *)filterSummaryTitle;
--(NSArray *)filterMediaTypeUnits;
 -(char)dataFetchInProgress;
 -(void)fetchMoreMediaBundles;
 -(NSArray *)allMediaBundles;
@@ -69,6 +68,7 @@
 -(IGInsightsDataProvider *)insightsDataProvider;
 -(void)didGetResponseFromInsightsDataProvider:(id)arg1 ;
 -(void)didGetResponseFromMediaBundleDataProvider:(id)arg1 ;
+-(IGInsightsFilterUnit *)filterUnit;
 -(void)setDelegate:(id<IGInsightsSeeAllPostsTabContentViewDataSourceDelegate>)arg1 ;
 -(id)init;
 -(id<IGInsightsSeeAllPostsTabContentViewDataSourceDelegate>)delegate;

@@ -51,8 +51,8 @@
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                          //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
 +(char)automaticallyNotifiesObserversForKey:(id)arg1 ;
--(void)webViewProgress:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(NSURL *)currentLocationURL;
+-(void)webViewProgress:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;
 -(void)updateOrientationWithOrientation:(int)arg1 ;

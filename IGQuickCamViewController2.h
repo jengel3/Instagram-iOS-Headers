@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
-#import <Instagram/IGDirectSlideableViewController.h>
+#import <Instagram/IGViewControllerSlideable.h>
 #import <Instagram/IGCropViewUserInteractionDelegate.h>
 #import <Instagram/IGAssetPlayerViewDelegate.h>
 #import <Instagram/IGGridViewControllerDelegate.h>
@@ -13,14 +13,16 @@
 #import <Instagram/IGCaptureManagerDelegate.h>
 #import <Instagram/IGVideoSampleBufferDelegate.h>
 #import <Instagram/IGAudioSampleBufferDelegate.h>
+#import <Instagram/IGVideoSessionDelegate.h>
 #import <Instagram/IGGalleryCollectionViewControllerDelegate.h>
 #import <Instagram/IGSelectAlbumDelegate.h>
 #import <Instagram/IGQuickCamPhotoEditViewControllerDelegate.h>
+#import <libobjc.A.dylib/PHPhotoLibraryChangeObserver.h>
 
 @protocol IGQuickCamViewControllerDelegate, IGQuickCamInputAsset, IGQuickCamOutputAsset, OS_dispatch_queue;
 @class UIView, IGTapButton, UILabel, IGChevronTitleButton, IGCropView, IGCameraGuideView, UIImageView, IGLabel, IGEmptyLibraryView, IGCircularProgressView, IGAssetPlayerView, IGCaptureManager, IGVideoRecorder, NSObject, IGStabilizationSampler, IGSampleBuffer, IGQuickCamControlBar, IGGalleryCollectionViewController, IGQuickCamPhotoEditViewController, IGGridViewController, IGQuickCamViewManager, IGSwipeDismissManager, UIColor, IGSelectAlbumController, NSString;
 
-@interface IGQuickCamViewController2 : UIViewController <UIViewControllerTransitioningDelegate, IGDirectSlideableViewController, IGCropViewUserInteractionDelegate, IGAssetPlayerViewDelegate, IGGridViewControllerDelegate, IGCaptureManagerDelegate, IGQuickCamControlBarDelegate, IGQuickCamCaptureButtonDelegate, UIGestureRecognizerDelegate, IGCaptureManagerDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGGalleryCollectionViewControllerDelegate, IGSelectAlbumDelegate, IGQuickCamPhotoEditViewControllerDelegate> {
+@interface IGQuickCamViewController2 : UIViewController <UIViewControllerTransitioningDelegate, IGViewControllerSlideable, IGCropViewUserInteractionDelegate, IGAssetPlayerViewDelegate, IGGridViewControllerDelegate, IGCaptureManagerDelegate, IGQuickCamControlBarDelegate, IGQuickCamCaptureButtonDelegate, UIGestureRecognizerDelegate, IGCaptureManagerDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGVideoSessionDelegate, IGGalleryCollectionViewControllerDelegate, IGSelectAlbumDelegate, IGQuickCamPhotoEditViewControllerDelegate, PHPhotoLibraryChangeObserver> {
 
 	char _hasStartedCapture;
 	char _hasReceivedAudioFrames;
@@ -142,11 +144,6 @@
 -(void)focusTap:(id)arg1 ;
 -(void)setFocusRing:(UIImageView *)arg1 ;
 -(UIImageView *)focusRing;
--(void)setVideoTakenCount:(int)arg1 ;
--(int)videoTakenCount;
--(void)setTapToRecordLabel:(UILabel *)arg1 ;
--(UILabel *)tapToRecordLabel;
--(void)attemptChangeToLibraryState;
 -(void)setCropView:(IGCropView *)arg1 ;
 -(IGCropView *)cropView;
 -(void)setGuideView:(IGCameraGuideView *)arg1 ;
@@ -157,33 +154,22 @@
 -(UIImageView *)loadingThumbnailView;
 -(void)setLoadingOverlayView:(UIView *)arg1 ;
 -(UIView *)loadingOverlayView;
--(void)setUnsupportedVideoLabel:(IGLabel *)arg1 ;
--(IGLabel *)unsupportedVideoLabel;
--(void)setNoMediaView:(IGEmptyLibraryView *)arg1 ;
--(IGEmptyLibraryView *)noMediaView;
 -(void)startLibrary;
--(IGSelectAlbumController *)selectAlbumVC;
--(void)setCanShowSelectedOverlay:(char)arg1 ;
--(char)gridViewIsLoaded;
 -(char)hasStartedCapture;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(void)setHasStartedCapture:(char)arg1 ;
 -(void)updateStabilizationSampler;
 -(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
 -(void)stopVideoPlayer;
--(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
--(id)inputLibraryAssetForFrameworkAsset:(id)arg1 ;
--(void)confirmInputAsset:(id)arg1 ;
--(void)setGridViewIsLoaded:(char)arg1 ;
--(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
--(void)showSelectAlbumController:(char)arg1 ;
 -(id)currentAlbumTitle;
+-(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
+-(id<IGQuickCamOutputAsset>)outputAsset;
 -(void)setHasCaptureButtonConfirmed:(char)arg1 ;
 -(char)hasCaptureButtonConfirmed;
--(id<IGQuickCamOutputAsset>)outputAsset;
 -(void)setOutputAsset:(id<IGQuickCamOutputAsset>)arg1 ;
 -(void)setInputAsset:(id<IGQuickCamInputAsset>)arg1 ;
 -(id<IGQuickCamInputAsset>)inputAsset;
+-(void)confirmInputAsset:(id)arg1 ;
 -(IGSampleBuffer *)imageBufferData;
 -(void)stopRecordingOnCaptureQueue:(char)arg1 ;
 -(IGVideoRecorder *)videoRecorder;
@@ -200,37 +186,49 @@
 -(IGStabilizationSampler *)stabilizer;
 -(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
 -(void)setHasReceivedAudioFrames:(char)arg1 ;
+-(void)assetPlayerViewAssetLoaded:(id)arg1 ;
+-(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
+-(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG0)arg2 ;
+-(void)captureSessionDidDropAudioBuffer;
+-(void)captureSessionDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
+-(void)captureSessionWillTakePhoto;
+-(void)captureSessionNeedsResume:(char)arg1 ;
+-(void)cropViewUserInteractionDidBegin:(id)arg1 ;
+-(void)cropViewUserInteractionDidEnd:(id)arg1 ;
+-(void)cropViewVisibleContentFrameDidChange:(CGRect)arg1 ;
 -(void)captureButtonDidTakePicture;
 -(void)captureButtonDidBeginRecording;
 -(void)captureButtonDidEndRecording;
 -(void)captureButtonDidConfirm;
--(void)assetPlayerViewAssetLoaded:(id)arg1 ;
--(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
--(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG0)arg2 ;
--(void)cropViewUserInteractionDidBegin:(id)arg1 ;
--(void)cropViewUserInteractionDidEnd:(id)arg1 ;
--(void)cropViewVisibleContentFrameDidChange:(CGRect)arg1 ;
--(void)gridViewController:(id)arg1 didSelectAsset:(id)arg2 atIndexPath:(id)arg3 ;
--(void)gridViewController:(id)arg1 didChangeAlbumTitle:(id)arg2 ;
--(void)gridViewControllerSelectedAlbumWasRemoved:(id)arg1 ;
--(void)gridViewController:(id)arg1 selectedAssetWasRemoved:(id)arg2 ;
--(void)gridViewControllerLibraryDidLoad:(id)arg1 ;
--(void)gridViewController:(id)arg1 didClickDisabledAsset:(id)arg2 ;
--(void)captureSessionWillTakePhoto;
--(void)captureSessionNeedsResume:(char)arg1 ;
 -(void)captureSessionDidDropVideoBuffer;
 -(void)captureSessionDidCaptureVideoBuffer:(opaqueCMSampleBufferRef)arg1 ;
--(void)captureSessionDidDropAudioBuffer;
--(void)captureSessionDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
--(void)setSelectAlbumVC:(IGSelectAlbumController *)arg1 ;
+-(id)inputLibraryAssetForFrameworkAsset:(id)arg1 ;
 -(char)hasReceivedAudioFrames;
 -(char)hasShownAudioPermissionsDeniedAlertView;
 -(void)setHasShownAudioPermissionsDeniedAlertView:(char)arg1 ;
 -(float)maxVideoDuration;
 -(void)setMaxVideoDuration:(float)arg1 ;
+-(void)videoSessionDidStartRunning:(id)arg1 ;
+-(void)setCanShowSelectedOverlay:(char)arg1 ;
 -(char)canShowSelectedOverlay;
+-(void)gridViewControllerLibraryDidLoad:(id)arg1 ;
+-(void)gridViewController:(id)arg1 didClickDisabledAsset:(id)arg2 ;
+-(void)gridViewController:(id)arg1 didSelectAsset:(id)arg2 atIndexPath:(id)arg3 ;
+-(void)gridViewControllerSelectedAlbumWasRemoved:(id)arg1 ;
+-(void)gridViewController:(id)arg1 didChangeAlbumTitle:(id)arg2 ;
+-(void)gridViewController:(id)arg1 selectedAssetWasRemoved:(id)arg2 ;
+-(void)setUnsupportedVideoLabel:(IGLabel *)arg1 ;
+-(IGLabel *)unsupportedVideoLabel;
+-(void)setNoMediaView:(IGEmptyLibraryView *)arg1 ;
+-(IGEmptyLibraryView *)noMediaView;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
+-(IGSelectAlbumController *)selectAlbumVC;
+-(void)setSelectAlbumVC:(IGSelectAlbumController *)arg1 ;
+-(char)gridViewIsLoaded;
+-(void)showSelectAlbumController:(char)arg1 ;
+-(void)setGridViewIsLoaded:(char)arg1 ;
+-(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
 -(void)galleryCollectionViewControllerDidClickDisabledAsset:(id)arg1 ;
 -(void)galleryCollectionViewControllerDidTapSeeAll:(id)arg1 ;
 -(void)galleryCollectionViewController:(id)arg1 didPickAsset:(id)arg2 ;
@@ -256,17 +254,23 @@
 -(IGTapButton *)titleBarBackButton;
 -(UILabel *)warningView;
 -(UIView *)mediaViewContainer;
+-(UILabel *)tapToRecordLabel;
 -(void)updateTitleLabel:(id)arg1 ;
 -(void)libraryAlbumUpdated;
+-(void)showVideoNUXIfNeeded;
+-(int)videoTakenCount;
+-(void)setVideoTakenCount:(int)arg1 ;
 -(void)removeAllNuxAnimation;
 -(char)cropViewInteractionDidBegin;
 -(void)updateMedia;
 -(char)mediaIsEdited;
+-(void)attemptChangeToLibraryState;
 -(void)createSelectAlbumVC;
 -(void)updateFilteredMediaSentTakenCount;
 -(void)confirmOutputAssetIfPossible;
 -(char)currentMediaIsFiltered;
 -(void)updateGalleryAssetsFromController:(id)arg1 ;
+-(void)updateGalleryViewControllerAssets;
 -(void)onOverlayTapped;
 -(void)setTitleBar:(UIView *)arg1 ;
 -(void)setTitleBarDismissButton:(IGTapButton *)arg1 ;
@@ -277,8 +281,10 @@
 -(void)setWarningView:(UILabel *)arg1 ;
 -(void)setControlBar:(IGQuickCamControlBar *)arg1 ;
 -(void)setMediaViewContainer:(UIView *)arg1 ;
+-(void)setTapToRecordLabel:(UILabel *)arg1 ;
 -(void)setEditViewController:(IGQuickCamPhotoEditViewController *)arg1 ;
 -(void)setGalleryViewController:(IGGalleryCollectionViewController *)arg1 ;
+-(void)updateCropView:(id)arg1 forAsset:(id)arg2 ;
 -(id)thumbnailPreviewImage:(id)arg1 ;
 -(void)imagePreviewDone:(id)arg1 ;
 -(void)imageDone:(id)arg1 ;
@@ -291,10 +297,12 @@
 -(CGRect)cropRect;
 -(void)setCropRect:(CGRect)arg1 ;
 -(IGGridViewController *)gridViewController;
+-(void)photoLibraryDidChange:(id)arg1 ;
 -(UIView *)contentContainerView;
 -(void)setBackgroundColor:(UIColor *)arg1 ;
 -(UIColor *)backgroundColor;
 -(void)setDelegate:(id<IGQuickCamViewControllerDelegate>)arg1 ;
+-(void)dealloc;
 -(id)init;
 -(id<IGQuickCamViewControllerDelegate>)delegate;
 -(int)state;

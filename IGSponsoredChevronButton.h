@@ -30,8 +30,8 @@
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
--(void)setColor:(id)arg1 forState:(unsigned)arg2 ;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)setColor:(id)arg1 forState:(unsigned)arg2 ;
 -(void)updateAppearance;
 -(void)onSponsoredPostLabelTapped;
 -(void)setTintedColors:(NSMutableDictionary *)arg1 ;

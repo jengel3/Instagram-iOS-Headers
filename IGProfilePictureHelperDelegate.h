@@ -8,6 +8,7 @@
 -(void)profilePictureHelperRemovePictureButtonTapped:(id)arg1;
 -(void)profilePictureHelperWillStartDownloadingProfilePicture:(id)arg1;
 -(void)profilePictureHelperDidFailDownloadingProfilePicture:(id)arg1;
+-(void)profilePictureHelperDidGetNewFacebookAccessToken:(id)arg1;
 
 @end
 

@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class NSString, IGHybridWebViewHeaderViewConfig, UIButton, UILabel;
+@class NSString, IGHybridWebViewHeaderViewConfig, UIButton, UILabel, UIActivityIndicatorView;
 
 @interface IGHybridWebViewHeaderView : UIView {
 
@@ -11,6 +11,7 @@
 	UIButton* _leftButton;
 	UILabel* _titleLabel;
 	UIButton* _rightButton;
+	UIActivityIndicatorView* _spinner;
 	/*^block*/id _leftButtonCompletion;
 	/*^block*/id _rightButtonCompletion;
 
@@ -22,6 +23,7 @@
 @property (nonatomic,readonly) UIButton * leftButton;                                 //@synthesize leftButton=_leftButton - In the implementation block
 @property (nonatomic,readonly) UILabel * titleLabel;                                  //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,readonly) UIButton * rightButton;                                //@synthesize rightButton=_rightButton - In the implementation block
+@property (nonatomic,readonly) UIActivityIndicatorView * spinner;                     //@synthesize spinner=_spinner - In the implementation block
 @property (nonatomic,copy) id leftButtonCompletion;                                   //@synthesize leftButtonCompletion=_leftButtonCompletion - In the implementation block
 @property (nonatomic,copy) id rightButtonCompletion;                                  //@synthesize rightButtonCompletion=_rightButtonCompletion - In the implementation block
 -(void)setUpViewHierarchy;
@@ -38,10 +40,12 @@
 -(void)setLeftButtonCompletion:(id)arg1 ;
 -(void)setRightButtonCompletion:(id)arg1 ;
 -(NSString *)screenID;
+-(void)showSpinner:(char)arg1 ;
 -(void)layoutSubviews;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(UILabel *)titleLabel;
+-(UIActivityIndicatorView *)spinner;
 -(IGHybridWebViewHeaderViewConfig *)config;
 -(UIButton *)leftButton;
 -(UIButton *)rightButton;

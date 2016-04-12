@@ -1,0 +1,5 @@
+
+
+@protocol IGUserSessionObject <NSObject>
+@end
+

@@ -70,6 +70,10 @@
 @property (nonatomic,retain) IGNormalFilter * displayOriginalFilter;                                 //@synthesize displayOriginalFilter=_displayOriginalFilter - In the implementation block
 @property (assign,nonatomic) char luxNeedsRefresh;                                                   //@synthesize luxNeedsRefresh=_luxNeedsRefresh - In the implementation block
 @property (assign,nonatomic) char needsRefresh;                                                      //@synthesize needsRefresh=_needsRefresh - In the implementation block
+-(void)setPhotoFilterClass:(Class)arg1 ;
+-(void)setInputSurface:(IGSurface *)arg1 ;
+-(IGSurface *)inputSurface;
+-(void)render:(id)arg1 to:(id)arg2 ;
 -(void)setDisableTiltShiftRendering:(char)arg1 ;
 -(float)tiltShiftAngle;
 -(void)setTiltShiftAngle:(float)arg1 ;
@@ -78,7 +82,6 @@
 -(void)setTiltShiftRadius:(float)arg1 ;
 -(CGPoint)tiltShiftCenter;
 -(char)hasAdjustedValues;
--(void)setPhotoFilterClass:(Class)arg1 ;
 -(void)setLuxEnabled:(char)arg1 ;
 -(float)tintShadowsIntensity;
 -(float)tintHighlightsIntensity;
@@ -123,9 +126,7 @@
 -(void)setTiltshiftMode:(unsigned)arg1 ;
 -(void)renderIfNeeded;
 -(void)reduceCaches;
--(void)setInputSurface:(IGSurface *)arg1 ;
--(IGSurface *)inputSurface;
--(void)render:(id)arg1 to:(id)arg2 ;
+-(char)sharpenDisabled;
 -(void)setLuxBlendFilter:(IGLuxBlendFilter *)arg1 ;
 -(id)basicAdjustFilter;
 -(IGLuxBlendFilter *)luxBlendFilter;
@@ -141,7 +142,6 @@
 -(char)shouldDisplayBorder;
 -(char)borderHidden;
 -(void)setLuxCDF:(IGSurface *)arg1 ;
--(char)sharpenDisabled;
 -(char)disableTiltShiftRendering;
 -(IGSurface *)luxedPreviewSurface;
 -(void)setLuxedPreviewSurface:(IGSurface *)arg1 ;

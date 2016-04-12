@@ -21,8 +21,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setThumbnailFeedItem:(IGFeedItem *)arg1 ;
 -(void)setThumbnailIndexPath:(NSIndexPath *)arg1 ;
--(NSIndexPath *)thumbnailIndexPath;
 -(IGFeedItem *)thumbnailFeedItem;
+-(NSIndexPath *)thumbnailIndexPath;
 -(id)initWithController:(id)arg1 ;
 -(id)previewingContext:(id)arg1 viewControllerForLocation:(CGPoint)arg2 ;
 -(void)previewingContext:(id)arg1 commitViewController:(id)arg2 ;

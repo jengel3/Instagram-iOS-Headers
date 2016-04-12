@@ -31,18 +31,21 @@
 -(void)setUpViewHierarchy;
 -(void)setUpHeaderBar;
 -(id)createInitialHeader;
+-(void)clearTemporaryAuthCookies;
 -(IGCameraBar *)headerBar;
 -(UIView *)statusBarDummyView;
 -(void)setUpNavigationBarWithParams:(id)arg1 ;
+-(void)updateHeaderToLoadingView;
 -(unsigned)actionForScreen:(id)arg1 isRootScreen:(char)arg2 ;
 -(id)headerBarForParams:(id)arg1 ;
 -(void)updateHeaderForCurrentStateWithParams:(id)arg1 ;
+-(void)popToScreen:(id)arg1 isRootScreen:(char)arg2 ;
 -(void)setUpLeftButtonForHeader:(id)arg1 withValue:(id)arg2 withCallbackJS:(id)arg3 ;
 -(void)setUpRightButtonForHeader:(id)arg1 withTextValue:(id)arg2 activeValue:(id)arg3 withCallbackJS:(id)arg4 ;
--(void)callBackToJSCode;
+-(void)didClickLeftButtonBack:(id)arg1 ;
 -(void)callToJS:(id)arg1 ;
--(void)callNextToJSCode;
 -(id)initWithFrame:(CGRect)arg1 from:(unsigned)arg2 ;
+-(void)showSpinner;
 -(void)setDelegate:(id<IGHybridWebViewDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(id<IGHybridWebViewDelegate>)delegate;
@@ -53,5 +56,6 @@
 -(void)webViewDidStartLoad:(id)arg1 ;
 -(void)webViewDidFinishLoad:(id)arg1 ;
 -(UIActivityIndicatorView *)spinner;
+-(void)hideSpinner;
 @end
 

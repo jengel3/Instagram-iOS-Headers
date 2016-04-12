@@ -2,8 +2,7 @@
 
 @protocol IGInsightsContentRowListViewDelegate <NSObject>
 @required
--(void)didExpandContentRowListView:(id)arg1;
--(void)didCollapseContentRowListView:(id)arg1;
+-(void)needAnimateContentRowListView:(id)arg1 upForDistance:(float)arg2;
 
 @end
 

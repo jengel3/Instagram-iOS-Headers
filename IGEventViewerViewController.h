@@ -20,6 +20,7 @@
 @interface IGEventViewerViewController : UIViewController <IGEventViewerMediaPreloaderVideoProgressDelegate, IGEventServiceNetworkDelegate, IGEventViewerFeedViewScrollingDelegate, IGEventViewerFeedViewDraggingDelegate, IGEventViewerFeedViewGestureDelegate, IGEventViewerHeaderViewDelegate, IGEventViewerMediaPlaybackDelegate, IGEventViewerSoundStateListenerDelegate, IGEventViewerMediaPauseViewDelegate, IGEventViewerMediaCellDelegate, IGEventViewerAttributionHeaderCellDelegate, UIActionSheetDelegate> {
 
 	char _isPreloadPresenterUsed;
+	char _isAppearForFirstTime;
 	IGEventViewerMediaPreloader* _mediaPreloader;
 	id<IGEventViewerViewControllerDelegate> _delegate;
 	IGEventViewerSoundStateListener* _soundStateListener;
@@ -32,6 +33,7 @@
 	IGEventViewerAnalyticsLogger* _logger;
 	IGEventViewerMediaPauseViewPresenter* _pauseViewPresenter;
 	IGChannelFocusCoordinator* _focusCoordinator;
+	unsigned _focusedPostPlayCounter;
 
 }
 
@@ -48,6 +50,8 @@
 @property (nonatomic,readonly) IGEventViewerMediaPauseViewPresenter * pauseViewPresenter;                   //@synthesize pauseViewPresenter=_pauseViewPresenter - In the implementation block
 @property (nonatomic,readonly) IGChannelFocusCoordinator * focusCoordinator;                                //@synthesize focusCoordinator=_focusCoordinator - In the implementation block
 @property (assign,nonatomic) char isPreloadPresenterUsed;                                                   //@synthesize isPreloadPresenterUsed=_isPreloadPresenterUsed - In the implementation block
+@property (assign,nonatomic) char isAppearForFirstTime;                                                     //@synthesize isAppearForFirstTime=_isAppearForFirstTime - In the implementation block
+@property (assign,nonatomic) unsigned focusedPostPlayCounter;                                               //@synthesize focusedPostPlayCounter=_focusedPostPlayCounter - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -94,6 +98,8 @@
 -(void)setupViewsAndChildViewControllers;
 -(IGEventViewerFeedViewController *)feedController;
 -(void)resumeCurrentMedia;
+-(char)isAppearForFirstTime;
+-(void)setIsAppearForFirstTime:(char)arg1 ;
 -(void)setIsPreloadPresenterUsed:(char)arg1 ;
 -(void)didReceiveAppWillResignActiveNotification:(id)arg1 ;
 -(void)didReceiveAppDidBecomeActiveNotification:(id)arg1 ;
@@ -102,9 +108,9 @@
 -(void)exitEventViewer:(id)arg1 ;
 -(void)handleDidScrollToIndexPath:(id)arg1 ;
 -(void)dismissPauseMenuAnimated:(char)arg1 ;
+-(float)videoStartTimeForPost:(id)arg1 ;
 -(void)presentUserDetailControllerForPost:(id)arg1 ;
--(void)reportCurrentMedia;
--(void)hideCurrentMedia;
+-(void)prepareActionSheetForFeedItem:(id)arg1 ;
 -(void)presentPauseViewForCurrentMediaCell:(id)arg1 ;
 -(void)handleMediaDidEndForPost:(id)arg1 ;
 -(void)handleMediaPauseViewAction:(unsigned)arg1 ;
@@ -114,7 +120,12 @@
 -(void)playMediaAtIndexPath:(id)arg1 ;
 -(void)preloadNextMediaIfAvailable;
 -(void)updateDoubleTapForIndexPath:(id)arg1 ;
+-(unsigned)focusedPostPlayCounter;
+-(void)setFocusedPostPlayCounter:(unsigned)arg1 ;
+-(void)removePostAtIndexPath:(id)arg1 ;
 -(void)updateFocusCoordinator;
+-(void)reportCurrentMedia;
+-(void)hideCurrentMedia;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)setDelegate:(id<IGEventViewerViewControllerDelegate>)arg1 ;
 -(IGEventViewerDataSource *)dataSource;
@@ -128,7 +139,6 @@
 -(void)viewWillDisappear:(char)arg1 ;
 -(void)viewDidDisappear:(char)arg1 ;
 -(IGEventViewerHeaderView *)headerView;
--(void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2 ;
 -(void)registerForNotifications;
 -(void)unregisterForNotifications;
 -(IGUser *)currentUser;

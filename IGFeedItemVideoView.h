@@ -7,12 +7,10 @@
 #import <Instagram/IGFeedVideoPlayerDelegate.h>
 
 @protocol IGFeedItemVideoViewDelegate, IGVideoViewLogging;
-@class UIView, IGImageProgressView, IGFeedVideoPlayer, IGVideo, NSString, UITapGestureRecognizer, UILongPressGestureRecognizer, IGAudioNUXController, IGVideoIndicatorView, NSNumber, IGPhoto;
+@class IGImageProgressView, IGFeedVideoPlayer, IGVideo, NSString, UITapGestureRecognizer, UILongPressGestureRecognizer, IGAudioNUXController, IGVideoIndicatorView, IGVideoLoadProgressView, NSNumber, IGPhoto, UIView;
 
 @interface IGFeedItemVideoView : IGFeedMediaView <UIGestureRecognizerDelegate, IGImageProgressViewDelegate, IGAudioNUXControllerDelegate, IGFeedVideoPlayerDelegate> {
 
-	UIView* _videoView;
-	double _videoShouldStartTime;
 	char _hasStartedPlayback;
 	char _userDidTap;
 	char _loading;
@@ -28,9 +26,12 @@
 	UILongPressGestureRecognizer* _longPressRecognizer;
 	IGAudioNUXController* _audioNUXController;
 	IGVideoIndicatorView* _indicatorView;
+	IGVideoLoadProgressView* _progressView;
 	NSNumber* _postAudioValue;
 	float _startTime;
 	IGPhoto* _photo;
+	UIView* _videoView;
+	double _videoShouldStartTime;
 
 }
 
@@ -48,6 +49,7 @@
 @property (nonatomic,readonly) UILongPressGestureRecognizer * longPressRecognizer;              //@synthesize longPressRecognizer=_longPressRecognizer - In the implementation block
 @property (nonatomic,retain) IGAudioNUXController * audioNUXController;                         //@synthesize audioNUXController=_audioNUXController - In the implementation block
 @property (nonatomic,retain) IGVideoIndicatorView * indicatorView;                              //@synthesize indicatorView=_indicatorView - In the implementation block
+@property (nonatomic,readonly) IGVideoLoadProgressView * progressView;                          //@synthesize progressView=_progressView - In the implementation block
 @property (assign) char hasStartedPlayback;                                                     //@synthesize hasStartedPlayback=_hasStartedPlayback - In the implementation block
 @property (assign) char userDidTap;                                                             //@synthesize userDidTap=_userDidTap - In the implementation block
 @property (nonatomic,retain) NSNumber * postAudioValue;                                         //@synthesize postAudioValue=_postAudioValue - In the implementation block
@@ -55,6 +57,8 @@
 @property (assign,nonatomic) float startTime;                                                   //@synthesize startTime=_startTime - In the implementation block
 @property (nonatomic,readonly) IGPhoto * photo;                                                 //@synthesize photo=_photo - In the implementation block
 @property (assign,nonatomic) char allowHardwareSoundControl;                                    //@synthesize allowHardwareSoundControl=_allowHardwareSoundControl - In the implementation block
+@property (nonatomic,retain) UIView * videoView;                                                //@synthesize videoView=_videoView - In the implementation block
+@property (assign,nonatomic) double videoShouldStartTime;                                       //@synthesize videoShouldStartTime=_videoShouldStartTime - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -80,6 +84,8 @@
 -(void)videoPlayer:(id)arg1 playbackBufferLikelyToKeepUp:(char)arg2 ;
 -(void)videoPlayer:(id)arg1 didFailToPlaybackWithError:(id)arg2 ;
 -(void)videoPlayerDidPlay:(id)arg1 ;
+-(void)videoPlayer:(id)arg1 didUpdateLoadingProgress:(float)arg2 ;
+-(void)videoPlayer:(id)arg1 didUpdatePlaybackProgress:(float)arg2 ;
 -(void)progressImageView:(id)arg1 didLoadImage:(id)arg2 withDataLength:(unsigned)arg3 ;
 -(void)progressImageView:(id)arg1 didFailLoadWithError:(id)arg2 ;
 -(char)hasPlaybackError;
@@ -96,6 +102,7 @@
 -(void)setPostAudioValue:(NSNumber *)arg1 ;
 -(IGAudioNUXController *)audioNUXController;
 -(char)allowHardwareSoundControl;
+-(void)setVideoShouldStartTime:(double)arg1 ;
 -(void)observeHeadphoneEvent:(char)arg1 ;
 -(void)observeHardwareControlEvents:(char)arg1 ;
 -(void)setUserDidTap:(char)arg1 ;
@@ -105,15 +112,18 @@
 -(void)logAudioWillPlay:(char)arg1 reason:(int)arg2 ;
 -(char)userDidTap;
 -(char)hasStartedPlayback;
+-(double)videoShouldStartTime;
 -(char)isVideoHasSound;
 -(NSNumber *)postAudioValue;
 -(void)playWithPlayer:(id)arg1 startTime:(float)arg2 ;
 -(NSString *)videoCacheKey;
 -(id<IGVideoViewLogging>)logger;
+-(void)setVideoView:(UIView *)arg1 ;
 -(IGPhoto *)photo;
 -(void)setPlayer:(IGFeedVideoPlayer *)arg1 ;
 -(id)photoImageView;
 -(void)setAudioEnabled:(char)arg1 ;
+-(UIView *)videoView;
 -(char)isPlaying;
 -(IGFeedVideoPlayer *)player;
 -(id)initWithFrame:(CGRect)arg1 ;
@@ -124,6 +134,7 @@
 -(char)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2 ;
 -(void)setStartTime:(float)arg1 ;
 -(char)isLoading;
+-(IGVideoLoadProgressView *)progressView;
 -(void)setAccessibilityLabel:(id)arg1 ;
 -(void)setAccessibilityTraits:(unsigned long long)arg1 ;
 -(float)startTime;

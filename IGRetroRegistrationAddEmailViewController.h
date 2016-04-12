@@ -26,6 +26,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)backgroundViewTapped;
 -(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
@@ -37,7 +38,6 @@
 -(IGRetroRegistrationAddEmailView *)addEmailView;
 -(void)phoneRegistrationButtonTapped;
 -(void)loginButtonTapped;
--(void)backgroundViewTapped;
 -(void)validateEmail:(id)arg1 ;
 -(void)setAddEmailView:(IGRetroRegistrationAddEmailView *)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;

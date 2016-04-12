@@ -14,6 +14,9 @@
 @interface IGUserListViewController : IGViewController <IGNavSearchBarDelegate, IGRaindropAnalyticsDelegate, IGProfilePictureImageViewDelegate, IGUserListNetworkDataSourceDelegate, UITableViewDelegate, UITableViewDataSource, IGFeedStatusViewDynamicHeightProtocol, IGFollowListUserCellDelegate> {
 
 	char _showSocialContext;
+	char _enableFollowing;
+	char _enableFollowers;
+	char _enablePending;
 	IGUserListNetworkDataSource* _networkDataSource;
 	IGPlainTableView* _tableView;
 	int _userCellAccessory;
@@ -42,17 +45,20 @@
 @property (nonatomic,retain) NSString * searchString;                                      //@synthesize searchString=_searchString - In the implementation block
 @property (nonatomic,retain) NSString * sessionId;                                         //@synthesize sessionId=_sessionId - In the implementation block
 @property (assign,nonatomic) char showSocialContext;                                       //@synthesize showSocialContext=_showSocialContext - In the implementation block
+@property (assign,nonatomic) char enableFollowing;                                         //@synthesize enableFollowing=_enableFollowing - In the implementation block
+@property (assign,nonatomic) char enableFollowers;                                         //@synthesize enableFollowers=_enableFollowers - In the implementation block
+@property (assign,nonatomic) char enablePending;                                           //@synthesize enablePending=_enablePending - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(char)shouldShowFullName;
 +(id)nameOfUserListType:(int)arg1 ;
+-(IGFeedItem *)feedItem;
 -(void)setUserCellAccessory:(int)arg1 ;
 -(void)setNetworkDataSource:(IGUserListNetworkDataSource *)arg1 ;
 -(void)setUserListType:(int)arg1 ;
 -(void)setListContextPK:(NSString *)arg1 ;
--(IGFeedItem *)feedItem;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(id)analyticsModule;
 -(id)analyticsExtras;
@@ -77,6 +83,9 @@
 -(int)userCellAccessory;
 -(void)loadMoreUsers;
 -(int)userListType;
+-(char)enableFollowers;
+-(char)enableFollowing;
+-(char)enablePending;
 -(char)showSocialContext;
 -(void)setShowSocialContext:(char)arg1 ;
 -(char)isShowingSimilarAccountsViewForCellAtIndexPath:(id)arg1 ;
@@ -87,6 +96,9 @@
 -(NSString *)listContextPK;
 -(NSMutableIndexSet *)expandedIndices;
 -(void)setExpandedIndices:(NSMutableIndexSet *)arg1 ;
+-(void)setEnableFollowing:(char)arg1 ;
+-(void)setEnableFollowers:(char)arg1 ;
+-(void)setEnablePending:(char)arg1 ;
 -(void)dealloc;
 -(void)reloadData;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

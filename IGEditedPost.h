@@ -17,14 +17,14 @@
 @property (nonatomic,retain) IGFeedItem * feedItem;                  //@synthesize feedItem=_feedItem - In the implementation block
 -(id)pk;
 -(IGUsertagGroup *)usertags;
--(id)initWithFeedItem:(id)arg1 ;
 -(IGFeedItem *)feedItem;
+-(id)initWithFeedItem:(id)arg1 ;
+-(char)hasChanged;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(char)hasChangedCaption;
 -(char)hasChangedLocation;
 -(char)hasChangedUsertags;
--(char)hasChanged;
 -(IGLocation *)location;
 -(void)setLocation:(IGLocation *)arg1 ;
 -(NSString *)caption;

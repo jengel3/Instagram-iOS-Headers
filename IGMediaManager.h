@@ -3,6 +3,7 @@
 @interface IGMediaManager : NSObject
 +(void)fetchPermalinkForFeedItem:(id)arg1 withSuccessHandler:(/*^block*/id)arg2 errorHandler:(/*^block*/id)arg3 ;
 +(void)deleteFeedItem:(id)arg1 ;
++(void)showCantEditPostIfFeedItemHasBeenPromoted;
 +(void)fetchPivotsFor:(id)arg1 onController:(id)arg2 ;
 +(void)showBoostPostForFeedItem:(id)arg1 fromViewController:(id)arg2 ;
 +(void)unexpireFeedItem:(id)arg1 ;

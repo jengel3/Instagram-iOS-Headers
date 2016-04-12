@@ -5,21 +5,20 @@
 #import <Instagram/IGListAdapterDelegate.h>
 #import <Instagram/IGHScrollAYMFCellItemControllerDelegate.h>
 #import <UIKit/UICollectionViewDelegate.h>
+#import <Instagram/IGHScrollAYMFBannerCellDelegate.h>
 #import <Instagram/IGListItemType.h>
 
-@class IGListAdapter, IGListCollectionView, IGHScrollAYMFModel, NSMutableArray, NSString;
+@class IGListAdapter, IGHScrollAYMFModel, NSMutableArray, NSString;
 
-@interface IGHScrollAYMFItemController : IGListItemController <IGListAdapterDataSource, IGListAdapterDelegate, IGHScrollAYMFCellItemControllerDelegate, UICollectionViewDelegate, IGListItemType> {
+@interface IGHScrollAYMFItemController : IGListItemController <IGListAdapterDataSource, IGListAdapterDelegate, IGHScrollAYMFCellItemControllerDelegate, UICollectionViewDelegate, IGHScrollAYMFBannerCellDelegate, IGListItemType> {
 
 	IGListAdapter* _listAdapter;
-	IGListCollectionView* _collectionView;
 	IGHScrollAYMFModel* _hScrollAYMFModel;
 	NSMutableArray* _items;
 
 }
 
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                        //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGListCollectionView * collectionView;              //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGHScrollAYMFModel * hScrollAYMFModel;              //@synthesize hScrollAYMFModel=_hScrollAYMFModel - In the implementation block
 @property (nonatomic,retain) NSMutableArray * items;                               //@synthesize items=_items - In the implementation block
 @property (readonly) unsigned hash; 
@@ -40,13 +39,14 @@
 -(void)logFeaturedUserInfoDismissed:(id)arg1 atIndex:(unsigned)arg2 wasLastUser:(char)arg3 ;
 -(void)pushControllerForUser:(id)arg1 ;
 -(id)initWithHScrollAYMFModel:(id)arg1 ;
+-(void)didTapActionButton:(id)arg1 ;
 -(void)didDismissAYMFCell:(id)arg1 ;
 -(void)didTapAYMFCell:(id)arg1 ;
--(void)pushPeopleFeedController;
+-(void)didTapFollowButtonInCell:(id)arg1 withAction:(int)arg2 ;
 -(IGHScrollAYMFModel *)hScrollAYMFModel;
+-(void)pushPeopleFeedController;
 -(NSMutableArray *)items;
 -(void)setItems:(NSMutableArray *)arg1 ;
--(IGListCollectionView *)collectionView;
 -(unsigned)numberOfItems;
 -(void)didSelectItemAtIndex:(int)arg1 ;
 -(CGSize)sizeForItemAtIndex:(int)arg1 ;

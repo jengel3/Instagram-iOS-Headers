@@ -31,6 +31,7 @@
 	UILabel* _valueLabel;
 	UIButton* _doneButton;
 	UIButton* _cancelButton;
+	UIView* _buttonDivider;
 	UIView* _controlPanel;
 	UIView* _buttonPanel;
 	IGExpandableButton* _perspectiveRollButton;
@@ -68,6 +69,7 @@
 @property (nonatomic,retain) UILabel * valueLabel;                                         //@synthesize valueLabel=_valueLabel - In the implementation block
 @property (nonatomic,retain) UIButton * doneButton;                                        //@synthesize doneButton=_doneButton - In the implementation block
 @property (nonatomic,retain) UIButton * cancelButton;                                      //@synthesize cancelButton=_cancelButton - In the implementation block
+@property (nonatomic,retain) UIView * buttonDivider;                                       //@synthesize buttonDivider=_buttonDivider - In the implementation block
 @property (nonatomic,retain) UIView * controlPanel;                                        //@synthesize controlPanel=_controlPanel - In the implementation block
 @property (nonatomic,retain) UIView * buttonPanel;                                         //@synthesize buttonPanel=_buttonPanel - In the implementation block
 @property (assign,nonatomic) char showButtons;                                             //@synthesize showButtons=_showButtons - In the implementation block
@@ -145,6 +147,8 @@
 -(void)setTickSlider:(IGTickSlider *)arg1 ;
 -(UIButton *)bordersButton;
 -(void)setBordersButton:(UIButton *)arg1 ;
+-(UIView *)buttonDivider;
+-(void)setButtonDivider:(UIView *)arg1 ;
 -(UIView *)controlPanel;
 -(void)setControlPanel:(UIView *)arg1 ;
 -(UIView *)buttonPanel;

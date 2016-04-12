@@ -4,7 +4,7 @@
 #import <Instagram/IGInsightsComponentAdapter.h>
 
 @protocol IGInsightsComponentNavigationDelegate;
-@class NSString, IGInsightsQuery, NSArray, IGInsightsCarouselsView, IGInsightsCarouselsViewController, IGInsightsDataProvider;
+@class NSString, IGInsightsQuery, NSArray, IGInsightsCarouselsView, IGInsightsCarouselsViewController, IGInsightsDataProvider, IGInsightsLoggingHelper;
 
 @interface IGInsightsCarouselsComponentAdapter : NSObject <IGInsightsDataProviderDelegate, IGInsightsComponentViewControllerNavigationDelegate, IGInsightsComponentAdapter> {
 
@@ -17,6 +17,7 @@
 	IGInsightsCarouselsViewController* _insightsCarouselsViewController;
 	NSArray* _mediaBundles;
 	IGInsightsDataProvider* _mediaBundleDataProvider;
+	IGInsightsLoggingHelper* _loggingHelper;
 
 }
 
@@ -28,6 +29,7 @@
 @property (nonatomic,retain) IGInsightsCarouselsViewController * insightsCarouselsViewController;              //@synthesize insightsCarouselsViewController=_insightsCarouselsViewController - In the implementation block
 @property (nonatomic,copy) NSArray * mediaBundles;                                                             //@synthesize mediaBundles=_mediaBundles - In the implementation block
 @property (nonatomic,retain) IGInsightsDataProvider * mediaBundleDataProvider;                                 //@synthesize mediaBundleDataProvider=_mediaBundleDataProvider - In the implementation block
+@property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;                                          //@synthesize loggingHelper=_loggingHelper - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -38,21 +40,23 @@
 -(IGInsightsQuery *)buttonQuery;
 -(id)getMediaIDsFromMedias:(id)arg1 ;
 -(void)fetchFeedItemsFromMediaIDs:(id)arg1 ;
--(void)initializeComponentView;
 -(void)updateViewWithMediaBundle:(id)arg1 ;
+-(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setInsightsCarouselsViewController:(IGInsightsCarouselsViewController *)arg1 ;
+-(IGInsightsCarouselsViewController *)insightsCarouselsViewController;
 -(void)setMediaBundles:(NSArray *)arg1 ;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
--(void)failedToGetAccessTokenForDataProvider:(id)arg1 ;
+-(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(void)didSelectNavigateInComponentViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
--(id)initWithComponent:(id)arg1 ;
+-(id)initWithComponent:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
+-(char)isComponentValid;
 -(IGInsightsCarouselsView *)componentView;
 -(void)setButtonQuery:(IGInsightsQuery *)arg1 ;
 -(void)setMediaIDs:(NSArray *)arg1 ;
 -(void)setComponentView:(IGInsightsCarouselsView *)arg1 ;
--(IGInsightsCarouselsViewController *)insightsCarouselsViewController;
--(void)setInsightsCarouselsViewController:(IGInsightsCarouselsViewController *)arg1 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)setHeader:(NSString *)arg1 ;
 -(NSString *)header;
 -(id<IGInsightsComponentNavigationDelegate>)navigationDelegate;

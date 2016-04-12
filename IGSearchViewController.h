@@ -130,6 +130,7 @@
 -(IGNavSearchBar *)searchBar;
 -(UIEdgeInsets)preferredContentInsets;
 -(void)setIsActive:(char)arg1 ;
+-(void)keyboardDidHide:(id)arg1 ;
 -(void)searchBar:(id)arg1 textDidChange:(id)arg2 ;
 -(NSString *)searchText;
 -(void)setSearchBar:(IGNavSearchBar *)arg1 ;

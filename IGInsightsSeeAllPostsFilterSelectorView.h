@@ -5,10 +5,11 @@
 #import <UIKit/UIPickerViewDelegate.h>
 
 @protocol IGInsightsSeeAllPostsFilterSelectorViewDelegate, IGInsightsContentRowListViewDelegate;
-@class NSArray, UILabel, UIButton, UIPickerView, UIView, IGInsightsContentRowListView, NSString;
+@class IGInsightsContentRowListView, NSArray, UILabel, UIButton, UIPickerView, UIView, NSString;
 
 @interface IGInsightsSeeAllPostsFilterSelectorView : UIView <UIPickerViewDataSource, UIPickerViewDelegate> {
 
+	IGInsightsContentRowListView* _educationView;
 	id<IGInsightsSeeAllPostsFilterSelectorViewDelegate> _delegate;
 	NSArray* _mediaTypes;
 	NSArray* _dataOrderings;
@@ -18,12 +19,12 @@
 	UIButton* _submitButton;
 	UIPickerView* _pickerView;
 	UIView* _headerSeparator;
-	IGInsightsContentRowListView* _educationView;
 	UIView* _educationUnitSeparator;
 	id<IGInsightsContentRowListViewDelegate> _educationUnitDelegate;
 
 }
 
+@property (nonatomic,retain) IGInsightsContentRowListView * educationView;                                       //@synthesize educationView=_educationView - In the implementation block
 @property (assign,nonatomic,__weak) id<IGInsightsSeeAllPostsFilterSelectorViewDelegate> delegate;                //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * mediaTypes;                                                        //@synthesize mediaTypes=_mediaTypes - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * dataOrderings;                                                     //@synthesize dataOrderings=_dataOrderings - In the implementation block
@@ -33,7 +34,6 @@
 @property (nonatomic,readonly) UIButton * submitButton;                                                          //@synthesize submitButton=_submitButton - In the implementation block
 @property (nonatomic,retain) UIPickerView * pickerView;                                                          //@synthesize pickerView=_pickerView - In the implementation block
 @property (nonatomic,retain) UIView * headerSeparator;                                                           //@synthesize headerSeparator=_headerSeparator - In the implementation block
-@property (nonatomic,retain) IGInsightsContentRowListView * educationView;                                       //@synthesize educationView=_educationView - In the implementation block
 @property (nonatomic,retain) UIView * educationUnitSeparator;                                                    //@synthesize educationUnitSeparator=_educationUnitSeparator - In the implementation block
 @property (assign,nonatomic,__weak) id<IGInsightsContentRowListViewDelegate> educationUnitDelegate;              //@synthesize educationUnitDelegate=_educationUnitDelegate - In the implementation block
 @property (readonly) unsigned hash; 
@@ -43,15 +43,15 @@
 -(void)setActiveDataOrdering:(unsigned)arg1 ;
 -(void)setActiveMediaType:(unsigned)arg1 ;
 -(void)setActiveTimeframe:(unsigned)arg1 ;
+-(IGInsightsContentRowListView *)educationView;
 -(NSArray *)dataOrderings;
--(void)setDataOrderings:(NSArray *)arg1 ;
 -(NSArray *)timeframes;
+-(void)setDataOrderings:(NSArray *)arg1 ;
 -(void)setTimeframes:(NSArray *)arg1 ;
 -(void)setEducationUnitDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
 -(void)setParagraphUnits:(id)arg1 ;
 -(void)initializeHeader;
 -(void)submitButtonClick:(id)arg1 ;
--(IGInsightsContentRowListView *)educationView;
 -(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
 -(id<IGInsightsContentRowListViewDelegate>)educationUnitDelegate;
 -(UIView *)educationUnitSeparator;
@@ -67,6 +67,7 @@
 -(int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2 ;
 -(id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3 ;
 -(float)pickerView:(id)arg1 widthForComponent:(int)arg2 ;
+-(float)pickerView:(id)arg1 rowHeightForComponent:(int)arg2 ;
 -(id)init;
 -(void)layoutSubviews;
 -(id)pickerView:(id)arg1 viewForRow:(int)arg2 forComponent:(int)arg3 reusingView:(id)arg4 ;

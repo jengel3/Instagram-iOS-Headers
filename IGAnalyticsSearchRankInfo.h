@@ -55,6 +55,7 @@
 -(NSString *)sectionType;
 -(void)setSectionType:(NSString *)arg1 ;
 -(id)description;
+-(id)dictionaryRepresentation;
 -(NSString *)searchType;
 @end
 

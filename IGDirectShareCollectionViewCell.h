@@ -32,12 +32,12 @@
 -(UIView *)whiteOverlay;
 -(char)showWhiteOverlay;
 -(void)setWhiteOverlay:(UIView *)arg1 ;
--(void)setUsernameLabel:(UILabel *)arg1 ;
 -(IGDirectThreadAvatarView *)profileView;
+-(void)setProfileView:(IGDirectThreadAvatarView *)arg1 ;
+-(void)setUsernameLabel:(UILabel *)arg1 ;
 -(char)showBlueRing;
 -(void)setShowBlueRing:(char)arg1 ;
 -(void)showWhiteOverlay:(char)arg1 withAnimation:(char)arg2 ;
--(void)setProfileView:(IGDirectThreadAvatarView *)arg1 ;
 -(UIView *)blueRing;
 -(void)setBlueRing:(UIView *)arg1 ;
 -(UILabel *)detailLabel;

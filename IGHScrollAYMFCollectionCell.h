@@ -1,4 +1,5 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 
 @class IGListCollectionView;
@@ -10,7 +11,7 @@
 }
 
 @property (nonatomic,retain) IGListCollectionView * collectionView;              //@synthesize collectionView=_collectionView - In the implementation block
--(void)configureWithCollectionView:(id)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(IGListCollectionView *)collectionView;
 -(void)setCollectionView:(IGListCollectionView *)arg1 ;

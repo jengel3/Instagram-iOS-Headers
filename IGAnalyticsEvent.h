@@ -20,10 +20,11 @@
 +(id)scheduleEvent:(id)arg1 module:(id)arg2 noLatency:(char)arg3 ;
 +(void)startTimer:(id)arg1 uuid:(id)arg2 ;
 +(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
++(id)scheduleEvent:(id)arg1 module:(id)arg2 noLatency:(char)arg3 navState:(id)arg4 ;
 +(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
 +(void)recordEvent:(id)arg1 forTimer:(id)arg2 ;
 -(void)setValue:(id)arg1 forExtraKey:(id)arg2 ;
--(id)initWithName:(id)arg1 module:(id)arg2 channel:(int)arg3 ;
+-(id)initWithName:(id)arg1 module:(id)arg2 channel:(int)arg3 navState:(id)arg4 ;
 -(void)dealloc;
 -(id)description;
 -(id)objectForKeyedSubscript:(id)arg1 ;

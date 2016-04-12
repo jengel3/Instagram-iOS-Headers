@@ -34,9 +34,9 @@
 +(CGSize)cellSize;
 -(UILabel *)usernameLabel;
 -(id)initWithFrame:(CGRect)arg1 andBorderStyle:(int)arg2 ;
--(void)setUsernameLabel:(UILabel *)arg1 ;
 -(IGProfilePictureImageView *)profileView;
 -(void)setProfileView:(IGProfilePictureImageView *)arg1 ;
+-(void)setUsernameLabel:(UILabel *)arg1 ;
 -(UIImageView *)verifiedBadgeImageView;
 -(void)setVerifiedBadgeImageView:(UIImageView *)arg1 ;
 -(UILongPressGestureRecognizer *)longPressRecognizer;

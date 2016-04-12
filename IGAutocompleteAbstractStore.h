@@ -18,9 +18,9 @@
 +(void)clearAutocompleteCacheDirectory;
 +(id)createAutocompleteCacheDirectory;
 +(id)autocompleteCacheDirectory;
+-(NSString *)userSessionPK;
 -(id)regexPattern;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
--(NSString *)userSessionPK;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;

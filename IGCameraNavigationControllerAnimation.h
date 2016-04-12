@@ -16,8 +16,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)present:(id)arg1 ;
--(CGRect)cameraControllerFrameForContainerView:(id)arg1 presentingController:(id)arg2 ;
 -(id)initPresenting:(char)arg1 ;
+-(CGRect)cameraControllerFrameForContainerView:(id)arg1 presentingController:(id)arg2 ;
 -(double)transitionDuration:(id)arg1 ;
 -(void)animateTransition:(id)arg1 ;
 -(char)presenting;

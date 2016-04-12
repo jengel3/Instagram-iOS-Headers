@@ -7,7 +7,8 @@
 -(char)canToggle;
 -(char)mayExcludeFromAbbreviatedList;
 -(char)hasEverBeenConfigured;
--(void)clearActiveSessionForUserPK:(id)arg1;
+-(void)clearActiveSession;
+-(void)invalidate;
 
 @required
 +(void)clearForUserPK:(id)arg1;

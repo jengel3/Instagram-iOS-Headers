@@ -33,8 +33,9 @@
 -(id)highlightedBackgroundImage;
 -(id)previewMedia;
 -(CGRect)tapTargetFrame;
--(UIView *)shareContainerView;
 -(id)createShareContainerView;
+-(void)setShareContainerView:(UIView *)arg1 ;
+-(UIView *)shareContainerView;
 -(UIImageView *)sideImageView;
 -(IGShareThumbnailView *)thumbnailViews;
 -(NSArray *)previewMediaPhotos;
@@ -43,7 +44,6 @@
 -(id)defaultBackgoundImageNotForSameUser;
 -(id)highlightedBackgoundImageForSameUser;
 -(id)highlightedBackgoundImageNotForSameUser;
--(void)setShareContainerView:(UIView *)arg1 ;
 -(void)setSideImageView:(UIImageView *)arg1 ;
 -(void)setThumbnailViews:(IGShareThumbnailView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

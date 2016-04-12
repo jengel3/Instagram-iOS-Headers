@@ -1,36 +1,35 @@
 
-#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIWindow.h>
 
 @protocol IGActionSheetDelegate;
-@class UIView, UIScrollView, UIButton, UILabel, NSMutableArray;
+@class NSString, UIView, IGActionGroupView, IGActionView, NSMutableArray;
 
 @interface IGActionSheet : UIWindow {
 
+	char _actionsShowing;
+	NSString* _title;
 	UIView* _overlayView;
-	UIScrollView* _buttonView;
-	UIView* _backgroundView;
-	UIButton* _cancelButton;
-	UILabel* _titleLabel;
+	IGActionGroupView* _actionGroupView;
+	IGActionView* _cancelButton;
 	UIView* _headerView;
-	NSMutableArray* _buttons;
+	NSMutableArray* _actions;
 	id<IGActionSheetDelegate> _actionDelegate;
 
 }
 
+@property (nonatomic,copy) NSString * title;                                               //@synthesize title=_title - In the implementation block
 @property (nonatomic,retain) UIView * overlayView;                                         //@synthesize overlayView=_overlayView - In the implementation block
-@property (nonatomic,retain) UIScrollView * buttonView;                                    //@synthesize buttonView=_buttonView - In the implementation block
-@property (nonatomic,retain) UIView * backgroundView;                                      //@synthesize backgroundView=_backgroundView - In the implementation block
-@property (nonatomic,retain) UIButton * cancelButton;                                      //@synthesize cancelButton=_cancelButton - In the implementation block
-@property (nonatomic,retain) UILabel * titleLabel;                                         //@synthesize titleLabel=_titleLabel - In the implementation block
+@property (nonatomic,retain) IGActionGroupView * actionGroupView;                          //@synthesize actionGroupView=_actionGroupView - In the implementation block
+@property (nonatomic,retain) IGActionView * cancelButton;                                  //@synthesize cancelButton=_cancelButton - In the implementation block
 @property (nonatomic,retain) UIView * headerView;                                          //@synthesize headerView=_headerView - In the implementation block
-@property (nonatomic,retain) NSMutableArray * buttons;                                     //@synthesize buttons=_buttons - In the implementation block
+@property (assign,nonatomic) char actionsShowing;                                          //@synthesize actionsShowing=_actionsShowing - In the implementation block
+@property (nonatomic,retain) NSMutableArray * actions;                                     //@synthesize actions=_actions - In the implementation block
 @property (assign,nonatomic,__weak) id<IGActionSheetDelegate> actionDelegate;              //@synthesize actionDelegate=_actionDelegate - In the implementation block
 +(void)addButtonWithTitle:(id)arg1 style:(int)arg2 ;
 +(void)showWithCallback:(/*^block*/id)arg1 ;
 +(void)showWithDelegate:(id)arg1 ;
-+(void)addButtonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 +(id)sharedIGActionSheet;
++(void)addButtonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 +(void)hideImmediately;
 +(void)setTitle:(id)arg1 ;
 +(int)tag;
@@ -41,39 +40,35 @@
 -(void)addButtonWithTitle:(id)arg1 style:(int)arg2 ;
 -(void)showWithDelegate:(id)arg1 ;
 -(void)onOverlayTapped;
--(UIScrollView *)buttonView;
+-(id)alertActionWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 -(void)onAppDidBackground;
--(void)layoutActionSheet;
--(id)buttonWithTitle:(id)arg1 style:(int)arg2 ;
+-(IGActionGroupView *)actionGroupView;
+-(char)actionsShowing;
 -(void)addButtonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
--(id)buttonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
--(CGRect)buttonFrameForY:(float)arg1 sheetWidth:(float)arg2 ;
+-(void)onActionTapped:(id)arg1 ;
 -(void)performAnimationVisible:(char)arg1 animated:(char)arg2 completion:(/*^block*/id)arg3 ;
+-(void)setActionsShowing:(char)arg1 ;
 -(void)hideAndReset;
 -(void)cancelAndDismiss;
--(void)setButtonView:(UIScrollView *)arg1 ;
+-(void)setActionGroupView:(IGActionGroupView *)arg1 ;
 -(id<IGActionSheetDelegate>)actionDelegate;
 -(void)setActionDelegate:(id<IGActionSheetDelegate>)arg1 ;
 -(void)show;
+-(void)setActions:(NSMutableArray *)arg1 ;
 -(void)dealloc;
 -(id)init;
 -(void)layoutSubviews;
--(void)setTitle:(id)arg1 ;
+-(void)setTitle:(NSString *)arg1 ;
+-(NSMutableArray *)actions;
 -(id)rootViewController;
+-(NSString *)title;
 -(void)becomeKeyWindow;
--(void)buttonTapped:(id)arg1 ;
--(UILabel *)titleLabel;
--(void)setBackgroundView:(UIView *)arg1 ;
--(UIView *)backgroundView;
--(UIButton *)cancelButton;
--(void)setCancelButton:(UIButton *)arg1 ;
+-(IGActionView *)cancelButton;
+-(void)setCancelButton:(IGActionView *)arg1 ;
 -(UIView *)headerView;
 -(void)setHeaderView:(UIView *)arg1 ;
--(void)setTitleLabel:(UILabel *)arg1 ;
--(NSMutableArray *)buttons;
 -(void)dismissAnimated:(char)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setOverlayView:(UIView *)arg1 ;
 -(UIView *)overlayView;
--(void)setButtons:(NSMutableArray *)arg1 ;
 @end
 

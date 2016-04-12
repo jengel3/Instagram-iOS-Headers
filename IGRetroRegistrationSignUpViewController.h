@@ -70,6 +70,7 @@
 -(char)submitting;
 -(void)nextButtonTapped;
 -(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
+-(void)profilePictureHelperDidGetNewFacebookAccessToken:(id)arg1 ;
 -(IGProfilePictureHelper *)profilePictureHelper;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
 -(FBSDKAccessToken *)facebookAccessToken;

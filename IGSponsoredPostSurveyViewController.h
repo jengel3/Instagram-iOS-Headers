@@ -15,8 +15,8 @@
 @property (nonatomic,copy) id completion;                                                        //@synthesize completion=_completion - In the implementation block
 @property (nonatomic,retain) IGSurveyTextualEmotionController * questionController;              //@synthesize questionController=_questionController - In the implementation block
 @property (nonatomic,retain) IGFeedItem * feedItem;                                              //@synthesize feedItem=_feedItem - In the implementation block
--(id)initWithFeedItem:(id)arg1 ;
 -(IGFeedItem *)feedItem;
+-(id)initWithFeedItem:(id)arg1 ;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGSurveyTextualEmotionController *)questionController;
 -(void)onHideTapped;

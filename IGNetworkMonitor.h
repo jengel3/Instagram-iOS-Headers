@@ -25,8 +25,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGFeedNetworkSource *)feedSource;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
+-(IGFeedNetworkSource *)feedSource;
 -(void)tick;
 -(NSMutableArray *)executingOperations;
 -(NSMutableArray *)pendingOperations;

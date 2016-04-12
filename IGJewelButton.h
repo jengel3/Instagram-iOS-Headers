@@ -16,10 +16,10 @@
 @property (nonatomic,retain) UIView * bubbleBackground;                          //@synthesize bubbleBackground=_bubbleBackground - In the implementation block
 -(void)styleWithImage:(id)arg1 initialJewelCount:(int)arg2 useBubbleBackground:(BOOL)arg3 ;
 -(void)setJewelCount:(int)arg1 ;
+-(IGUnreadBubbleView *)unreadBubbleView;
+-(void)setUnreadBubbleView:(IGUnreadBubbleView *)arg1 ;
 -(void)setBubbleBackground:(UIView *)arg1 ;
 -(UIView *)bubbleBackground;
--(void)setUnreadBubbleView:(IGUnreadBubbleView *)arg1 ;
--(IGUnreadBubbleView *)unreadBubbleView;
 -(void)layoutCountLabel;
 -(int)jewelCount;
 -(void)layoutSubviews;

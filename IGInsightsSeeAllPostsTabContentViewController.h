@@ -10,7 +10,7 @@
 #import <Instagram/IGInsightsContentRowListViewDelegate.h>
 
 @protocol IGInsightsSeeAllPostsTabContentViewControllerDelegate;
-@class IGListAdapter, NSMutableArray, IGListCollectionView, IGInsightsMediaFeedListItemController, UIActivityIndicatorView, NSDictionary, IGPullToRefreshViewManager, IGPullToRefreshView, IGInsightsSeeAllPostsTabContentViewDataSource, IGInsightsSeeAllPostsFilterSummaryView, IGInsightsSeeAllPostsFilterSelectorView, NSArray, UIView, NSString;
+@class IGListAdapter, NSMutableArray, IGListCollectionView, IGInsightsMediaFeedListItemController, UIActivityIndicatorView, IGPullToRefreshViewManager, IGPullToRefreshView, IGInsightsSeeAllPostsTabContentViewDataSource, IGInsightsSeeAllPostsFilterSummaryView, IGInsightsSeeAllPostsFilterSelectorView, NSArray, IGInsightsFilterUnit, UIView, IGInsightsLoggingHelper, NSString;
 
 @interface IGInsightsSeeAllPostsTabContentViewController : UIViewController <IGFeedNetworkSourceDelegate, IGListAdapterDataSource, UICollectionViewDelegate, IGPullToRefreshProtocol, IGInsightsSeeAllPostsTabContentViewDataSourceDelegate, IGInsightsSeeAllPostsFilterSelectorViewDelegate, IGInsightsContentRowListViewDelegate> {
 
@@ -23,7 +23,6 @@
 	IGInsightsMediaFeedListItemController* _feedListItemController;
 	int _mediaCellCategory;
 	UIActivityIndicatorView* _spinner;
-	NSDictionary* _buttonToMediaCellCategoryMapping;
 	IGPullToRefreshViewManager* _pullToRefreshViewManager;
 	IGPullToRefreshView* _pullRefreshControlView;
 	IGInsightsSeeAllPostsTabContentViewDataSource* _dataSource;
@@ -41,9 +40,10 @@
 	NSArray* _mediaTypeQueryItems;
 	NSArray* _dataOrderingQueryItems;
 	NSArray* _timeframeQueryItems;
-	NSArray* _filterMediaTypeUnits;
+	IGInsightsFilterUnit* _filterUnit;
 	NSArray* _educationUnits;
 	UIView* _overlayForMainView;
+	IGInsightsLoggingHelper* _loggingHelper;
 
 }
 
@@ -54,7 +54,6 @@
 @property (nonatomic,retain) IGInsightsMediaFeedListItemController * feedListItemController;                         //@synthesize feedListItemController=_feedListItemController - In the implementation block
 @property (assign,nonatomic) int mediaCellCategory;                                                                  //@synthesize mediaCellCategory=_mediaCellCategory - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                                      //@synthesize spinner=_spinner - In the implementation block
-@property (nonatomic,copy) NSDictionary * buttonToMediaCellCategoryMapping;                                          //@synthesize buttonToMediaCellCategoryMapping=_buttonToMediaCellCategoryMapping - In the implementation block
 @property (assign,nonatomic) char isDefaultTab;                                                                      //@synthesize isDefaultTab=_isDefaultTab - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;                                  //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
 @property (nonatomic,retain) IGPullToRefreshView * pullRefreshControlView;                                           //@synthesize pullRefreshControlView=_pullRefreshControlView - In the implementation block
@@ -73,16 +72,17 @@
 @property (nonatomic,retain) NSArray * mediaTypeQueryItems;                                                          //@synthesize mediaTypeQueryItems=_mediaTypeQueryItems - In the implementation block
 @property (nonatomic,retain) NSArray * dataOrderingQueryItems;                                                       //@synthesize dataOrderingQueryItems=_dataOrderingQueryItems - In the implementation block
 @property (nonatomic,retain) NSArray * timeframeQueryItems;                                                          //@synthesize timeframeQueryItems=_timeframeQueryItems - In the implementation block
-@property (nonatomic,copy) NSArray * filterMediaTypeUnits;                                                           //@synthesize filterMediaTypeUnits=_filterMediaTypeUnits - In the implementation block
+@property (nonatomic,retain) IGInsightsFilterUnit * filterUnit;                                                      //@synthesize filterUnit=_filterUnit - In the implementation block
 @property (nonatomic,copy) NSArray * educationUnits;                                                                 //@synthesize educationUnits=_educationUnits - In the implementation block
 @property (assign,nonatomic) char showSelectorView;                                                                  //@synthesize showSelectorView=_showSelectorView - In the implementation block
 @property (nonatomic,retain) UIView * overlayForMainView;                                                            //@synthesize overlayForMainView=_overlayForMainView - In the implementation block
+@property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;                                                //@synthesize loggingHelper=_loggingHelper - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(IGListAdapter *)listAdapter;
+-(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
@@ -93,14 +93,12 @@
 -(void)reloadDataFromPullToRefresh;
 -(void)scrollViewDidEndScrolling:(id)arg1 ;
 -(void)setPullRefreshControlView:(IGPullToRefreshView *)arg1 ;
+-(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(int)mediaCellCategory;
 -(void)setMediaCellCategory:(int)arg1 ;
--(void)setFilterMediaTypeUnits:(NSArray *)arg1 ;
+-(void)setFilterUnit:(IGInsightsFilterUnit *)arg1 ;
 -(void)setEducationUnits:(NSArray *)arg1 ;
--(void)_initializeButtonToMediaCellCategoryMapping;
--(unsigned)activeDataOrderingIndex;
--(char)shouldFetchOnInit;
--(void)setButtonToMediaCellCategoryMapping:(NSDictionary *)arg1 ;
 -(void)setSummaryView:(IGInsightsSeeAllPostsFilterSummaryView *)arg1 ;
 -(void)summaryViewClick:(id)arg1 ;
 -(IGInsightsSeeAllPostsFilterSummaryView *)summaryView;
@@ -111,8 +109,8 @@
 -(UIView *)overlayForMainView;
 -(void)overlayViewTapped:(id)arg1 ;
 -(void)dismissSelectorView;
--(void)setShowSelectorView:(char)arg1 ;
 -(void)resetSelectorViewActiveIndexAfterDismiss;
+-(void)setShowSelectorView:(char)arg1 ;
 -(unsigned)queriedDataOrderingIndex;
 -(unsigned)queriedMediaTypeIndex;
 -(unsigned)queriedTimeframeIndex;
@@ -122,43 +120,52 @@
 -(char)showSelectorView;
 -(void)setActiveMediaTypeIndex:(unsigned)arg1 ;
 -(void)setActiveDataOrderingIndex:(unsigned)arg1 ;
+-(NSArray *)dataOrderingQueryItems;
 -(void)setActiveTimeframeIndex:(unsigned)arg1 ;
 -(id)currentQueryItems;
--(void)updateSummaryView;
+-(void)dismissSelectorViewAndStartQuery:(id)arg1 ;
+-(unsigned)activeDataOrderingIndex;
 -(void)setQueriedDataOrderingIndex:(unsigned)arg1 ;
 -(unsigned)activeMediaTypeIndex;
 -(void)setQueriedMediaTypeIndex:(unsigned)arg1 ;
 -(unsigned)activeTimeframeIndex;
 -(void)setQueriedTimeframeIndex:(unsigned)arg1 ;
--(void)parseFilterMediaTypeCells;
+-(void)updateSummaryView;
+-(int)mediaCellCategoryFromActiveDataOrderingIndex:(unsigned)arg1 ;
+-(void)logFilterApply;
+-(void)parseFilterUnit;
 -(void)updateFilterViews;
 -(IGInsightsMediaFeedListItemController *)feedListItemController;
--(NSArray *)mediaTypeQueryItems;
--(NSArray *)dataOrderingQueryItems;
--(NSArray *)timeframeQueryItems;
+-(void)logSeeAllPostsPageLoaded;
+-(void)logMediaBundleFetchFailureWithErrorMessage:(id)arg1 ;
 -(NSArray *)dataOrderings;
--(void)setDataOrderings:(NSArray *)arg1 ;
 -(NSArray *)timeframes;
+-(void)logFilterAppear;
+-(NSArray *)mediaTypeQueryItems;
+-(NSArray *)timeframeQueryItems;
+-(void)setDataOrderings:(NSArray *)arg1 ;
 -(void)setTimeframes:(NSArray *)arg1 ;
 -(NSArray *)educationUnits;
--(NSArray *)filterMediaTypeUnits;
 -(void)updateOrderingAndTimeframeForMediaTypeCell:(id)arg1 ;
 -(void)setMediaTypeQueryItems:(NSArray *)arg1 ;
+-(void)updateActiveQuery;
+-(unsigned)getActiveIndexForMediaType:(id)arg1 ;
+-(unsigned)getActiveIndexForDataOrdering:(id)arg1 ;
+-(unsigned)getActiveIndexForTimeframe:(id)arg1 ;
 -(void)setDataOrderingQueryItems:(NSArray *)arg1 ;
 -(void)setTimeframeQueryItems:(NSArray *)arg1 ;
 -(void)didUpdateMediaBundlesForInsightsSeeAllPostsTabContentViewDataSource:(id)arg1 ;
+-(void)mediaBundleRequestFailureForInsightsSeeAllPostsTabContentViewDataSource:(id)arg1 errorMessage:(id)arg2 ;
 -(void)didSelectMediaTypeOnSelectorView:(id)arg1 AtIndex:(unsigned)arg2 ;
 -(void)didSelectDataOrderingOnSelectorView:(id)arg1 AtIndex:(unsigned)arg2 ;
 -(void)didSelectTimeframeOnSelectorView:(id)arg1 AtIndex:(unsigned)arg2 ;
 -(void)didTapSubmitButton;
--(void)didExpandContentRowListView:(id)arg1 ;
--(void)didCollapseContentRowListView:(id)arg1 ;
--(id)initWithCollectionViewComponent:(id)arg1 filterMediaTypeUnits:(id)arg2 filterSummaryText:(id)arg3 educationUnits:(id)arg4 query:(id)arg5 ;
--(id)activeDataOrderingText;
+-(void)needAnimateContentRowListView:(id)arg1 upForDistance:(float)arg2 ;
+-(id)initWithCollectionViewComponent:(id)arg1 filterUnit:(id)arg2 filterSummaryText:(id)arg3 educationUnits:(id)arg4 query:(id)arg5 loggingHelper:(id)arg6 ;
+-(char)shouldFetchOnInit;
 -(void)setFeedListItemController:(IGInsightsMediaFeedListItemController *)arg1 ;
--(NSDictionary *)buttonToMediaCellCategoryMapping;
 -(void)setIsDefaultTab:(char)arg1 ;
--(id)initWithQuery:(id)arg1 ;
+-(IGInsightsFilterUnit *)filterUnit;
 -(NSMutableArray *)objects;
 -(void)setDataSource:(IGInsightsSeeAllPostsTabContentViewDataSource *)arg1 ;
 -(void)setDelegate:(id<IGInsightsSeeAllPostsTabContentViewControllerDelegate>)arg1 ;

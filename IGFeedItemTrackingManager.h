@@ -5,6 +5,7 @@
 +(void)prepareMoreActionSheetForFeedItem:(id)arg1 ;
 +(void)moreActionSheetForFeedItem:(id)arg1 dismissedWithButtonTitled:(id)arg2 userInfo:(id)arg3 ;
 +(char)isAdRatingFeed;
++(char)isCTAAdvertiserProfile;
 +(char)isMainFeed;
 +(id)sponsoredFeedItemTracker;
 +(id)trackerForFeedItem:(id)arg1 ;
@@ -49,6 +50,7 @@
 -(void)didViewStoreProduct:(id)arg1 ;
 -(void)didTakeDirectResponseOverlayAction:(id)arg1 ;
 -(void)didTakeDirectResponseAction:(id)arg1 ;
+-(void)directResponseActionFailed:(id)arg1 ;
 -(void)didTapHeaderTitle:(id)arg1 ;
 -(void)didTapHeaderImage:(id)arg1 ;
 -(void)didTapMedia:(id)arg1 ;

@@ -62,12 +62,12 @@
 -(NSDate *)uploadStartTime;
 -(id)sharingInfo;
 -(IGUploadModel *)upload;
+-(NSDictionary *)exifData;
 -(IGEditsMetadata *)editsMetadata;
 -(void)prepareForNewVideo:(id)arg1 editsMetadata:(id)arg2 ;
 -(void)cancelCurrentUpload;
 -(void)updateEditsInfo:(id)arg1 ;
 -(void)setShouldKeepCaptionOnMediaChange:(char)arg1 ;
--(NSDictionary *)exifData;
 -(IGLocationMetadata *)locationMetadata;
 -(void)prepareForNewMediaOfType:(int)arg1 fromSource:(int)arg2 EXIFDictionary:(id)arg3 deviceOrientation:(int)arg4 cameraPosition:(int)arg5 deviceAngle:(float)arg6 editsMetadata:(id)arg7 videoMetadata:(id)arg8 ;
 -(void)setPreselectedIdentifiers:(NSArray *)arg1 ;

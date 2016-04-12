@@ -19,9 +19,11 @@
 -(void)setEntryPoint:(int)arg1 ;
 -(id)analyticsModule;
 -(char)showRefreshButton;
+-(char)shouldPullToRefresh;
 -(char)shouldAutoplayVideos;
 -(double)warmStartRefreshInterval;
 -(char)showFindFriendsWhenEmpty;
+-(char)showAlbumSubscriptionTray;
 -(char)loadsTitleFromNetworkSource;
 -(char)shouldPrefetchMediaForFeedItems;
 -(id)init;

@@ -62,7 +62,7 @@
 -(IGGroupedTableViewFooterView *)twoFactorFooterView;
 -(IGGroupedTableViewFooterView *)backupAccessFooterView;
 -(NSArray *)backupCodes;
--(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 ;
+-(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 contactPreference:(unsigned)arg4 ;
 -(NSString *)countryNumber;
 -(void)setCountryNumber:(NSString *)arg1 ;
 -(void)setTwoFactorFooterView:(IGGroupedTableViewFooterView *)arg1 ;

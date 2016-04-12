@@ -16,10 +16,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
--(IGNonCurrentUserDefaults *)sessionUserDefaults;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(IGNonCurrentUserDefaults *)sessionUserDefaults;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)migrateUserDefaultsIfNecessary;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(char)containsComment:(id)arg1 ;

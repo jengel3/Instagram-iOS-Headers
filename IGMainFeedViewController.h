@@ -50,8 +50,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)changeView;
--(void)albumNetworkSource:(id)arg1 didReceiveItems:(id)arg2 ;
+-(void)albumNetworkSource:(id)arg1 didReceiveModel:(id)arg2 ;
 -(id)analyticsModule;
 -(char)enableNavState;
 -(void)setMegaphoneView:(UIView *)arg1 ;
@@ -81,6 +80,7 @@
 -(IGAlbumSubscriptionTrayNetworkSource *)albumNetworkSource;
 -(IGMainFeedMegaphoneProvider *)megaphoneProvider;
 -(char)canHostInlineGallery:(char)arg1 ;
+-(id)initWithFeedNetworkSource:(id)arg1 ;
 -(void)megaphonePresenterDidDismiss:(id)arg1 ;
 -(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
 -(void)megaphonePresenterPopViewController:(id)arg1 ;
@@ -94,6 +94,7 @@
 -(void)updateFeedAfterReloadingforFetchAction:(int)arg1 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(void)handleDidEndScrolling;
+-(void)didTakeRefreshAction;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(id)bugReportDescription;
 -(void)setIsFirstFeedLoad:(char)arg1 ;
@@ -106,8 +107,8 @@
 -(void)loadFollowAccountListFromResponse:(id)arg1 ;
 -(void)showFindFriendsViewIfNecessary;
 -(void)logFeedLoadedOnce;
--(void)setAlbumSubscriptionTrayCell:(IGAlbumSubscriptionTrayCollectionCell *)arg1 ;
 -(IGAlbumSubscriptionTrayCollectionCell *)albumSubscriptionTrayCell;
+-(void)setAlbumSubscriptionTrayCell:(IGAlbumSubscriptionTrayCollectionCell *)arg1 ;
 -(IGFeedFollowPeopleCell *)feedFollowPeopleCell;
 -(void)setFeedFollowPeopleCell:(IGFeedFollowPeopleCell *)arg1 ;
 -(void)resetFollowAccountList;
@@ -120,7 +121,6 @@
 -(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
 -(void)setMegaphoneView:(id)arg1 animated:(char)arg2 ;
 -(char)isFirstFeedLoad;
--(id)initWithFeedNetworkSource:(id)arg1 ;
 -(void)setFindFriendsFooterView:(IGFeedPhotoPromptView *)arg1 ;
 -(char)showSearchOnViewDidAppear;
 -(void)setShowSearchOnViewDidAppear:(char)arg1 ;

@@ -27,6 +27,7 @@
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)setConfirmationView:(IGRetroRegistrationPhoneConfirmationView *)arg1 ;
 -(void)keyboardWillHide;
+-(void)backToPhoneNumberButtonTapped;
 -(void)verifyCode;
 -(void)resendCode;
 -(id)initWithPhoneNumber:(id)arg1 ;

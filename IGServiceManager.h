@@ -24,14 +24,14 @@
 +(id)imageForServiceType:(int)arg1 enabled:(char)arg2 ;
 +(id)serviceTypeToServiceHelperClassDictionary;
 +(id)sharedServiceManager;
+-(void)willSwitchUsers;
+-(void)willLogOut;
+-(NSString *)userSessionPK;
 -(id)shortNameForService:(int)arg1 ;
 -(char)serviceIsConfigured:(int)arg1 ;
--(NSString *)userSessionPK;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(void)willSwitchUsers;
--(void)willLogOut;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(id)nameForService:(int)arg1 ;
 -(void)setServiceMap:(NSDictionary *)arg1 ;

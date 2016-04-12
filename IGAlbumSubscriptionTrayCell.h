@@ -17,7 +17,7 @@
 +(float)height;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
--(void)configureWithFeedItem:(id)arg1 ;
+-(void)configureWithModel:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setThumbnailView:(IGMediaThumbnailView *)arg1 ;
 -(IGMediaThumbnailView *)thumbnailView;

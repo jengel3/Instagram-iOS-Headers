@@ -35,6 +35,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(void)dataSourceDidReturnLocalResults:(id)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
@@ -55,8 +56,8 @@
 -(id)verifiedSingleUserFromSuggestedRecipientsAtRow:(int)arg1 ;
 -(id)userCellForUser:(id)arg1 atIndexPath:(id)arg2 ;
 -(id)verifiedSingleUserFromDataSourceAtRow:(int)arg1 ;
--(id)searchPromptCellForIndexPath:(id)arg1 ;
--(id)noResultsCellForIndexPath:(id)arg1 ;
+-(id)tableView:(id)arg1 searchPromptCellForIndexPath:(id)arg2 ;
+-(id)tableView:(id)arg1 noResultsCellForIndexPath:(id)arg2 ;
 -(id)userIdsFromRecipientsList:(id)arg1 ;
 -(void)setIsPerformingSearch:(char)arg1 ;
 -(void)setCurrentDataSourceResults:(NSArray *)arg1 ;

@@ -35,14 +35,13 @@
 -(UIImageView *)filterIconView;
 -(UILabel *)filterOverlayLabel;
 -(UIImageView *)filterFrameView;
--(Class)filterClass;
--(void)setFilterClass:(Class)arg1 ;
 -(UIView *)topLine;
 -(void)setFilterIcon:(UIImage *)arg1 ;
 -(UIImage *)filterIcon;
--(void)setImageName:(id)arg1 filterClass:(Class)arg2 ;
+-(void)setFilterClass:(Class)arg1 ;
 -(CGRect)LX_rearrangeHotspot;
 -(id)LX_snapshotView;
+-(Class)filterClass;
 -(void)setVisibleIndicator:(UIImageView *)arg1 ;
 -(void)setRearrangeControl:(UIButton *)arg1 ;
 -(void)setFilterIconView:(UIImageView *)arg1 ;

@@ -82,7 +82,6 @@
 -(void)setLastIndexPaths:(NSMutableSet *)arg1 ;
 -(void)feedPromotionBannerDidTapDismiss:(id)arg1 withConfiguration:(id)arg2 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
--(void)handleDidSelectFeedItemFromGrid:(id)arg1 ;
 -(void)setMegaphoneView:(id)arg1 animated:(char)arg2 ;
 -(void)setRankedMediaView:(IGRankedMediaView *)arg1 ;
 -(IGRankedMediaView *)rankedMediaView;

@@ -9,6 +9,7 @@
 	NSString* _dataOrdering;
 	NSString* _after;
 	NSString* _first;
+	NSString* _timezoneName;
 
 }
 
@@ -17,14 +18,17 @@
 @property (nonatomic,copy,readonly) NSString * dataOrdering;              //@synthesize dataOrdering=_dataOrdering - In the implementation block
 @property (nonatomic,copy) NSString * after;                              //@synthesize after=_after - In the implementation block
 @property (nonatomic,copy) NSString * first;                              //@synthesize first=_first - In the implementation block
+@property (nonatomic,copy) NSString * timezoneName;                       //@synthesize timezoneName=_timezoneName - In the implementation block
 -(id)toDict;
 -(NSString *)timeframe;
 -(NSString *)dataOrdering;
 -(NSString *)after;
+-(NSString *)timezoneName;
 -(void)copyPageTypeFromQuery:(id)arg1 ;
 -(void)copyTimeframeFromQuery:(id)arg1 ;
 -(void)copyDataOrderingFromQuery:(id)arg1 ;
 -(void)setAfter:(NSString *)arg1 ;
+-(void)setTimezoneName:(NSString *)arg1 ;
 -(NSString *)first;
 -(void)setFirst:(NSString *)arg1 ;
 -(id)initWithDictionary:(id)arg1 ;

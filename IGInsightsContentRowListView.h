@@ -16,24 +16,27 @@
 
 }
 
+@property (assign,nonatomic) char showDetails;                                                      //@synthesize showDetails=_showDetails - In the implementation block
 @property (assign,nonatomic,__weak) id<IGInsightsContentRowListViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) UIButton * textbutton;                                               //@synthesize textbutton=_textbutton - In the implementation block
 @property (nonatomic,readonly) UIButton * chevronbutton;                                            //@synthesize chevronbutton=_chevronbutton - In the implementation block
 @property (nonatomic,readonly) UIView * bottomSeparator;                                            //@synthesize bottomSeparator=_bottomSeparator - In the implementation block
 @property (nonatomic,copy) NSArray * listItemViews;                                                 //@synthesize listItemViews=_listItemViews - In the implementation block
-@property (assign,nonatomic) char showDetails;                                                      //@synthesize showDetails=_showDetails - In the implementation block
 -(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 ;
+-(void)setShowDetails:(char)arg1 ;
 -(void)buttonClick:(id)arg1 ;
 -(void)initializeTextButtonWithTitle:(id)arg1 ;
 -(void)initializeChevronButton;
 -(void)initializeListItemViewsWithParagraphUnits:(id)arg1 ;
--(UIButton *)textbutton;
 -(char)showDetails;
+-(float)getDeltaHeightForSize:(CGSize)arg1 ;
 -(NSArray *)listItemViews;
+-(UIButton *)textbutton;
 -(UIButton *)chevronbutton;
 -(void)layoutListItemViewsWithCurrentY:(float)arg1 ;
--(void)setShowDetails:(char)arg1 ;
 -(void)flipChevronButton;
+-(void)animateCollapse;
+-(void)animateExpand;
 -(void)initializeBottomSeparator;
 -(void)buttonClickInFilterSelectorView;
 -(void)setListItemViews:(NSArray *)arg1 ;

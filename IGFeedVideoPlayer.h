@@ -45,8 +45,8 @@
 @property (assign,nonatomic,__weak) id<IGFeedVideoPlayerPlaybackDelegate> playbackDelegate;              //@synthesize playbackDelegate=_playbackDelegate - In the implementation block
 @property (nonatomic,retain) AVPlayerItem * streamingPlayerItem;                                         //@synthesize streamingPlayerItem=_streamingPlayerItem - In the implementation block
 @property (nonatomic,retain) AVURLAsset * asset;                                                         //@synthesize asset=_asset - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> playerQueue;                                   //@synthesize playerQueue=_playerQueue - In the implementation block
-@property (nonatomic,retain) IGVideoPlayerTargetView * videoTargetView;                                  //@synthesize videoTargetView=_videoTargetView - In the implementation block
+@property (nonatomic,readonly) NSObject*<OS_dispatch_queue> playerQueue;                                 //@synthesize playerQueue=_playerQueue - In the implementation block
+@property (nonatomic,readonly) IGVideoPlayerTargetView * videoTargetView;                                //@synthesize videoTargetView=_videoTargetView - In the implementation block
 @property (nonatomic,retain) NSURL * URL;                                                                //@synthesize URL=_URL - In the implementation block
 @property (nonatomic,retain) NSURL * loadingURL;                                                         //@synthesize loadingURL=_loadingURL - In the implementation block
 @property (assign,nonatomic) char readyToPlay;                                                           //@synthesize readyToPlay=_readyToPlay - In the implementation block
@@ -99,9 +99,8 @@
 -(void)videoPlayerViewIsReadyToDisplay:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didChangePlaybackRate:(float)arg2 ;
 -(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG0)arg2 ;
+-(void)onTimeRangesUpdated:(id)arg1 ;
 -(char)assetHasAudio;
--(void)setPlayerQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(void)setVideoTargetView:(IGVideoPlayerTargetView *)arg1 ;
 -(IGKVOHandle *)playerItemStatusObserver;
 -(IGKVOHandle *)playerItemPlaybackLikelyToKeepUpObserver;
 -(IGKVOHandle *)playerItemPlaybackBufferEmptyObserver;
@@ -121,6 +120,7 @@
 -(id)player;
 -(void)setDelegate:(id<IGFeedVideoPlayerDelegate>)arg1 ;
 -(void)dealloc;
+-(id)init;
 -(id<IGFeedVideoPlayerDelegate>)delegate;
 -(float)duration;
 -(void)setDuration:(float)arg1 ;

@@ -13,8 +13,6 @@
 
 @property (nonatomic,readonly) IGImageProgressView * photoImageView;              //@synthesize photoImageView=_photoImageView - In the implementation block
 @property (nonatomic,readonly) IGMediaOverlayIndicator * indicator;               //@synthesize indicator=_indicator - In the implementation block
--(float)photosViewController:(id)arg1 maximumZoomScaleForPhoto:(id)arg2 ;
--(void)longPressed:(id)arg1 ;
 -(IGMediaOverlayIndicator *)indicator;
 -(IGImageProgressView *)photoImageView;
 -(id)initWithFrame:(CGRect)arg1 ;

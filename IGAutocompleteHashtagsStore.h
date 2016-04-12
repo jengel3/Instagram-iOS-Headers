@@ -19,6 +19,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)regexPattern;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(id)hashtagsInString:(id)arg1 ;
@@ -26,8 +28,6 @@
 -(int)indexOfHashtag:(id)arg1 inArray:(id)arg2 ;
 -(void)setExpiresForHashtag:(id)arg1 ;
 -(void)removeExpiredHashtags;
--(void)willSwitchUsers;
--(void)willLogOut;
 -(void)addHashtagsFromText:(id)arg1 addToRecent:(char)arg2 ;
 -(NSMutableArray *)allHashtags;
 -(void)setAllHashtags:(NSMutableArray *)arg1 ;

@@ -35,11 +35,6 @@
 @property (assign,nonatomic,__weak) id<IGLocationPickerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int numOfViewedResults;                                    //@synthesize numOfViewedResults=_numOfViewedResults - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * contentOffsetObserver;                       //@synthesize contentOffsetObserver=_contentOffsetObserver - In the implementation block
--(void)setTempLocation:(id)arg1 ;
--(id)tempLocation;
--(void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2 ;
--(void)didSelectLocation:(SCD_Struct_IG25)arg1 ;
--(void)selectCustom;
 -(void)onCancelModal;
 -(void)onLocationDenied:(id)arg1 ;
 -(id)analyticsModule;

@@ -21,13 +21,13 @@
 +(void)clearForUserPK:(id)arg1 ;
 +(id)sharedRenderQueue;
 -(void)renderVideo:(id)arg1 withMetadata:(id)arg2 ;
+-(void)saveRenderWithMetadataWhenDone:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
 -(void)setRenderQueue:(NSMutableArray *)arg1 ;
 -(void)cancelRenderWithMetadata:(id)arg1 ;
 -(void)videoRenderer:(id)arg1 didFinishRenderingVideoToURL:(id)arg2 videoSize:(CGSize)arg3 metadata:(id)arg4 canceled:(char)arg5 ;
 -(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
--(void)saveRenderWithMetadataWhenDone:(id)arg1 ;
 -(void)onAppBackground;
 -(void)onAppForeground;
 -(void)renderVideo:(id)arg1 withMetadata:(id)arg2 retryCount:(unsigned)arg3 ;

@@ -23,8 +23,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)bulkFetchImageURLs:(id)arg1 priority:(int)arg2 ;
--(void)loadMediaForPosts:(id)arg1 withConfiguration:(SCD_Struct_IG54)arg2 completionHandler:(/*^block*/id)arg3 ;
 -(void)bulkFetchVideoURLs:(id)arg1 priority:(int)arg2 length:(long long)arg3 ;
+-(void)loadMediaForPosts:(id)arg1 withConfiguration:(SCD_Struct_IG64)arg2 completionHandler:(/*^block*/id)arg3 ;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(void)mediaRequest:(id)arg1 didFailWithError:(id)arg2 forURL:(id)arg3 ;
 -(void)stopObservingRequests;

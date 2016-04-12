@@ -26,8 +26,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithFeedItem:(id)arg1 ;
 -(IGFeedItem *)feedItem;
+-(id)initWithFeedItem:(id)arg1 ;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGShareListManager *)shareListManager;
 -(void)setShareListManager:(IGShareListManager *)arg1 ;

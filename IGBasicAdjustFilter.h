@@ -47,6 +47,7 @@
 @property (assign,nonatomic) char shadowsSurfaceDirty;                     //@synthesize shadowsSurfaceDirty=_shadowsSurfaceDirty - In the implementation block
 +(id)filterName;
 +(int)filterType;
+-(void)render:(id)arg1 to:(id)arg2 ;
 -(char)hasAdjustedValues;
 -(float)tintShadowsIntensity;
 -(float)tintHighlightsIntensity;
@@ -64,20 +65,19 @@
 -(void)setTintHighlightsColor:(_GLKVector3)arg1 ;
 -(void)setSharpenDisabled:(char)arg1 ;
 -(void)clearCachesNotOfSize:(CGSize)arg1 ;
--(void)render:(id)arg1 to:(id)arg2 ;
 -(id)fragmentShaderPrecision;
 -(id)fragmentFunctions;
 -(void)configureProgram:(id)arg1 ;
 -(IGSurface *)blurredSurface;
 -(IGSurface *)sharpenBlurSurface;
+-(void)dirtyInternalCaches;
+-(char)sharpenDisabled;
 -(void)setBlurredSurface:(IGSurface *)arg1 ;
 -(void)setSharpenBlurSurface:(IGSurface *)arg1 ;
 -(char)sharpenSurfaceDirty;
 -(void)setSharpenSurfaceDirty:(char)arg1 ;
 -(char)shadowsSurfaceDirty;
 -(void)setShadowsSurfaceDirty:(char)arg1 ;
--(void)dirtyInternalCaches;
--(char)sharpenDisabled;
 -(float)saturation;
 -(void)setSaturation:(float)arg1 ;
 -(id)fragmentShader;

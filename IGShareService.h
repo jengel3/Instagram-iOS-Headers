@@ -19,12 +19,12 @@
 @property (nonatomic,readonly) char willShare; 
 +(id)serviceWithType:(int)arg1 ;
 -(void)setWantsToShare:(char)arg1 ;
+-(char)willShare;
 -(NSString *)serviceNameForService;
 -(char)isAdequatelyConfigured;
 -(char)hasAdvancedOptions;
 -(char)isAvailableForSharing;
 -(char)wantsToShare;
--(char)willShare;
 -(void)setIsAvailableForSharing:(char)arg1 ;
 -(id)initWithServiceType:(int)arg1 ;
 -(int)serviceType;

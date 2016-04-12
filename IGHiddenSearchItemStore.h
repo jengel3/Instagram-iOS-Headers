@@ -23,12 +23,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
 +(void)clearForUserDefaults:(id)arg1 key:(id)arg2 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(NSString *)userSessionPK;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(void)willSwitchUsers;
--(void)willLogOut;
 -(NSSet *)itemIds;
 -(void)addItemId:(id)arg1 ;
 -(NSString *)defaultsKey;

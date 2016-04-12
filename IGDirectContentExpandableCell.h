@@ -4,19 +4,19 @@
 #import <Instagram/IGDirectContentUploadCell.h>
 
 @protocol IGDirectContentUpoadCellDelegate;
-@class UIView, IGHeartView, IGDirectContentCellUploadDecorator;
+@class IGDirectContentCellUploadDecorator, UIView, IGHeartView;
 
 @interface IGDirectContentExpandableCell : IGDirectContentCell <IGDirectContentUploadCell> {
 
 	char _isAnimating;
 	char _expanded;
 	id<IGDirectContentUpoadCellDelegate> _delegate;
+	IGDirectContentCellUploadDecorator* _uploadDecorator;
 	UIView* _contentImageView;
 	float _cornerRadius;
 	float _expansionProgress;
 	float _currentUsernameXOffset;
 	IGHeartView* _heartView;
-	IGDirectContentCellUploadDecorator* _uploadDecorator;
 	CGSize _expandedPhotoSize;
 	CGSize _contractedPhotoSize;
 
@@ -34,12 +34,10 @@
 @property (nonatomic,retain) IGHeartView * heartView;                                           //@synthesize heartView=_heartView - In the implementation block
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator;              //@synthesize uploadDecorator=_uploadDecorator - In the implementation block
 +(float)photoExpandedHeightForWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
-+(float)contractedHeightForFrameWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
 +(float)expandedHeightForWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
 +(CGSize)contractedOffsetForUploadSpinner;
 +(CGSize)expandedOffsetForUploadSpinner;
--(void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;
--(void)callShare:(id)arg1 ;
++(float)contractedHeightForFrameWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(id)timestampText;
 -(void)setCellDecorator:(id)arg1 ;
@@ -47,26 +45,28 @@
 -(void)handleUploadCellTap;
 -(void)performRetry;
 -(void)performDelete;
+-(void)showUploadFailedUI;
+-(void)showUploadSendingUI;
 -(CGRect)tapTargetFrame;
 -(float)usernameXOffset;
 -(void)setIsSameUserContent:(char)arg1 ;
--(void)animateLikeAction;
 -(UIView *)contentImageView;
--(float)expansionProgress;
--(float)contractedUsernameXOffset;
+-(float)expandedUsernameXOffset;
 -(void)setCurrentUsernameXOffset:(float)arg1 ;
--(float)contractedCornerRadius;
 -(void)updateProfileAlpha;
 -(float)currentUsernameXOffset;
--(float)expandedUsernameXOffset;
+-(float)contractedUsernameXOffset;
 -(void)setExpansionProgress:(float)arg1 ;
--(float)expandedCornerRadius;
 -(IGHeartView *)heartView;
 -(void)setHeartView:(IGHeartView *)arg1 ;
 -(void)setIsAnimating:(char)arg1 ;
 -(CGSize)expandedPhotoSize;
 -(CGSize)contractedPhotoSize;
+-(float)expansionProgress;
+-(float)expandedCornerRadius;
+-(float)contractedCornerRadius;
 -(CGSize)photoSizeForWidth:(float)arg1 ;
+-(void)animateLikeAction;
 -(void)animateExpanded:(char)arg1 withProgress:(float)arg2 ;
 -(void)completeAnimation;
 -(void)setContentImageView:(UIView *)arg1 ;

@@ -25,14 +25,12 @@
 -(id)convertTokenToDeviceID:(id)arg1 ;
 -(void)handleBackgroundPushNotification:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)handleForegroundPushNotification:(id)arg1 ;
--(char)shouldAllowBackgroundFetchFeed;
--(void)cacheFeedItemWithFeedItemPK:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)performNavigationTaskForAction:(id)arg1 userInfo:(id)arg2 ;
 -(void)showNotificationBarWithUserInfo:(id)arg1 actionBlock:(/*^block*/id)arg2 ;
--(void)performNonNavigationTaskForAction:(id)arg1 userInfo:(id)arg2 ;
 -(void)logPushNogification:(id)arg1 applicationState:(int)arg2 ;
 -(void)markAsNeedToUpdatePushToken;
 -(char)shouldShowActivityPushMegaphone;
+-(char)shouldAllowBackgroundFetchFeed;
 -(void)registerForPushWithToken:(id)arg1 ;
 -(void)handlePushNotification:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)clearFeedItemCache;

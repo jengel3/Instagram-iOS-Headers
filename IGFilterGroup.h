@@ -12,8 +12,8 @@
 	NSMutableIndexSet* _disabledFilters;
 
 }
--(id)renderByConsumingSource:(id)arg1 ;
 -(void)render:(id)arg1 to:(id)arg2 ;
+-(id)renderByConsumingSource:(id)arg1 ;
 -(void)render:(id)arg1 to:(id*)arg2 consumeSource:(char)arg3 ;
 -(void)insertFilter:(id)arg1 atIndex:(unsigned)arg2 ;
 -(void)removeLastFilter;

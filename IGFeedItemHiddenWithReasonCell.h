@@ -2,22 +2,16 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 
-@class UIImageView, UILabel;
+@class IGTombstoneView;
 
 @interface IGFeedItemHiddenWithReasonCell : UICollectionViewCell {
 
-	UIImageView* _checkMarkImageView;
-	UILabel* _thankYouLabel;
-	UILabel* _improvementLabel;
+	IGTombstoneView* _tombstoneView;
 
 }
 
-@property (nonatomic,readonly) UIImageView * checkMarkImageView;              //@synthesize checkMarkImageView=_checkMarkImageView - In the implementation block
-@property (nonatomic,readonly) UILabel * thankYouLabel;                       //@synthesize thankYouLabel=_thankYouLabel - In the implementation block
-@property (nonatomic,readonly) UILabel * improvementLabel;                    //@synthesize improvementLabel=_improvementLabel - In the implementation block
--(UIImageView *)checkMarkImageView;
--(UILabel *)thankYouLabel;
--(UILabel *)improvementLabel;
+@property (nonatomic,readonly) IGTombstoneView * tombstoneView;              //@synthesize tombstoneView=_tombstoneView - In the implementation block
+-(IGTombstoneView *)tombstoneView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 @end

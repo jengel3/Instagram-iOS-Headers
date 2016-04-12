@@ -33,10 +33,10 @@
 +(CGSize)thumbnailSizeForWidth:(float)arg1 thumbnailsPerRow:(unsigned)arg2 ;
 -(NSArray *)thumbnailViews;
 -(void)setThumbnailViews:(NSArray *)arg1 ;
+-(void)setThumbnailURLs:(id)arg1 isRestricted:(char)arg2 thumbnailVideoIndexes:(id)arg3 maxThumbnails:(int)arg4 thumbnailsPerRow:(unsigned)arg5 showPlaceHolder:(char)arg6 ;
 -(NSArray *)thumbnailURLs;
 -(unsigned)thumbnailsPerRow;
 -(NSIndexSet *)thumbnailVideoIndexes;
--(void)setThumbnailURLs:(id)arg1 isRestricted:(char)arg2 thumbnailVideoIndexes:(id)arg3 maxThumbnails:(int)arg4 thumbnailsPerRow:(unsigned)arg5 showPlaceHolder:(char)arg6 ;
 -(UIView *)thumbnailOverlayView;
 -(void)setThumbnailsPerRow:(unsigned)arg1 ;
 -(void)setThumbnailURLs:(NSArray *)arg1 ;

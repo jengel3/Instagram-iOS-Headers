@@ -42,7 +42,6 @@
 -(char)disableNonEdgeNavigationGesture;
 -(NSMutableSet *)loggedImpressions;
 -(id)initExplorePeopleFeedViewController;
--(void)setForcedUserIDs:(NSArray *)arg1 ;
 -(void)setLoggedImpressions:(NSMutableSet *)arg1 ;
 -(void)followStatusNotification:(id)arg1 ;
 -(void)fetchMoreData;
@@ -79,6 +78,7 @@
 -(void)contactsViewControllerWillDisconnectContacts:(id)arg1 ;
 -(id)initWithDataSource:(id)arg1 feedType:(int)arg2 ;
 -(NSArray *)forcedUserIDs;
+-(void)setForcedUserIDs:(NSArray *)arg1 ;
 -(void)setDismissBlock:(id)arg1 ;
 -(void)setConnectionHeaderView:(UIView *)arg1 ;
 -(void)setFacebookConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;

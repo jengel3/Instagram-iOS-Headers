@@ -31,10 +31,8 @@
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
 -(void)cameraControllerDidFinishWithDirectShare:(char)arg1 ;
--(void)facebookAuthDidFinish;
 -(void)imageTicketDidFail;
 -(void)imageTicketDidFinishWithData:(id)arg1 ;
--(void)loadFacebookProfilePicture;
 -(void)showActionSheet;
 -(void)openCameraWithMode:(int)arg1 ;
 -(id<UIViewControllerTransitioningDelegate>)cameraTransitionDelegate;
@@ -42,6 +40,8 @@
 -(void)delegateDidFailDownloadingProfilePicture;
 -(void)delegateWillStartDownloadingProfilePicture;
 -(void)loadFacebookProfilePictureWithFacebookUserInfo:(id)arg1 ;
+-(void)facebookAuthDidFinishWithAccessToken:(id)arg1 ;
+-(void)loadFacebookProfilePictureFromAccessToken:(id)arg1 ;
 -(void)onTwitterLoginCompleted:(id)arg1 ;
 -(void)twitterLoginCancelled;
 -(void)removeTwitterObserver;
@@ -51,9 +51,9 @@
 -(void)delegateRemovePictureButtonTapped;
 -(void)presentCamera;
 -(void)presentPhotoLibrary;
+-(void)presentLoggedOutFacebookLogin;
 -(void)presentFacebookLogin;
 -(void)presentTwitterLogin;
--(void)importProfilePictureWithOption:(int)arg1 ;
 -(char)showLocalOptionsOnly;
 -(void)setShowLocalOptionsOnly:(char)arg1 ;
 -(void)setCameraTransitionDelegate:(id<UIViewControllerTransitioningDelegate>)arg1 ;

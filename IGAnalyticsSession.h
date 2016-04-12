@@ -20,12 +20,12 @@
 @property (nonatomic,readonly) NSDate * startTime;                         //@synthesize startTime=_startTime - In the implementation block
 @property (nonatomic,readonly) NSMutableArray * currentBatch;              //@synthesize currentBatch=_currentBatch - In the implementation block
 +(id)appVersionString;
--(void)beginNewBatch;
--(id)loggingParametersForCurrentBatchWithTimeStamp:(double)arg1 ;
 -(id)initWithAppID:(id)arg1 deviceID:(id)arg2 userID:(id)arg3 facebookID:(id)arg4 ;
--(void)addEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
+-(void)beginNewBatch;
 -(void)appendEventsFromSession:(id)arg1 ;
 -(id)loggingDataForCurrentBatchWithTimeStamp:(double)arg1 ;
+-(void)addEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
+-(id)loggingParametersForCurrentBatchWithTimeStamp:(double)arg1 ;
 -(NSString *)facebookID;
 -(id)description;
 -(NSDate *)startTime;

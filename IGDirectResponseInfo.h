@@ -36,9 +36,9 @@
 -(NSString *)overlayTitle;
 -(NSString *)overlayText;
 -(NSString *)actionText;
+-(NSString *)overlaySubtitle;
 -(char)hideNUXText;
 -(NSString *)actionHintText;
--(NSString *)overlaySubtitle;
 -(char)forceOverlay;
 -(NSURL *)actionURL;
 -(NSArray *)iosLinks;

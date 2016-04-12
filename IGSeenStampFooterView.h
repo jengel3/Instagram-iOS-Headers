@@ -33,15 +33,15 @@
 +(float)heightForUsers:(id)arg1 expanded:(char)arg2 ;
 -(IGCoreTextView *)usernameLabel;
 -(void)setUsernameLabel:(IGCoreTextView *)arg1 ;
+-(NSArray *)seenUsers;
+-(void)setSeenUsers:(NSArray *)arg1 ;
 -(void)didTapStamp:(id)arg1 ;
 -(void)setSeenUsers:(id)arg1 isOneToOneChat:(char)arg2 ;
 -(UIImageView *)eyeIcon;
--(NSArray *)seenUsers;
 -(char)oneToOne;
 -(id<IGSeenStampFooterDelegate>)seenStampDelegate;
 -(void)setSeenStampDelegate:(id<IGSeenStampFooterDelegate>)arg1 ;
 -(void)setEyeIcon:(UIImageView *)arg1 ;
--(void)setSeenUsers:(NSArray *)arg1 ;
 -(void)setOneToOne:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

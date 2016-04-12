@@ -4,16 +4,18 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate;
-@class UIView, NSString, CALayer, UILongPressGestureRecognizer;
+@class UIView, NSString, CALayer, UILongPressGestureRecognizer, UIImageView;
 
 @interface IGSearchResultCell : IGPlainTableViewCell <UIGestureRecognizerDelegate> {
 
+	char _showUnseen;
 	UIView* _iconView;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 	id<IGSearchResultCellDelegate> _delegate;
 	NSString* _itemId;
 	CALayer* _separatorLayer;
 	UILongPressGestureRecognizer* _contentMenuLongPressRecognizer;
+	UIImageView* _unseenToastView;
 
 }
 
@@ -23,10 +25,13 @@
 @property (nonatomic,retain) NSString * itemId;                                                          //@synthesize itemId=_itemId - In the implementation block
 @property (nonatomic,readonly) CALayer * separatorLayer;                                                 //@synthesize separatorLayer=_separatorLayer - In the implementation block
 @property (nonatomic,retain) UILongPressGestureRecognizer * contentMenuLongPressRecognizer;              //@synthesize contentMenuLongPressRecognizer=_contentMenuLongPressRecognizer - In the implementation block
+@property (nonatomic,retain) UIImageView * unseenToastView;                                              //@synthesize unseenToastView=_unseenToastView - In the implementation block
+@property (assign,nonatomic) char showUnseen;                                                            //@synthesize showUnseen=_showUnseen - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(CGRect)unseenToastViewFrame;
 +(CGRect)iconViewFrame;
 +(id)formatedPostCount:(unsigned)arg1 ;
 +(id)backgroundColor;
@@ -38,8 +43,12 @@
 -(void)setContentMenuLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;
 -(UILongPressGestureRecognizer *)contentMenuLongPressRecognizer;
 -(void)setHashtag:(id)arg1 ;
+-(char)showUnseen;
+-(UIImageView *)unseenToastView;
 -(float)labelMinXForIconFrame:(CGRect)arg1 ;
 -(void)layoutLabels:(float)arg1 bounds:(CGRect)arg2 ;
+-(void)setUnseenToastView:(UIImageView *)arg1 ;
+-(void)setShowUnseen:(char)arg1 ;
 -(NSString *)itemId;
 -(void)setItemId:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGSearchResultCellDelegate>)arg1 ;

@@ -55,6 +55,8 @@
 -(void)videoPlayer:(id)arg1 playbackBufferLikelyToKeepUp:(char)arg2 ;
 -(void)videoPlayer:(id)arg1 didFailToPlaybackWithError:(id)arg2 ;
 -(void)videoPlayerDidPlay:(id)arg1 ;
+-(void)videoPlayer:(id)arg1 didUpdateLoadingProgress:(float)arg2 ;
+-(void)videoPlayer:(id)arg1 didUpdatePlaybackProgress:(float)arg2 ;
 -(void)progressImageView:(id)arg1 didLoadImage:(id)arg2 withDataLength:(unsigned)arg3 ;
 -(void)progressImageView:(id)arg1 didFailLoadWithError:(id)arg2 ;
 -(char)hasPlaybackError;

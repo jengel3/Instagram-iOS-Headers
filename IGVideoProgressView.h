@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class IGVideoInfo, UIView, NSMutableArray, UIImageView, CADisplayLink;
+@class IGVideoInfo, UIView, NSMutableArray, CADisplayLink;
 
 @interface IGVideoProgressView : UIView {
 
@@ -15,7 +15,7 @@
 	float _maxVideoDuration;
 	UIView* _minDurationView;
 	NSMutableArray* _clipBarViews;
-	UIImageView* _runningTimeBarView;
+	UIView* _runningTimeBarView;
 	UIView* _blinkerView;
 	CADisplayLink* _displayLink;
 	int _counter;
@@ -32,7 +32,7 @@
 @property (assign,nonatomic) float maxVideoDuration;                               //@synthesize maxVideoDuration=_maxVideoDuration - In the implementation block
 @property (nonatomic,retain) UIView * minDurationView;                             //@synthesize minDurationView=_minDurationView - In the implementation block
 @property (nonatomic,retain) NSMutableArray * clipBarViews;                        //@synthesize clipBarViews=_clipBarViews - In the implementation block
-@property (nonatomic,retain) UIImageView * runningTimeBarView;                     //@synthesize runningTimeBarView=_runningTimeBarView - In the implementation block
+@property (nonatomic,retain) UIView * runningTimeBarView;                          //@synthesize runningTimeBarView=_runningTimeBarView - In the implementation block
 @property (nonatomic,retain) UIView * blinkerView;                                 //@synthesize blinkerView=_blinkerView - In the implementation block
 @property (nonatomic,retain) CADisplayLink * displayLink;                          //@synthesize displayLink=_displayLink - In the implementation block
 @property (assign,nonatomic) int counter;                                          //@synthesize counter=_counter - In the implementation block
@@ -44,6 +44,7 @@
 -(float)runningTime;
 -(float)maxVideoDuration;
 -(void)setMaxVideoDuration:(float)arg1 ;
+-(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)setIsLive:(char)arg1 ;
 -(void)onClipAdded:(id)arg1 ;
 -(char)lastClipIsSelected;
@@ -54,18 +55,16 @@
 -(CGPoint)blinkerCenter;
 -(UIView *)minDurationView;
 -(void)reloadAllClips;
--(id)barImageOfType:(int)arg1 ;
 -(UIView *)blinkerView;
--(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)setRunningTime:(float)arg1 ;
 -(void)updateBlinker;
 -(NSMutableArray *)clipBarViews;
--(UIImageView *)runningTimeBarView;
+-(UIView *)runningTimeBarView;
 -(char)videoRecordingEnabled;
 -(char)shouldExpandLastClipToFillAllWidth;
 -(void)setMinDurationView:(UIView *)arg1 ;
 -(void)setClipBarViews:(NSMutableArray *)arg1 ;
--(void)setRunningTimeBarView:(UIImageView *)arg1 ;
+-(void)setRunningTimeBarView:(UIView *)arg1 ;
 -(void)setBlinkerView:(UIView *)arg1 ;
 -(char)isLive;
 -(id)initWithFrame:(CGRect)arg1 ;

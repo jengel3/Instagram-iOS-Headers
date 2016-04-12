@@ -22,12 +22,12 @@
 -(id)fragmentShaderPrecision;
 -(id)fragmentFunctions;
 -(void)configureProgram:(id)arg1 ;
+-(id)initWithKernelSize:(unsigned)arg1 ;
 -(float)rangeSigma;
 -(void)setRangeSigma:(float)arg1 ;
 -(float)spatialSigma;
 -(void)setSpatialSigma:(float)arg1 ;
 -(unsigned)spatialKernelSize;
--(id)initWithKernelSize:(unsigned)arg1 ;
 -(id)fragmentShader;
 -(id)init;
 -(id)copyWithZone:(NSZone*)arg1 ;

@@ -4,11 +4,12 @@
 #import <Instagram/IGProfilePictureImageViewDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
 #import <Instagram/IGSlidingCollectionViewCell.h>
+#import <Instagram/IGDirectCellProtocol.h>
 
 @protocol IGDirectContentCellDelegate, IGDirectContentCellTextLinkDelegate, IGDirectContentCellDecorator;
-@class IGDirectContent, UIView, UIImageView, IGProfilePictureImageView, UILabel, UILongPressGestureRecognizer, NSString;
+@class UIView, IGDirectContent, UIImageView, IGProfilePictureImageView, UILabel, UILongPressGestureRecognizer, NSString;
 
-@interface IGDirectContentCell : UICollectionViewCell <IGProfilePictureImageViewDelegate, UIGestureRecognizerDelegate, IGSlidingCollectionViewCell> {
+@interface IGDirectContentCell : UICollectionViewCell <IGProfilePictureImageViewDelegate, UIGestureRecognizerDelegate, IGSlidingCollectionViewCell, IGDirectCellProtocol> {
 
 	char _isSameUserContent;
 	char _hideProfilePicture;
@@ -16,10 +17,10 @@
 	char _showUsername;
 	char _pendingDeleteAction;
 	float _slideAmount;
+	UIView* _contentContainerView;
 	id<IGDirectContentCellDelegate> _delegate;
 	id<IGDirectContentCellTextLinkDelegate> _textDelegate;
 	IGDirectContent* _content;
-	UIView* _contentContainerView;
 	id<IGDirectContentCellDecorator> _cellDecorator;
 	UIImageView* _backgroundBubbleView;
 	IGProfilePictureImageView* _profilePictureImageView;
@@ -35,7 +36,6 @@
 @property (nonatomic,retain) IGDirectContent * content;                                                  //@synthesize content=_content - In the implementation block
 @property (assign,nonatomic) char isSameUserContent;                                                     //@synthesize isSameUserContent=_isSameUserContent - In the implementation block
 @property (assign,nonatomic) char hideProfilePicture;                                                    //@synthesize hideProfilePicture=_hideProfilePicture - In the implementation block
-@property (nonatomic,retain) UIView * contentContainerView;                                              //@synthesize contentContainerView=_contentContainerView - In the implementation block
 @property (nonatomic,retain) id<IGDirectContentCellDecorator> cellDecorator;                             //@synthesize cellDecorator=_cellDecorator - In the implementation block
 @property (assign,nonatomic) CGRect tapTargetFrame;                                                      //@synthesize tapTargetFrame=_tapTargetFrame - In the implementation block
 @property (nonatomic,readonly) CGRect bubbleFrame; 
@@ -54,14 +54,13 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic) float slideAmount;                                                          //@synthesize slideAmount=_slideAmount - In the implementation block
 @property (nonatomic,readonly) float maxSlideAmount; 
+@property (nonatomic,readonly) UIView * contentContainerView;                                            //@synthesize contentContainerView=_contentContainerView - In the implementation block
 +(float)profilePictureWidthOffset;
 -(void)profilePictureTapped:(id)arg1 ;
 -(void)setPendingDeleteAction:(char)arg1 ;
 -(char)pendingDeleteAction;
--(CGRect)bubbleFrame;
 -(float)cellContentYOffset;
--(char)isSameUserContent;
--(void)setBackgroundBubbleWithFrame:(CGRect)arg1 forCurrentUser:(char)arg2 ;
+-(CGRect)bubbleFrame;
 -(void)setHidesBubbleBackground:(char)arg1 ;
 -(id)timestampText;
 -(void)setCellDecorator:(id<IGDirectContentCellDecorator>)arg1 ;
@@ -76,15 +75,17 @@
 -(UILongPressGestureRecognizer *)contentMenuLongPressRecognizer;
 -(void)setSlideAmount:(float)arg1 ;
 -(void)setShowUsername:(char)arg1 ;
--(char)showUsername;
--(float)slideAmount;
+-(char)isSameUserContent;
 -(float)profilePictureYOffset;
 -(float)maxSlideAmount;
+-(char)showUsername;
 -(float)usernameXOffset;
 -(id)backgroundImageIsForCurrentUser:(char)arg1 ;
+-(float)slideAmount;
+-(void)setProfilePictureAlpha:(float)arg1 ;
 -(void)setHideProfilePicture:(char)arg1 ;
 -(void)setProfilePictureY:(float)arg1 ;
--(void)setProfilePictureAlpha:(float)arg1 ;
+-(void)setBackgroundBubbleWithFrame:(CGRect)arg1 forCurrentUser:(char)arg2 ;
 -(void)setIsSameUserContent:(char)arg1 ;
 -(char)hideProfilePicture;
 -(void)setTapTargetFrame:(CGRect)arg1 ;
@@ -103,7 +104,6 @@
 -(char)gestureRecognizerShouldBegin:(id)arg1 ;
 -(void)prepareForReuse;
 -(IGDirectContent *)content;
--(void)setContentContainerView:(UIView *)arg1 ;
 -(void)setContent:(IGDirectContent *)arg1 ;
 @end
 

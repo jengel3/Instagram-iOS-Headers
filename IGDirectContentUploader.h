@@ -5,12 +5,12 @@
 +(void)clearUploadsForThreadWithID:(id)arg1 ;
 +(id)uploadsForThread:(id)arg1 ;
 +(void)removeRedundantUploadsForThread:(id)arg1 ;
-+(void)retryUpload:(id)arg1 isSilent:(char)arg2 progress:(/*^block*/id)arg3 withCompletion:(/*^block*/id)arg4 ;
-+(void)sendLikeToContent:(id)arg1 inThread:(id)arg2 withFailureHandler:(/*^block*/id)arg3 like:(char)arg4 ;
 +(id)uploadText:(id)arg1 toRecipient:(id)arg2 progress:(/*^block*/id)arg3 withCompletion:(/*^block*/id)arg4 ;
-+(id)uploadLikeToRecipient:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
 +(id)uploadImage:(id)arg1 toRecipient:(id)arg2 withCompletion:(/*^block*/id)arg3 ;
 +(id)uploadVideo:(id)arg1 toRecipient:(id)arg2 withCompletion:(/*^block*/id)arg3 ;
++(void)retryUpload:(id)arg1 isSilent:(char)arg2 progress:(/*^block*/id)arg3 withCompletion:(/*^block*/id)arg4 ;
++(void)sendLikeToContent:(id)arg1 inThread:(id)arg2 withFailureHandler:(/*^block*/id)arg3 like:(char)arg4 ;
++(id)uploadLikeToRecipient:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
 +(id)uploadsBaseDirectory;
 +(id)uploadsBaseDirectoryForThreadId:(id)arg1 ;
 +(id)internalUploadsForThreadWithID:(id)arg1 includeNonThreadUploadForUserKey:(id)arg2 ;

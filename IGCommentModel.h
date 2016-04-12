@@ -2,10 +2,12 @@
 #import <libobjc.A.dylib/NSCoding.h>
 #import <Instagram/IGDKDiffable.h>
 
+@protocol NSObject;
 @class NSString, IGPost, IGUser, IGDate;
 
 @interface IGCommentModel : NSObject <NSCoding, IGDKDiffable> {
 
+	id<NSObject> _diffIdentifier;
 	char _wasMarkedAsSpam;
 	char _didReportAsSpam;
 	NSString* _pk;

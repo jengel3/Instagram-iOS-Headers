@@ -4,7 +4,7 @@
 #import <Instagram/IGCommentModelDelegate.h>
 #import <Instagram/IGDKDiffable.h>
 
-@class IGUser, IGDate, IGLocation, CLLocation, NSMutableOrderedSet, NSNumber, IGCommentModel, NSArray, NSString, NSURL, IGPostFeaturedBadge, NSMutableDictionary, IGPhoto, IGVideo;
+@class IGUser, IGDate, IGLocation, CLLocation, NSMutableOrderedSet, NSNumber, IGCommentModel, NSString, NSArray, NSURL, IGPostFeaturedBadge, NSMutableDictionary, IGPhoto, IGVideo;
 
 @interface IGPost : IGStorableObject <IGCommentModelDelegate, IGDKDiffable> {
 
@@ -22,7 +22,7 @@
 	int _likeCount;
 	NSNumber* _viewCount;
 	IGCommentModel* _caption;
-	NSNumber* _commentCursor;
+	NSString* _commentCursor;
 	int _commentCount;
 	NSArray* _allComments;
 	NSString* _rankToken;
@@ -40,6 +40,7 @@
 	IGDate* _expiringAt;
 	NSNumber* _insightsImpressionCount;
 	NSNumber* _insightsReachCount;
+	NSNumber* _insightsEngagementCount;
 	NSMutableDictionary* _pendingComments;
 	NSArray* _activeComments;
 
@@ -58,7 +59,7 @@
 @property (readonly) char hasLiked;                                    //@synthesize hasLiked=_hasLiked - In the implementation block
 @property (retain) IGCommentModel * caption;                           //@synthesize caption=_caption - In the implementation block
 @property (assign) char captionIsEdited;                               //@synthesize captionIsEdited=_captionIsEdited - In the implementation block
-@property (retain) NSNumber * commentCursor;                           //@synthesize commentCursor=_commentCursor - In the implementation block
+@property (copy) NSString * commentCursor;                             //@synthesize commentCursor=_commentCursor - In the implementation block
 @property (readonly) int commentCount;                                 //@synthesize commentCount=_commentCount - In the implementation block
 @property (readonly) NSArray * allComments;                            //@synthesize allComments=_allComments - In the implementation block
 @property (assign) char moreCommentsAvailable;                         //@synthesize moreCommentsAvailable=_moreCommentsAvailable - In the implementation block
@@ -78,6 +79,7 @@
 @property (readonly) IGDate * expiringAt;                              //@synthesize expiringAt=_expiringAt - In the implementation block
 @property (retain) NSNumber * insightsImpressionCount;                 //@synthesize insightsImpressionCount=_insightsImpressionCount - In the implementation block
 @property (retain) NSNumber * insightsReachCount;                      //@synthesize insightsReachCount=_insightsReachCount - In the implementation block
+@property (retain) NSNumber * insightsEngagementCount;                 //@synthesize insightsEngagementCount=_insightsEngagementCount - In the implementation block
 @property (assign,nonatomic) char needsFetch;                          //@synthesize needsFetch=_needsFetch - In the implementation block
 @property (retain) NSMutableDictionary * pendingComments;              //@synthesize pendingComments=_pendingComments - In the implementation block
 @property (retain) NSArray * activeComments;                           //@synthesize activeComments=_activeComments - In the implementation block
@@ -94,6 +96,7 @@
 +(long long)decodePk:(id)arg1 ;
 -(CGSize)sizeForMediaNormalizedToViewWidth:(float)arg1 ;
 -(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
+-(IGDate *)takenAtDate;
 -(id)diffIdentifier;
 -(NSString *)rankToken;
 -(int)linkStyle;
@@ -101,7 +104,7 @@
 -(NSString *)exploreContext;
 -(id)ig_summaryForAccessibilityLabel;
 -(unsigned long long)ig_accessibilityTraits;
--(void)fetchCommentsWithLoadMore:(char)arg1 completionHandler:(/*^block*/id)arg2 subscriptionHandler:(/*^block*/id)arg3 ;
+-(void)fetchCommentsWithLoadMore:(char)arg1 allowCaptionOverwrite:(char)arg2 completionHandler:(/*^block*/id)arg3 subscriptionHandler:(/*^block*/id)arg4 ;
 -(void)removeCommentWithPK:(id)arg1 ;
 -(void)setCaptionWithDictionary:(id)arg1 notify:(char)arg2 ;
 -(char)moreCommentsAvailable;
@@ -124,7 +127,6 @@
 -(NSArray *)activeComments;
 -(id)filteredActiveCaptionAndComments;
 -(NSArray *)allComments;
--(IGDate *)takenAtDate;
 -(NSMutableOrderedSet *)likers;
 -(NSString *)showTopLikerQEGroup;
 -(IGPostFeaturedBadge *)featuredBadge;
@@ -142,13 +144,13 @@
 -(void)postPostUpdatedNotification:(int)arg1 ;
 -(void)updateLocalLikeStatus:(char)arg1 withUser:(id)arg2 ;
 -(void)removeLocalLocationInformation;
--(NSNumber *)commentCursor;
--(void)setCommentInfoFromDictionary:(id)arg1 append:(char)arg2 ;
+-(NSString *)commentCursor;
+-(void)setCommentInfoFromDictionary:(id)arg1 append:(char)arg2 allowCaptionOverwrite:(char)arg3 ;
 -(id)itemsArrayForPostDictionary:(id)arg1 ;
 -(void)setLocationInfoFromDictionary:(id)arg1 ;
 -(void)setLikeInfoFromDictionary:(id)arg1 ;
 -(void)invalidateActiveComments;
--(void)setCommentCursor:(NSNumber *)arg1 ;
+-(void)setCommentCursor:(NSString *)arg1 ;
 -(void)setMoreCommentsAvailable:(char)arg1 ;
 -(void)setCaptionIsEdited:(char)arg1 ;
 -(void)setNumCommentInPreview:(int)arg1 ;
@@ -169,6 +171,8 @@
 -(void)setInsightsImpressionCount:(NSNumber *)arg1 ;
 -(NSNumber *)insightsReachCount;
 -(void)setInsightsReachCount:(NSNumber *)arg1 ;
+-(NSNumber *)insightsEngagementCount;
+-(void)setInsightsEngagementCount:(NSNumber *)arg1 ;
 -(void)setNeedsFetch:(char)arg1 ;
 -(void)setPendingComments:(NSMutableDictionary *)arg1 ;
 -(IGUser *)user;
@@ -181,6 +185,8 @@
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;
+-(char)isEqual:(id)arg1 ;
+-(unsigned)hash;
 -(NSArray *)items;
 -(IGLocation *)location;
 -(NSURL *)link;

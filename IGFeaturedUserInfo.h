@@ -35,6 +35,7 @@
 -(NSArray *)mediaIDs;
 -(int)socialContextType;
 -(NSString *)userDescription;
+-(id)initWithUser:(id)arg1 ;
 -(IGUser *)user;
 -(NSString *)algorithm;
 -(char)isEqual:(id)arg1 ;

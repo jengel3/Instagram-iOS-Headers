@@ -3,7 +3,7 @@
 #import <UIKit/UIControl.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
-@class UIImageView, UIPanGestureRecognizer, UITapGestureRecognizer, UIButton, NSString;
+@class UIImageView, UIView, UIPanGestureRecognizer, UITapGestureRecognizer, UIButton, NSString;
 
 @interface IGSloppyTouchSlider : UIControl <UIGestureRecognizerDelegate> {
 
@@ -11,8 +11,8 @@
 	char _isSliding;
 	float _value;
 	UIImageView* _thumbView;
-	UIImageView* _trackView;
-	UIImageView* _highlightedTrackView;
+	UIView* _trackView;
+	UIView* _highlightedTrackView;
 	UIImageView* _centerView;
 	float _panValueOrigin;
 	float _sliderPosition;
@@ -29,8 +29,8 @@
 @property (assign,nonatomic) CGSize touchTargetInflation;                         //@synthesize touchTargetInflation=_touchTargetInflation - In the implementation block
 @property (assign,nonatomic) char positiveOnlySlider;                             //@synthesize positiveOnlySlider=_positiveOnlySlider - In the implementation block
 @property (nonatomic,retain) UIImageView * thumbView;                             //@synthesize thumbView=_thumbView - In the implementation block
-@property (nonatomic,retain) UIImageView * trackView;                             //@synthesize trackView=_trackView - In the implementation block
-@property (nonatomic,retain) UIImageView * highlightedTrackView;                  //@synthesize highlightedTrackView=_highlightedTrackView - In the implementation block
+@property (nonatomic,retain) UIView * trackView;                                  //@synthesize trackView=_trackView - In the implementation block
+@property (nonatomic,retain) UIView * highlightedTrackView;                       //@synthesize highlightedTrackView=_highlightedTrackView - In the implementation block
 @property (nonatomic,retain) UIImageView * centerView;                            //@synthesize centerView=_centerView - In the implementation block
 @property (assign,nonatomic) CGPoint panOrigin;                                   //@synthesize panOrigin=_panOrigin - In the implementation block
 @property (assign,nonatomic) float panValueOrigin;                                //@synthesize panValueOrigin=_panValueOrigin - In the implementation block
@@ -45,13 +45,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)accessibilityNudgeButtonWithLabel:(id)arg1 initialValue:(id)arg2 ;
--(UIImageView *)trackView;
+-(UIView *)trackView;
 -(CGSize)touchTargetInflation;
 -(void)setTouchTargetInflation:(CGSize)arg1 ;
 -(void)setPositiveOnlySlider:(char)arg1 ;
 -(void)setThumbView:(UIImageView *)arg1 ;
--(void)setTrackView:(UIImageView *)arg1 ;
--(void)setHighlightedTrackView:(UIImageView *)arg1 ;
 -(void)setCenterView:(UIImageView *)arg1 ;
 -(void)onPan:(id)arg1 ;
 -(void)onTap:(id)arg1 ;
@@ -61,7 +59,7 @@
 -(float)sliderPositionForValue:(float)arg1 ;
 -(UIImageView *)centerView;
 -(float)unitDisplacementInPoints;
--(UIImageView *)highlightedTrackView;
+-(UIView *)highlightedTrackView;
 -(void)setSliderPosition:(float)arg1 ;
 -(void)setIsSliding:(char)arg1 ;
 -(UITapGestureRecognizer *)tapGesture;
@@ -69,6 +67,8 @@
 -(float)valueForSliderPosition:(float)arg1 ;
 -(char)positiveOnlySlider;
 -(UIImageView *)thumbView;
+-(void)setTrackView:(UIView *)arg1 ;
+-(void)setHighlightedTrackView:(UIView *)arg1 ;
 -(CGPoint)panOrigin;
 -(void)setPanOrigin:(CGPoint)arg1 ;
 -(float)panValueOrigin;

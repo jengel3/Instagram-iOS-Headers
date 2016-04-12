@@ -10,8 +10,8 @@
 -(IGFeedItem *)feedItem;
 -(void)setFeedItem:(id)arg1;
 -(void)setLoggingDelegate:(id)arg1;
--(void)setColor:(id)arg1 forState:(unsigned)arg2;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)setColor:(id)arg1 forState:(unsigned)arg2;
 -(char)showIcon;
 -(void)setShowIcon:(char)arg1;
 

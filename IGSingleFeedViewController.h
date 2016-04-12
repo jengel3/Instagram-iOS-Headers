@@ -18,8 +18,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(id)analyticsExtras;
--(void)setFeedSource:(id)arg1 ;
 -(char)enableNavState;
+-(void)setFeedSource:(id)arg1 ;
 -(void)handleLoadedContentDidChange;
 -(void)onPostDeleted:(id)arg1 ;
 -(void)updateTitleWithFeedItem:(id)arg1 ;

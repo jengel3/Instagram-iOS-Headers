@@ -18,5 +18,6 @@
 -(IGAnalyticsSearchRankInfo *)searchRankInfo;
 -(id)description;
 -(id)copyWithZone:(NSZone*)arg1 ;
+-(id)dictionaryRepresentation;
 @end
 

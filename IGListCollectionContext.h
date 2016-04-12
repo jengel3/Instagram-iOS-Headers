@@ -12,6 +12,7 @@
 -(unsigned)indexForCell:(id)arg1 listItemController:(id)arg2;
 -(unsigned)sectionForListItemController:(id)arg1;
 -(id)dequeReusableSupplementaryViewOfKind:(id)arg1 forListItemController:(id)arg2 class:(Class)arg3 atIndex:(int)arg4;
+-(void)performBatchItemUpdates:(/*^block*/id)arg1 completion:(/*^block*/id)arg2;
 -(void)deselectItemAtIndex:(int)arg1 listItemController:(id)arg2 animated:(char)arg3;
 -(CGSize)containerSize;
 

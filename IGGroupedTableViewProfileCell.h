@@ -37,7 +37,6 @@
 -(IGTextField *)usernameField;
 -(id)initWithProfilePictureRect:(CGRect)arg1 ;
 -(void)chooseProfilePicture;
--(void)loadFacebookProfilePicture;
 -(void)setUsernameField:(IGTextField *)arg1 ;
 -(UIButton *)profilePictureEditButton;
 -(void)setProfilePictureEditButton:(UIButton *)arg1 ;

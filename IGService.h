@@ -50,6 +50,7 @@
 -(id)instagramUserAgentForAppName:(id)arg1 ;
 -(id)systemWebViewUserAgent;
 -(id)initWithAppName:(id)arg1 baseURL:(id)arg2 capabilitiesString:(id)arg3 ;
+-(id)commonHeaders;
 -(NSString *)acceptLanguageHeader;
 -(NSString *)capabilitiesString;
 -(void)addCommonHeadersToRequest:(id)arg1 ;

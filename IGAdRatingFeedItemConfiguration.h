@@ -27,6 +27,8 @@
 -(int)hiddenCellTypeForFeedItem:(id)arg1 ;
 -(char)allowHidingFeedItem:(id)arg1 ;
 -(id)likeRequestParametersForFeedItem:(id)arg1 ;
+-(char)shouldShowInlineInsightsForFeedItem:(id)arg1 ;
+-(char)shouldPopAfterDeletingFeedItem:(id)arg1 ;
 -(char)shouldDisplaySingleCellForFeedItem:(id)arg1 ;
 -(id)init;
 -(IGMainFeedItemConfiguration *)defaultConfig;

@@ -35,6 +35,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(IGUsertagGroup *)usertags;
 -(void)onCancelModal;
+-(id)analyticsModule;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(id)initWithImageView:(id)arg1 ;
 -(void)userInTaggingViewDidFinishTagging;

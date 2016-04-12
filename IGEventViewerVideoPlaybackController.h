@@ -39,6 +39,7 @@
 -(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
 -(void)feedItemVideoViewDidPlay:(id)arg1 ;
+-(void)feedItemVideoViewDidPauseWithEmptyBuffer:(id)arg1 ;
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
@@ -53,11 +54,10 @@
 -(id)initWithFeedVideoManager:(id)arg1 logger:(id)arg2 ;
 -(void)setCurrentVideoStartTime:(float)arg1 ;
 -(char)currentVideoDidPlayToEnd;
--(void)prepareToFinishUsingPlayer:(id)arg1 ;
+-(float)currentVideoStartTime;
 -(void)setVideoRetryCount:(unsigned)arg1 ;
 -(void)setCurrentVideoDidPlayToEnd:(char)arg1 ;
 -(unsigned)videoRetryCount;
--(float)currentVideoStartTime;
 -(void)videoPlayerDidStartPlaying:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(void)videoPlayer:(id)arg1 isWaitingForBuffer:(char)arg2 ;

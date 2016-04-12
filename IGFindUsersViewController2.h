@@ -45,8 +45,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(IGListAdapter *)listAdapter;
+-(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;

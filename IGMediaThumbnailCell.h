@@ -40,6 +40,8 @@
 -(void)videoPlayer:(id)arg1 playbackBufferLikelyToKeepUp:(char)arg2 ;
 -(void)videoPlayer:(id)arg1 didFailToPlaybackWithError:(id)arg2 ;
 -(void)videoPlayerDidPlay:(id)arg1 ;
+-(void)videoPlayer:(id)arg1 didUpdateLoadingProgress:(float)arg2 ;
+-(void)videoPlayer:(id)arg1 didUpdatePlaybackProgress:(float)arg2 ;
 -(void)videoPrepareForReuse;
 -(IGMediaThumbnailSelectableOverlay *)selectableOverlay;
 -(UIView *)videoPlayerView;

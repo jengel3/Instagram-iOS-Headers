@@ -1,9 +1,9 @@
 
-#import <Instagram/IGUserSessionClearableObject.h>
+#import <Instagram/IGUserSessionObject.h>
 
 @class NSString, IGNonCurrentUserDefaults, NSArray;
 
-@interface IGDirectRecipientManager : NSObject <IGUserSessionClearableObject> {
+@interface IGDirectRecipientManager : NSObject <IGUserSessionObject> {
 
 	NSString* _userSessionPK;
 	IGNonCurrentUserDefaults* _sessionUserDefaults;
@@ -20,14 +20,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)clearForUserPK:(id)arg1 ;
 +(id)sessionDirectRecipientManager;
 -(NSString *)userSessionPK;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(void)willSwitchUsers;
--(void)willLogOut;
 -(id)followingUsers;
 -(char)useNewEndpoint;
 -(void)refetchDefaultRecipientsIfNeeded;

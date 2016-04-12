@@ -41,6 +41,8 @@
 -(void)removeSubviewsFromCell;
 -(void)addSubviewsToCell;
 -(void)attachGestureRecognizers;
+-(float)cellBottomOffset;
+-(void)finishLayout;
 -(void)receiveDoubleTap;
 -(void)setLikesContainerView:(UIView *)arg1 ;
 -(UIView *)likesContainerView;
@@ -69,9 +71,7 @@
 -(id)nuxEmptyHeartImage;
 -(void)setEmptyHeartImage:(UIImageView *)arg1 ;
 -(UILabel *)nuxLabel;
--(void)finishLayout;
 -(char)alreadyLikedContent;
--(float)cellBottomOffset;
 -(void)setReactionDelegate:(id<IGDirectReactionDecoratorDelegate>)arg1 ;
 -(void)setReactableContent:(IGDirectContent*<IGDirectContentReactable>)arg1 ;
 -(void)setHeartImageView:(UIImageView *)arg1 ;

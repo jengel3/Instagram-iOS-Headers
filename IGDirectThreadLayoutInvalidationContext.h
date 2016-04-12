@@ -16,8 +16,8 @@
 -(void)mergeWithInvalidationContext:(id)arg1 ;
 -(char)igInvalidateAttributes;
 -(char)igInvalidateCollectionViewContentSize;
--(char)igInvalidateEverything;
 -(void)setIgInvalidateCollectionViewContentSize:(char)arg1 ;
+-(char)igInvalidateEverything;
 -(void)setIgInvalidateAttributes:(char)arg1 ;
 -(id)description;
 @end

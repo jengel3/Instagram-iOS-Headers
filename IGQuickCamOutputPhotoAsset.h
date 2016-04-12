@@ -24,9 +24,9 @@
 @property (assign,nonatomic) int devicePosition;                    //@synthesize devicePosition=_devicePosition - In the implementation block
 @property (nonatomic,readonly) NSData * imageData; 
 @property (nonatomic,readonly) char isPhoto; 
+-(UIImage *)fullSizeImage;
 -(void)setCroppedImage:(UIImage *)arg1 ;
 -(void)setDisplayImage:(UIImage *)arg1 ;
--(UIImage *)fullSizeImage;
 -(void)setDevicePosition:(int)arg1 ;
 -(char)isFromLibrary;
 -(int)devicePosition;

@@ -16,6 +16,8 @@
 	NSArray* _settingSectionRowTypes;
 	NSArray* _sessionSectionRowTypes;
 	NSArray* _developerSectionRowTypes;
+	id _paymentsNotificationObserver;
+	char _isSwitchingAccount;
 	IGGroupedTableViewFooterView* _privacySettingsFooterView;
 	IGSwitch* _privateAccountSwitch;
 
@@ -24,20 +26,21 @@
 @property (nonatomic,retain) IGGroupedTableViewFooterView * privacySettingsFooterView;              //@synthesize privacySettingsFooterView=_privacySettingsFooterView - In the implementation block
 @property (nonatomic,readonly) IGSwitch * privateAccountSwitch;                                     //@synthesize privateAccountSwitch=_privateAccountSwitch - In the implementation block
 @property (assign,getter=isPrivateAccount,nonatomic) char privateAccount; 
+@property (assign,nonatomic) char isSwitchingAccount;                                               //@synthesize isSwitchingAccount=_isSwitchingAccount - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)closeSettings;
 -(id)appVersionString;
+-(id)analyticsModule;
 -(void)clusterBrowsingV2ViewControllerDidSkip:(id)arg1 ;
 -(void)clusterBrowsingV2ViewController:(id)arg1 willContinueToViewController:(id)arg2 ;
 -(void)didDismissRageShakeViewController:(id)arg1 didSendReport:(char)arg2 ;
 -(void)presentReportThankYouAlert;
 -(void)businessConversionViewControllerDidDismiss:(id)arg1 ;
 -(void)businessConversionViewControllerDidCompleteFlow:(id)arg1 ;
--(void)setPrivateAccount:(char)arg1 ;
 -(IGSwitch *)privateAccountSwitch;
+-(void)setPrivateAccount:(char)arg1 ;
 -(char)isPrivateAccount;
 -(char)shouldShowAboutSponsoredPost;
 -(id)aboutSectionRows;
@@ -50,6 +53,7 @@
 -(void)logTapEventForServiceType:(int)arg1 ;
 -(int)accountRowForRow:(int)arg1 ;
 -(void)sendChangePasswordRequest;
+-(void)setIsSwitchingAccount:(char)arg1 ;
 -(int)settingRowForRow:(int)arg1 ;
 -(int)sessionRowForRow:(int)arg1 ;
 -(void)showLogoutFromCurrentUserAlertViewForCellWithIndexPath:(id)arg1 ;
@@ -65,6 +69,7 @@
 -(void)tableView:(id)arg1 didSelectSessionRowAtIndexPath:(id)arg2 ;
 -(id)imageForServiceType:(int)arg1 ;
 -(void)configureCell:(id)arg1 forServiceType:(int)arg2 ;
+-(char)isSwitchingAccount;
 -(IGGroupedTableViewFooterView *)privacySettingsFooterView;
 -(id)configureFollowCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureAccountCell:(id)arg1 forRow:(int)arg2 ;

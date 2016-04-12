@@ -23,6 +23,5 @@
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(UILabel *)title;
 -(void)setDetail:(UILabel *)arg1 ;
--(void)setColorScheme:(unsigned)arg1 ;
 @end
 

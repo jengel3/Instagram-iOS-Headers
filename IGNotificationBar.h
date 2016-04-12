@@ -8,6 +8,7 @@
 @interface IGNotificationBar : UIWindow <UIGestureRecognizerDelegate> {
 
 	char _visible;
+	char _startedDraggingBanner;
 	UIView* _contentView;
 	UIActivityIndicatorView* _activityIndicator;
 	IGImageView* _imageView;
@@ -18,9 +19,10 @@
 	UIButton* _dismissButton;
 	NSTimer* _hideTimer;
 	/*^block*/id _block;
-	float _panInitialY;
 	IGTouchGestureRecognizer* _touchRecognizer;
 	UITapGestureRecognizer* _tapRecognizer;
+	float _initialFingerPointY;
+	float _initialCenterY;
 
 }
 
@@ -35,9 +37,11 @@
 @property (nonatomic,retain) UIButton * dismissButton;                                 //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) NSTimer * hideTimer;                                      //@synthesize hideTimer=_hideTimer - In the implementation block
 @property (nonatomic,copy) id block;                                                   //@synthesize block=_block - In the implementation block
-@property (assign,nonatomic) float panInitialY;                                        //@synthesize panInitialY=_panInitialY - In the implementation block
 @property (nonatomic,retain) IGTouchGestureRecognizer * touchRecognizer;               //@synthesize touchRecognizer=_touchRecognizer - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * tapRecognizer;                   //@synthesize tapRecognizer=_tapRecognizer - In the implementation block
+@property (assign,nonatomic) char startedDraggingBanner;                               //@synthesize startedDraggingBanner=_startedDraggingBanner - In the implementation block
+@property (assign,nonatomic) float initialFingerPointY;                                //@synthesize initialFingerPointY=_initialFingerPointY - In the implementation block
+@property (assign,nonatomic) float initialCenterY;                                     //@synthesize initialCenterY=_initialCenterY - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -54,9 +58,16 @@
 -(void)dismissAction:(id)arg1 ;
 -(void)setVisible:(char)arg1 velocity:(float)arg2 ;
 -(void)notifyWithAction:(unsigned)arg1 ;
--(void)setPanInitialY:(float)arg1 ;
--(float)panInitialY;
+-(void)setStartedDraggingBanner:(char)arg1 ;
+-(void)setInitialCenterY:(float)arg1 ;
+-(void)setInitialFingerPointY:(float)arg1 ;
 -(void)setPressedState:(char)arg1 ;
+-(float)initialFingerPointY;
+-(float)initialCenterY;
+-(void)dragWithFingerPont:(CGPoint)arg1 ;
+-(void)beginDraggingWithFingerPoint:(CGPoint)arg1 ;
+-(char)startedDraggingBanner;
+-(void)endDraggingWithFingerPoint:(CGPoint)arg1 ;
 -(NSTimer *)hideTimer;
 -(void)hideTimer:(id)arg1 ;
 -(void)setHideTimer:(NSTimer *)arg1 ;

@@ -6,11 +6,13 @@
 @interface IGMediaUploadManager : NSObject <IGUserSessionClearableObject> {
 
 	NSMutableDictionary* _activeUploads;
+	int _maxAutoRetryConfigureCount;
 	NSString* _userPK;
 
 }
 
-@property (nonatomic,retain) NSString * userPK;                     //@synthesize userPK=_userPK - In the implementation block
+@property (assign,nonatomic) int maxAutoRetryConfigureCount;              //@synthesize maxAutoRetryConfigureCount=_maxAutoRetryConfigureCount - In the implementation block
+@property (nonatomic,retain) NSString * userPK;                           //@synthesize userPK=_userPK - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -27,8 +29,8 @@
 -(void)shareUploadForStartTime:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(void)removeUploadWithStartTime:(id)arg1 isUserAction:(char)arg2 ;
 -(id)initWithUserSessionPK:(id)arg1 ;
+-(void)removeUploadWithStartTime:(id)arg1 isUserAction:(char)arg2 ;
 -(void)retryUploadWithStartTime:(id)arg1 ;
 -(void)unarchiveUploads;
 -(id)validUploadsBroadcastUploads;
@@ -44,10 +46,10 @@
 -(void)createUploadWithDataType:(int)arg1 startTime:(id)arg2 ;
 -(void)startUploadBackgroundTaskForUpload:(id)arg1 ;
 -(void)showAlertProcessingFailed;
--(void)uploadVideoForStartTime:(id)arg1 ;
 -(void)startConfigureBackgroundTaskForUpload:(id)arg1 ;
 -(void)configureUploadForStartTime:(id)arg1 ;
 -(void)uploadVideoDataForUpload:(id)arg1 ;
+-(void)uploadVideoForStartTime:(id)arg1 ;
 -(id)validUploadsForDirectedSharing:(char)arg1 ;
 -(id)uploadIdForUpload:(id)arg1 ;
 -(id)paramsForHighResolutionUploadExperimentWithUpload:(id)arg1 ;
@@ -60,13 +62,14 @@
 -(void)postFinishedWithServerResponse:(id)arg1 forUpload:(id)arg2 ;
 -(void)configureUploadAutoRetryUpload:(id)arg1 withRetryError:(id)arg2 ;
 -(void)configureUploadFailed:(id)arg1 withError:(id)arg2 ;
+-(int)maxAutoRetryConfigureCount;
 -(void)notifyVideoConfigureFailureWithUploadTime:(id)arg1 andReason:(id)arg2 ;
 -(void)endConfigureBackgroundTaskForUpload:(id)arg1 ;
--(void)queueConfigureAlbumUpload:(id)arg1 postResponse:(id)arg2 ;
 -(void)manuallyCacheLocalImageData:(id)arg1 forItem:(id)arg2 ;
 -(void)stashAllUploads;
 -(id)validUploadsDirectedUploads;
 -(char)validateServerResponse:(id)arg1 forUpload:(id)arg2 ;
+-(void)setMaxAutoRetryConfigureCount:(int)arg1 ;
 -(void)setUserPK:(NSString *)arg1 ;
 -(void)dealloc;
 -(void)cancelAllUploads;

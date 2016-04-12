@@ -38,6 +38,7 @@
 -(void)updateVideoTimeLengthWithVideo:(id)arg1 ;
 -(NSArray *)clipsMetadata;
 -(void)setClipsMetadata:(NSArray *)arg1 ;
+-(unsigned)calculateTrimType;
 -(int)posterFrameIndex;
 -(float)videoTimeLength;
 -(int)videoSourceType;

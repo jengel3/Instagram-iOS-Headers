@@ -32,6 +32,8 @@
 -(UIImageView *)exampleImageView;
 -(id)introVideoAsset;
 -(CGSize)titleLabelSize;
+-(float)exampleImageWidth;
+-(float)exampleImageHeight;
 -(CGSize)appDescriptionLabelSize;
 -(id)tapGestureRecognizerForConfirmingModal;
 -(id)confirmButtonText;

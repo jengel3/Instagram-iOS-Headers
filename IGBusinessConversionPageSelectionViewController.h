@@ -6,7 +6,7 @@
 #import <Instagram/IGBusinessConversionFlowStep.h>
 
 @protocol IGBusinessConversionViewControllerDelegate;
-@class FBSDKAccessToken, NSArray, UIView, IGFacebookPageInfo, NSString;
+@class FBSDKAccessToken, NSArray, UIView, IGFacebookPageInfo, IGBusinessConversionLoggingHelper, NSString;
 
 @interface IGBusinessConversionPageSelectionViewController : IGGroupedTableViewController <IGGraphQLParsing, UITableViewDataSource, UITableViewDelegate, IGBusinessConversionFlowStep> {
 
@@ -16,6 +16,7 @@
 	NSArray* _pageInfoObjects;
 	UIView* _headerView;
 	IGFacebookPageInfo* _selectedPageInfo;
+	IGBusinessConversionLoggingHelper* _loggingHelper;
 
 }
 
@@ -25,13 +26,16 @@
 @property (nonatomic,retain) UIView * headerView;                                                         //@synthesize headerView=_headerView - In the implementation block
 @property (nonatomic,retain) IGFacebookPageInfo * selectedPageInfo;                                       //@synthesize selectedPageInfo=_selectedPageInfo - In the implementation block
 @property (assign,nonatomic) char isFetchingPages;                                                        //@synthesize isFetchingPages=_isFetchingPages - In the implementation block
+@property (nonatomic,retain) IGBusinessConversionLoggingHelper * loggingHelper;                           //@synthesize loggingHelper=_loggingHelper - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)titleForFooterInSection:(int)arg1 ;
 -(id)parseGraphQLResponseWithResult:(id)arg1 error:(id*)arg2 ;
--(id)analyticsInfoForFlowStep;
+-(IGBusinessConversionLoggingHelper *)loggingHelper;
+-(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
+-(id)analyticsFlowStep;
 -(void)fetchPages;
 -(id)newHeaderViewForTableViewWithWidth:(float)arg1 ;
 -(char)isFetchingPages;
@@ -41,7 +45,7 @@
 -(void)setSelectedPageInfo:(IGFacebookPageInfo *)arg1 ;
 -(void)setIsFetchingPages:(char)arg1 ;
 -(void)setPageInfoObjects:(NSArray *)arg1 ;
--(id)initWithFacebookAccessToken:(id)arg1 ;
+-(id)initWithFacebookAccessToken:(id)arg1 loggingHelper:(id)arg2 ;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;
@@ -53,7 +57,6 @@
 -(void)viewDidLoad;
 -(UIView *)headerView;
 -(void)setHeaderView:(UIView *)arg1 ;
--(void)dismiss;
 -(FBSDKAccessToken *)accessToken;
 -(void)updateNextButton;
 -(void)setAccessToken:(FBSDKAccessToken *)arg1 ;

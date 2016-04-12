@@ -23,8 +23,8 @@
 @property (nonatomic,retain) UIImageView * iconView;                                  //@synthesize iconView=_iconView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                    //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * descriptionLabel;                              //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
--(UIButton *)switchToPhoneRegiButton;
 -(IGRetroRegistrationTextField *)emailField;
+-(UIButton *)switchToPhoneRegiButton;
 -(IGCoreTextView *)termView;
 -(void)setSwitchToPhoneRegiButton:(UIButton *)arg1 ;
 -(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;

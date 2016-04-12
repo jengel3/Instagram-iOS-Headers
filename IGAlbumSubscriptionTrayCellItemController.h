@@ -1,31 +1,33 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGListItemController.h>
+#import <Instagram/IGAlbumCreationViewControllerNavigationDelegate.h>
 #import <Instagram/IGAlbumFullscreenViewControllerDelegate.h>
 #import <Instagram/IGListItemType.h>
 
-@class IGFeedItem, NSString;
+@class IGAlbumSubscriptionTrayItemModel, NSString;
 
-@interface IGAlbumSubscriptionTrayCellItemController : IGListItemController <IGAlbumFullscreenViewControllerDelegate, IGListItemType> {
+@interface IGAlbumSubscriptionTrayCellItemController : IGListItemController <IGAlbumCreationViewControllerNavigationDelegate, IGAlbumFullscreenViewControllerDelegate, IGListItemType> {
 
-	IGFeedItem* _feedItem;
+	IGAlbumSubscriptionTrayItemModel* _model;
 
 }
 
-@property (nonatomic,readonly) IGFeedItem * feedItem;               //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,readonly) IGAlbumSubscriptionTrayItemModel * model;              //@synthesize model=_model - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithFeedItem:(id)arg1 ;
--(IGFeedItem *)feedItem;
+-(void)creationViewControllerDidFinish:(id)arg1 ;
 -(void)albumFullscreenViewControllerShouldDismiss:(id)arg1 ;
 -(id)cellClasses;
 -(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(id)supplementaryViewSource;
 -(id)displayDelegate;
+-(IGAlbumSubscriptionTrayItemModel *)model;
 -(unsigned)numberOfItems;
+-(id)initWithModel:(id)arg1 ;
 -(void)didSelectItemAtIndex:(int)arg1 ;
 -(CGSize)sizeForItemAtIndex:(int)arg1 ;
 @end

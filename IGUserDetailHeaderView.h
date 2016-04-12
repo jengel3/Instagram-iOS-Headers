@@ -6,23 +6,22 @@
 #import <Instagram/IGSimilarAccountsControlDelegate.h>
 #import <Instagram/IGFriendRequestHeaderViewDelegate.h>
 #import <Instagram/IGSimilarAccountsViewDelegate.h>
-#import <Instagram/IGProfilePicturePeekDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
 #import <Instagram/IGProfilePictureImageViewDelegate.h>
 #import <Instagram/IGFeedToggleViewDelegate.h>
 #import <Instagram/IGProfilePictureHelperDelegate.h>
 
-@protocol IGRaindropAnalyticsDelegate;
-@class IGUserDetailViewController, IGUser, UIView, IGProfilePictureImageView, IGStatButton, IGButton, IGFollowButton, IGTapButton, IGFriendRequestHeaderView, IGCoreTextView, IGFeedToggleView, IGProfilePictureHelper, IGSimilarAccountsControl, IGSimilarAccountsView, UIActivityIndicatorView, UITapGestureRecognizer, IGSpringButton, IGProfilePicturePeekOverlay, NSArray, NSString;
+@protocol IGUserDetailHeaderViewDelegate, IGRaindropAnalyticsDelegate;
+@class IGFeedViewController_DEPRECATED, IGUser, UIView, IGProfilePictureImageView, IGStatButton, IGButton, IGFollowButton, IGTapButton, IGFriendRequestHeaderView, IGCoreTextView, IGFeedToggleView, IGSimilarAccountsControl, IGHScrollSimilarAccountsControl, IGSimilarAccountsView, UIActivityIndicatorView, UITapGestureRecognizer, IGSpringButton, NSArray, NSString;
 
-@interface IGUserDetailHeaderView : UIView <IGCoreTextLinkHandler, IGFollowButtonDelegate, IGSimilarAccountsControlDelegate, IGFriendRequestHeaderViewDelegate, IGSimilarAccountsViewDelegate, IGProfilePicturePeekDelegate, UIGestureRecognizerDelegate, IGProfilePictureImageViewDelegate, IGFeedToggleViewDelegate, IGProfilePictureHelperDelegate> {
+@interface IGUserDetailHeaderView : UIView <IGCoreTextLinkHandler, IGFollowButtonDelegate, IGSimilarAccountsControlDelegate, IGFriendRequestHeaderViewDelegate, IGSimilarAccountsViewDelegate, UIGestureRecognizerDelegate, IGProfilePictureImageViewDelegate, IGFeedToggleViewDelegate, IGProfilePictureHelperDelegate> {
 
 	char _showingProfileMegaphone;
 	char _feedRestricted;
 	char _requestHeaderShowing;
 	char _showingSimilarAccountsView;
 	char _isCurrentUser;
-	IGUserDetailViewController* _delegate;
+	IGFeedViewController_DEPRECATED*<IGUserDetailHeaderViewDelegate> _delegate;
 	IGUser* _user;
 	UIView* _megaphoneView;
 	IGProfilePictureImageView* _profilePic;
@@ -37,53 +36,49 @@
 	UIView* _infoLabelContainerView;
 	UIView* _additionalInfoContainerView;
 	IGFeedToggleView* _toggleBar;
-	IGProfilePictureHelper* _profilePictureHelper;
 	IGSimilarAccountsControl* _similarAccountsControl;
+	IGHScrollSimilarAccountsControl* _hscrollSimilarAccountsControl;
 	IGSimilarAccountsView* _similarAccountsView;
 	UIActivityIndicatorView* _spinner;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 	UITapGestureRecognizer* _tapGuesture;
 	IGSpringButton* _contactButton;
-	IGProfilePicturePeekOverlay* _profilePeekOverlay;
 	NSArray* _accessibleElements;
 
 }
 
-@property (assign,nonatomic,__weak) IGUserDetailViewController * delegate;                          //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGUser * user;                                                         //@synthesize user=_user - In the implementation block
-@property (nonatomic,retain) UIView * megaphoneView;                                                //@synthesize megaphoneView=_megaphoneView - In the implementation block
-@property (assign,nonatomic) char showingProfileMegaphone;                                          //@synthesize showingProfileMegaphone=_showingProfileMegaphone - In the implementation block
-@property (assign,nonatomic) char feedRestricted;                                                   //@synthesize feedRestricted=_feedRestricted - In the implementation block
-@property (nonatomic,retain) IGProfilePictureImageView * profilePic;                                //@synthesize profilePic=_profilePic - In the implementation block
-@property (nonatomic,retain) IGStatButton * followersButton;                                        //@synthesize followersButton=_followersButton - In the implementation block
-@property (nonatomic,retain) IGStatButton * followingButton;                                        //@synthesize followingButton=_followingButton - In the implementation block
-@property (nonatomic,retain) IGStatButton * mediaButton;                                            //@synthesize mediaButton=_mediaButton - In the implementation block
-@property (nonatomic,retain) IGButton * editProfileButton;                                          //@synthesize editProfileButton=_editProfileButton - In the implementation block
-@property (nonatomic,retain) IGFollowButton * followButton;                                         //@synthesize followButton=_followButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * similarAccountsButton;                                   //@synthesize similarAccountsButton=_similarAccountsButton - In the implementation block
-@property (nonatomic,retain) IGFriendRequestHeaderView * requestHeader;                             //@synthesize requestHeader=_requestHeader - In the implementation block
-@property (nonatomic,retain) IGCoreTextView * infoLabelView;                                        //@synthesize infoLabelView=_infoLabelView - In the implementation block
-@property (nonatomic,retain) UIView * infoLabelContainerView;                                       //@synthesize infoLabelContainerView=_infoLabelContainerView - In the implementation block
-@property (nonatomic,retain) UIView * additionalInfoContainerView;                                  //@synthesize additionalInfoContainerView=_additionalInfoContainerView - In the implementation block
-@property (nonatomic,retain) IGFeedToggleView * toggleBar;                                          //@synthesize toggleBar=_toggleBar - In the implementation block
-@property (nonatomic,retain) IGProfilePictureHelper * profilePictureHelper;                         //@synthesize profilePictureHelper=_profilePictureHelper - In the implementation block
-@property (assign,nonatomic) char requestHeaderShowing;                                             //@synthesize requestHeaderShowing=_requestHeaderShowing - In the implementation block
-@property (assign,nonatomic) char showingSimilarAccountsView;                                       //@synthesize showingSimilarAccountsView=_showingSimilarAccountsView - In the implementation block
-@property (nonatomic,retain) IGSimilarAccountsControl * similarAccountsControl;                     //@synthesize similarAccountsControl=_similarAccountsControl - In the implementation block
-@property (nonatomic,retain) IGSimilarAccountsView * similarAccountsView;                           //@synthesize similarAccountsView=_similarAccountsView - In the implementation block
-@property (nonatomic,retain) UIActivityIndicatorView * spinner;                                     //@synthesize spinner=_spinner - In the implementation block
-@property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
-@property (nonatomic,retain) UITapGestureRecognizer * tapGuesture;                                  //@synthesize tapGuesture=_tapGuesture - In the implementation block
-@property (nonatomic,retain) IGSpringButton * contactButton;                                        //@synthesize contactButton=_contactButton - In the implementation block
-@property (assign,nonatomic) char isCurrentUser;                                                    //@synthesize isCurrentUser=_isCurrentUser - In the implementation block
-@property (nonatomic,retain) IGProfilePicturePeekOverlay * profilePeekOverlay;                      //@synthesize profilePeekOverlay=_profilePeekOverlay - In the implementation block
-@property (nonatomic,retain) NSArray * accessibleElements;                                          //@synthesize accessibleElements=_accessibleElements - In the implementation block
+@property (assign,nonatomic,__weak) IGFeedViewController_DEPRECATED*<IGUserDetailHeaderViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGUser * user;                                                                                 //@synthesize user=_user - In the implementation block
+@property (nonatomic,retain) UIView * megaphoneView;                                                                        //@synthesize megaphoneView=_megaphoneView - In the implementation block
+@property (assign,nonatomic) char showingProfileMegaphone;                                                                  //@synthesize showingProfileMegaphone=_showingProfileMegaphone - In the implementation block
+@property (assign,nonatomic) char feedRestricted;                                                                           //@synthesize feedRestricted=_feedRestricted - In the implementation block
+@property (nonatomic,retain) IGProfilePictureImageView * profilePic;                                                        //@synthesize profilePic=_profilePic - In the implementation block
+@property (nonatomic,retain) IGStatButton * followersButton;                                                                //@synthesize followersButton=_followersButton - In the implementation block
+@property (nonatomic,retain) IGStatButton * followingButton;                                                                //@synthesize followingButton=_followingButton - In the implementation block
+@property (nonatomic,retain) IGStatButton * mediaButton;                                                                    //@synthesize mediaButton=_mediaButton - In the implementation block
+@property (nonatomic,retain) IGButton * editProfileButton;                                                                  //@synthesize editProfileButton=_editProfileButton - In the implementation block
+@property (nonatomic,retain) IGFollowButton * followButton;                                                                 //@synthesize followButton=_followButton - In the implementation block
+@property (nonatomic,retain) IGTapButton * similarAccountsButton;                                                           //@synthesize similarAccountsButton=_similarAccountsButton - In the implementation block
+@property (nonatomic,retain) IGFriendRequestHeaderView * requestHeader;                                                     //@synthesize requestHeader=_requestHeader - In the implementation block
+@property (nonatomic,retain) IGCoreTextView * infoLabelView;                                                                //@synthesize infoLabelView=_infoLabelView - In the implementation block
+@property (nonatomic,retain) UIView * infoLabelContainerView;                                                               //@synthesize infoLabelContainerView=_infoLabelContainerView - In the implementation block
+@property (nonatomic,retain) UIView * additionalInfoContainerView;                                                          //@synthesize additionalInfoContainerView=_additionalInfoContainerView - In the implementation block
+@property (nonatomic,retain) IGFeedToggleView * toggleBar;                                                                  //@synthesize toggleBar=_toggleBar - In the implementation block
+@property (assign,nonatomic) char requestHeaderShowing;                                                                     //@synthesize requestHeaderShowing=_requestHeaderShowing - In the implementation block
+@property (assign,nonatomic) char showingSimilarAccountsView;                                                               //@synthesize showingSimilarAccountsView=_showingSimilarAccountsView - In the implementation block
+@property (nonatomic,retain) IGSimilarAccountsControl * similarAccountsControl;                                             //@synthesize similarAccountsControl=_similarAccountsControl - In the implementation block
+@property (nonatomic,retain) IGHScrollSimilarAccountsControl * hscrollSimilarAccountsControl;                               //@synthesize hscrollSimilarAccountsControl=_hscrollSimilarAccountsControl - In the implementation block
+@property (nonatomic,retain) IGSimilarAccountsView * similarAccountsView;                                                   //@synthesize similarAccountsView=_similarAccountsView - In the implementation block
+@property (nonatomic,retain) UIActivityIndicatorView * spinner;                                                             //@synthesize spinner=_spinner - In the implementation block
+@property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;                                      //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
+@property (nonatomic,retain) UITapGestureRecognizer * tapGuesture;                                                          //@synthesize tapGuesture=_tapGuesture - In the implementation block
+@property (nonatomic,retain) IGSpringButton * contactButton;                                                                //@synthesize contactButton=_contactButton - In the implementation block
+@property (assign,nonatomic) char isCurrentUser;                                                                            //@synthesize isCurrentUser=_isCurrentUser - In the implementation block
+@property (nonatomic,retain) NSArray * accessibleElements;                                                                  //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setStatusLabel:(id)arg1 ;
--(id)statusLabel;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;
@@ -122,6 +117,7 @@
 -(IGStatButton *)mediaButton;
 -(UIView *)additionalInfoContainerView;
 -(UIView *)infoLabelContainerView;
+-(IGHScrollSimilarAccountsControl *)hscrollSimilarAccountsControl;
 -(void)mediaButtonTapped:(id)arg1 ;
 -(void)followersButtonTapped:(id)arg1 ;
 -(void)followingButtonTapped:(id)arg1 ;
@@ -131,8 +127,6 @@
 -(void)updateSimilarAccountsButton;
 -(CGRect)frameForEditProfileButton;
 -(void)onEditProfileTapped;
--(IGProfilePicturePeekOverlay *)profilePeekOverlay;
--(void)setProfilePeekOverlay:(IGProfilePicturePeekOverlay *)arg1 ;
 -(void)userChanged:(id)arg1 ;
 -(void)onOwnMediaAdded:(id)arg1 ;
 -(void)onOwnMediaDeleted:(id)arg1 ;
@@ -169,18 +163,10 @@
 -(void)updateToggleButtons;
 -(void)updateBioText;
 -(void)presentUserListWithURL:(id)arg1 title:(id)arg2 asListType:(int)arg3 contextPK:(id)arg4 ;
--(char)isProfilePeekExperimentEnabled;
--(void)initPeekControllerIfNecessary;
--(IGProfilePictureHelper *)profilePictureHelper;
--(void)logProfilePeekEvent:(id)arg1 ;
 -(void)onWebsiteExternalLinkTapped;
 -(void)logWebsiteTap;
 -(void)logWebsiteOpen;
 -(void)logWebsiteCancel;
--(void)peekOverlayDidPresent:(id)arg1 ;
--(void)peekOverlayDidDismiss:(id)arg1 ;
--(void)peekOverlayUserDidTapChange:(id)arg1 ;
--(void)peekOverlayUserDidTapDismiss:(id)arg1 ;
 -(void)setShowingProfileMegaphone:(char)arg1 ;
 -(void)setMediaButton:(IGStatButton *)arg1 ;
 -(void)setEditProfileButton:(IGButton *)arg1 ;
@@ -189,7 +175,7 @@
 -(void)setInfoLabelView:(IGCoreTextView *)arg1 ;
 -(void)setInfoLabelContainerView:(UIView *)arg1 ;
 -(void)setAdditionalInfoContainerView:(UIView *)arg1 ;
--(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
+-(void)setHscrollSimilarAccountsControl:(IGHScrollSimilarAccountsControl *)arg1 ;
 -(UITapGestureRecognizer *)tapGuesture;
 -(void)setTapGuesture:(UITapGestureRecognizer *)arg1 ;
 -(char)isCurrentUser;
@@ -198,10 +184,10 @@
 -(float)buttonY;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
--(void)setDelegate:(IGUserDetailViewController *)arg1 ;
+-(void)setDelegate:(IGFeedViewController_DEPRECATED*<IGUserDetailHeaderViewDelegate>)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;
--(IGUserDetailViewController *)delegate;
+-(IGFeedViewController_DEPRECATED*<IGUserDetailHeaderViewDelegate>)delegate;
 -(id)accessibilityIdentifier;
 -(void)updateLayout;
 -(int)accessibilityElementCount;

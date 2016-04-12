@@ -38,6 +38,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(UIView *)cropView;
+-(void)prepareInitialCropAspectRatio:(float)arg1 cropCenter:(CGPoint)arg2 cropZoomScale:(float)arg3 ;
+-(id)surfaceAfterAdjustmentForSize:(CGSize)arg1 ;
 -(void)updateCropView;
 -(id)perspectiveContentRegion;
 -(CGPoint)cropCenter;
@@ -56,14 +58,12 @@
 -(CGSize)largestOutputSizeWithNoUpscaling;
 -(void)cropViewWillUpdateCropRegion:(id)arg1 ;
 -(void)cropViewDidUpdateCropRegion:(id)arg1 ;
--(void)prepareInitialCropAspectRatio:(float)arg1 cropCenter:(CGPoint)arg2 cropZoomScale:(float)arg3 ;
 -(float)perspectiveRotateAngleForRotateMode:(unsigned)arg1 ;
 -(void)setPerspectiveRotationWithXRotatationAngle:(float)arg1 YRotationAngle:(float)arg2 ZRotationAngle:(float)arg3 ;
 -(void)setPerspectiveRotationAngle:(float)arg1 rotationType:(unsigned)arg2 ;
 -(char)hasAdjustedValues;
 -(void)confirmCropping;
 -(void)cancelCropping;
--(id)surfaceAfterAdjustmentForSize:(CGSize)arg1 ;
 -(void)setPerspectiveXRotateAngle:(float)arg1 ;
 -(void)setPerspectiveYRotateAngle:(float)arg1 ;
 -(void)setPerspectiveZRotateAngle:(float)arg1 ;

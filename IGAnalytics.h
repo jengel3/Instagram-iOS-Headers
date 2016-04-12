@@ -115,7 +115,6 @@
 -(IGAnalyticsLogFileManager *)noLatencyFileManager;
 -(void)logNoLatencyUploadSuccessWithResponseData:(id)arg1 rawResponse:(id)arg2 ;
 -(IGAnalyticsUploader *)uploader;
--(void)immediateActiveSeconds:(id)arg1 didProduceData:(id)arg2 forModule:(id)arg3 ;
 -(void)logBinaryEvent:(id)arg1 data:(id)arg2 ;
 -(IGAnalyticsConnectionObserver *)connectionObserver;
 -(NSTimer *)uploadTimer;
@@ -126,6 +125,7 @@
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
 -(NSString *)facebookID;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 ;
+-(void)immediateActiveSeconds:(id)arg1 didProduceData:(id)arg2 forModule:(id)arg3 ;
 -(void)dealloc;
 -(id)init;
 -(void)endSession;

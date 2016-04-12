@@ -53,6 +53,7 @@
 @property (assign,nonatomic,__weak) id<FBWebViewDelegate> delegate; 
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                           //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
++(void)setUnsupportedMIMETypes:(id)arg1 ;
 -(NSURL *)currentLocationURL;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;

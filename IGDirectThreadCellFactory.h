@@ -15,8 +15,8 @@
 -(void)registerClassesForCollectionView:(id)arg1 ;
 -(IGUser *)cellViewer;
 -(id)initWithCollectionView:(id)arg1 cellViewer:(id)arg2 ;
--(id)cellForContents:(id)arg1 indexPath:(id)arg2 cellDelegate:(id)arg3 expanded:(char)arg4 thread:(id)arg5 ;
 -(void)setCellViewer:(IGUser *)arg1 ;
+-(id)cellForContents:(id)arg1 indexPath:(id)arg2 cellDelegate:(id)arg3 expanded:(char)arg4 thread:(id)arg5 ;
 -(UICollectionView *)collectionView;
 -(void)setCollectionView:(UICollectionView *)arg1 ;
 @end

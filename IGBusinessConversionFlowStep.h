@@ -2,7 +2,8 @@
 
 @protocol IGBusinessConversionFlowStep <NSObject>
 @required
--(id)analyticsInfoForFlowStep;
+-(id)loggingHelper;
+-(id)analyticsFlowStep;
 
 @end
 

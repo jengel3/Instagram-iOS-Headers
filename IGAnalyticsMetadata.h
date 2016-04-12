@@ -16,6 +16,7 @@
 -(void)popAnalyticsMetadataForViewController:(id)arg1 ;
 -(id)newNavState;
 -(id)currentNavEvent;
+-(id)newAnalyticsNavState;
 -(void)setNavStack:(NSMutableArray *)arg1 ;
 -(void)setAnalyticsNavStack:(NSMutableArray *)arg1 ;
 -(NSMutableArray *)navStack;
@@ -25,7 +26,6 @@
 -(void)pushAnalyticsNavEvent:(id)arg1 ;
 -(id)popNavEvent;
 -(id)popAnalyticsNavEvent;
--(id)newAnalyticsNavState;
 -(id)init;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;

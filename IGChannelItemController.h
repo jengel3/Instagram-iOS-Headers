@@ -1,18 +1,18 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGListItemController.h>
-#import <Instagram/IGEventViewerViewControllerDelegate.h>
 #import <Instagram/IGListItemType.h>
 
-@protocol UIViewControllerTransitioningDelegate;
+@protocol IGEventViewerViewControllerDelegate, UIViewControllerTransitioningDelegate;
 @class IGChannelModel, IGFeedVideoCellManager, IGChannelFocusCoordinator, IGEventFeedDataCache, NSString;
 
-@interface IGChannelItemController : IGListItemController <IGEventViewerViewControllerDelegate, IGListItemType> {
+@interface IGChannelItemController : IGListItemController <IGListItemType> {
 
 	IGChannelModel* _channel;
 	IGFeedVideoCellManager* _videoCellManager;
 	IGChannelFocusCoordinator* _channelFocusCoordinator;
 	IGEventFeedDataCache* _feedDataCache;
+	id<IGEventViewerViewControllerDelegate> _viewerDelegate;
 	id<UIViewControllerTransitioningDelegate> _transitionDelegate;
 
 }
@@ -21,6 +21,7 @@
 @property (nonatomic,readonly) IGFeedVideoCellManager * videoCellManager;                                        //@synthesize videoCellManager=_videoCellManager - In the implementation block
 @property (nonatomic,readonly) IGChannelFocusCoordinator * channelFocusCoordinator;                              //@synthesize channelFocusCoordinator=_channelFocusCoordinator - In the implementation block
 @property (nonatomic,readonly) IGEventFeedDataCache * feedDataCache;                                             //@synthesize feedDataCache=_feedDataCache - In the implementation block
+@property (nonatomic,__weak,readonly) id<IGEventViewerViewControllerDelegate> viewerDelegate;                    //@synthesize viewerDelegate=_viewerDelegate - In the implementation block
 @property (nonatomic,__weak,readonly) id<UIViewControllerTransitioningDelegate> transitionDelegate;              //@synthesize transitionDelegate=_transitionDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -32,11 +33,11 @@
 -(id)supplementaryViewSource;
 -(id)displayDelegate;
 -(IGEventFeedDataCache *)feedDataCache;
--(void)didDismissEventViewerViewController:(id)arg1 ;
 -(IGFeedVideoCellManager *)videoCellManager;
 -(IGChannelFocusCoordinator *)channelFocusCoordinator;
 -(id)newEventController;
--(id)initWithChannelModel:(id)arg1 videoCellManager:(id)arg2 focusCoordinator:(id)arg3 transitionDelegate:(id)arg4 ;
+-(id<IGEventViewerViewControllerDelegate>)viewerDelegate;
+-(id)initWithChannelModel:(id)arg1 videoCellManager:(id)arg2 focusCoordinator:(id)arg3 viewerDelegate:(id)arg4 transitionDelegate:(id)arg5 ;
 -(id<UIViewControllerTransitioningDelegate>)transitionDelegate;
 -(unsigned)numberOfItems;
 -(void)didSelectItemAtIndex:(int)arg1 ;

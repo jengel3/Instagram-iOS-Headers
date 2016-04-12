@@ -31,10 +31,10 @@
 -(id)initWithHashtag:(id)arg1 ;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
--(IGFeedNetworkSource *)feedSource;
--(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGHashtagModel *)hashtag;
 -(void)setHashtag:(IGHashtagModel *)arg1 ;
+-(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
+-(IGFeedNetworkSource *)feedSource;
 -(id)previewActionBarItems;
 -(void)setPreviewWidth:(float)arg1 ;
 -(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;

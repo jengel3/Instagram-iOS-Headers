@@ -35,10 +35,10 @@
 @property (nonatomic,retain) UIView * footerView;                                               //@synthesize footerView=_footerView - In the implementation block
 +(id)createTitleLabel;
 +(id)createDescriptionLabel;
--(UIButton *)footerButton;
--(IGRetroRegistrationTextField *)emailField;
--(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
 -(UIView *)footerViewSeperator;
+-(IGRetroRegistrationTextField *)emailField;
+-(UIButton *)footerButton;
+-(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
 -(void)setFooterButton:(UIButton *)arg1 ;
 -(void)setFooterViewSeperator:(UIView *)arg1 ;
 -(IGRetroRegistrationTextField *)contactEmailField;

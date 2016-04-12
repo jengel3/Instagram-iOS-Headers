@@ -43,8 +43,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(CALayer *)tiltShiftOverlayLayer;
 -(IGPostPipelineFilter *)postPipelineFilter;
+-(void)setPhotoFilterClass:(Class)arg1 ;
+-(CALayer *)tiltShiftOverlayLayer;
 -(float)tiltShiftAngle;
 -(void)setTiltShiftAngle:(float)arg1 ;
 -(void)setOverlayNeedsRefresh;
@@ -53,7 +54,6 @@
 -(void)setTiltShiftRadius:(float)arg1 ;
 -(CGPoint)tiltShiftCenter;
 -(unsigned)tiltShiftMode;
--(void)setPhotoFilterClass:(Class)arg1 ;
 -(void)setTiltShiftMode:(unsigned)arg1 ;
 -(void)drawIfNeeded;
 -(void)setPreviewScaleFactor:(float)arg1 ;

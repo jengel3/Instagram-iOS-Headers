@@ -51,6 +51,10 @@
 -(void)addSubscription:(id)arg1 ;
 -(id)initWithUserPK:(id)arg1 shouldConnectToIRIS:(char)arg2 ;
 -(unsigned)backgroundTask;
+-(void)webSocketDidOpen:(id)arg1 ;
+-(void)webSocket:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
+-(void)webSocket:(id)arg1 didCloseWithCode:(int)arg2 reason:(id)arg3 wasClean:(char)arg4 ;
 -(void)unarchiveConnectionInfoAndConnectIfPossible;
 -(NSMutableDictionary *)topicToSubscription;
 -(void)sendSubscribeMessageForSubscription:(id)arg1 ;
@@ -71,10 +75,6 @@
 -(void)handleBroadcastResponse:(id)arg1 ;
 -(void)reconnectAfterRandomBackoff;
 -(void)megaCleanWithReason:(id)arg1 ;
--(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
--(void)webSocketDidOpen:(id)arg1 ;
--(void)webSocket:(id)arg1 didFailWithError:(id)arg2 ;
--(void)webSocket:(id)arg1 didCloseWithCode:(int)arg2 reason:(id)arg3 wasClean:(char)arg4 ;
 -(void)webSocket:(id)arg1 didReceivePing:(id)arg2 ;
 -(void)setTopicToSubscription:(NSMutableDictionary *)arg1 ;
 -(void)setArchivePath:(NSString *)arg1 ;

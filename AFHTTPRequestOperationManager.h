@@ -29,12 +29,6 @@
 @property (nonatomic,retain) AFNetworkReachabilityManager * reachabilityManager;                                    //@synthesize reachabilityManager=_reachabilityManager - In the implementation block
 +(id)manager;
 -(void)setRequestSerializer:(AFHTTPRequestSerializer*<AFURLRequestSerialization>)arg1 ;
--(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
--(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
--(AFHTTPResponseSerializer*<AFURLResponseSerialization>)responseSerializer;
--(char)shouldUseCredentialStorage;
--(void)setShouldUseCredentialStorage:(char)arg1 ;
--(AFSecurityPolicy *)securityPolicy;
 -(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(id)HTTPRequestOperationWithRequest:(id)arg1 success:(/*^block*/id)arg2 failure:(/*^block*/id)arg3 ;
 -(id)GET:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
@@ -44,6 +38,12 @@
 -(id)PUT:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)PATCH:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)DELETE:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
+-(void)setShouldUseCredentialStorage:(char)arg1 ;
+-(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
+-(AFSecurityPolicy *)securityPolicy;
+-(char)shouldUseCredentialStorage;
+-(AFHTTPResponseSerializer*<AFURLResponseSerialization>)responseSerializer;
+-(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
 -(void)setCredential:(NSURLCredential *)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

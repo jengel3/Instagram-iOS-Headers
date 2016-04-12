@@ -38,6 +38,7 @@
 -(void)setMarkView:(UIImageView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
+-(void)setHighlighted:(char)arg1 ;
 -(void)setSelected:(char)arg1 ;
 -(UIView *)customView;
 -(void)setCustomView:(UIView *)arg1 ;

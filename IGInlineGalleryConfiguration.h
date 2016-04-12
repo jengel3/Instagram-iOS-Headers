@@ -1,8 +1,8 @@
 
 
 @interface IGInlineGalleryConfiguration : NSObject
-+(void)updateLastInteractedTime;
 +(id)effectiveQEGroupName;
++(void)updateLastInteractedTime;
 +(char)longPressShortcutEnabled;
 +(char)noBackoffEnabled;
 +(int)backoffUnitInHours;

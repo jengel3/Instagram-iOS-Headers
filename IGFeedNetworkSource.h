@@ -3,7 +3,7 @@
 #import <Instagram/IGFeedStatusViewDataSource.h>
 #import <Instagram/IGFetchedResultsControllerDelegate.h>
 
-@protocol IGFeedNetworkSourceDelegate, OS_dispatch_queue;
+@protocol IGFeedNetworkSourceDelegate, IGFeedNetworkSourceHideDelegate, OS_dispatch_queue;
 @class NSArray, NSString, NSMutableArray, NSDictionary, IGFetchedResultsController, IGBulkMediaRequestManager, NSObject, NSDate;
 
 @interface IGFeedNetworkSource : NSObject <IGFeedStatusViewDataSource, IGFetchedResultsControllerDelegate> {
@@ -25,6 +25,7 @@
 	char _sendInstalledAppsHeader;
 	NSArray* _posts;
 	id<IGFeedNetworkSourceDelegate> _delegate;
+	id<IGFeedNetworkSourceHideDelegate> _hideDelegate;
 	NSArray* _rankedPosts;
 	NSArray* _socialPosts;
 	int _truncationPolicy;
@@ -48,39 +49,40 @@
 
 }
 
-@property (assign,nonatomic,__weak) id<IGFeedNetworkSourceDelegate> delegate;                    //@synthesize delegate=_delegate - In the implementation block
-@property (retain) NSArray * posts;                                                              //@synthesize posts=_posts - In the implementation block
-@property (retain) NSArray * rankedPosts;                                                        //@synthesize rankedPosts=_rankedPosts - In the implementation block
-@property (retain) NSArray * socialPosts;                                                        //@synthesize socialPosts=_socialPosts - In the implementation block
-@property (assign,nonatomic) int truncationPolicy;                                               //@synthesize truncationPolicy=_truncationPolicy - In the implementation block
-@property (nonatomic,copy) NSString * dataSourceID;                                              //@synthesize dataSourceID=_dataSourceID - In the implementation block
-@property (nonatomic,copy) NSString * fetchPath;                                                 //@synthesize fetchPath=_fetchPath - In the implementation block
-@property (nonatomic,retain) NSArray * forcedMediaIDs;                                           //@synthesize forcedMediaIDs=_forcedMediaIDs - In the implementation block
-@property (assign,nonatomic) char shouldEagerLoadImages;                                         //@synthesize shouldEagerLoadImages=_shouldEagerLoadImages - In the implementation block
-@property (assign,nonatomic) int status;                                                         //@synthesize status=_status - In the implementation block
-@property (assign) char loadedOnce;                                                              //@synthesize loadedOnce=_loadedOnce - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFeedNetworkSourceDelegate> delegate;                      //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFeedNetworkSourceHideDelegate> hideDelegate;              //@synthesize hideDelegate=_hideDelegate - In the implementation block
+@property (retain) NSArray * posts;                                                                //@synthesize posts=_posts - In the implementation block
+@property (retain) NSArray * rankedPosts;                                                          //@synthesize rankedPosts=_rankedPosts - In the implementation block
+@property (retain) NSArray * socialPosts;                                                          //@synthesize socialPosts=_socialPosts - In the implementation block
+@property (assign,nonatomic) int truncationPolicy;                                                 //@synthesize truncationPolicy=_truncationPolicy - In the implementation block
+@property (nonatomic,copy) NSString * dataSourceID;                                                //@synthesize dataSourceID=_dataSourceID - In the implementation block
+@property (nonatomic,copy) NSString * fetchPath;                                                   //@synthesize fetchPath=_fetchPath - In the implementation block
+@property (nonatomic,retain) NSArray * forcedMediaIDs;                                             //@synthesize forcedMediaIDs=_forcedMediaIDs - In the implementation block
+@property (assign,nonatomic) char shouldEagerLoadImages;                                           //@synthesize shouldEagerLoadImages=_shouldEagerLoadImages - In the implementation block
+@property (assign,nonatomic) int status;                                                           //@synthesize status=_status - In the implementation block
+@property (assign) char loadedOnce;                                                                //@synthesize loadedOnce=_loadedOnce - In the implementation block
 @property (readonly) char isFullyLoaded; 
-@property (assign,nonatomic) char feedRestricted;                                                //@synthesize feedRestricted=_feedRestricted - In the implementation block
-@property (assign) char moreAvailable;                                                           //@synthesize moreAvailable=_moreAvailable - In the implementation block
-@property (assign,nonatomic) char failedWithAuthorizationError;                                  //@synthesize failedWithAuthorizationError=_failedWithAuthorizationError - In the implementation block
-@property (nonatomic,copy) NSString * emptyMessage;                                              //@synthesize emptyMessage=_emptyMessage - In the implementation block
-@property (nonatomic,copy) NSString * errorMessage;                                              //@synthesize errorMessage=_errorMessage - In the implementation block
-@property (assign,nonatomic) char shouldHideIndicatorImage;                                      //@synthesize shouldHideIndicatorImage=_shouldHideIndicatorImage - In the implementation block
+@property (assign,nonatomic) char feedRestricted;                                                  //@synthesize feedRestricted=_feedRestricted - In the implementation block
+@property (assign) char moreAvailable;                                                             //@synthesize moreAvailable=_moreAvailable - In the implementation block
+@property (assign,nonatomic) char failedWithAuthorizationError;                                    //@synthesize failedWithAuthorizationError=_failedWithAuthorizationError - In the implementation block
+@property (nonatomic,copy) NSString * emptyMessage;                                                //@synthesize emptyMessage=_emptyMessage - In the implementation block
+@property (nonatomic,copy) NSString * errorMessage;                                                //@synthesize errorMessage=_errorMessage - In the implementation block
+@property (assign,nonatomic) char shouldHideIndicatorImage;                                        //@synthesize shouldHideIndicatorImage=_shouldHideIndicatorImage - In the implementation block
 @property (nonatomic,readonly) char isLoading; 
-@property (assign) char isUpdatingPosts;                                                         //@synthesize isUpdatingPosts=_isUpdatingPosts - In the implementation block
-@property (assign,nonatomic) unsigned errorCode;                                                 //@synthesize errorCode=_errorCode - In the implementation block
-@property (assign,nonatomic) char sendAdsHeader;                                                 //@synthesize sendAdsHeader=_sendAdsHeader - In the implementation block
-@property (assign,nonatomic) char sendInstalledAppsHeader;                                       //@synthesize sendInstalledAppsHeader=_sendInstalledAppsHeader - In the implementation block
-@property (copy,readonly) NSString * currentRankToken;                                           //@synthesize currentRankToken=_currentRankToken - In the implementation block
-@property (nonatomic,retain) NSMutableArray * promotionBannerConfigurations;                     //@synthesize promotionBannerConfigurations=_promotionBannerConfigurations - In the implementation block
-@property (nonatomic,copy) NSString * userActivityType;                                          //@synthesize userActivityType=_userActivityType - In the implementation block
-@property (nonatomic,copy) NSDictionary * userActivityUserInfo;                                  //@synthesize userActivityUserInfo=_userActivityUserInfo - In the implementation block
-@property (nonatomic,retain) IGFetchedResultsController * fetchedResultsController;              //@synthesize fetchedResultsController=_fetchedResultsController - In the implementation block
-@property (nonatomic,retain) IGBulkMediaRequestManager * requestManager;                         //@synthesize requestManager=_requestManager - In the implementation block
-@property (assign,nonatomic) Class postClass;                                                    //@synthesize postClass=_postClass - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> responseLoadQueue;                     //@synthesize responseLoadQueue=_responseLoadQueue - In the implementation block
-@property (copy) NSString * nextMaxID;                                                           //@synthesize nextMaxID=_nextMaxID - In the implementation block
-@property (nonatomic,retain) NSDate * lastFetchTime;                                             //@synthesize lastFetchTime=_lastFetchTime - In the implementation block
+@property (assign) char isUpdatingPosts;                                                           //@synthesize isUpdatingPosts=_isUpdatingPosts - In the implementation block
+@property (assign,nonatomic) unsigned errorCode;                                                   //@synthesize errorCode=_errorCode - In the implementation block
+@property (assign,nonatomic) char sendAdsHeader;                                                   //@synthesize sendAdsHeader=_sendAdsHeader - In the implementation block
+@property (assign,nonatomic) char sendInstalledAppsHeader;                                         //@synthesize sendInstalledAppsHeader=_sendInstalledAppsHeader - In the implementation block
+@property (copy,readonly) NSString * currentRankToken;                                             //@synthesize currentRankToken=_currentRankToken - In the implementation block
+@property (nonatomic,retain) NSMutableArray * promotionBannerConfigurations;                       //@synthesize promotionBannerConfigurations=_promotionBannerConfigurations - In the implementation block
+@property (nonatomic,copy) NSString * userActivityType;                                            //@synthesize userActivityType=_userActivityType - In the implementation block
+@property (nonatomic,copy) NSDictionary * userActivityUserInfo;                                    //@synthesize userActivityUserInfo=_userActivityUserInfo - In the implementation block
+@property (nonatomic,retain) IGFetchedResultsController * fetchedResultsController;                //@synthesize fetchedResultsController=_fetchedResultsController - In the implementation block
+@property (nonatomic,retain) IGBulkMediaRequestManager * requestManager;                           //@synthesize requestManager=_requestManager - In the implementation block
+@property (assign,nonatomic) Class postClass;                                                      //@synthesize postClass=_postClass - In the implementation block
+@property (nonatomic,retain) NSObject*<OS_dispatch_queue> responseLoadQueue;                       //@synthesize responseLoadQueue=_responseLoadQueue - In the implementation block
+@property (copy) NSString * nextMaxID;                                                             //@synthesize nextMaxID=_nextMaxID - In the implementation block
+@property (nonatomic,retain) NSDate * lastFetchTime;                                               //@synthesize lastFetchTime=_lastFetchTime - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -102,10 +104,8 @@
 -(void)setTruncationPolicy:(int)arg1 ;
 -(IGBulkMediaRequestManager *)requestManager;
 -(void)setShouldEagerLoadImages:(char)arg1 ;
--(char)isFullyLoaded;
 -(void)setEagerLoadImageSize:(CGSize)arg1 imageOption:(int)arg2 videoVersion:(int)arg3 videoLoadLength:(long long)arg4 profilePictures:(char)arg5 ;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
--(char)fetchDataWithParameters:(id)arg1 ;
 -(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(void)setNextMaxID:(NSString *)arg1 ;
 -(NSString *)nextMaxID;
@@ -114,10 +114,13 @@
 -(void)setPosts:(NSArray *)arg1 ;
 -(char)fetchDataWithParameters:(id)arg1 priority:(int)arg2 ;
 -(id)initWithPostClass:(Class)arg1 ;
+-(char)fetchDataWithParameters:(id)arg1 ;
 -(void)eagerLoadMediaForPosts:(id)arg1 ;
 -(NSArray *)socialPosts;
--(void)deletePost:(id)arg1 ;
+-(id<IGFeedNetworkSourceHideDelegate>)hideDelegate;
+-(void)setHideDelegate:(id<IGFeedNetworkSourceHideDelegate>)arg1 ;
 -(id)regularPostsFromResponse:(id)arg1 clearOut:(char)arg2 usingStore:(id)arg3 rankToken:(id)arg4 secure:(char)arg5 ;
+-(void)deletePost:(id)arg1 ;
 -(char)fetchMoreItems;
 -(char)loadedOnce;
 -(char)failedWithAuthorizationError;
@@ -141,6 +144,7 @@
 -(void)setFetchedResultsController:(IGFetchedResultsController *)arg1 ;
 -(void)setFeedRestricted:(char)arg1 ;
 -(id)filterPostsFromItems:(id)arg1 ;
+-(char)isFullyLoaded;
 -(id)singleFeedTitleFromPost:(id)arg1 ;
 -(NSDate *)lastFetchTime;
 -(void)notifyDelegateDeserialization;
@@ -171,6 +175,7 @@
 -(NSObject*<OS_dispatch_queue>)responseLoadQueue;
 -(double)timeSinceLastFetch;
 -(void)insertPost:(id)arg1 ;
+-(void)hideFeedItem:(id)arg1 ;
 -(void)truncateItemsWithMaxCount:(unsigned)arg1 ;
 -(void)loadFromFile:(id)arg1 ;
 -(void)setForcedMediaIDs:(NSArray *)arg1 ;

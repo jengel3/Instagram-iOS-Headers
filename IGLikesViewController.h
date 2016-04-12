@@ -10,6 +10,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(void)feedToggle:(id)arg1 selectedButton:(int)arg2 ;
 -(id)init;
 -(void)viewDidLoad;

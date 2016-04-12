@@ -8,17 +8,19 @@
 #import <Instagram/IGDirectInboxCellDelegate.h>
 #import <Instagram/IGGenericMegaphoneViewDelegate.h>
 #import <Instagram/IGPullToRefreshProtocol.h>
+#import <Instagram/IGDirectInboxControllerType.h>
 #import <Instagram/IGDirectThreadViewControllerDelegate.h>
 #import <Instagram/IGUIPerfLoggable.h>
 
-@class NSOrderedSet, IGPlainTableView, NSString, UIBarButtonItem, IGDirectPendingRequestsHeaderView, NSArray, IGPullToRefreshViewManager, IGGenericMegaphone, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGDirectEmptyInboxView, IGDirectUIPerfLogProxy, IGDirectPushPromptView;
+@class NSOrderedSet, IGPlainTableView, NSString, UIBarButtonItem, IGDirectPendingRequestsHeaderView, NSArray, IGPullToRefreshViewManager, IGGenericMegaphone, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGDirectEmptyInboxView, IGDirectUIPerfLogProxy, IGDirectPushPromptView, IGPublicThreadInboxViewController;
 
-@interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectPushPromptViewDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGPullToRefreshProtocol, IGDirectThreadViewControllerDelegate, IGUIPerfLoggable> {
+@interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectPushPromptViewDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGPullToRefreshProtocol, IGDirectInboxControllerType, IGDirectThreadViewControllerDelegate, IGUIPerfLoggable> {
 
 	char _isFetchingData;
 	char _loadingPreviousThreads;
 	char _hasLoadedOnce;
 	char _needsRefreshForThreadUpdateNotification;
+	char _shouldShowPublicThread;
 	NSOrderedSet* _threads;
 	IGPlainTableView* _tableView;
 	NSString* _nextMaxID;
@@ -35,33 +37,37 @@
 	int _unseenPendingRequestCount;
 	IGDirectUIPerfLogProxy* _perfLogProxy;
 	IGDirectPushPromptView* _pushPromptView;
+	IGPublicThreadInboxViewController* _publicThreadViewController;
 
 }
 
-@property (nonatomic,retain) NSOrderedSet * threads;                                                 //@synthesize threads=_threads - In the implementation block
-@property (nonatomic,retain) IGPlainTableView * tableView;                                           //@synthesize tableView=_tableView - In the implementation block
-@property (assign,nonatomic) char isFetchingData;                                                    //@synthesize isFetchingData=_isFetchingData - In the implementation block
-@property (nonatomic,copy) NSString * nextMaxID;                                                     //@synthesize nextMaxID=_nextMaxID - In the implementation block
-@property (assign,nonatomic) char loadingPreviousThreads;                                            //@synthesize loadingPreviousThreads=_loadingPreviousThreads - In the implementation block
-@property (nonatomic,retain) UIBarButtonItem * createMessageButton;                                  //@synthesize createMessageButton=_createMessageButton - In the implementation block
-@property (nonatomic,retain) IGDirectPendingRequestsHeaderView * pendingRequestsHeader;              //@synthesize pendingRequestsHeader=_pendingRequestsHeader - In the implementation block
-@property (nonatomic,copy) NSString * countedAt;                                                     //@synthesize countedAt=_countedAt - In the implementation block
-@property (nonatomic,retain) NSArray * pendingRequestUsers;                                          //@synthesize pendingRequestUsers=_pendingRequestUsers - In the implementation block
-@property (assign,nonatomic) int pendingRequestCount;                                                //@synthesize pendingRequestCount=_pendingRequestCount - In the implementation block
-@property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;                  //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
-@property (nonatomic,retain) IGGenericMegaphone * megaphone;                                         //@synthesize megaphone=_megaphone - In the implementation block
-@property (nonatomic,retain) IGGenericMegaphoneView * megaphoneView;                                 //@synthesize megaphoneView=_megaphoneView - In the implementation block
-@property (nonatomic,retain) IGDefaultGenericMegaphoneLogger * megaphoneLogger;                      //@synthesize megaphoneLogger=_megaphoneLogger - In the implementation block
-@property (assign,nonatomic) char hasLoadedOnce;                                                     //@synthesize hasLoadedOnce=_hasLoadedOnce - In the implementation block
-@property (nonatomic,retain) IGDirectEmptyInboxView * emptyInboxView;                                //@synthesize emptyInboxView=_emptyInboxView - In the implementation block
-@property (assign,nonatomic) int unseenPendingRequestCount;                                          //@synthesize unseenPendingRequestCount=_unseenPendingRequestCount - In the implementation block
-@property (assign,nonatomic) char needsRefreshForThreadUpdateNotification;                           //@synthesize needsRefreshForThreadUpdateNotification=_needsRefreshForThreadUpdateNotification - In the implementation block
-@property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                                  //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
-@property (nonatomic,retain) IGDirectPushPromptView * pushPromptView;                                //@synthesize pushPromptView=_pushPromptView - In the implementation block
+@property (nonatomic,retain) NSOrderedSet * threads;                                                      //@synthesize threads=_threads - In the implementation block
+@property (nonatomic,retain) IGPlainTableView * tableView;                                                //@synthesize tableView=_tableView - In the implementation block
+@property (assign,nonatomic) char isFetchingData;                                                         //@synthesize isFetchingData=_isFetchingData - In the implementation block
+@property (nonatomic,copy) NSString * nextMaxID;                                                          //@synthesize nextMaxID=_nextMaxID - In the implementation block
+@property (assign,nonatomic) char loadingPreviousThreads;                                                 //@synthesize loadingPreviousThreads=_loadingPreviousThreads - In the implementation block
+@property (nonatomic,retain) UIBarButtonItem * createMessageButton;                                       //@synthesize createMessageButton=_createMessageButton - In the implementation block
+@property (nonatomic,retain) IGDirectPendingRequestsHeaderView * pendingRequestsHeader;                   //@synthesize pendingRequestsHeader=_pendingRequestsHeader - In the implementation block
+@property (nonatomic,copy) NSString * countedAt;                                                          //@synthesize countedAt=_countedAt - In the implementation block
+@property (nonatomic,retain) NSArray * pendingRequestUsers;                                               //@synthesize pendingRequestUsers=_pendingRequestUsers - In the implementation block
+@property (assign,nonatomic) int pendingRequestCount;                                                     //@synthesize pendingRequestCount=_pendingRequestCount - In the implementation block
+@property (nonatomic,retain) IGPullToRefreshViewManager * pullToRefreshViewManager;                       //@synthesize pullToRefreshViewManager=_pullToRefreshViewManager - In the implementation block
+@property (nonatomic,retain) IGGenericMegaphone * megaphone;                                              //@synthesize megaphone=_megaphone - In the implementation block
+@property (nonatomic,retain) IGGenericMegaphoneView * megaphoneView;                                      //@synthesize megaphoneView=_megaphoneView - In the implementation block
+@property (nonatomic,retain) IGDefaultGenericMegaphoneLogger * megaphoneLogger;                           //@synthesize megaphoneLogger=_megaphoneLogger - In the implementation block
+@property (assign,nonatomic) char hasLoadedOnce;                                                          //@synthesize hasLoadedOnce=_hasLoadedOnce - In the implementation block
+@property (nonatomic,retain) IGDirectEmptyInboxView * emptyInboxView;                                     //@synthesize emptyInboxView=_emptyInboxView - In the implementation block
+@property (assign,nonatomic) int unseenPendingRequestCount;                                               //@synthesize unseenPendingRequestCount=_unseenPendingRequestCount - In the implementation block
+@property (assign,nonatomic) char needsRefreshForThreadUpdateNotification;                                //@synthesize needsRefreshForThreadUpdateNotification=_needsRefreshForThreadUpdateNotification - In the implementation block
+@property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                                       //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
+@property (nonatomic,retain) IGDirectPushPromptView * pushPromptView;                                     //@synthesize pushPromptView=_pushPromptView - In the implementation block
+@property (nonatomic,readonly) char shouldShowPublicThread;                                               //@synthesize shouldShowPublicThread=_shouldShowPublicThread - In the implementation block
+@property (nonatomic,retain) IGPublicThreadInboxViewController * publicThreadViewController;              //@synthesize publicThreadViewController=_publicThreadViewController - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
@@ -83,6 +89,9 @@
 -(IGDefaultGenericMegaphoneLogger *)megaphoneLogger;
 -(IGDirectPushPromptView *)pushPromptView;
 -(void)refreshDataWithClearCount:(char)arg1 withNextMaxID:(id)arg2 clearOperationCompletion:(/*^block*/id)arg3 fetchCompletion:(/*^block*/id)arg4 ;
+-(char)shouldShowPublicThread;
+-(void)setPublicThreadViewController:(IGPublicThreadInboxViewController *)arg1 ;
+-(IGPublicThreadInboxViewController *)publicThreadViewController;
 -(void)sendNewDirect;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
@@ -134,8 +143,8 @@
 -(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
--(void)threadViewController:(id)arg1 didUpdateFromThread:(id)arg2 toThread:(id)arg3 ;
 -(unsigned)inboxSubscriptionStatus;
+-(void)threadViewController:(id)arg1 didUpdateFromThread:(id)arg2 toThread:(id)arg3 ;
 -(UIBarButtonItem *)createMessageButton;
 -(void)setCreateMessageButton:(UIBarButtonItem *)arg1 ;
 -(IGDirectPendingRequestsHeaderView *)pendingRequestsHeader;

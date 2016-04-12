@@ -6,12 +6,13 @@
 #import <Instagram/FBAnimationPerformanceTrackerDelegate.h>
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 
-@class NSMutableSet, IGExploreJumbotronView, IGExploreCarouselsView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, IGSearchViewController, NSArray, NSString, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExploreVolumeViewController, IGExplorePhotosNetworkSource;
+@class NSMutableSet, IGExploreJumbotronView, IGExploreCarouselsView, IGExploreSectionTextHeader, IGExploreTTILogger, NSDate, IGSearchViewController, NSArray, IGFeedItemPreviewingHandler, FBAnimationPerformanceTracker, IGExploreVolumeViewController, NSString, IGExplorePhotosNetworkSource;
 
 @interface IGExplorePhotosViewController : IGFeedViewController_DEPRECATED <IGAnalyticsModule, IGExploreSearchControllerDelegate, FBAnimationPerformanceTrackerDelegate, IGSearchOriginControllerProtocol> {
 
 	char _wasFreshExploreLoad;
 	char _marqueeWasPaging;
+	char _hasInteractedOnExplore;
 	NSMutableSet* _loggedImpressions;
 	IGExploreJumbotronView* _jumbotronView;
 	IGExploreCarouselsView* _carouselsView;
@@ -20,8 +21,6 @@
 	int _stalenessThresholdSeconds;
 	NSDate* _lastFullFetch;
 	IGSearchViewController* _searchController;
-	NSArray* _profileTeaserUsers;
-	NSString* _peopleTeaserByline;
 	NSArray* _trends;
 	NSArray* _marqueeItems;
 	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
@@ -47,13 +46,12 @@
 @property (assign,nonatomic) int stalenessThresholdSeconds;                                       //@synthesize stalenessThresholdSeconds=_stalenessThresholdSeconds - In the implementation block
 @property (nonatomic,retain) NSDate * lastFullFetch;                                              //@synthesize lastFullFetch=_lastFullFetch - In the implementation block
 @property (nonatomic,retain) IGSearchViewController * searchController;                           //@synthesize searchController=_searchController - In the implementation block
-@property (nonatomic,copy) NSArray * profileTeaserUsers;                                          //@synthesize profileTeaserUsers=_profileTeaserUsers - In the implementation block
-@property (nonatomic,copy) NSString * peopleTeaserByline;                                         //@synthesize peopleTeaserByline=_peopleTeaserByline - In the implementation block
 @property (nonatomic,copy) NSArray * trends;                                                      //@synthesize trends=_trends - In the implementation block
 @property (nonatomic,copy) NSArray * marqueeItems;                                                //@synthesize marqueeItems=_marqueeItems - In the implementation block
 @property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;              //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                           //@synthesize apTracker=_apTracker - In the implementation block
 @property (nonatomic,readonly) IGExploreVolumeViewController * volumeViewController;              //@synthesize volumeViewController=_volumeViewController - In the implementation block
+@property (assign,nonatomic) char hasInteractedOnExplore;                                         //@synthesize hasInteractedOnExplore=_hasInteractedOnExplore - In the implementation block
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
@@ -97,14 +95,15 @@
 -(NSDate *)lastFullFetch;
 -(int)stalenessThresholdSeconds;
 -(char)shouldRefreshExploreContent:(char)arg1 ;
--(NSArray *)profileTeaserUsers;
--(void)setProfileTeaserUsers:(NSArray *)arg1 ;
--(NSString *)peopleTeaserByline;
--(void)setPeopleTeaserByline:(NSString *)arg1 ;
+-(char)hasInteractedOnExplore;
+-(void)setHasInteractedOnExplore:(char)arg1 ;
 -(NSArray *)trends;
 -(id)changedIndexesForCurrentCarousel:(id)arg1 proposedCarousel:(id)arg2 ;
 -(void)setTrends:(NSArray *)arg1 ;
 -(void)setMarqueeItems:(NSArray *)arg1 ;
+-(char)shouldSendBackgroundFetchFinishNotification;
+-(void)setLastFullFetch:(NSDate *)arg1 ;
+-(void)sendOutNotificationForUserInteract;
 -(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)updateCellVisibility:(id)arg1 atIndex:(id)arg2 ;
@@ -122,8 +121,6 @@
 -(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
 -(void)resetSearchControllerIfNeeded;
 -(void)prepareForPopToRootTransition;
--(char)shouldShowPeopleEntryBanner;
--(void)onPeopleBannerTapped:(id)arg1 ;
 -(void)showErrorLoadMessageIfPossible;
 -(id)createPopularPostsFeedViewController;
 -(unsigned)numberOfMarqueeItemsInJumbotronView:(id)arg1 ;
@@ -143,7 +140,6 @@
 -(void)setWasFreshExploreLoad:(char)arg1 ;
 -(void)setTtiLogger:(IGExploreTTILogger *)arg1 ;
 -(void)setStalenessThresholdSeconds:(int)arg1 ;
--(void)setLastFullFetch:(NSDate *)arg1 ;
 -(FBAnimationPerformanceTracker *)apTracker;
 -(void)setApTracker:(FBAnimationPerformanceTracker *)arg1 ;
 -(void)dealloc;

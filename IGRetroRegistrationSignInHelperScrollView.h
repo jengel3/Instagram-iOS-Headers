@@ -38,8 +38,8 @@
 @property (nonatomic,retain) UILabel * descriptionLabel;                                                        //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationFacebookButtonSeperator * facebookButtonSeparator;              //@synthesize facebookButtonSeparator=_facebookButtonSeparator - In the implementation block
 +(id)createTitleLabel;
-+(id)createDescriptionLabel;
 +(id)createIconView;
++(id)createDescriptionLabel;
 +(id)createToggleView;
 +(id)createSwitchButton;
 +(id)createEmailField;

@@ -8,12 +8,13 @@
 +(id)actionForURL:(id)arg1 ;
 +(void)openInternalURL:(id)arg1 controller:(id)arg2 animated:(char)arg3 ;
 +(void)openExternalURL:(id)arg1 controller:(id)arg2 modal:(char)arg3 title:(id)arg4 ;
++(void)openInternalURL:(id)arg1 controller:(id)arg2 animated:(char)arg3 sourceURL:(id)arg4 ctaPresenterContext:(id)arg5 ;
 +(void)openExternalURL:(id)arg1 controller:(id)arg2 modal:(char)arg3 controls:(char)arg4 ;
 +(void)openShortlinkURL:(id)arg1 linkTarget:(id)arg2 controller:(id)arg3 ;
 +(void)openInstagramURLInSignInTab:(id)arg1 ;
 +(void)openInstagramURLInTimelineTab:(id)arg1 ;
 +(void)openInternalURL:(id)arg1 controller:(id)arg2 animated:(char)arg3 sourceURL:(id)arg4 ;
-+(void)pushViewControllerForAction:(id)arg1 params:(id)arg2 usingNavigationController:(id)arg3 animated:(char)arg4 sourceURL:(id)arg5 ;
++(void)pushViewControllerForAction:(id)arg1 params:(id)arg2 usingNavigationController:(id)arg3 animated:(char)arg4 sourceURL:(id)arg5 ctaPresenterContext:(id)arg6 ;
 +(char)handleITunesURLForURL:(id)arg1 ;
 +(void)showWebViewController:(id)arg1 fromViewController:(id)arg2 displaysModally:(char)arg3 ;
 +(void)confirmBeforeOpeningURL:(id)arg1 ;

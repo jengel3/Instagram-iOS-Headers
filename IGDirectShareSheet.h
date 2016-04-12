@@ -8,11 +8,12 @@
 #import <Instagram/IGDirectRecipientDataSourceDelegate.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
 #import <Instagram/IGDirectGrowingMessageTextViewDelegate.h>
-#import <Instagram/IGDirectSlideableViewController.h>
+#import <Instagram/IGViewControllerSlideable.h>
+#import <Instagram/IGSwipeDismissManagerDelegate.h>
 
-@class NSArray, IGDirectShareRecipient, UIView, UICollectionView, UIButton, UILabel, UITextField, IGDirectGrowingMessageTextView, UITextView, IGDirectRecipientDataSource, NSString;
+@class NSArray, IGDirectShareRecipient, UIView, UICollectionView, UIButton, UILabel, UITextField, IGDirectGrowingMessageTextView, UITextView, IGDirectRecipientDataSource, IGSwipeDismissManager, NSString;
 
-@interface IGDirectShareSheet : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, IGDirectRecipientDataSourceDelegate, UIViewControllerTransitioningDelegate, IGDirectGrowingMessageTextViewDelegate, IGDirectSlideableViewController> {
+@interface IGDirectShareSheet : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, IGDirectRecipientDataSourceDelegate, UIViewControllerTransitioningDelegate, IGDirectGrowingMessageTextViewDelegate, IGViewControllerSlideable, IGSwipeDismissManagerDelegate> {
 
 	char _loadingResults;
 	NSArray* _defaultRecipients;
@@ -33,6 +34,7 @@
 	UITextView* _warningLabel;
 	UIView* _warningLine;
 	IGDirectRecipientDataSource* _dataSource;
+	IGSwipeDismissManager* _swipeDismissManager;
 	CGRect _keyboardFrame;
 
 }
@@ -57,15 +59,19 @@
 @property (nonatomic,retain) UITextView * warningLabel;                                 //@synthesize warningLabel=_warningLabel - In the implementation block
 @property (nonatomic,retain) UIView * warningLine;                                      //@synthesize warningLine=_warningLine - In the implementation block
 @property (nonatomic,retain) IGDirectRecipientDataSource * dataSource;                  //@synthesize dataSource=_dataSource - In the implementation block
+@property (nonatomic,retain) IGSwipeDismissManager * swipeDismissManager;               //@synthesize swipeDismissManager=_swipeDismissManager - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(UIView *)topLine;
 -(void)setTopLine:(UIView *)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
+-(void)setSwipeDismissManager:(IGSwipeDismissManager *)arg1 ;
+-(IGSwipeDismissManager *)swipeDismissManager;
 -(void)onOverlayTapped;
 -(void)messageViewClearButtonTappedWhileNoText:(id)arg1 ;
 -(void)messageView:(id)arg1 didUpdateToHeight:(float)arg2 ;
@@ -82,7 +88,6 @@
 -(void)searchBarClearButtonTapped;
 -(void)handleNewQueryString:(id)arg1 ;
 -(void)setSearchBarClearButtonAlpha:(float)arg1 ;
--(void)contentContainerSwipedDown:(id)arg1 ;
 -(void)onBottomButtonTapped;
 -(void)onSearchButtonTapped;
 -(void)setSelectedRecipient:(IGDirectShareRecipient *)arg1 ;
@@ -103,6 +108,8 @@
 -(char)useNewSearchEndpoint;
 -(void)logCurrentImpressionEventsForSearchWithQuery:(id)arg1 forSelectedItem:(id)arg2 withSelectedUserIDs:(id)arg3 atIndexPath:(id)arg4 ;
 -(id)loggingDictionaryForRecipient:(id)arg1 ;
+-(void)swipeDismissManager:(id)arg1 willDismissViewController:(id)arg2 ;
+-(void)swipeDismissManager:(id)arg1 didDismissViewController:(id)arg2 ;
 -(void)showView;
 -(void)setBottomButton:(UIButton *)arg1 ;
 -(void)setSearchButton:(UIButton *)arg1 ;

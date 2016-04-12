@@ -125,7 +125,7 @@
 -(char)growingTextViewShouldReturn:(id)arg1 ;
 -(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
 -(void)didDismissReshareUI;
--(id)initWithFeedItem:(id)arg1 prefillText:(id)arg2 currentUser:(id)arg3 multiAccounts:(char)arg4 shouldSupportReshare:(char)arg5 showKeyboardOnAppear:(char)arg6 ;
+-(id)initWithFeedItem:(id)arg1 prefillText:(id)arg2 currentUser:(id)arg3 loggingDelegate:(id)arg4 multiAccounts:(char)arg5 shouldSupportReshare:(char)arg6 showKeyboardOnAppear:(char)arg7 ;
 -(char)prefersTabBarHidden;
 -(char)enableNavState;
 -(NSString *)placeholderText;

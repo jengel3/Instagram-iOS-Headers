@@ -13,11 +13,13 @@
 	id _asset;
 	UIColor* _defaultBackgroundColor;
 	UIColor* _selectedOverlayColor;
+	int _position;
 	PHImageManager* _imageManager;
 	PHImageRequestOptions* _imageRequestOptions;
 	unsigned _assetNumber;
 	UIImageView* _imageView;
 	UIView* _selectedOverlay;
+	UIView* _selectedOverlayBorderExtension;
 	UIView* _disabledOverlay;
 	int _requestID;
 	UIImageView* _inICloudView;
@@ -35,8 +37,9 @@
 @property (nonatomic,readonly) NSNumber * duration; 
 @property (assign,getter=isDisabled,nonatomic) char disabled;                          //@synthesize disabled=_disabled - In the implementation block
 @property (nonatomic,retain) UIColor * defaultBackgroundColor;                         //@synthesize defaultBackgroundColor=_defaultBackgroundColor - In the implementation block
-@property (nonatomic,retain) NSString * overlayText; 
+@property (nonatomic,copy) NSString * overlayText; 
 @property (nonatomic,retain) UIColor * selectedOverlayColor;                           //@synthesize selectedOverlayColor=_selectedOverlayColor - In the implementation block
+@property (assign,nonatomic) int position;                                             //@synthesize position=_position - In the implementation block
 @property (nonatomic,retain) PHImageManager * imageManager;                            //@synthesize imageManager=_imageManager - In the implementation block
 @property (nonatomic,retain) PHImageRequestOptions * imageRequestOptions;              //@synthesize imageRequestOptions=_imageRequestOptions - In the implementation block
 @property (assign,nonatomic) CGSize thumbnailSize;                                     //@synthesize thumbnailSize=_thumbnailSize - In the implementation block
@@ -45,6 +48,7 @@
 @property (assign,nonatomic) unsigned assetNumber;                                     //@synthesize assetNumber=_assetNumber - In the implementation block
 @property (nonatomic,retain) UIImageView * imageView;                                  //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UIView * selectedOverlay;                                 //@synthesize selectedOverlay=_selectedOverlay - In the implementation block
+@property (nonatomic,retain) UIView * selectedOverlayBorderExtension;                  //@synthesize selectedOverlayBorderExtension=_selectedOverlayBorderExtension - In the implementation block
 @property (nonatomic,retain) UIView * disabledOverlay;                                 //@synthesize disabledOverlay=_disabledOverlay - In the implementation block
 @property (assign,nonatomic) int requestID;                                            //@synthesize requestID=_requestID - In the implementation block
 @property (assign,nonatomic) char inICloud;                                            //@synthesize inICloud=_inICloud - In the implementation block
@@ -55,11 +59,12 @@
 @property (nonatomic,retain) UILabel * assetNumberLabel;                               //@synthesize assetNumberLabel=_assetNumberLabel - In the implementation block
 @property (nonatomic,retain) UILabel * overlayTextLabel;                               //@synthesize overlayTextLabel=_overlayTextLabel - In the implementation block
 @property (getter=isHighFrameRate,nonatomic,readonly) char highFrameRate; 
--(void)setCanShowSelectedOverlay:(char)arg1 ;
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)cancelImageRequest;
 -(void)setSelectedOverlay:(UIView *)arg1 ;
 -(UIView *)selectedOverlay;
+-(void)setSelectedOverlayBorderExtension:(UIView *)arg1 ;
+-(UIView *)selectedOverlayBorderExtension;
 -(void)setOverlayTextLabel:(UILabel *)arg1 ;
 -(UILabel *)overlayTextLabel;
 -(void)setDisabledOverlay:(UIView *)arg1 ;
@@ -70,6 +75,7 @@
 -(UIImageView *)slomoView;
 -(void)setDurationLabel:(UILabel *)arg1 ;
 -(UILabel *)durationLabel;
+-(void)setCanShowSelectedOverlay:(char)arg1 ;
 -(void)setShowAssetNumber:(char)arg1 ;
 -(void)setInICloud:(char)arg1 ;
 -(PHImageRequestOptions *)imageRequestOptions;
@@ -96,6 +102,8 @@
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;
 -(NSNumber *)duration;
+-(void)setPosition:(int)arg1 ;
+-(int)position;
 -(id)accessibilityLabel;
 -(void)prepareForReuse;
 -(void)setSelected:(char)arg1 ;

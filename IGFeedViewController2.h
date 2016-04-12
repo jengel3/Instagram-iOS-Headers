@@ -4,7 +4,6 @@
 #import <Instagram/IGAlbumSubscriptionTrayNetworkSourceDelegate.h>
 #import <Instagram/IGAnalyticsRaindropProtocol.h>
 #import <Instagram/IGFeedNetworkSourceDelegate.h>
-#import <Instagram/IGFeedItemLoggingProviderDelegate.h>
 #import <Instagram/IGListAdapterDataSource.h>
 #import <Instagram/IGListAdapterDelegate.h>
 #import <Instagram/IGMegaphoneItemControllerDelegate.h>
@@ -13,9 +12,9 @@
 #import <Instagram/IGScrollingHeaderDelegate.h>
 
 @protocol IGFeedItemConfigurationType, IGFeedConfigurationType, IGFeedMegaphoneProvider;
-@class IGListCollectionView, IGFeedNetworkSource, NSString, IGListAdapter, IGUser, IGFeedVideoCellManager, IGCollectionViewVisibility, IGFeedHeartAnimator, IGFeedStatusView, IGPullToRefreshViewManager, IGMediaUploadManager, IGFindFriendsItemController, IGListAdapterScrollingContext, IGFeedPreviewingHandler, IGFeedFocusCoordinator, IGFeedViewControllerTracker, IGFollowAccountListModel, IGAlbumSubscriptionTrayNetworkSource, IGAlbumSubscriptionTrayModel, IGAnalyticsMetadata, IGRaindropNavEvent, IGMutableRaindropRankInfo;
+@class IGListCollectionView, IGFeedNetworkSource, NSString, IGListAdapter, IGUser, IGFeedVideoCellManager, IGCollectionViewVisibility, IGFeedHeartAnimator, IGFeedStatusView, IGPullToRefreshViewManager, IGMediaUploadManager, IGFindFriendsItemController, IGListAdapterScrollingContext, IGFeedPreviewingHandler, IGFeedItemLogger, IGFeedFocusCoordinator, IGFeedViewControllerTracker, IGFollowAccountListModel, IGAlbumSubscriptionTrayNetworkSource, IGAlbumSubscriptionTrayModel, IGAnalyticsMetadata, IGRaindropNavEvent, IGMutableRaindropRankInfo;
 
-@interface IGFeedViewController2 : IGViewController <IGAlbumSubscriptionTrayNetworkSourceDelegate, IGAnalyticsRaindropProtocol, IGFeedNetworkSourceDelegate, IGFeedItemLoggingProviderDelegate, IGListAdapterDataSource, IGListAdapterDelegate, IGMegaphoneItemControllerDelegate, IGPullToRefreshProtocol, UICollectionViewDelegate, IGScrollingHeaderDelegate> {
+@interface IGFeedViewController2 : IGViewController <IGAlbumSubscriptionTrayNetworkSourceDelegate, IGAnalyticsRaindropProtocol, IGFeedNetworkSourceDelegate, IGListAdapterDataSource, IGListAdapterDelegate, IGMegaphoneItemControllerDelegate, IGPullToRefreshProtocol, UICollectionViewDelegate, IGScrollingHeaderDelegate> {
 
 	char _hasScrolledToFocusedItem;
 	IGListCollectionView* _collectionView;
@@ -35,6 +34,7 @@
 	IGFindFriendsItemController* _findFriendsItemController;
 	IGListAdapterScrollingContext* _scrollingContext;
 	IGFeedPreviewingHandler* _previewingHandler;
+	IGFeedItemLogger* _feedItemLogger;
 	IGFeedFocusCoordinator* _focusCoordinator;
 	IGFeedViewControllerTracker* _impressionTracker;
 	IGFollowAccountListModel* _followAccountListModel;
@@ -60,6 +60,7 @@
 @property (nonatomic,readonly) IGFindFriendsItemController * findFriendsItemController;                //@synthesize findFriendsItemController=_findFriendsItemController - In the implementation block
 @property (nonatomic,readonly) IGListAdapterScrollingContext * scrollingContext;                       //@synthesize scrollingContext=_scrollingContext - In the implementation block
 @property (nonatomic,readonly) IGFeedPreviewingHandler * previewingHandler;                            //@synthesize previewingHandler=_previewingHandler - In the implementation block
+@property (nonatomic,readonly) IGFeedItemLogger * feedItemLogger;                                      //@synthesize feedItemLogger=_feedItemLogger - In the implementation block
 @property (nonatomic,readonly) IGFeedFocusCoordinator * focusCoordinator;                              //@synthesize focusCoordinator=_focusCoordinator - In the implementation block
 @property (assign,nonatomic) char hasScrolledToFocusedItem;                                            //@synthesize hasScrolledToFocusedItem=_hasScrolledToFocusedItem - In the implementation block
 @property (nonatomic,readonly) IGFeedViewControllerTracker * impressionTracker;                        //@synthesize impressionTracker=_impressionTracker - In the implementation block
@@ -82,7 +83,7 @@
 -(id)emptyViewForListAdapter:(id)arg1 ;
 -(void)prepareFeedNetworkSourceForPreloading;
 -(IGFeedNetworkSource *)feedNetworkSource;
--(void)albumNetworkSource:(id)arg1 didReceiveItems:(id)arg2 ;
+-(void)albumNetworkSource:(id)arg1 didReceiveModel:(id)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didChangeToObjects:(id)arg2 ;
@@ -100,7 +101,6 @@
 -(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
 -(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
 -(IGFeedStatusView *)feedStatusView;
--(id)extraDictionaryForFeedItem:(id)arg1 ;
 -(IGFollowAccountListModel *)followAccountListModel;
 -(IGFeedHeartAnimator *)heartAnimator;
 -(IGListAdapterScrollingContext *)scrollingContext;
@@ -108,15 +108,16 @@
 -(IGFeedPreviewingHandler *)previewingHandler;
 -(void)onApplicationWillEnterForegroundNotification:(id)arg1 ;
 -(void)refreshDataIfNotFullyLoaded;
+-(void)disableImpressionTrackers;
 -(void)layoutCollectionView;
 -(void)scrollToFocusedItem;
+-(IGAlbumSubscriptionTrayNetworkSource *)albumNetworkSource;
 -(void)updateFullViewImpressionTracker;
 -(void)updateImpressionTrackers;
 -(void)updatePageCells;
 -(IGFeedViewControllerTracker *)impressionTracker;
 -(char)hasScrolledToFocusedItem;
 -(void)setHasScrolledToFocusedItem:(char)arg1 ;
--(IGAlbumSubscriptionTrayNetworkSource *)albumNetworkSource;
 -(void)fetchNextPage;
 -(IGAlbumSubscriptionTrayModel *)albumModel;
 -(IGMediaUploadManager *)uploadManager;
@@ -124,6 +125,7 @@
 -(char)shouldAddFindFriendsItemController;
 -(IGFindFriendsItemController *)findFriendsItemController;
 -(id<IGFeedItemConfigurationType>)itemConfiguration;
+-(IGFeedItemLogger *)feedItemLogger;
 -(void)updateFeedState;
 -(void)setFollowAccountListModel:(IGFollowAccountListModel *)arg1 ;
 -(void)showErrorMessage:(id)arg1 ;

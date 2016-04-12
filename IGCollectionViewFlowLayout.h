@@ -5,16 +5,16 @@
 @interface IGCollectionViewFlowLayout : UICollectionViewFlowLayout {
 
 	char _stickyHeaders;
-	float _headerAdjustmentAmount;
+	float _stickyHeaderOriginYAdjustment;
 
 }
 
-@property (assign,nonatomic) float headerAdjustmentAmount;              //@synthesize headerAdjustmentAmount=_headerAdjustmentAmount - In the implementation block
-@property (nonatomic,readonly) char stickyHeaders;                      //@synthesize stickyHeaders=_stickyHeaders - In the implementation block
--(float)headerAdjustmentAmount;
+@property (assign,nonatomic) float stickyHeaderOriginYAdjustment;              //@synthesize stickyHeaderOriginYAdjustment=_stickyHeaderOriginYAdjustment - In the implementation block
+@property (nonatomic,readonly) char stickyHeaders;                             //@synthesize stickyHeaders=_stickyHeaders - In the implementation block
 -(id)initWithStickyHeaders:(char)arg1 ;
 -(char)stickyHeaders;
--(void)setHeaderAdjustmentAmount:(float)arg1 ;
+-(float)stickyHeaderOriginYAdjustment;
+-(void)setStickyHeaderOriginYAdjustment:(float)arg1 ;
 -(id)init;
 -(id)layoutAttributesForElementsInRect:(CGRect)arg1 ;
 -(char)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1 ;

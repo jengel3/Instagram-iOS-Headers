@@ -33,12 +33,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setAssetSelectionMechanic:(IGAssetSelectionMechanic)arg1 ;
 -(void)setCanShowSelectedOverlay:(char)arg1 ;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(char)canShowSelectedOverlay;
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
 -(IGAssetSelectionMechanic)assetSelectionMechanic;
+-(void)setAssetSelectionMechanic:(IGAssetSelectionMechanic)arg1 ;
 -(void)setupImageManagerAndOptions;
 -(void)setGalleryCollectionView:(UICollectionView *)arg1 ;
 -(UICollectionView *)galleryCollectionView;

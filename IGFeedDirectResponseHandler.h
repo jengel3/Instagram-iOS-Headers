@@ -23,14 +23,14 @@
 @property (assign,nonatomic) double webviewUsageStartTime;                                                            //@synthesize webviewUsageStartTime=_webviewUsageStartTime - In the implementation block
 @property (nonatomic,retain) IGComposedWebViewLogger * webViewLogger;                                                 //@synthesize webViewLogger=_webViewLogger - In the implementation block
 @property (nonatomic,retain) IGComposedWebViewSharingLogger * sharingLogger;                                          //@synthesize sharingLogger=_sharingLogger - In the implementation block
+-(void)setPresentationContext:(id<IGPresentationContext>)arg1 ;
 -(IGFeedItem *)feedItem;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(id<IGPresentationContext>)presentationContext;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setLoggingDelegate:(id<IGFeedItemDirectResponseLoggingProviderDelegate>)arg1 ;
 -(IGDirectResponseInfo *)directResponseInfo;
 -(id<IGFeedItemDirectResponseLoggingProviderDelegate>)loggingDelegate;
 -(id)initWithLoggingDelegate:(id)arg1 ;
--(void)setPresentationContext:(id<IGPresentationContext>)arg1 ;
 -(void)handleDirectResponseActionForFeedItem:(id)arg1 currentPagingIndex:(id)arg2 context:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(void)handleDirectResponseActionForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(void)openWebViewForURL:(id)arg1 feedItemContext:(id)arg2 completion:(/*^block*/id)arg3 ;
@@ -38,9 +38,11 @@
 -(char)isNekoStyleDirectResponseInfo:(id)arg1 ;
 -(void)useNekoDirectResponseForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(void)useOriginalStyleDirectResponseForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 completion:(/*^block*/id)arg4 ;
--(void)logFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 openTarget:(id)arg4 ;
+-(void)logDidViewForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 openTarget:(id)arg4 ;
 -(char)isOriginalStyleDirectResponseInfo:(id)arg1 ;
 -(void)useActionURLHandlerForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 completion:(/*^block*/id)arg4 ;
+-(void)logFailedActionForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 openTarget:(id)arg4 ;
+-(id)extraDictionaryForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 openTarget:(id)arg4 ;
 -(void)setWebViewLogger:(IGComposedWebViewLogger *)arg1 ;
 -(IGComposedWebViewLogger *)webViewLogger;
 -(void)setSharingLogger:(IGComposedWebViewSharingLogger *)arg1 ;

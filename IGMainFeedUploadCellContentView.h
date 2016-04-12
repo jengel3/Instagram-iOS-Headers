@@ -4,7 +4,7 @@
 #import <Instagram/IGActionSheetDelegate.h>
 
 @protocol IGMainFeedUploadCellContentViewDelegate;
-@class IGUploadModel, NSDate, UIButton, UILabel, UIImageView, UIProgressView, NSString;
+@class IGUploadModel, NSDate, UIButton, UILabel, UIImageView, UIProgressView, NSMutableArray, NSString;
 
 @interface IGMainFeedUploadCellContentView : UIView <IGActionSheetDelegate> {
 
@@ -18,6 +18,8 @@
 	UIImageView* _imageView;
 	UIImageView* _imageOverlayView;
 	UIProgressView* _progressView;
+	unsigned _uploadPhase;
+	NSMutableArray* _uploadPhaseProgress;
 
 }
 
@@ -30,6 +32,8 @@
 @property (nonatomic,retain) UIImageView * imageView;                                                  //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UIImageView * imageOverlayView;                                           //@synthesize imageOverlayView=_imageOverlayView - In the implementation block
 @property (nonatomic,retain) UIProgressView * progressView;                                            //@synthesize progressView=_progressView - In the implementation block
+@property (assign,nonatomic) unsigned uploadPhase;                                                     //@synthesize uploadPhase=_uploadPhase - In the implementation block
+@property (nonatomic,retain) NSMutableArray * uploadPhaseProgress;                                     //@synthesize uploadPhaseProgress=_uploadPhaseProgress - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -38,9 +42,12 @@
 -(void)actionSheetFinishedHiding;
 -(void)setActivePost:(IGUploadModel *)arg1 ;
 -(IGUploadModel *)activePost;
+-(void)removeKeyValueObservationFromActivePost;
 -(void)removeUpload:(id)arg1 ;
 -(void)retryUpload:(id)arg1 ;
 -(void)onMediaUploadCompleted:(id)arg1 ;
+-(void)addKeyValueObservationToActivePost;
+-(void)updateUploadPhase:(unsigned)arg1 withProgress:(float)arg2 ;
 -(NSDate *)uploadStart;
 -(void)setUploadStart:(NSDate *)arg1 ;
 -(UIButton *)retryButton;
@@ -48,6 +55,10 @@
 -(void)setRemoveButton:(UIButton *)arg1 ;
 -(UIImageView *)imageOverlayView;
 -(void)setImageOverlayView:(UIImageView *)arg1 ;
+-(unsigned)uploadPhase;
+-(void)setUploadPhase:(unsigned)arg1 ;
+-(NSMutableArray *)uploadPhaseProgress;
+-(void)setUploadPhaseProgress:(NSMutableArray *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGMainFeedUploadCellContentViewDelegate>)arg1 ;
 -(void)dealloc;
@@ -61,5 +72,6 @@
 -(void)setStatusLabel:(UILabel *)arg1 ;
 -(void)updateContent;
 -(UIButton *)removeButton;
+-(void)updateProgressView;
 @end
 

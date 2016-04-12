@@ -18,10 +18,10 @@
 @property (assign,nonatomic) float horizontalPadding;                          //@synthesize horizontalPadding=_horizontalPadding - In the implementation block
 @property (nonatomic,retain) UILabel * countLabel;                             //@synthesize countLabel=_countLabel - In the implementation block
 +(float)preferredHeight;
+-(UILabel *)countLabel;
 -(void)setUserCount:(unsigned)arg1 ;
 -(IGFollowAllButton *)followAllButton;
 -(unsigned)userCount;
--(UILabel *)countLabel;
 -(void)setCountLabel:(UILabel *)arg1 ;
 -(void)setFollowAllButton:(IGFollowAllButton *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

@@ -21,10 +21,10 @@
 @property (nonatomic,retain) UIView * footerViewSeperator;                               //@synthesize footerViewSeperator=_footerViewSeperator - In the implementation block
 @property (assign,nonatomic) int footerViewType;                                         //@synthesize footerViewType=_footerViewType - In the implementation block
 @property (nonatomic,retain) UILabel * footerViewLabel;                                  //@synthesize footerViewLabel=_footerViewLabel - In the implementation block
+-(UIView *)footerViewSeperator;
 -(id)initWithFrame:(CGRect)arg1 footerViewType:(int)arg2 ;
 -(UIButton *)footerButton;
 -(void)setFooterViewType:(int)arg1 ;
--(UIView *)footerViewSeperator;
 -(void)setupFooterViewForType;
 -(int)footerViewType;
 -(UILabel *)footerViewLabel;

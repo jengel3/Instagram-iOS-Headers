@@ -62,6 +62,8 @@
 +(float)defaultHeight;
 -(char)deviceHasCamera;
 -(void)dismissButtonTapped;
+-(void)setCameraButton:(IGTapButton *)arg1 ;
+-(IGTapButton *)cameraButton;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
 -(void)setTextViewContainer:(UIControl *)arg1 ;
@@ -71,7 +73,6 @@
 -(void)setWarningView:(UILabel *)arg1 ;
 -(char)shouldHoldFirstResponder;
 -(void)setShouldHoldFirstResponder:(char)arg1 ;
--(IGTapButton *)cameraButton;
 -(IGGradientView *)bottomGradientView;
 -(void)sendAction:(id)arg1 ;
 -(void)likeAction:(id)arg1 ;
@@ -81,7 +82,6 @@
 -(float)textContentLayoutHeight;
 -(void)showPickDisabledAssetAnimation;
 -(void)setLikeButton:(IGTapButton *)arg1 ;
--(void)setCameraButton:(IGTapButton *)arg1 ;
 -(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(void)setTextFont:(UIFont *)arg1 ;
 -(void)setMaxTextHeight:(float)arg1 ;

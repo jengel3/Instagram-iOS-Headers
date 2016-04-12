@@ -10,11 +10,12 @@
 	AVAsset* _asset;
 	int _position;
 	int _sourceType;
+	unsigned _trimType;
 	IGTrackStabilizer* _trackStabilizer;
 	CGRect _cropRect;
 	SCD_Struct_IG44 _startTime;
 	SCD_Struct_IG44 _endTime;
-	SCD_Struct_IG46 _compositionTimeRange;
+	SCD_Struct_IG58 _compositionTimeRange;
 	GLKMatrix4 _playbackTransform;
 
 }
@@ -26,9 +27,10 @@
 @property (nonatomic,readonly) CGSize preferredSize; 
 @property (assign,nonatomic) SCD_Struct_IG44 startTime;                                //@synthesize startTime=_startTime - In the implementation block
 @property (assign,nonatomic) SCD_Struct_IG44 endTime;                                  //@synthesize endTime=_endTime - In the implementation block
-@property (nonatomic,readonly) SCD_Struct_IG46 timeRangeForAudioAndVideo; 
+@property (assign,nonatomic) unsigned trimType;                                        //@synthesize trimType=_trimType - In the implementation block
+@property (nonatomic,readonly) SCD_Struct_IG58 timeRangeForAudioAndVideo; 
 @property (nonatomic,readonly) float trimmedDuration; 
-@property (assign,nonatomic) SCD_Struct_IG46 compositionTimeRange;                     //@synthesize compositionTimeRange=_compositionTimeRange - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG58 compositionTimeRange;                     //@synthesize compositionTimeRange=_compositionTimeRange - In the implementation block
 @property (assign,nonatomic) CGRect cropRect;                                          //@synthesize cropRect=_cropRect - In the implementation block
 @property (nonatomic,readonly) _GLKMatrix4 playbackTransform;                          //@synthesize playbackTransform=_playbackTransform - In the implementation block
 @property (nonatomic,retain) IGTrackStabilizer * trackStabilizer;                      //@synthesize trackStabilizer=_trackStabilizer - In the implementation block
@@ -37,13 +39,15 @@
 -(NSString *)assetIdentifier;
 -(float)trimmedDuration;
 -(IGTrackStabilizer *)trackStabilizer;
+-(unsigned)trimType;
 -(void)setAssetIdentifier:(NSString *)arg1 ;
 -(void)resetTimes;
 -(CGAffineTransform)videoTrackTransform;
--(SCD_Struct_IG46)timeRangeForAudioAndVideo;
+-(SCD_Struct_IG58)timeRangeForAudioAndVideo;
 -(CGSize)applyInverseTransformToSize:(CGSize)arg1 ;
--(SCD_Struct_IG46)compositionTimeRange;
--(void)setCompositionTimeRange:(SCD_Struct_IG46)arg1 ;
+-(void)setTrimType:(unsigned)arg1 ;
+-(SCD_Struct_IG58)compositionTimeRange;
+-(void)setCompositionTimeRange:(SCD_Struct_IG58)arg1 ;
 -(_GLKMatrix4)playbackTransform;
 -(CGRect)cropRect;
 -(void)setCropRect:(CGRect)arg1 ;

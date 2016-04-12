@@ -13,6 +13,7 @@
 -(void)trackBrandLiftQuestionDidDismiss:(id)arg1 ;
 -(id)trackInvalidationForFeedItem:(id)arg1 withReason:(id)arg2 ;
 -(void)trackHideReasonForTrackingToken:(id)arg1 withReason:(id)arg2 withExtraDictionary:(id)arg3 ;
+-(void)addEntriesForEvent:(id)arg1 trackingToken:(id)arg2 reason:(id)arg3 extra:(id)arg4 ;
 -(id)init;
 @end
 

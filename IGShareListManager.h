@@ -32,6 +32,7 @@
 -(int)numberOfShareServices;
 -(void)toggleShareServiceAtIndex:(int)arg1 ;
 -(id)shareServiceAtIndex:(int)arg1 ;
+-(void)updateShareServiceWillShare:(char)arg1 index:(int)arg2 ;
 -(id)viewControllerForShareConfiguration;
 -(id)analyticsExtra;
 -(char)readyToShare;

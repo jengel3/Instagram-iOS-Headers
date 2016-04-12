@@ -18,6 +18,7 @@
 -(void)setTrackWithNoLatency:(char)arg1 ;
 -(void)setEventPrefix:(NSString *)arg1 ;
 -(id)trackEvent:(id)arg1 module:(id)arg2 forFeedItem:(id)arg3 ;
+-(id)trackEvent:(id)arg1 module:(id)arg2 forFeedItem:(id)arg3 withNavState:(id)arg4 ;
 -(id)eventWithSuffix:(id)arg1 ;
 -(char)trackWithNoLatency;
 -(id)trackingTokenBlock;

@@ -37,11 +37,11 @@
 -(IGTapButton *)boomerangButton;
 -(void)onBoomerangButtonTapped;
 -(void)onBackButtonTapped;
--(void)setCropButton:(IGTapButton *)arg1 ;
--(IGTapButton *)cropButton;
--(void)onCropButtonTapped;
 -(void)setStartCrop:(char)arg1 ;
+-(IGTapButton *)cropButton;
 -(void)toggleCropButtonColor;
+-(void)setCropButton:(IGTapButton *)arg1 ;
+-(void)onCropButtonTapped;
 -(char)startCrop;
 -(void)toggleOverlay;
 -(void)setCaptureButtonState:(int)arg1 ;

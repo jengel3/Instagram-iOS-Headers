@@ -19,9 +19,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
 +(id)archiveURLForUserPK:(id)arg1 ;
--(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(id)archiveURL;
 -(NSArray *)allPlaces;
 -(void)addPlaceToRecent:(id)arg1 ;

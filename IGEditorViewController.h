@@ -3,7 +3,7 @@
 #import <Instagram/IGBaseCameraViewController.h>
 #import <Instagram/IGShareViewControllerDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
-#import <Instagram/IGImageViewTabBarDelegate.h>
+#import <Instagram/IGEditorTabBarDelegate.h>
 #import <UIKit/UICollectionViewDataSource.h>
 #import <UIKit/UICollectionViewDelegate.h>
 #import <UIKit/UICollectionViewDelegateFlowLayout.h>
@@ -13,9 +13,9 @@
 #import <Instagram/IGOverlayNuxControllerDelegate.h>
 
 @protocol OS_dispatch_queue;
-@class UIView, UIButton, UIBarButtonItem, IGAdjustController, UIImage, IGFilteredPhotoView, IGMediaMetadata, NSMutableDictionary, IGCameraGuideView, UILongPressGestureRecognizer, IGImageViewTabBar, UIImageView, UICollectionView, IGFilterCollectionController, IGFilterControlView, IGOverlayNuxController, IGTiltShiftGestureController, NSObject, ALAssetsLibrary, NSString;
+@class UIView, UIButton, UIBarButtonItem, IGAdjustController, UIImage, IGFilteredPhotoView, IGMediaMetadata, NSMutableDictionary, IGCameraGuideView, UILongPressGestureRecognizer, IGEditorTabBar, UIImageView, UICollectionView, IGFilterCollectionController, IGFilterControlView, IGOverlayNuxController, IGTiltShiftGestureController, NSObject, ALAssetsLibrary, NSString;
 
-@interface IGEditorViewController : IGBaseCameraViewController <IGShareViewControllerDelegate, UIGestureRecognizerDelegate, IGImageViewTabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IGFilterCollectionControllerDelegate, IGFilterControlViewDelegate, IGAdjustControllerDelegate, IGOverlayNuxControllerDelegate> {
+@interface IGEditorViewController : IGBaseCameraViewController <IGShareViewControllerDelegate, UIGestureRecognizerDelegate, IGEditorTabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, IGFilterCollectionControllerDelegate, IGFilterControlViewDelegate, IGAdjustControllerDelegate, IGOverlayNuxControllerDelegate> {
 
 	int _photoOrigin;
 	UIView* _editContainerView;
@@ -43,7 +43,7 @@
 	UILongPressGestureRecognizer* _showUneditedGestureRecognizer;
 	UIView* _toolContainerView;
 	UIView* _rearrangeFilterOverlayView;
-	IGImageViewTabBar* _modeTabBar;
+	IGEditorTabBar* _modeTabBar;
 	UIImageView* _filterTabView;
 	UIImageView* _luxTabView;
 	UIImageView* _toolsTabView;
@@ -83,7 +83,7 @@
 @property (nonatomic,retain) UILongPressGestureRecognizer * showUneditedGestureRecognizer;              //@synthesize showUneditedGestureRecognizer=_showUneditedGestureRecognizer - In the implementation block
 @property (nonatomic,retain) UIView * toolContainerView;                                                //@synthesize toolContainerView=_toolContainerView - In the implementation block
 @property (nonatomic,retain) UIView * rearrangeFilterOverlayView;                                       //@synthesize rearrangeFilterOverlayView=_rearrangeFilterOverlayView - In the implementation block
-@property (nonatomic,retain) IGImageViewTabBar * modeTabBar;                                            //@synthesize modeTabBar=_modeTabBar - In the implementation block
+@property (nonatomic,retain) IGEditorTabBar * modeTabBar;                                               //@synthesize modeTabBar=_modeTabBar - In the implementation block
 @property (nonatomic,retain) UIImageView * filterTabView;                                               //@synthesize filterTabView=_filterTabView - In the implementation block
 @property (nonatomic,retain) UIImageView * luxTabView;                                                  //@synthesize luxTabView=_luxTabView - In the implementation block
 @property (nonatomic,retain) UIImageView * toolsTabView;                                                //@synthesize toolsTabView=_toolsTabView - In the implementation block
@@ -114,6 +114,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)imageViewTabItemWithImageName:(id)arg1 ;
+-(void)setFilterTrayController:(IGFilterCollectionController *)arg1 ;
+-(IGFilterCollectionController *)filterTrayController;
+-(id)adjustController;
+-(id)analyticsModule;
 -(UICollectionView *)filterCollectionView;
 -(void)setFilterCollectionView:(UICollectionView *)arg1 ;
 -(CGPoint)cropCenter;
@@ -148,8 +152,6 @@
 -(UIView *)toolContainerView;
 -(void)updateReadyState;
 -(IGFilterControlView *)filterControlView;
--(IGFilterCollectionController *)filterTrayController;
--(id)adjustController;
 -(id)rotateOverlayButton;
 -(id)gridOverlayButton;
 -(void)allowUserInteraction:(char)arg1 ;
@@ -164,7 +166,7 @@
 -(void)setDidReceiveFullSizedBuffer:(char)arg1 ;
 -(UILongPressGestureRecognizer *)showUneditedGestureRecognizer;
 -(UIImageView *)filterTabView;
--(IGImageViewTabBar *)modeTabBar;
+-(IGEditorTabBar *)modeTabBar;
 -(float)valueForFilterControl:(int)arg1 ;
 -(char)shouldHighlightControl:(int)arg1 ;
 -(void)createCropGridView;
@@ -208,8 +210,8 @@
 -(void)shareViewControllerDidAppear:(id)arg1 ;
 -(void)shareViewControllerWillFinish:(id)arg1 ;
 -(void)shareViewControllerDidCancel:(id)arg1 ;
--(void)tabBar:(id)arg1 didSelectImageView:(id)arg2 previousImageView:(id)arg3 ;
--(char)tabBar:(id)arg1 shouldSelectImageView:(id)arg2 ;
+-(void)tabBar:(id)arg1 didSelectTabView:(id)arg2 previousTabView:(id)arg3 ;
+-(char)tabBar:(id)arg1 shouldSelectTabView:(id)arg2 ;
 -(void)filterController:(id)arg1 didSelectFilterWithClass:(Class)arg2 changed:(char)arg3 willScroll:(char)arg4 ;
 -(void)filterController:(id)arg1 didSelectFilterStrengthForClass:(Class)arg2 ;
 -(float)filterController:(id)arg1 filterStrengthForClass:(Class)arg2 ;
@@ -246,7 +248,7 @@
 -(void)setShowUneditedGestureRecognizer:(UILongPressGestureRecognizer *)arg1 ;
 -(void)setToolContainerView:(UIView *)arg1 ;
 -(void)setRearrangeFilterOverlayView:(UIView *)arg1 ;
--(void)setModeTabBar:(IGImageViewTabBar *)arg1 ;
+-(void)setModeTabBar:(IGEditorTabBar *)arg1 ;
 -(void)setFilterTabView:(UIImageView *)arg1 ;
 -(UIImageView *)luxTabView;
 -(void)setLuxTabView:(UIImageView *)arg1 ;
@@ -254,7 +256,6 @@
 -(void)setToolsTabView:(UIImageView *)arg1 ;
 -(UIView *)NUXView;
 -(void)setNUXView:(UIView *)arg1 ;
--(void)setFilterTrayController:(IGFilterCollectionController *)arg1 ;
 -(void)setToolCollectionView:(UICollectionView *)arg1 ;
 -(void)setLuxControlView:(IGFilterControlView *)arg1 ;
 -(void)setMaxTextureSize:(CGSize)arg1 ;

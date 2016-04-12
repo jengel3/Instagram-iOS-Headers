@@ -21,8 +21,8 @@
 @property (nonatomic,copy) NSString * countryNumber;                      //@synthesize countryNumber=_countryNumber - In the implementation block
 -(NSString *)countryNumber;
 -(void)setCountryNumber:(NSString *)arg1 ;
--(UIButton *)countryCodeButton;
 -(UIView *)textFieldLeftView;
+-(UIButton *)countryCodeButton;
 -(id)configureCountryCodeButton;
 -(UIView *)lineSeparatorView;
 -(void)updateCountryName:(id)arg1 countryNumber:(id)arg2 ;

@@ -12,8 +12,8 @@
 
 @property (nonatomic,readonly) IGFeedItem * feedItem;                             //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,readonly) IGSponsoredFeedItemTracker * tracker;              //@synthesize tracker=_tracker - In the implementation block
--(id)initWithFeedItem:(id)arg1 ;
 -(IGFeedItem *)feedItem;
+-(id)initWithFeedItem:(id)arg1 ;
 -(IGSponsoredFeedItemTracker *)tracker;
 -(void)webViewController:(id)arg1 displayedShareActionsForItems:(id)arg2 ;
 -(void)webViewController:(id)arg1 forItems:(id)arg2 activityType:(id)arg3 wasCompleted:(char)arg4 returnedItems:(id)arg5 activityError:(id)arg6 ;

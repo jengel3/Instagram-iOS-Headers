@@ -26,7 +26,6 @@
 @property (nonatomic,copy) NSString * queryButtonText;                       //@synthesize queryButtonText=_queryButtonText - In the implementation block
 @property (assign,nonatomic) unsigned activeIndex;                           //@synthesize activeIndex=_activeIndex - In the implementation block
 -(NSString *)chartStyle;
--(void)setChartStyle:(NSString *)arg1 ;
 -(id)initWithHeader:(id)arg1 queryButtonText:(id)arg2 chartStyle:(id)arg3 chartData:(id)arg4 ;
 -(void)setActiveIndex:(unsigned)arg1 ;
 -(unsigned)activeIndex;
@@ -35,6 +34,7 @@
 -(void)buttonClick:(id)arg1 ;
 -(void)layoutSelectorButtonsWithHeaderViewHeight:(float)arg1 ;
 -(NSArray *)selectorButtons;
+-(void)setChartStyle:(NSString *)arg1 ;
 -(void)setSelectorButtons:(NSArray *)arg1 ;
 -(NSString *)queryButtonText;
 -(void)setQueryButtonText:(NSString *)arg1 ;

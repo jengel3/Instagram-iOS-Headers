@@ -48,13 +48,13 @@
 -(IGBulkMediaRequestManager *)requestManager;
 -(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
 -(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
--(float)percentVisible;
 -(IGFeedItemPageCellState *)pageCellState;
 -(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
 -(void)dismissOverlayAnimated:(char)arg1 ;
 -(void)scrollToPage:(int)arg1 animated:(char)arg2 ;
 -(void)setVideoLoggerProvider:(IGPageMediaVideoViewLoggerProvider *)arg1 ;
 -(void)setPercentVisible:(float)arg1 ;
+-(float)percentVisible;
 -(void)videoCellDidDoubleTap:(id)arg1 ;
 -(void)photoCellDidInitialSingleTap:(id)arg1 ;
 -(void)photoCellDidDoubleTapToLike:(id)arg1 ;

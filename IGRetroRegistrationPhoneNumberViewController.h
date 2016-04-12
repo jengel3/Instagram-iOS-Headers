@@ -22,13 +22,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)backgroundViewTapped;
 -(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)userDidSelectCountryWithName:(id)arg1 countryNumber:(id)arg2 ;
 -(void)nextButtonTapped;
--(void)backgroundViewTapped;
 -(void)configurePhoneNumberView;
 -(void)countryCodeButtonTapped;
 -(void)emailRegistrationButtonTapped;

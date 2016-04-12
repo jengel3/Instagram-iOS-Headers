@@ -17,8 +17,8 @@
 	CPTFill* fill;
 	int* bottomUpLayerOrder;
 	CGPoint touchedPoint;
-	SCD_Struct_CP80 widthDecimal;
-	SCD_Struct_CP80 heightDecimal;
+	SCD_Struct_CP96 widthDecimal;
+	SCD_Struct_CP96 heightDecimal;
 
 }
 
@@ -31,8 +31,8 @@
 @property (nonatomic,retain) NSArray * topDownLayerOrder; 
 @property (nonatomic,copy) CPTLineStyle * borderLineStyle; 
 @property (nonatomic,copy) CPTFill * fill; 
-@property (assign,nonatomic) SCD_Struct_CP80 widthDecimal; 
-@property (assign,nonatomic) SCD_Struct_CP80 heightDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP96 widthDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP96 heightDecimal; 
 @property (assign,nonatomic) int* bottomUpLayerOrder; 
 @property (assign,getter=isUpdatingLayers,nonatomic) char updatingLayers; 
 @property (assign,nonatomic) CGPoint touchedPoint; 
@@ -65,12 +65,12 @@
 -(CGPoint)touchedPoint;
 -(char)isUpdatingLayers;
 -(unsigned)indexForLayerType:(int)arg1 ;
--(void)setWidthDecimal:(SCD_Struct_CP80)arg1 ;
--(void)setHeightDecimal:(SCD_Struct_CP80)arg1 ;
+-(void)setWidthDecimal:(SCD_Struct_CP96)arg1 ;
+-(void)setHeightDecimal:(SCD_Struct_CP96)arg1 ;
 -(void)setBottomUpLayerOrder:(int*)arg1 ;
 -(void)setPlotGroup:(CPTPlotGroup *)arg1 ;
--(SCD_Struct_CP80)widthDecimal;
--(SCD_Struct_CP80)heightDecimal;
+-(SCD_Struct_CP96)widthDecimal;
+-(SCD_Struct_CP96)heightDecimal;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

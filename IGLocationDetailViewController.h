@@ -52,7 +52,6 @@
 -(void)setLoggedImpressions:(NSMutableSet *)arg1 ;
 -(void)composedPeopleYouFollowView:(id)arg1 didTapSocialItemAtIndex:(unsigned)arg2 ;
 -(void)setForceMediaIDs:(NSArray *)arg1 ;
--(void)handleDidSelectFeedItemFromGrid:(id)arg1 ;
 -(void)setRankedMediaView:(IGRankedMediaView *)arg1 ;
 -(IGRankedMediaView *)rankedMediaView;
 -(NSArray *)forceMediaIDs;

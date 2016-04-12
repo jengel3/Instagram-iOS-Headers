@@ -23,11 +23,11 @@
 -(void)feedFollowPeopleCell:(id)arg1 didTapUser:(id)arg2 ;
 -(void)feedFollowPeopleCellDidTapBanner:(id)arg1 ;
 -(void)feedFollowPeopleCellDidTapFooterBanner:(id)arg1 ;
+-(id)initWithFeedNetworkSource:(id)arg1 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(void)loadFollowAccountListFromResponse:(id)arg1 ;
 -(IGFeedFollowPeopleCell *)feedFollowPeopleCell;
 -(void)setFeedFollowPeopleCell:(IGFeedFollowPeopleCell *)arg1 ;
--(id)initWithFeedNetworkSource:(id)arg1 ;
 -(void)setFollowAccountList:(NSArray *)arg1 ;
 @end
 

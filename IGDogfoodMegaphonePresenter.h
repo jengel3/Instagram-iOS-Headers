@@ -32,6 +32,7 @@
 -(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(unsigned)displaySource;
 -(id)viewForMegaphone;
+-(void)logMegaphoneSeen;
 -(char)megaphoneSeen;
 -(void)setMegaphoneSeen:(char)arg1 ;
 -(void)logWasSeen;

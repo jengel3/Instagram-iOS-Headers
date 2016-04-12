@@ -48,7 +48,8 @@
 -(char)isVisibleFilterClass:(Class)arg1 ;
 -(void)logFilterManagementState;
 -(Class)selectedFilterClass;
--(id)filterThumbnailForFilterId:(int)arg1 ;
+-(id)cachedFilterThumbnailForFilterClass:(Class)arg1 ;
+-(void)fetchStaticThumbnailForFilterClass:(Class)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setFilterClass:(Class)arg1 isVisible:(char)arg2 ;
 -(void)moveFilterClassFromIndex:(int)arg1 toIndex:(int)arg2 ;
 -(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 willMoveToIndexPath:(id)arg3 ;
@@ -76,6 +77,7 @@
 -(void)setScrollingToFilter:(char)arg1 ;
 -(void)setFilterThumbnailsById:(NSMutableDictionary *)arg1 ;
 -(NSMutableDictionary *)filterThumbnailsById;
+-(void)reloadCellForFilterClass:(Class)arg1 ;
 -(Class)filterClassForId:(int)arg1 ;
 -(void)setSelectedFilterClass:(Class)arg1 ;
 -(int)pickerType;

@@ -30,7 +30,7 @@
 @property (assign,nonatomic,__weak) id<IGVideoPlaybackViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,getter=isLooping,nonatomic) char looping; 
 @property (assign,getter=isMuted,nonatomic) char muted; 
-@property (assign,nonatomic) SCD_Struct_IG46 playableRange; 
+@property (assign,nonatomic) SCD_Struct_IG58 playableRange; 
 @property (assign,nonatomic) SCD_Struct_IG44 startTime; 
 @property (assign,nonatomic) SCD_Struct_IG44 endTime; 
 @property (nonatomic,readonly) SCD_Struct_IG44 currentTime; 
@@ -46,7 +46,7 @@
 -(void)playFromStart;
 -(void)playFromTime:(SCD_Struct_IG44)arg1 ;
 -(id)initWithVideo:(id)arg1 size:(CGSize)arg2 ;
--(void)setPlayableRange:(SCD_Struct_IG46)arg1 ;
+-(void)setPlayableRange:(SCD_Struct_IG58)arg1 ;
 -(void)makeKey;
 -(void)setIsPlaying:(char)arg1 ;
 -(void)seekToPosition:(float)arg1 ;
@@ -58,7 +58,7 @@
 -(IGSurfaceView *)filteredView;
 -(void)videoPlayer:(id)arg1 didLoadPixelBuffer:(CVBufferRef)arg2 withTime:(SCD_Struct_IG44)arg3 ;
 -(void)videoPlayer:(id)arg1 didFinishPlayingWithAnimation:(char)arg2 ;
--(SCD_Struct_IG46)playableRange;
+-(SCD_Struct_IG58)playableRange;
 -(void)setStabilizationFilter:(IGStabilizationFilter *)arg1 ;
 -(void)setFilteredView:(IGSurfaceView *)arg1 ;
 -(void)setLooping:(char)arg1 ;

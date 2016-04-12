@@ -13,8 +13,8 @@
 
 @property (nonatomic,copy) NSString * cityName;              //@synthesize cityName=_cityName - In the implementation block
 @property (nonatomic,copy) NSString * cityID;                //@synthesize cityID=_cityID - In the implementation block
--(NSString *)cityID;
 -(void)setCityID:(NSString *)arg1 ;
+-(NSString *)cityID;
 -(NSString *)cityName;
 -(void)setCityName:(NSString *)arg1 ;
 -(id)initWithDictionary:(id)arg1 ;

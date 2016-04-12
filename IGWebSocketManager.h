@@ -16,10 +16,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)closeWebSocket:(id)arg1 ;
 +(id)sharedManager;
--(void)closeWebSocket:(id)arg1 ;
--(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
 -(void)webSocket:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
 -(void)webSocket:(id)arg1 didCloseWithCode:(int)arg2 reason:(id)arg3 wasClean:(char)arg4 ;
+-(void)closeWebSocket:(id)arg1 ;
 -(void)addSocket:(id)arg1 ;
 -(void)removeSocket:(id)arg1 ;
 -(NSMutableSet *)socketSet;

@@ -13,8 +13,8 @@
 
 @property (nonatomic,copy) NSString * countryCode;                 //@synthesize countryCode=_countryCode - In the implementation block
 @property (nonatomic,copy) NSString * nationalNumber;              //@synthesize nationalNumber=_nationalNumber - In the implementation block
--(NSString *)nationalNumber;
 -(void)setNationalNumber:(NSString *)arg1 ;
+-(NSString *)nationalNumber;
 -(id)initWithDictionary:(id)arg1 ;
 -(id)copyWithZone:(NSZone*)arg1 ;
 -(void)setCountryCode:(NSString *)arg1 ;

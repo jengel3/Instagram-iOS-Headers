@@ -44,10 +44,8 @@
 -(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
 -(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
--(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
--(unsigned)updatePercentVisible:(float)arg1 ;
--(float)percentVisible;
 -(id)contentViewForHeartAnimation;
+-(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(IGPageMediaView *)pageMediaView;
 -(IGPageCellIndicatorController *)indicatorController;
 -(IGFeedItemPageCellState *)pageCellState;
@@ -69,6 +67,8 @@
 -(void)pageMediaView:(id)arg1 itemDidDisappear:(id)arg2 ;
 -(void)pageMediaView:(id)arg1 itemDidStartViewing:(id)arg2 ;
 -(void)pageCellIndicatorControllerDidShowNUX:(id)arg1 ;
+-(unsigned)updatePercentVisible:(float)arg1 ;
+-(float)percentVisible;
 -(void)showNUXIfNeededWithPercentVisible:(float)arg1 ;
 -(void)setPageMediaView:(IGPageMediaView *)arg1 ;
 -(id)videoView;

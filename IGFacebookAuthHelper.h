@@ -12,6 +12,7 @@
 @property (assign,nonatomic) char isSubmittingRequest;                                      //@synthesize isSubmittingRequest=_isSubmittingRequest - In the implementation block
 +(void)requestAccessTokenWithPermissions:(id)arg1 fromViewController:(id)arg2 forPublish:(char)arg3 accessTokenCallback:(/*^block*/id)arg4 ;
 +(void)fetchCurrentFBUsernameWithCompletionBlock:(/*^block*/id)arg1 ;
++(void)fetchCurrentUserInfoFromFacebookAccessToken:(id)arg1 withCompletionBlock:(/*^block*/id)arg2 failureBlock:(/*^block*/id)arg3 ;
 -(void)setIsSubmittingRequest:(char)arg1 ;
 -(char)isSubmittingRequest;
 -(void)handleLoginError:(id)arg1 facebookAccessToken:(id)arg2 ;

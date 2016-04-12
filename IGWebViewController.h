@@ -41,7 +41,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)closeController;
 -(void)setShowPopoutButton:(char)arg1 ;
 -(void)dismissWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)onCancelModal;
@@ -51,8 +50,6 @@
 -(char)prefersTabBarHidden;
 -(id<IGWebViewControllerContinuationDelegate>)continuationDelegate;
 -(void)setModalDidDismissHandler:(id)arg1 ;
--(UIButton *)forwardButton;
--(void)setForwardButton:(UIButton *)arg1 ;
 -(id)modalDidDismissHandler;
 -(void)loadCurrentTargetURL;
 -(void)onActionsTapped;
@@ -61,6 +58,8 @@
 -(char)showPopoutButton;
 -(char)showsPageTitle;
 -(void)setShowsPageTitle:(char)arg1 ;
+-(UIButton *)forwardButton;
+-(void)setForwardButton:(UIButton *)arg1 ;
 -(UIBarButtonItem *)actionsButton;
 -(void)setActionsButton:(UIBarButtonItem *)arg1 ;
 -(char)isModal;

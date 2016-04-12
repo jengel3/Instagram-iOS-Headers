@@ -17,6 +17,7 @@
 @interface IGBroadcastShareManager : IGViewController <IGLocationPickerDelegate, IGLocationSuggestionDataSource, IGLocationSuggestionDelegate, IGShareListManagerDelegate, IGUserInTaggingViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGDirectedNUXViewDelegate, IGAnalyticsModule, IGShareManager> {
 
 	char _isStickyEnabled;
+	char _shouldShowShareNewDesign;
 	NSString* _shareString;
 	UIViewController* _delegate;
 	IGMediaMetadata* _mediaMetadata;
@@ -40,6 +41,7 @@
 @property (nonatomic,retain) NSString * searchSessionId;                                            //@synthesize searchSessionId=_searchSessionId - In the implementation block
 @property (assign,nonatomic) char isStickyEnabled;                                                  //@synthesize isStickyEnabled=_isStickyEnabled - In the implementation block
 @property (nonatomic,retain) NSIndexPath * shareIndexPath;                                          //@synthesize shareIndexPath=_shareIndexPath - In the implementation block
+@property (assign,nonatomic) char shouldShowShareNewDesign;                                         //@synthesize shouldShowShareNewDesign=_shouldShowShareNewDesign - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * dismissNUXTapGuestureRecognizer;              //@synthesize dismissNUXTapGuestureRecognizer=_dismissNUXTapGuestureRecognizer - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -60,16 +62,16 @@
 -(char)isReadyToShare;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
+-(UIView *)headerBackgroundView;
 -(void)locationSuggestionCell:(id)arg1 stateChanged:(int)arg2 ;
 -(void)locationSuggestionCelldidClearLocation:(id)arg1 ;
 -(void)locationSuggestionCell:(id)arg1 didFinishWithLocation:(id)arg2 ;
 -(id)viewControllerForPresentingLocationPicker;
--(void)locationSuggestionCell:(id)arg1 didSelectIndex:(unsigned)arg2 locations:(id)arg3 ;
--(void)locationSuggestionCell:(id)arg1 didLoadLocations:(id)arg2 ;
 -(void)updateLocationEnabled;
 -(void)showStickyShareTooltip;
 -(void)hideToolTip;
 -(char)isExpiringPost;
+-(char)shouldShowShareNewDesign;
 -(float)locationSuggestionCellHeight;
 -(void)configureCaptionCell:(id)arg1 ;
 -(void)configurePeopleCell:(id)arg1 ;
@@ -80,10 +82,8 @@
 -(void)setShareIndexPath:(NSIndexPath *)arg1 ;
 -(IGDirectedNUXView *)stickyShareNUXView;
 -(void)onPeopleCellTapped;
--(UIView *)headerBackgroundView;
 -(void)setHeaderBackgroundView:(UIView *)arg1 ;
 -(void)setLocationSuggestionCellHeight:(float)arg1 ;
--(NSString *)searchSessionId;
 -(char)isStickyEnabled;
 -(UITapGestureRecognizer *)dismissNUXTapGuestureRecognizer;
 -(void)shareListNeedsFullReload;
@@ -91,8 +91,10 @@
 -(id)viewControllerForShareConfiguration;
 -(void)directedNUXViewDidTap:(id)arg1 ;
 -(void)setStickyShareNUXView:(IGDirectedNUXView *)arg1 ;
+-(NSString *)searchSessionId;
 -(void)setSearchSessionId:(NSString *)arg1 ;
 -(void)setIsStickyEnabled:(char)arg1 ;
+-(void)setShouldShowShareNewDesign:(char)arg1 ;
 -(void)setDismissNUXTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(void)setDelegate:(UIViewController *)arg1 ;
 -(void)dealloc;

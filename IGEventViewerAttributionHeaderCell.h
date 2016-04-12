@@ -21,12 +21,12 @@
 @property (assign,nonatomic,__weak) UILabel * usernameLabel;                                              //@synthesize usernameLabel=_usernameLabel - In the implementation block
 @property (assign,nonatomic,__weak) UIButton * moreButton;                                                //@synthesize moreButton=_moreButton - In the implementation block
 +(id)cellIdentifier;
+-(IGProfilePictureImageView *)profileImageView;
 -(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
 -(void)configureView;
 -(void)didTapMoreButton:(id)arg1 ;
 -(void)didReceiveTapGesture:(id)arg1 ;
--(IGProfilePictureImageView *)profileImageView;
 -(UIImageView *)verifiedBadgeImageView;
 -(void)setMoreButtonHidden:(char)arg1 ;
 -(void)layoutMoreButton;

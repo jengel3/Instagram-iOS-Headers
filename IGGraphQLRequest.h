@@ -26,8 +26,9 @@
 @property (nonatomic,readonly) id<IGGraphQLCachePolicy> cachePolicy;              //@synthesize cachePolicy=_cachePolicy - In the implementation block
 @property (nonatomic,copy,readonly) id successHandler;                            //@synthesize successHandler=_successHandler - In the implementation block
 @property (nonatomic,copy,readonly) id failHandler;                               //@synthesize failHandler=_failHandler - In the implementation block
+-(id)requestWithFailHandler:(/*^block*/id)arg1 ;
 -(id)successHandler;
--(char)isCacheValidForData:(id)arg1 ;
+-(char)isCacheValidForObject:(id)arg1 ;
 -(id)failHandler;
 -(NSDictionary *)queryParams;
 -(char)needsLoggedSession;

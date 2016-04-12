@@ -26,6 +26,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(UIEdgeInsets)contentInsetsForManager:(id)arg1 ;
 -(id)currentQueryForManager:(id)arg1 ;
 -(id)recipientsForManager:(id)arg1 ;

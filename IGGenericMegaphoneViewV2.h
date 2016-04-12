@@ -46,6 +46,7 @@
 -(UILabel *)messageView;
 -(void)setMessageView:(UILabel *)arg1 ;
 -(NSString *)displaySource;
+-(id)createDismissButton;
 -(void)layoutButtons;
 -(id)initWithMegaphone:(id)arg1 ;
 -(char)megaphoneSeen;
@@ -62,7 +63,6 @@
 -(id)createTitleView;
 -(id)createMessageView;
 -(id)createMegaphoneImageView;
--(id)createDismissButton;
 -(id)createButtonOne;
 -(id)createButtonTwo;
 -(void)layoutImageView;

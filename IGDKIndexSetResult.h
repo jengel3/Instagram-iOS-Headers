@@ -19,6 +19,7 @@
 @property (nonatomic,copy,readonly) NSArray * moves;              //@synthesize moves=_moves - In the implementation block
 @property (nonatomic,readonly) IGDKStats stats;                   //@synthesize stats=_stats - In the implementation block
 -(NSArray *)moves;
+-(id)resultWithUpdatedMovesAsDeleteInserts;
 -(id)initWithInserts:(id)arg1 deletes:(id)arg2 updates:(id)arg3 moves:(id)arg4 stats:(IGDKStats)arg5 ;
 -(NSIndexSet *)inserts;
 -(NSIndexSet *)deletes;

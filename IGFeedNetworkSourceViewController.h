@@ -54,8 +54,8 @@
 -(id)analyticsModule;
 -(id)analyticsExtras;
 -(id)rankToken;
--(IGFeedNetworkSource *)feedSource;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
+-(IGFeedNetworkSource *)feedSource;
 -(void)setFeedItemConfiguration:(id<IGFeedItemConfigurationType>)arg1 ;
 -(void)removeHeaderView:(id)arg1 animated:(char)arg2 ;
 -(void)addHeaderView:(id)arg1 withRank:(int)arg2 animated:(char)arg3 ;

@@ -15,6 +15,7 @@
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(id)description;
+-(int)compare:(id)arg1 ;
 -(NSIndexPath *)from;
 -(NSIndexPath *)to;
 @end

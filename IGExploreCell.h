@@ -47,6 +47,7 @@
 +(IGCarouselMetrics)thumbnailsCarouselMetricsWithWidth:(float)arg1 ;
 +(float)heightWithConstrainedWidth:(float)arg1 exploreViewModel:(id)arg2 ;
 -(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
+-(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
 -(UILabel *)bylineLabel;
 -(IGExploreEmptyView *)emptyView;
 -(IGThumbnailsGridView *)thumbnailsGridView;
@@ -56,7 +57,6 @@
 -(void)onFollowingButton:(id)arg1 ;
 -(void)onDismissButton:(id)arg1 ;
 -(void)setupThumbnailsViewFrameWithOrigin:(CGPoint)arg1 ;
--(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
 -(void)setExploreViewModel:(id)arg1 ;
 -(void)setThumbnailsGridView:(IGThumbnailsGridView *)arg1 ;
 -(void)setBylineLabel:(UILabel *)arg1 ;

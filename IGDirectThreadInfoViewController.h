@@ -27,6 +27,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsModule;
 -(char)prefersTabBarHidden;
 -(void)cell:(id)arg1 didSwitchValueTo:(char)arg2 ;
 -(void)threadUpdated;

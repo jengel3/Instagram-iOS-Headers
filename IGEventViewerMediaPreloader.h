@@ -28,12 +28,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGMediaLoader *)mediaLoader;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(void)mediaRequest:(id)arg1 didFailWithError:(id)arg2 forURL:(id)arg3 ;
 -(id)initWithPhotoWidth:(float)arg1 ;
 -(id)initWithPhotoWidth:(float)arg1 mediaLoader:(id)arg2 videoProxy:(id)arg3 ;
 -(NSMutableDictionary *)postsToURLs;
+-(IGMediaLoader *)mediaLoader;
 -(id<IGVideoProxyProtocol>)videoProxy;
 -(void)cancelAllRequestsExcludingPosts:(id)arg1 ;
 -(id<IGEventViewerMediaPreloaderPhotoProgressDelegate>)photoProgressDelegate;

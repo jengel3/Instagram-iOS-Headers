@@ -3,7 +3,7 @@
 #import <libobjc.A.dylib/AVCaptureVideoDataOutputSampleBufferDelegate.h>
 #import <Instagram/AVCaptureAudioDataOutputSampleBufferDelegate.h>
 
-@protocol OS_dispatch_queue, IGCaptureManagerDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate;
+@protocol OS_dispatch_queue, IGCaptureManagerDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGVideoSessionDelegate;
 @class AVCaptureVideoPreviewLayer, NSObject, AVCaptureSession, AVCaptureDevice, AVCaptureDeviceInput, AVCaptureVideoDataOutput, AVCaptureAudioDataOutput, AVCaptureStillImageOutput, IGKVOHandle, IGSampleBuffer, IGTargetBlock, NSString;
 
 @interface IGCaptureManager : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate> {
@@ -21,6 +21,7 @@
 	id<IGCaptureManagerDelegate> _delegate;
 	id<IGVideoSampleBufferDelegate> _videoBufferDelegate;
 	id<IGAudioSampleBufferDelegate> _audioBufferDelegate;
+	id<IGVideoSessionDelegate> _videoSessionDelegate;
 	int _sessionPreset;
 	AVCaptureSession* _videoSession;
 	AVCaptureSession* _audioSession;
@@ -47,6 +48,7 @@
 @property (assign,nonatomic,__weak) id<IGCaptureManagerDelegate> delegate;                            //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGVideoSampleBufferDelegate> videoBufferDelegate;              //@synthesize videoBufferDelegate=_videoBufferDelegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGAudioSampleBufferDelegate> audioBufferDelegate;              //@synthesize audioBufferDelegate=_audioBufferDelegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGVideoSessionDelegate> videoSessionDelegate;                  //@synthesize videoSessionDelegate=_videoSessionDelegate - In the implementation block
 @property (assign,nonatomic) int cameraPosition; 
 @property (assign,nonatomic) int sessionPreset;                                                       //@synthesize sessionPreset=_sessionPreset - In the implementation block
 @property (assign,nonatomic) CGSize videoSizeForCurrentSessionPreset;                                 //@synthesize videoSizeForCurrentSessionPreset=_videoSizeForCurrentSessionPreset - In the implementation block
@@ -95,6 +97,7 @@
 -(NSObject*<OS_dispatch_queue>)captureQueue;
 -(void)internalStartSession;
 -(AVCaptureSession *)videoSession;
+-(id<IGVideoSessionDelegate>)videoSessionDelegate;
 -(IGKVOHandle *)adjustingFocusObserver;
 -(IGKVOHandle *)adjustingExposureObserver;
 -(IGKVOHandle *)flashActiveObserver;
@@ -115,16 +118,20 @@
 -(char)startSessionOnEnteringForeground;
 -(id<IGVideoSampleBufferDelegate>)videoBufferDelegate;
 -(id<IGAudioSampleBufferDelegate>)audioBufferDelegate;
+-(char)isUsingVideoSessionPreset;
 -(AVCaptureDeviceInput *)videoDeviceInput;
 -(id)capturePreset;
+-(char)isUsingPhotoSessionPreset;
 -(char)audioEnabled;
 -(char)isAudioSessionAuthorized;
 -(void)setVideoDeviceInput:(AVCaptureDeviceInput *)arg1 ;
 -(void)setIsCapturingStillImage:(char)arg1 ;
 -(id)stringForApplicationState;
+-(char)isVideoSessionRunning;
 -(void)adjustBrightnessForCinema;
 -(void)takePictureWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)setVideoBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
+-(void)setVideoSessionDelegate:(id<IGVideoSessionDelegate>)arg1 ;
 -(void)setVideoSizeForCurrentSessionPreset:(CGSize)arg1 ;
 -(void)setVideoSession:(AVCaptureSession *)arg1 ;
 -(void)setAudioSession:(AVCaptureSession *)arg1 ;

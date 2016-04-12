@@ -24,6 +24,7 @@
 @property (nonatomic,retain) UIImage * thumbnail;                             //@synthesize thumbnail=_thumbnail - In the implementation block
 @property (nonatomic,retain) NSCache * thumbnailCache;                        //@synthesize thumbnailCache=_thumbnailCache - In the implementation block
 @property (nonatomic,readonly) int sourceType; 
+@property (nonatomic,readonly) SCD_Struct_IG44 duration; 
 @property (nonatomic,retain) Class filterClass;                               //@synthesize filterClass=_filterClass - In the implementation block
 @property (assign,nonatomic) float filterStrength;                            //@synthesize filterStrength=_filterStrength - In the implementation block
 @property (assign,nonatomic) float keyPosition;                               //@synthesize keyPosition=_keyPosition - In the implementation block
@@ -34,14 +35,16 @@
 +(CGSize)calculateDownscaleSizeForInputSize:(CGSize)arg1 outputSize:(CGSize)arg2 clip:(id)arg3 ;
 -(void)setStabilizationMode:(unsigned)arg1 ;
 -(void)addClip:(id)arg1 ;
--(Class)filterClass;
 -(void)setFilterClass:(Class)arg1 ;
+-(Class)filterClass;
 -(NSArray *)clips;
 -(float)keyPosition;
 -(char)shouldMuteAudio;
 -(void)refreshThumbnail;
 -(void)removeLastClip;
 -(float)filterStrength;
+-(void)setRenderProgress:(float)arg1 ;
+-(float)renderProgress;
 -(void)moveClipAtIndex:(id)arg1 toIndex:(id)arg2 ;
 -(void)removeClipAtIndex:(id)arg1 ;
 -(void)setClips:(NSArray *)arg1 ;
@@ -59,9 +62,8 @@
 -(void)setFilterStrength:(float)arg1 ;
 -(NSURL *)renderedVideoURL;
 -(void)setShouldMuteAudio:(char)arg1 ;
--(float)renderProgress;
--(void)setRenderProgress:(float)arg1 ;
 -(id)init;
+-(SCD_Struct_IG44)duration;
 -(int)sourceType;
 -(UIImage *)thumbnail;
 -(void)setThumbnail:(UIImage *)arg1 ;

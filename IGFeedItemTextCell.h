@@ -51,6 +51,7 @@
 -(void)showBoomerangAppInstallAlertViewPopover;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setFeedItem:(id)arg1 delegate:(id)arg2 loggingDelegate:(id)arg3 textHorizontalPadding:(float)arg4 styledString:(id)arg5 cellType:(int)arg6 showTimeStamp:(char)arg7 accessibilityLabel:(id)arg8 showExploreContext:(char)arg9 ;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(id)accessibleElements;
 -(void)setStyledString:(IGStyledString *)arg1 ;
 -(IGCoreTextView *)coreTextView;
@@ -58,7 +59,6 @@
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)setCoreTextView:(IGCoreTextView *)arg1 ;
 -(IGStyledString *)styledString;
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(char)showExploreContext;
 -(void)setShowExploreContext:(char)arg1 ;
 -(IGCoreTextView *)auxLabel;
@@ -76,10 +76,7 @@
 -(id)styledStringForExploreContextWithFeedItem:(id)arg1 ;
 -(id)styledStringForHyperlapseAttributionWithFeedItem:(id)arg1 ;
 -(id)styledStringForLayoutAttributionWithFeedItem:(id)arg1 ;
--(id)styledStringForBoomerangAttributionControlWithFeedItem:(id)arg1 ;
--(id)styledStringForBoomerangAttributionTreatmentAWithFeedItem:(id)arg1 ;
--(id)styledStringForBoomerangAttributionTreatmentBWithFeedItem:(id)arg1 ;
--(id)styledStringForBoomerangAttributionTreatmentCWithFeedItem:(id)arg1 ;
+-(id)styledStringForBoomerangAttributionWithFeedItem:(id)arg1 ;
 -(id)styledStringforFeaturedBadgeWithFeedItem:(id)arg1 ;
 -(id)styledStringForViewCountWithFeedItem:(id)arg1 ;
 -(id)styledStringForTimeStampExploreContextWithFeedItem:(id)arg1 ;
@@ -87,7 +84,6 @@
 -(void)boomerangAttributionTapped;
 -(char)isLongTapAllowedForCellType:(int)arg1 ;
 -(int)iconTypeForLikes;
--(id)viewCountStringForFeedItem:(id)arg1 ;
 -(NSString *)accessibilityLabelForStyledString;
 -(void)setAuxLabel:(IGCoreTextView *)arg1 ;
 -(float)topPadding;

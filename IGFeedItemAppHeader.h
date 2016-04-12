@@ -37,13 +37,13 @@
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setAccessoryViewType:(int)arg1 ;
 -(UIButton *)customizableButton;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(UIButton*<IGSponsorableButton>)sponsoredPostButton;
 -(void)onCustomizableButtonPressed:(id)arg1 ;
 -(IGStringStyle *)boldGrayStyle;
 -(void)onTitleButtonTapped:(id)arg1 ;
 -(void)onImageTapped:(id)arg1 ;
 -(IGStringStyle *)boldLinkStyle;
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(void)setCustomizableButton:(UIButton *)arg1 ;
 -(int)accessoryViewType;
 -(void)setSponsoredPostButton:(UIButton*<IGSponsorableButton>)arg1 ;

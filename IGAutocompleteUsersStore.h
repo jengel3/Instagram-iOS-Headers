@@ -22,10 +22,10 @@
 +(void)clearForUserPK:(id)arg1 ;
 +(id)archiveURLForUserPK:(id)arg1 ;
 +(void)invalidateExpirationOnAppUpgrade;
--(id)regexPattern;
--(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(id)regexPattern;
+-(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(id)archiveURL;
 -(void)loadUsersFromNotification:(id)arg1 ;
 -(void)onFriendStatusReceived:(id)arg1 ;

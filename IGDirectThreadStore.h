@@ -24,12 +24,12 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(NSString *)userSessionPK;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(void)willSwitchUsers;
--(void)willLogOut;
 -(id)storedThreadWithID:(id)arg1 ;
 -(IGRealtimeManager *)realtimeManager;
 -(void)handleRealtimeOperation:(id)arg1 ;

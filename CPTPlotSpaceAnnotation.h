@@ -8,14 +8,14 @@
 
 	NSArray* anchorPlotPoint;
 	CPTPlotSpace* plotSpace;
-	SCD_Struct_CP80* decimalAnchor;
+	SCD_Struct_CP96* decimalAnchor;
 	unsigned anchorCount;
 
 }
 
 @property (nonatomic,copy) NSArray * anchorPlotPoint; 
 @property (nonatomic,readonly) CPTPlotSpace * plotSpace; 
-@property (assign,nonatomic) SCD_Struct_CP80* decimalAnchor; 
+@property (assign,nonatomic) SCD_Struct_CP96* decimalAnchor; 
 @property (assign,nonatomic) unsigned anchorCount; 
 -(void)positionContentLayer;
 -(CPTPlotSpace *)plotSpace;
@@ -23,9 +23,9 @@
 -(void)setContentNeedsLayout;
 -(id)initWithPlotSpace:(id)arg1 anchorPlotPoint:(id)arg2 ;
 -(NSArray *)anchorPlotPoint;
--(SCD_Struct_CP80*)decimalAnchor;
+-(SCD_Struct_CP96*)decimalAnchor;
 -(void)setAnchorCount:(unsigned)arg1 ;
--(void)setDecimalAnchor:(SCD_Struct_CP80*)arg1 ;
+-(void)setDecimalAnchor:(SCD_Struct_CP96*)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(void)dealloc;

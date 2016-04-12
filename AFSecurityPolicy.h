@@ -27,7 +27,7 @@
 -(unsigned)SSLPinningMode;
 -(char)allowInvalidCertificates;
 -(NSArray *)pinnedPublicKeys;
--(char)evaluateServerTrust:(SecTrustRef)arg1 ;
 -(void)setAllowInvalidCertificates:(char)arg1 ;
+-(char)evaluateServerTrust:(SecTrustRef)arg1 ;
 @end
 

@@ -48,6 +48,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)onCancelModal;
+-(id)analyticsModule;
 -(void)growingTextViewDidBeginEditing:(id)arg1 ;
 -(void)growingTextViewDidEndEditing:(id)arg1 ;
 -(void)growingTextViewDidChange:(id)arg1 ;
@@ -64,7 +65,7 @@
 -(void)fetchUserData;
 -(void)dataFetchedWithDictionary:(id)arg1 ;
 -(void)dataFetchFailed:(id)arg1 ;
--(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 ;
+-(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 contactPreference:(unsigned)arg4 ;
 -(void)setSubmitting:(char)arg1 ;
 -(char)submitting;
 -(void)confirmEmailDismissedWithSuccess:(char)arg1 forEmail:(id)arg2 ;

@@ -16,6 +16,7 @@
 -(id)initWithFrame:(CGRect)arg1 phoneNumber:(id)arg2 ;
 -(IGRetroRegistrationPhoneConfirmationFrontView *)confirmationFrontView;
 -(void)setConfirmationFrontView:(IGRetroRegistrationPhoneConfirmationFrontView *)arg1 ;
+-(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 ;
 -(void)layoutSubviews;
 -(void)setBackgroundView:(IGRetroRegistrationBackgroundView *)arg1 ;
 -(IGRetroRegistrationBackgroundView *)backgroundView;

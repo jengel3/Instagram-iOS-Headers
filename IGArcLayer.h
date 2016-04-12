@@ -17,8 +17,6 @@
 @property (nonatomic,retain) UIColor * trackTintColor;                 //@synthesize trackTintColor=_trackTintColor - In the implementation block
 @property (assign,nonatomic) float progress; 
 +(char)needsDisplayForKey:(id)arg1 ;
--(float)progress;
--(void)setProgress:(float)arg1 ;
 -(void)setTrackThickness:(float)arg1 ;
 -(float)trackThickness;
 -(UIColor *)trackTintColor;

@@ -23,8 +23,8 @@
 @property (nonatomic,readonly) float maxSlideAmount; 
 -(UILabel *)timestampLabel;
 -(void)setSlideAmount:(float)arg1 ;
--(float)slideAmount;
 -(float)maxSlideAmount;
+-(float)slideAmount;
 -(void)setTimestampLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

@@ -23,15 +23,14 @@
 +(void)doLocalLogoutStepsAffectingAllUsers;
 +(id)currentUser;
 -(id)currentAuthenticatedUsersSortedByAccessTime;
--(char)currentUserIsLoggedIn;
 -(IGUserSession *)currentUserSession;
+-(char)currentUserIsLoggedIn;
 -(char)hasMultipleAccounts;
--(char)passesMultipleAccountsQE;
 -(id)authenticatedUserMatchingUserPK:(id)arg1 ;
 -(void)switchToAuthenticatedUser:(id)arg1 defaultSelectedTab:(int)arg2 entryPoint:(unsigned)arg3 ;
--(void)logOutAllUsersWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)logInWithDictionary:(id)arg1 facebookAccessToken:(id)arg2 authLogInType:(int)arg3 ;
 -(void)handleLoginRequiredByServer;
+-(void)logOutAllUsersWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)logInWithUserDictionary:(id)arg1 facebookAccessToken:(id)arg2 authLogInType:(int)arg3 ;
 -(id)submitSignUpRequestWithInfo:(id)arg1 profileInfo:(id)arg2 successfulHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(id)phoneRegistrationWithSignUpInfoDict:(id)arg1 profileInfo:(id)arg2 successfulHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
