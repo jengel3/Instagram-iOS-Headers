@@ -75,9 +75,9 @@
 -(void)setAssetFilterType:(unsigned)arg1 ;
 -(id)initWithAppearanceType:(int)arg1 ;
 -(void)viewDidOpen;
--(int)selectAlbumAppearanceType;
 -(void)setTopSeparatorLine:(UIView *)arg1 ;
 -(UIView *)topSeparatorLine;
+-(int)selectAlbumAppearanceType;
 -(void)setKeyImageFetchResults:(NSMutableDictionary *)arg1 ;
 -(void)configureForAppearanceType:(int)arg1 ;
 -(id)filterSmartAlbums:(id)arg1 ;

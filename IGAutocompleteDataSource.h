@@ -1,10 +1,8 @@
 
 
-@protocol IGAutocompleteDataSource <NSObject>
-@required
+@interface IGAutocompleteDataSource : NSObject
 -(id)allResults;
--(id)resultForRow:(int)arg1;
+-(id)resultForRow:(int)arg1 ;
 -(unsigned)numberOfResults;
-
 @end
 

@@ -36,12 +36,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)dynamicsProperties;
 -(void)setUserInteractionDisabled:(char)arg1 ;
--(void)setStatusBarDimmed:(char)arg1 animated:(char)arg2 ;
--(char)bottomBarWillBeHidden;
--(char)bottomBarIsHidden;
 -(char)navigationBarIsHidden;
 -(char)navigationBarWillBeHidden;
 -(char)isUserInteractionDisabled;
+-(void)setStatusBarDimmed:(char)arg1 animated:(char)arg2 ;
+-(char)bottomBarIsHidden;
+-(char)bottomBarWillBeHidden;
 -(void)setTransitioning:(char)arg1 ;
 -(void)setFromViewController:(IGViewController *)arg1 ;
 -(void)setToViewController:(IGViewController *)arg1 ;

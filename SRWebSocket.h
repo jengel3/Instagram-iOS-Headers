@@ -80,7 +80,7 @@
 -(void)handlePong:(id)arg1 ;
 -(void)_handleFrameWithData:(id)arg1 opCode:(int)arg2 ;
 -(void)_addConsumerWithDataLength:(unsigned long)arg1 callback:(/*^block*/id)arg2 readToCurrentFrame:(char)arg3 unmaskBytes:(char)arg4 ;
--(void)_handleFrameHeader:(SCD_Struct_RC78)arg1 curData:(id)arg2 ;
+-(void)_handleFrameHeader:(SCD_Struct_RC28)arg1 curData:(id)arg2 ;
 -(void)_addConsumerWithScanner:(/*^block*/id)arg1 callback:(/*^block*/id)arg2 dataLength:(unsigned long)arg3 ;
 -(void)_pumpScanner;
 -(void)_readUntilBytes:(const void*)arg1 length:(unsigned long)arg2 callback:(/*^block*/id)arg3 ;

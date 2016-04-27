@@ -20,13 +20,13 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(CGRect)statusBarViewFrameForStatusHidden:(char)arg1 ;
 +(char)backToFacebookStatusBarVisible;
--(void)statusBarWindowDidReceiveUserTap:(id)arg1 ;
 -(void)onAppDidEnterBackground:(id)arg1 ;
 -(void)onWillPresentMediaFromFacebookApp:(id)arg1 ;
 -(void)onTabChanged:(id)arg1 ;
 -(void)onNavigationViewDidAppear:(id)arg1 ;
 -(void)onCameraButtonTapped:(id)arg1 ;
 -(void)showStatusBarView:(char)arg1 animated:(char)arg2 ;
+-(void)statusBarWindowDidReceiveUserTap:(id)arg1 ;
 -(void)setDelegate:(NSObject*<IGStatusBarWindowControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id)init;

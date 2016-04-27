@@ -4,7 +4,7 @@
 #import <Instagram/IGProfilePictureImageViewDelegate.h>
 
 @protocol IGProfilePicturePeekDelegate;
-@class UIView, UIButton, IGProfilePictureImageView, NSString;
+@class UIView, UIButton, IGProfilePictureImageView, IGCircularProgressView, IGUser, NSString;
 
 @interface IGProfilePicturePeekOverlay : UIView <IGProfilePictureImageViewDelegate> {
 
@@ -14,6 +14,8 @@
 	UIButton* _dismissButton;
 	UIButton* _menuButton;
 	IGProfilePictureImageView* _profilePic;
+	IGCircularProgressView* _spinner;
+	IGUser* _user;
 
 }
 
@@ -23,26 +25,40 @@
 @property (nonatomic,retain) UIButton * dismissButton;                                      //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) UIButton * menuButton;                                         //@synthesize menuButton=_menuButton - In the implementation block
 @property (nonatomic,retain) IGProfilePictureImageView * profilePic;                        //@synthesize profilePic=_profilePic - In the implementation block
+@property (nonatomic,retain) IGCircularProgressView * spinner;                              //@synthesize spinner=_spinner - In the implementation block
+@property (nonatomic,retain) IGUser * user;                                                 //@synthesize user=_user - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(id)grayCircleWithSize:(CGSize)arg1 ;
+-(void)imageViewLoadedImage:(id)arg1 ;
+-(void)imageViewDidChangeImageProgress:(float)arg1 ;
+-(void)dismissButtonTapped;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
--(void)dismissButtonTapped;
 -(void)profilePictureTapped:(id)arg1 ;
--(void)presentWithUser:(id)arg1 animated:(char)arg2 ;
--(CGSize)fullSizeForProfilePic;
 -(void)menuButtonTapped;
+-(CGSize)fullSizeForProfilePic;
 -(UIButton *)menuButton;
--(void)applyAnimationIsAppearing:(char)arg1 completion:(/*^block*/id)arg2 ;
+-(void)presentWithUser:(id)arg1 scaleFromRect:(CGRect)arg2 animated:(char)arg3 ;
+-(char)shouldShowMenuButton;
+-(void)showSpinnerIfNeeded;
+-(void)presentWithUser:(id)arg1 ;
+-(void)presentWithUser:(id)arg1 scaleAnimatedFromRect:(CGRect)arg2 ;
+-(void)dismissAnimated:(char)arg1 scaleToRect:(CGRect)arg2 ;
 -(void)setMenuButton:(UIButton *)arg1 ;
+-(void)userUpdated:(id)arg1 ;
 -(void)editButtonTapped;
+-(IGUser *)user;
+-(void)setUser:(IGUser *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGProfilePicturePeekDelegate>)arg1 ;
+-(void)dealloc;
 -(void)layoutSubviews;
 -(id<IGProfilePicturePeekDelegate>)delegate;
--(void)dismiss;
+-(IGCircularProgressView *)spinner;
+-(void)setSpinner:(IGCircularProgressView *)arg1 ;
 -(void)setEditButton:(UIButton *)arg1 ;
 -(UIButton *)editButton;
 -(UIButton *)dismissButton;

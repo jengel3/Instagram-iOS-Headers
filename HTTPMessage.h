@@ -6,12 +6,12 @@
 	CFHTTPMessageRef message;
 
 }
--(id)headerField:(id)arg1 ;
--(id)initEmptyRequest;
 -(id)initResponseWithStatusCode:(int)arg1 description:(id)arg2 version:(id)arg3 ;
 -(void)setHeaderField:(id)arg1 value:(id)arg2 ;
+-(id)initEmptyRequest;
 -(id)initRequestWithMethod:(id)arg1 URL:(id)arg2 version:(id)arg3 ;
 -(char)isHeaderComplete;
+-(id)headerField:(id)arg1 ;
 -(id)messageData;
 -(void)dealloc;
 -(id)url;

@@ -13,18 +13,20 @@
 }
 
 @property (nonatomic,copy) NSString * name;              //@synthesize name=_name - In the implementation block
-+(id)scheduleEvent:(id)arg1 ;
-+(void)recordAverage:(id)arg1 value:(double)arg2 ;
-+(void)startTimer:(id)arg1 ;
-+(void)incrementCounter:(id)arg1 ;
-+(id)scheduleEvent:(id)arg1 module:(id)arg2 noLatency:(char)arg3 ;
-+(void)startTimer:(id)arg1 uuid:(id)arg2 ;
-+(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
-+(id)scheduleEvent:(id)arg1 module:(id)arg2 noLatency:(char)arg3 navState:(id)arg4 ;
 +(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
++(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
++(void)startTimer:(id)arg1 uuid:(id)arg2 ;
++(id)scheduleEvent:(id)arg1 module:(id)arg2 noLatency:(char)arg3 ;
++(id)scheduleEvent:(id)arg1 module:(id)arg2 noLatency:(char)arg3 navState:(id)arg4 ;
++(id)scheduleEvent:(id)arg1 ;
++(id)scheduleEvent:(id)arg1 module:(id)arg2 ;
++(id)scheduleEvent:(id)arg1 module:(id)arg2 navState:(id)arg3 ;
++(void)incrementCounter:(id)arg1 ;
++(void)startTimer:(id)arg1 ;
 +(void)recordEvent:(id)arg1 forTimer:(id)arg2 ;
--(void)setValue:(id)arg1 forExtraKey:(id)arg2 ;
++(void)recordAverage:(id)arg1 value:(double)arg2 ;
 -(id)initWithName:(id)arg1 module:(id)arg2 channel:(int)arg3 navState:(id)arg4 ;
+-(void)setValue:(id)arg1 forExtraKey:(id)arg2 ;
 -(void)dealloc;
 -(id)description;
 -(id)objectForKeyedSubscript:(id)arg1 ;

@@ -21,14 +21,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)fetchFeedItemsFromMediaIDs:(id)arg1 ;
--(void)updateViewWithMediaBundle:(id)arg1 ;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
 -(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
 -(id)initWithSampleImageMediaID:(id)arg1 title:(id)arg2 ;
 -(IGImageView *)sampleImageView;
+-(void)updateViewWithMediaBundle:(id)arg1 ;
+-(void)fetchFeedItemsFromMediaIDs:(id)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;
 -(IGInsightsCollectionViewMediaCell *)cell;

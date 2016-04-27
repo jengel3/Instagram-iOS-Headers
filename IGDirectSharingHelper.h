@@ -15,6 +15,7 @@
 +(char)isReactable:(id)arg1 ;
 +(id)firstEligibleDateForLikes;
 +(id)getThreadFromResponse:(id)arg1 threadID:(id*)arg2 ;
++(char)isPublicThreadFromResponse:(id)arg1 ;
 +(id)seenUsersForContent:(id)arg1 thread:(id)arg2 pendingMode:(char)arg3 ;
 +(char)isThreadNameValid:(id)arg1 ;
 +(char)showUsernameForIndexPath:(id)arg1 withContents:(id)arg2 ;

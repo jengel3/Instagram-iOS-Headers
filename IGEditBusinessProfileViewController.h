@@ -21,12 +21,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)updateRightButton;
 -(IGFacebookPageInfo *)pageInfo;
--(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 contactPreference:(unsigned)arg4 ;
 -(void)addressViewController:(id)arg1 didUpdateInfo:(id)arg2 ;
+-(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
 -(void)editableProfileCell:(id)arg1 didUpdateValue:(id)arg2 forDataKey:(id)arg3 ;
 -(void)editableProfileCellDidBeginEditing:(id)arg1 ;
 -(char)editableProfileCellWantsReturn:(id)arg1 withValue:(id)arg2 forKey:(id)arg3 ;
--(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
+-(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 contactPreference:(unsigned)arg4 ;
 -(id)initWithUser:(id)arg1 ;
 -(char)needsSave;
 -(void)save;

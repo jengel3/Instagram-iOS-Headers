@@ -25,11 +25,11 @@
 -(IGNewsTableViewController *)newsViewController;
 -(id)initWithNewsTableViewController:(id)arg1 ;
 -(IGFeedItemPreviewingHandler *)feedItemDelegate;
+-(void)setFeedItemDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGUserPreviewingHandler *)userDelegate;
 -(void)setUsedDelegate:(id<UIViewControllerPreviewingDelegate>)arg1 ;
 -(id<UIViewControllerPreviewingDelegate>)usedDelegate;
 -(void)setUserDelegate:(IGUserPreviewingHandler *)arg1 ;
--(void)setFeedItemDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(id)previewingContext:(id)arg1 viewControllerForLocation:(CGPoint)arg2 ;
 -(void)previewingContext:(id)arg1 commitViewController:(id)arg2 ;
 @end

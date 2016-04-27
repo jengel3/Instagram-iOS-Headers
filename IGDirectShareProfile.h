@@ -47,8 +47,8 @@
 -(NSArray *)previewMedia;
 -(void)setPreviewMedia:(NSArray *)arg1 ;
 -(IGUser *)sharedUser;
--(void)setSharedUser:(IGUser *)arg1 ;
 -(id)initAsUploadWithComment:(id)arg1 sharedUser:(id)arg2 recipient:(id)arg3 ;
+-(void)setSharedUser:(IGUser *)arg1 ;
 -(char)isUploading;
 -(unsigned)likeCount;
 -(id)initWithCoder:(id)arg1 ;

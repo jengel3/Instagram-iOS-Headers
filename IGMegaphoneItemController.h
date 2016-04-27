@@ -10,6 +10,7 @@
 @interface IGMegaphoneItemController : IGListItemController <IGMegaphonePresenterDelegate, IGListItemType> {
 
 	id<IGMegaphoneItemControllerDelegate> _delegate;
+	unsigned _displaySource;
 	id<IGFeedMegaphoneProvider> _provider;
 	IGGenericMegaphone* _megaphone;
 	id<IGMegaphonePresenterProtocol> _presenter;
@@ -18,6 +19,7 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGMegaphoneItemControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,readonly) unsigned displaySource;                                           //@synthesize displaySource=_displaySource - In the implementation block
 @property (nonatomic,readonly) id<IGFeedMegaphoneProvider> provider;                             //@synthesize provider=_provider - In the implementation block
 @property (nonatomic,readonly) IGGenericMegaphone * megaphone;                                   //@synthesize megaphone=_megaphone - In the implementation block
 @property (nonatomic,readonly) id<IGMegaphonePresenterProtocol> presenter;                       //@synthesize presenter=_presenter - In the implementation block
@@ -26,14 +28,16 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
--(id)cellForItemAtIndex:(int)arg1 ;
--(id)supplementaryViewSource;
 -(id)displayDelegate;
+-(id)supplementaryViewSource;
+-(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
+-(void)didUpdateToItem:(id)arg1 ;
+-(id)cellClasses;
+-(id)cellForItemAtIndex:(int)arg1 ;
+-(id)initWithDisplaySource:(unsigned)arg1 ;
 -(UIView *)megaphoneView;
 -(IGGenericMegaphone *)megaphone;
--(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 ;
+-(unsigned)displaySource;
 -(void)megaphonePresenterDidDismiss:(id)arg1 ;
 -(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
 -(void)megaphonePresenterPopViewController:(id)arg1 ;

@@ -38,8 +38,8 @@
 @property (nonatomic,retain) UILabel * descriptionLabel;                                                        //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationFacebookButtonSeperator * facebookButtonSeparator;              //@synthesize facebookButtonSeparator=_facebookButtonSeparator - In the implementation block
 +(id)createTitleLabel;
-+(id)createIconView;
 +(id)createDescriptionLabel;
++(id)createIconView;
 +(id)createToggleView;
 +(id)createSwitchButton;
 +(id)createEmailField;
@@ -47,24 +47,24 @@
 +(id)createSendButton;
 +(id)createLoginHelperButton;
 +(id)createFacebookButton;
--(IGRetroRegistrationTextField *)emailField;
--(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
--(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
--(IGFacebookButton *)facebookButton;
--(void)setFacebookButton:(IGFacebookButton *)arg1 ;
--(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
 -(IGRetroRegistrationPhoneNumberField *)phoneNumberField;
--(void)setPhoneNumberField:(IGRetroRegistrationPhoneNumberField *)arg1 ;
+-(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
+-(IGRetroRegistrationTextField *)emailField;
 -(void)switchToEmailView;
 -(char)isTabEnabled;
 -(IGRetroRegistrationSignInHelperToggleView *)toggleView;
 -(UIButton *)switchButton;
 -(UIButton *)loginHelperButton;
+-(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
+-(IGFacebookButton *)facebookButton;
 -(void)switchToPhoneNumberView;
 -(void)setSwitchButton:(UIButton *)arg1 ;
 -(void)setToggleView:(IGRetroRegistrationSignInHelperToggleView *)arg1 ;
+-(void)setPhoneNumberField:(IGRetroRegistrationPhoneNumberField *)arg1 ;
 -(void)setLoginHelperButton:(UIButton *)arg1 ;
+-(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(void)setIsTabEnabled:(char)arg1 ;
+-(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
 -(UILabel *)descriptionLabel;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

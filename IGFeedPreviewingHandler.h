@@ -22,10 +22,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)initWithFeedViewController:(id)arg1 ;
 -(IGUserPreviewingHandler *)userDelegate;
+-(IGHashtagPreviewingHandler *)hashtagDelegate;
 -(void)setUsedDelegate:(id<UIViewControllerPreviewingDelegate>)arg1 ;
 -(id<UIViewControllerPreviewingDelegate>)usedDelegate;
 -(void)setUserDelegate:(IGUserPreviewingHandler *)arg1 ;
--(IGHashtagPreviewingHandler *)hashtagDelegate;
 -(void)setHashtagDelegate:(IGHashtagPreviewingHandler *)arg1 ;
 -(id)previewingContext:(id)arg1 viewControllerForLocation:(CGPoint)arg2 ;
 -(void)previewingContext:(id)arg1 commitViewController:(id)arg2 ;

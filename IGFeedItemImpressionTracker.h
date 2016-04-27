@@ -21,12 +21,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
--(id)initWithLoggingProviderDelegate:(id)arg1 raindropDelegate:(id)arg2 ;
--(void)updateWithVisibleElementLayoutAttributeFeedItemMap:(id)arg1 visibleContentRect:(CGRect)arg2 ;
--(IGItemDiffing *)tracker;
--(id<IGAnalyticsRaindropProtocol>)raindropDelegate;
 -(void)itemDiffing:(id)arg1 didChangeWithItemAdded:(id)arg2 ;
 -(void)itemDiffing:(id)arg1 didChangeWithItemRemoved:(id)arg2 ;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(id)initWithLoggingProviderDelegate:(id)arg1 raindropDelegate:(id)arg2 ;
+-(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
+-(IGItemDiffing *)tracker;
+-(id<IGAnalyticsRaindropProtocol>)raindropDelegate;
 @end
 

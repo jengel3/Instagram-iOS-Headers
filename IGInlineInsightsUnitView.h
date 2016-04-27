@@ -1,5 +1,4 @@
 
-#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
 @class UILabel;
@@ -17,7 +16,6 @@
 -(void)setTitleLabelText:(id)arg1 ;
 -(id)init;
 -(void)layoutSubviews;
--(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(UILabel *)titleLabel;
 -(UILabel *)subtitleLabel;
 -(void)setTitleLabel:(UILabel *)arg1 ;

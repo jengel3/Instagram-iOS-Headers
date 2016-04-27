@@ -18,9 +18,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSArray *)paragraphUnits;
 -(NSString *)renderStyle;
 -(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 renderStyle:(id)arg3 ;
+-(NSArray *)paragraphUnits;
 -(NSString *)title;
 -(id)style;
 @end

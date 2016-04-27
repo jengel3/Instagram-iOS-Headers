@@ -21,11 +21,11 @@
 @property (nonatomic,readonly) NSDate * crashTime;                        //@synthesize crashTime=_crashTime - In the implementation block
 +(void)cleanupCorruptedCrashReportWithConfigPath:(id)arg1 ;
 +(double)defaultSendCrashReportTimeoutInterval;
--(id)minidumpData;
 -(void)addFileUploadAttachment:(id)arg1 ;
 -(char)loadConfigFile:(id)arg1 errorHandler:(/*^block*/id)arg2 ;
 -(id)sendCrashReport:(id*)arg1 timeoutInterval:(double)arg2 ;
 -(id)initWithConfigPath:(id)arg1 errorHandler:(/*^block*/id)arg2 ;
+-(id)minidumpData;
 -(void)addParameter:(id)arg1 forKey:(id)arg2 ;
 -(void)removeFileUploadAttachment:(id)arg1 ;
 -(id)sendCrashReport:(id*)arg1 ;

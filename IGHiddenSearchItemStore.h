@@ -26,14 +26,14 @@
 -(void)willSwitchUsers;
 -(void)willLogOut;
 -(NSString *)userSessionPK;
--(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
+-(void)setUserSessionPK:(NSString *)arg1 ;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(NSSet *)itemIds;
--(void)addItemId:(id)arg1 ;
 -(NSString *)defaultsKey;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 defaultsKey:(id)arg3 ;
 -(void)setDefaultsKey:(NSString *)arg1 ;
+-(void)addItemId:(id)arg1 ;
 -(NSMutableOrderedSet *)store;
 -(void)setStore:(NSMutableOrderedSet *)arg1 ;
 @end

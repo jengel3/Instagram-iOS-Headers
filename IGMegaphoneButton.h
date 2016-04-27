@@ -23,8 +23,8 @@
 @property (nonatomic,readonly) NSURL * url;                            //@synthesize url=_url - In the implementation block
 +(id)buttonForDictionary:(id)arg1 ;
 -(id)initWithText:(id)arg1 url:(id)arg2 backgroundColor:(id)arg3 borderColor:(id)arg4 textColor:(id)arg5 action:(id)arg6 ;
--(id)initWithText:(id)arg1 style:(int)arg2 url:(id)arg3 action:(id)arg4 ;
 -(id)initWithText:(id)arg1 url:(id)arg2 action:(id)arg3 ;
+-(id)initWithText:(id)arg1 style:(int)arg2 url:(id)arg3 action:(id)arg4 ;
 -(UIColor *)backgroundColor;
 -(NSURL *)url;
 -(NSString *)action;

@@ -15,8 +15,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)stringContainsCallbackURL:(id)arg1 ;
 -(char)errorExistsInURL:(id)arg1 ;
+-(char)stringContainsCallbackURL:(id)arg1 ;
 -(id)codeFromURL:(id)arg1 ;
 -(void)dealloc;
 -(id)init;

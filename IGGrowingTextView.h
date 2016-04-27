@@ -50,9 +50,9 @@
 @property (assign,nonatomic) int returnKeyType; 
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
+-(unsigned)animationCurve;
 -(void)setMaxNumberOfLines:(int)arg1 ;
 -(UITextView *)internalTextView;
--(unsigned)animationCurve;
 -(float)heightForText:(id)arg1 ;
 -(void)updateSizeConstraints;
 -(char)animateHeightChange;

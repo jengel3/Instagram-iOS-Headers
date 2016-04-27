@@ -1,12 +1,12 @@
 
+#import <Instagram/IGAutocompleteAlmostAbstractDataSource.h>
 #import <Instagram/IGWebDataSource.h>
-#import <Instagram/IGAutocompleteDataSource.h>
 #import <Instagram/IGFeedStatusViewDataSource.h>
 
 @protocol IGUserListNetworkDataSourceDelegate;
 @class NSURL, NSString, NSArray, NSNumber, NSCache;
 
-@interface IGUserListNetworkDataSource : NSObject <IGWebDataSource, IGAutocompleteDataSource, IGFeedStatusViewDataSource> {
+@interface IGUserListNetworkDataSource : IGAutocompleteAlmostAbstractDataSource <IGWebDataSource, IGFeedStatusViewDataSource> {
 
 	char _loading;
 	char _moreUsersAvailable;
@@ -15,7 +15,6 @@
 	NSString* _searchString;
 	NSArray* _augmentedUsers;
 	int _userCellAccessory;
-	NSArray* _allUsers;
 	NSString* _errorMessage;
 	NSNumber* _totalUsersCount;
 	NSString* _rankToken;
@@ -33,7 +32,6 @@
 @property (nonatomic,retain) NSArray * augmentedUsers;                                             //@synthesize augmentedUsers=_augmentedUsers - In the implementation block
 @property (assign,nonatomic) int userCellAccessory;                                                //@synthesize userCellAccessory=_userCellAccessory - In the implementation block
 @property (assign,nonatomic) char loading;                                                         //@synthesize loading=_loading - In the implementation block
-@property (nonatomic,retain) NSArray * allUsers;                                                   //@synthesize allUsers=_allUsers - In the implementation block
 @property (nonatomic,copy) NSString * errorMessage;                                                //@synthesize errorMessage=_errorMessage - In the implementation block
 @property (assign,nonatomic) char moreUsersAvailable;                                              //@synthesize moreUsersAvailable=_moreUsersAvailable - In the implementation block
 @property (nonatomic,retain) NSNumber * totalUsersCount;                                           //@synthesize totalUsersCount=_totalUsersCount - In the implementation block
@@ -49,13 +47,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setFetchURL:(NSURL *)arg1 ;
--(void)setUserCellAccessory:(int)arg1 ;
--(id)allResults;
--(id)resultForRow:(int)arg1 ;
 -(NSString *)rankToken;
 -(void)setRankToken:(NSString *)arg1 ;
--(NSArray *)allUsers;
+-(void)setUnfilteredResults:(id)arg1 ;
 -(void)setExcludesCurrentUser:(char)arg1 ;
 -(void)setAugmentedUsers:(NSArray *)arg1 ;
 -(NSCache *)searchCache;
@@ -65,9 +59,10 @@
 -(char)failedWithAuthorizationError;
 -(id)emptyMessage;
 -(NSURL *)fetchURL;
+-(void)setUserCellAccessory:(int)arg1 ;
+-(void)setFetchURL:(NSURL *)arg1 ;
 -(void)setSortingBlock:(id)arg1 ;
 -(char)excludesCurrentUser;
--(void)setAllUsers:(NSArray *)arg1 ;
 -(void)performFetch;
 -(NSString *)maxID;
 -(void)onMoreUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
@@ -78,14 +73,14 @@
 -(void)setMoreUsersAvailable:(char)arg1 ;
 -(void)setMaxID:(NSString *)arg1 ;
 -(id)sortingBlock;
--(char)moreUsersAvailable;
 -(unsigned)indexOfUser:(id)arg1 ;
--(void)filterBySearchString:(id)arg1 ;
 -(char)hasCachedResultsForQuery:(id)arg1 ;
 -(NSArray *)augmentedUsers;
--(int)userCellAccessory;
 -(NSNumber *)totalUsersCount;
 -(void)setTotalUsersCount:(NSNumber *)arg1 ;
+-(int)userCellAccessory;
+-(char)moreUsersAvailable;
+-(void)filterBySearchString:(id)arg1 ;
 -(char)isSearching;
 -(unsigned)itemCount;
 -(void)fetchData;
@@ -101,7 +96,6 @@
 -(void)performSearch;
 -(void)setErrorMessage:(NSString *)arg1 ;
 -(NSString *)errorMessage;
--(unsigned)numberOfResults;
 -(void)removeUser:(id)arg1 ;
 -(void)clearResults;
 -(void)setLoading:(char)arg1 ;

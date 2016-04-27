@@ -24,13 +24,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setWebViewProxyDelegate:(id<UIWebViewDelegate>)arg1 ;
 -(void)completeProgress;
 -(void)setCurrentURL:(NSURL *)arg1 ;
 -(void)webViewDidFinishOrFailLoad:(id)arg1 ;
 -(void)incrementProgress;
 -(NSURL *)currentURL;
 -(id<UIWebViewDelegate>)webViewProxyDelegate;
+-(void)setWebViewProxyDelegate:(id<UIWebViewDelegate>)arg1 ;
 -(void)startProgress;
 -(void)dealloc;
 -(id)init;

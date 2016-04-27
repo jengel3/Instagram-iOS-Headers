@@ -13,8 +13,8 @@
 
 @property (nonatomic,retain) IGRetroRegistrationBackgroundView * backgroundView;                                  //@synthesize backgroundView=_backgroundView - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationRequestSupportScrollView * requestSupportScrollView;              //@synthesize requestSupportScrollView=_requestSupportScrollView - In the implementation block
--(IGRetroRegistrationRequestSupportScrollView *)requestSupportScrollView;
 -(void)setRequestSupportScrollView:(IGRetroRegistrationRequestSupportScrollView *)arg1 ;
+-(IGRetroRegistrationRequestSupportScrollView *)requestSupportScrollView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 ;
 -(void)setBackgroundView:(IGRetroRegistrationBackgroundView *)arg1 ;

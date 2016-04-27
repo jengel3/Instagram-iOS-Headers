@@ -79,7 +79,7 @@
 -(CGSize)textShadowOffset;
 -(float)textShadowRadius;
 -(void)recomputeText;
--(id)buildTextStorageForWidth:(float)arg1 ;
+-(id)buildTextStorageForWidth:(float)arg1 widthMode:(int)arg2 ;
 -(void)setTextAlign:(int)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)dealloc;

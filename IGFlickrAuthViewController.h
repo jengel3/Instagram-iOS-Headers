@@ -15,8 +15,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)flickrDidNotAuthorize:(id)arg1 ;
 -(void)flickrDidAuthorize:(id)arg1 ;
+-(void)flickrDidNotAuthorize:(id)arg1 ;
 -(void)flickrWebViewLoadInProgress:(char)arg1 ;
 -(void)dealloc;
 -(id)init;

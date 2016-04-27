@@ -12,8 +12,8 @@
 
 @property (nonatomic,retain) UILabel * usernameLabel;              //@synthesize usernameLabel=_usernameLabel - In the implementation block
 @property (nonatomic,retain) UIView * backgroundView;              //@synthesize backgroundView=_backgroundView - In the implementation block
--(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
+-(UILabel *)usernameLabel;
 -(id)initWithToken:(id)arg1 ;
 -(void)layoutSubviews;
 -(void)setBackgroundView:(UIView *)arg1 ;

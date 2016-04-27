@@ -36,13 +36,13 @@
 +(id)formatedPostCount:(unsigned)arg1 ;
 +(id)backgroundColor;
 +(float)height;
--(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
--(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(CALayer *)separatorLayer;
 -(void)onContentMenuPress:(id)arg1 ;
 -(void)setContentMenuLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;
 -(UILongPressGestureRecognizer *)contentMenuLongPressRecognizer;
 -(void)setHashtag:(id)arg1 ;
+-(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
+-(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(char)showUnseen;
 -(UIImageView *)unseenToastView;
 -(float)labelMinXForIconFrame:(CGRect)arg1 ;

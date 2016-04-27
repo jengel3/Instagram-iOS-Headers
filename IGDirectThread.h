@@ -2,11 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <libobjc.A.dylib/NSCopying.h>
 #import <libobjc.A.dylib/NSCoding.h>
+#import <Instagram/IGDKDiffable.h>
 
 @protocol IGImageURLProvider;
 @class NSString, NSOrderedSet, NSArray, IGUser, NSDictionary, IGDate, IGDirectContent;
 
-@interface IGDirectThread : NSObject <NSCopying, NSCoding> {
+@interface IGDirectThread : NSObject <NSCopying, NSCoding, IGDKDiffable> {
 
 	char _moreHistoryAvailable;
 	char _isNamed;
@@ -14,10 +15,12 @@
 	char _isMuted;
 	char _isCanonical;
 	char _isLocal;
+	char _isPublicThread;
 	char _isPendingDeletion;
 	NSString* _threadId;
 	NSOrderedSet* _publishedContent;
 	NSArray* _users;
+	IGUser* _owner;
 	NSString* _nextMinId;
 	NSString* _nextMaxId;
 	NSString* _name;
@@ -37,6 +40,7 @@
 @property (nonatomic,readonly) IGDirectContent * lastVisibleContent; 
 @property (nonatomic,retain) NSOrderedSet * publishedContent;                               //@synthesize publishedContent=_publishedContent - In the implementation block
 @property (nonatomic,retain) NSArray * users;                                               //@synthesize users=_users - In the implementation block
+@property (nonatomic,retain) IGUser * owner;                                                //@synthesize owner=_owner - In the implementation block
 @property (nonatomic,copy) NSString * nextMinId;                                            //@synthesize nextMinId=_nextMinId - In the implementation block
 @property (nonatomic,copy) NSString * nextMaxId;                                            //@synthesize nextMaxId=_nextMaxId - In the implementation block
 @property (assign,nonatomic) char moreHistoryAvailable;                                     //@synthesize moreHistoryAvailable=_moreHistoryAvailable - In the implementation block
@@ -52,6 +56,7 @@
 @property (nonatomic,retain) id<IGImageURLProvider> lastMediaImageURLProvider;              //@synthesize lastMediaImageURLProvider=_lastMediaImageURLProvider - In the implementation block
 @property (assign,nonatomic) char isLocal;                                                  //@synthesize isLocal=_isLocal - In the implementation block
 @property (nonatomic,copy,readonly) NSString * uploadIndexKey; 
+@property (assign,nonatomic) char isPublicThread;                                           //@synthesize isPublicThread=_isPublicThread - In the implementation block
 @property (assign,nonatomic) char isPendingDeletion;                                        //@synthesize isPendingDeletion=_isPendingDeletion - In the implementation block
 @property (nonatomic,retain) NSDictionary * lastSeenAtForUserIds;                           //@synthesize lastSeenAtForUserIds=_lastSeenAtForUserIds - In the implementation block
 @property (nonatomic,retain) NSDictionary * lastSeenAtForItemIds;                           //@synthesize lastSeenAtForItemIds=_lastSeenAtForItemIds - In the implementation block
@@ -61,7 +66,6 @@
 +(id)usernameStringForUsernames:(id)arg1 maxUsers:(int)arg2 ;
 +(id)usernameStringForUsers:(id)arg1 ;
 +(id)shortUsernameStringForUsers:(id)arg1 ;
-+(id)usernameStringForUsers:(id)arg1 maxUsers:(int)arg2 ;
 +(id)usersFromDictionary:(id)arg1 addSelf:(char)arg2 ;
 +(id)contentArrayFromDictionary:(id)arg1 ;
 +(id)lastMediaItemFromDictionary:(id)arg1 ;
@@ -71,18 +75,21 @@
 +(id)mergeDataFromThread:(id)arg1 intoThread:(id)arg2 alwaysMerge:(char)arg3 ;
 +(id)threadIdFromDictionary:(id)arg1 ;
 +(id)threadFromDictionary:(id)arg1 ;
++(id)usernameStringForUsers:(id)arg1 maxUsers:(int)arg2 ;
+-(id)diffIdentifier;
 -(id)lastSeenAtForUserWithId:(id)arg1 ;
 -(id)orderedArrayOfUsersHideCurrentUser:(char)arg1 ;
--(id<IGImageURLProvider>)lastMediaImageURLProvider;
 -(NSArray *)allContent;
--(IGDate *)mostRecentActivityDate;
 -(IGDate *)lastSeenAt;
+-(id<IGImageURLProvider>)lastMediaImageURLProvider;
+-(IGDate *)mostRecentActivityDate;
+-(NSString *)nextMaxId;
 -(char)isPendingDeletion;
 -(void)setIsPendingDeletion:(char)arg1 ;
 -(NSString *)defaultNameString;
--(NSString *)nextMaxId;
 -(void)setNextMaxId:(NSString *)arg1 ;
 -(NSString *)uploadIndexKey;
+-(char)isPublicThread;
 -(NSString *)nextMinId;
 -(void)setNextMinId:(NSString *)arg1 ;
 -(char)moreHistoryAvailable;
@@ -102,6 +109,7 @@
 -(void)setLastMediaImageURLProvider:(id<IGImageURLProvider>)arg1 ;
 -(NSArray *)leftUsers;
 -(void)setLeftUsers:(NSArray *)arg1 ;
+-(void)setIsPublicThread:(char)arg1 ;
 -(id)allContentsWithUploads:(id)arg1 ;
 -(NSArray *)activeUsers;
 -(id)initLocalThreadWithUsers:(id)arg1 lastActivityDate:(id)arg2 ;
@@ -135,6 +143,8 @@
 -(IGUser *)inviter;
 -(NSArray *)users;
 -(void)setUsers:(NSArray *)arg1 ;
+-(void)setOwner:(IGUser *)arg1 ;
+-(IGUser *)owner;
 -(char)isMuted;
 -(void)setIsMuted:(char)arg1 ;
 -(NSString *)threadId;

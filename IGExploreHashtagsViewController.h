@@ -18,12 +18,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(char)enableNavState;
+-(id)analyticsModule;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didChangeToObjects:(id)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didRefreshObjects:(id)arg2 allObjects:(id)arg3 ;
--(id)analyticsModule;
--(char)enableNavState;
 -(NSMutableSet *)loggedImpressions;
 -(void)setLoggedImpressions:(NSMutableSet *)arg1 ;
 -(void)fetchMoreData;

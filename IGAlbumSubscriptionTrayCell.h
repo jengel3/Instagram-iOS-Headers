@@ -15,9 +15,9 @@
 @property (nonatomic,retain) IGMediaThumbnailView * thumbnailView;                //@synthesize thumbnailView=_thumbnailView - In the implementation block
 +(float)sectionPadding;
 +(float)height;
+-(void)configureWithModel:(id)arg1 ;
 -(IGProfilePictureImageView *)profilePic;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
--(void)configureWithModel:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setThumbnailView:(IGMediaThumbnailView *)arg1 ;
 -(IGMediaThumbnailView *)thumbnailView;

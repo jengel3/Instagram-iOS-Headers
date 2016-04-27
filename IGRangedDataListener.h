@@ -20,10 +20,10 @@
 @property (nonatomic,copy) id completion;                       //@synthesize completion=_completion - In the implementation block
 @property (nonatomic,readonly) char headerSent;                 //@synthesize headerSent=_headerSent - In the implementation block
 @property (assign,nonatomic) char done;                         //@synthesize done=_done - In the implementation block
+-(long long)readOffset;
 -(id)headerReceived;
 -(id)initWithDataRange:(NSRange)arg1 headerReceived:(/*^block*/id)arg2 dataReceived:(/*^block*/id)arg3 completion:(/*^block*/id)arg4 ;
 -(void)sendHeader:(id)arg1 ;
--(long long)readOffset;
 -(void)setReadOffset:(long long)arg1 ;
 -(id)dataReceived;
 -(void)setDataReceived:(id)arg1 ;

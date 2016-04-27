@@ -11,8 +11,8 @@
 
 @property (assign,nonatomic,__weak) UIViewController * currentTopViewController;              //@synthesize currentTopViewController=_currentTopViewController - In the implementation block
 @property (nonatomic,retain) NSMutableDictionary * logResultsForLoggable;                     //@synthesize logResultsForLoggable=_logResultsForLoggable - In the implementation block
-+(id)currentModule;
 +(id)sharedNavigationEventManager;
++(id)currentModule;
 +(id)lastKNavigationEvents:(unsigned)arg1 ;
 -(void)associateUIPerfLogResult:(id)arg1 forLoggable:(id)arg2 ;
 -(void)handleNavigationViaClickPoint:(id)arg1 ;

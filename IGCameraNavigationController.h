@@ -10,6 +10,7 @@
 
 @interface IGCameraNavigationController : IGViewController <IGMediaCaptureViewControllerDelegate, UIViewControllerTransitioningDelegate, UINavigationBarDelegate, IGCustomViewController> {
 
+	char _isTranslucent;
 	IGCaptureManager* _captureManager;
 	UIView* _containerView;
 	float _verticalOffset;
@@ -26,16 +27,14 @@
 @property (assign,nonatomic,__weak) id<IGCameraNavigationControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) UINavigationBar * navigationBar;                                       //@synthesize navigationBar=_navigationBar - In the implementation block
 @property (assign,getter=isNavigationBarHidden,nonatomic) char navigationBarHidden; 
+@property (assign,nonatomic) char isTranslucent;                                                    //@synthesize isTranslucent=_isTranslucent - In the implementation block
 @property (nonatomic,retain) UIView * navigationBarShadow;                                          //@synthesize navigationBarShadow=_navigationBarShadow - In the implementation block
 @property (assign,nonatomic,__weak) IGEditorViewController * currentEditor;                         //@synthesize currentEditor=_currentEditor - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGCaptureManager *)captureManager;
--(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(void)setIsTranslucent:(char)arg1 ;
--(void)reloadNavigationItem:(id)arg1 ;
 -(void)setNavigationBarShadow:(UIView *)arg1 ;
 -(UIView *)navigationBarShadow;
 -(float)verticalOffset;
@@ -46,6 +45,9 @@
 -(id)initWithMetadata:(id)arg1 mode:(int)arg2 ;
 -(void)setVerticalOffset:(float)arg1 ;
 -(void)popToRootViewController;
+-(void)reloadNavigationItem:(id)arg1 ;
+-(IGCaptureManager *)captureManager;
+-(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(IGEditorViewController *)currentEditor;
 -(void)setCurrentEditor:(IGEditorViewController *)arg1 ;
 -(void)setDelegate:(id<IGCameraNavigationControllerDelegate>)arg1 ;
@@ -57,6 +59,7 @@
 -(void)popViewControllerAnimated:(char)arg1 ;
 -(char)prefersStatusBarHidden;
 -(int)preferredStatusBarUpdateAnimation;
+-(char)isTranslucent;
 -(void)setContainerView:(UIView *)arg1 ;
 -(void)viewDidLayoutSubviews;
 -(void)setNavigationBar:(UINavigationBar *)arg1 ;

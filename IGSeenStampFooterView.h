@@ -31,8 +31,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)seenStampStyle;
 +(float)heightForUsers:(id)arg1 expanded:(char)arg2 ;
--(IGCoreTextView *)usernameLabel;
 -(void)setUsernameLabel:(IGCoreTextView *)arg1 ;
+-(IGCoreTextView *)usernameLabel;
 -(NSArray *)seenUsers;
 -(void)setSeenUsers:(NSArray *)arg1 ;
 -(void)didTapStamp:(id)arg1 ;

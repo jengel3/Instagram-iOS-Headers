@@ -18,11 +18,11 @@
 @property (assign,nonatomic) char allowPinchScaling; 
 @property (assign,nonatomic,__weak) UIPinchGestureRecognizer * pinchGestureRecognizer; 
 +(Class)layerClass;
--(void)setHostedGraph:(CPTGraph *)arg1 ;
--(CPTGraph *)hostedGraph;
 -(char)collapsesLayers;
+-(void)setHostedGraph:(CPTGraph *)arg1 ;
 -(void)setCollapsesLayers:(char)arg1 ;
 -(void)setAllowPinchScaling:(char)arg1 ;
+-(CPTGraph *)hostedGraph;
 -(char)allowPinchScaling;
 -(void)handlePinchGesture:(id)arg1 ;
 -(void)graphNeedsRedraw:(id)arg1 ;

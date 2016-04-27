@@ -21,10 +21,10 @@
 	NSString* __thrift_extra;
 
 }
+-(id)searchQueryText;
+-(int)viewSubType;
 -(id)rankToken;
 -(id)toDict;
--(int)viewSubType;
--(id)searchQueryText;
 -(id)initWithSearchType:(int)arg1 searchQueryText:(id)arg2 viewSubType:(int)arg3 rankToken:(id)arg4 itemRankResponseOffset:(id)arg5 itemRankDisplayOffset:(id)arg6 rankDisplayRowSize:(id)arg7 rankDisplayColumnSize:(id)arg8 sectionType:(int)arg9 searchSessionId:(id)arg10 entityId:(id)arg11 searchImpressionToken:(id)arg12 extra:(id)arg13 ;
 -(id)init;
 -(id)description;

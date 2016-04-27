@@ -36,7 +36,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,readonly) SCD_Struct_IG26 coordinate; 
+@property (nonatomic,readonly) SCD_Struct_RC32 coordinate; 
 @property (nonatomic,copy,readonly) NSString * title; 
 @property (nonatomic,copy,readonly) NSString * subtitle; 
 -(char)hasLeftCallout;

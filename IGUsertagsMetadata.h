@@ -14,10 +14,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGUsertagGroup *)usertags;
 -(void)prepareToShare;
 -(id)sharingInfo;
 -(void)clearFacesInfo;
+-(IGUsertagGroup *)usertags;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
 @end
 

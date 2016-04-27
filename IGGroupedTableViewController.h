@@ -21,9 +21,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setTableViewBottomPadding:(float)arg1 ;
--(float)tableViewBottomPadding;
 -(id)subtitleForHeaderInSection:(int)arg1 ;
 -(id)titleForFooterInSection:(int)arg1 ;
+-(float)tableViewBottomPadding;
 -(id)titleForUnlinkSection;
 -(void)configureUnlinkCell:(id)arg1 ;
 -(void)didSelectUnlinkCellForServiceType:(int)arg1 ;
@@ -34,14 +34,14 @@
 -(void)loginViaFacebook;
 -(void)setAnimateResetVC:(char)arg1 ;
 -(void)setPasswordResetUserEmail:(NSString *)arg1 ;
--(void)onFacebookAuthSuccess:(id)arg1 ;
--(void)onFacebookAuthCancelled:(id)arg1 ;
 -(void)validateFacebookToken:(id)arg1 ;
 -(void)setFetchingResetToken:(char)arg1 ;
 -(IGUser *)passwordResetUser;
 -(NSString *)passwordResetUserEmail;
 -(char)animateResetVC;
 -(void)getFacebookTokenForForPasswordResetForUserEmail:(id)arg1 ;
+-(void)onFacebookAuthSuccess:(id)arg1 ;
+-(void)onFacebookAuthCancelled:(id)arg1 ;
 -(id)init;
 -(float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2 ;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;

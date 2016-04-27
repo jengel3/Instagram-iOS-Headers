@@ -8,8 +8,8 @@
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController * delegate; 
 @required
--(id)initWithMediaMetadata:(id)arg1;
 -(void)setShareString:(id)arg1;
+-(id)initWithMediaMetadata:(id)arg1;
 -(void)configureWithHeaderView:(id)arg1;
 -(NSString *)shareString;
 -(char)isReadyToShare;

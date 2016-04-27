@@ -17,8 +17,8 @@
 +(id)createTextLabelWithBadgeCount:(int)arg1 ;
 -(UIImageView *)markView;
 -(void)setMarkView:(UIImageView *)arg1 ;
--(id)initWithFrame:(CGRect)arg1 badgeCount:(int)arg2 ;
 -(void)updateWithBadgeCount:(int)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 badgeCount:(int)arg2 ;
 -(void)layoutSubviews;
 -(UILabel *)textLabel;
 -(void)setTextLabel:(UILabel *)arg1 ;

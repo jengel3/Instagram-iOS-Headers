@@ -22,8 +22,8 @@
 -(void)animatePushTransition:(id)arg1 ;
 -(void)setNavigationBar:(id)arg1 hidden:(char)arg2 ;
 -(UIView *)navigationBarSuperview;
--(id)initWithNavigationController:(id)arg1 isDismiss:(char)arg2 ;
 -(void)setIsDismiss:(char)arg1 ;
+-(id)initWithNavigationController:(id)arg1 isDismiss:(char)arg2 ;
 -(double)transitionDuration:(id)arg1 ;
 -(void)animateTransition:(id)arg1 ;
 -(void)animationEnded:(char)arg1 ;

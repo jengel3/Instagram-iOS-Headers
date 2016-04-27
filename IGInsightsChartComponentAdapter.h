@@ -25,14 +25,14 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGInsightsComponentNavigationDelegate> navigationDelegate; 
 -(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setChartViewController:(IGInsightsChartViewController *)arg1 ;
+-(IGInsightsChartViewController *)chartViewController;
 -(void)didSelectNavigateInComponentViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
 -(id)initWithComponent:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
 -(char)isComponentValid;
 -(IGInsightsChartView *)componentView;
 -(void)setComponentView:(IGInsightsChartView *)arg1 ;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
--(void)setChartViewController:(IGInsightsChartViewController *)arg1 ;
--(IGInsightsChartViewController *)chartViewController;
 -(IGInsightsChartComponent *)component;
 -(void)setComponent:(IGInsightsChartComponent *)arg1 ;
 -(id<IGInsightsComponentNavigationDelegate>)navigationDelegate;

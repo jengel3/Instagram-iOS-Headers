@@ -21,8 +21,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGInsightsQuery *)buttonQuery;
--(NSArray *)medias;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 medias:(id)arg4 ;
+-(NSArray *)medias;
 -(id)style;
 -(NSString *)header;
 -(NSString *)buttonText;

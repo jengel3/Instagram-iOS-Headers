@@ -34,15 +34,14 @@
 @property (nonatomic,retain) NSArray * possibleHideAnswers;              //@synthesize possibleHideAnswers=_possibleHideAnswers - In the implementation block
 @property (nonatomic,copy) NSString * aboutAdsServerParams;              //@synthesize aboutAdsServerParams=_aboutAdsServerParams - In the implementation block
 @property (nonatomic,copy) NSArray * cookies;                            //@synthesize cookies=_cookies - In the implementation block
++(id)sponsoredPostForAdPreview;
 -(NSString *)adTitle;
--(char)isHoldout;
 -(char)hideCommentButton;
 -(NSArray *)possibleHideAnswers;
 -(char)hideComments;
--(id)initWithDictionary:(id)arg1 secure:(char)arg2 ;
+-(char)isHoldout;
 -(NSArray *)viewTags;
 -(char)showAdChoicesIcon;
--(NSString *)trackingToken;
 -(NSString *)aboutAdsServerParams;
 -(void)setAdTitle:(NSString *)arg1 ;
 -(void)setHideComments:(char)arg1 ;
@@ -51,14 +50,16 @@
 -(void)setShowAdChoicesIcon:(char)arg1 ;
 -(void)setAboutAdsServerParams:(NSString *)arg1 ;
 -(void)setViewTags:(NSArray *)arg1 ;
--(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setHideFlowVersion:(int)arg1 ;
 -(void)preparePossibleHideAnswers:(id)arg1 ;
 -(void)preparePossibleHideAnswersV2:(id)arg1 ;
 -(void)prepareCookies:(id)arg1 ;
+-(id)initWithDictionary:(id)arg1 secure:(char)arg2 ;
 -(void)setCookies:(NSArray *)arg1 ;
 -(void)setPossibleHideAnswers:(NSArray *)arg1 ;
 -(int)hideFlowVersion;
+-(NSString *)trackingToken;
+-(void)setTrackingToken:(NSString *)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)description;

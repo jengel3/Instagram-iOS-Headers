@@ -2,11 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/RCTInvalidating.h>
 
-@class JSContext, NSString;
+@class NSThread, JSContext, NSString;
 
 @interface RCTJavaScriptContext : NSObject <RCTInvalidating> {
 
 	RCTJavaScriptContext* _selfReference;
+	NSThread* _javaScriptThread;
 	JSContext* _context;
 
 }
@@ -17,9 +18,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithJSContext:(id)arg1 ;
+-(id)initWithJSContext:(id)arg1 onThread:(id)arg2 ;
 -(OpaqueJSContextRef)ctx;
--(void)dealloc;
 -(id)init;
 -(void)invalidate;
 -(char)isValid;

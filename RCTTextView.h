@@ -50,12 +50,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)reactWillMakeFirstResponder;
 -(void)reactDidMakeFirstResponder;
--(char)automaticallyAdjustContentInsets;
--(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
 -(id)initWithEventDispatcher:(id)arg1 ;
 -(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(void)removeReactSubview:(id)arg1 ;
 -(id)reactSubviews;
+-(char)automaticallyAdjustContentInsets;
+-(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
 -(void)setAutoCorrect:(char)arg1 ;
 -(char)autoCorrect;
 -(char)selectTextOnFocus;

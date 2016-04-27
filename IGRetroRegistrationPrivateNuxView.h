@@ -24,9 +24,9 @@
 -(id)createTitleLabel;
 -(void)setUpViews;
 -(UILabel *)subTitleLabel;
--(id)createIconView;
 -(id)createSubTitleLabel;
 -(id)createNextButton;
+-(id)createIconView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;

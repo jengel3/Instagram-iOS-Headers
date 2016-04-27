@@ -30,13 +30,13 @@
 @property (nonatomic,readonly) char isHScrollUnitEnabled;                                                              //@synthesize isHScrollUnitEnabled=_isHScrollUnitEnabled - In the implementation block
 +(CGSize)sizeForWidth:(float)arg1 ;
 +(float)defaultHeight;
--(void)onCloseTapped:(id)arg1 ;
 -(UIView *)topHeaderView;
 -(UIView *)topHeaderInnerView;
 -(UIView *)triangleView;
 -(char)isChainingSeeAllButtonEnabled;
 -(UIButton *)seeAllButton;
 -(void)onSeeAllButtonTapped:(id)arg1 ;
+-(void)onCloseTapped:(id)arg1 ;
 -(NSObject*<IGSimilarAccountsViewDelegate>)similarAccountsViewDelegate;
 -(void)setTriangleViewCenterOffsetX:(float)arg1 ;
 -(void)setSimilarAccountsViewDelegate:(NSObject*<IGSimilarAccountsViewDelegate>)arg1 ;

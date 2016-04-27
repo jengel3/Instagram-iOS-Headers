@@ -24,13 +24,10 @@
 @property (assign,nonatomic) char stickyHeadersEnabled;                                                             //@synthesize stickyHeadersEnabled=_stickyHeadersEnabled - In the implementation block
 @property (assign,nonatomic) float stickyHeaderOriginYAdjustment;                                                   //@synthesize stickyHeaderOriginYAdjustment=_stickyHeaderOriginYAdjustment - In the implementation block
 @property (assign,nonatomic) unsigned scrollState;                                                                  //@synthesize scrollState=_scrollState - In the implementation block
-@property (nonatomic,readonly) IGListVerticalLayoutCache * cache;                                                   //@synthesize cache=_cache - In the implementation block
 @property (assign,nonatomic) char needsToPrepareAttributes;                                                         //@synthesize needsToPrepareAttributes=_needsToPrepareAttributes - In the implementation block
+@property (nonatomic,readonly) IGListVerticalLayoutCache * cache;                                                   //@synthesize cache=_cache - In the implementation block
 +(Class)invalidationContextClass;
 +(Class)layoutAttributesClass;
--(float)stickyHeaderOriginYAdjustment;
--(void)setStickyHeaderOriginYAdjustment:(float)arg1 ;
--(void)setSectionSpacing:(float)arg1 ;
 -(void)setEstimatingDataSource:(id<IGListVerticalLayoutEstimatingDataSource>)arg1 ;
 -(id)initWithDataSource:(id)arg1 estimatingDataSource:(id)arg2 layoutCache:(id)arg3 ;
 -(id<IGListVerticalLayoutEstimatingDataSource>)estimatingDataSource;
@@ -52,16 +49,20 @@
 -(void)enumerateIndexPathsInSectionRange:(NSRange)arg1 usingBlock:(/*^block*/id)arg2 ;
 -(char)stickyHeadersEnabled;
 -(void)configureHeaderAttributesForStickiness:(id)arg1 ;
+-(float)stickyHeaderOriginYAdjustment;
 -(float)sectionSpacing;
 -(NSRange)rangeForTargetSection:(int)arg1 ;
 -(unsigned)findTargetItemInSection:(unsigned)arg1 forElementsInRect:(CGRect)arg2 movingUp:(char*)arg3 ;
 -(void)removeAttributesAtIndexPaths:(id)arg1 ;
 -(void)reconfigureAttributesInSection:(unsigned)arg1 ;
+-(void)handleCollectionViewUpdates:(id)arg1 ;
 -(void)processUpdateItems:(id)arg1 ;
 -(id)attributesAboveItemIndexPath:(id)arg1 estimated:(char)arg2 adjustmentForStickyHeader:(float*)arg3 ;
 -(int)lastItemIndexInSection:(int)arg1 ;
 -(id)attributesAboveHeaderIndexPath:(id)arg1 estimated:(char)arg2 ;
 -(void)setStickyHeadersEnabled:(char)arg1 ;
+-(void)setStickyHeaderOriginYAdjustment:(float)arg1 ;
+-(void)setSectionSpacing:(float)arg1 ;
 -(id)attributesAboveItemIndexPath:(id)arg1 estimated:(char)arg2 ;
 -(void)setDataSource:(id<IGListVerticalLayoutDataSource>)arg1 ;
 -(id)init;

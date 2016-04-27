@@ -24,7 +24,7 @@
 @property (nonatomic,retain) UIImage * thumbnail;                             //@synthesize thumbnail=_thumbnail - In the implementation block
 @property (nonatomic,retain) NSCache * thumbnailCache;                        //@synthesize thumbnailCache=_thumbnailCache - In the implementation block
 @property (nonatomic,readonly) int sourceType; 
-@property (nonatomic,readonly) SCD_Struct_IG44 duration; 
+@property (nonatomic,readonly) SCD_Struct_IG100 duration; 
 @property (nonatomic,retain) Class filterClass;                               //@synthesize filterClass=_filterClass - In the implementation block
 @property (assign,nonatomic) float filterStrength;                            //@synthesize filterStrength=_filterStrength - In the implementation block
 @property (assign,nonatomic) float keyPosition;                               //@synthesize keyPosition=_keyPosition - In the implementation block
@@ -33,37 +33,37 @@
 @property (assign,nonatomic) char shouldMuteAudio;                            //@synthesize shouldMuteAudio=_shouldMuteAudio - In the implementation block
 @property (assign,nonatomic) float renderProgress;                            //@synthesize renderProgress=_renderProgress - In the implementation block
 +(CGSize)calculateDownscaleSizeForInputSize:(CGSize)arg1 outputSize:(CGSize)arg2 clip:(id)arg3 ;
--(void)setStabilizationMode:(unsigned)arg1 ;
--(void)addClip:(id)arg1 ;
--(void)setFilterClass:(Class)arg1 ;
+-(float)filterStrength;
+-(void)setFilterStrength:(float)arg1 ;
 -(Class)filterClass;
+-(void)setFilterClass:(Class)arg1 ;
+-(void)setStabilizationMode:(unsigned)arg1 ;
 -(NSArray *)clips;
--(float)keyPosition;
--(char)shouldMuteAudio;
 -(void)refreshThumbnail;
 -(void)removeLastClip;
--(float)filterStrength;
--(void)setRenderProgress:(float)arg1 ;
--(float)renderProgress;
--(void)moveClipAtIndex:(id)arg1 toIndex:(id)arg2 ;
--(void)removeClipAtIndex:(id)arg1 ;
+-(void)addClip:(id)arg1 ;
+-(char)shouldMuteAudio;
 -(void)setClips:(NSArray *)arg1 ;
--(unsigned)clipIndexForFrameTime:(SCD_Struct_IG44)arg1 ;
--(SCD_Struct_IG44)convertPresentationTime:(SCD_Struct_IG44)arg1 toClip:(id)arg2 ;
--(CGImageRef)generator:(id)arg1 generateImageForTimestamp:(SCD_Struct_IG44*)arg2 ;
+-(float)keyPosition;
+-(unsigned)clipIndexForFrameTime:(SCD_Struct_IG100)arg1 ;
+-(SCD_Struct_IG100)convertPresentationTime:(SCD_Struct_IG100)arg1 toClip:(id)arg2 ;
+-(CGImageRef)generator:(id)arg1 generateImageForTimestamp:(SCD_Struct_IG100*)arg2 ;
 -(char)shouldStabilizeClip:(id)arg1 ;
 -(unsigned)stabilizationMode;
+-(void)moveClipAtIndex:(id)arg1 toIndex:(id)arg2 ;
+-(void)removeClipAtIndex:(id)arg1 ;
 -(void)setKeyPosition:(float)arg1 ;
 -(void)resetClipsAndInvalidateComposition;
 -(void)setRenderedVideoURL:(NSURL *)arg1 ;
 -(char)shouldEnableStabilization;
--(char)shouldStabilizeFrameAtTime:(SCD_Struct_IG44)arg1 ;
+-(char)shouldStabilizeFrameAtTime:(SCD_Struct_IG100)arg1 ;
 -(char)canEnableStabilization;
--(void)setFilterStrength:(float)arg1 ;
 -(NSURL *)renderedVideoURL;
 -(void)setShouldMuteAudio:(char)arg1 ;
+-(float)renderProgress;
+-(void)setRenderProgress:(float)arg1 ;
 -(id)init;
--(SCD_Struct_IG44)duration;
+-(SCD_Struct_IG100)duration;
 -(int)sourceType;
 -(UIImage *)thumbnail;
 -(void)setThumbnail:(UIImage *)arg1 ;

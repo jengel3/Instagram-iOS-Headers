@@ -11,7 +11,6 @@
 	UIImageView* _visibleIndicator;
 	UIButton* _rearrangeControl;
 	UIImageView* _filterIconView;
-	UILabel* _filterOverlayLabel;
 	UIImageView* _filterFrameView;
 	UIView* _topLine;
 	UIView* _bottomLine;
@@ -25,7 +24,6 @@
 @property (nonatomic,retain) UIImageView * visibleIndicator;              //@synthesize visibleIndicator=_visibleIndicator - In the implementation block
 @property (nonatomic,retain) UIButton * rearrangeControl;                 //@synthesize rearrangeControl=_rearrangeControl - In the implementation block
 @property (nonatomic,retain) UIImageView * filterIconView;                //@synthesize filterIconView=_filterIconView - In the implementation block
-@property (nonatomic,retain) UILabel * filterOverlayLabel;                //@synthesize filterOverlayLabel=_filterOverlayLabel - In the implementation block
 @property (nonatomic,retain) UIImageView * filterFrameView;               //@synthesize filterFrameView=_filterFrameView - In the implementation block
 @property (nonatomic,retain) UIView * topLine;                            //@synthesize topLine=_topLine - In the implementation block
 @property (nonatomic,retain) UIView * bottomLine;                         //@synthesize bottomLine=_bottomLine - In the implementation block
@@ -33,23 +31,21 @@
 -(UIImageView *)visibleIndicator;
 -(UIButton *)rearrangeControl;
 -(UIImageView *)filterIconView;
--(UILabel *)filterOverlayLabel;
 -(UIImageView *)filterFrameView;
--(UIView *)topLine;
--(void)setFilterIcon:(UIImage *)arg1 ;
 -(UIImage *)filterIcon;
--(void)setFilterClass:(Class)arg1 ;
--(CGRect)LX_rearrangeHotspot;
--(id)LX_snapshotView;
--(Class)filterClass;
 -(void)setVisibleIndicator:(UIImageView *)arg1 ;
 -(void)setRearrangeControl:(UIButton *)arg1 ;
 -(void)setFilterIconView:(UIImageView *)arg1 ;
--(void)setFilterOverlayLabel:(UILabel *)arg1 ;
 -(void)setFilterFrameView:(UIImageView *)arg1 ;
+-(Class)filterClass;
+-(void)setFilterIcon:(UIImage *)arg1 ;
+-(void)setFilterClass:(Class)arg1 ;
+-(UIView *)topLine;
 -(void)setTopLine:(UIView *)arg1 ;
 -(UIView *)bottomLine;
 -(void)setBottomLine:(UIView *)arg1 ;
+-(id)LX_snapshotView;
+-(CGRect)LX_rearrangeHotspot;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setHighlighted:(char)arg1 animated:(char)arg2 ;

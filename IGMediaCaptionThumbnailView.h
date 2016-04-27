@@ -18,8 +18,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)showPlayGlyph:(char)arg1 ;
 -(void)notifyDelegateOfSuccess;
+-(void)showPlayGlyph:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setFrame:(CGRect)arg1 ;
 @end

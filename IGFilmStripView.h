@@ -32,9 +32,9 @@
 -(NSMutableIndexSet *)loadedImagesSet;
 -(void)generateVisibleThumbnails:(id)arg1 ;
 -(id)cachedThumbnailForIndex:(unsigned)arg1 ;
+-(id)cacheKeyForIndex:(unsigned)arg1 ;
 -(void)setThumbnail:(id)arg1 forIndex:(unsigned)arg2 ;
 -(void)updateVisibleThumbnails;
--(id)cacheKeyForIndex:(unsigned)arg1 ;
 -(void)setThumbnailSize:(CGSize)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

@@ -17,9 +17,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)completeAnimation;
+-(void)togglePlayStatus;
 -(void)stopAnimated:(char)arg1 ;
 -(void)videoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
--(void)togglePlayStatus;
 -(void)setVideoView:(IGDirectVideoView *)arg1 ;
 -(void)play;
 -(IGDirectVideoView *)videoView;

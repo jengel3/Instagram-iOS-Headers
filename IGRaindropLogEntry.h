@@ -19,9 +19,9 @@
 
 }
 -(id)toDict;
--(id)navState;
 -(id)initWithClientUnixTimestampMillis:(id)arg1 fbId:(id)arg2 userId:(id)arg3 deviceInfo:(id)arg4 activitySession:(id)arg5 navState:(id)arg6 event:(id)arg7 eventName:(id)arg8 eventData:(id)arg9 testSessionID:(id)arg10 ;
 -(id)clientUnixTimestampMillis;
+-(id)navState;
 -(id)init;
 -(id)description;
 -(id)event;

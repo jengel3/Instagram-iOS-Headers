@@ -10,6 +10,7 @@
 	SEL _action;
 	void* _context;
 	/*^block*/id _block;
+	unsigned char _state;
 
 }
 -(id)initWithController:(id)arg1 keyPath:(id)arg2 options:(unsigned)arg3 block:(/*^block*/id)arg4 action:(SEL)arg5 context:(void*)arg6 ;

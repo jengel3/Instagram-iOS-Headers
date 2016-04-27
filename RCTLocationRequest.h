@@ -8,21 +8,21 @@
 	/*^block*/id _successBlock;
 	/*^block*/id _errorBlock;
 	NSTimer* _timeoutTimer;
-	SCD_Struct_RC77 _options;
+	SCD_Struct_RC26 _options;
 
 }
 
 @property (nonatomic,copy) id successBlock;                        //@synthesize successBlock=_successBlock - In the implementation block
 @property (nonatomic,copy) id errorBlock;                          //@synthesize errorBlock=_errorBlock - In the implementation block
-@property (assign,nonatomic) SCD_Struct_RC77 options;              //@synthesize options=_options - In the implementation block
+@property (assign,nonatomic) SCD_Struct_RC26 options;              //@synthesize options=_options - In the implementation block
 @property (nonatomic,retain) NSTimer * timeoutTimer;               //@synthesize timeoutTimer=_timeoutTimer - In the implementation block
 -(id)successBlock;
 -(void)setSuccessBlock:(id)arg1 ;
 -(id)errorBlock;
 -(void)setErrorBlock:(id)arg1 ;
 -(void)dealloc;
--(void)setOptions:(SCD_Struct_RC77)arg1 ;
--(SCD_Struct_RC77)options;
+-(void)setOptions:(SCD_Struct_RC26)arg1 ;
+-(SCD_Struct_RC26)options;
 -(void)setTimeoutTimer:(NSTimer *)arg1 ;
 -(NSTimer *)timeoutTimer;
 @end

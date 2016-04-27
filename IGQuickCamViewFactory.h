@@ -2,11 +2,6 @@
 
 @interface IGQuickCamViewFactory : NSObject
 +(id)createTitleLabel;
-+(id)createGalleryCollectionView;
-+(id)createBackButton;
-+(id)createSwitchCameraButton;
-+(void)drawChevronButton:(id)arg1 ;
-+(id)createCropButton;
 +(id)createNUXTextLabel;
 +(id)createTitleBarButtonWithImage:(id)arg1 ;
 +(id)createChevronTitleButton;
@@ -17,6 +12,11 @@
 +(id)createProgressView;
 +(id)createUnsupportedVideoLabel;
 +(id)createQuickCamGalleryCollectionViewLayout;
++(id)createGalleryCollectionView;
++(id)createSwitchCameraButton;
++(id)createBackButton;
++(void)drawChevronButton:(id)arg1 ;
 +(id)createBoomerangButton;
++(id)createCropButton;
 @end
 

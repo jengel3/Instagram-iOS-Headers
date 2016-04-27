@@ -21,8 +21,8 @@
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)migrateUserDefaultsIfNecessary;
--(id)initWithSessionUserDefaults:(id)arg1 ;
 -(char)containsComment:(id)arg1 ;
+-(id)initWithSessionUserDefaults:(id)arg1 ;
 -(void)archive;
 -(void)dealloc;
 -(void)clear;

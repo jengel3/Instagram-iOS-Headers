@@ -25,11 +25,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)logProfilePictureUpdatedWithOption:(int)arg1 ;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(void)cameraControllerDidCancel;
 -(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
 -(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
 -(void)cameraControllerDidFinishWithDirectShare:(char)arg1 ;
 -(void)imageTicketDidFail;
 -(void)imageTicketDidFinishWithData:(id)arg1 ;

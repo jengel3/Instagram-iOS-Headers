@@ -11,8 +11,8 @@
 
 @property (copy) NSString * key; 
 @property (copy) NSString * secret; 
--(id)initWithKey:(id)arg1 secret:(id)arg2 ;
 -(char)isEqualToConsumer:(id)arg1 ;
+-(id)initWithKey:(id)arg1 secret:(id)arg2 ;
 -(void)dealloc;
 -(char)isEqual:(id)arg1 ;
 -(NSString *)key;

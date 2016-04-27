@@ -2,41 +2,63 @@
 #import <UIKit/UIViewController.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
 #import <Instagram/IGInsightsContentRowListViewDelegate.h>
-#import <Instagram/IGInlineInsightsViewDelegate.h>
 
-@class IGPost, UIView, IGInlineInsightsView, IGInsightsLoggingHelper, IGInlineInsightsDataProvider, NSString;
+@class UIView, IGInlineInsightsView, IGAdsInlineInsightsView, IGInsightsLoggingHelper, IGInlineInsightsDataProvider, UISwipeGestureRecognizer, IGFeedItem, NSString;
 
-@interface IGInlineInsightsViewController : UIViewController <UIViewControllerTransitioningDelegate, IGInsightsContentRowListViewDelegate, IGInlineInsightsViewDelegate> {
+@interface IGInlineInsightsViewController : UIViewController <UIViewControllerTransitioningDelegate, IGInsightsContentRowListViewDelegate> {
 
-	IGPost* _post;
+	int _inlineInsightsType;
 	UIView* _overlayView;
-	IGInlineInsightsView* _inlineInsightsView;
+	UIView* _contentView;
+	IGInlineInsightsView* _organicInlineInsightsView;
+	IGAdsInlineInsightsView* _adsInlineInsightsView;
 	IGInsightsLoggingHelper* _loggingHelper;
 	IGInlineInsightsDataProvider* _dataProvider;
+	UISwipeGestureRecognizer* _swipeGestureRecognizer;
+	IGFeedItem* _feedItem;
+	NSString* _feedItemPromoteStateLoggingString;
 
 }
 
-@property (nonatomic,retain) IGPost * post;                                            //@synthesize post=_post - In the implementation block
-@property (nonatomic,retain) UIView * overlayView;                                     //@synthesize overlayView=_overlayView - In the implementation block
-@property (nonatomic,retain) IGInlineInsightsView * inlineInsightsView;                //@synthesize inlineInsightsView=_inlineInsightsView - In the implementation block
-@property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;                  //@synthesize loggingHelper=_loggingHelper - In the implementation block
-@property (nonatomic,retain) IGInlineInsightsDataProvider * dataProvider;              //@synthesize dataProvider=_dataProvider - In the implementation block
+@property (assign,nonatomic) int inlineInsightsType;                                         //@synthesize inlineInsightsType=_inlineInsightsType - In the implementation block
+@property (nonatomic,retain) UIView * overlayView;                                           //@synthesize overlayView=_overlayView - In the implementation block
+@property (nonatomic,retain) UIView * contentView;                                           //@synthesize contentView=_contentView - In the implementation block
+@property (nonatomic,retain) IGInlineInsightsView * organicInlineInsightsView;               //@synthesize organicInlineInsightsView=_organicInlineInsightsView - In the implementation block
+@property (nonatomic,retain) IGAdsInlineInsightsView * adsInlineInsightsView;                //@synthesize adsInlineInsightsView=_adsInlineInsightsView - In the implementation block
+@property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;                        //@synthesize loggingHelper=_loggingHelper - In the implementation block
+@property (nonatomic,retain) IGInlineInsightsDataProvider * dataProvider;                    //@synthesize dataProvider=_dataProvider - In the implementation block
+@property (nonatomic,retain) UISwipeGestureRecognizer * swipeGestureRecognizer;              //@synthesize swipeGestureRecognizer=_swipeGestureRecognizer - In the implementation block
+@property (nonatomic,retain) IGFeedItem * feedItem;                                          //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,copy) NSString * feedItemPromoteStateLoggingString;                     //@synthesize feedItemPromoteStateLoggingString=_feedItemPromoteStateLoggingString - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGPost *)post;
--(void)setPost:(IGPost *)arg1 ;
+-(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)onOverlayTapped;
+-(id)initWithInlineInsightsType:(int)arg1 feedItem:(id)arg2 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
+-(id)loggingStringForPromoteState:(int)arg1 ;
+-(int)inlineInsightsType;
+-(void)setOrganicInlineInsightsView:(IGInlineInsightsView *)arg1 ;
+-(IGInlineInsightsView *)organicInlineInsightsView;
+-(void)setAdsInlineInsightsView:(IGAdsInlineInsightsView *)arg1 ;
+-(IGAdsInlineInsightsView *)adsInlineInsightsView;
+-(void)onSwipe:(id)arg1 ;
+-(void)setSwipeGestureRecognizer:(UISwipeGestureRecognizer *)arg1 ;
+-(UISwipeGestureRecognizer *)swipeGestureRecognizer;
+-(void)alertAndLogForError:(id)arg1 ;
+-(NSString *)feedItemPromoteStateLoggingString;
+-(void)dismissContentView;
 -(void)needAnimateContentRowListView:(id)arg1 upForDistance:(float)arg2 ;
--(void)failedToFetchDataForIGInlineInsightsView:(id)arg1 ;
--(void)setInlineInsightsView:(IGInlineInsightsView *)arg1 ;
--(IGInlineInsightsView *)inlineInsightsView;
+-(void)setInlineInsightsType:(int)arg1 ;
+-(void)setFeedItemPromoteStateLoggingString:(NSString *)arg1 ;
 -(id)contentContainerView;
--(id)init;
 -(void)loadView;
+-(UIView *)contentView;
+-(void)setContentView:(UIView *)arg1 ;
 -(void)viewDidLayoutSubviews;
 -(void)viewDidLoad;
 -(id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3 ;

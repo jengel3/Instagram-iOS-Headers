@@ -2,6 +2,6 @@
 #import <Instagram/IGFeedNetworkSource.h>
 
 @interface IGAdRatingFeedNetworkSource : IGFeedNetworkSource
--(id)init;
+-(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 ;
 @end
 

@@ -10,6 +10,7 @@
 +(void)persistAnonymousID:(id)arg1 ;
 +(id)persistenceFilePath:(id)arg1 ;
 +(void)logAndNotify:(id)arg1 allowLogAsDeveloperError:(char)arg2 ;
++(char)matchString:(id)arg1 firstCharacterSet:(id)arg2 restOfStringCharacterSet:(id)arg3 ;
 +(char)regexValidateIdentifier:(id)arg1 ;
 +(void)logAndNotify:(id)arg1 ;
 +(void)ensureOnMainThread;

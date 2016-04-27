@@ -11,12 +11,12 @@
 @property (nonatomic,retain) IGExperimentSet * deviceExperimentSet;              //@synthesize deviceExperimentSet=_deviceExperimentSet - In the implementation block
 +(char)exposeValueForBoolExperiment:(id)arg1 ;
 +(id)exposeValueForExperiment:(id)arg1 parameterName:(id)arg2 ;
-+(id)experimentsGroupsMapping;
-+(id)exposeCachedValueForExperiment:(id)arg1 parameterName:(id)arg2 ;
++(char)exposeCachedValueForMainFeedExperiment;
 +(char)exposeCachedValueForBoolExperiment:(id)arg1 ;
-+(id)effectiveGroupNameForExperiment:(id)arg1 ;
++(id)exposeCachedValueForExperiment:(id)arg1 parameterName:(id)arg2 ;
 +(void)requestColdStart:(id)arg1 ;
 +(id)experiments;
++(id)experimentsGroupsMapping;
 +(void)refreshExperimentsIfNecessary;
 +(char)wantsColdStart;
 +(id)experimentForKey:(id)arg1 ;

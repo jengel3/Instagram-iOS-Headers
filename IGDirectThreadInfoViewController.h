@@ -29,7 +29,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(char)prefersTabBarHidden;
--(void)cell:(id)arg1 didSwitchValueTo:(char)arg2 ;
 -(void)threadUpdated;
 -(id)sectionsBasedOnThread:(id)arg1 ;
 -(void)updateNameField;
@@ -47,6 +46,7 @@
 -(void)finishEditingName;
 -(char)nameIsTooLong;
 -(void)updateThreadNameToName:(id)arg1 ;
+-(void)cell:(id)arg1 didSwitchValueTo:(char)arg2 ;
 -(void)setDelegate:(id<IGDirectThreadInfoDelegate>)arg1 ;
 -(void)dealloc;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

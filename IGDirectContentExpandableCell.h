@@ -34,17 +34,21 @@
 @property (nonatomic,retain) IGHeartView * heartView;                                           //@synthesize heartView=_heartView - In the implementation block
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator;              //@synthesize uploadDecorator=_uploadDecorator - In the implementation block
 +(float)photoExpandedHeightForWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
-+(float)expandedHeightForWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
 +(CGSize)contractedOffsetForUploadSpinner;
 +(CGSize)expandedOffsetForUploadSpinner;
 +(float)contractedHeightForFrameWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
++(float)expandedHeightForWidth:(float)arg1 postMediaSize:(CGSize)arg2 ;
+-(void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;
+-(void)callShare:(id)arg1 ;
+-(void)completeAnimation;
+-(void)performDelete;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(id)timestampText;
 -(void)setCellDecorator:(id)arg1 ;
 -(void)setUploadDecorator:(IGDirectContentCellUploadDecorator *)arg1 ;
 -(void)handleUploadCellTap;
 -(void)performRetry;
--(void)performDelete;
+-(void)uploadDecoratorShowFailedUI:(id)arg1 ;
 -(void)showUploadFailedUI;
 -(void)showUploadSendingUI;
 -(CGRect)tapTargetFrame;
@@ -68,7 +72,6 @@
 -(CGSize)photoSizeForWidth:(float)arg1 ;
 -(void)animateLikeAction;
 -(void)animateExpanded:(char)arg1 withProgress:(float)arg2 ;
--(void)completeAnimation;
 -(void)setContentImageView:(UIView *)arg1 ;
 -(void)setExpandedPhotoSize:(CGSize)arg1 ;
 -(void)setContractedPhotoSize:(CGSize)arg1 ;

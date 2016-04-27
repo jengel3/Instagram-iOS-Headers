@@ -19,13 +19,13 @@
 @property (assign,nonatomic) int buttonState;                        //@synthesize buttonState=_buttonState - In the implementation block
 @property (nonatomic,readonly) UIView * topHairline;                 //@synthesize topHairline=_topHairline - In the implementation block
 @property (nonatomic,readonly) UIView * bottomHairline;              //@synthesize bottomHairline=_bottomHairline - In the implementation block
--(void)setButtonState:(int)arg1 ;
 -(void)configureVisualsForDefaultState;
 -(void)configureTextVisualsForDefaultState;
 -(int)buttonState;
 -(void)animateToButtonState:(int)arg1 ;
 -(void)configureTextVisualsForFilledInState;
 -(void)configureVisualsForFilledInState;
+-(void)setButtonState:(int)arg1 ;
 -(void)setSecondaryText:(NSString *)arg1 ;
 -(void)setPrimaryText:(NSString *)arg1 ;
 -(NSString *)primaryText;

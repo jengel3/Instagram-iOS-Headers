@@ -82,11 +82,11 @@
 -(float)restingMovableViewY;
 -(void)setIsShowingActionView:(char)arg1 ;
 -(char)isActionViewShownBeforePanning;
+-(void)setActionItems:(NSArray *)arg1 ;
 -(void)didStartPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didEndPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didCancelPanFromExternalGestureRecognizer:(id)arg1 ;
--(void)setActionItems:(NSArray *)arg1 ;
 -(NSArray *)actionItems;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;

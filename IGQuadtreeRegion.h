@@ -14,21 +14,22 @@
 
 @property (nonatomic,readonly) QuadtreePoint * center;                     //@synthesize center=_center - In the implementation block
 @property (nonatomic,readonly) QuadtreePoint * halfDimension;              //@synthesize halfDimension=_halfDimension - In the implementation block
-+(SCD_Struct_IG28)regionAroundCoordinate:(SCD_Struct_IG26)arg1 withDistanceToBoundary:(double)arg2 ;
++(SCD_Struct_IG84)regionAroundCoordinate:(SCD_Struct_IG82)arg1 withDistanceToBoundary:(double)arg2 ;
 +(id)globalRegion;
-+(SCD_Struct_IG28)regionAroundPoint:(id)arg1 withDistanceToBoundary:(double)arg2 ;
--(id)initWithMKCoordinateRegion:(SCD_Struct_IG28)arg1 ;
--(SCD_Struct_IG28)toMKCoordinateRegion;
++(SCD_Struct_IG84)regionAroundPoint:(id)arg1 withDistanceToBoundary:(double)arg2 ;
+-(id)initWithMKCoordinateRegion:(SCD_Struct_IG84)arg1 ;
+-(SCD_Struct_IG84)toMKCoordinateRegion;
 -(char)isEqualToRegion:(id)arg1 ;
 -(QuadtreePoint *)halfDimension;
 -(id)expandRegion:(double)arg1 ;
 -(char)containsRegion:(id)arg1 ;
 -(char)isGlobalRegion;
--(id)initWithMKCoordinateRegion:(SCD_Struct_IG28)arg1 expansionFactor:(double)arg2 ;
+-(id)initWithMKCoordinateRegion:(SCD_Struct_IG84)arg1 expansionFactor:(double)arg2 ;
 -(id)init:(id)arg1 halfDimension:(id)arg2 ;
 -(id)northwest;
 -(id)southeast;
 -(char)intersectsRegion:(id)arg1 ;
+-(id)description;
 -(QuadtreePoint *)center;
 -(char)containsPoint:(id)arg1 ;
 @end

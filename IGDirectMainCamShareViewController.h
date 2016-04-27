@@ -62,15 +62,17 @@
 @property (nonatomic,readonly) char isReadyToShare; 
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController * delegate;                         //@synthesize delegate=_delegate - In the implementation block
--(id)analyticsModule;
--(id)initWithMediaMetadata:(id)arg1 ;
+-(IGRaindropNavEvent *)currentNavEvent;
 -(IGAnalyticsMetadata *)analyticsMetadata;
 -(char)enableNavState;
+-(IGMutableRaindropRankInfo *)surfaceRankInfo;
+-(id)analyticsModule;
+-(IGRaindropNavState *)navState;
+-(char)isPerformingSearch;
+-(void)setIsPerformingSearch:(char)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
--(char)isPerformingSearch;
--(void)setIsPerformingSearch:(char)arg1 ;
 -(void)setTokenField:(IGTokenField *)arg1 ;
 -(IGTokenField *)tokenField;
 -(id)tokenFieldViewForTokenOverlay:(id)arg1 ;
@@ -106,12 +108,10 @@
 -(void)handleSelectionForUser:(id)arg1 atIndexPath:(id)arg2 fromSearch:(char)arg3 ;
 -(void)setSelectedGroup:(IGDirectThread *)arg1 ;
 -(void)setShareString:(NSString *)arg1 ;
--(IGRaindropNavEvent *)currentNavEvent;
--(IGMutableRaindropRankInfo *)surfaceRankInfo;
+-(id)initWithMediaMetadata:(id)arg1 ;
 -(void)configureWithHeaderView:(id)arg1 ;
 -(NSString *)shareString;
 -(char)isReadyToShare;
--(IGRaindropNavState *)navState;
 -(void)setDataSource:(IGDirectRecipientDataSource *)arg1 ;
 -(void)setDelegate:(UIViewController *)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

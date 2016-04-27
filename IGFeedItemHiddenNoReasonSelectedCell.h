@@ -3,27 +3,27 @@
 #import <UIKit/UICollectionViewCell.h>
 #import <UIKit/UITableViewDelegate.h>
 
-@class IGFeedItemHideHandler, UITableView, NSMutableDictionary, NSString;
+@class IGSponsoredFeedItemHideHandler, UITableView, NSMutableDictionary, NSString;
 
 @interface IGFeedItemHiddenNoReasonSelectedCell : UICollectionViewCell <UITableViewDelegate> {
 
-	IGFeedItemHideHandler* _hideHandler;
+	IGSponsoredFeedItemHideHandler* _hideHandler;
 	UITableView* _tableView;
 	NSMutableDictionary* _headersCache;
 
 }
 
-@property (nonatomic,retain) IGFeedItemHideHandler * hideHandler;               //@synthesize hideHandler=_hideHandler - In the implementation block
-@property (nonatomic,readonly) UITableView * tableView;                         //@synthesize tableView=_tableView - In the implementation block
-@property (nonatomic,readonly) NSMutableDictionary * headersCache;              //@synthesize headersCache=_headersCache - In the implementation block
+@property (nonatomic,retain) IGSponsoredFeedItemHideHandler * hideHandler;              //@synthesize hideHandler=_hideHandler - In the implementation block
+@property (nonatomic,readonly) UITableView * tableView;                                 //@synthesize tableView=_tableView - In the implementation block
+@property (nonatomic,readonly) NSMutableDictionary * headersCache;                      //@synthesize headersCache=_headersCache - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)heightForFeedItem:(id)arg1 ;
 -(void)configureForHideHandler:(id)arg1 ;
--(void)setHideHandler:(IGFeedItemHideHandler *)arg1 ;
--(IGFeedItemHideHandler *)hideHandler;
+-(void)setHideHandler:(IGSponsoredFeedItemHideHandler *)arg1 ;
+-(IGSponsoredFeedItemHideHandler *)hideHandler;
 -(NSMutableDictionary *)headersCache;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;

@@ -15,12 +15,12 @@
 @property (nonatomic,retain) NSArray * removedIndexPaths;               //@synthesize removedIndexPaths=_removedIndexPaths - In the implementation block
 @property (nonatomic,retain) NSArray * fromMoveIndexPaths;              //@synthesize fromMoveIndexPaths=_fromMoveIndexPaths - In the implementation block
 @property (nonatomic,retain) NSArray * toMoveIndexPaths;                //@synthesize toMoveIndexPaths=_toMoveIndexPaths - In the implementation block
--(NSArray *)removedIndexPaths;
 -(void)setRemovedIndexPaths:(NSArray *)arg1 ;
 -(void)setAddedIndexPaths:(NSArray *)arg1 ;
 -(void)setFromMoveIndexPaths:(NSArray *)arg1 ;
 -(void)setToMoveIndexPaths:(NSArray *)arg1 ;
 -(NSArray *)addedIndexPaths;
+-(NSArray *)removedIndexPaths;
 -(NSArray *)fromMoveIndexPaths;
 -(NSArray *)toMoveIndexPaths;
 -(id)description;

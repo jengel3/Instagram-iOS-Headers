@@ -21,8 +21,8 @@
 @property (assign,nonatomic,__weak) IGUsertagGroup * group;              //@synthesize group=_group - In the implementation block
 @property (nonatomic,retain) NSString * placeholderString;               //@synthesize placeholderString=_placeholderString - In the implementation block
 +(id)inTagWithUser:(id)arg1 atPosition:(CGPoint)arg2 ;
-+(id)inTagWithPlaceholderString:(id)arg1 atPosition:(CGPoint)arg2 ;
 +(id)inTagFromDictionary:(id)arg1 ;
++(id)inTagWithPlaceholderString:(id)arg1 atPosition:(CGPoint)arg2 ;
 -(id)usernameOrPlaceholder;
 -(id)initWithUser:(id)arg1 placeholderString:(id)arg2 position:(CGPoint)arg3 ;
 -(void)setPlaceholderString:(NSString *)arg1 ;

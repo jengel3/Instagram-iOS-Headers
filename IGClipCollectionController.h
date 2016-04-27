@@ -30,12 +30,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 didMoveToIndexPath:(id)arg3 ;
--(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canMoveToIndexPath:(id)arg3 ;
--(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canBeRemovedAtPoint:(CGPoint)arg3 ;
--(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 wasRemovedAtPoint:(CGPoint)arg3 ;
--(void)collectionView:(id)arg1 layout:(id)arg2 willBeginDraggingItemAtIndexPath:(id)arg3 ;
--(void)collectionView:(id)arg1 layout:(id)arg2 didEndDraggingItemAtIndexPath:(id)arg3 ;
 -(void)reloadCollectionWithVideoComposition:(id)arg1 ;
 -(void)reloadClipAtIndex:(unsigned)arg1 ;
 -(IGVideoClip *)selectedClip;
@@ -43,6 +37,12 @@
 -(void)setClipTrayView:(IGClipTrayView *)arg1 ;
 -(char)scrollingToClip;
 -(void)setScrollingToClip:(char)arg1 ;
+-(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canBeRemovedAtPoint:(CGPoint)arg3 ;
+-(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canMoveToIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 didMoveToIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 layout:(id)arg2 willBeginDraggingItemAtIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 layout:(id)arg2 didEndDraggingItemAtIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 wasRemovedAtPoint:(CGPoint)arg3 ;
 -(IGVideoComposition *)videoComposition;
 -(void)setVideoComposition:(IGVideoComposition *)arg1 ;
 -(void)setDelegate:(id<IGClipCollectionControllerDelegate>)arg1 ;

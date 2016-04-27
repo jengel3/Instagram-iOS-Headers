@@ -15,8 +15,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)writeVideoToCameraRoll:(id)arg1 ;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
+-(void)writeVideoToCameraRoll:(id)arg1 ;
 -(void)setDelegate:(id<IGDirectSaveMediaDelegate>)arg1 ;
 -(id<IGDirectSaveMediaDelegate>)delegate;
 @end

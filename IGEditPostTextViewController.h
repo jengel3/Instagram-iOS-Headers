@@ -39,12 +39,12 @@
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(float)leadingHeight;
--(void)setTextViewContainer:(UIControl *)arg1 ;
--(UIControl *)textViewContainer;
--(float)textContentLayoutHeight;
 -(float)textHeightForWidth:(float)arg1 ;
 -(float)textContentLayoutHeightForWidth:(float)arg1 ;
+-(float)textContentLayoutHeight;
 -(void)updateViewHeight;
+-(UIControl *)textViewContainer;
+-(void)setTextViewContainer:(UIControl *)arg1 ;
 -(NSString *)placeholderText;
 -(void)setPlaceholderText:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGEditPostTextViewControllerDelegate>)arg1 ;

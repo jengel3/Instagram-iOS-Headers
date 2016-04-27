@@ -13,9 +13,9 @@
 
 @property (nonatomic,readonly) UIImageView * innerIcon;                  //@synthesize innerIcon=_innerIcon - In the implementation block
 @property (nonatomic,readonly) UIImageView * containerIcon;              //@synthesize containerIcon=_containerIcon - In the implementation block
--(id)initWithFrame:(CGRect)arg1 innerIconImage:(id)arg2 containerIconImage:(id)arg3 ;
 -(UIImageView *)innerIcon;
 -(void)animateLayer:(id)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 innerIconImage:(id)arg2 containerIconImage:(id)arg3 ;
 -(UIImageView *)containerIcon;
 -(void)stopAnimating;
 -(void)startAnimating;

@@ -32,13 +32,14 @@
 @property (nonatomic,copy,readonly) NSString * overlayText;                  //@synthesize overlayText=_overlayText - In the implementation block
 @property (nonatomic,copy,readonly) NSString * overlayTitle;                 //@synthesize overlayTitle=_overlayTitle - In the implementation block
 @property (nonatomic,copy,readonly) NSString * overlaySubtitle;              //@synthesize overlaySubtitle=_overlaySubtitle - In the implementation block
++(id)adPreviewWithCTA:(id)arg1 url:(id)arg2 ;
 +(char)hasDirectResponseInfo:(id)arg1 ;
--(NSString *)overlayTitle;
--(NSString *)overlayText;
 -(NSString *)actionText;
--(NSString *)overlaySubtitle;
+-(NSString *)overlayText;
 -(char)hideNUXText;
 -(NSString *)actionHintText;
+-(NSString *)overlaySubtitle;
+-(NSString *)overlayTitle;
 -(char)forceOverlay;
 -(NSURL *)actionURL;
 -(NSArray *)iosLinks;

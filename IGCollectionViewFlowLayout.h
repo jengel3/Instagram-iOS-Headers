@@ -11,10 +11,10 @@
 
 @property (assign,nonatomic) float stickyHeaderOriginYAdjustment;              //@synthesize stickyHeaderOriginYAdjustment=_stickyHeaderOriginYAdjustment - In the implementation block
 @property (nonatomic,readonly) char stickyHeaders;                             //@synthesize stickyHeaders=_stickyHeaders - In the implementation block
--(id)initWithStickyHeaders:(char)arg1 ;
--(char)stickyHeaders;
 -(float)stickyHeaderOriginYAdjustment;
 -(void)setStickyHeaderOriginYAdjustment:(float)arg1 ;
+-(id)initWithStickyHeaders:(char)arg1 ;
+-(char)stickyHeaders;
 -(id)init;
 -(id)layoutAttributesForElementsInRect:(CGRect)arg1 ;
 -(char)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1 ;

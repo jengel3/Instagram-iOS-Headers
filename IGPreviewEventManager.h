@@ -20,9 +20,9 @@
 +(void)logAction:(id)arg1 module:(id)arg2 ;
 +(void)logShortcutAction:(id)arg1 ;
 -(void)logCommit;
--(void)didDisappear;
 -(char)isLogged;
 -(void)setLogged:(char)arg1 ;
+-(void)didDisappear;
 -(void)setStartTime:(double)arg1 ;
 -(NSString *)type;
 -(NSString *)source;

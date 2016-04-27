@@ -3,7 +3,7 @@
 #import <UIKit/UIView.h>
 
 @protocol IGVideoScrubberViewDelegate;
-@class IGSurfaceView, UIView, NSMutableArray, UILabel;
+@class IGSurfaceView, UIView, NSMutableArray, UILabel, CALayer;
 
 @interface IGVideoScrubberView : UIView {
 
@@ -16,6 +16,7 @@
 	UIView* _centerHandle;
 	NSMutableArray* _frameViews;
 	UILabel* _instructionLabel;
+	CALayer* _shadowLayer;
 
 }
 
@@ -27,13 +28,11 @@
 @property (nonatomic,retain) UIView * centerHandle;                                        //@synthesize centerHandle=_centerHandle - In the implementation block
 @property (nonatomic,retain) NSMutableArray * frameViews;                                  //@synthesize frameViews=_frameViews - In the implementation block
 @property (nonatomic,retain) UILabel * instructionLabel;                                   //@synthesize instructionLabel=_instructionLabel - In the implementation block
+@property (nonatomic,retain) CALayer * shadowLayer;                                        //@synthesize shadowLayer=_shadowLayer - In the implementation block
 -(void)onPan:(id)arg1 ;
--(void)setInstructionLabel:(UILabel *)arg1 ;
 -(float)keyPosition;
--(void)setThumbnail:(id)arg1 forIndex:(unsigned)arg2 ;
 -(void)setKeyPosition:(float)arg1 ;
--(id)initWithFrame:(CGRect)arg1 videoSize:(CGSize)arg2 ;
--(IGSurfaceView *)centerHandleImageView;
+-(void)configureShadowLayer;
 -(void)configureFramesContainer;
 -(void)configureFrameThumbnailViews;
 -(void)configureOverlayView;
@@ -41,6 +40,7 @@
 -(void)configureInstructionLabel;
 -(UIView *)frameViewsContainer;
 -(void)updateFrameRects;
+-(CALayer *)shadowLayer;
 -(int)xForPosition:(float)arg1 ;
 -(UIView *)centerHandle;
 -(void)onThumbnailStripTapped:(id)arg1 ;
@@ -49,10 +49,15 @@
 -(int)scrubPadding;
 -(int)scrubbableWidth;
 -(float)positionForX:(float)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 videoSize:(CGSize)arg2 ;
+-(void)setThumbnail:(id)arg1 forIndex:(unsigned)arg2 ;
+-(IGSurfaceView *)centerHandleImageView;
 -(void)setCenterHandleImageView:(IGSurfaceView *)arg1 ;
 -(void)setFrameViewsContainer:(UIView *)arg1 ;
 -(void)setCenterHandle:(UIView *)arg1 ;
 -(void)setFrameViews:(NSMutableArray *)arg1 ;
+-(void)setInstructionLabel:(UILabel *)arg1 ;
+-(void)setShadowLayer:(CALayer *)arg1 ;
 -(UILabel *)instructionLabel;
 -(void)setDelegate:(id<IGVideoScrubberViewDelegate>)arg1 ;
 -(void)layoutSubviews;

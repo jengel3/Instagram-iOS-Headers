@@ -9,10 +9,10 @@
 }
 
 @property (nonatomic,readonly) NSFileManager * fileManager;              //@synthesize fileManager=_fileManager - In the implementation block
--(id)cachesDirectoryURL;
 -(id)initWithFileManager:(id)arg1 ;
 -(id)URLforUserDomainDirectory:(unsigned)arg1 ;
 -(id)temporaryDirectoryURL;
+-(id)cachesDirectoryURL;
 -(id)trashDirectoryURL;
 -(id)init;
 -(NSFileManager *)fileManager;

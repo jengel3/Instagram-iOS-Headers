@@ -31,7 +31,6 @@
 -(void)categoriesButtonsView:(id)arg1 didTapClusterID:(id)arg2 atPosition:(int)arg3 ;
 -(void)categoriesButtonsViewDidSkip:(id)arg1 ;
 -(IGRegistrationClusterBrowsingCategoriesView *)categoriesView;
--(void)setCategoriesView:(IGRegistrationClusterBrowsingCategoriesView *)arg1 ;
 -(void)fetchInterests;
 -(void)didTapContinue;
 -(NSMutableDictionary *)clusterDict;
@@ -39,6 +38,7 @@
 -(void)setFindUsersViewController:(IGClusterBrowsingSuggestedUserListViewController *)arg1 ;
 -(IGClusterBrowsingSuggestedUserListViewController *)findUsersViewController;
 -(void)updateIndicatorViewWithClustersCount:(int)arg1 ;
+-(void)setCategoriesView:(IGRegistrationClusterBrowsingCategoriesView *)arg1 ;
 -(void)setClusterDict:(NSMutableDictionary *)arg1 ;
 -(void)setFindUsersViewDataSource:(IGClusterBrowsingSuggestedUsersViewDataSource *)arg1 ;
 -(void)setDelegate:(id<IGClusterBrowsingV2ViewControllerDelegate>)arg1 ;

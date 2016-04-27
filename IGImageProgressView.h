@@ -35,12 +35,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(int)loadStatus;
--(void)imageViewLoadedImage:(id)arg1 ;
 -(void)imageViewFailedToLoadImage:(id)arg1 error:(id)arg2 ;
+-(void)setDelegateNeedsImageNow:(char)arg1 ;
+-(void)imageViewLoadedImage:(id)arg1 ;
 -(void)imageViewDidChangeImageProgress:(float)arg1 ;
 -(char)delegateNeedsImageNow;
--(void)setDelegateNeedsImageNow:(char)arg1 ;
+-(int)loadStatus;
 -(void)doMediaFetch;
 -(void)displayLoadingImageIfNeeded;
 -(void)makeFailureView;

@@ -22,9 +22,9 @@
 -(UILabel *)countLabel;
 -(void)updateTextLabelAppearance;
 -(int)appearanceType;
--(void)setAssetCount:(int)arg1 ;
 -(int)assetCount;
 -(void)setAppearanceType:(int)arg1 ;
+-(void)setAssetCount:(int)arg1 ;
 -(int)requestID;
 -(void)layoutSubviews;
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;

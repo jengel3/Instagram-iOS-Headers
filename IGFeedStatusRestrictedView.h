@@ -45,8 +45,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(IGCoreTextView *)learnMoreLink;
 -(UIImageView *)restrictedIcon;
 -(void)setLeftButtonText:(NSString *)arg1 ;
@@ -57,7 +57,6 @@
 -(void)didTapRightButton;
 -(float)maxMessageWidth;
 -(void)layoutMessages;
--(void)layoutButtons;
 -(NSString *)learnMoreText;
 -(NSString *)learnMoreURLString;
 -(NSString *)rightButtonText;
@@ -68,6 +67,7 @@
 -(void)setBlockedUser:(IGUser *)arg1 ;
 -(void)setRestrictedIcon:(UIImageView *)arg1 ;
 -(void)setLearnMoreLink:(IGCoreTextView *)arg1 ;
+-(void)layoutButtons;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGFeedStatusRestrictedViewDelegate>)arg1 ;
 -(void)layoutSubviews;

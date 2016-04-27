@@ -4,7 +4,7 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGVideoTrimViewDelegate;
-@class UIScrollView, IGFilmStripView, IGVideoTrimViewControl, UIView, UIImageView, IGTimeRulerView, UILabel, NSString;
+@class UIScrollView, IGFilmStripView, IGVideoTrimViewControl, UIView, UIImageView, IGTimeRulerView, CALayer, UILabel, NSString;
 
 @interface IGVideoTrimView : UIView <UIGestureRecognizerDelegate> {
 
@@ -24,6 +24,7 @@
 	UIImageView* _trimHandlesView;
 	UIView* _rightDistortionView;
 	IGTimeRulerView* _rulerView;
+	CALayer* _shadowLayer;
 	UIImageView* _playheadImageView;
 	UILabel* _playheadLabel;
 	float _previousPanningOffset;
@@ -48,6 +49,7 @@
 @property (nonatomic,retain) UIImageView * trimHandlesView;                               //@synthesize trimHandlesView=_trimHandlesView - In the implementation block
 @property (nonatomic,retain) UIView * rightDistortionView;                                //@synthesize rightDistortionView=_rightDistortionView - In the implementation block
 @property (nonatomic,retain) IGTimeRulerView * rulerView;                                 //@synthesize rulerView=_rulerView - In the implementation block
+@property (nonatomic,retain) CALayer * shadowLayer;                                       //@synthesize shadowLayer=_shadowLayer - In the implementation block
 @property (nonatomic,retain) UIImageView * playheadImageView;                             //@synthesize playheadImageView=_playheadImageView - In the implementation block
 @property (nonatomic,retain) UILabel * playheadLabel;                                     //@synthesize playheadLabel=_playheadLabel - In the implementation block
 @property (assign,nonatomic) float previousPanningOffset;                                 //@synthesize previousPanningOffset=_previousPanningOffset - In the implementation block
@@ -55,12 +57,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)durationStringForNumber:(id)arg1 ;
 -(void)setTimeScale:(float)arg1 ;
 -(unsigned)panningTrimHandle;
+-(CALayer *)shadowLayer;
+-(void)setShadowLayer:(CALayer *)arg1 ;
 -(void)userDidPanTrimHandles:(id)arg1 ;
 -(CGRect)rectForTrimRange:(IGRange)arg1 ;
 -(void)updatePlayheadLabel;
+-(id)durationStringForNumber:(id)arg1 ;
 -(void)setPlayheadHidden:(char)arg1 animated:(char)arg2 ;
 -(CGRect)touchRectForTrimHandle:(unsigned)arg1 ;
 -(unsigned)trimHandleAtPoint:(CGPoint)arg1 ;

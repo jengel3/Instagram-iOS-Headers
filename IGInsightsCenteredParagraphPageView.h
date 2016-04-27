@@ -33,11 +33,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)updateWidth:(float)arg1 ;
--(IGInsightsLoggingHelper *)loggingHelper;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
--(NSArray *)paragraphUnits;
 -(id)initWithParagraphUnits:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
 -(void)setSurface:(unsigned)arg1 ;
+-(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)setParagraphUnits:(NSArray *)arg1 ;
 -(id)getCollectionViewFlowLayout;
 -(void)initializePageControl;
@@ -47,6 +46,7 @@
 -(void)setCurrentLayoutIndex:(int)arg1 ;
 -(int)currentLayoutIndex;
 -(CGSize)unitSize;
+-(NSArray *)paragraphUnits;
 -(void)setPageControl:(UIPageControl *)arg1 ;
 -(void)layoutSubviews;
 -(void)scrollViewDidEndDecelerating:(id)arg1 ;

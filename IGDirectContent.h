@@ -28,9 +28,9 @@
 -(NSString *)clientContextId;
 -(NSString *)contentTypeString;
 -(void)setClientContextId:(NSString *)arg1 ;
--(id)copyBySettingItemID:(id)arg1 ;
--(char)contentHasReactions;
 -(void)setSentAt:(IGDate *)arg1 ;
+-(char)contentHasReactions;
+-(id)copyBySettingItemID:(id)arg1 ;
 -(char)isUploading;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;

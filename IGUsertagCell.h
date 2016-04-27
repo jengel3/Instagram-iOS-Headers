@@ -1,9 +1,9 @@
 
-#import <Instagram/IGDarkTableViewCell.h>
+#import <Instagram/IGPlainTableViewCell.h>
 
 @class IGProfilePictureImageView, IGUser;
 
-@interface IGUsertagCell : IGDarkTableViewCell {
+@interface IGUsertagCell : IGPlainTableViewCell {
 
 	IGProfilePictureImageView* _profilePictureImageView;
 	IGUser* _user;

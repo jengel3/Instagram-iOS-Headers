@@ -21,11 +21,11 @@
 @property (nonatomic,retain) NSMutableArray * runningAnimationOperations; 
 @property (nonatomic,retain) NSObject*<OS_dispatch_source> timer; 
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> animationQueue; 
-+(id)animate:(id)arg1 property:(id)arg2 from:(float)arg3 to:(float)arg4 duration:(float)arg5 ;
 +(SEL)setterFromProperty:(id)arg1 ;
 +(id)animate:(id)arg1 property:(id)arg2 period:(id)arg3 animationCurve:(int)arg4 delegate:(id)arg5 ;
 +(id)animate:(id)arg1 property:(id)arg2 from:(float)arg3 to:(float)arg4 duration:(float)arg5 withDelay:(float)arg6 animationCurve:(int)arg7 delegate:(id)arg8 ;
 +(id)animate:(id)arg1 property:(id)arg2 from:(float)arg3 to:(float)arg4 duration:(float)arg5 animationCurve:(int)arg6 delegate:(id)arg7 ;
++(id)animate:(id)arg1 property:(id)arg2 from:(float)arg3 to:(float)arg4 duration:(float)arg5 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromPoint:(CGPoint)arg3 toPoint:(CGPoint)arg4 duration:(float)arg5 withDelay:(float)arg6 animationCurve:(int)arg7 delegate:(id)arg8 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromPoint:(CGPoint)arg3 toPoint:(CGPoint)arg4 duration:(float)arg5 animationCurve:(int)arg6 delegate:(id)arg7 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromPoint:(CGPoint)arg3 toPoint:(CGPoint)arg4 duration:(float)arg5 ;
@@ -35,9 +35,9 @@
 +(id)animate:(id)arg1 property:(id)arg2 fromRect:(CGRect)arg3 toRect:(CGRect)arg4 duration:(float)arg5 withDelay:(float)arg6 animationCurve:(int)arg7 delegate:(id)arg8 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromRect:(CGRect)arg3 toRect:(CGRect)arg4 duration:(float)arg5 animationCurve:(int)arg6 delegate:(id)arg7 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromRect:(CGRect)arg3 toRect:(CGRect)arg4 duration:(float)arg5 ;
-+(id)animate:(id)arg1 property:(id)arg2 fromDecimal:(SCD_Struct_CP96)arg3 toDecimal:(SCD_Struct_CP96)arg4 duration:(float)arg5 withDelay:(float)arg6 animationCurve:(int)arg7 delegate:(id)arg8 ;
-+(id)animate:(id)arg1 property:(id)arg2 fromDecimal:(SCD_Struct_CP96)arg3 toDecimal:(SCD_Struct_CP96)arg4 duration:(float)arg5 animationCurve:(int)arg6 delegate:(id)arg7 ;
-+(id)animate:(id)arg1 property:(id)arg2 fromDecimal:(SCD_Struct_CP96)arg3 toDecimal:(SCD_Struct_CP96)arg4 duration:(float)arg5 ;
++(id)animate:(id)arg1 property:(id)arg2 fromDecimal:(SCD_Struct_CP53)arg3 toDecimal:(SCD_Struct_CP53)arg4 duration:(float)arg5 withDelay:(float)arg6 animationCurve:(int)arg7 delegate:(id)arg8 ;
++(id)animate:(id)arg1 property:(id)arg2 fromDecimal:(SCD_Struct_CP53)arg3 toDecimal:(SCD_Struct_CP53)arg4 duration:(float)arg5 animationCurve:(int)arg6 delegate:(id)arg7 ;
++(id)animate:(id)arg1 property:(id)arg2 fromDecimal:(SCD_Struct_CP53)arg3 toDecimal:(SCD_Struct_CP53)arg4 duration:(float)arg5 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromPlotRange:(id)arg3 toPlotRange:(id)arg4 duration:(float)arg5 withDelay:(float)arg6 animationCurve:(int)arg7 delegate:(id)arg8 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromPlotRange:(id)arg3 toPlotRange:(id)arg4 duration:(float)arg5 animationCurve:(int)arg6 delegate:(id)arg7 ;
 +(id)animate:(id)arg1 property:(id)arg2 fromPlotRange:(id)arg3 toPlotRange:(id)arg4 duration:(float)arg5 ;

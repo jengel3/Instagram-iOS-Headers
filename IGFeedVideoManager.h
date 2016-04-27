@@ -13,8 +13,8 @@
 @property (nonatomic,readonly) NSMutableSet * inUsePool;                  //@synthesize inUsePool=_inUsePool - In the implementation block
 @property (nonatomic,readonly) NSMutableSet * availablePool;              //@synthesize availablePool=_availablePool - In the implementation block
 +(id)sharedFeedVideoManager;
--(id)dequeueReusablePlayer;
 -(void)finishUsingPlayer:(id)arg1 ;
+-(id)dequeueReusablePlayer;
 -(NSMutableSet *)inUsePool;
 -(NSMutableSet *)availablePool;
 -(void)notifyPlayerUsageChange;

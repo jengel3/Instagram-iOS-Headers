@@ -1,10 +1,12 @@
 
+#import <Instagram/IGThreadStoreNetworkingProtocol.h>
 #import <Instagram/IGRealtimeOperationDelegate.h>
 #import <Instagram/IGUserSessionClearableObject.h>
+#import <Instagram/IGThreadStoreProtocol.h>
 
 @class NSMapTable, NSString, IGNonCurrentUserDefaults, IGDirectThreadDiskCache, IGRealtimeManager;
 
-@interface IGDirectThreadStore : NSObject <IGRealtimeOperationDelegate, IGUserSessionClearableObject> {
+@interface IGDirectThreadStore : NSObject <IGThreadStoreNetworkingProtocol, IGRealtimeOperationDelegate, IGUserSessionClearableObject, IGThreadStoreProtocol> {
 
 	NSMapTable* _threads;
 	unsigned _backgroundTask;
@@ -15,31 +17,26 @@
 
 }
 
-@property (nonatomic,retain) NSString * userSessionPK;                                     //@synthesize userSessionPK=_userSessionPK - In the implementation block
-@property (nonatomic,retain) IGNonCurrentUserDefaults * sessionUserDefaults;               //@synthesize sessionUserDefaults=_sessionUserDefaults - In the implementation block
-@property (nonatomic,retain) IGDirectThreadDiskCache * directThreadDiskCache;              //@synthesize directThreadDiskCache=_directThreadDiskCache - In the implementation block
-@property (nonatomic,retain) IGRealtimeManager * realtimeManager;                          //@synthesize realtimeManager=_realtimeManager - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+@property (nonatomic,retain) NSString * userSessionPK;                                     //@synthesize userSessionPK=_userSessionPK - In the implementation block
+@property (nonatomic,retain) IGNonCurrentUserDefaults * sessionUserDefaults;               //@synthesize sessionUserDefaults=_sessionUserDefaults - In the implementation block
+@property (nonatomic,retain) IGDirectThreadDiskCache * directThreadDiskCache;              //@synthesize directThreadDiskCache=_directThreadDiskCache - In the implementation block
+@property (nonatomic,retain) IGRealtimeManager * realtimeManager;                          //@synthesize realtimeManager=_realtimeManager - In the implementation block
 +(void)clearForUserPK:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
 -(NSString *)userSessionPK;
--(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(id)storedThreadWithID:(id)arg1 ;
--(IGRealtimeManager *)realtimeManager;
--(void)handleRealtimeOperation:(id)arg1 ;
--(id)pkForRealtimeOperation:(id)arg1 ;
--(void)handleRealtimeRefreshRequest;
--(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(id)allThreadsSorted;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
+-(void)setUserSessionPK:(NSString *)arg1 ;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)fetchThreadWithID:(id)arg1 withNextMaxID:(id)arg2 successfulThreadHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
--(id)allThreadsIncludingLocal;
+-(id)storedThreadWithID:(id)arg1 ;
+-(id)updateStoreWithThreadDictionary:(id)arg1 alwaysMerge:(char)arg2 ;
 -(void)refreshInboxWithNextMaxID:(id)arg1 successfulInboxHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)setMuteStatusOfThreadWithID:(id)arg1 to:(char)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)deleteLocalThreadWithID:(id)arg1 ;
@@ -57,6 +54,7 @@
 -(void)cacheThreadsToDisk:(id)arg1 ;
 -(void)cacheThreadToDisk:(id)arg1 withAdditionalContent:(char)arg2 ;
 -(id)_sortedThreadsWithPending:(char)arg1 withUploads:(char)arg2 ;
+-(IGRealtimeManager *)realtimeManager;
 -(void)postThreadUpdatedNotificationForThread:(id)arg1 withReason:(int)arg2 ;
 -(void)postNotificationForAddedContent:(id)arg1 thread:(id)arg2 ;
 -(void)postThreadUpdatedNotificationForThreadID:(id)arg1 withReason:(int)arg2 ;
@@ -64,7 +62,6 @@
 -(void)removeThreadWithID:(id)arg1 ;
 -(void)handleRealtimeAddContent:(id)arg1 threadID:(id)arg2 ;
 -(void)handleReplaceContent:(id)arg1 forThreadID:(id)arg2 needsForceUpdate:(char)arg3 ;
--(id)updateStoreWithThreadDictionary:(id)arg1 alwaysMerge:(char)arg2 ;
 -(void)handleAddMessageRealtimeEventWithDictionary:(id)arg1 forThreadId:(id)arg2 ;
 -(void)handleRemoveRealtimeEventForItemWithId:(id)arg1 forThreadId:(id)arg2 ;
 -(void)handleReplaceMessageRealtimeEventWithDictionary:(id)arg1 forThreadID:(id)arg2 ;
@@ -73,23 +70,28 @@
 -(void)handleRealtimeUnseenCountEventWithCount:(id)arg1 withSequenceString:(id)arg2 ;
 -(void)refreshInbox;
 -(void)postThreadsNeedRefreshNotification;
--(id)storedThreadWithUsers:(id)arg1 ;
+-(void)handleRealtimeOperation:(id)arg1 ;
+-(id)pkForRealtimeOperation:(id)arg1 ;
+-(void)handleRealtimeRefreshRequest;
 -(void)postThreadUpdatedNotificationForThreadID:(id)arg1 ;
+-(id)allThreadsIncludingLocal;
+-(id)storedThreadWithUsers:(id)arg1 ;
 -(void)postInboxUpdatedNotificationWithMegaphone:(id)arg1 ;
 -(void)updateThreadStoreWithUpload:(id)arg1 isNewUpload:(char)arg2 ;
 -(void)postLocalThreadUpdatedFromUploadKey:(id)arg1 toThreadID:(id)arg2 ;
 -(void)setDirectThreadDiskCache:(IGDirectThreadDiskCache *)arg1 ;
+-(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)logRequestTimePerfWithView:(id)arg1 duration:(double)arg2 threadID:(id)arg3 succeeded:(char)arg4 isFirstPage:(char)arg5 ;
 -(void)fetchThreadWithID:(id)arg1 retryCount:(int)arg2 successfulThreadHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
+-(void)addUsers:(id)arg1 toThread:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)deleteContent:(id)arg1 fromThread:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)leaveThreadWithID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
--(void)sendSeenTimestampForThreadID:(id)arg1 forContent:(id)arg2 ;
+-(void)renameThreadWithID:(id)arg1 toName:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)allowPendingThreadWithThreadID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)declinePendingThreadWithThreadID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)blockCreatorOfPendingThreadWithThreadID:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
+-(void)sendSeenTimestampForThreadID:(id)arg1 forContent:(id)arg2 ;
 -(void)acceptDirectMessagesFromUserID:(id)arg1 accept:(char)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
--(void)renameThreadWithID:(id)arg1 toName:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
--(void)addUsers:(id)arg1 toThread:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(unsigned)subscriptionStatus;
 -(void)dealloc;
 @end

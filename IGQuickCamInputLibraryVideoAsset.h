@@ -20,12 +20,12 @@
 @property (assign,nonatomic) int devicePosition;                    //@synthesize devicePosition=_devicePosition - In the implementation block
 @property (nonatomic,retain) PHAsset * phAsset;                     //@synthesize phAsset=_phAsset - In the implementation block
 @property (nonatomic,retain) ALAsset * alAsset;                     //@synthesize alAsset=_alAsset - In the implementation block
--(void)setPhAsset:(PHAsset *)arg1 ;
--(void)setAlAsset:(ALAsset *)arg1 ;
--(void)setDevicePosition:(int)arg1 ;
--(PHAsset *)phAsset;
 -(char)isFromLibrary;
 -(int)devicePosition;
+-(PHAsset *)phAsset;
+-(void)setPhAsset:(PHAsset *)arg1 ;
 -(ALAsset *)alAsset;
+-(void)setAlAsset:(ALAsset *)arg1 ;
+-(void)setDevicePosition:(int)arg1 ;
 @end
 

@@ -34,6 +34,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setPullRefreshControlView:(IGPullToRefreshView *)arg1 ;
 -(IGPullToRefreshView *)pullRefreshControlView;
 -(void)fakePullToRefreshForFirstTimeLoading;
 -(void)closePullToRefreshViewOnNetworkFinishedLoading:(/*^block*/id)arg1 ;
@@ -41,7 +42,6 @@
 -(void)pullToRefreshViewDidEndScrolling;
 -(void)pullToRefreshViewDidEndDragging;
 -(char)hasPullToRefreshSessionRunning;
--(char)hasClosureAnimationRunning;
 -(void)pullRefreshControlAnimationInterrupted:(id)arg1 ;
 -(void)pullRefreshControlDidTriggerRefresh:(id)arg1 ;
 -(float)pullToRefreshTopInset;
@@ -64,7 +64,7 @@
 -(void)setTimeStampPullingDownTriggeredNetworkFetch:(double)arg1 ;
 -(void)forceHidingPullRefreshView;
 -(char)needsPullToRefreshClosureOnNetworkFinishedLoading;
--(void)setPullRefreshControlView:(IGPullToRefreshView *)arg1 ;
+-(char)hasClosureAnimationRunning;
 -(id<IGPullToRefreshProtocol>)delegate;
 -(id)initWithDelegate:(id)arg1 ;
 @end

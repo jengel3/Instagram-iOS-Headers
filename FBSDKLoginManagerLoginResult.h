@@ -19,10 +19,10 @@
 @property (nonatomic,copy) NSSet * declinedPermissions;                   //@synthesize declinedPermissions=_declinedPermissions - In the implementation block
 @property (nonatomic,readonly) NSDictionary * loggingExtras; 
 @property (assign,nonatomic) char isSkipped;                              //@synthesize isSkipped=_isSkipped - In the implementation block
--(NSDictionary *)loggingExtras;
 -(NSSet *)declinedPermissions;
 -(void)setDeclinedPermissions:(NSSet *)arg1 ;
 -(char)isSkipped;
+-(NSDictionary *)loggingExtras;
 -(id)initWithToken:(id)arg1 isCancelled:(char)arg2 grantedPermissions:(id)arg3 declinedPermissions:(id)arg4 ;
 -(void)addLoggingExtra:(id)arg1 forKey:(id)arg2 ;
 -(void)setIsSkipped:(char)arg1 ;

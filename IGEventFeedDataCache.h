@@ -11,11 +11,11 @@
 
 @property (nonatomic,retain) IGEventFeedData * lastSeenPage;              //@synthesize lastSeenPage=_lastSeenPage - In the implementation block
 @property (nonatomic,retain) NSMutableArray * pages;                      //@synthesize pages=_pages - In the implementation block
--(void)removePost:(id)arg1 ;
 -(id)pageThatContainsPost:(id)arg1 ;
 -(void)resetCacheWithPost:(id)arg1 ;
 -(id)trimmedPageWithStartIndex:(unsigned)arg1 originalPage:(id)arg2 ;
 -(void)updateCacheWithPage:(id)arg1 ;
+-(void)removePost:(id)arg1 ;
 -(void)setLastSeenPage:(IGEventFeedData *)arg1 ;
 -(void)updateWithLastSeenPost:(id)arg1 ;
 -(void)removeDuplicatePostsFromPage:(id)arg1 ;

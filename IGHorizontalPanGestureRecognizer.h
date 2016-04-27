@@ -21,8 +21,8 @@
 @property (assign,nonatomic) CGPoint startPoint;                       //@synthesize startPoint=_startPoint - In the implementation block
 @property (nonatomic,retain) UITouch * touch;                          //@synthesize touch=_touch - In the implementation block
 -(char)rightToLeftPanDisabled;
--(CGPoint)startPointInView:(id)arg1 ;
 -(void)setRightToLeftPanDisabled:(char)arg1 ;
+-(CGPoint)startPointInView:(id)arg1 ;
 -(id)initWithTarget:(id)arg1 action:(SEL)arg2 ;
 -(CGPoint)locationInView:(id)arg1 ;
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2 ;

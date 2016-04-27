@@ -17,11 +17,11 @@
 -(void)activateRecordingSession:(char)arg1 ;
 -(void)setPreviousVolume:(float)arg1 ;
 -(float)previousVolume;
--(void)activatePlaybackSession;
--(void)activateRecordingSession;
 -(char)overrideMuteSwitch;
 -(void)setOverrideMuteSwitch:(char)arg1 ;
 -(MPMusicPlayerController *)musicPlayerController;
+-(void)activateRecordingSession;
+-(void)activatePlaybackSession;
 -(void)dealloc;
 -(id)init;
 -(void)volumeChanged:(id)arg1 ;

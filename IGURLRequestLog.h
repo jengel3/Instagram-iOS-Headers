@@ -25,13 +25,13 @@
 @property (nonatomic,retain) NSNumber * totalBytesUp;                //@synthesize totalBytesUp=_totalBytesUp - In the implementation block
 @property (nonatomic,retain) NSNumber * totalBytesDown;              //@synthesize totalBytesDown=_totalBytesDown - In the implementation block
 +(void)setLoggingEnabled:(char)arg1 ;
--(NSNumber *)totalBytesUp;
+-(void)setTotalBytesUp:(NSNumber *)arg1 ;
 -(NSNumber *)totalBytesDown;
+-(void)setTotalBytesDown:(NSNumber *)arg1 ;
+-(NSNumber *)totalBytesUp;
 -(void)markEvent:(int)arg1 ;
 -(NSNumber *)domainError;
 -(void)setDomainError:(NSNumber *)arg1 ;
--(void)setTotalBytesUp:(NSNumber *)arg1 ;
--(void)setTotalBytesDown:(NSNumber *)arg1 ;
 -(void)setContentLength:(NSNumber *)arg1 ;
 -(id)init;
 -(NSString *)query;

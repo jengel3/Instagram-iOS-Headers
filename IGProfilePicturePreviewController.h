@@ -22,9 +22,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGProfilePictureImageView *)profilePictureImageView;
--(id)previewActionBarItems;
 -(void)setPreviewWidth:(float)arg1 ;
 -(float)previewWidth;
+-(id)previewActionBarItems;
 -(IGPreviewEventManager *)logger;
 -(void)setLogger:(IGPreviewEventManager *)arg1 ;
 -(id)initWithUser:(id)arg1 ;

@@ -16,52 +16,52 @@
 	CFArrayRef _savedAudioBuffers;
 	NSObject*<OS_dispatch_queue> _writeQueue;
 	CGSize _videoSize;
-	SCD_Struct_IG44 _startSessionTime;
-	SCD_Struct_IG44 _endSessionTime;
-	SCD_Struct_IG44 _lastVideoFrameSourceTime;
-	SCD_Struct_IG44 _lastAudioFrameSourceTime;
+	SCD_Struct_IG100 _startSessionTime;
+	SCD_Struct_IG100 _endSessionTime;
+	SCD_Struct_IG100 _lastVideoFrameSourceTime;
+	SCD_Struct_IG100 _lastAudioFrameSourceTime;
 
 }
 
 @property (nonatomic,readonly) float runningTime; 
-@property (assign,nonatomic) int position;                                          //@synthesize position=_position - In the implementation block
-@property (nonatomic,retain) NSURL * outputFileURL;                                 //@synthesize outputFileURL=_outputFileURL - In the implementation block
-@property (assign,nonatomic) CGSize videoSize;                                      //@synthesize videoSize=_videoSize - In the implementation block
-@property (nonatomic,retain) AVAssetWriter * assetWriter;                           //@synthesize assetWriter=_assetWriter - In the implementation block
-@property (nonatomic,retain) AVAssetWriterInput * videoWriterInput;                 //@synthesize videoWriterInput=_videoWriterInput - In the implementation block
-@property (nonatomic,retain) AVAssetWriterInput * audioWriterInput;                 //@synthesize audioWriterInput=_audioWriterInput - In the implementation block
-@property (assign,nonatomic) int state;                                             //@synthesize state=_state - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG44 startSessionTime;                      //@synthesize startSessionTime=_startSessionTime - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG44 endSessionTime;                        //@synthesize endSessionTime=_endSessionTime - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG44 lastVideoFrameSourceTime;              //@synthesize lastVideoFrameSourceTime=_lastVideoFrameSourceTime - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG44 lastAudioFrameSourceTime;              //@synthesize lastAudioFrameSourceTime=_lastAudioFrameSourceTime - In the implementation block
-@property (assign,nonatomic) CFArrayRef savedAudioBuffers;                          //@synthesize savedAudioBuffers=_savedAudioBuffers - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> writeQueue;               //@synthesize writeQueue=_writeQueue - In the implementation block
--(char)handleVideoSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
+@property (assign,nonatomic) int position;                                           //@synthesize position=_position - In the implementation block
+@property (nonatomic,retain) NSURL * outputFileURL;                                  //@synthesize outputFileURL=_outputFileURL - In the implementation block
+@property (assign,nonatomic) CGSize videoSize;                                       //@synthesize videoSize=_videoSize - In the implementation block
+@property (nonatomic,retain) AVAssetWriter * assetWriter;                            //@synthesize assetWriter=_assetWriter - In the implementation block
+@property (nonatomic,retain) AVAssetWriterInput * videoWriterInput;                  //@synthesize videoWriterInput=_videoWriterInput - In the implementation block
+@property (nonatomic,retain) AVAssetWriterInput * audioWriterInput;                  //@synthesize audioWriterInput=_audioWriterInput - In the implementation block
+@property (assign,nonatomic) int state;                                              //@synthesize state=_state - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG100 startSessionTime;                      //@synthesize startSessionTime=_startSessionTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG100 endSessionTime;                        //@synthesize endSessionTime=_endSessionTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG100 lastVideoFrameSourceTime;              //@synthesize lastVideoFrameSourceTime=_lastVideoFrameSourceTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG100 lastAudioFrameSourceTime;              //@synthesize lastAudioFrameSourceTime=_lastAudioFrameSourceTime - In the implementation block
+@property (assign,nonatomic) CFArrayRef savedAudioBuffers;                           //@synthesize savedAudioBuffers=_savedAudioBuffers - In the implementation block
+@property (nonatomic,retain) NSObject*<OS_dispatch_queue> writeQueue;                //@synthesize writeQueue=_writeQueue - In the implementation block
 -(float)runningTime;
+-(char)handleVideoSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)handleAudioSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)relaseSavedAudioBuffers;
 -(AVAssetWriterInput *)videoWriterInput;
 -(AVAssetWriterInput *)audioWriterInput;
--(SCD_Struct_IG44)lastSharedBufferTime;
--(SCD_Struct_IG44)startSessionTime;
+-(SCD_Struct_IG100)lastSharedBufferTime;
+-(SCD_Struct_IG100)startSessionTime;
 -(CFArrayRef)savedAudioBuffers;
 -(void)releaseOldestAudioBuffer;
 -(char)writeVideoSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)writeAudioSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)saveAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)doStopRecordingWithCompletionHandler:(/*^block*/id)arg1 ;
--(SCD_Struct_IG44)lastVideoFrameSourceTime;
--(SCD_Struct_IG44)lastAudioFrameSourceTime;
--(void)setStartSessionTime:(SCD_Struct_IG44)arg1 ;
--(void)setLastVideoFrameSourceTime:(SCD_Struct_IG44)arg1 ;
--(void)setLastAudioFrameSourceTime:(SCD_Struct_IG44)arg1 ;
--(id)initWithOutputFileURL:(id)arg1 videoSize:(CGSize)arg2 deviceOrientation:(int)arg3 ;
+-(SCD_Struct_IG100)lastVideoFrameSourceTime;
+-(SCD_Struct_IG100)lastAudioFrameSourceTime;
+-(void)setStartSessionTime:(SCD_Struct_IG100)arg1 ;
+-(void)setLastVideoFrameSourceTime:(SCD_Struct_IG100)arg1 ;
+-(void)setLastAudioFrameSourceTime:(SCD_Struct_IG100)arg1 ;
 -(void)setVideoWriterInput:(AVAssetWriterInput *)arg1 ;
 -(void)setAudioWriterInput:(AVAssetWriterInput *)arg1 ;
--(SCD_Struct_IG44)endSessionTime;
--(void)setEndSessionTime:(SCD_Struct_IG44)arg1 ;
+-(SCD_Struct_IG100)endSessionTime;
+-(void)setEndSessionTime:(SCD_Struct_IG100)arg1 ;
 -(void)setSavedAudioBuffers:(CFArrayRef)arg1 ;
+-(id)initWithOutputFileURL:(id)arg1 videoSize:(CGSize)arg2 deviceOrientation:(int)arg3 ;
 -(CGSize)videoSize;
 -(void)setVideoSize:(CGSize)arg1 ;
 -(void)dealloc;

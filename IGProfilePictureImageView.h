@@ -25,24 +25,30 @@
 @property (assign,nonatomic) char useHDPictureIfAvailable;                     //@synthesize useHDPictureIfAvailable=_useHDPictureIfAvailable - In the implementation block
 @property (nonatomic,retain) UIColor * borderColor;                            //@synthesize borderColor=_borderColor - In the implementation block
 @property (assign,nonatomic) float borderWidth;                                //@synthesize borderWidth=_borderWidth - In the implementation block
--(void)setButtonDisabled:(char)arg1 ;
--(IGSimpleButton *)profilePicButton;
+-(void)displayProfilePic;
+-(void)setDidTap:(char)arg1 ;
+-(char)didTap;
+-(void)doubleTapped:(id)arg1 ;
+-(void)singleTapped:(id)arg1 ;
+-(void)setUserInteractionEnabled:(char)arg1 ;
+-(void)didMoveToSuperview;
 -(id)initWithFrame:(CGRect)arg1 user:(id)arg2 ;
+-(IGSimpleButton *)profilePicButton;
+-(void)setButtonDisabled:(char)arg1 ;
 -(void)setHasHighlightedState:(char)arg1 ;
 -(void)setUseHDPictureIfAvailable:(char)arg1 ;
 -(void)tapped:(id)arg1 ;
--(void)userUpdated:(id)arg1 ;
 -(id)profilePicURLForUser:(id)arg1 ;
 -(void)updateHighlightedBackgroundColor;
--(char)useHDPictureIfAvailable;
 -(char)buttonDisabled;
 -(char)hasHighlightedState;
+-(char)useHDPictureIfAvailable;
+-(void)userUpdated:(id)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)dealloc;
--(id)init;
 -(void)setFrame:(CGRect)arg1 ;
 -(void)setBounds:(CGRect)arg1 ;
 -(void)setBorderWidth:(float)arg1 ;

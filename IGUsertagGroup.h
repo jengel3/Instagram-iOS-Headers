@@ -15,13 +15,13 @@
 @property (nonatomic,readonly) NSSet * inTags; 
 @property (assign,nonatomic,__weak) IGFeedItem * feedItem;              //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,retain) NSMutableSet * inTagsSet;                  //@synthesize inTagsSet=_inTagsSet - In the implementation block
--(id)currentUserUsertag;
--(void)removeUsertag:(id)arg1 ;
 -(IGFeedItem *)feedItem;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(NSSet *)inTags;
 -(char)currentUserIsTagged;
+-(id)currentUserUsertag;
 -(void)setInTagsSet:(NSMutableSet *)arg1 ;
+-(void)removeUsertag:(id)arg1 ;
 -(void)addUsertag:(id)arg1 ;
 -(NSMutableSet *)inTagsSet;
 -(id)initWithCoder:(id)arg1 ;

@@ -18,10 +18,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithMessageInfos:(id)arg1 ;
--(void)configureCell:(id)arg1 atIndexPath:(id)arg2 ;
 -(void)clearEventsTapped:(id)arg1 ;
 -(id)getCellTitle:(id)arg1 ;
+-(void)configureCell:(id)arg1 atIndexPath:(id)arg2 ;
+-(id)initWithMessageInfos:(id)arg1 ;
 -(void)dealloc;
 -(void)reloadData;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

@@ -14,9 +14,8 @@
 	NSString* _fetchPath;
 	unsigned _fetchType;
 	NSDictionary* _constantParameters;
-	NSObject* _stateMutext;
 	IGRequest* _previousRequest;
-	NSString* _nextMaxID;
+	NSString* _maxId;
 
 }
 
@@ -28,33 +27,29 @@
 @property (nonatomic,readonly) NSDictionary * constantParameters;                        //@synthesize constantParameters=_constantParameters - In the implementation block
 @property (getter=isSecure,nonatomic,readonly) char secure;                              //@synthesize secure=_secure - In the implementation block
 @property (nonatomic,readonly) char cancelsPreviousRequest;                              //@synthesize cancelsPreviousRequest=_cancelsPreviousRequest - In the implementation block
-@property (nonatomic,retain) NSObject * stateMutext;                                     //@synthesize stateMutext=_stateMutext - In the implementation block
 @property (nonatomic,retain) IGRequest * previousRequest;                                //@synthesize previousRequest=_previousRequest - In the implementation block
 @property (assign,getter=isLoading,nonatomic) char loading;                              //@synthesize loading=_loading - In the implementation block
-@property (nonatomic,copy) NSString * nextMaxID;                                         //@synthesize nextMaxID=_nextMaxID - In the implementation block
+@property (nonatomic,copy) NSString * maxId;                                             //@synthesize maxId=_maxId - In the implementation block
 +(void)appendTopAggregatorOverride:(id)arg1 ;
--(void)setNextMaxID:(NSString *)arg1 ;
--(NSString *)nextMaxID;
--(NSString *)fetchPath;
--(id)initWithDelegate:(id)arg1 parser:(id)arg2 delegateQueue:(id)arg3 fetchPath:(id)arg4 fetchType:(unsigned)arg5 constantParameters:(id)arg6 secure:(char)arg7 cancelsPreviousRequest:(char)arg8 ;
+-(NSString *)maxId;
+-(id)initWithDelegate:(id)arg1 parser:(id)arg2 fetchPath:(id)arg3 fetchType:(unsigned)arg4 constantParameters:(id)arg5 secure:(char)arg6 cancelsPreviousRequest:(char)arg7 ;
 -(void)fetchWithParameters:(id)arg1 ;
 -(void)fetchMoreWithParameters:(id)arg1 ;
 -(char)isMoreAvailable;
+-(NSString *)fetchPath;
 -(void)fetchMore;
 -(void)fetchWithParameters:(id)arg1 isLoadMore:(char)arg2 ;
 -(id)appendParameters:(id)arg1 withMaxID:(id)arg2 ;
 -(char)cancelsPreviousRequest;
 -(IGRequest *)previousRequest;
 -(id)requestWithParameters:(id)arg1 ;
--(NSObject *)stateMutext;
 -(void)setPreviousRequest:(IGRequest *)arg1 ;
--(void)updateWithResponse:(id)arg1 ;
--(void)handleSuccessObject:(id)arg1 isLoadMore:(char)arg2 ;
+-(void)handleSuccessResponse:(id)arg1 isLoadMore:(char)arg2 ;
 -(void)handleFailure:(id)arg1 ;
 -(NSDictionary *)constantParameters;
 -(id)fetchURL;
 -(id)parametersWithParameters:(id)arg1 ;
--(void)setStateMutext:(NSObject *)arg1 ;
+-(void)setMaxId:(NSString *)arg1 ;
 -(NSObject*<OS_dispatch_queue>)delegateQueue;
 -(id<IGNetworkParser>)parser;
 -(unsigned)fetchType;

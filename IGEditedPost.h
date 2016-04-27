@@ -16,15 +16,15 @@
 @property (nonatomic,retain) IGUsertagGroup * usertags;              //@synthesize usertags=_usertags - In the implementation block
 @property (nonatomic,retain) IGFeedItem * feedItem;                  //@synthesize feedItem=_feedItem - In the implementation block
 -(id)pk;
--(IGUsertagGroup *)usertags;
 -(IGFeedItem *)feedItem;
--(id)initWithFeedItem:(id)arg1 ;
--(char)hasChanged;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
--(void)setUsertags:(IGUsertagGroup *)arg1 ;
+-(IGUsertagGroup *)usertags;
 -(char)hasChangedCaption;
 -(char)hasChangedLocation;
 -(char)hasChangedUsertags;
+-(id)initWithFeedItem:(id)arg1 ;
+-(char)hasChanged;
+-(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(IGLocation *)location;
 -(void)setLocation:(IGLocation *)arg1 ;
 -(NSString *)caption;

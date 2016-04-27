@@ -31,9 +31,9 @@
 +(float)heightForWidth:(float)arg1 feedItem:(id)arg2 ;
 -(IGFeedItem *)post;
 -(void)setPost:(IGFeedItem *)arg1 ;
--(void)setupCellWithItem:(id)arg1 underController:(id)arg2 attributes:(id)arg3 ;
 -(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
 -(void)onTapSeeMore;
+-(void)setupCellWithItem:(id)arg1 underController:(id)arg2 attributes:(id)arg3 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGFeedItemPivotGridCellDelegate>)arg1 ;
 -(void)layoutSubviews;

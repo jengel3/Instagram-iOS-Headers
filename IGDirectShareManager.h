@@ -36,10 +36,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(void)dataSourceDidReturnLocalResults:(id)arg1 ;
--(void)dataSourceDidStartLoading:(id)arg1 ;
--(void)dataSourceDidFinishLoading:(id)arg1 ;
--(void)dataSourceDidFailLoad:(id)arg1 ;
 -(void)updateQuery:(id)arg1 ;
 -(NSSet *)usersToFilter;
 -(void)setSuggestedRecipients:(NSArray *)arg1 ;
@@ -61,6 +57,10 @@
 -(id)userIdsFromRecipientsList:(id)arg1 ;
 -(void)setIsPerformingSearch:(char)arg1 ;
 -(void)setCurrentDataSourceResults:(NSArray *)arg1 ;
+-(void)dataSourceDidReturnLocalResults:(id)arg1 ;
+-(void)dataSourceDidStartLoading:(id)arg1 ;
+-(void)dataSourceDidFinishLoading:(id)arg1 ;
+-(void)dataSourceDidFailLoad:(id)arg1 ;
 -(void)setUsersToFilter:(NSSet *)arg1 ;
 -(void)setRecipientDataSource:(IGDirectRecipientDataSource *)arg1 ;
 -(void)setRecentsLabelHeaderView:(UIView *)arg1 ;

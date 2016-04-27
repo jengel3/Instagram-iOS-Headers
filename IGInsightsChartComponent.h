@@ -22,8 +22,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGInsightsQuery *)buttonQuery;
 -(NSString *)chartStyle;
+-(IGInsightsQuery *)buttonQuery;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 chartData:(id)arg4 chartStyle:(id)arg5 ;
 -(id)style;
 -(NSArray *)chartData;

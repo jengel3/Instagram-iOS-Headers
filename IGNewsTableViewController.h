@@ -42,6 +42,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)scrollViewDidEndScrolling:(id)arg1 ;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
 -(id)currentActiveScrollView;
@@ -52,16 +53,16 @@
 -(void)newsDataSection:(id)arg1 openURL:(id)arg2 ;
 -(void)needsUpdateHeightsWithNewsDataSection:(id)arg1 ;
 -(void)newsDataSection:(id)arg1 logRaindropEvent:(id)arg2 ;
+-(void)logFollowEvent:(id)arg1 isFollow:(char)arg2 targetID:(id)arg3 clickPoint:(id)arg4 ;
+-(void)showNuxIfAppropriate;
+-(void)onDataReceived:(id)arg1 ;
 -(void)onFetchFailed:(id)arg1 ;
 -(void)finishedLoadingData;
 -(id)newEmptyFeedView;
--(void)showNuxIfAppropriate;
--(void)onDataReceived:(id)arg1 ;
 -(void)refreshFromInfoView;
 -(id)sectionAtSectionIndex:(unsigned)arg1 ;
 -(id)labelForHeaderInSection:(int)arg1 ;
 -(IGNewsEmptyFeedView *)emptyFeedView;
--(void)scrollViewDidEndScrolling:(id)arg1 ;
 -(float)pullToRefreshYInset;
 -(void)setPullToRefreshYInset:(float)arg1 ;
 -(void)setWebViewCellSizes:(NSMutableDictionary *)arg1 ;

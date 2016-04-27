@@ -25,10 +25,10 @@
 -(NSNumber *)mediaCount;
 -(void)setMediaCount:(NSNumber *)arg1 ;
 -(id)relatedItemDisplayName;
--(void)fetchAdditionalInfo;
 -(id)relatedItemId;
 -(id)relatedItemURL;
 -(id)relatedItemType;
+-(void)fetchAdditionalInfo;
 -(NSString *)tagDescription;
 -(void)setTagDescription:(NSString *)arg1 ;
 -(void)setTagName:(NSString *)arg1 ;

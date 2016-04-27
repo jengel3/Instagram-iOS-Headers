@@ -32,11 +32,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)onCancelModal;
--(void)onImageTapped:(id)arg1 ;
 -(id)editManager;
--(void)photoMapEditManager:(id)arg1 onDeleteRequestFailed:(char)arg2 ;
--(void)photoMapEditManager:(id)arg1 onDeleteRequestFinished:(id)arg2 ;
--(void)photoMapEditManager:(id)arg1 onDeleteRequestStarted:(int)arg2 ;
 -(void)setSelectedStateForAllPoints:(char)arg1 ;
 -(void)updateSelectionControls;
 -(void)deselectAllButtonTapped:(id)arg1 ;
@@ -51,8 +47,12 @@
 -(void)onToggleSelectionTapped:(id)arg1 ;
 -(id)locationNamesForCluster:(id)arg1 ;
 -(void)selectAllInClusterButtonTapped:(id)arg1 ;
+-(void)onImageTapped:(id)arg1 ;
 -(void)onQuadtreeReceived:(id)arg1 ;
 -(void)onQuadtreeRequestFailed:(id)arg1 ;
+-(void)photoMapEditManager:(id)arg1 onDeleteRequestFinished:(id)arg2 ;
+-(void)photoMapEditManager:(id)arg1 onDeleteRequestFailed:(char)arg2 ;
+-(void)photoMapEditManager:(id)arg1 onDeleteRequestStarted:(int)arg2 ;
 -(void)setDelegate:(id<IGPhotoMapReviewDelegate>)arg1 ;
 -(void)dealloc;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

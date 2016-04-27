@@ -54,6 +54,7 @@
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                           //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
 +(void)setUnsupportedMIMETypes:(id)arg1 ;
+-(void)_layoutBannerView;
 -(NSURL *)currentLocationURL;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;
@@ -66,7 +67,6 @@
 -(int)webViewImplementation;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1 ;
--(void)_layoutBannerView;
 -(id<FBWebViewAnalytics>)analytics;
 -(void)setAnalytics:(id<FBWebViewAnalytics>)arg1 ;
 -(void)_navigationHistoryChanged;

@@ -23,8 +23,8 @@
 @property (nonatomic,copy,readonly) NSString * attribution;               //@synthesize attribution=_attribution - In the implementation block
 +(unsigned)marqueeTypeForMarqueeName:(id)arg1 ;
 +(void)initialize;
--(id)loggingType;
 -(id)initWithType:(unsigned)arg1 title:(id)arg2 key:(id)arg3 marqueeImages:(id)arg4 context:(id)arg5 attribution:(id)arg6 ;
+-(id)loggingType;
 -(NSArray *)marqueeImages;
 -(id)imageURLForSize:(CGSize)arg1 scale:(float)arg2 ;
 -(id)imageURLForSize:(CGSize)arg1 ;

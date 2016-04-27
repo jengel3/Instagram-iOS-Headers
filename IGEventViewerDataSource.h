@@ -27,9 +27,9 @@
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(NSMutableArray *)posts;
 -(id)allPosts;
 -(id)initWithPosts:(id)arg1 ;
+-(NSMutableArray *)posts;
 -(void)setPosts:(NSMutableArray *)arg1 ;
 -(char)isSpinnerHidden;
 -(id<IGEventViewerAttributionHeaderCellDelegate>)headerCellDelegate;

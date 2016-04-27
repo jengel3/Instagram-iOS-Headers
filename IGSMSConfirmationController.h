@@ -35,12 +35,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)invalidateTimer;
--(void)continueTimer;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)confirmPhoneManager:(id)arg1 didFireWithSecondsLeft:(int)arg2 ;
 -(int)smsResendDelay;
+-(void)invalidateTimer;
+-(void)continueTimer;
 -(id)initWithPhoneNumber:(id)arg1 confirmPhoneSettings:(id)arg2 stringStyle:(id)arg3 ;
 -(void)configureWithSize:(CGSize)arg1 ;
 -(UIView *)coreTextViewContainer;

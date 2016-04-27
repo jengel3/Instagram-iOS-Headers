@@ -20,19 +20,19 @@
 @property (nonatomic,retain) IGSurface * antiLuxSurface;                //@synthesize antiLuxSurface=_antiLuxSurface - In the implementation block
 @property (nonatomic,retain) IGSurface * starlightSurface;              //@synthesize starlightSurface=_starlightSurface - In the implementation block
 -(void)render:(id)arg1 to:(id)arg2 ;
--(void)setLuxBlendAmount:(float)arg1 ;
--(float)luxBlendAmount;
--(void)clearCachesNotOfSize:(CGSize)arg1 ;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
 -(id)fragmentFunctions;
 -(IGSurface *)claheCDF;
 -(void)setClaheCDF:(IGSurface *)arg1 ;
+-(void)clearCachesNotOfSize:(CGSize)arg1 ;
 -(IGSurface *)antiLuxSurface;
 -(void)setAntiLuxSurface:(IGSurface *)arg1 ;
 -(IGSurface *)starlightSurface;
 -(void)setStarlightSurface:(IGSurface *)arg1 ;
 -(float)slope;
 -(void)setSlope:(float)arg1 ;
+-(float)luxBlendAmount;
+-(void)setLuxBlendAmount:(float)arg1 ;
 -(void)reduceMemoryUsage;
 -(void)render:(id)arg1 to:(id)arg2 useInternalCaches:(char)arg3 ;
 -(id)fragmentShader;

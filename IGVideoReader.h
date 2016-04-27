@@ -22,7 +22,7 @@
 -(opaqueCMSampleBufferRef)copyNextAudioSampleBuffer;
 -(void)setAssetReaderVideoOutput:(AVAssetReaderTrackOutput *)arg1 ;
 -(void)setAssetReaderAudioOutput:(AVAssetReaderTrackOutput *)arg1 ;
--(void)seekToTime:(SCD_Struct_IG44)arg1 ;
+-(void)seekToTime:(SCD_Struct_IG100)arg1 ;
 -(void)prepare;
 -(void)dealloc;
 -(id)initWithAsset:(id)arg1 ;

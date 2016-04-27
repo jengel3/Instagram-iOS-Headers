@@ -19,9 +19,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithItems:(id)arg1 selectedIndex:(int)arg2 actionBlock:(/*^block*/id)arg3 ;
 -(id)initWithItems:(id)arg1 selectedIndex:(int)arg2 selectedDate:(id)arg3 doneBlock:(/*^block*/id)arg4 ;
 -(void)submitAction;
+-(id)initWithItems:(id)arg1 selectedIndex:(int)arg2 actionBlock:(/*^block*/id)arg3 ;
 -(id)initWithSelectedDate:(id)arg1 actionBlock:(/*^block*/id)arg2 ;
 -(void)dateChanged:(id)arg1 ;
 -(int)numberOfComponentsInPickerView:(id)arg1 ;

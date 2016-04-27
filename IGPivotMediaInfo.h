@@ -20,11 +20,11 @@
 +(void)logPivotEvent:(id)arg1 media:(id)arg2 module:(id)arg3 originalMedia:(id)arg4 extraParams:(id)arg5 ;
 -(NSString *)rankToken;
 -(void)setRankToken:(NSString *)arg1 ;
--(void)setupGridCellDataSourceWithImageWidth:(float)arg1 shouldExpand:(char)arg2 shouldAddPaddingBottom:(char)arg3 ;
 -(NSArray *)creators;
--(NSArray *)pivots;
--(NSString *)pivotMediaId;
 -(void)setPivotMediaId:(NSString *)arg1 ;
+-(NSString *)pivotMediaId;
+-(NSArray *)pivots;
+-(void)setupGridCellDataSourceWithImageWidth:(float)arg1 shouldExpand:(char)arg2 shouldAddPaddingBottom:(char)arg3 ;
 -(IGFeedItemPivotGridCellDataSource *)gridCellDataSource;
 -(id)initWithDictionary:(id)arg1 ;
 @end

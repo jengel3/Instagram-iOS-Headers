@@ -6,6 +6,7 @@
 
 @interface IGPublicThreadLayout : UICollectionViewLayout {
 
+	char _connectingToNextThread;
 	NSArray* _allContent;
 	NSArray* _nextThreadAllContent;
 	NSIndexPath* _nextThreadTransitionViewIndexPath;
@@ -25,6 +26,7 @@
 @property (assign,nonatomic,__weak) NSArray * allContent;                                                  //@synthesize allContent=_allContent - In the implementation block
 @property (nonatomic,retain) NSArray * nextThreadAllContent;                                               //@synthesize nextThreadAllContent=_nextThreadAllContent - In the implementation block
 @property (nonatomic,retain) NSIndexPath * nextThreadTransitionViewIndexPath;                              //@synthesize nextThreadTransitionViewIndexPath=_nextThreadTransitionViewIndexPath - In the implementation block
+@property (assign,nonatomic) char connectingToNextThread;                                                  //@synthesize connectingToNextThread=_connectingToNextThread - In the implementation block
 @property (nonatomic,retain) NSArray * seenUsers;                                                          //@synthesize seenUsers=_seenUsers - In the implementation block
 @property (nonatomic,retain) IGDirectThreadLayoutInvalidationContext * igInvalidationContext;              //@synthesize igInvalidationContext=_igInvalidationContext - In the implementation block
 @property (nonatomic,retain) NSDictionary * itemAttributes;                                                //@synthesize itemAttributes=_itemAttributes - In the implementation block
@@ -52,6 +54,7 @@
 -(void)setCollectionViewWidth:(float)arg1 ;
 -(float)collectionViewWidth;
 -(float)calculateItemAttributes:(float)arg1 currentHeight:(float)arg2 contents:(id)arg3 map:(id*)arg4 section:(int)arg5 ;
+-(char)connectingToNextThread;
 -(float)calculateNextThreadTransitionViewAttributesWithYOffset:(float)arg1 width:(float)arg2 ;
 -(NSArray *)nextThreadAllContent;
 -(void)setItemAttributes:(NSDictionary *)arg1 ;
@@ -64,6 +67,7 @@
 -(void)setNextThreadAllContent:(NSArray *)arg1 ;
 -(NSIndexPath *)nextThreadTransitionViewIndexPath;
 -(void)setNextThreadTransitionViewIndexPath:(NSIndexPath *)arg1 ;
+-(void)setConnectingToNextThread:(char)arg1 ;
 -(IGDirectContent *)currentlyExpandedContent;
 -(void)setCurrentlyExpandedContent:(IGDirectContent *)arg1 ;
 -(id)layoutAttributesForElementsInRect:(CGRect)arg1 ;

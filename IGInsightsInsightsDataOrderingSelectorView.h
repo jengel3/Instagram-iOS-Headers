@@ -22,9 +22,9 @@
 @property (assign,nonatomic) unsigned activeIndex;                                                                //@synthesize activeIndex=_activeIndex - In the implementation block
 @property (nonatomic,copy) NSDictionary * buttonTitleToImageNameMapping;                                          //@synthesize buttonTitleToImageNameMapping=_buttonTitleToImageNameMapping - In the implementation block
 @property (nonatomic,copy) NSMutableDictionary * buttonIndexToTintedImageMapping;                                 //@synthesize buttonIndexToTintedImageMapping=_buttonIndexToTintedImageMapping - In the implementation block
--(void)setActiveIndex:(unsigned)arg1 ;
--(unsigned)activeIndex;
 -(void)buttonClick:(id)arg1 ;
+-(unsigned)activeIndex;
+-(void)setActiveIndex:(unsigned)arg1 ;
 -(void)initializeButtonTitleToImageNameMapping;
 -(NSDictionary *)buttonTitleToImageNameMapping;
 -(void)activateButtonAtIndex:(unsigned)arg1 ;

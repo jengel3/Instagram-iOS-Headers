@@ -13,8 +13,8 @@
 
 @property (assign,nonatomic) char isVerifying;                                        //@synthesize isVerifying=_isVerifying - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * loadingIndicator;              //@synthesize loadingIndicator=_loadingIndicator - In the implementation block
--(void)setIsVerifying:(char)arg1 ;
 -(char)isVerifying;
+-(void)setIsVerifying:(char)arg1 ;
 -(void)addLoadingIndicator;
 -(void)removeLoadingIndicator;
 -(id)initWithFrame:(CGRect)arg1 ;

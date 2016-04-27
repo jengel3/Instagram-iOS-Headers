@@ -32,12 +32,12 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)onTap:(id)arg1 ;
--(void)setUsertags:(id)arg1 ;
 -(void)tagViewWillMove:(id)arg1 ;
 -(void)tagViewDidMove:(id)arg1 ;
 -(void)tagViewDidEndMove:(id)arg1 ;
 -(void)tagViewWasSelected:(id)arg1 ;
 -(void)tagViewWasRemoved:(id)arg1 ;
+-(void)setUsertags:(id)arg1 ;
 -(void)hideAllTagsWithCompletionHandler:(/*^block*/id)arg1 ;
 -(char)allowTagging;
 -(void)startTaggingAtPosition:(CGPoint)arg1 ;

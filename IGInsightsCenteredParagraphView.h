@@ -19,9 +19,9 @@
 @property (nonatomic,readonly) UIButton * urlbutton;                 //@synthesize urlbutton=_urlbutton - In the implementation block
 @property (nonatomic,copy,readonly) NSURL * url;                     //@synthesize url=_url - In the implementation block
 @property (nonatomic,readonly) CGRect frame;                         //@synthesize frame=_frame - In the implementation block
--(id)initWithFrame:(CGRect)arg1 paragraphUnit:(id)arg2 ;
 -(void)onWebsiteExternalLinkTapped:(id)arg1 ;
 -(UIButton *)urlbutton;
+-(id)initWithFrame:(CGRect)arg1 paragraphUnit:(id)arg2 ;
 -(void)layoutSubviews;
 -(CGRect)frame;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

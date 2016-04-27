@@ -26,8 +26,6 @@
 @property (nonatomic,retain) UIImageView * iconView;                                                            //@synthesize iconView=_iconView - In the implementation block
 @property (assign,nonatomic) float facebookButtonContainerTopPaddingModifier;                                   //@synthesize facebookButtonContainerTopPaddingModifier=_facebookButtonContainerTopPaddingModifier - In the implementation block
 -(void)showDismissButton;
--(IGRetroRegistrationTextField *)usernameField;
--(void)setUsernameField:(IGRetroRegistrationTextField *)arg1 ;
 -(IGCoreTextView *)loginHelperView;
 -(IGRetroRegistrationFacebookButtonContainer *)facebookButtonContainer;
 -(void)setFacebookButtonContainerTopPaddingModifier:(float)arg1 ;
@@ -35,6 +33,8 @@
 -(void)setLoginButton:(UIButton *)arg1 ;
 -(void)setFacebookButtonContainer:(IGRetroRegistrationFacebookButtonContainer *)arg1 ;
 -(void)setLoginHelperView:(IGCoreTextView *)arg1 ;
+-(IGRetroRegistrationTextField *)usernameField;
+-(void)setUsernameField:(IGRetroRegistrationTextField *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UIImageView *)iconView;

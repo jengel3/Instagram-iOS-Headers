@@ -23,9 +23,9 @@
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(id)initWithLoggingProviderDelegate:(id)arg1 raindropDelegate:(id)arg2 ;
 -(void)updateWithNewFeedItems:(id)arg1 ;
--(void)updateWithVisibleElementLayoutAttributeFeedItemMap:(id)arg1 visibleContentRect:(CGRect)arg2 ;
--(id<IGAnalyticsRaindropProtocol>)raindropDelegate;
+-(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
 -(IGFeedItemViewingSessionManager *)viewingSessionManager;
--(void)processLayoutAttributes:(id)arg1 feedItem:(id)arg2 visibleContentRect:(CGRect)arg3 ;
+-(void)processTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
+-(id<IGAnalyticsRaindropProtocol>)raindropDelegate;
 @end
 

@@ -18,17 +18,17 @@
 @property (nonatomic,readonly) UILabel * titleLabel;                      //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,readonly) UIImageView * backgroundView;              //@synthesize backgroundView=_backgroundView - In the implementation block
 -(void)setupBackgroundView;
+-(void)setupTitleLabel;
 -(id)titleAttributesUseSmallFont:(char)arg1 ;
 -(id)textKerning;
 -(void)layoutPlayIcon;
--(void)layoutTitle;
 -(void)layoutHeader;
 -(void)layoutBackgroundView;
 -(float)maxWidthForLabels;
 -(void)setupPlayIcon;
 -(void)setupHeaderLabel;
--(void)setupTitleLabel;
 -(IGVideoGlyphView *)playIcon;
+-(void)layoutTitle;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setTitle:(id)arg1 ;

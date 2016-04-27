@@ -21,10 +21,10 @@
 -(void)setSubdivisionCount:(unsigned)arg1 animated:(char)arg2 ;
 -(NSMutableArray *)xAxisGridLines;
 -(NSMutableArray *)yAxisGridLines;
--(void)setSubdivisionCount:(unsigned)arg1 ;
--(unsigned)subdivisionCount;
 -(void)setXAxisGridLines:(NSMutableArray *)arg1 ;
 -(void)setYAxisGridLines:(NSMutableArray *)arg1 ;
+-(unsigned)subdivisionCount;
+-(void)setSubdivisionCount:(unsigned)arg1 ;
 -(void)show:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

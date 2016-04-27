@@ -15,14 +15,15 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(double)warmStartRefreshInterval;
 -(char)showRefreshButton;
 -(char)shouldPullToRefresh;
--(char)shouldAutoplayVideos;
--(double)warmStartRefreshInterval;
--(char)showFindFriendsWhenEmpty;
--(char)showAlbumSubscriptionTray;
 -(char)loadsTitleFromNetworkSource;
 -(char)shouldPrefetchMediaForFeedItems;
+-(char)shouldAutoplayVideos;
+-(char)showFindFriendsWhenEmpty;
+-(char)showAlbumSubscriptionTray;
+-(char)allowAutoPlay;
 -(id)init;
 -(IGDefaultFeedConfiguration *)defaultConfig;
 @end

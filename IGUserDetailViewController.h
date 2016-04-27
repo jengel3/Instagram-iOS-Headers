@@ -8,13 +8,14 @@
 #import <Instagram/IGMegaphonePresenterDelegate.h>
 #import <Instagram/IGProfilePictureHelperDelegate.h>
 #import <Instagram/IGProfilePicturePeekDelegate.h>
+#import <Instagram/IGActionSheetDelegate.h>
 #import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGUserDetailHeaderViewDelegate.h>
 
 @protocol IGMegaphonePresenterProtocol, IGCTAPresenterProtocol;
-@class UIBarButtonItem, IGUser, IGCTAPresenterContext, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, NSArray, IGChevronTitleButton, IGSwitchUsersController, UIImageView, IGUserDetailPreviewingHandler, IGFeedItemPreviewingHandler, IGDirectedNUXView, IGProfilePicturePeekOverlay, IGProfilePictureHelper, UITapGestureRecognizer, NSString;
+@class UIBarButtonItem, IGUser, IGCTAPresenterContext, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, NSArray, IGChevronTitleButton, IGSwitchUsersController, UIImageView, IGUserDetailPreviewingHandler, IGFeedItemPreviewingHandler, IGDirectedNUXView, IGProfilePicturePeekOverlay, IGProfilePictureHelper, IGTombstoneView, UITapGestureRecognizer, NSString;
 
-@interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate, IGProfilePictureHelperDelegate, IGProfilePicturePeekDelegate, IGAnalyticsModule, IGUserDetailHeaderViewDelegate> {
+@interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate, IGProfilePictureHelperDelegate, IGProfilePicturePeekDelegate, IGActionSheetDelegate, IGAnalyticsModule, IGUserDetailHeaderViewDelegate> {
 
 	UIBarButtonItem* _configureBarButton;
 	UIBarButtonItem* _insightsBarButton;
@@ -22,7 +23,8 @@
 	char _needsFeedRefresh;
 	char _hasLoggedAdditionalUserDataLoadOnce;
 	char _displayingSwitchUsersTableView;
-	char _shouldShowAttentionMarkView;
+	char _showEasyReportingActionSheetForUser;
+	char _showEasyReportingActionSheetForProfilePic;
 	IGUser* _user;
 	IGCTAPresenterContext* _ctaPresenterContext;
 	IGUserDetailHeaderView* _headerView;
@@ -42,6 +44,7 @@
 	IGDirectedNUXView* _NUXView;
 	IGProfilePicturePeekOverlay* _profilePeekOverlay;
 	IGProfilePictureHelper* _profilePictureHelper;
+	IGTombstoneView* _tombstoneView;
 	UITapGestureRecognizer* _mainViewNUXDismissTapGuestureRecognizer;
 	UITapGestureRecognizer* _titleViewNUXDismissTapGuestureRecognizer;
 	id<IGMegaphonePresenterProtocol> _megaphonePresenter;
@@ -69,12 +72,14 @@
 @property (nonatomic,retain) IGSwitchUsersController * switchUsersController;                                //@synthesize switchUsersController=_switchUsersController - In the implementation block
 @property (assign,nonatomic) char displayingSwitchUsersTableView;                                            //@synthesize displayingSwitchUsersTableView=_displayingSwitchUsersTableView - In the implementation block
 @property (nonatomic,retain) UIImageView * attentionMarkView;                                                //@synthesize attentionMarkView=_attentionMarkView - In the implementation block
-@property (assign,nonatomic) char shouldShowAttentionMarkView;                                               //@synthesize shouldShowAttentionMarkView=_shouldShowAttentionMarkView - In the implementation block
 @property (nonatomic,retain) IGUserDetailPreviewingHandler * userDetailPreviewDelegate;                      //@synthesize userDetailPreviewDelegate=_userDetailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;                         //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) IGDirectedNUXView * NUXView;                                                    //@synthesize NUXView=_NUXView - In the implementation block
 @property (nonatomic,retain) IGProfilePicturePeekOverlay * profilePeekOverlay;                               //@synthesize profilePeekOverlay=_profilePeekOverlay - In the implementation block
 @property (nonatomic,retain) IGProfilePictureHelper * profilePictureHelper;                                  //@synthesize profilePictureHelper=_profilePictureHelper - In the implementation block
+@property (nonatomic,retain) IGTombstoneView * tombstoneView;                                                //@synthesize tombstoneView=_tombstoneView - In the implementation block
+@property (assign,nonatomic) char showEasyReportingActionSheetForUser;                                       //@synthesize showEasyReportingActionSheetForUser=_showEasyReportingActionSheetForUser - In the implementation block
+@property (assign,nonatomic) char showEasyReportingActionSheetForProfilePic;                                 //@synthesize showEasyReportingActionSheetForProfilePic=_showEasyReportingActionSheetForProfilePic - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * mainViewNUXDismissTapGuestureRecognizer;               //@synthesize mainViewNUXDismissTapGuestureRecognizer=_mainViewNUXDismissTapGuestureRecognizer - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * titleViewNUXDismissTapGuestureRecognizer;              //@synthesize titleViewNUXDismissTapGuestureRecognizer=_titleViewNUXDismissTapGuestureRecognizer - In the implementation block
 @property (nonatomic,retain) id<IGMegaphonePresenterProtocol> megaphonePresenter;                            //@synthesize megaphonePresenter=_megaphonePresenter - In the implementation block
@@ -85,26 +90,28 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)reportInappropriateWithCompletionHandler:(/*^block*/id)arg1 ;
--(void)setCtaPresenterContext:(IGCTAPresenterContext *)arg1 ;
--(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
+-(char)enableNavState;
 -(id)analyticsModule;
--(id)analyticsExtras;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(void)onFriendStatusReceived:(id)arg1 ;
--(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
--(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
+-(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(IGDirectedNUXView *)NUXView;
 -(void)setNUXView:(IGDirectedNUXView *)arg1 ;
--(char)enableNavState;
--(void)setAccessibleElements:(NSArray *)arg1 ;
--(NSArray *)accessibleElements;
+-(id)analyticsExtras;
 -(void)profilePictureTapped:(id)arg1 ;
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
 -(void)updateScrollFromContextualFeed;
 -(void)handleLoadedContentDidChange;
--(IGCTAPresenterContext *)ctaPresenterContext;
+-(void)setAccessibleElements:(NSArray *)arg1 ;
+-(NSArray *)accessibleElements;
+-(IGTombstoneView *)tombstoneView;
+-(void)setTombstoneView:(IGTombstoneView *)arg1 ;
 -(void)feedToggle:(id)arg1 selectedButton:(int)arg2 ;
+-(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
+-(void)setCtaPresenterContext:(IGCTAPresenterContext *)arg1 ;
+-(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)megaphonePresenterDidDismiss:(id)arg1 ;
 -(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
 -(void)megaphonePresenterPopViewController:(id)arg1 ;
@@ -116,9 +123,7 @@
 -(void)collectionViewControllerDidStartPullToRefreshAction:(id)arg1 ;
 -(void)feedStatusViewMarkedUnderageWithResponse:(id)arg1 ;
 -(void)feedStatusViewMarkedOverage;
--(void)setMegaphonePresenter:(id<IGMegaphonePresenterProtocol>)arg1 ;
--(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
--(void)otherUserDidReceiveNotifications:(id)arg1 ;
+-(void)badgeInfoDidupdate:(id)arg1 ;
 -(void)animateSwitchUsersTableView;
 -(void)setEnableAppColdStartLogging:(char)arg1 ;
 -(IGSwitchUsersController *)switchUsersController;
@@ -126,7 +131,6 @@
 -(void)switchUsersControllerDidSelectRowWithCurrentUser:(id)arg1 ;
 -(void)switchUsersController:(id)arg1 tableViewDidSelectRowWithUser:(id)arg2 ;
 -(void)switchUsersControllerDidSelectAddAccountRow:(id)arg1 ;
--(void)switchUsersController:(id)arg1 wantsToUpdateNeedsAttention:(char)arg2 ;
 -(void)setSwitchUsersController:(IGSwitchUsersController *)arg1 ;
 -(void)hideToolTip;
 -(void)directedNUXViewDidTap:(id)arg1 ;
@@ -145,23 +149,26 @@
 -(void)setNeedsFeedRefresh:(char)arg1 ;
 -(char)isShowingCurrentUser;
 -(void)showPrereleaseIcon;
--(char)shouldShowAttentionMarkView;
 -(IGProfilePicturePeekOverlay *)profilePeekOverlay;
 -(void)updateTitleButtonSize;
+-(void)displayTombstoneView;
 -(void)fetchAdditionalUserData;
 -(void)showAccountSwitchingNUX;
 -(void)presentOrTearDownCameraNUX;
+-(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
 -(char)displayingSwitchUsersTableView;
 -(char)shouldShowCameraNux;
 -(void)showEmptyFeedNux;
 -(void)dismissNUXAnimated:(char)arg1 ;
 -(IGNuxTapOnCameraView *)emptyFeedNUX;
+-(UIImageView *)attentionMarkView;
 -(void)setUserRestrictionData:(NSDictionary *)arg1 ;
 -(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 ;
 -(NSDictionary *)userRestrictionData;
 -(UIView *)blockedFooterView;
 -(void)setBlockedFooterView:(UIView *)arg1 ;
 -(void)updateConfigureButtonsForCurrentUser;
+-(void)setMegaphonePresenter:(id<IGMegaphonePresenterProtocol>)arg1 ;
 -(UIView *)genericHeaderMegaphoneView;
 -(void)setGenericHeaderMegaphoneView:(UIView *)arg1 ;
 -(char)enableAppColdStartLogging;
@@ -180,40 +187,44 @@
 -(void)pushAccountSettings;
 -(id)insightsBarButton;
 -(void)setSwitchUsersTitleView;
--(void)dismissProfilePicturePeekOverlay;
--(IGProfilePictureHelper *)profilePictureHelper;
+-(CGRect)profilePicRect;
 -(void)presentFriendshipActionSheetWithOnlyProfilePictureOptions:(char)arg1 ;
 -(void)switchUsersControllerResetTableView:(id)arg1 ;
--(UIImageView *)attentionMarkView;
--(/*^block*/id)friendshipActionSheetCallback;
 -(void)pushInsights;
+-(id)createTombstoneView;
+-(void)tombstoneDidTapShowProfile;
+-(void)setShowEasyReportingActionSheetForProfilePic:(char)arg1 ;
+-(void)setShowEasyReportingActionSheetForUser:(char)arg1 ;
+-(char)showEasyReportingActionSheetForUser;
+-(char)showEasyReportingActionSheetForProfilePic;
 -(void)setEmptyFeedNUX:(IGNuxTapOnCameraView *)arg1 ;
 -(UIView *)overlayViewForTabBar;
 -(void)setDisplayingSwitchUsersTableView:(char)arg1 ;
 -(void)showAccountSwitchingNUXInner;
 -(UITapGestureRecognizer *)titleViewNUXDismissTapGuestureRecognizer;
 -(UITapGestureRecognizer *)mainViewNUXDismissTapGuestureRecognizer;
+-(IGCTAPresenterContext *)ctaPresenterContext;
 -(UIView *)ctaView;
 -(id<IGCTAPresenterProtocol>)ctaPresenter;
 -(void)setCtaPresenter:(id<IGCTAPresenterProtocol>)arg1 ;
 -(void)setCtaView:(UIView *)arg1 ;
--(void)peekOverlayDidPresent:(id)arg1 ;
--(void)peekOverlayDidDismiss:(id)arg1 ;
--(void)peekOverlayUserDidTapChange:(id)arg1 ;
--(void)peekOverlayUserDidTapDismiss:(id)arg1 ;
--(void)peekOverlayUserDidTapMenu:(id)arg1 ;
 -(void)togglePrerelease:(id)arg1 ;
 -(UILabel *)emptyFeedLabel;
 -(void)setEmptyFeedLabel:(UILabel *)arg1 ;
 -(void)setOverlayViewForTabBar:(UIView *)arg1 ;
 -(void)setAttentionMarkView:(UIImageView *)arg1 ;
--(void)setShouldShowAttentionMarkView:(char)arg1 ;
 -(void)setProfilePeekOverlay:(IGProfilePicturePeekOverlay *)arg1 ;
--(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
 -(void)setMainViewNUXDismissTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(void)setTitleViewNUXDismissTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(UIBarButtonItem *)envSwitchButtonItem;
 -(void)setEnvSwitchButtonItem:(UIBarButtonItem *)arg1 ;
+-(void)peekOverlayDidPresent:(id)arg1 ;
+-(void)peekOverlayDidDismiss:(id)arg1 ;
+-(void)peekOverlayUserDidTapDismiss:(id)arg1 ;
+-(void)peekOverlayUserDidTapChange:(id)arg1 ;
+-(void)peekOverlayUserDidTapMenu:(id)arg1 ;
+-(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
+-(IGProfilePictureHelper *)profilePictureHelper;
 -(id)initWithUser:(id)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;

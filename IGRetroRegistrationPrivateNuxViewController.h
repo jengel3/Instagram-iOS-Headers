@@ -21,9 +21,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)nextButtonTapped;
 -(void)setPrivateNuxView:(IGRetroRegistrationPrivateNuxView *)arg1 ;
 -(IGRetroRegistrationPrivateNuxView *)privateNuxView;
+-(void)nextButtonTapped;
 -(int)currentNuxOption;
 -(void)setCurrentNuxOption:(int)arg1 ;
 -(void)setDelegate:(id<IGRetroRegistrationPrivateNuxViewControllerDelegate>)arg1 ;

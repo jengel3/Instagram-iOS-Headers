@@ -37,9 +37,8 @@
 +(id)snowPlotLineCap;
 +(id)customLineCapWithPath:(CGPathRef)arg1 ;
 +(id)lineCap;
--(CPTLineStyle *)lineStyle;
--(void)setLineStyle:(CPTLineStyle *)arg1 ;
 -(int)lineCapType;
+-(CPTLineStyle *)lineStyle;
 -(const CGPathRef)customLineCapPath;
 -(char)usesEvenOddClipRule;
 -(void)setCachedLineCapPath:(const CGPathRef)arg1 ;
@@ -47,6 +46,7 @@
 -(void)setLineCapType:(int)arg1 ;
 -(void)setCustomLineCapPath:(const CGPathRef)arg1 ;
 -(void)setUsesEvenOddClipRule:(char)arg1 ;
+-(void)setLineStyle:(CPTLineStyle *)arg1 ;
 -(const CGPathRef)cachedLineCapPath;
 -(void)renderAsVectorInContext:(CGContextRef)arg1 atPoint:(CGPoint)arg2 inDirection:(CGPoint)arg3 ;
 -(CGSize)size;

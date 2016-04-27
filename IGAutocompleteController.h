@@ -4,13 +4,13 @@
 #import <UIKit/UITableViewDelegate.h>
 #import <Instagram/IGAutocompleteAsyncDataSourceDelegate.h>
 
-@protocol IGAutocompleteDataSource, IGAutocompleteControllerDelegate, IGAutocompleteControllerTextInput;
-@class UIResponder, IGPlainTableView, IGUserListAutocompleteDataSource, IGHashtagAutocompleteDataSource, IGUserListLocalDataSource, IGHashtagListLocalDataSource, NSString, NSArray;
+@protocol IGAutocompleteControllerDelegate, IGAutocompleteControllerTextInput;
+@class IGAutocompleteDataSource, UIResponder, IGPlainTableView, IGUserListAutocompleteDataSource, IGHashtagAutocompleteDataSource, IGUserListLocalDataSource, IGHashtagListLocalDataSource, NSString, NSArray;
 
 @interface IGAutocompleteController : NSObject <UITableViewDataSource, UITableViewDelegate, IGAutocompleteAsyncDataSourceDelegate> {
 
 	char _determinedNoResults;
-	id<IGAutocompleteDataSource> _resultsDataSource;
+	IGAutocompleteDataSource* _resultsDataSource;
 	char _reverseScroll;
 	char _committingText;
 	char _useRemoteDataSources;
@@ -54,8 +54,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setFeedItem:(id)arg1 ;
 -(NSString *)analyticsModule;
+-(void)setFeedItem:(id)arg1 ;
 -(void)displayAutocompleteOptionsForString:(id)arg1 isDeleting:(char)arg2 ;
 -(void)hideAndResetResults;
 -(id)findMatchingUserInString:(id)arg1 ;

@@ -25,16 +25,16 @@
 @property (assign,nonatomic) char showPrimerView;                    //@synthesize showPrimerView=_showPrimerView - In the implementation block
 +(id)questionForServerMessage:(id)arg1 ;
 +(id)mockSurveyJSON;
--(NSString *)trackingToken;
--(char)showPrimerView;
--(NSString *)surveyID;
--(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setAnswerStyle:(int)arg1 ;
 -(void)setPossibleAnswers:(NSArray *)arg1 ;
 -(NSArray *)possibleAnswers;
 -(void)setSurveyID:(NSString *)arg1 ;
+-(NSString *)surveyID;
 -(int)answerStyle;
 -(void)setShowPrimerView:(char)arg1 ;
+-(char)showPrimerView;
+-(NSString *)trackingToken;
+-(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(NSString *)subtitle;

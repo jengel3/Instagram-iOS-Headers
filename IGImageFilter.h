@@ -24,13 +24,13 @@
 +(id)filterName;
 +(id)overlayTitle;
 +(int)filterType;
--(void)setContentTransform:(_GLKMatrix4)arg1 ;
--(_GLKMatrix4)contentTransform;
--(void)setTextureTransform:(_GLKMatrix4)arg1 ;
--(_GLKMatrix4)textureTransform;
 -(id)fullVertexShader;
 -(NSString *)fullFragmentShader;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
+-(_GLKMatrix4)textureTransform;
+-(void)setTextureTransform:(_GLKMatrix4)arg1 ;
+-(_GLKMatrix4)contentTransform;
+-(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)setFullFragmentShader:(NSString *)arg1 ;
 -(id)generateFullFragmentShader;
 -(id)fragmentShaderPrecision;

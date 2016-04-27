@@ -29,8 +29,8 @@
 -(id)diffIdentifier;
 -(NSArray *)mediaBundles;
 -(NSArray *)thumbnailURLs;
--(NSString *)socialContext;
 -(void)setThumbnailURLs:(NSArray *)arg1 ;
+-(NSString *)socialContext;
 -(id)initWithDictionary:(id)arg1 maxThumbnailCount:(int)arg2 ;
 -(NSArray *)mediaIDs;
 -(int)socialContextType;

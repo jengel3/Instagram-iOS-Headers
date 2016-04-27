@@ -30,15 +30,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
--(void)displayUnknownError;
--(void)pagesDataSource:(id)arg1 didReceiveError:(id)arg2 ;
--(void)pagesDataSource:(id)arg1 didLoadPages:(id)arg2 ;
 -(void)fetchAccounts;
 -(void)configureWallSectionCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configurePagesSectionCell:(id)arg1 forRow:(int)arg2 ;
 -(void)markCellAsChecked:(id)arg1 ;
 -(char)isDuplicatedAccountName:(id)arg1 ;
+-(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)clearFacebookAccount:(char)arg1 ;
 -(void)storeFacebookPostingAccount:(id)arg1 ;
 -(void)didSelectWallSectionRow:(int)arg1 ;
@@ -49,6 +46,9 @@
 -(void)storeFacebookPostingAccountName:(id)arg1 ;
 -(void)storeFacebookPostingAccountAccessToken:(id)arg1 ;
 -(void)handleLoadedPages:(id)arg1 ;
+-(void)displayUnknownError;
+-(void)pagesDataSource:(id)arg1 didLoadPages:(id)arg2 ;
+-(void)pagesDataSource:(id)arg1 didReceiveError:(id)arg2 ;
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 -(void)setDelegate:(id<IGFacebookPagesViewControllerDelegate>)arg1 ;

@@ -2,8 +2,8 @@
 
 @protocol IGAnalyticsModule <NSObject>
 @required
--(id)analyticsModule;
 -(char)enableNavState;
+-(id)analyticsModule;
 
 @end
 

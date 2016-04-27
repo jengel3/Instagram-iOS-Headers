@@ -34,9 +34,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setCanShowSelectedOverlay:(char)arg1 ;
+-(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
 -(PHImageRequestOptions *)imageRequestOptions;
 -(char)canShowSelectedOverlay;
--(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
 -(IGAssetSelectionMechanic)assetSelectionMechanic;
 -(void)setAssetSelectionMechanic:(IGAssetSelectionMechanic)arg1 ;
 -(void)setupImageManagerAndOptions;

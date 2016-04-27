@@ -11,8 +11,8 @@
 
 @property (nonatomic,readonly) IGSequence * start;              //@synthesize start=_start - In the implementation block
 @property (nonatomic,readonly) IGSequence * end;                //@synthesize end=_end - In the implementation block
--(char)containsSequence:(id)arg1 ;
 -(id)unionRangeWithRange:(id)arg1 ;
+-(char)containsSequence:(id)arg1 ;
 -(id)initWithArray:(id)arg1 ;
 -(IGSequence *)start;
 -(IGSequence *)end;

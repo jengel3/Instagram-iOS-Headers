@@ -69,16 +69,18 @@
 @property (assign,nonatomic) char enabled;                                              //@synthesize enabled=_enabled - In the implementation block
 @property (assign,nonatomic) char highlighted;                                          //@synthesize highlighted=_highlighted - In the implementation block
 @property (assign,nonatomic) char selected;                                             //@synthesize selected=_selected - In the implementation block
+-(void)highlight:(char)arg1 ;
 -(void)setTapPadding:(UIOffset)arg1 ;
--(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)setDefaultTitleLabelText:(NSString *)arg1 ;
+-(void)setDefaultTitleLabelColor:(UIColor *)arg1 ;
+-(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
+-(void)setHighlightedBackgroundColor:(UIColor *)arg1 ;
 -(void)setSelectedTitleLabelText:(NSString *)arg1 ;
 -(NSString *)defaultTitleLabelText;
 -(NSString *)selectedTitleLabelText;
 -(void)setDefaultBackgroundImage:(UIImage *)arg1 ;
 -(void)setHighlightedBackgroundImage:(UIImage *)arg1 ;
 -(void)setSelectedBackgroundImage:(UIImage *)arg1 ;
--(void)setDefaultTitleLabelColor:(UIColor *)arg1 ;
 -(void)setHighlightedTitleLabelColor:(UIColor *)arg1 ;
 -(void)setSelectedTitleLabelColor:(UIColor *)arg1 ;
 -(void)setDefaultTitleLabelShadowColor:(UIColor *)arg1 ;
@@ -104,13 +106,11 @@
 -(void)updateBackground;
 -(void)doHighlight:(char)arg1 ;
 -(void)doHighlightYES;
--(void)highlight:(char)arg1 ;
 -(void)doHighlightNO;
 -(UIOffset)tapPadding;
 -(void)sizeToFitLabel;
 -(void)setHighlightedBackgroundImageView:(UIImageView *)arg1 ;
 -(void)setDefaultTitleLabelShadowOffset:(float)arg1 ;
--(void)setHighlightedBackgroundColor:(UIColor *)arg1 ;
 -(void)setHighlightedTitleLabelShadowOffset:(float)arg1 ;
 -(void)setSelectedBackgroundColor:(UIColor *)arg1 ;
 -(void)setSelectedTitleLabelShadowOffset:(float)arg1 ;

@@ -18,12 +18,10 @@
 @property (nonatomic,retain) IGGroupedTableViewFooterView * actionsFooterView;                 //@synthesize actionsFooterView=_actionsFooterView - In the implementation block
 @property (assign,nonatomic) char showBackupCodeAlert;                                         //@synthesize showBackupCodeAlert=_showBackupCodeAlert - In the implementation block
 @property (assign,nonatomic) char submitting;                                                  //@synthesize submitting=_submitting - In the implementation block
--(void)setBackupCodes:(NSArray *)arg1 ;
--(NSArray *)backupCodes;
--(id)initWithBackupCodes:(id)arg1 showBackupCodeAlert:(char)arg2 ;
 -(char)showBackupCodeAlert;
 -(void)setShowBackupCodeAlert:(char)arg1 ;
 -(void)backupCodesScreenshot;
+-(NSArray *)backupCodes;
 -(void)saveImageToLibrary:(id)arg1 ;
 -(void)configureBackupCodeCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureActionCell:(id)arg1 forRow:(int)arg2 ;
@@ -33,13 +31,15 @@
 -(void)selectedBackupCodeActionRow:(int)arg1 ;
 -(void)fetchNewBackupCodes;
 -(void)copyBackupCodesToClipboard;
--(void)setSubmitting:(char)arg1 ;
 -(void)dataFetchedWithResponse:(id)arg1 ;
 -(void)dataFetchFailedWithError:(id)arg1 ;
 -(void)updateTableViewAfterFetch;
+-(void)setBackupCodes:(NSArray *)arg1 ;
+-(id)initWithBackupCodes:(id)arg1 showBackupCodeAlert:(char)arg2 ;
 -(void)setBackupCodeFooterView:(IGGroupedTableViewFooterView *)arg1 ;
 -(void)setActionsFooterView:(IGGroupedTableViewFooterView *)arg1 ;
 -(char)submitting;
+-(void)setSubmitting:(char)arg1 ;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 viewForFooterInSection:(int)arg2 ;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

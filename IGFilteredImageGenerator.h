@@ -10,8 +10,8 @@
 }
 
 @property (nonatomic,retain) IGRenderer * renderer;              //@synthesize renderer=_renderer - In the implementation block
--(void)filteredImagesForImage:(id)arg1 filterClasses:(id)arg2 completion:(/*^block*/id)arg3 ;
 -(void)applicationDidWillResignActive:(id)arg1 ;
+-(void)filteredImagesForImage:(id)arg1 filterClasses:(id)arg2 completion:(/*^block*/id)arg3 ;
 -(id)filteredImageForImage:(id)arg1 filterClass:(Class)arg2 ;
 -(void)setRenderer:(IGRenderer *)arg1 ;
 -(void)dealloc;

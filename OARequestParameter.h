@@ -12,10 +12,10 @@
 @property (copy) NSString * name; 
 @property (copy) NSString * value; 
 +(id)requestParameter:(id)arg1 value:(id)arg2 ;
--(id)URLEncodedNameValuePair;
 -(id)URLEncodedName;
 -(id)URLEncodedValue;
 -(char)isEqualToRequestParameter:(id)arg1 ;
+-(id)URLEncodedNameValuePair;
 -(void)dealloc;
 -(char)isEqual:(id)arg1 ;
 -(void)setName:(NSString *)arg1 ;

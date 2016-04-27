@@ -22,8 +22,6 @@
 @property (nonatomic,readonly) UIButton * chevronbutton;                                            //@synthesize chevronbutton=_chevronbutton - In the implementation block
 @property (nonatomic,readonly) UIView * bottomSeparator;                                            //@synthesize bottomSeparator=_bottomSeparator - In the implementation block
 @property (nonatomic,copy) NSArray * listItemViews;                                                 //@synthesize listItemViews=_listItemViews - In the implementation block
--(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 ;
--(void)setShowDetails:(char)arg1 ;
 -(void)buttonClick:(id)arg1 ;
 -(void)initializeTextButtonWithTitle:(id)arg1 ;
 -(void)initializeChevronButton;
@@ -40,6 +38,8 @@
 -(void)initializeBottomSeparator;
 -(void)buttonClickInFilterSelectorView;
 -(void)setListItemViews:(NSArray *)arg1 ;
+-(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 ;
+-(void)setShowDetails:(char)arg1 ;
 -(void)setDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

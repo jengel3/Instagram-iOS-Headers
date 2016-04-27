@@ -31,9 +31,6 @@
 @property (assign,nonatomic) double startingProgressTimeStamp;              //@synthesize startingProgressTimeStamp=_startingProgressTimeStamp - In the implementation block
 @property (assign,nonatomic) float angleSpeed;                              //@synthesize angleSpeed=_angleSpeed - In the implementation block
 @property (assign,nonatomic) char isRecordingStatistics;                    //@synthesize isRecordingStatistics=_isRecordingStatistics - In the implementation block
--(void)finishUpdatingWithOffset:(float)arg1 ;
--(void)updateWithOffsetAmount:(float)arg1 allowRefreshingState:(char)arg2 ;
--(void)finishRefreshing;
 -(void)setSpinnerViewContainer:(UIView *)arg1 ;
 -(UIView *)spinnerViewContainer;
 -(void)updateSpinnerWithProgress:(float)arg1 ;
@@ -57,6 +54,9 @@
 -(double)startingProgressTimeStamp;
 -(void)setAngleSpeed:(float)arg1 ;
 -(float)discreteProgress:(float)arg1 ;
+-(void)updateWithOffsetAmount:(float)arg1 allowRefreshingState:(char)arg2 ;
+-(void)finishUpdatingWithOffset:(float)arg1 ;
+-(void)finishRefreshing;
 -(void)setSpinnerView:(UIView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(CALayer *)gradientLayer;

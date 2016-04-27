@@ -22,10 +22,12 @@
 -(void)setHasShownNUX:(char)arg1 ;
 -(char)hasShownNUX;
 -(void)showIndicatorWithVideoView:(id)arg1 feedItem:(id)arg2 pageCellState:(id)arg3 animated:(char)arg4 ;
+-(void)showIndicatorWithContext:(id)arg1 ;
 -(void)hideIndicatorWithVideoView:(id)arg1 ;
 -(void)showVideoIndicatorForVideoView:(id)arg1 animated:(char)arg2 ;
 -(void)showPhotoIndicatorForFeedItem:(id)arg1 pageCellState:(id)arg2 animated:(char)arg3 ;
 -(void)setDelegate:(id<IGPageCellIndicatorControllerDelegate>)arg1 ;
+-(void)dealloc;
 -(id<IGPageCellIndicatorControllerDelegate>)delegate;
 -(void)reset;
 -(IGMediaOverlayIndicator *)indicatorView;

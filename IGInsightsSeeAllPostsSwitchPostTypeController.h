@@ -27,10 +27,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(NSArray *)mediaIDs;
 -(void)setMediaIDs:(NSArray *)arg1 ;
--(void)setActiveIndex:(unsigned)arg1 ;
--(unsigned)activeIndex;
 -(void)updateTitles:(id)arg1 mediaIDs:(id)arg2 activeIndex:(unsigned)arg3 ;
 -(id)currentActiveCellTitle;
+-(unsigned)activeIndex;
+-(void)setActiveIndex:(unsigned)arg1 ;
 -(void)setDelegate:(id<IGInsightsSeeAllPostsSwitchPostTypeControllerDelegate>)arg1 ;
 -(id)init;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

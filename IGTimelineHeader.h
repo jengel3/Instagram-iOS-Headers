@@ -17,8 +17,8 @@
 +(char)usePureWhite;
 +(int)height;
 -(void)voiceOverStatusChangedNotification:(id)arg1 ;
--(UIButton *)accessibilityButton;
 -(void)setBottomBorderLine:(UIView *)arg1 ;
+-(UIButton *)accessibilityButton;
 -(void)setAccessibilityButton:(UIButton *)arg1 ;
 -(UIView *)bottomBorderLine;
 -(id)initWithFrame:(CGRect)arg1 ;

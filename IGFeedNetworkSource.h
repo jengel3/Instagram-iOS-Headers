@@ -29,8 +29,6 @@
 	NSArray* _rankedPosts;
 	NSArray* _socialPosts;
 	int _truncationPolicy;
-	NSString* _dataSourceID;
-	NSString* _fetchPath;
 	NSArray* _forcedMediaIDs;
 	int _status;
 	NSString* _emptyMessage;
@@ -46,6 +44,7 @@
 	NSObject*<OS_dispatch_queue> _responseLoadQueue;
 	NSString* _nextMaxID;
 	NSDate* _lastFetchTime;
+	NSString* _fetchPath;
 
 }
 
@@ -55,9 +54,7 @@
 @property (retain) NSArray * rankedPosts;                                                          //@synthesize rankedPosts=_rankedPosts - In the implementation block
 @property (retain) NSArray * socialPosts;                                                          //@synthesize socialPosts=_socialPosts - In the implementation block
 @property (assign,nonatomic) int truncationPolicy;                                                 //@synthesize truncationPolicy=_truncationPolicy - In the implementation block
-@property (nonatomic,copy) NSString * dataSourceID;                                                //@synthesize dataSourceID=_dataSourceID - In the implementation block
-@property (nonatomic,copy) NSString * fetchPath;                                                   //@synthesize fetchPath=_fetchPath - In the implementation block
-@property (nonatomic,retain) NSArray * forcedMediaIDs;                                             //@synthesize forcedMediaIDs=_forcedMediaIDs - In the implementation block
+@property (nonatomic,copy) NSArray * forcedMediaIDs;                                               //@synthesize forcedMediaIDs=_forcedMediaIDs - In the implementation block
 @property (assign,nonatomic) char shouldEagerLoadImages;                                           //@synthesize shouldEagerLoadImages=_shouldEagerLoadImages - In the implementation block
 @property (assign,nonatomic) int status;                                                           //@synthesize status=_status - In the implementation block
 @property (assign) char loadedOnce;                                                                //@synthesize loadedOnce=_loadedOnce - In the implementation block
@@ -83,72 +80,66 @@
 @property (nonatomic,retain) NSObject*<OS_dispatch_queue> responseLoadQueue;                       //@synthesize responseLoadQueue=_responseLoadQueue - In the implementation block
 @property (copy) NSString * nextMaxID;                                                             //@synthesize nextMaxID=_nextMaxID - In the implementation block
 @property (nonatomic,retain) NSDate * lastFetchTime;                                               //@synthesize lastFetchTime=_lastFetchTime - In the implementation block
+@property (nonatomic,copy) NSString * fetchPath;                                                   //@synthesize fetchPath=_fetchPath - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)feedWithTimelineAlbums;
 +(id)feedWithFeedItem:(id)arg1 ;
-+(id)feedWithPopular;
 +(id)feedWithItems:(id)arg1 ;
 +(id)fetchPathForMediaID:(id)arg1 ;
-+(id)feedWithLatest;
-+(id)feedWithUser:(id)arg1 ;
++(id)feedWithPopular;
 +(id)feedWithTag:(id)arg1 loadedPosts:(id)arg2 ;
-+(id)feedWithPhotosOfUser:(id)arg1 ;
-+(id)feedWithLiked;
++(id)mainFeedNetworkSource;
 +(id)feedWithUserAlbums:(id)arg1 ;
 +(id)feedWithLocation:(id)arg1 loadedPosts:(id)arg2 ;
 +(id)feedWithMediaID:(id)arg1 ;
--(void)setFetchPath:(NSString *)arg1 ;
++(id)feedWithUser:(id)arg1 ;
++(id)feedWithLiked;
++(id)feedWithPhotosOfUser:(id)arg1 ;
+-(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 ;
 -(void)setTruncationPolicy:(int)arg1 ;
--(IGBulkMediaRequestManager *)requestManager;
 -(void)setShouldEagerLoadImages:(char)arg1 ;
+-(char)isFullyLoaded;
 -(void)setEagerLoadImageSize:(CGSize)arg1 imageOption:(int)arg2 videoVersion:(int)arg3 videoLoadLength:(long long)arg4 profilePictures:(char)arg5 ;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
--(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(void)setNextMaxID:(NSString *)arg1 ;
 -(NSString *)nextMaxID;
 -(NSArray *)posts;
--(NSString *)fetchPath;
 -(void)setPosts:(NSArray *)arg1 ;
 -(char)fetchDataWithParameters:(id)arg1 priority:(int)arg2 ;
--(id)initWithPostClass:(Class)arg1 ;
 -(char)fetchDataWithParameters:(id)arg1 ;
 -(void)eagerLoadMediaForPosts:(id)arg1 ;
--(NSArray *)socialPosts;
 -(id<IGFeedNetworkSourceHideDelegate>)hideDelegate;
 -(void)setHideDelegate:(id<IGFeedNetworkSourceHideDelegate>)arg1 ;
 -(id)regularPostsFromResponse:(id)arg1 clearOut:(char)arg2 usingStore:(id)arg3 rankToken:(id)arg4 secure:(char)arg5 ;
--(void)deletePost:(id)arg1 ;
--(char)fetchMoreItems;
 -(char)loadedOnce;
 -(char)failedWithAuthorizationError;
 -(NSString *)emptyMessage;
 -(char)hasRestrictedFeed;
 -(char)shouldHideIndicatorImage;
--(NSArray *)rankedPosts;
--(id)initWithPosts:(id)arg1 postClass:(Class)arg2 ;
--(void)setDataSourceID:(NSString *)arg1 ;
+-(id)initWithPosts:(id)arg1 postClass:(Class)arg2 fetchPath:(id)arg3 ;
 -(void)setLoadedOnce:(char)arg1 ;
 -(void)loadEntriesFromResponse:(id)arg1 clearOut:(char)arg2 rankToken:(id)arg3 secure:(char)arg4 ;
 -(id)hyperlapseBannerConfigurationForHashtag:(id)arg1 ;
--(void)setPromotionBannerConfigurations:(NSMutableArray *)arg1 ;
 -(id)boomerangBannerConfigurationForHashtag:(id)arg1 ;
 -(id)layoutBannerConfigurationForHashtag:(id)arg1 ;
 -(id)initWithTag:(id)arg1 loadedPosts:(id)arg2 ;
--(void)setEmptyMessage:(NSString *)arg1 ;
 -(id)initWithLocation:(id)arg1 loadedPosts:(id)arg2 ;
 -(void)setPostClass:(Class)arg1 ;
+-(void)setEmptyMessage:(NSString *)arg1 ;
+-(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(void)onPostDeleted:(id)arg1 ;
 -(void)setFetchedResultsController:(IGFetchedResultsController *)arg1 ;
 -(void)setFeedRestricted:(char)arg1 ;
 -(id)filterPostsFromItems:(id)arg1 ;
--(char)isFullyLoaded;
 -(id)singleFeedTitleFromPost:(id)arg1 ;
 -(NSDate *)lastFetchTime;
--(void)notifyDelegateDeserialization;
--(void)deserializeEntriesAtPath:(id)arg1 ;
+-(void)deletePost:(id)arg1 ;
+-(id)pathWithMaxID:(id)arg1 parameters:(id)arg2 ;
+-(NSString *)fetchPath;
+-(IGBulkMediaRequestManager *)requestManager;
 -(NSArray *)forcedMediaIDs;
 -(void)willFetchDataWithParameters:(id)arg1 ;
 -(id)URLToFetch:(id)arg1 parameters:(id)arg2 ;
@@ -165,6 +156,8 @@
 -(id)socialPostsFromResponse:(id)arg1 usingStore:(id)arg2 ;
 -(void)setRankedPosts:(NSArray *)arg1 ;
 -(void)setSocialPosts:(NSArray *)arg1 ;
+-(NSArray *)rankedPosts;
+-(NSArray *)socialPosts;
 -(id)parsePostsFromResponse:(id)arg1 usingStore:(id)arg2 ;
 -(id)singlePostFromResponse:(id)arg1 usingStore:(id)arg2 rankToken:(id)arg3 secure:(char)arg4 ;
 -(IGFetchedResultsController *)fetchedResultsController;
@@ -177,25 +170,24 @@
 -(void)insertPost:(id)arg1 ;
 -(void)hideFeedItem:(id)arg1 ;
 -(void)truncateItemsWithMaxCount:(unsigned)arg1 ;
--(void)loadFromFile:(id)arg1 ;
+-(char)fetchMoreItems;
 -(void)setForcedMediaIDs:(NSArray *)arg1 ;
 -(void)setShouldHideIndicatorImage:(char)arg1 ;
 -(char)isUpdatingPosts;
 -(void)setSendAdsHeader:(char)arg1 ;
 -(void)setSendInstalledAppsHeader:(char)arg1 ;
 -(NSMutableArray *)promotionBannerConfigurations;
+-(void)setPromotionBannerConfigurations:(NSMutableArray *)arg1 ;
 -(void)setResponseLoadQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(NSString *)dataSourceID;
+-(void)setFetchPath:(NSString *)arg1 ;
 -(void)setUserActivityType:(NSString *)arg1 ;
 -(NSDictionary *)userActivityUserInfo;
 -(void)setUserActivityUserInfo:(NSDictionary *)arg1 ;
 -(id)initWithTag:(id)arg1 ;
 -(unsigned)itemCount;
 -(char)fetchData;
--(void)archiveToFile:(id)arg1 ;
 -(void)setDelegate:(id<IGFeedNetworkSourceDelegate>)arg1 ;
 -(void)dealloc;
--(id)init;
 -(id<IGFeedNetworkSourceDelegate>)delegate;
 -(id)displayTitle;
 -(char)isLoading;

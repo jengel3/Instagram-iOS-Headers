@@ -23,13 +23,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGInsightsComponentNavigationDelegate> navigationDelegate; 
+-(void)setSurface:(unsigned)arg1 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(id)initWithComponent:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
 -(char)isComponentValid;
 -(IGInsightsCenteredParagraphPageView *)componentView;
 -(void)setComponentView:(IGInsightsCenteredParagraphPageView *)arg1 ;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
--(void)setSurface:(unsigned)arg1 ;
 -(unsigned)surface;
 -(IGInsightsParagraphComponent *)component;
 -(void)setComponent:(IGInsightsParagraphComponent *)arg1 ;

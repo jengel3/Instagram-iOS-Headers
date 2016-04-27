@@ -56,10 +56,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(char)shouldLogEvent:(unsigned)arg1 ;
--(unsigned)lastLogEvent;
--(void)allEventsLoggedWithResult:(id)arg1 ;
 -(char)prefersTabBarHidden;
+-(NSString *)nextMaxId;
 -(void)setThreads:(NSOrderedSet *)arg1 ;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
@@ -69,6 +67,9 @@
 -(float)cellProfilePictureVerticalPadding;
 -(void)loadMoreThreads;
 -(IGDirectUIPerfLogProxy *)perfLogProxy;
+-(char)shouldLogEvent:(unsigned)arg1 ;
+-(unsigned)lastLogEvent;
+-(void)allEventsLoggedWithResult:(id)arg1 ;
 -(id)currentActiveScrollView;
 -(void)reloadDataFromPullToRefresh;
 -(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
@@ -88,7 +89,6 @@
 -(id)declineString;
 -(void)updateFooterView;
 -(id)remainingInviterForThreads:(id)arg1 ;
--(NSString *)nextMaxId;
 -(void)setNextMaxId:(NSString *)arg1 ;
 -(UIButton *)allowButton;
 -(UIBarButtonItem *)spinnerButton;

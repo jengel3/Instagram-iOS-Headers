@@ -28,23 +28,23 @@
 @property (assign,nonatomic) unsigned thumbnailCount;                                       //@synthesize thumbnailCount=_thumbnailCount - In the implementation block
 @property (assign,nonatomic) unsigned thumbnailsPerRow;                                     //@synthesize thumbnailsPerRow=_thumbnailsPerRow - In the implementation block
 @property (assign,nonatomic) char showPlaceHolder;                                          //@synthesize showPlaceHolder=_showPlaceHolder - In the implementation block
-+(float)heightWithConstrainedWidth:(float)arg1 thumbnailCount:(unsigned)arg2 thumbnailsPerRow:(unsigned)arg3 ;
 +(float)thumbnailHeightForWidth:(float)arg1 thumbnailsPerRow:(unsigned)arg2 ;
++(float)heightWithConstrainedWidth:(float)arg1 thumbnailCount:(unsigned)arg2 thumbnailsPerRow:(unsigned)arg3 ;
 +(CGSize)thumbnailSizeForWidth:(float)arg1 thumbnailsPerRow:(unsigned)arg2 ;
 -(NSArray *)thumbnailViews;
 -(void)setThumbnailViews:(NSArray *)arg1 ;
+-(void)onTapThumbnail:(id)arg1 ;
+-(unsigned)thumbnailsPerRow;
+-(UIView *)thumbnailOverlayView;
 -(void)setThumbnailURLs:(id)arg1 isRestricted:(char)arg2 thumbnailVideoIndexes:(id)arg3 maxThumbnails:(int)arg4 thumbnailsPerRow:(unsigned)arg5 showPlaceHolder:(char)arg6 ;
 -(NSArray *)thumbnailURLs;
--(unsigned)thumbnailsPerRow;
--(NSIndexSet *)thumbnailVideoIndexes;
--(UIView *)thumbnailOverlayView;
--(void)setThumbnailsPerRow:(unsigned)arg1 ;
 -(void)setThumbnailURLs:(NSArray *)arg1 ;
--(void)setThumbnailVideoIndexes:(NSIndexSet *)arg1 ;
--(void)onTapThumbnail:(id)arg1 ;
 -(void)setIsRestricted:(char)arg1 ;
+-(NSIndexSet *)thumbnailVideoIndexes;
+-(void)setThumbnailVideoIndexes:(NSIndexSet *)arg1 ;
 -(unsigned)thumbnailCount;
 -(void)setThumbnailCount:(unsigned)arg1 ;
+-(void)setThumbnailsPerRow:(unsigned)arg1 ;
 -(char)showPlaceHolder;
 -(void)setShowPlaceHolder:(char)arg1 ;
 -(void)setDelegate:(id<IGThumbnailsGridViewDelegate>)arg1 ;

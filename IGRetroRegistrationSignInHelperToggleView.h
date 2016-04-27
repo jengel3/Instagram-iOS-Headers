@@ -19,9 +19,9 @@
 @property (nonatomic,retain) UIView * phoneLine;                     //@synthesize phoneLine=_phoneLine - In the implementation block
 +(id)createButtonWithTitle:(id)arg1 ;
 -(UIButton *)usernameButton;
--(void)setUsernameButton:(UIButton *)arg1 ;
--(UIView *)phoneLine;
 -(UIView *)usernameLine;
+-(UIView *)phoneLine;
+-(void)setUsernameButton:(UIButton *)arg1 ;
 -(void)setUsernameLine:(UIView *)arg1 ;
 -(void)setPhoneLine:(UIView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

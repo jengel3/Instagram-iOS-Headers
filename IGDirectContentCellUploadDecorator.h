@@ -8,10 +8,12 @@
 
 @interface IGDirectContentCellUploadDecorator : NSObject <IGDirectContentUploadInfoObserver, IGDirectContentCellDecorator> {
 
+	char _showingFailedUI;
 	char _shouldShowProgress;
 	char _shouldShowSendingDot;
 	char _bottomAlignActionButton;
 	id<IGDirectContentUploadCell> _delegate;
+	int _layoutStyle;
 	UICollectionViewCell*<IGDirectCellProtocol> _cell;
 	UIButton* _actionButton;
 	UIView* _sendingDot;
@@ -21,6 +23,7 @@
 
 }
 
+@property (assign,nonatomic) char showingFailedUI;                                                 //@synthesize showingFailedUI=_showingFailedUI - In the implementation block
 @property (assign,nonatomic,__weak) id<IGDirectContentUploadCell> delegate;                        //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) char shouldShowProgress;                                              //@synthesize shouldShowProgress=_shouldShowProgress - In the implementation block
 @property (assign,nonatomic) CGSize spinnerOffset;                                                 //@synthesize spinnerOffset=_spinnerOffset - In the implementation block
@@ -28,6 +31,7 @@
 @property (assign,nonatomic) char shouldShowSendingDot;                                            //@synthesize shouldShowSendingDot=_shouldShowSendingDot - In the implementation block
 @property (nonatomic,readonly) NSString * timestampText; 
 @property (assign,nonatomic) char bottomAlignActionButton;                                         //@synthesize bottomAlignActionButton=_bottomAlignActionButton - In the implementation block
+@property (assign,nonatomic) int layoutStyle;                                                      //@synthesize layoutStyle=_layoutStyle - In the implementation block
 @property (assign,nonatomic,__weak) UICollectionViewCell*<IGDirectCellProtocol> cell;              //@synthesize cell=_cell - In the implementation block
 @property (nonatomic,retain) UIButton * actionButton;                                              //@synthesize actionButton=_actionButton - In the implementation block
 @property (nonatomic,retain) UIView * sendingDot;                                                  //@synthesize sendingDot=_sendingDot - In the implementation block
@@ -37,9 +41,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGDirectContent*<IGDirectContentUploadable>)upload;
 -(void)notifyStatusChangedForUploadInfo:(id)arg1 ;
 -(void)notifyUploadProgressForUploadInfo:(id)arg1 withUploadProgress:(float)arg2 ;
+-(char)showingFailedUI;
+-(float)rightOffset;
 -(NSString *)timestampText;
 -(void)showActionMenu;
 -(void)showFailedUI;
@@ -49,17 +54,19 @@
 -(void)addSubviewsToCell;
 -(void)attachGestureRecognizers;
 -(void)finishLayout;
--(void)setShouldShowSendingDot:(char)arg1 ;
--(void)setShouldShowProgress:(char)arg1 ;
--(void)setSpinnerOffset:(CGSize)arg1 ;
--(void)setBottomAlignActionButton:(char)arg1 ;
--(float)rightOffset;
+-(IGDirectContent*<IGDirectContentUploadable>)upload;
 -(char)shouldShowProgress;
 -(char)shouldShowSendingDot;
+-(id)createSendingDot;
+-(void)setSendingDot:(UIView *)arg1 ;
 -(UIView *)sendingDot;
 -(char)bottomAlignActionButton;
 -(CGSize)spinnerOffset;
--(void)setSendingDot:(UIView *)arg1 ;
+-(void)setShowingFailedUI:(char)arg1 ;
+-(void)setShouldShowProgress:(char)arg1 ;
+-(void)setSpinnerOffset:(CGSize)arg1 ;
+-(void)setShouldShowSendingDot:(char)arg1 ;
+-(void)setBottomAlignActionButton:(char)arg1 ;
 -(void)setUpload:(IGDirectContent*<IGDirectContentUploadable>)arg1 ;
 -(UIButton *)actionButton;
 -(void)setDelegate:(id<IGDirectContentUploadCell>)arg1 ;
@@ -73,5 +80,7 @@
 -(void)setSpinner:(UIActivityIndicatorView *)arg1 ;
 -(void)setActionButton:(UIButton *)arg1 ;
 -(void)setContent:(id)arg1 ;
+-(int)layoutStyle;
+-(void)setLayoutStyle:(int)arg1 ;
 @end
 

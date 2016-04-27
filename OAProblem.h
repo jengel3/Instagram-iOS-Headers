@@ -9,8 +9,8 @@
 }
 
 @property (readonly) NSString * problem; 
-+(id)problemWithResponseBody:(id)arg1 ;
 +(id)validProblems;
++(id)problemWithResponseBody:(id)arg1 ;
 +(id)SignatureMethodRejected;
 +(id)ParameterAbsent;
 +(id)VersionRejected;

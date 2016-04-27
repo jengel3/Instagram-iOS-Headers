@@ -27,11 +27,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGPostItem *)topPostItem;
 -(id)imageURLsWithWidth:(float)arg1 ;
 -(id)videoIconsVisible;
 -(id)initWithPostItems:(id)arg1 title:(id)arg2 subtitle:(id)arg3 key:(id)arg4 type:(unsigned)arg5 location:(id)arg6 ;
 -(NSArray *)postItems;
+-(IGPostItem *)topPostItem;
 -(id)relatedItemDisplayName;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

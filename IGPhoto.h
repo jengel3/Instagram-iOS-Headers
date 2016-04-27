@@ -24,10 +24,10 @@
 +(CGSize)aspectRatioForImageVersions:(id)arg1 ;
 +(CGSize)imageSizeForImageVersion:(id)arg1 ;
 -(id)imageURLForWidth:(float)arg1 ;
--(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
 -(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(id)initWithFeedItemDictionary:(id)arg1 ;
 -(id)initWithImageVersions:(id)arg1 ;
+-(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
 -(id)imageURLOfAtLeastWidth:(float)arg1 scale:(float)arg2 ;
 -(NSString *)mediaID;

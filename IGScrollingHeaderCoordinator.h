@@ -28,14 +28,13 @@
 @property (assign,nonatomic) char isAnimatingTransition;                                   //@synthesize isAnimatingTransition=_isAnimatingTransition - In the implementation block
 +(id)scrollingHeaderItemForViewController:(id)arg1 ;
 +(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
-+(unsigned)statusBarStateForViewController:(id)arg1 ;
 +(unsigned)navigationBarStateForViewController:(id)arg1 ;
++(unsigned)statusBarStateForViewController:(id)arg1 ;
 +(id)headerSnapshotForViewController:(id)arg1 navigationBar:(id)arg2 ;
--(float)headerAdjustmentAmount;
 -(void)setHeaderScrolledAway:(char)arg1 forViewController:(id)arg2 animated:(char)arg3 ;
--(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)synchronizeViewControllerHeaderState:(id)arg1 ;
--(void)layoutHeaderForActiveViewControllerAnimated:(char)arg1 ;
+-(float)headerAdjustmentAmount;
+-(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)setActiveScrollView:(UIScrollView *)arg1 ;
 -(void)setActiveHeaderItem:(IGScrollingHeaderItem *)arg1 ;
 -(IGScrollingHeaderItem *)activeHeaderItem;
@@ -47,7 +46,6 @@
 -(UIScrollView *)activeScrollView;
 -(float)headerAnchor;
 -(void)updateHeaderAnimated:(char)arg1 ;
--(void)layoutHeaderForViewController:(id)arg1 animated:(char)arg2 ;
 -(NSSet *)scrollingViews;
 -(void)updateStatusBarIfNeededWithTransform:(CGAffineTransform)arg1 ;
 -(void)updateNavigationOverlayWithPercentVisible:(float)arg1 ;
@@ -56,6 +54,8 @@
 -(void)positionHeaderAfterScrolling;
 -(id)initWithNavigationBar:(id)arg1 ;
 -(void)releaseActiveViewController:(id)arg1 ;
+-(void)layoutHeaderForViewController:(id)arg1 animated:(char)arg2 ;
+-(void)layoutHeaderForActiveViewControllerAnimated:(char)arg1 ;
 -(void)dealloc;
 -(IGNavigationBar *)navigationBar;
 -(UIView *)statusBar;

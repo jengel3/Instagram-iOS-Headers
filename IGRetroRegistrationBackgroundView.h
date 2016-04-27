@@ -22,8 +22,6 @@
 @property (assign,nonatomic) int footerViewType;                                         //@synthesize footerViewType=_footerViewType - In the implementation block
 @property (nonatomic,retain) UILabel * footerViewLabel;                                  //@synthesize footerViewLabel=_footerViewLabel - In the implementation block
 -(UIView *)footerViewSeperator;
--(id)initWithFrame:(CGRect)arg1 footerViewType:(int)arg2 ;
--(UIButton *)footerButton;
 -(void)setFooterViewType:(int)arg1 ;
 -(void)setupFooterViewForType;
 -(int)footerViewType;
@@ -33,6 +31,8 @@
 -(void)setFooterButton:(UIButton *)arg1 ;
 -(void)setFooterViewSeperator:(UIView *)arg1 ;
 -(void)setFooterViewLabel:(UILabel *)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 footerViewType:(int)arg2 ;
+-(UIButton *)footerButton;
 -(void)layoutSubviews;
 -(void)setBackgroundView:(IGRegistrationBackgroundView *)arg1 ;
 -(IGRegistrationBackgroundView *)backgroundView;

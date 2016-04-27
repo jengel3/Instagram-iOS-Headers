@@ -22,13 +22,11 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sessionDirectRecipientManager;
 -(NSString *)userSessionPK;
--(void)setUserSessionPK:(NSString *)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(id)followingUsers;
--(char)useNewEndpoint;
 -(void)refetchDefaultRecipientsIfNeeded;
 -(void)setLastUserFetchTime:(double)arg1 ;
+-(char)useNewEndpoint;
 -(NSArray *)cachedDefaultUserRecipients;
 -(id)fallbackRecipientsUsersOnly;
 -(double)lastUserFetchTime;
@@ -36,6 +34,8 @@
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(id)defaultRecipientsUsersOnly;
 -(id)defaultRecipientsIncludingThreads;
+-(void)setUserSessionPK:(NSString *)arg1 ;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)dealloc;
 @end
 

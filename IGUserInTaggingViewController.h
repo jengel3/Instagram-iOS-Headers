@@ -6,7 +6,7 @@
 #import <Instagram/IGUsertagTableViewDelegate.h>
 
 @protocol IGUserInTaggingViewControllerDelegate;
-@class UIBarButtonItem, UIView, UITextField, IGUserInTaggingView, UIImageView, IGLabel, IGUsertagTableView, IGUsertagGroup, NSMutableSet, NSString;
+@class UIBarButtonItem, UIView, UITextField, IGUserInTaggingView, UIImageView, UILabel, IGUsertagTableView, IGUsertagGroup, NSMutableSet, NSString;
 
 @interface IGUserInTaggingViewController : IGViewController <IGUserInTaggingViewDelegate, UITextFieldDelegate, IGUsertagTableViewDelegate> {
 
@@ -17,8 +17,8 @@
 	UIView* _taggingContainerView;
 	IGUserInTaggingView* _taggingView;
 	UIImageView* _imageView;
-	IGLabel* _taggingAddLabel;
-	IGLabel* _taggingEditLabel;
+	UILabel* _taggingAddLabel;
+	UILabel* _taggingEditLabel;
 	IGUsertagTableView* _tableView;
 	IGUsertagGroup* _usertags;
 	NSMutableSet* _untaggedFaces;
@@ -33,9 +33,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGUsertagGroup *)usertags;
--(void)onCancelModal;
 -(id)analyticsModule;
+-(void)keyboardWillChange:(id)arg1 ;
+-(void)tagTableViewDidSelectUser:(id)arg1 ;
+-(void)onCancelModal;
+-(IGUsertagGroup *)usertags;
 -(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(id)initWithImageView:(id)arg1 ;
 -(void)userInTaggingViewDidFinishTagging;
@@ -47,11 +49,9 @@
 -(void)setUntaggedFaces:(NSMutableSet *)arg1 ;
 -(void)onDoneTapped;
 -(void)onLargeImageReady:(id)arg1 ;
--(void)keyboardWillChange:(id)arg1 ;
 -(void)updateQuery;
 -(void)endQuery;
 -(void)updateTaggingViewAndLabels;
--(void)tagTableViewDidSelectUser:(id)arg1 ;
 -(void)setDelegate:(id<IGUserInTaggingViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGUserInTaggingViewControllerDelegate>)delegate;

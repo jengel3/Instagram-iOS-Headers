@@ -48,11 +48,11 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (getter=isPaused,nonatomic,readonly) char paused;                               //@synthesize paused=_paused - In the implementation block
 @property (nonatomic,copy) id pauseCallback;                                              //@synthesize pauseCallback=_pauseCallback - In the implementation block
+-(id)reactViewController;
+-(id)initWithBridge:(id)arg1 ;
 -(void)didUpdateFrame:(id)arg1 ;
 -(id)pauseCallback;
 -(void)setPauseCallback:(id)arg1 ;
--(id)reactViewController;
--(id)initWithBridge:(id)arg1 ;
 -(void)dispatchFakeScrollEvent;
 -(void)freeLock;
 -(UIView *)reactNavSuperviewLink;

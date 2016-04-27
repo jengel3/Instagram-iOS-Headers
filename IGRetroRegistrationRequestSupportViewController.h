@@ -41,11 +41,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
--(void)setSubmitting:(char)arg1 ;
 -(char)submitting;
+-(void)setSubmitting:(char)arg1 ;
 -(id)initWithUsername:(id)arg1 twoFactorIdentifier:(id)arg2 ;
 -(void)keyboardWillHide;
--(NSString *)twoFactorIdentifier;
 -(void)setRequestSupportView:(IGRetroRegistrationRequestSupportView *)arg1 ;
 -(IGRetroRegistrationRequestSupportView *)requestSupportView;
 -(unsigned)requestSupportType;
@@ -55,6 +54,7 @@
 -(id)selectedReasonType;
 -(void)requestSupportSuccessHandler:(id)arg1 ;
 -(void)requestSupportFailureHandler:(id)arg1 ;
+-(NSString *)twoFactorIdentifier;
 -(NSIndexPath *)checkedAccountTypeIndexPath;
 -(NSIndexPath *)checkedReasonIndexPath;
 -(void)setCheckedAccountTypeIndexPath:(NSIndexPath *)arg1 ;

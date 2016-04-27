@@ -6,7 +6,7 @@
 
 @interface IGCommentThreadManager : NSObject <IGRealtimeOperationDelegate> {
 
-	char _loadingMore;
+	char _loading;
 	IGFeedItem* _feedItem;
 	IGUser* _currentUser;
 	id<IGCommentThreadManagerDelegate> _delegate;
@@ -22,29 +22,29 @@
 @property (nonatomic,readonly) IGRealtimeManager * realtimeManager;                                       //@synthesize realtimeManager=_realtimeManager - In the implementation block
 @property (nonatomic,__weak,readonly) IGBulkCommentDeleteManager * bulkCommentDeleteManager;              //@synthesize bulkCommentDeleteManager=_bulkCommentDeleteManager - In the implementation block
 @property (nonatomic,__weak,readonly) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
-@property (assign,getter=isLoadingMore,nonatomic) char loadingMore;                                       //@synthesize loadingMore=_loadingMore - In the implementation block
+@property (assign,getter=isLoading,nonatomic) char loading;                                               //@synthesize loading=_loading - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGFeedItem *)feedItem;
--(void)loadCommentsForNextPage:(char)arg1 ;
--(void)setLoadingMore:(char)arg1 ;
--(void)subscribeToRealtime:(id)arg1 patches:(id)arg2 ;
--(IGRealtimeManager *)realtimeManager;
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(id)initWithPost:(id)arg1 currentUser:(id)arg2 bulkDeleteManager:(id)arg3 loggingDelegate:(id)arg4 ;
 -(void)loadAndSubscribeToRealtime;
+-(void)unsubscribeFromRealtime;
+-(void)postCommentText:(id)arg1 ;
+-(void)loadCommentsForNextPage:(char)arg1 ;
+-(void)subscribeToRealtime:(id)arg1 patches:(id)arg2 ;
+-(IGBulkCommentDeleteManager *)bulkCommentDeleteManager;
+-(IGRealtimeManager *)realtimeManager;
 -(void)handleRealtimeOperation:(id)arg1 ;
 -(id)pkForRealtimeOperation:(id)arg1 ;
 -(void)handleRealtimeRefreshRequest;
--(id)initWithPost:(id)arg1 currentUser:(id)arg2 bulkDeleteManager:(id)arg3 loggingDelegate:(id)arg4 ;
--(void)unsubscribeFromRealtime;
--(void)postCommentText:(id)arg1 ;
--(IGBulkCommentDeleteManager *)bulkCommentDeleteManager;
--(char)isLoadingMore;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(void)loadMore;
 -(void)setDelegate:(id<IGCommentThreadManagerDelegate>)arg1 ;
 -(id<IGCommentThreadManagerDelegate>)delegate;
+-(char)isLoading;
 -(IGUser *)currentUser;
+-(void)setLoading:(char)arg1 ;
 @end
 

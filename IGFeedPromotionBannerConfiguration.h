@@ -42,18 +42,12 @@
 @property (nonatomic,retain) NSString * appId;                                               //@synthesize appId=_appId - In the implementation block
 @property (nonatomic,copy) NSString * uuid;                                                  //@synthesize uuid=_uuid - In the implementation block
 +(void)logForAction:(id)arg1 reason:(id)arg2 type:(id)arg3 uuid:(id)arg4 ;
-+(id)iconImageForPromotionType:(int)arg1 ;
 +(id)stringForPromotionType:(int)arg1 ;
++(id)iconImageForPromotionType:(int)arg1 ;
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
--(id)initWithButtonText:(id)arg1 centerText:(id)arg2 icon:(id)arg3 ;
 -(void)setFeedPromotionBannerType:(int)arg1 ;
--(void)setupActionBlockForHyperlapse;
--(void)setupActionBlockForBoomerang;
--(void)setupActionBlockForLayout;
 -(char)showDismissButton;
--(int)feedPromotionBannerType;
--(id)cellTapActionBlock;
 -(void)buildCenterTextWithTextRuns:(id)arg1 ;
 -(void)setMutableCenterText:(NSMutableAttributedString *)arg1 ;
 -(NSMutableAttributedString *)mutableCenterText;
@@ -68,9 +62,15 @@
 -(void)setPromotionDismissed:(char)arg1 ;
 -(void)setupActionBlockForFollowDestination;
 -(void)setShowDismissButton:(char)arg1 ;
+-(int)feedPromotionBannerType;
 -(void)setupActionBlocksForPromotionWithType:(int)arg1 ;
 -(id)nameOfFeedPromotionBannerType;
+-(id)initWithButtonText:(id)arg1 centerText:(id)arg2 icon:(id)arg3 ;
+-(void)setupActionBlockForHyperlapse;
+-(void)setupActionBlockForBoomerang;
+-(void)setupActionBlockForLayout;
 -(char)promotionDismissed;
+-(id)cellTapActionBlock;
 -(id)cellImpressionActionBlock;
 -(id)cellDismssActionBlock;
 -(void)setTitle:(NSString *)arg1 ;

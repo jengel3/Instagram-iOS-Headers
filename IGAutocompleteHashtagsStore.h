@@ -21,13 +21,13 @@
 +(void)clearForUserPK:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(id)regexPattern;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(id)hashtagsInString:(id)arg1 ;
 -(void)addHashtag:(id)arg1 addToRecent:(char)arg2 ;
 -(int)indexOfHashtag:(id)arg1 inArray:(id)arg2 ;
 -(void)setExpiresForHashtag:(id)arg1 ;
 -(void)removeExpiredHashtags;
+-(id)regexPattern;
 -(void)addHashtagsFromText:(id)arg1 addToRecent:(char)arg2 ;
 -(NSMutableArray *)allHashtags;
 -(void)setAllHashtags:(NSMutableArray *)arg1 ;

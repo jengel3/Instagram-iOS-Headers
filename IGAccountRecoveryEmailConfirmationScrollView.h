@@ -26,7 +26,6 @@
 @property (nonatomic,retain) UIButton * loginInInsteadButton;                                                                  //@synthesize loginInInsteadButton=_loginInInsteadButton - In the implementation block
 @property (nonatomic,retain) UIImageView * logoView;                                                                           //@synthesize logoView=_logoView - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                                                             //@synthesize titleLabel=_titleLabel - In the implementation block
--(IGRetroRegistrationTextField *)confirmationCodeField;
 -(UIButton *)resendButton;
 -(UIButton *)loginInInsteadButton;
 -(void)nextButtonTapped:(id)arg1 ;
@@ -34,9 +33,10 @@
 -(void)resendCodeButtonTapped:(id)arg1 ;
 -(id<IGAccountRecoveryEmailConfirmationViewDelegate>)emailConfirmationDelegate;
 -(void)setConfirmationCodeField:(IGRetroRegistrationTextField *)arg1 ;
--(void)setEmailConfirmationDelegate:(id<IGAccountRecoveryEmailConfirmationViewDelegate>)arg1 ;
 -(void)setResendButton:(UIButton *)arg1 ;
 -(void)setLoginInInsteadButton:(UIButton *)arg1 ;
+-(void)setEmailConfirmationDelegate:(id<IGAccountRecoveryEmailConfirmationViewDelegate>)arg1 ;
+-(IGRetroRegistrationTextField *)confirmationCodeField;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;

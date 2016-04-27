@@ -20,6 +20,8 @@
 @interface IGRetroRegistrationNavigationController : IGNavigationController <IGRetroRegistrationWelcomeViewControllerDelegate, IGRetroRegistrationLoginViewControllerDelegate, IGRetroRegistrationAddEmailViewControllerDelegate, IGRetroRegistrationSignUpViewControllerDelegate, IGRetroRegistrationFindFriendsViewControllerDelegate, IGAccountRecoveryEmailConfirmationControllerDelegate, IGRetroRegistrationSMSVerificationViewControllerDelegate, IGRetroRegistrationPhoneNumberViewControllerDelegate, IGRetroRegistrationPhoneConfirmationViewControllerDelegate, IGAccountTakeOverViewControllerDelegate, IGResetPasswordDelegate, IGRetroRegistrationSignInHelperViewControllerDelegate, IGRetroRegistrationRequestSupportDelegate, IGRetroRegistrationPrivateNuxViewControllerDelegate> {
 
 	char _isSwitchingUsers;
+	char _isPrivateNuxEnabled;
+	char _isPrivateNuxFirst;
 	int _currentStep;
 	int _findFriendMode;
 	NSDictionary* _facebookMeInfo;
@@ -50,6 +52,8 @@
 @property (assign,nonatomic) char isSwitchingUsers;                                               //@synthesize isSwitchingUsers=_isSwitchingUsers - In the implementation block
 @property (nonatomic,copy) NSString * forceSignUpCode;                                            //@synthesize forceSignUpCode=_forceSignUpCode - In the implementation block
 @property (setter=MSVerificationCode,nonatomic,copy) NSString * SMSVerificationCode;              //@synthesize SMSVerificationCode=_SMSVerificationCode - In the implementation block
+@property (assign,nonatomic) char isPrivateNuxEnabled;                                            //@synthesize isPrivateNuxEnabled=_isPrivateNuxEnabled - In the implementation block
+@property (assign,nonatomic) char isPrivateNuxFirst;                                              //@synthesize isPrivateNuxFirst=_isPrivateNuxFirst - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -60,20 +64,17 @@
 -(void)accountRecoveryEmailConfirmationControllerBackToLoginView:(id)arg1 ;
 -(NSDictionary *)loggedInDictionary;
 -(char)accountTakeOverViewControllerIsSwitchingUsers:(id)arg1 ;
--(FBSDKAccessToken *)facebookAccessToken;
 -(void)accountTakeOverViewControllerDidTapConfirmLogInButton:(id)arg1 ;
 -(void)accountTakeOverViewControllerDidTapSignUpButton:(id)arg1 ;
--(void)setFacebookAccessToken:(FBSDKAccessToken *)arg1 ;
--(void)requestSupportViewControllerWantsToDismiss:(id)arg1 ;
+-(FBSDKAccessToken *)facebookAccessToken;
 -(void)resetPasswordController:(id)arg1 dismissWithTwoFactorInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(char)resetPasswordControllerIsSwitchingUsers:(id)arg1 ;
 -(void)smsVerificationViewController:(id)arg1 didRequestSupportWithUsername:(id)arg2 twoFactorIdentifier:(id)arg3 ;
 -(void)smsVerificationViewController:(id)arg1 wantsToPopViewControllerAnimated:(char)arg2 ;
 -(char)smsVerificationViewControllerIsSwitchingUsers:(id)arg1 ;
--(void)addEmailViewControllerDidTapPhoneRegiButton:(id)arg1 ;
--(void)addEmailViewControllerDidTapLoginButton:(id)arg1 ;
--(void)addEmailViewController:(id)arg1 proceedWithValidatedEmail:(id)arg2 usernameSuggestions:(id)arg3 ;
--(void)addEmailViewController:(id)arg1 proceedWithConflictedEmail:(id)arg2 ;
+-(void)requestSupportViewControllerWantsToDismiss:(id)arg1 ;
+-(void)setFacebookAccessToken:(FBSDKAccessToken *)arg1 ;
+-(int)findFriendsMode;
 -(void)findFriendsController:(id)arg1 wantsToUpdateToFollowCount:(int)arg2 ;
 -(void)findFriendsControllerNextButtonTapped:(id)arg1 ;
 -(void)findFriendsControllerSkipButtonTapped:(id)arg1 ;
@@ -108,13 +109,13 @@
 -(Class)viewControllerClassForStep:(int)arg1 ;
 -(int)indexOfViewControllerClass:(Class)arg1 ;
 -(void)userLoggedInOperations;
+-(char)isPrivateNuxEnabled;
+-(char)isPrivateNuxFirst;
 -(void)setCurrentStep:(int)arg1 ;
 -(int)followPeopleStep;
 -(void)continueStep:(int)arg1 ;
--(NSArray *)suggestedUsernames;
 -(NSDictionary *)facebookMeInfo;
 -(NSString *)SMSVerificationCode;
--(NSString *)forceSignUpCode;
 -(int)findFriendMode;
 -(IGTwoFactorInfo *)twoFactorInfo;
 -(void)setFacebookMeInfo:(NSDictionary *)arg1 ;
@@ -122,8 +123,9 @@
 -(void)proceedRegistrationWithFBUserInfo:(id)arg1 facebookAccessToken:(id)arg2 ;
 -(void)setFindFriendMode:(int)arg1 ;
 -(void)setTwoFactorInfo:(IGTwoFactorInfo *)arg1 ;
--(char)isSwitchingUsers;
--(void)setSuggestedUsernames:(NSArray *)arg1 ;
+-(void)setIsPrivateNuxEnabled:(char)arg1 ;
+-(void)setIsPrivateNuxFirst:(char)arg1 ;
+-(int)findFriendsStep;
 -(void)onRegistrationFinished;
 -(void)setForceSignUpCode:(NSString *)arg1 ;
 -(void)setLoggedInDictionary:(NSDictionary *)arg1 ;
@@ -136,30 +138,38 @@
 -(void)welcomeViewController:(id)arg1 proceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)welcomeViewControllerWantsToDismiss:(id)arg1 ;
 -(char)welcomeViewControllerIsSwitchingUsers:(id)arg1 ;
--(void)signupViewControllerDidTapLoginButton:(id)arg1 ;
--(void)signupViewControllerDidTapNextButton:(id)arg1 ;
--(void)signupViewControllerRegistrationSucceeded:(id)arg1 ;
--(void)signupViewController:(id)arg1 requestsLoginToUsername:(id)arg2 password:(id)arg3 ;
--(char)signupViewControllerIsSwitchingUsers:(id)arg1 ;
--(int)registrationStepForSignUpViewController:(id)arg1 ;
+-(void)addEmailViewControllerDidTapLoginButton:(id)arg1 ;
+-(void)addEmailViewControllerDidTapPhoneRegiButton:(id)arg1 ;
+-(void)addEmailViewController:(id)arg1 proceedWithValidatedEmail:(id)arg2 usernameSuggestions:(id)arg3 ;
+-(void)addEmailViewController:(id)arg1 proceedWithConflictedEmail:(id)arg2 ;
+-(void)signInHelperViewController:(id)arg1 didTapOnURL:(id)arg2 ;
+-(void)didTapBackButton:(id)arg1 ;
+-(void)phoneConfirmationViewController:(id)arg1 didVerifyWithCode:(id)arg2 ;
+-(void)phoneNumberViewControllerDelegateSMSSentWithPhoneNumber:(id)arg1 phoneNumberViewController:(id)arg2 ;
 -(void)phoneNumberViewControllerDelegateDidTapLoginButton:(id)arg1 ;
 -(void)phoneNumberViewControllerDelegateDidTapEmailRegistrationButton:(id)arg1 ;
--(void)phoneNumberViewControllerDelegateSMSSentWithPhoneNumber:(id)arg1 phoneNumberViewController:(id)arg2 ;
--(void)phoneConfirmationViewController:(id)arg1 didVerifyWithCode:(id)arg2 ;
--(void)didTapBackButton:(id)arg1 ;
--(void)signInHelperViewControllerDidTapBackButton:(id)arg1 ;
--(void)signInHelperViewController:(id)arg1 didTapOnURL:(id)arg2 ;
--(char)signInHelperViewControllerIsSwitchingUsers:(id)arg1 ;
--(void)signInHelperViewControllerDidTapSignUpButton:(id)arg1 ;
--(void)signInHelperViewControllerDidTapLogInButton:(id)arg1 ;
--(void)signInHelperViewController:(id)arg1 willProceedRegistrationWithFBInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
--(void)signInHelperViewController:(id)arg1 userEmailTakenAutoLoginWithLoggedInDicted:(id)arg2 ;
--(void)signInHelperViewController:(id)arg1 resetPasswordWithViewController:(id)arg2 ;
--(void)signInHelperViewController:(id)arg1 proceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
--(void)signInHelperViewController:(id)arg1 didRequestSupportWithUsername:(id)arg2 ;
 -(void)didTapNextButton:(id)arg1 ;
--(id)initWithIsSwitchingUsers:(char)arg1 ;
+-(char)signInHelperViewControllerIsSwitchingUsers:(id)arg1 ;
+-(void)signInHelperViewControllerDidTapBackButton:(id)arg1 ;
+-(void)signInHelperViewController:(id)arg1 didRequestSupportWithUsername:(id)arg2 ;
+-(void)signInHelperViewControllerDidTapLogInButton:(id)arg1 ;
+-(void)signInHelperViewControllerDidTapSignUpButton:(id)arg1 ;
+-(void)signInHelperViewController:(id)arg1 userEmailTakenAutoLoginWithLoggedInDicted:(id)arg2 ;
+-(void)signInHelperViewController:(id)arg1 willProceedRegistrationWithFBInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
+-(void)signInHelperViewController:(id)arg1 proceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
+-(void)signInHelperViewController:(id)arg1 resetPasswordWithViewController:(id)arg2 ;
+-(int)registrationStepForSignUpViewController:(id)arg1 ;
+-(void)signupViewControllerDidTapNextButton:(id)arg1 ;
+-(void)signupViewControllerDidTapLoginButton:(id)arg1 ;
+-(NSArray *)suggestedUsernames;
+-(char)signupViewControllerIsSwitchingUsers:(id)arg1 ;
+-(void)signupViewControllerRegistrationSucceeded:(id)arg1 privateNuxEnabled:(char)arg2 privateNuxFirst:(char)arg3 ;
+-(void)signupViewController:(id)arg1 requestsLoginToUsername:(id)arg2 password:(id)arg3 ;
+-(NSString *)forceSignUpCode;
+-(void)setSuggestedUsernames:(NSArray *)arg1 ;
+-(char)isSwitchingUsers;
 -(void)setIsSwitchingUsers:(char)arg1 ;
+-(id)initWithIsSwitchingUsers:(char)arg1 ;
 -(void)dealloc;
 -(char)gestureRecognizerShouldBegin:(id)arg1 ;
 -(NSString *)phoneNumber;

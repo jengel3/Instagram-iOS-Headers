@@ -2,14 +2,13 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@protocol IGInlineInsightsViewDelegate, IGInsightsContentRowListViewDelegate;
+@protocol IGInsightsContentRowListViewDelegate;
 @class IGInsightsContentRowListView, IGInlineInsightsHeaderView, IGInlineInsightsUnitView, UILabel, NSString, IGInsightsLoggingHelper, UIActivityIndicatorView;
 
 @interface IGInlineInsightsView : UIView {
 
 	char _setSeparator;
 	IGInsightsContentRowListView* _educationView;
-	id<IGInlineInsightsViewDelegate> _delegate;
 	IGInlineInsightsHeaderView* _headerView;
 	IGInlineInsightsUnitView* _impressionUnitView;
 	IGInlineInsightsUnitView* _reachUnitView;
@@ -26,7 +25,6 @@
 }
 
 @property (nonatomic,retain) IGInsightsContentRowListView * educationView;                                       //@synthesize educationView=_educationView - In the implementation block
-@property (assign,nonatomic,__weak) id<IGInlineInsightsViewDelegate> delegate;                                   //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGInlineInsightsHeaderView * headerView;                                            //@synthesize headerView=_headerView - In the implementation block
 @property (nonatomic,retain) IGInlineInsightsUnitView * impressionUnitView;                                      //@synthesize impressionUnitView=_impressionUnitView - In the implementation block
 @property (nonatomic,retain) IGInlineInsightsUnitView * reachUnitView;                                           //@synthesize reachUnitView=_reachUnitView - In the implementation block
@@ -42,19 +40,17 @@
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                                  //@synthesize spinner=_spinner - In the implementation block
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
--(void)initializeSpinner;
--(IGInsightsContentRowListView *)educationView;
--(void)setEducationUnitDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
--(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
--(id<IGInsightsContentRowListViewDelegate>)educationUnitDelegate;
 -(void)initializeUnitViews;
 -(void)initializeEducationView;
 -(void)hideUnitsAndEducation;
+-(void)initializeSpinner;
 -(void)initializeErrorTextLabel;
 -(void)updateViewWithNoInsightsErrorTitle:(id)arg1 subtitle:(id)arg2 ;
+-(IGInsightsContentRowListView *)educationView;
+-(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
+-(id<IGInsightsContentRowListViewDelegate>)educationUnitDelegate;
 -(void)updateViewWithInsights:(id)arg1 ;
 -(void)showUnitsAndEducation;
--(void)handleGraphQLRequestError:(id)arg1 ;
 -(void)hideErrors;
 -(IGInlineInsightsUnitView *)impressionUnitView;
 -(IGInlineInsightsUnitView *)reachUnitView;
@@ -74,13 +70,12 @@
 -(void)setEngagementUnitView:(IGInlineInsightsUnitView *)arg1 ;
 -(void)setErrorTitleLabel:(UILabel *)arg1 ;
 -(void)setErrorSubtitleLabel:(UILabel *)arg1 ;
+-(void)setEducationUnitDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
 -(NSString *)impressionString;
 -(NSString *)reachString;
 -(NSString *)engagementString;
--(void)setDelegate:(id<IGInlineInsightsViewDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
--(id<IGInlineInsightsViewDelegate>)delegate;
 -(IGInlineInsightsHeaderView *)headerView;
 -(void)setHeaderView:(IGInlineInsightsHeaderView *)arg1 ;
 -(UIActivityIndicatorView *)spinner;

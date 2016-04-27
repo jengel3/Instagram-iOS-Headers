@@ -9,9 +9,9 @@
 @property (nonatomic,readonly) char enableNavState; 
 @property (nonatomic,readonly) IGMutableRaindropRankInfo * surfaceRankInfo; 
 @required
+-(IGRaindropNavEvent *)currentNavEvent;
 -(IGAnalyticsMetadata *)analyticsMetadata;
 -(char)enableNavState;
--(IGRaindropNavEvent *)currentNavEvent;
 -(IGMutableRaindropRankInfo *)surfaceRankInfo;
 -(int)viewType;
 

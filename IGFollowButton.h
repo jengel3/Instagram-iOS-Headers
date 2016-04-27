@@ -28,7 +28,6 @@
 @property (nonatomic,retain) IGUnfollowHeaderView * unfollowHeaderView;                             //@synthesize unfollowHeaderView=_unfollowHeaderView - In the implementation block
 @property (nonatomic,retain) IGPendingRequestView * pendingRequestView;                             //@synthesize pendingRequestView=_pendingRequestView - In the implementation block
 @property (assign,nonatomic) int currentState;                                                      //@synthesize currentState=_currentState - In the implementation block
--(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;
 -(void)onFriendStatusReceived;
 -(void)acceptFollowRequestWithCompletion:(/*^block*/id)arg1 ;
 -(void)ignoreFollowRequestWithCompletion:(/*^block*/id)arg1 ;
@@ -42,18 +41,19 @@
 -(id)accessoryImageForButtonState:(int)arg1 ;
 -(id)iconImageForButtonState:(int)arg1 ;
 -(id)titleForButtonState:(int)arg1 ;
--(char)shouldShowTitle;
 -(id)titleColorForButtonState:(int)arg1 ;
 -(int)buttonStateForFollowStatus:(int)arg1 ;
--(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(IGUnfollowHeaderView *)unfollowHeaderView;
 -(float)findWidthOfFollowAndUnfollowButtons;
 -(void)setCanShowFollowRequest:(char)arg1 ;
--(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(void)setContextString:(NSString *)arg1 ;
 -(void)setShowAccessoryView:(char)arg1 ;
 -(void)setUnfollowHeaderView:(IGUnfollowHeaderView *)arg1 ;
 -(void)setPendingRequestView:(IGPendingRequestView *)arg1 ;
+-(char)shouldShowTitle;
+-(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
+-(void)setContextString:(NSString *)arg1 ;
+-(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

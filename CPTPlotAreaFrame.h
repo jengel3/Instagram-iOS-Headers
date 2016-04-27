@@ -13,12 +13,12 @@
 @property (nonatomic,retain) CPTPlotArea * plotArea; 
 @property (nonatomic,retain) CPTAxisSet * axisSet; 
 @property (nonatomic,retain) CPTPlotGroup * plotGroup; 
--(void)setAxisSet:(CPTAxisSet *)arg1 ;
 -(char)pointingDeviceDraggedEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceCancelledEvent:(UIEvent*)arg1 ;
 -(char)pointingDeviceDownEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceUpEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(CPTAxisSet *)axisSet;
+-(void)setAxisSet:(CPTAxisSet *)arg1 ;
 -(CPTPlotGroup *)plotGroup;
 -(void)setPlotGroup:(CPTPlotGroup *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

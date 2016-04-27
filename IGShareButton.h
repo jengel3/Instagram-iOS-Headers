@@ -15,8 +15,8 @@
 @property (nonatomic,retain) UIImageView * arrowView;              //@synthesize arrowView=_arrowView - In the implementation block
 -(UIImageView *)arrowView;
 -(char)isDirectShare;
--(void)setIsDirectShare:(char)arg1 ;
 -(void)setArrowView:(UIImageView *)arg1 ;
+-(void)setIsDirectShare:(char)arg1 ;
 -(void)setTitle:(id)arg1 forState:(unsigned)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

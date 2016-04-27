@@ -16,8 +16,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(char)isLayoutAppInstalled;
 +(char)isBoomerangAppInstalled;
++(char)isLayoutAppInstalled;
 +(void)openLayoutWithAsset:(id)arg1 assetIdentifier:(id)arg2 ;
 +(void)openBoomerang;
 +(char)isHyperlapseAppInstalled;

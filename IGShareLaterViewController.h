@@ -27,10 +27,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGFeedItem *)feedItem;
--(id)initWithFeedItem:(id)arg1 ;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGShareListManager *)shareListManager;
 -(void)setShareListManager:(IGShareListManager *)arg1 ;
+-(id)initWithFeedItem:(id)arg1 ;
 -(void)fetchPermalinkForFeedItem:(id)arg1 withSuccessHandler:(/*^block*/id)arg2 errorHandler:(/*^block*/id)arg3 ;
 -(char)captionCellMediaOverlayViewTapEnabled;
 -(void)captionCellMediaOverlayViewTapped;

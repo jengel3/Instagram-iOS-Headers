@@ -16,10 +16,10 @@
 @property (nonatomic,retain) UIImageView * tagIndicatorImageView;                 //@synthesize tagIndicatorImageView=_tagIndicatorImageView - In the implementation block
 @property (nonatomic,retain) UILabel * tagPeopleLabel;                            //@synthesize tagPeopleLabel=_tagPeopleLabel - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * tapRecognizer;              //@synthesize tapRecognizer=_tapRecognizer - In the implementation block
--(void)setTagCount:(int)arg1 ;
 -(UIImageView *)tagIndicatorImageView;
 -(UILabel *)tagPeopleLabel;
 -(void)updateWidth;
+-(void)setTagCount:(int)arg1 ;
 -(void)setTagIndicatorImageView:(UIImageView *)arg1 ;
 -(void)setTagPeopleLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

@@ -39,13 +39,11 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(IGFeedItem *)feedItem;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
--(void)requestVideoPlayback;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
 -(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(id)contentViewForHeartAnimation;
--(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(IGPageMediaView *)pageMediaView;
 -(IGPageCellIndicatorController *)indicatorController;
 -(IGFeedItemPageCellState *)pageCellState;
@@ -53,6 +51,8 @@
 -(void)dismissOverlayAnimated:(char)arg1 ;
 -(void)scrollToPage:(int)arg1 animated:(char)arg2 ;
 -(void)setPercentVisible:(float)arg1 ;
+-(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
+-(void)requestVideoPlayback;
 -(void)pageMediaViewWillDisplayOverlay:(id)arg1 ;
 -(void)pageMediaViewDidInitialSingleTap:(id)arg1 ;
 -(void)pageMediaViewDidSingleTap:(id)arg1 continueAction:(char)arg2 ;

@@ -21,15 +21,15 @@
 @property (nonatomic,readonly) UIButton * dismissButton;                                       //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (assign,getter=isUsingRequestButton,nonatomic) char usingRequestButton;              //@synthesize usingRequestButton=_usingRequestButton - In the implementation block
 @property (assign,getter=isFollowingVisible,nonatomic) char followingVisible;                  //@synthesize followingVisible=_followingVisible - In the implementation block
--(void)setUsingRequestButton:(char)arg1 ;
--(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
+-(id)initShowingDismissButton:(char)arg1 ;
 -(UIButton *)followButton;
 -(UIButton *)followingButton;
 -(UIButton *)requestedButton;
--(char)isUsingRequestButton;
 -(char)isFollowingVisible;
+-(char)isUsingRequestButton;
+-(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
+-(void)setUsingRequestButton:(char)arg1 ;
 -(void)setFollowingVisible:(char)arg1 ;
--(id)initShowingDismissButton:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)layoutSubviews;

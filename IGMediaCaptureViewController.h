@@ -2,21 +2,21 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGBaseCameraViewController.h>
 #import <Instagram/IGAssetPlayerViewDelegate.h>
+#import <Instagram/IGCaptureManagerAudioSampleBufferDelegate.h>
 #import <Instagram/IGCaptureManagerDelegate.h>
+#import <Instagram/IGCaptureManagerVideoSampleBufferDelegate.h>
+#import <Instagram/IGCropViewUserInteractionDelegate.h>
+#import <Instagram/IGCustomAlertViewControllerDelegate.h>
 #import <Instagram/IGGridViewControllerDelegate.h>
 #import <Instagram/IGGridViewControllerScrollDelegate.h>
-#import <Instagram/IGVideoSampleBufferDelegate.h>
-#import <Instagram/IGAudioSampleBufferDelegate.h>
 #import <Instagram/IGMediaCaptureButtonDelegate.h>
 #import <Instagram/IGSelectAlbumDelegate.h>
-#import <Instagram/IGAppInstallAlertViewControllerDelegate.h>
-#import <Instagram/IGCropViewUserInteractionDelegate.h>
 #import <UIKit/UIScrollViewDelegate.h>
 
 @protocol IGMediaCaptureViewControllerDelegate, OS_dispatch_queue;
-@class IGMediaMetadata, IGGridViewController, IGMediaTabBar, IGPagingScrollView, NSArray, IGCameraAccessPromptView, IGSampleBuffer, UIView, NSOperationQueue, IGCaptureManager, IGVideoRecorder, NSObject, IGVideoInfo, IGCameraFocusIndicator, IGCameraModeTransitionOverlayView, IGMediaCaptureButton, IGVideoCaptureDeleteButton, IGTapButton, IGVideoProgressView, IGStabilizationSampler, IGDirectedNUXView, IGDeviceAngleSampler, IGAppInstallationsHelper, IGCropView, IGCircularProgressView, UIImageView, IGNuxButton, IGAssetPlayerView, IGVideoPlayButton, UITapGestureRecognizer, IGCameraGuideView, IGLabel, IGEmptyLibraryView, UIPanGestureRecognizer, NSMutableDictionary, NSDictionary, UIBarButtonItem, IGChevronTitleButton, IGSelectAlbumController, IGEditorViewController, IGAppInstallAlertViewController, NSString;
+@class IGMediaMetadata, IGGridViewController, IGMediaTabBar, IGPagingScrollView, NSArray, IGCameraAccessPromptView, IGSampleBuffer, UIView, NSOperationQueue, IGCaptureManager, IGVideoRecorder, NSObject, IGVideoInfo, IGCameraFocusIndicator, IGCameraModeTransitionOverlayView, IGMediaCaptureButton, IGVideoCaptureDeleteButton, IGTapButton, IGVideoProgressView, IGStabilizationSampler, IGDirectedNUXView, IGDeviceAngleSampler, IGAppInstallationsHelper, IGCropView, IGCircularProgressView, UIImageView, IGNuxButton, IGAssetPlayerView, IGVideoPlayButton, UITapGestureRecognizer, IGCameraGuideView, IGLabel, IGEmptyLibraryView, UIPanGestureRecognizer, NSMutableDictionary, NSDictionary, UIBarButtonItem, IGChevronTitleButton, IGSelectAlbumController, IGEditorViewController, IGCustomAlertViewController, NSString;
 
-@interface IGMediaCaptureViewController : IGBaseCameraViewController <IGAssetPlayerViewDelegate, IGCaptureManagerDelegate, IGGridViewControllerDelegate, IGGridViewControllerScrollDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGMediaCaptureButtonDelegate, IGSelectAlbumDelegate, IGAppInstallAlertViewControllerDelegate, IGCropViewUserInteractionDelegate, UIScrollViewDelegate> {
+@interface IGMediaCaptureViewController : IGBaseCameraViewController <IGAssetPlayerViewDelegate, IGCaptureManagerAudioSampleBufferDelegate, IGCaptureManagerDelegate, IGCaptureManagerVideoSampleBufferDelegate, IGCropViewUserInteractionDelegate, IGCustomAlertViewControllerDelegate, IGGridViewControllerDelegate, IGGridViewControllerScrollDelegate, IGMediaCaptureButtonDelegate, IGSelectAlbumDelegate, UIScrollViewDelegate> {
 
 	char _shouldCaptureFrames;
 	char _isBackgrounded;
@@ -105,8 +105,8 @@
 	IGChevronTitleButton* _chevronTitleButton;
 	IGSelectAlbumController* _selectAlbumVC;
 	IGEditorViewController* _currentEditor;
-	IGAppInstallAlertViewController* _layoutAlertViewController;
-	IGAppInstallAlertViewController* _boomerangAlertViewController;
+	IGCustomAlertViewController* _layoutAlertViewController;
+	IGCustomAlertViewController* _boomerangAlertViewController;
 	CGSize _previewImageSize;
 
 }
@@ -198,90 +198,47 @@
 @property (nonatomic,retain) IGChevronTitleButton * chevronTitleButton;                                        //@synthesize chevronTitleButton=_chevronTitleButton - In the implementation block
 @property (nonatomic,retain) IGSelectAlbumController * selectAlbumVC;                                          //@synthesize selectAlbumVC=_selectAlbumVC - In the implementation block
 @property (assign,nonatomic,__weak) IGEditorViewController * currentEditor;                                    //@synthesize currentEditor=_currentEditor - In the implementation block
-@property (nonatomic,retain) IGAppInstallAlertViewController * layoutAlertViewController;                      //@synthesize layoutAlertViewController=_layoutAlertViewController - In the implementation block
-@property (nonatomic,retain) IGAppInstallAlertViewController * boomerangAlertViewController;                   //@synthesize boomerangAlertViewController=_boomerangAlertViewController - In the implementation block
+@property (nonatomic,retain) IGCustomAlertViewController * layoutAlertViewController;                          //@synthesize layoutAlertViewController=_layoutAlertViewController - In the implementation block
+@property (nonatomic,retain) IGCustomAlertViewController * boomerangAlertViewController;                       //@synthesize boomerangAlertViewController=_boomerangAlertViewController - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGCaptureManager *)captureManager;
--(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
--(void)setImageBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(NSObject*<OS_dispatch_queue>)imageBufferQueue;
--(void)onSwitchCamerasButtonTapped;
--(void)setCropView:(IGCropView *)arg1 ;
--(IGCropView *)cropView;
--(void)setGuideView:(IGCameraGuideView *)arg1 ;
--(IGCameraGuideView *)guideView;
--(void)setVideoCoverFrameImageView:(IGCropView *)arg1 ;
--(IGCropView *)videoCoverFrameImageView;
--(void)setLoadingThumbnailView:(UIImageView *)arg1 ;
--(UIImageView *)loadingThumbnailView;
--(void)setLoadingOverlayView:(UIView *)arg1 ;
--(UIView *)loadingOverlayView;
--(char)hasStartedCapture;
--(void)setCaptureManager:(IGCaptureManager *)arg1 ;
--(void)showCameraPermissionDeniedView;
--(void)setHasStartedCapture:(char)arg1 ;
--(void)updateStabilizationSampler;
--(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
--(void)stopVideoPlayer;
--(IGCameraAccessPromptView *)cameraPermissionDeniedView;
--(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
+-(id)analyticsModule;
+-(void)customAlertViewDidConfirm:(id)arg1 ;
 -(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
--(IGVideoInfo *)videoInfo;
--(IGSampleBuffer *)imageBufferData;
--(void)stopRecordingOnCaptureQueue:(char)arg1 ;
--(IGVideoRecorder *)videoRecorder;
--(void)updateVideoSize;
--(unsigned)contentEditingInputRequestID;
--(void)setContentEditingInputRequestID:(unsigned)arg1 ;
--(void)hideLoadingViews;
--(id)previewAsset;
--(void)setPreviewAsset:(id)arg1 ;
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
--(void)captureDeviceDidSatisfyFocusRequest;
--(char)cameraIsReady;
--(IGStabilizationSampler *)stabilizer;
--(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
--(void)showHoldToRecordNUX;
--(void)assetPlayerViewAssetLoaded:(id)arg1 ;
--(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
--(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG0)arg2 ;
--(void)captureSessionDidDropAudioBuffer;
--(void)captureSessionDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
--(void)captureSessionWillTakePhoto;
--(void)captureSessionNeedsResume:(char)arg1 ;
--(void)cropViewUserInteractionDidBegin:(id)arg1 ;
--(void)cropViewUserInteractionDidEnd:(id)arg1 ;
+-(UIView *)loadingOverlayView;
+-(void)captureManagerDidSatisfyFocusRequest;
+-(void)captureManagerNeedsResume:(char)arg1 ;
+-(void)captureManagerDidDropVideoBuffer;
+-(void)captureManagerDidDropAudioBuffer;
+-(void)captureManagerDidCaptureVideoBuffer:(opaqueCMSampleBufferRef)arg1 ;
+-(void)captureManagerDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
+-(void)captureManagerWillTakePhoto;
 -(void)cropViewVisibleContentFrameDidChange:(CGRect)arg1 ;
 -(void)cropView:(id)arg1 didFinishAnimationWithCropRect:(CGRect)arg2 ;
--(void)captureSessionDidDropVideoBuffer;
--(void)captureSessionDidCaptureVideoBuffer:(opaqueCMSampleBufferRef)arg1 ;
--(void)showVideoTooShortNUX;
--(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
--(void)hideNUX;
--(float)maxVideoDuration;
--(void)setMaxVideoDuration:(float)arg1 ;
--(char)shouldSaveToLibrary;
--(void)appInstallAlertViewDidConfirm:(id)arg1 ;
--(id)analyticsModule;
--(char)overlayIsOpaque;
--(IGDirectedNUXView *)NUXView;
--(void)setNUXView:(IGDirectedNUXView *)arg1 ;
+-(void)cropViewUserInteractionDidBegin:(id)arg1 ;
+-(void)cropViewUserInteractionDidEnd:(id)arg1 ;
 -(void)setCropContainer:(UIView *)arg1 ;
 -(UIView *)cropContainer;
 -(void)setCropContentsContainer:(UIView *)arg1 ;
 -(UIView *)cropContentsContainer;
+-(void)setCropView:(IGCropView *)arg1 ;
+-(IGCropView *)cropView;
+-(void)setGuideView:(IGCameraGuideView *)arg1 ;
+-(IGCameraGuideView *)guideView;
 -(void)toggleCropperCropMode;
 -(void)setLongcatButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)longcatButton;
 -(void)toggleCropperCropModeFromButton;
 -(void)onCancelButtonTapped;
 -(void)onLibraryNextButtonTapped;
+-(char)overlayIsOpaque;
 -(UIBarButtonItem *)dismissButtonItem;
 -(void)setDismissButtonItem:(UIBarButtonItem *)arg1 ;
 -(char)prefersNavbarBottomBorderHidden;
+-(IGCaptureManager *)captureManager;
+-(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(void)gridViewControllerLibraryDidLoad:(id)arg1 ;
 -(void)gridViewController:(id)arg1 didSelectAsset:(id)arg2 atIndexPath:(id)arg3 ;
 -(char)gridViewController:(id)arg1 isAssetLoadedInPlayer:(id)arg2 ;
@@ -291,14 +248,14 @@
 -(void)gridViewControllerSelectedAlbumWasRemoved:(id)arg1 ;
 -(void)gridViewController:(id)arg1 didChangeAlbumTitle:(id)arg2 ;
 -(void)gridViewController:(id)arg1 selectedAssetWasRemoved:(id)arg2 ;
--(void)mediaCaptureButtonDidTakePicture;
--(void)mediaCaptureButtonDidEndRecording;
--(void)mediaCaptureButtonDidBeginRecording;
 -(IGVideoProgressView *)videoProgressView;
 -(NSMutableDictionary *)pendingVideoRequests;
 -(void)assertModeIsValid;
 -(int)preferredDevicePosition;
+-(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
 -(void)setDeviceAngleSampler:(IGDeviceAngleSampler *)arg1 ;
+-(void)setImageBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
+-(NSObject*<OS_dispatch_queue>)imageBufferQueue;
 -(void)setCameraModeQueue:(NSOperationQueue *)arg1 ;
 -(NSOperationQueue *)cameraModeQueue;
 -(void)onClipAdded:(id)arg1 ;
@@ -319,11 +276,16 @@
 -(void)onFlashButtonTapped;
 -(void)setSwitchCamerasButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)switchCamerasButton;
+-(void)onSwitchCamerasButtonTapped;
 -(void)setFocusIndicator:(IGCameraFocusIndicator *)arg1 ;
 -(IGCameraFocusIndicator *)focusIndicator;
 -(void)onVideoNextButtonTapped;
 -(void)setVideoNextButtonItem:(UIBarButtonItem *)arg1 ;
+-(void)setVideoInfo:(IGVideoInfo *)arg1 ;
+-(IGVideoInfo *)videoInfo;
 -(void)setVideoProgressView:(IGVideoProgressView *)arg1 ;
+-(void)setMaxVideoDuration:(float)arg1 ;
+-(IGVideoRecorder *)videoRecorder;
 -(void)setPhotoCaptureButton:(IGMediaCaptureButton *)arg1 ;
 -(IGMediaCaptureButton *)photoCaptureButton;
 -(CGRect)frameForCaptureButton:(id)arg1 pageIndex:(int)arg2 ;
@@ -356,6 +318,11 @@
 -(UITapGestureRecognizer *)cropTap;
 -(void)setCropPanExpand:(UIPanGestureRecognizer *)arg1 ;
 -(UIPanGestureRecognizer *)cropPanExpand;
+-(void)setVideoCoverFrameImageView:(IGCropView *)arg1 ;
+-(IGCropView *)videoCoverFrameImageView;
+-(void)setLoadingThumbnailView:(UIImageView *)arg1 ;
+-(UIImageView *)loadingThumbnailView;
+-(void)setLoadingOverlayView:(UIView *)arg1 ;
 -(void)setUnsupportedVideoLabel:(IGLabel *)arg1 ;
 -(IGLabel *)unsupportedVideoLabel;
 -(void)setNoMediaView:(IGEmptyLibraryView *)arg1 ;
@@ -380,14 +347,23 @@
 -(void)setSelectAlbumVC:(IGSelectAlbumController *)arg1 ;
 -(char)gridViewIsLoaded;
 -(void)setShouldDelayStartCapture:(char)arg1 ;
+-(char)hasStartedCapture;
+-(void)setHasStartedCapture:(char)arg1 ;
+-(void)showCameraPermissionDeniedView;
 -(void)onOrientationChange;
+-(void)updateStabilizationSampler;
+-(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
+-(void)stopVideoPlayer;
 -(CGSize)sizeForButtonAreaForParentSize:(CGSize)arg1 ;
+-(IGCameraAccessPromptView *)cameraPermissionDeniedView;
+-(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
 -(float)cropOffsetY;
 -(void)disableScrollingInChildViews;
 -(void)enableDisabledScrollViews;
 -(id)disableScrollViewsForViewController:(id)arg1 ;
 -(void)setDisabledScrollViews:(NSArray *)arg1 ;
 -(NSArray *)disabledScrollViews;
+-(void)hideNUX;
 -(void)presentEditorWithBuffer:(id)arg1 isPreviewBuffer:(char)arg2 ;
 -(char)showsMediaTabBar;
 -(void)setMediaTabBar:(IGMediaTabBar *)arg1 ;
@@ -412,6 +388,8 @@
 -(void)setCropAsset:(id)arg1 ;
 -(void)setGridViewIsLoaded:(char)arg1 ;
 -(void)expandCropWithVelocity:(float)arg1 expanding:(char)arg2 ;
+-(unsigned)contentEditingInputRequestID;
+-(void)setContentEditingInputRequestID:(unsigned)arg1 ;
 -(void)setSelectedAsset:(id)arg1 ;
 -(void)setSelectedVideos:(NSMutableDictionary *)arg1 ;
 -(void)setFullResolutionSource:(id)arg1 ;
@@ -419,11 +397,15 @@
 -(void)setMultiClipCompletionBlock:(id)arg1 ;
 -(UITapGestureRecognizer *)playTap;
 -(void)setBoomerangButtonPositionForAsset:(id)arg1 ;
+-(void)hideLoadingViews;
 -(void)showDownloadLayoutNUX;
 -(char)allVideosLoaded;
 -(void)updateVideoLibraryNextButtonEnabled;
 -(void)showMinDurationAssetNUX;
+-(id)previewAsset;
+-(void)setPreviewAsset:(id)arg1 ;
 -(void)showCouldNotLoadAlert:(int)arg1 ;
+-(void)stopRecordingOnCaptureQueue:(char)arg1 ;
 -(void)focusAndExpose:(CGPoint)arg1 ;
 -(CGPoint)scaledPointAtTapLocation:(CGPoint)arg1 ;
 -(char)isPushingCropView;
@@ -445,15 +427,21 @@
 -(IGAppInstallationsHelper *)appInstallationsHelper;
 -(void)showBoomerangAppInstallAlertViewPopover;
 -(void)continueWithAsset;
+-(void)updateVideoSize;
+-(void)showVideoTooShortNUX;
+-(void)showHoldToRecordNUX;
 -(void)maybeShowAudioPermissionsDialog;
 -(void)setChangingModes:(char)arg1 ;
+-(IGSampleBuffer *)imageBufferData;
 -(int)imageBufferCameraMode;
+-(IGStabilizationSampler *)stabilizer;
 -(void)setPhotoDeviceOrientation:(int)arg1 ;
 -(float)radianOffsetForCurrentOrientation;
 -(void)setPhotoDeviceAngle:(float)arg1 ;
 -(int)photoDeviceOrientation;
 -(float)photoDeviceAngle;
 -(void)cameraDidTakePhotoWithBuffer:(id)arg1 ;
+-(char)shouldSaveToLibrary;
 -(char)canCaptureAnotherClip;
 -(void)showVideoNextNUX;
 -(id)fullResolutionSource;
@@ -462,18 +450,30 @@
 -(void)updateClipCropRect;
 -(void)proceedWithVideoComposition:(id)arg1 ;
 -(char)layoutButtonVisible;
+-(char)cameraIsReady;
+-(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
 -(void)setImageBufferCameraMode:(int)arg1 ;
 -(void)cameraWillTakePhotoWithPreviewBuffer:(id)arg1 ;
+-(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(char)shouldShowDownloadLayoutNuxIfUnseen;
+-(IGDirectedNUXView *)NUXView;
+-(void)assetPlayerViewAssetLoaded:(id)arg1 ;
+-(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
+-(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG49)arg2 ;
+-(void)mediaCaptureButtonDidTakePicture;
+-(void)mediaCaptureButtonDidBeginRecording;
+-(void)mediaCaptureButtonDidEndRecording;
 -(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
 -(char)modeAllowsState:(int)arg1 ;
+-(void)setNUXView:(IGDirectedNUXView *)arg1 ;
 -(void)setPlayTap:(UITapGestureRecognizer *)arg1 ;
 -(UIPanGestureRecognizer *)cropPanMinimize;
 -(void)setCropPanMinimize:(UIPanGestureRecognizer *)arg1 ;
--(IGAppInstallAlertViewController *)layoutAlertViewController;
--(void)setLayoutAlertViewController:(IGAppInstallAlertViewController *)arg1 ;
--(IGAppInstallAlertViewController *)boomerangAlertViewController;
--(void)setBoomerangAlertViewController:(IGAppInstallAlertViewController *)arg1 ;
+-(float)maxVideoDuration;
+-(IGCustomAlertViewController *)layoutAlertViewController;
+-(void)setLayoutAlertViewController:(IGCustomAlertViewController *)arg1 ;
+-(IGCustomAlertViewController *)boomerangAlertViewController;
+-(void)setBoomerangAlertViewController:(IGCustomAlertViewController *)arg1 ;
 -(CGSize)previewImageSize;
 -(void)takePhoto;
 -(IGEditorViewController *)currentEditor;

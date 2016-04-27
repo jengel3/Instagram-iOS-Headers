@@ -19,15 +19,15 @@
 @property (assign,nonatomic) char showResults;                    //@synthesize showResults=_showResults - In the implementation block
 +(id)surveyForServerMessage:(id)arg1 ;
 +(id)mockBrandLiftSurveyJSON;
--(NSString *)trackingToken;
--(NSString *)surveyID;
--(NSString *)primerText;
--(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setSurveyID:(NSString *)arg1 ;
--(NSArray *)questions;
 -(void)setQuestions:(NSArray *)arg1 ;
+-(NSArray *)questions;
 -(void)setShowResults:(char)arg1 ;
 -(void)setPrimerText:(NSString *)arg1 ;
+-(NSString *)primerText;
+-(NSString *)surveyID;
 -(char)showResults;
+-(NSString *)trackingToken;
+-(void)setTrackingToken:(NSString *)arg1 ;
 @end
 

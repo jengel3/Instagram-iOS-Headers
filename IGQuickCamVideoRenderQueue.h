@@ -18,11 +18,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sharedRenderQueue;
--(void)setRenderQueue:(NSMutableArray *)arg1 ;
 -(void)renderVideo:(id)arg1 useFallbackSize:(char)arg2 completion:(/*^block*/id)arg3 ;
 -(void)videoRenderer:(id)arg1 didFinishRenderingVideoToURL:(id)arg2 videoSize:(CGSize)arg3 metadata:(id)arg4 canceled:(char)arg5 ;
 -(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)renderVideo:(id)arg1 completion:(/*^block*/id)arg2 ;
+-(void)setRenderQueue:(NSMutableArray *)arg1 ;
 -(void)dealloc;
 -(id)init;
 -(void)setCompletionBlocks:(NSMutableArray *)arg1 ;

@@ -15,9 +15,9 @@
 	char _isSampling;
 
 }
+-(void)startSampling;
 -(id)gyroTrack;
 -(id)frameMetadataTrack;
--(void)startSampling;
 -(void)dealloc;
 -(id)init;
 -(void)processSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;

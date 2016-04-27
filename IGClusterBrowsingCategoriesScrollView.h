@@ -18,8 +18,8 @@
 @property (nonatomic,retain) UILabel * titleLabel;                                                 //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * descriptionLabel;                                           //@synthesize descriptionLabel=_descriptionLabel - In the implementation block
 -(IGClusterBrowsingCategoriesButtonsView *)categoriesView;
--(void)setCategoriesView:(IGClusterBrowsingCategoriesButtonsView *)arg1 ;
 -(void)loadCategoriesViewWithCatetories:(id)arg1 ;
+-(void)setCategoriesView:(IGClusterBrowsingCategoriesButtonsView *)arg1 ;
 -(UILabel *)descriptionLabel;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

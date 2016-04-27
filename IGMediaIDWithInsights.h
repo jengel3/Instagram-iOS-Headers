@@ -19,17 +19,17 @@
 @property (nonatomic,copy) NSNumber * engagementCount;                                                     //@synthesize engagementCount=_engagementCount - In the implementation block
 @property (nonatomic,retain) IGInsightsParagraphComponent * inlineInsightsEducationComponent;              //@synthesize inlineInsightsEducationComponent=_inlineInsightsEducationComponent - In the implementation block
 @property (nonatomic,retain) IGInsightsParagraphComponent * inlineInsightsErrorComponent;                  //@synthesize inlineInsightsErrorComponent=_inlineInsightsErrorComponent - In the implementation block
--(NSString *)mediaID;
 -(void)setImpressionCount:(NSNumber *)arg1 ;
 -(NSNumber *)impressionCount;
 -(void)setMediaID:(NSString *)arg1 ;
--(NSNumber *)reachCount;
--(void)setReachCount:(NSNumber *)arg1 ;
--(NSNumber *)engagementCount;
+-(NSString *)mediaID;
 -(void)setEngagementCount:(NSNumber *)arg1 ;
--(IGInsightsParagraphComponent *)inlineInsightsEducationComponent;
 -(void)setInlineInsightsEducationComponent:(IGInsightsParagraphComponent *)arg1 ;
--(IGInsightsParagraphComponent *)inlineInsightsErrorComponent;
 -(void)setInlineInsightsErrorComponent:(IGInsightsParagraphComponent *)arg1 ;
+-(void)setReachCount:(NSNumber *)arg1 ;
+-(IGInsightsParagraphComponent *)inlineInsightsErrorComponent;
+-(IGInsightsParagraphComponent *)inlineInsightsEducationComponent;
+-(NSNumber *)reachCount;
+-(NSNumber *)engagementCount;
 @end
 

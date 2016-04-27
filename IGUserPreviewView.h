@@ -24,8 +24,8 @@
 @property (nonatomic,retain) IGExploreEmptyView * emptyView;                    //@synthesize emptyView=_emptyView - In the implementation block
 @property (assign,nonatomic) char showAsPrivate;                                //@synthesize showAsPrivate=_showAsPrivate - In the implementation block
 -(void)updateUser:(id)arg1 ;
--(IGStatButton *)followingButton;
 -(void)setFollowingButton:(IGStatButton *)arg1 ;
+-(IGStatButton *)followingButton;
 -(IGExploreEmptyView *)emptyView;
 -(void)setEmptyView:(IGExploreEmptyView *)arg1 ;
 -(void)updatePosts:(id)arg1 followers:(id)arg2 following:(id)arg3 verified:(char)arg4 ;

@@ -27,13 +27,13 @@
 @property (assign,nonatomic) unsigned activeIndex;                           //@synthesize activeIndex=_activeIndex - In the implementation block
 -(NSString *)chartStyle;
 -(id)initWithHeader:(id)arg1 queryButtonText:(id)arg2 chartStyle:(id)arg3 chartData:(id)arg4 ;
--(void)setActiveIndex:(unsigned)arg1 ;
--(unsigned)activeIndex;
 -(void)setupContentViewOnStyle:(id)arg1 chartData:(id)arg2 ;
 -(void)setupSelectorButtons;
 -(void)buttonClick:(id)arg1 ;
 -(void)layoutSelectorButtonsWithHeaderViewHeight:(float)arg1 ;
 -(NSArray *)selectorButtons;
+-(unsigned)activeIndex;
+-(void)setActiveIndex:(unsigned)arg1 ;
 -(void)setChartStyle:(NSString *)arg1 ;
 -(void)setSelectorButtons:(NSArray *)arg1 ;
 -(NSString *)queryButtonText;

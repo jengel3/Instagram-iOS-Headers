@@ -24,14 +24,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)applyPatches:(id)arg1 withRange:(id)arg2 ;
+-(void)subscriptionRequiresRefresh:(id)arg1 ;
+-(void)subscription:(id)arg1 didReceivePatchEvent:(id)arg2 ;
+-(void)subscription:(id)arg1 statusDidChange:(unsigned)arg2 ;
 -(void)setRateLimitPatchesPerSec:(unsigned)arg1 ;
 -(void)setRateLimitBuffer:(unsigned)arg1 ;
 -(unsigned)rateLimitPatchesPerSec;
 -(unsigned)rateLimitBuffer;
--(void)subscription:(id)arg1 didReceivePatchEvent:(id)arg2 ;
--(void)subscriptionRequiresRefresh:(id)arg1 ;
--(void)subscription:(id)arg1 statusDidChange:(unsigned)arg2 ;
+-(void)applyPatches:(id)arg1 withRange:(id)arg2 ;
 -(unsigned)subscriptionStatus;
 -(void)setDelegate:(id<IGRealtimeOperationDelegate>)arg1 ;
 -(void)dealloc;

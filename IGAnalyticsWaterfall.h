@@ -20,7 +20,6 @@
 @property (assign,nonatomic) double startTimestamp;                     //@synthesize startTimestamp=_startTimestamp - In the implementation block
 @property (assign,nonatomic) int numberOfStepsBackward;                 //@synthesize numberOfStepsBackward=_numberOfStepsBackward - In the implementation block
 @property (assign,nonatomic) int numberOfStepsForward;                  //@synthesize numberOfStepsForward=_numberOfStepsForward - In the implementation block
--(void)setEntryPoint:(NSString *)arg1 ;
 -(void)setExperimentGroupName:(NSString *)arg1 ;
 -(void)setNumberOfStepsForward:(int)arg1 ;
 -(void)setNumberOfStepsBackward:(int)arg1 ;
@@ -33,6 +32,7 @@
 -(id)initWithEntryPoint:(int)arg1 experimentGroupName:(id)arg2 ;
 -(id)logStepForwardWithName:(id)arg1 ;
 -(id)logStepBackwardWithName:(id)arg1 ;
+-(void)setEntryPoint:(NSString *)arg1 ;
 -(double)secondsSinceStart;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

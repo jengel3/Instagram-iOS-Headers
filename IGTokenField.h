@@ -54,6 +54,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setToLabel:(UILabel *)arg1 ;
+-(UILabel *)toLabel;
 -(void)setTokenHeight:(float)arg1 ;
 -(void)setShowSearchIcon:(char)arg1 ;
 -(NSSet *)tokenObjects;
@@ -61,7 +63,6 @@
 -(void)addToken:(id)arg1 animated:(char)arg2 ;
 -(void)textFieldDidTapBackspaceKey:(id)arg1 previousText:(id)arg2 ;
 -(UIView *)borderedView;
--(UILabel *)toLabel;
 -(void)updateSearchFieldPlaceholder;
 -(void)updateSearchFieldIconAndWidth;
 -(void)addTokens:(id)arg1 animated:(char)arg2 ;
@@ -90,7 +91,6 @@
 -(char)shadowVisible;
 -(void)setTokenViews:(NSMutableArray *)arg1 ;
 -(void)setBorderedView:(UIView *)arg1 ;
--(void)setToLabel:(UILabel *)arg1 ;
 -(void)setSearchGlyphView:(UIImageView *)arg1 ;
 -(void)setSearchField:(IGTextField *)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;

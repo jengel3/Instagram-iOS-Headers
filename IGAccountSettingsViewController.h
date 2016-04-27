@@ -31,6 +31,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)closeSettings;
 -(id)appVersionString;
 -(id)analyticsModule;
 -(void)clusterBrowsingV2ViewControllerDidSkip:(id)arg1 ;

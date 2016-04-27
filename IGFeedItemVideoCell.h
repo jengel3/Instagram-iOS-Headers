@@ -27,6 +27,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) float percentVisible;                                                         //@synthesize percentVisible=_percentVisible - In the implementation block
+-(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
+-(id)post;
+-(void)setPost:(id)arg1 ;
 -(void)feedItemVideoViewDidRequestVideoPlayback:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
 -(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
@@ -38,9 +41,6 @@
 -(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
 -(id<IGFeedVideoCellAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGFeedVideoCellAnalyticsDelegate>)arg1 ;
--(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
--(id)post;
--(void)setPost:(id)arg1 ;
 -(id)accessibleElements;
 -(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(unsigned)updatePercentVisible:(float)arg1 ;

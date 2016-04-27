@@ -26,18 +26,18 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) UIView * topLine;                                 //@synthesize topLine=_topLine - In the implementation block
--(UIView *)topLine;
 -(void)setupGrowingTextView;
 -(IGGrowingTextView *)growingTextView;
 -(void)setTextViewDelegate:(id)arg1 ;
 -(void)addSendButtonTappedTarget:(id)arg1 action:(SEL)arg2 ;
 -(id)autocompleteTextInput;
+-(UIView *)topLine;
+-(float)modeSwitchButtonCenterX;
 -(void)setupModeSwitchButton;
 -(void)updateUIForStatus:(int)arg1 ;
 -(UIButton *)modeSwitchButton;
 -(UIButton *)reshareButton;
 -(void)addModeSwitchButtonTappedTarget:(id)arg1 action:(SEL)arg2 ;
--(float)modeSwitchButtonCenterX;
 -(void)setPlaceholderText:(id)arg1 ;
 -(UIButton *)postButton;
 -(id)initWithFrame:(CGRect)arg1 ;

@@ -22,9 +22,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sharedHelper;
 -(void)userDidAcceptWarning:(char)arg1 ;
--(void)showHashtagWarning:(id)arg1 forHashtag:(id)arg2 decisionBlock:(/*^block*/id)arg3 ;
 -(NSDictionary *)hashtagWarningInfo;
 -(void)setHashtagWarningInfo:(NSDictionary *)arg1 ;
+-(void)showHashtagWarning:(id)arg1 forHashtag:(id)arg2 decisionBlock:(/*^block*/id)arg3 ;
 -(id)init;
 -(void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2 ;
 @end

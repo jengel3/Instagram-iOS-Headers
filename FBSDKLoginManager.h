@@ -28,9 +28,6 @@
 +(id)stringForChallenge;
 +(void)renewSystemCredentials:(/*^block*/id)arg1 ;
 +(void)initialize;
--(void)logInWithPublishPermissions:(id)arg1 fromViewController:(id)arg2 handler:(/*^block*/id)arg3 ;
--(void)logInWithReadPermissions:(id)arg1 fromViewController:(id)arg2 handler:(/*^block*/id)arg3 ;
--(void)logOut;
 -(void)webDialogDidCancel:(id)arg1 ;
 -(void)webDialog:(id)arg1 didCompleteWithResults:(id)arg2 ;
 -(void)webDialog:(id)arg1 didFailWithError:(id)arg2 ;
@@ -41,6 +38,9 @@
 -(void)logInWithPermissions:(id)arg1 handler:(/*^block*/id)arg2 ;
 -(void)setDefaultAudience:(unsigned)arg1 ;
 -(void)setLoginBehavior:(unsigned)arg1 ;
+-(void)logOut;
+-(void)logInWithPublishPermissions:(id)arg1 fromViewController:(id)arg2 handler:(/*^block*/id)arg3 ;
+-(void)logInWithReadPermissions:(id)arg1 fromViewController:(id)arg2 handler:(/*^block*/id)arg3 ;
 -(void)assertPermissions:(id)arg1 ;
 -(id)loadExpectedChallenge;
 -(void)storeExpectedChallenge:(id)arg1 ;

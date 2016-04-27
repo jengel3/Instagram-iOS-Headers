@@ -16,10 +16,10 @@
 @property (assign,nonatomic) char allowHardwareSoundControl;              //@synthesize allowHardwareSoundControl=_allowHardwareSoundControl - In the implementation block
 @property (assign,nonatomic) char showOneTapIndicatorNUX;                 //@synthesize showOneTapIndicatorNUX=_showOneTapIndicatorNUX - In the implementation block
 +(id)defaultConfig;
--(void)setAllowHardwareSoundControl:(char)arg1 ;
--(void)setShowOneTapIndicatorNUX:(char)arg1 ;
 -(char)audioEnabled;
+-(void)setShowOneTapIndicatorNUX:(char)arg1 ;
 -(char)allowHardwareSoundControl;
+-(void)setAllowHardwareSoundControl:(char)arg1 ;
 -(char)looping;
 -(char)showOneTapIndicatorNUX;
 -(void)setLooping:(char)arg1 ;

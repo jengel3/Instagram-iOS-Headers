@@ -83,7 +83,6 @@
 -(void)updateActionViewBasedOnSwipeDistance:(float)arg1 ;
 -(float)profilePictureVerticalPadding;
 -(char)showsMuteIcon;
--(int)profileBorderStyle;
 -(char)disableSwiping;
 -(float)startSwipeGestureX;
 -(void)setCurrentSwipeDistance:(float)arg1 ;

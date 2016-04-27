@@ -27,6 +27,7 @@
 -(char)textField:(id)arg1 shouldChangeCharactersInRange:(NSRange)arg2 replacementString:(id)arg3 ;
 -(char)textFieldShouldReturn:(id)arg1 ;
 -(void)viewWillAppear:(char)arg1 ;
+-(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
 @end
 

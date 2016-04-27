@@ -23,15 +23,15 @@
 +(unsigned)buttonActionFromString:(id)arg1 ;
 -(IGGenericMegaphoneViewV2 *)megaphoneView;
 -(unsigned)displaySource;
--(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 ;
 -(id)viewForMegaphone;
--(void)logMegaphoneSeen;
 -(char)megaphoneSeen;
 -(void)setMegaphoneSeen:(char)arg1 ;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)megaphoneViewNeedsResize:(id)arg1 ;
+-(void)logMegaphoneSeen;
 -(void)didConfirmEmail:(id)arg1 ;
+-(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 ;
 -(id<IGGenericMegaphoneLogger>)logger;
 -(void)setDelegate:(id<IGMegaphonePresenterDelegate>)arg1 ;
 -(void)dealloc;

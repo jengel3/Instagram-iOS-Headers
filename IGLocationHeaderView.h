@@ -18,8 +18,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithSuperviewWidth:(float)arg1 location:(id)arg2 ;
 -(void)mapViewDidReceiveTap:(id)arg1 ;
+-(id)initWithSuperviewWidth:(float)arg1 location:(id)arg2 ;
 -(void)setMapView:(IGMapView *)arg1 ;
 -(id)mapView:(id)arg1 viewForAnnotation:(id)arg2 ;
 -(IGMapView *)mapView;

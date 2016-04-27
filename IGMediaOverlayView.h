@@ -39,11 +39,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGVideoPlaybackView *)videoPlayerView;
+-(void)setVideoPlayerView:(IGVideoPlaybackView *)arg1 ;
 -(void)onTap:(id)arg1 ;
 -(IGMediaOverlayIndicator *)indicator;
 -(void)setAudioNUXController:(IGAudioNUXController *)arg1 ;
--(IGVideoPlaybackView *)videoPlayerView;
--(void)setVideoPlayerView:(IGVideoPlaybackView *)arg1 ;
 -(void)setIndicator:(IGMediaOverlayIndicator *)arg1 ;
 -(char)audioNUXControllerVideoHasSound:(id)arg1 ;
 -(char)audioNUXControllerIsPlayingSound:(id)arg1 ;
@@ -52,7 +52,7 @@
 -(id)initWithImage:(id)arg1 video:(id)arg2 backgroundColor:(id)arg3 ;
 -(void)scaleFromRect:(CGRect)arg1 destinationSize:(CGSize)arg2 resetBlock:(/*^block*/id)arg3 ;
 -(void)filterPlayerViewDidFinishPlayingWithAnimation:(char)arg1 ;
--(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG0)arg2 ;
+-(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG49)arg2 ;
 -(id)initWithImage:(id)arg1 video:(id)arg2 ;
 -(void)scaleFromRect:(CGRect)arg1 resetBlock:(/*^block*/id)arg2 ;
 -(void)setDismissed:(char)arg1 ;

@@ -42,10 +42,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)onCancelButtonTapped;
 -(char)prefersTabBarHidden;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(UIBarButtonItem *)spinnerButton;
 -(void)setSpinnerButton:(UIBarButtonItem *)arg1 ;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
@@ -53,8 +53,8 @@
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(UIBarButtonItem *)actionsButton;
 -(void)setActionsButton:(UIBarButtonItem *)arg1 ;
--(void)setSubmitting:(char)arg1 ;
 -(char)submitting;
+-(void)setSubmitting:(char)arg1 ;
 -(void)updateNetworkSource;
 -(void)setViewingTitle:(NSString *)arg1 ;
 -(void)onMoreButtonTapped;

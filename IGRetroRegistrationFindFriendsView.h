@@ -30,12 +30,12 @@
 @property (nonatomic,retain) UIImage * iconImage;                                             //@synthesize iconImage=_iconImage - In the implementation block
 @property (nonatomic,copy) NSString * buttonText;                                             //@synthesize buttonText=_buttonText - In the implementation block
 -(UILabel *)subTitleLabel;
--(UIButton *)connectButton;
 -(UIImage *)buttonIcon;
--(id)initWithFrame:(CGRect)arg1 iconImage:(id)arg2 titleText:(id)arg3 subTitleText:(id)arg4 buttonText:(id)arg5 buttonIcon:(id)arg6 descriptionText:(id)arg7 ;
 -(void)setConnectButton:(UIButton *)arg1 ;
 -(void)setSubTitleLabel:(UILabel *)arg1 ;
 -(void)setButtonIcon:(UIImage *)arg1 ;
+-(UIButton *)connectButton;
+-(id)initWithFrame:(CGRect)arg1 iconImage:(id)arg2 titleText:(id)arg3 subTitleText:(id)arg4 buttonText:(id)arg5 buttonIcon:(id)arg6 descriptionText:(id)arg7 ;
 -(IGCoreTextView *)descriptionLabel;
 -(void)setIconImage:(UIImage *)arg1 ;
 -(void)layoutSubviews;

@@ -9,6 +9,7 @@
 	char _didTapReplyToUser;
 	char _containsOnlyAtSign;
 	char _isUserAlsoThePoster;
+	char _hasLoggedReshareImpression;
 	id<IGCommentReshareHelperDelegate> _delegate;
 	NSString* _text;
 	int _userPreference;
@@ -30,6 +31,7 @@
 @property (nonatomic,copy) NSString * textToSend;                                             //@synthesize textToSend=_textToSend - In the implementation block
 @property (assign,nonatomic) char containsOnlyAtSign;                                         //@synthesize containsOnlyAtSign=_containsOnlyAtSign - In the implementation block
 @property (nonatomic,readonly) char isUserAlsoThePoster;                                      //@synthesize isUserAlsoThePoster=_isUserAlsoThePoster - In the implementation block
+@property (assign,nonatomic) char hasLoggedReshareImpression;                                 //@synthesize hasLoggedReshareImpression=_hasLoggedReshareImpression - In the implementation block
 @property (nonatomic,readonly) float ratio;                                                   //@synthesize ratio=_ratio - In the implementation block
 @property (nonatomic,readonly) int minActionCount;                                            //@synthesize minActionCount=_minActionCount - In the implementation block
 +(id)recipientFromUsernames:(id)arg1 ;
@@ -38,22 +40,24 @@
 +(char)isActiveDismisserForDismissCount:(int)arg1 sendCount:(int)arg2 definedRatio:(float)arg3 minActionCount:(int)arg4 ;
 +(id)usernamesRegex;
 -(IGFeedItem *)feedItem;
--(NSArray *)usernames;
--(id)initWithFeedItem:(id)arg1 currentUser:(id)arg2 ;
--(void)reshareWithCompletion:(/*^block*/id)arg1 ;
 -(void)setUserPreference:(int)arg1 ;
--(id)updatedTextForReshareModeWithOriginalText:(id)arg1 ;
+-(NSArray *)usernames;
 -(NSString *)textToSend;
 -(void)setContainsOnlyAtSign:(char)arg1 ;
 -(void)setUsernames:(NSArray *)arg1 ;
 -(void)setTextToSend:(NSString *)arg1 ;
 -(void)notifyStatusChangeIfNeededFromOldStatus:(int)arg1 ;
+-(char)hasLoggedReshareImpression;
+-(void)setHasLoggedReshareImpression:(char)arg1 ;
 -(int)userPreference;
 -(char)isUserAlsoThePoster;
 -(char)didTapReplyToUser;
 -(int)minActionCount;
 -(char)containsOnlyAtSign;
 -(char)isAnyUsernameOnCommentOnlyList;
+-(id)initWithFeedItem:(id)arg1 currentUser:(id)arg2 ;
+-(void)reshareWithCompletion:(/*^block*/id)arg1 ;
+-(id)updatedTextForReshareModeWithOriginalText:(id)arg1 ;
 -(void)setDidTapReplyToUser:(char)arg1 ;
 -(float)ratio;
 -(void)setDelegate:(id<IGCommentReshareHelperDelegate>)arg1 ;

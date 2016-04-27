@@ -19,12 +19,12 @@
 +(id)confirmationStringFromUsernames:(id)arg1 ;
 +(id)greyAttributes;
 +(id)blueAttributes;
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
--(id)cellForItemAtIndex:(int)arg1 ;
--(id)supplementaryViewSource;
 -(id)displayDelegate;
--(id)initWithRecord:(id)arg1 ;
+-(id)supplementaryViewSource;
+-(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
+-(void)didUpdateToItem:(id)arg1 ;
+-(id)cellClasses;
+-(id)cellForItemAtIndex:(int)arg1 ;
 -(IGCommentReshareRecord *)record;
 -(unsigned)numberOfItems;
 -(void)didSelectItemAtIndex:(int)arg1 ;

@@ -35,7 +35,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setShouldDisplayValue:(char)arg1 ;
 -(void)onPan:(id)arg1 ;
 -(CGPoint)panOrigin;
 -(void)setPanOrigin:(CGPoint)arg1 ;
@@ -52,6 +51,7 @@
 -(float)virtualPanPositionForOffset:(float)arg1 ;
 -(float)offsetForVirtualPanPosition:(float)arg1 ;
 -(float)valueForScrollOffset:(float)arg1 ;
+-(void)setShouldDisplayValue:(char)arg1 ;
 -(char)shouldDisplayValue;
 -(void)setScrollWheel:(UIView *)arg1 ;
 -(float)unitDisplacement;

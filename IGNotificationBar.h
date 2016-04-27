@@ -46,6 +46,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(char)showWithImageProvider:(id)arg1 andAttributedText:(id)arg2 shouldRoundImage:(char)arg3 block:(/*^block*/id)arg4 ;
 +(id)attributedStringWithTitle:(id)arg1 andBody:(id)arg2 ;
 +(char)showWithImage:(id)arg1 andAttributedText:(id)arg2 shouldRoundImage:(char)arg3 block:(/*^block*/id)arg4 ;
 +(char)showWithImageURL:(id)arg1 andAttributedText:(id)arg2 shouldRoundImage:(char)arg3 block:(/*^block*/id)arg4 ;
@@ -56,6 +57,7 @@
 -(void)setTouchRecognizer:(IGTouchGestureRecognizer *)arg1 ;
 -(IGTouchGestureRecognizer *)touchRecognizer;
 -(void)dismissAction:(id)arg1 ;
+-(float)imageViewWidth;
 -(void)setVisible:(char)arg1 velocity:(float)arg2 ;
 -(void)notifyWithAction:(unsigned)arg1 ;
 -(void)setStartedDraggingBanner:(char)arg1 ;

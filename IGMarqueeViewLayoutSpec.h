@@ -19,9 +19,9 @@
 @property (nonatomic,readonly) char allowsInfiniteScrolling;                //@synthesize allowsInfiniteScrolling=_allowsInfiniteScrolling - In the implementation block
 @property (nonatomic,readonly) unsigned contentAlignment;                   //@synthesize contentAlignment=_contentAlignment - In the implementation block
 @property (nonatomic,readonly) float contentAspectRatio;                    //@synthesize contentAspectRatio=_contentAspectRatio - In the implementation block
+-(float)horizontalContentPeeking;
 -(id)initWithAutoPagingInterval:(double)arg1 interItemSpacing:(float)arg2 verticalContentInset:(float)arg3 horizontalContentPeeking:(float)arg4 allowsInfiniteScrolling:(char)arg5 contentAlignment:(unsigned)arg6 contentAspectRatio:(float)arg7 ;
 -(double)autoPagingInterval;
--(float)horizontalContentPeeking;
 -(float)verticalContentInset;
 -(float)interItemSpacing;
 -(char)allowsInfiniteScrolling;

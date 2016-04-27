@@ -35,8 +35,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
--(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(id)createFollowPeopleView;
 -(void)friendStatusChanged:(id)arg1 ;
 -(void)friendStatusReceived:(id)arg1 ;
@@ -54,6 +52,7 @@
 -(id)indexPathForUser:(id)arg1 ;
 -(int)tableRowCount;
 -(void)removeCellAtIndexPath:(id)arg1 deleteRowAnimation:(int)arg2 insertRowAnimation:(int)arg3 shouldReplenishRow:(char)arg4 ;
+-(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)userDidTapCell:(id)arg1 ;
 -(void)userDidDismissCell:(id)arg1 ;
 -(void)userDidFollow:(id)arg1 ;
@@ -61,6 +60,7 @@
 -(void)sendSeenReceiptWhenApplicable;
 -(void)setFeaturedUserInfoList:(id)arg1 ;
 -(void)setFollowPeopleView:(IGFeedFollowPeopleView *)arg1 ;
+-(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(void)setDismissed:(char)arg1 ;
 -(float)cellHeight;
 -(id)initWithCoder:(id)arg1 ;

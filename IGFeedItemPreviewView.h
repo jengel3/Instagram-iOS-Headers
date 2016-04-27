@@ -33,6 +33,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGProfilePictureImageView *)profileImageView;
+-(UILabel *)timestampLabel;
+-(void)setTimestampLabel:(UILabel *)arg1 ;
+-(void)playWithPlayer:(id)arg1 ;
+-(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)feedItemVideoViewDidRequestVideoPlayback:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
 -(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
@@ -42,14 +46,10 @@
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
--(UILabel *)timestampLabel;
--(void)setTimestampLabel:(UILabel *)arg1 ;
--(void)playWithPlayer:(id)arg1 ;
--(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
--(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 width:(float)arg3 showTimestamp:(char)arg4 ;
--(void)endVideoPlaybackWithReason:(int)arg1 ;
 -(void)updateWithFeedItem:(id)arg1 ;
 -(CALayer *)dividerLayer;
+-(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 width:(float)arg3 showTimestamp:(char)arg4 ;
+-(void)endVideoPlaybackWithReason:(int)arg1 ;
 -(void)setDividerLayer:(CALayer *)arg1 ;
 -(void)setVideoView:(IGFeedItemVideoView *)arg1 ;
 -(float)aspectRatio;

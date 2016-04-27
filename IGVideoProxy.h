@@ -25,16 +25,16 @@
 +(id)sharedProxy;
 +(id)remoteURLforProxyURL:(id)arg1 ;
 +(void)updateContentInformationRequest:(id)arg1 header:(id)arg2 ;
--(void)startVideoRequestForURL:(id)arg1 ;
--(void)cancelVideoRequestForURL:(id)arg1 ;
 -(id)proxyURLForURL:(id)arg1 ;
 -(void)addWhiteListedURL:(id)arg1 ;
 -(void)removeWhiteListedURL:(id)arg1 ;
+-(void)cancelVideoRequestForURL:(id)arg1 ;
 -(void)handlePlaybackErrorForURL:(id)arg1 ;
 -(void)onAppDidEnterBackground;
 -(void)cancelMediaLoaderRequestForURL:(id)arg1 ;
 -(id)videoRequestForURL:(id)arg1 ;
 -(void)videoRequestDidEnd:(id)arg1 error:(id)arg2 ;
+-(void)startVideoRequestForURL:(id)arg1 ;
 -(NSObject*<OS_dispatch_queue>)queue;
 -(void)setQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(void)setDelegate:(id<IGVideoProxyDelegate>)arg1 ;

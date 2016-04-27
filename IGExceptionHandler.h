@@ -8,7 +8,7 @@
 
 	char _shouldObserveMemoryWarnings;
 	NSString* _oomDetectionFile;
-	SCD_Struct_IG5* _oomData;
+	SCD_Struct_IG71* _oomData;
 	char _appLaunchedAfterMemoryCrash;
 
 }
@@ -19,11 +19,11 @@
 -(void)updateUserNotification:(id)arg1 ;
 -(void)clearUserNotification:(id)arg1 ;
 -(void)networkTransferRateChangedNotification:(id)arg1 ;
--(void)initializeOOMData:(SCD_Struct_IG5*)arg1 ;
+-(void)initializeOOMData:(SCD_Struct_IG71*)arg1 ;
 -(char)createOOMFile;
 -(void)updateExceptionAndOOMDataWithAppState:(int)arg1 ;
--(void)updateTopViewController:(id)arg1 moduleName:(id)arg2 ;
 -(char)appLaunchedAfterMemoryCrash;
+-(void)updateTopViewController:(id)arg1 moduleName:(id)arg2 ;
 -(void)dealloc;
 -(id)init;
 -(void)applicationWillTerminate;

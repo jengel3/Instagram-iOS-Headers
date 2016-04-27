@@ -16,7 +16,6 @@
 
 @property (assign,nonatomic) unsigned flushBehavior;              //@synthesize flushBehavior=_flushBehavior - In the implementation block
 @property (assign,nonatomic) char disableTimer;                   //@synthesize disableTimer=_disableTimer - In the implementation block
-+(void)activateApp;
 +(id)loggingOverrideAppID;
 +(void)logEvent:(id)arg1 valueToSum:(double)arg2 parameters:(id)arg3 ;
 +(unsigned)flushBehavior;
@@ -28,6 +27,7 @@
 +(void)setFlushBehavior:(unsigned)arg1 ;
 +(void)logEvent:(id)arg1 valueToSum:(double)arg2 ;
 +(void)logPurchase:(double)arg1 currency:(id)arg2 ;
++(void)activateApp;
 +(void)setLoggingOverrideAppID:(id)arg1 ;
 +(id)requestForCustomAudienceThirdPartyIDWithAccessToken:(id)arg1 ;
 +(void)flush;

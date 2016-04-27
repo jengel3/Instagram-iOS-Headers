@@ -48,8 +48,6 @@
 @property (assign,nonatomic) unsigned lastReactionType;                                                      //@synthesize lastReactionType=_lastReactionType - In the implementation block
 @property (nonatomic,readonly) IGDirectItemIdBasedImageURLProcessor * previewImageURLProcessor;              //@synthesize previewImageURLProcessor=_previewImageURLProcessor - In the implementation block
 -(id)imageURLForWidth:(float)arg1 ;
--(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
--(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(NSURL *)cacheKeyURL;
 -(char)useMainCameraUploadFlow;
 -(IGUploadModel *)uploadModel;
@@ -63,15 +61,17 @@
 -(void)setReactionsNeedsReRender:(char)arg1 ;
 -(unsigned)lastReactionType;
 -(void)setLastReactionType:(unsigned)arg1 ;
+-(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(id)contentTypeString;
 -(NSString *)uploadComment;
 -(void)setUploadComment:(NSString *)arg1 ;
+-(IGDirectItemIdBasedImageURLProcessor *)previewImageURLProcessor;
+-(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
+-(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
+-(id)imageURLOfAtLeastWidth:(float)arg1 scale:(float)arg2 ;
 -(void)setUseMainCameraUploadFlow:(char)arg1 ;
 -(char)isFirstAppearance;
 -(void)setIsFirstAppearance:(char)arg1 ;
--(IGDirectItemIdBasedImageURLProcessor *)previewImageURLProcessor;
--(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
--(id)imageURLOfAtLeastWidth:(float)arg1 scale:(float)arg2 ;
 -(id)initAsUploadWithComment:(id)arg1 recipient:(id)arg2 aspectRatio:(CGSize)arg3 useMainCameraUploadFlow:(char)arg4 ;
 -(char)isUploading;
 -(unsigned)likeCount;

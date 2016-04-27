@@ -10,8 +10,8 @@
 }
 
 @property (nonatomic,retain) NSMutableSet * removedIndexPaths;              //@synthesize removedIndexPaths=_removedIndexPaths - In the implementation block
--(NSMutableSet *)removedIndexPaths;
 -(void)setRemovedIndexPaths:(NSMutableSet *)arg1 ;
+-(NSMutableSet *)removedIndexPaths;
 -(id)init;
 -(id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1 ;
 -(void)prepareForCollectionViewUpdates:(id)arg1 ;

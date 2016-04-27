@@ -15,12 +15,15 @@
 -(id)initWithObserver:(id)arg1 retainObserved:(char)arg2 ;
 -(void)unobserveAll;
 -(void)_observe:(id)arg1 info:(id)arg2 ;
--(void)_unobserve:(id)arg1 info:(id)arg2 ;
--(void)_unobserve:(id)arg1 ;
--(void)_unobserveAll;
 -(void)observe:(id)arg1 keyPath:(id)arg2 options:(unsigned)arg3 block:(/*^block*/id)arg4 ;
 -(void)observe:(id)arg1 keyPath:(id)arg2 options:(unsigned)arg3 action:(SEL)arg4 ;
 -(void)observe:(id)arg1 keyPath:(id)arg2 options:(unsigned)arg3 context:(void*)arg4 ;
+-(void)_unobserve:(id)arg1 info:(id)arg2 ;
+-(void)_unobserve:(id)arg1 ;
+-(void)_unobserveAll;
+-(void)observe:(id)arg1 keyPaths:(id)arg2 options:(unsigned)arg3 block:(/*^block*/id)arg4 ;
+-(void)observe:(id)arg1 keyPaths:(id)arg2 options:(unsigned)arg3 action:(SEL)arg4 ;
+-(void)observe:(id)arg1 keyPaths:(id)arg2 options:(unsigned)arg3 context:(void*)arg4 ;
 -(void)unobserve:(id)arg1 keyPath:(id)arg2 ;
 -(void)unobserve:(id)arg1 ;
 -(void)dealloc;

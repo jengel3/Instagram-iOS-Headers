@@ -21,8 +21,8 @@
 +(id)messageStyle;
 +(float)heightForPlaceholderWithMessage:(id)arg1 andTitle:(id)arg2 ;
 +(id)titleStyle;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(CGRect)tapTargetFrame;
 -(IGCoreTextView *)messageTextView;
 -(void)setMessageTextView:(IGCoreTextView *)arg1 ;

@@ -55,7 +55,7 @@
 -(id)propertyForKey:(id)arg1 ;
 -(char)setProperty:(id)arg1 forKey:(id)arg2 ;
 -(char)getBuffer:(char**)arg1 length:(unsigned*)arg2 ;
--(char)_setCFClientFlags:(unsigned long)arg1 callback:(/*function pointer*/void*)arg2 context:(SCD_Struct_IG65*)arg3 ;
+-(char)_setCFClientFlags:(unsigned long)arg1 callback:(/*function pointer*/void*)arg2 context:(SCD_Struct_IG4*)arg3 ;
 -(void)_scheduleInCFRunLoop:(CFRunLoopRef)arg1 forMode:(CFStringRef)arg2 ;
 -(void)_unscheduleFromCFRunLoop:(CFRunLoopRef)arg1 forMode:(CFStringRef)arg2 ;
 -(void)removeFromRunLoop:(id)arg1 forMode:(id)arg2 ;

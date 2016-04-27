@@ -33,8 +33,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)dataSourceForPlot:(id)arg1 withFunction:(/*function pointer*/void*)arg2 ;
 +(id)dataSourceForPlot:(id)arg1 withBlock:(/*^block*/id)arg2 ;
--(unsigned)numberOfRecordsForPlot:(id)arg1 ;
--(id)dataForPlot:(id)arg1 recordIndexRange:(NSRange)arg2 ;
 -(id)initForPlot:(id)arg1 withFunction:(/*function pointer*/void*)arg2 ;
 -(id)initForPlot:(id)arg1 withBlock:(/*^block*/id)arg2 ;
 -(id)initForPlot:(id)arg1 ;
@@ -48,6 +46,8 @@
 -(void)plotSpaceChanged;
 -(/*function pointer*/void*)dataSourceFunction;
 -(id)dataSourceBlock;
+-(unsigned)numberOfRecordsForPlot:(id)arg1 ;
+-(id)dataForPlot:(id)arg1 recordIndexRange:(NSRange)arg2 ;
 -(void)setDataRange:(CPTPlotRange *)arg1 ;
 -(void)setDataPlot:(CPTPlot *)arg1 ;
 -(void)dealloc;

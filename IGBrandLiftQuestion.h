@@ -24,18 +24,18 @@
 @property (nonatomic,copy) NSString * trackingToken;                 //@synthesize trackingToken=_trackingToken - In the implementation block
 @property (nonatomic,copy) NSString * surveyID;                      //@synthesize surveyID=_surveyID - In the implementation block
 +(id)questionForMessage:(id)arg1 ;
--(NSString *)trackingToken;
--(NSString *)surveyID;
--(NSString *)questionID;
--(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setPossibleAnswers:(NSArray *)arg1 ;
 -(void)setQuestionID:(NSString *)arg1 ;
 -(void)setTotalResponders:(int)arg1 ;
 -(void)setQuestionStyle:(int)arg1 ;
 -(int)questionStyle;
+-(NSString *)questionID;
 -(NSArray *)possibleAnswers;
--(int)totalResponders;
 -(void)setSurveyID:(NSString *)arg1 ;
+-(int)totalResponders;
+-(NSString *)surveyID;
+-(NSString *)trackingToken;
+-(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(NSString *)subtitle;

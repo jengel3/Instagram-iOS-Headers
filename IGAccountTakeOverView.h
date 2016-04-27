@@ -26,9 +26,9 @@
 -(IGProfilePictureImageView *)profilePictureView;
 -(void)setProfilePictureView:(IGProfilePictureImageView *)arg1 ;
 -(NSURL *)profilePictureURL;
--(UIButton *)confirmLoginButton;
--(id)initWithFrame:(CGRect)arg1 username:(id)arg2 profilePictureURL:(id)arg3 ;
 -(void)setConfirmLoginButton:(UIButton *)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 username:(id)arg2 profilePictureURL:(id)arg3 ;
+-(UIButton *)confirmLoginButton;
 -(UILabel *)descriptionLabel;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;

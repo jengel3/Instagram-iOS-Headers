@@ -19,10 +19,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGUsertagGroup *)usertags;
--(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(char)tagViewCanBeSelected:(id)arg1 ;
 -(void)tagViewWasSelected:(id)arg1 ;
 -(void)tagViewWasRemoved:(id)arg1 ;
+-(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(char)hasActiveUsertag;
 -(void)showAllTagsAnimated:(char)arg1 ;
 -(void)hideAllTagsWithCompletionHandler:(/*^block*/id)arg1 ;

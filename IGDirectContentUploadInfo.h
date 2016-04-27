@@ -25,15 +25,15 @@
 @property (assign,nonatomic) unsigned autoRetryCount;                          //@synthesize autoRetryCount=_autoRetryCount - In the implementation block
 @property (nonatomic,copy,readonly) NSString * digestDescription; 
 @property (nonatomic,retain) NSHashTable * observers;                          //@synthesize observers=_observers - In the implementation block
--(void)setThreadID:(NSString *)arg1 ;
+-(void)setUploadProgress:(float)arg1 ;
+-(float)uploadProgress;
 -(unsigned)autoRetryCount;
 -(id)stringForUploadStatus:(int)arg1 ;
 -(char)isViaRealtime;
 -(void)setUploadStatus:(int)arg1 ;
--(void)setUploadProgress:(float)arg1 ;
+-(void)setThreadID:(NSString *)arg1 ;
 -(NSString *)uploadIndexKey;
 -(void)setUploadIndexKey:(NSString *)arg1 ;
--(float)uploadProgress;
 -(void)setIsViaRealtime:(char)arg1 ;
 -(void)setAutoRetryCount:(unsigned)arg1 ;
 -(id)initWithRecipient:(id)arg1 ;

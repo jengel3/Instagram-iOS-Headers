@@ -21,9 +21,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setWebElement:(IGFeedItem *)arg1 ;
 -(void)setContinuationDelegate:(id<IGAdRatingWebViewCellContinuationDelegate>)arg1 ;
 -(id<IGAdRatingWebViewCellContinuationDelegate>)continuationDelegate;
+-(void)setWebElement:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)webElement;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

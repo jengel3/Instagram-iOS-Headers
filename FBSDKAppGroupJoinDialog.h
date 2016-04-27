@@ -19,10 +19,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)showWithGroupID:(id)arg1 delegate:(id)arg2 ;
--(char)canShow;
 -(void)webDialogDidCancel:(id)arg1 ;
 -(void)webDialog:(id)arg1 didCompleteWithResults:(id)arg2 ;
 -(void)webDialog:(id)arg1 didFailWithError:(id)arg2 ;
+-(char)canShow;
 -(void)_handleCompletionWithDialogResults:(id)arg1 error:(id)arg2 ;
 -(char)validateWithError:(id*)arg1 ;
 -(NSString *)groupID;

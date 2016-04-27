@@ -11,8 +11,8 @@
 	NSNumber* __thrift_rttInMillis;
 
 }
--(id)toDict;
 -(id)searchQueryText;
+-(id)toDict;
 -(id)initWithSearchQueryText:(id)arg1 timestamp:(id)arg2 rttInMillis:(id)arg3 ;
 -(id)init;
 -(id)description;

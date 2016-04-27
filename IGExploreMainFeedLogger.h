@@ -12,8 +12,8 @@
 
 @property (nonatomic,copy,readonly) NSString * module;                        //@synthesize module=_module - In the implementation block
 @property (nonatomic,readonly) NSMutableSet * loggedImpressions;              //@synthesize loggedImpressions=_loggedImpressions - In the implementation block
--(NSMutableSet *)loggedImpressions;
 -(id)initWithModule:(id)arg1 ;
+-(NSMutableSet *)loggedImpressions;
 -(void)logImpressionForMedia:(id)arg1 position:(NSRange)arg2 ;
 -(void)logImpressionForChannel:(id)arg1 position:(NSRange)arg2 ;
 -(void)logClickForMedia:(id)arg1 position:(NSRange)arg2 ;

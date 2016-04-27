@@ -36,8 +36,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)imageViewLoadedImage:(id)arg1 ;
 -(void)imageViewFailedToLoadImage:(id)arg1 error:(id)arg2 ;
+-(void)imageViewLoadedImage:(id)arg1 ;
 -(void)showFullResolutionImage;
 -(void)loadThumbnailUrl:(id)arg1 fullResolutionUrl:(id)arg2 showFullResolutionWhenDownloaded:(char)arg3 ;
 -(void)setPreviousCenter:(CGPoint)arg1 ;

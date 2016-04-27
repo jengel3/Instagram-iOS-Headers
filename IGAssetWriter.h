@@ -15,9 +15,9 @@
 +(void)writeVideo:(id)arg1 toInstagramAlbum:(char)arg2 completionBlock:(/*^block*/id)arg3 ;
 +(void)writeVideoToCameraRoll:(id)arg1 ;
 +(void)writeVideoToInstagramAlbum:(id)arg1 completionBlock:(/*^block*/id)arg2 ;
+-(void)writeToInstagramAlbum;
 -(id)initWithImage:(id)arg1 metadata:(id)arg2 ;
 -(void)writeToCameraRoll;
--(void)writeToInstagramAlbum;
 -(void)writeToInstagramAlbum:(char)arg1 ;
 -(void)showLibraryAccessMessage;
 -(void)setImage:(UIImage *)arg1 ;

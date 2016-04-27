@@ -29,8 +29,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)prepareToShare;
--(id)sharingInfo;
 -(CLLocation *)exifLocation;
 -(CLLocation *)avLocation;
 -(char)locationSharingEnabled;
@@ -38,6 +36,8 @@
 -(NSDictionary *)exifGPSDict;
 -(NSString *)venueRequestID;
 -(IGLocation *)venue;
+-(void)prepareToShare;
+-(id)sharingInfo;
 -(id)initWithExifLocation:(id)arg1 exifGPSDict:(id)arg2 rawVideoLocationString:(id)arg3 ;
 -(void)setLocationSharingEnabled:(char)arg1 ;
 -(void)setVenue:(IGLocation *)arg1 ;

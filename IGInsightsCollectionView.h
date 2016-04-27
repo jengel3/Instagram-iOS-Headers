@@ -32,8 +32,8 @@
 -(NSArray *)mediaBundles;
 -(void)setMediaBundles:(NSArray *)arg1 ;
 -(void)updateMediaBundle:(id)arg1 ;
--(id)initWithHeader:(id)arg1 buttonText:(id)arg2 mediaItemCount:(int)arg3 ;
 -(id)_feedItemAtIndex:(int)arg1 ;
+-(id)initWithHeader:(id)arg1 buttonText:(id)arg2 mediaItemCount:(int)arg3 ;
 -(void)setCellWidth:(float)arg1 ;
 -(void)setHeaderDelegate:(id)arg1 ;
 -(int)itemCount;

@@ -18,9 +18,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithLogDictionary:(id)arg1 name:(id)arg2 ;
 -(void)_onAsDict:(id)arg1 ;
 -(id)initWithLogArray:(id)arg1 name:(id)arg2 ;
+-(id)initWithLogDictionary:(id)arg1 name:(id)arg2 ;
 -(void)dealloc;
 -(char)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2 ;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

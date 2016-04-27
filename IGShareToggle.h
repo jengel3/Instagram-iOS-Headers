@@ -15,12 +15,13 @@
 
 }
 
-@property (assign,nonatomic) int shareMode;                          //@synthesize shareMode=_shareMode - In the implementation block
-@property (nonatomic,copy) id switchBlock;                           //@synthesize switchBlock=_switchBlock - In the implementation block
-@property (nonatomic,readonly) UILabel * shareToLabel;               //@synthesize shareToLabel=_shareToLabel - In the implementation block
-@property (nonatomic,retain) UIButton * broadcastLabel;              //@synthesize broadcastLabel=_broadcastLabel - In the implementation block
-@property (nonatomic,retain) UIButton * directLabel;                 //@synthesize directLabel=_directLabel - In the implementation block
-@property (nonatomic,retain) UIView * caretView;                     //@synthesize caretView=_caretView - In the implementation block
+@property (assign,nonatomic) int shareMode;                              //@synthesize shareMode=_shareMode - In the implementation block
+@property (nonatomic,copy) id switchBlock;                               //@synthesize switchBlock=_switchBlock - In the implementation block
+@property (assign,nonatomic) char shouldShowCaretIndicator; 
+@property (nonatomic,readonly) UILabel * shareToLabel;                   //@synthesize shareToLabel=_shareToLabel - In the implementation block
+@property (nonatomic,retain) UIButton * broadcastLabel;                  //@synthesize broadcastLabel=_broadcastLabel - In the implementation block
+@property (nonatomic,retain) UIButton * directLabel;                     //@synthesize directLabel=_directLabel - In the implementation block
+@property (nonatomic,retain) UIView * caretView;                         //@synthesize caretView=_caretView - In the implementation block
 -(UIButton *)broadcastLabel;
 -(UIButton *)directLabel;
 -(void)setShareMode:(int)arg1 ;
@@ -30,6 +31,8 @@
 -(int)shareMode;
 -(id)switchBlock;
 -(UILabel *)shareToLabel;
+-(char)shouldShowCaretIndicator;
+-(void)setShouldShowCaretIndicator:(char)arg1 ;
 -(void)setSwitchBlock:(id)arg1 ;
 -(void)setBroadcastLabel:(UIButton *)arg1 ;
 -(void)setDirectLabel:(UIButton *)arg1 ;

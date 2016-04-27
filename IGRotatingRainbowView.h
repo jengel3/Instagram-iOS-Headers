@@ -11,11 +11,11 @@
 }
 
 @property (nonatomic,retain) UIImageView * rotatingBackgroundView;              //@synthesize rotatingBackgroundView=_rotatingBackgroundView - In the implementation block
--(id)initWithFrame:(CGRect)arg1 rainbowViewType:(int)arg2 ;
--(void)rotateForTransitionWithClockwise:(char)arg1 ;
 -(void)setRotatingBackgroundView:(UIImageView *)arg1 ;
 -(UIImageView *)rotatingBackgroundView;
 -(void)rotateBackgroundView;
+-(id)initWithFrame:(CGRect)arg1 rainbowViewType:(int)arg2 ;
+-(void)rotateForTransitionWithClockwise:(char)arg1 ;
 -(void)dealloc;
 -(void)applicationDidBecomeActive;
 -(void)applicationWillResignActive;

@@ -48,12 +48,8 @@
 +(float)height;
 -(void)setTopGradientView:(IGGradientView *)arg1 ;
 -(IGGradientView *)topGradientView;
--(UIView *)bottomLine;
--(void)setBottomLine:(UIView *)arg1 ;
 -(IGProfilePictureImageView *)profilePictureImageView;
 -(void)setProfilePictureImageView:(IGProfilePictureImageView *)arg1 ;
--(IGGradientView *)bottomGradientView;
--(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(void)setMediaThumbnailView:(id)arg1 aspectRatio:(float)arg2 ;
 -(void)setShouldShowProfileInCaption:(char)arg1 ;
 -(char)shouldShowProfileInCaption;
@@ -62,8 +58,12 @@
 -(CGRect)profilePictureRect;
 -(void)onMediaTap;
 -(IGSimpleFrameButton *)photoFrameView;
+-(UIView *)bottomLine;
 -(void)setThumbnailViewHidden:(char)arg1 ;
 -(void)setPhotoFrameView:(IGSimpleFrameButton *)arg1 ;
+-(void)setBottomLine:(UIView *)arg1 ;
+-(IGGradientView *)bottomGradientView;
+-(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGCaptionCellDelegate>)arg1 ;
 -(void)dealloc;

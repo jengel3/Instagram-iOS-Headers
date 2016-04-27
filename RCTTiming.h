@@ -27,10 +27,10 @@
 +(id)__rct_export__1922;
 +(void)load;
 -(NSObject*<OS_dispatch_queue>)methodQueue;
+-(void)startTimers;
 -(void)didUpdateFrame:(id)arg1 ;
 -(id)pauseCallback;
 -(void)setPauseCallback:(id)arg1 ;
--(void)startTimers;
 -(void)createTimer:(id)arg1 duration:(double)arg2 jsSchedulingTime:(id)arg3 repeats:(char)arg4 ;
 -(void)deleteTimer:(id)arg1 ;
 -(char)isPaused;

@@ -33,6 +33,7 @@
 -(void)setIsRightButtonHidden:(char)arg1 ;
 -(void)setUpRightButtonWithString:(id)arg1 onTapAction:(/*^block*/id)arg2 ;
 -(void)setIsRightButtonActive:(char)arg1 ;
+-(void)setIsLeftButtonActive:(char)arg1 ;
 -(void)onLeftButtonTapped:(id)arg1 ;
 -(void)onRightButtonTapped:(id)arg1 ;
 -(id)leftButtonCompletion;

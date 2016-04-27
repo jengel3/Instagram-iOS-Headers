@@ -13,8 +13,8 @@
 
 @property (nonatomic,retain) UILabel * textLabel;                    //@synthesize textLabel=_textLabel - In the implementation block
 @property (nonatomic,retain) UIButton * continueButton;              //@synthesize continueButton=_continueButton - In the implementation block
--(UIButton *)continueButton;
 -(void)setContinueButton:(UIButton *)arg1 ;
+-(UIButton *)continueButton;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)textLabel;

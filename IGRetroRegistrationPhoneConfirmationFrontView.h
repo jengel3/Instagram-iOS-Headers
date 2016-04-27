@@ -23,11 +23,11 @@
 @property (nonatomic,retain) UILabel * titleLabel;                                              //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * messageLabel;                                            //@synthesize messageLabel=_messageLabel - In the implementation block
 @property (nonatomic,copy,readonly) NSString * phoneNumber;                                     //@synthesize phoneNumber=_phoneNumber - In the implementation block
--(IGRetroRegistrationTextField *)confirmationCodeField;
 -(void)setConfirmationCodeField:(IGRetroRegistrationTextField *)arg1 ;
--(IGCoreTextView *)resendCodeView;
--(id)initWithFrame:(CGRect)arg1 phoneNumber:(id)arg2 ;
+-(IGRetroRegistrationTextField *)confirmationCodeField;
 -(void)setResendCodeView:(IGCoreTextView *)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 phoneNumber:(id)arg2 ;
+-(IGCoreTextView *)resendCodeView;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;
 -(UILabel *)messageLabel;

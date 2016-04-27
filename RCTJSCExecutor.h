@@ -25,7 +25,7 @@
 @property (getter=isValid,nonatomic,readonly) char valid;                             //@synthesize valid=_valid - In the implementation block
 +(id)moduleName;
 +(void)runRunLoopThread;
-+(id)__rct_export__7861;
++(id)__rct_export__8151;
 +(void)load;
 -(void)executeBlockOnJavaScriptQueue:(/*^block*/id)arg1 ;
 -(void)addSynchronousHookWithName:(id)arg1 usingBlock:(id)arg2 ;

@@ -58,16 +58,16 @@
 -(void)onDragExit;
 -(float)currentWidth;
 -(CGRect)proposedFrame;
--(void)reposition;
 -(void)handlePanFromRecognizer:(id)arg1 ;
 -(CGPoint)caretPointWithCenter:(CGPoint)arg1 ;
 -(void)hideAndRemove;
 -(void)removeAndNotifyDelegate:(char)arg1 ;
--(void)shrink:(char)arg1 animated:(char)arg2 ;
 -(void)repositionWithCaretAtPosition:(float)arg1 ;
 -(char)flipped;
 -(float)proposedCaretPosition;
 -(void)setProposedCaretPosition:(float)arg1 ;
+-(void)shrink:(char)arg1 animated:(char)arg2 ;
+-(void)reposition;
 -(void)setCaretPosition:(float)arg1 ;
 -(float)caretPosition;
 -(void)setFlipped:(char)arg1 ;

@@ -38,9 +38,9 @@
 -(NSMutableSet *)selectedAnswers;
 -(id)answerForIndexPath:(id)arg1 ;
 -(char)nextButtonEnabled;
--(id)initWithQuestion:(id)arg1 headerString:(id)arg2 frame:(CGRect)arg3 ;
 -(void)setNextCell:(UITableViewCell *)arg1 ;
 -(void)setNextButtonEnabled:(char)arg1 ;
+-(id)initWithQuestion:(id)arg1 headerString:(id)arg2 frame:(CGRect)arg3 ;
 -(void)setDelegate:(id<IGBrandLiftQuestionViewDelegate>)arg1 ;
 -(void)dealloc;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

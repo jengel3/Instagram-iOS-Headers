@@ -22,13 +22,13 @@
 +(char)isLocationUseAuthorized;
 +(id)sharedLocationManager;
 +(int)authorizationStatus;
--(id)recentLocation;
--(char)isLocating;
 -(void)startUpdatingLocationWithTimeout:(double)arg1 ;
 -(char)isCachedLocation:(id)arg1 ;
 -(void)timeoutLocationUpdate;
 -(char)isRecentLocation:(id)arg1 ;
+-(id)recentLocation;
 -(void)requestAuthorization;
+-(char)isLocating;
 -(void)startUpdatingLocation;
 -(void)stopUpdatingLocation;
 -(void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2 ;

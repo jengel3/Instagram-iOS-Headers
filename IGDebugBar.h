@@ -23,8 +23,8 @@
 +(id)debugBarFontForSize:(float)arg1 ;
 +(id)newStatusBarLabel;
 +(id)sharedDebugBar;
--(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGFeedNetworkSource *)feedSource;
+-(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(void)buildRequestCounter;
 -(void)buildTransferIndicator;
 -(void)buildVideoPlaybackHistory;

@@ -36,7 +36,6 @@
 -(void)didFireTimer:(id)arg1 ;
 -(void)setTimerProxy:(IGTimerProxy *)arg1 ;
 -(IGTimerProxy *)timerProxy;
--(CGPoint)marqueeViewCenter;
 -(void)startMarqueePaging;
 -(void)cancelMarqueePaging;
 -(void)reloadMarquee;
@@ -51,6 +50,7 @@
 -(IGMarqueeLayout *)marqueeLayout;
 -(id)correctedIndexPathForMarqueeAtIndexPath:(id)arg1 ;
 -(void)setMarqueeTimer:(NSTimer *)arg1 ;
+-(CGPoint)marqueeViewCenter;
 -(void)setMarqueeCollectionView:(IGMarqueeCollectionView *)arg1 ;
 -(void)setMarqueeLayout:(IGMarqueeLayout *)arg1 ;
 -(void)setMarqueeLayoutSpec:(IGMarqueeViewLayoutSpec *)arg1 ;

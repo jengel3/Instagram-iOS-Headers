@@ -12,6 +12,8 @@
 @property (assign,nonatomic) char cachedRequestSamplingFlag;                    //@synthesize cachedRequestSamplingFlag=_cachedRequestSamplingFlag - In the implementation block
 @property (nonatomic,retain) NSRegularExpression * cdnSuffixRegex;              //@synthesize cdnSuffixRegex=_cdnSuffixRegex - In the implementation block
 +(id)scheduleWebViewEvent:(id)arg1 ;
+-(void)handleUserIDUpdated:(id)arg1 ;
+-(void)handleFacebookIDUpdated:(id)arg1 ;
 -(void)updateCachedRequestSamplingFlag;
 -(void)appDidLaunch:(id)arg1 ;
 -(void)exploreFollowPeopleOpened:(id)arg1 ;
@@ -31,8 +33,6 @@
 -(void)onLocationAuthorizationStatusAuthorized:(id)arg1 ;
 -(void)onLocationAuthorizationStatusDenied:(id)arg1 ;
 -(void)onLocationPermissionInstructionsPrompted:(id)arg1 ;
--(void)onLocationUpdated:(id)arg1 ;
--(void)onLocationDenied:(id)arg1 ;
 -(void)videoCacheAccess:(id)arg1 ;
 -(void)imageCacheAccess:(id)arg1 ;
 -(void)onUserLoginCompleted:(id)arg1 ;
@@ -40,9 +40,7 @@
 -(void)viewDidPullToRefresh:(id)arg1 ;
 -(void)feedDidScrollToBottom:(id)arg1 ;
 -(void)handleUserSwitched:(id)arg1 ;
--(void)handleUserIDUpdated:(id)arg1 ;
 -(void)handleLogoutAllUsers:(id)arg1 ;
--(void)handleFacebookIDUpdated:(id)arg1 ;
 -(void)logTimeSpent;
 -(void)onCommentDeleteButtonTapped:(id)arg1 ;
 -(void)onCommentSwipeToDelete:(id)arg1 ;
@@ -65,6 +63,8 @@
 -(char)isInstagramURL:(id)arg1 ;
 -(NSRegularExpression *)cdnSuffixRegex;
 -(void)setCdnSuffixRegex:(NSRegularExpression *)arg1 ;
+-(void)onLocationUpdated:(id)arg1 ;
+-(void)onLocationDenied:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
 @end

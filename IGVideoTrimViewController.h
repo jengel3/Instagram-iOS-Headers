@@ -55,7 +55,7 @@
 -(void)setTrimRangeDelegate:(id<IGVideoTrimControllerDelegate>)arg1 ;
 -(void)setAlwaysClampsTrimmedRange:(char)arg1 ;
 -(void)setTrimViewContentInsets:(UIEdgeInsets)arg1 ;
--(void)updatePlaybackTime:(SCD_Struct_IG44)arg1 ;
+-(void)updatePlaybackTime:(SCD_Struct_IG100)arg1 ;
 -(void)updateWithVideoClip:(id)arg1 minClipLenght:(float)arg2 maxClipLength:(float)arg3 ;
 -(void)setTimeScale:(float)arg1 ;
 -(void)setConfirmationDisplayType:(unsigned)arg1 ;

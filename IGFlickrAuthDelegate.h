@@ -6,8 +6,8 @@
 -(void)flickrWebViewLoadInProgress:(char)arg1;
 
 @required
--(void)flickrDidNotAuthorize:(id)arg1;
 -(void)flickrDidAuthorize:(id)arg1;
+-(void)flickrDidNotAuthorize:(id)arg1;
 
 @end
 

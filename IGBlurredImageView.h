@@ -16,8 +16,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setupSubviewsWithFrame:(CGRect)arg1 ;
 -(void)cancelImageLoad;
+-(void)setupSubviewsWithFrame:(CGRect)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)layoutSubviews;

@@ -22,12 +22,12 @@
 @property (nonatomic,retain) UILabel * dateLabel;                                         //@synthesize dateLabel=_dateLabel - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                        //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * contributorsLabel;                                 //@synthesize contributorsLabel=_contributorsLabel - In the implementation block
--(void)setPlayerView:(IGAlbumPlayerView *)arg1 ;
 -(NSString *)contributorsString;
--(void)setContributorsString:(NSString *)arg1 ;
--(IGProfilePictureImageView *)profileImageView;
 -(UILabel *)contributorsLabel;
 -(void)setContributorsLabel:(UILabel *)arg1 ;
+-(void)setContributorsString:(NSString *)arg1 ;
+-(IGProfilePictureImageView *)profileImageView;
+-(void)setPlayerView:(IGAlbumPlayerView *)arg1 ;
 -(IGAlbumPlayerView *)playerView;
 -(void)setDateLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

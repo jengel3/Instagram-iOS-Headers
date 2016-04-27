@@ -73,7 +73,6 @@
 @property (assign,nonatomic) int returnKeyType; 
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
--(id)initWithFrame:(CGRect)arg1 showPeopleIcon:(char)arg2 showCancelButton:(char)arg3 showDirectIcon:(char)arg4 ;
 -(void)setSearchIcon:(UIImage *)arg1 ;
 -(void)setSearchIconOn:(UIImage *)arg1 ;
 -(UIButton *)backgroundButton;
@@ -108,7 +107,6 @@
 -(void)addSpringAnimations:(/*^block*/id)arg1 duration:(double)arg2 complete:(/*^block*/id)arg3 ;
 -(CGRect)searchLabelViewFrameInactive;
 -(CGRect)searchTextFieldFrameInactive;
--(void)setSearchBarAnimationDuration:(double)arg1 ;
 -(void)setSearchTextField:(IGTextField *)arg1 ;
 -(void)setBackgroundButton:(UIButton *)arg1 ;
 -(void)setSearchLabelView:(UIView *)arg1 ;
@@ -118,6 +116,8 @@
 -(char)showPeopleIcon;
 -(void)setShowPeopleIcon:(char)arg1 ;
 -(void)setShowDirectIcon:(char)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 showPeopleIcon:(char)arg2 showCancelButton:(char)arg3 showDirectIcon:(char)arg4 ;
+-(void)setSearchBarAnimationDuration:(double)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)makeInactive:(char)arg1 ;
 -(void)makeActive:(char)arg1 ;

@@ -14,7 +14,6 @@
 
 @interface IGEditPostViewController : IGViewController <IGEditPostTextViewControllerDelegate, IGFeedItemHeaderDelegate, IGAutocompleteControllerDelegate, IGActionSheetDelegate, IGLocationPickerDelegate, IGUserInTaggingViewControllerDelegate, IGFeedItemVideoViewDelegate> {
 
-	char _navigationBarWasHidden;
 	char _autocompleteShown;
 	char _appearing;
 	char _disappearing;
@@ -35,7 +34,6 @@
 	UIBarButtonItem* _cancelButton;
 	IGEditedPost* _editedPost;
 	UIView* _aboveHeaderView;
-	UIView* _blueStatusBar;
 	int _keyboardAnimationCurve;
 	double _keyboardAnimationDuration;
 	CGRect _headerFrame;
@@ -45,7 +43,6 @@
 
 }
 
-@property (assign,nonatomic) char navigationBarWasHidden;                                       //@synthesize navigationBarWasHidden=_navigationBarWasHidden - In the implementation block
 @property (nonatomic,retain) UIView * backgroundView;                                           //@synthesize backgroundView=_backgroundView - In the implementation block
 @property (nonatomic,retain) UIView * backgroundTabBarView;                                     //@synthesize backgroundTabBarView=_backgroundTabBarView - In the implementation block
 @property (assign,nonatomic) CGRect headerFrame;                                                //@synthesize headerFrame=_headerFrame - In the implementation block
@@ -67,7 +64,6 @@
 @property (nonatomic,retain) UIBarButtonItem * cancelButton;                                    //@synthesize cancelButton=_cancelButton - In the implementation block
 @property (nonatomic,retain) IGEditedPost * editedPost;                                         //@synthesize editedPost=_editedPost - In the implementation block
 @property (nonatomic,retain) UIView * aboveHeaderView;                                          //@synthesize aboveHeaderView=_aboveHeaderView - In the implementation block
-@property (nonatomic,retain) UIView * blueStatusBar;                                            //@synthesize blueStatusBar=_blueStatusBar - In the implementation block
 @property (assign,getter=isAppearing,nonatomic) char appearing;                                 //@synthesize appearing=_appearing - In the implementation block
 @property (assign,getter=isDisappearing,nonatomic) char disappearing;                           //@synthesize disappearing=_disappearing - In the implementation block
 @property (assign,nonatomic) int keyboardAnimationCurve;                                        //@synthesize keyboardAnimationCurve=_keyboardAnimationCurve - In the implementation block
@@ -82,10 +78,19 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(double)keyboardAnimationDuration;
--(int)keyboardAnimationCurve;
+-(id)analyticsModule;
 -(IGFeedItem *)feedItem;
--(id)initWithFeedItem:(id)arg1 ;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
+-(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
+-(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
+-(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
+-(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
+-(void)setCommittingText:(char)arg1 ;
+-(char)isCommittingText;
+-(IGAutocompleteController *)autocompleteController;
+-(IGEditPostTextViewController *)textViewController;
+-(void)setTextViewController:(IGEditPostTextViewController *)arg1 ;
 -(void)feedItemVideoViewDidRequestVideoPlayback:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
 -(void)feedItemVideoViewDidDoubleTap:(id)arg1 ;
@@ -95,25 +100,6 @@
 -(void)feedItemVideoViewDidPlayToEnd:(id)arg1 ;
 -(void)feedItemVideoViewDidLongPress:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
--(id)analyticsModule;
--(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
--(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
--(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
--(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
--(void)setCommittingText:(char)arg1 ;
--(char)isCommittingText;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
--(IGAutocompleteController *)autocompleteController;
--(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
--(IGEditPostTextViewController *)textViewController;
--(void)setTextViewController:(IGEditPostTextViewController *)arg1 ;
--(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
--(void)feedItemHeaderDidTapUser:(id)arg1 ;
--(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
--(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapLocation:(id)arg1 ;
 -(void)textViewController:(id)arg1 didChangeContentHeightToHeight:(float)arg2 ;
 -(void)textViewController:(id)arg1 textViewDidChange:(id)arg2 ;
 -(void)textViewController:(id)arg1 textViewDidChangeSelection:(id)arg2 ;
@@ -121,21 +107,19 @@
 -(IGTagPeopleView *)tagPeopleView;
 -(UIView *)backgroundTabBarView;
 -(UIView *)aboveHeaderView;
--(char)navigationBarWasHidden;
--(UIView *)blueStatusBar;
 -(void)configureHeaderWithEditedPost;
 -(UIView *)autocompleteDivider;
 -(int)tagCount;
--(void)setAlphaOnNavBarItems:(float)arg1 ;
 -(CGRect)backgroundViewFrame;
 -(CGRect)mediaFrame;
 -(CGSize)contentSizeWithCaptionHeight:(float)arg1 ;
+-(int)keyboardAnimationCurve;
+-(double)keyboardAnimationDuration;
 -(void)setKeyboardAnimationCurve:(int)arg1 ;
 -(void)setKeyboardAnimationDuration:(double)arg1 ;
 -(UITapGestureRecognizer *)mediaViewTapRecognizer;
 -(void)adjustAutocompleteFrame;
 -(float)contentOffsetYTouchingCaption;
--(float)navBarHeight;
 -(void)scrollToCaretAnimated:(char)arg1 ;
 -(void)setDisappearing:(char)arg1 ;
 -(void)configureHeaderWithEditedPostInEditingMode:(char)arg1 ;
@@ -155,18 +139,26 @@
 -(void)setAutocompleteShown:(char)arg1 ;
 -(float)contentOffsetYAtCaret;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
--(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
--(void)setNavigationBarWasHidden:(char)arg1 ;
--(void)setBackgroundTabBarView:(UIView *)arg1 ;
--(void)setMediaFrame:(CGRect)arg1 ;
--(void)setBackgroundViewFrame:(CGRect)arg1 ;
+-(void)setAlphaOnNavBarItems:(float)arg1 ;
+-(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
 -(void)setAutocompleteDivider:(UIView *)arg1 ;
 -(void)setMediaView:(IGFeedMediaView *)arg1 ;
 -(void)setMediaViewTapRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(void)setTagPeopleView:(IGTagPeopleView *)arg1 ;
 -(void)setEditedPost:(IGEditedPost *)arg1 ;
 -(void)setAboveHeaderView:(UIView *)arg1 ;
--(void)setBlueStatusBar:(UIView *)arg1 ;
+-(id)initWithFeedItem:(id)arg1 ;
+-(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
+-(void)setMediaFrame:(CGRect)arg1 ;
+-(void)setBackgroundViewFrame:(CGRect)arg1 ;
+-(void)setBackgroundTabBarView:(UIView *)arg1 ;
+-(void)feedItemHeaderDidTapUser:(id)arg1 ;
+-(void)feedItemHeaderDidTapLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
+-(float)navBarHeight;
 -(void)setAppearing:(char)arg1 ;
 -(char)isAppearing;
 -(char)isPhoto;

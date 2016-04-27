@@ -37,12 +37,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithFrame:(CGRect)arg1 useNewDesign:(char)arg2 ;
--(void)setButtonState:(int)arg1 ;
--(void)setVideoRecordProgress:(float)arg1 ;
 -(void)setTap:(UITapGestureRecognizer *)arg1 ;
 -(UITapGestureRecognizer *)tap;
 -(int)buttonState;
+-(void)setButtonState:(int)arg1 ;
 -(void)setKCaptureButtonVideoSize:(float)arg1 ;
 -(float)kCaptureButtonVideoSize;
 -(void)setConfirmOverlay:(UIView *)arg1 ;
@@ -50,6 +48,8 @@
 -(void)setInnerCircle:(UIView *)arg1 ;
 -(UIView *)innerCircle;
 -(float)videoRecordProgress;
+-(id)initWithFrame:(CGRect)arg1 useNewDesign:(char)arg2 ;
+-(void)setVideoRecordProgress:(float)arg1 ;
 -(void)setLongPress:(UILongPressGestureRecognizer *)arg1 ;
 -(UILongPressGestureRecognizer *)longPress;
 -(void)setDelegate:(id<IGQuickCamCaptureButtonDelegate>)arg1 ;

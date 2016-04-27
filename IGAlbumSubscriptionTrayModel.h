@@ -12,8 +12,8 @@
 
 @property (nonatomic,readonly) NSArray * items;                        //@synthesize items=_items - In the implementation block
 @property (nonatomic,readonly) IGFeedItem * currentAlbum;              //@synthesize currentAlbum=_currentAlbum - In the implementation block
--(IGFeedItem *)currentAlbum;
 -(id)diffIdentifier;
+-(IGFeedItem *)currentAlbum;
 -(id)initWithItems:(id)arg1 currentAlbum:(id)arg2 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;

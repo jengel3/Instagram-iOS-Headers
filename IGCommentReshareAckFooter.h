@@ -10,8 +10,8 @@
 
 @property (nonatomic,copy) id tapActionBlock;              //@synthesize tapActionBlock=_tapActionBlock - In the implementation block
 -(void)setTapActionBlock:(id)arg1 ;
--(id)tapActionBlock;
 -(void)didTapLabel:(id)arg1 ;
+-(id)tapActionBlock;
 -(id)initWithFrame:(CGRect)arg1 usernames:(id)arg2 tapActionBlock:(/*^block*/id)arg3 ;
 @end
 

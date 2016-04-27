@@ -13,9 +13,9 @@
 }
 
 @property (nonatomic,retain) IGStringStyle * style;              //@synthesize style=_style - In the implementation block
--(void)highlight:(char)arg1 ;
 -(char)ig_enabled;
 -(char)isInside:(CGPoint)arg1 ;
+-(void)highlight:(char)arg1 ;
 -(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 ;
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2 ;
 -(void)touchesEnded:(id)arg1 withEvent:(id)arg2 ;

@@ -35,14 +35,14 @@
 -(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
 -(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(unsigned)displaySource;
--(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 ;
 -(id)viewForMegaphone;
--(void)logMegaphoneSeen;
 -(char)megaphoneSeen;
 -(void)setMegaphoneSeen:(char)arg1 ;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)megaphoneViewNeedsResize:(id)arg1 ;
+-(void)logMegaphoneSeen;
+-(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 ;
 -(IGGenericMegaphoneViewV2 *)megaphoneView2;
 -(id<IGGenericMegaphoneLogger>)logger;
 -(void)setDelegate:(id<IGMegaphonePresenterDelegate>)arg1 ;

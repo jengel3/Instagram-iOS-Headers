@@ -36,9 +36,7 @@
 -(void)pageViewControllerDidFinishScrolling:(id)arg1 ;
 -(id)pageViewController:(id)arg1 controllerForIndex:(int)arg2 ;
 -(void)pageViewController:(id)arg1 willShowViewController:(id)arg2 ;
--(IGTabControl *)tabControl;
 -(char)displaysTabsInNavigationBar;
--(UIViewController *)currentViewController;
 -(char)hidesTabControl;
 -(void)setCurrentViewController:(id)arg1 animated:(char)arg2 ;
 -(void)setTabControl:(IGTabControl *)arg1 ;
@@ -46,11 +44,13 @@
 -(UIEdgeInsets)preferredContentInsetsWithoutTabControl;
 -(id)viewControllerAtIndex:(int)arg1 ;
 -(void)switchToViewController:(id)arg1 animated:(char)arg2 ;
--(void)tabControl:(id)arg1 tappedSegmentIndex:(unsigned)arg2 ;
 -(id)initWithContentViewControllers:(id)arg1 ;
+-(UIView *)pagingContentView;
+-(void)tabControl:(id)arg1 tappedSegmentIndex:(unsigned)arg2 ;
 -(void)setDisplaysTabsInNavigationBar:(char)arg1 ;
 -(void)setCurrentViewController:(UIViewController *)arg1 ;
--(UIView *)pagingContentView;
+-(IGTabControl *)tabControl;
+-(UIViewController *)currentViewController;
 -(void)presentViewController:(id)arg1 animated:(char)arg2 ;
 -(void)setDelegate:(id<IGTabPageViewControllerDelegate>)arg1 ;
 -(id<IGTabPageViewControllerDelegate>)delegate;

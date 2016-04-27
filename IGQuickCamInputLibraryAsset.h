@@ -6,10 +6,10 @@
 @property (nonatomic,retain) PHAsset * phAsset; 
 @property (nonatomic,retain) ALAsset * alAsset; 
 @required
--(void)setPhAsset:(id)arg1;
--(void)setAlAsset:(id)arg1;
 -(PHAsset *)phAsset;
+-(void)setPhAsset:(id)arg1;
 -(ALAsset *)alAsset;
+-(void)setAlAsset:(id)arg1;
 
 @end
 

@@ -18,12 +18,12 @@
 @property (copy) NSString * profilePicURL;              //@synthesize profilePicURL=_profilePicURL - In the implementation block
 @property (copy) NSString * fullName;                   //@synthesize fullName=_fullName - In the implementation block
 @property (assign) char isPrivate;                      //@synthesize isPrivate=_isPrivate - In the implementation block
--(NSString *)pk;
 -(id)toDict;
--(NSString *)profilePicURL;
 -(void)setPk:(NSString *)arg1 ;
 -(void)setProfilePicURL:(NSString *)arg1 ;
 -(void)setIsPrivate:(char)arg1 ;
+-(NSString *)pk;
+-(NSString *)profilePicURL;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)initWithDictionary:(id)arg1 ;

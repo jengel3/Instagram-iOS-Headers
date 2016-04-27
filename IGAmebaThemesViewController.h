@@ -26,11 +26,11 @@
 -(void)amebaAuthDidFinish;
 -(void)fetchThemes;
 -(void)configureThemesSectionCell:(id)arg1 forRow:(int)arg2 ;
--(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)storeAmebaTheme:(id)arg1 ;
 -(void)didSelectThemesSectionRow:(id)arg1 ;
--(void)displayUnknownError;
 -(void)amebaDidLoadTheme:(id)arg1 ;
+-(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
+-(void)displayUnknownError;
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 -(void)setSelectedTheme:(NSDictionary *)arg1 ;
@@ -46,6 +46,7 @@
 -(id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 titleForFooterInSection:(int)arg2 ;
 -(id<IGAmebaThemesDelegate>)delegate;
+-(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
 -(void)setLoadingIndicator:(UIActivityIndicatorView *)arg1 ;
 -(UIActivityIndicatorView *)loadingIndicator;

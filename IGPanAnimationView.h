@@ -23,9 +23,6 @@
 @property (nonatomic,retain) UIImageView * leftNewImageView;                              //@synthesize leftNewImageView=_leftNewImageView - In the implementation block
 @property (nonatomic,retain) UIImageView * rightNewImageView;                             //@synthesize rightNewImageView=_rightNewImageView - In the implementation block
 @property (assign,nonatomic) CGRect viewBound;                                            //@synthesize viewBound=_viewBound - In the implementation block
--(void)setRightImage:(UIImage *)arg1 ;
--(void)setLeftImage:(id)arg1 centerImage:(id)arg2 rightImage:(id)arg3 ;
--(UIImage *)rightImage;
 -(void)setCenterImageView:(UIImageView *)arg1 ;
 -(void)setLeftNewImageView:(UIImageView *)arg1 ;
 -(UIImageView *)leftNewImageView;
@@ -43,6 +40,9 @@
 -(void)cancelRightPanAnimation:(/*^block*/id*)arg1 completion:(/*^block*/id*)arg2 duration:(float)arg3 ;
 -(void)finishLeftPanAnimation:(/*^block*/id*)arg1 completion:(/*^block*/id*)arg2 duration:(float)arg3 ;
 -(char)shouldFinishPanAnimation:(id)arg1 ;
+-(void)setRightImage:(UIImage *)arg1 ;
+-(void)setLeftImage:(id)arg1 centerImage:(id)arg2 rightImage:(id)arg3 ;
+-(UIImage *)rightImage;
 -(void)setLeftImage:(UIImage *)arg1 ;
 -(UIImage *)leftImage;
 -(void)setDelegate:(id<IGPanAnimationViewDelegate>)arg1 ;

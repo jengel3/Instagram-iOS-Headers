@@ -23,10 +23,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(IGFeedItem *)feedItem;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(char)isChangingPhotosOfYouSetting;
 -(char)isRemovingUsertag;
 -(id)tableView:(id)arg1 photosOfYouCellForRow:(int)arg2 ;

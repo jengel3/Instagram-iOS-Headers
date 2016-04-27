@@ -8,8 +8,8 @@
 }
 
 @property (assign,nonatomic) char shouldHoldFirstResponder;              //@synthesize shouldHoldFirstResponder=_shouldHoldFirstResponder - In the implementation block
--(char)shouldHoldFirstResponder;
 -(void)setShouldHoldFirstResponder:(char)arg1 ;
+-(char)shouldHoldFirstResponder;
 -(char)resignFirstResponder;
 @end
 

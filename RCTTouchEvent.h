@@ -7,6 +7,7 @@
 
 	NSArray* _reactTouches;
 	NSArray* _changedIndexes;
+	unsigned short _coalescingKey;
 	NSString* _eventName;
 	NSNumber* _viewTag;
 
@@ -16,13 +17,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,readonly) NSNumber * viewTag;                     //@synthesize viewTag=_viewTag - In the implementation block
-@property (nonatomic,copy,readonly) NSString * eventName;              //@synthesize eventName=_eventName - In the implementation block
+@property (nonatomic,readonly) NSNumber * viewTag;                        //@synthesize viewTag=_viewTag - In the implementation block
+@property (nonatomic,copy,readonly) NSString * eventName;                 //@synthesize eventName=_eventName - In the implementation block
+@property (nonatomic,readonly) unsigned short coalescingKey; 
 +(id)moduleDotMethod;
--(char)canCoalesce;
 -(id)coalesceWithEvent:(id)arg1 ;
 -(NSNumber *)viewTag;
--(id)initWithEventName:(id)arg1 reactTouches:(id)arg2 changedIndexes:(id)arg3 ;
+-(unsigned short)coalescingKey;
+-(char)canCoalesce;
+-(id)initWithEventName:(id)arg1 reactTouches:(id)arg2 changedIndexes:(id)arg3 coalescingKey:(unsigned short)arg4 ;
 -(id)init;
 -(NSString *)eventName;
 -(id)arguments;

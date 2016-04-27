@@ -1,6 +1,5 @@
 
 #import <Instagram/IGFeedViewController_DEPRECATED.h>
-#import <Instagram/IGAlbumSubscriptionTrayNetworkSourceDelegate.h>
 #import <Instagram/IGMainFeedUploadCellContentViewDelegate.h>
 #import <Instagram/IGFeedFollowPeopleCellDelegate.h>
 #import <Instagram/IGMegaphonePresenterDelegate.h>
@@ -11,9 +10,9 @@
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 
 @protocol IGMegaphonePresenterProtocol;
-@class NSArray, IGFeedPhotoPromptView, IGFeedFollowPeopleCell, UIView, IGMainFeedMegaphoneProvider, IGSearchViewController, FBAnimationPerformanceTracker, IGAlbumSubscriptionTrayNetworkSource, IGAlbumSubscriptionTrayCollectionCell, NSString;
+@class NSArray, IGFeedPhotoPromptView, IGFeedFollowPeopleCell, UIView, IGMainFeedMegaphoneProvider, IGDogfooderAlertBarPresenter, IGSearchViewController, FBAnimationPerformanceTracker, NSString;
 
-@interface IGMainFeedViewController : IGFeedViewController_DEPRECATED <IGAlbumSubscriptionTrayNetworkSourceDelegate, IGMainFeedUploadCellContentViewDelegate, IGFeedFollowPeopleCellDelegate, IGMegaphonePresenterDelegate, FBAnimationPerformanceTrackerDelegate, IGFeedNetworkSourceDelegate, IGExploreSearchControllerDelegate, IGAnalyticsModule, IGSearchOriginControllerProtocol> {
+@interface IGMainFeedViewController : IGFeedViewController_DEPRECATED <IGMainFeedUploadCellContentViewDelegate, IGFeedFollowPeopleCellDelegate, IGMegaphonePresenterDelegate, FBAnimationPerformanceTrackerDelegate, IGFeedNetworkSourceDelegate, IGExploreSearchControllerDelegate, IGAnalyticsModule, IGSearchOriginControllerProtocol> {
 
 	char _hasFakedPullToRefresh;
 	char _findFriendsFooterViewShowing;
@@ -24,35 +23,35 @@
 	IGFeedFollowPeopleCell* _feedFollowPeopleCell;
 	UIView* _megaphoneView;
 	IGMainFeedMegaphoneProvider* _megaphoneProvider;
+	IGDogfooderAlertBarPresenter* _dogfooderAlertBarPresenter;
 	id<IGMegaphonePresenterProtocol> _megaphonePresenter;
 	IGSearchViewController* _searchController;
 	FBAnimationPerformanceTracker* _apTracker;
-	IGAlbumSubscriptionTrayNetworkSource* _albumNetworkSource;
-	IGAlbumSubscriptionTrayCollectionCell* _albumSubscriptionTrayCell;
 
 }
 
-@property (nonatomic,retain) NSArray * uploadCellViews;                                                      //@synthesize uploadCellViews=_uploadCellViews - In the implementation block
-@property (assign,nonatomic) char hasFakedPullToRefresh;                                                     //@synthesize hasFakedPullToRefresh=_hasFakedPullToRefresh - In the implementation block
-@property (nonatomic,retain) IGFeedPhotoPromptView * findFriendsFooterView;                                  //@synthesize findFriendsFooterView=_findFriendsFooterView - In the implementation block
-@property (assign,nonatomic) char findFriendsFooterViewShowing;                                              //@synthesize findFriendsFooterViewShowing=_findFriendsFooterViewShowing - In the implementation block
-@property (nonatomic,retain) IGFeedFollowPeopleCell * feedFollowPeopleCell;                                  //@synthesize feedFollowPeopleCell=_feedFollowPeopleCell - In the implementation block
-@property (assign,nonatomic) char isFirstFeedLoad;                                                           //@synthesize isFirstFeedLoad=_isFirstFeedLoad - In the implementation block
-@property (nonatomic,retain) UIView * megaphoneView;                                                         //@synthesize megaphoneView=_megaphoneView - In the implementation block
-@property (nonatomic,readonly) IGMainFeedMegaphoneProvider * megaphoneProvider;                              //@synthesize megaphoneProvider=_megaphoneProvider - In the implementation block
-@property (nonatomic,retain) id<IGMegaphonePresenterProtocol> megaphonePresenter;                            //@synthesize megaphonePresenter=_megaphonePresenter - In the implementation block
-@property (assign,nonatomic) char showSearchOnViewDidAppear;                                                 //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
-@property (nonatomic,retain) IGSearchViewController * searchController;                                      //@synthesize searchController=_searchController - In the implementation block
-@property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                                      //@synthesize apTracker=_apTracker - In the implementation block
-@property (nonatomic,retain) IGAlbumSubscriptionTrayNetworkSource * albumNetworkSource;                      //@synthesize albumNetworkSource=_albumNetworkSource - In the implementation block
-@property (nonatomic,retain) IGAlbumSubscriptionTrayCollectionCell * albumSubscriptionTrayCell;              //@synthesize albumSubscriptionTrayCell=_albumSubscriptionTrayCell - In the implementation block
+@property (nonatomic,retain) NSArray * uploadCellViews;                                                //@synthesize uploadCellViews=_uploadCellViews - In the implementation block
+@property (assign,nonatomic) char hasFakedPullToRefresh;                                               //@synthesize hasFakedPullToRefresh=_hasFakedPullToRefresh - In the implementation block
+@property (nonatomic,retain) IGFeedPhotoPromptView * findFriendsFooterView;                            //@synthesize findFriendsFooterView=_findFriendsFooterView - In the implementation block
+@property (assign,nonatomic) char findFriendsFooterViewShowing;                                        //@synthesize findFriendsFooterViewShowing=_findFriendsFooterViewShowing - In the implementation block
+@property (nonatomic,retain) IGFeedFollowPeopleCell * feedFollowPeopleCell;                            //@synthesize feedFollowPeopleCell=_feedFollowPeopleCell - In the implementation block
+@property (assign,nonatomic) char isFirstFeedLoad;                                                     //@synthesize isFirstFeedLoad=_isFirstFeedLoad - In the implementation block
+@property (nonatomic,retain) UIView * megaphoneView;                                                   //@synthesize megaphoneView=_megaphoneView - In the implementation block
+@property (nonatomic,readonly) IGMainFeedMegaphoneProvider * megaphoneProvider;                        //@synthesize megaphoneProvider=_megaphoneProvider - In the implementation block
+@property (nonatomic,readonly) IGDogfooderAlertBarPresenter * dogfooderAlertBarPresenter;              //@synthesize dogfooderAlertBarPresenter=_dogfooderAlertBarPresenter - In the implementation block
+@property (nonatomic,retain) id<IGMegaphonePresenterProtocol> megaphonePresenter;                      //@synthesize megaphonePresenter=_megaphonePresenter - In the implementation block
+@property (assign,nonatomic) char showSearchOnViewDidAppear;                                           //@synthesize showSearchOnViewDidAppear=_showSearchOnViewDidAppear - In the implementation block
+@property (nonatomic,retain) IGSearchViewController * searchController;                                //@synthesize searchController=_searchController - In the implementation block
+@property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                                //@synthesize apTracker=_apTracker - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)albumNetworkSource:(id)arg1 didReceiveModel:(id)arg2 ;
--(id)analyticsModule;
+-(void)changeView;
 -(char)enableNavState;
+-(id)analyticsModule;
+-(void)reportDurationInMS:(int)arg1 smallDropEvent:(double)arg2 largeDropEvent:(double)arg3 ;
+-(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
 -(void)setMegaphoneView:(UIView *)arg1 ;
 -(UIView *)megaphoneView;
 -(char)hasFakedPullToRefresh;
@@ -65,22 +64,19 @@
 -(void)searchController:(id)arg1 switchedToViewController:(id)arg2 ;
 -(void)searchControllerPeopleIconTapped:(id)arg1 ;
 -(void)searchControllerDirectIconTapped:(id)arg1 ;
--(void)reportDurationInMS:(int)arg1 smallDropEvent:(double)arg2 largeDropEvent:(double)arg3 ;
--(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
 -(void)resetSearchControllerIfNeeded;
 -(void)prepareForPopToRootTransition;
 -(FBAnimationPerformanceTracker *)apTracker;
 -(void)setApTracker:(FBAnimationPerformanceTracker *)arg1 ;
+-(void)onFeedItemHidden:(id)arg1 ;
 -(void)feedFollowPeopleCellDidDismissUnit:(id)arg1 ;
 -(void)feedFollowPeopleCellDidChangeHeight:(id)arg1 ;
 -(void)feedFollowPeopleCell:(id)arg1 didTapUser:(id)arg2 ;
 -(void)feedFollowPeopleCellDidTapBanner:(id)arg1 ;
 -(void)feedFollowPeopleCellDidTapFooterBanner:(id)arg1 ;
--(void)onFeedItemHidden:(id)arg1 ;
--(IGAlbumSubscriptionTrayNetworkSource *)albumNetworkSource;
+-(IGDogfooderAlertBarPresenter *)dogfooderAlertBarPresenter;
 -(IGMainFeedMegaphoneProvider *)megaphoneProvider;
 -(char)canHostInlineGallery:(char)arg1 ;
--(id)initWithFeedNetworkSource:(id)arg1 ;
 -(void)megaphonePresenterDidDismiss:(id)arg1 ;
 -(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
 -(void)megaphonePresenterPopViewController:(id)arg1 ;
@@ -94,7 +90,6 @@
 -(void)updateFeedAfterReloadingforFetchAction:(int)arg1 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(void)handleDidEndScrolling;
--(void)didTakeRefreshAction;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(id)bugReportDescription;
 -(void)setIsFirstFeedLoad:(char)arg1 ;
@@ -104,27 +99,25 @@
 -(void)hideWithTombstoneForFeedItem:(id)arg1 ;
 -(void)hideFeedItemLeavingScreen:(id)arg1 withLayoutAttributes:(id)arg2 ;
 -(void)updateCurrentMegaphone;
--(void)loadFollowAccountListFromResponse:(id)arg1 ;
 -(void)showFindFriendsViewIfNecessary;
 -(void)logFeedLoadedOnce;
--(IGAlbumSubscriptionTrayCollectionCell *)albumSubscriptionTrayCell;
--(void)setAlbumSubscriptionTrayCell:(IGAlbumSubscriptionTrayCollectionCell *)arg1 ;
--(IGFeedFollowPeopleCell *)feedFollowPeopleCell;
--(void)setFeedFollowPeopleCell:(IGFeedFollowPeopleCell *)arg1 ;
 -(void)resetFollowAccountList;
--(void)findFriendsButtonTapped;
 -(IGFeedPhotoPromptView *)findFriendsFooterView;
 -(void)friendRequestDetected:(id)arg1 ;
 -(void)setFindFriendsFooterViewShowing:(char)arg1 ;
 -(char)findFriendsFooterViewShowing;
--(void)setMegaphonePresenter:(id<IGMegaphonePresenterProtocol>)arg1 ;
--(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
--(void)setMegaphoneView:(id)arg1 animated:(char)arg2 ;
 -(char)isFirstFeedLoad;
 -(void)setFindFriendsFooterView:(IGFeedPhotoPromptView *)arg1 ;
 -(char)showSearchOnViewDidAppear;
 -(void)setShowSearchOnViewDidAppear:(char)arg1 ;
--(void)setAlbumNetworkSource:(IGAlbumSubscriptionTrayNetworkSource *)arg1 ;
+-(void)loadFollowAccountListFromResponse:(id)arg1 ;
+-(IGFeedFollowPeopleCell *)feedFollowPeopleCell;
+-(void)setFeedFollowPeopleCell:(IGFeedFollowPeopleCell *)arg1 ;
+-(void)setMegaphoneView:(id)arg1 animated:(char)arg2 ;
+-(id)initWithFeedNetworkSource:(id)arg1 dogfooderAlertBarPresenter:(id)arg2 ;
+-(void)findFriendsButtonTapped;
+-(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
+-(void)setMegaphonePresenter:(id<IGMegaphonePresenterProtocol>)arg1 ;
 -(void)dealloc;
 -(void)scrollViewWillBeginDragging:(id)arg1 ;
 -(void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(char)arg2 ;

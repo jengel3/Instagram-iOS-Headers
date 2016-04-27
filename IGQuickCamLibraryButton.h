@@ -18,9 +18,9 @@
 @property (nonatomic,retain) PHImageRequestOptions * imageRequestOptions;              //@synthesize imageRequestOptions=_imageRequestOptions - In the implementation block
 @property (nonatomic,retain) UIImageView * thumbnailView;                              //@synthesize thumbnailView=_thumbnailView - In the implementation block
 @property (assign,nonatomic) int requestID;                                            //@synthesize requestID=_requestID - In the implementation block
--(void)cancelImageRequest;
--(PHImageRequestOptions *)imageRequestOptions;
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
+-(PHImageRequestOptions *)imageRequestOptions;
+-(void)cancelImageRequest;
 -(int)requestID;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

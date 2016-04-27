@@ -37,17 +37,17 @@
 @property (assign,nonatomic) int thumbnailsPerRow;                             //@synthesize thumbnailsPerRow=_thumbnailsPerRow - In the implementation block
 -(char)isVerified;
 -(NSString *)byline;
--(NSArray *)thumbnailURLs;
--(int)maxThumbnails;
 -(int)thumbnailsPerRow;
--(NSIndexSet *)thumbnailVideoIndexes;
--(void)setThumbnailsPerRow:(int)arg1 ;
--(void)setByline:(NSString *)arg1 ;
--(void)applyMediaBundles:(id)arg1 thumbnailSize:(CGSize)arg2 ;
+-(NSArray *)thumbnailURLs;
 -(void)setThumbnailURLs:(NSArray *)arg1 ;
--(id)initWithFeaturedUserInfo:(id)arg1 width:(float)arg2 thumbnailsPerRow:(unsigned)arg3 showsSocialContext:(char)arg4 ;
+-(NSIndexSet *)thumbnailVideoIndexes;
 -(void)setThumbnailVideoIndexes:(NSIndexSet *)arg1 ;
+-(void)setThumbnailsPerRow:(int)arg1 ;
 -(void)setMaxThumbnails:(int)arg1 ;
+-(void)applyMediaBundles:(id)arg1 thumbnailSize:(CGSize)arg2 ;
+-(id)initWithFeaturedUserInfo:(id)arg1 width:(float)arg2 thumbnailsPerRow:(unsigned)arg3 showsSocialContext:(char)arg4 ;
+-(int)maxThumbnails;
+-(void)setByline:(NSString *)arg1 ;
 -(id)init;
 -(void)setTitle:(NSString *)arg1 ;
 -(char)isEqual:(id)arg1 ;

@@ -4,7 +4,7 @@
 #import <UIKit/UITableViewDataSource.h>
 
 @protocol IGSwitchUsersControllerDelegate;
-@class UITableView, NSArray, NSDictionary, NSString;
+@class UITableView, NSArray, NSString;
 
 @interface IGSwitchUsersController : NSObject <IGImageViewDelegate, UITableViewDelegate, UITableViewDataSource> {
 
@@ -13,7 +13,6 @@
 	id<IGSwitchUsersControllerDelegate> _delegate;
 	NSArray* _usersArray;
 	unsigned _switchUsersMode;
-	NSDictionary* _badgeDict;
 
 }
 
@@ -21,28 +20,24 @@
 @property (assign,nonatomic,__weak) id<IGSwitchUsersControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) NSArray * usersArray;                                             //@synthesize usersArray=_usersArray - In the implementation block
 @property (assign,nonatomic) unsigned switchUsersMode;                                         //@synthesize switchUsersMode=_switchUsersMode - In the implementation block
-@property (nonatomic,retain) NSDictionary * badgeDict;                                         //@synthesize badgeDict=_badgeDict - In the implementation block
 @property (assign,nonatomic) char isSubmitting;                                                //@synthesize isSubmitting=_isSubmitting - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)imageViewLoadedImage:(id)arg1 ;
--(void)fetchBadges;
 -(id)initWithSwitchUsersMode:(unsigned)arg1 ;
 -(float)minimumTableViewHeight;
 -(void)updateUserData;
+-(void)updateBadgeInfo:(id)arg1 ;
 -(void)setUsersArray:(NSArray *)arg1 ;
 -(unsigned)switchUsersMode;
 -(NSArray *)usersArray;
 -(id)userCellForTableView:(id)arg1 indexPath:(id)arg2 ;
 -(id)addAccountCellForTableView:(id)arg1 indexPath:(id)arg2 ;
--(NSDictionary *)badgeDict;
+-(void)setSwitchUsersMode:(unsigned)arg1 ;
 -(char)isSubmitting;
 -(void)setIsSubmitting:(char)arg1 ;
--(void)setBadgeDict:(NSDictionary *)arg1 ;
--(void)updateNeedsAttention;
--(void)setSwitchUsersMode:(unsigned)arg1 ;
 -(void)setDelegate:(id<IGSwitchUsersControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2 ;

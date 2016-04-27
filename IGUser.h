@@ -18,6 +18,7 @@
 	char _profileActionNeeded;
 	char _rejects_staff_privileges;
 	char _hasChainingUsers;
+	char _hasAnonymousProfilePicture;
 	char _unpublished;
 	char _isActive;
 	char _geoIPBlocked;
@@ -60,8 +61,8 @@
 	NSNumber* _mediaCount;
 	NSURL* _externalURL;
 	NSURL* _profilePicURL;
-	NSArray* _HDProfilePicVersions;
 	NSDictionary* _HDProfilePicURLInfo;
+	NSString* _profilePicID;
 	NSArray* _similarUsers;
 	NSNumber* _mutualFollowersCount;
 	NSNumber* _unseenCount;
@@ -81,6 +82,7 @@
 @property (assign) char profileActionNeeded;                              //@synthesize profileActionNeeded=_profileActionNeeded - In the implementation block
 @property (assign) char rejects_staff_privileges;                         //@synthesize rejects_staff_privileges=_rejects_staff_privileges - In the implementation block
 @property (assign) char hasChainingUsers;                                 //@synthesize hasChainingUsers=_hasChainingUsers - In the implementation block
+@property (assign) char hasAnonymousProfilePicture;                       //@synthesize hasAnonymousProfilePicture=_hasAnonymousProfilePicture - In the implementation block
 @property (getter=isUnpublished) char unpublished;                        //@synthesize unpublished=_unpublished - In the implementation block
 @property (getter=isActive) char isActive;                                //@synthesize isActive=_isActive - In the implementation block
 @property (getter=isGeoIPBlocked) char geoIPBlocked;                      //@synthesize geoIPBlocked=_geoIPBlocked - In the implementation block
@@ -126,8 +128,8 @@
 @property (retain) NSNumber * mediaCount;                                 //@synthesize mediaCount=_mediaCount - In the implementation block
 @property (retain) NSURL * externalURL;                                   //@synthesize externalURL=_externalURL - In the implementation block
 @property (retain) NSURL * profilePicURL;                                 //@synthesize profilePicURL=_profilePicURL - In the implementation block
-@property (retain) NSArray * HDProfilePicVersions;                        //@synthesize HDProfilePicVersions=_HDProfilePicVersions - In the implementation block
 @property (retain) NSDictionary * HDProfilePicURLInfo;                    //@synthesize HDProfilePicURLInfo=_HDProfilePicURLInfo - In the implementation block
+@property (retain) NSString * profilePicID;                               //@synthesize profilePicID=_profilePicID - In the implementation block
 @property (retain) NSArray * similarUsers;                                //@synthesize similarUsers=_similarUsers - In the implementation block
 @property (retain) NSNumber * mutualFollowersCount;                       //@synthesize mutualFollowersCount=_mutualFollowersCount - In the implementation block
 @property (retain) NSNumber * unseenCount;                                //@synthesize unseenCount=_unseenCount - In the implementation block
@@ -137,70 +139,36 @@
 +(void)fetchFollowStatusInBulk:(id)arg1 ;
 +(void)makeManyFriendRequests:(id)arg1 successBlock:(/*^block*/id)arg2 failureBlock:(/*^block*/id)arg3 ;
 +(id)unmanagedUserWithPk:(id)arg1 ;
-+(id)stringForfollowStatus:(int)arg1 ;
-+(id)cleanedBiography:(id)arg1 ;
 +(void)onFriendStatusesReceived:(id)arg1 fromRequest:(id)arg2 ;
 +(void)onFriendStatusesFailed:(id)arg1 fromRequest:(id)arg2 ;
--(char)staff;
++(id)cleanedBiography:(id)arg1 ;
++(id)stringForfollowStatus:(int)arg1 ;
+-(id)toDict;
+-(void)setProfilePicURL:(NSURL *)arg1 ;
+-(NSURL *)profilePicURL;
 -(NSNumber *)mediaCount;
 -(int)followStatus;
--(id)toDict;
--(NSURL *)profilePicURL;
 -(char)canBoostPost;
 -(void)setPageName:(NSString *)arg1 ;
 -(int)toggleFollowStatus;
--(char)incomingRequestPending;
--(char)isFollowRestricted;
 -(void)changeFriendshipStatusWithAction:(int)arg1 completion:(/*^block*/id)arg2 ;
--(int)privacyStatus;
--(char)hasChainingUsers;
--(char)hasSimilarUsers;
 -(void)fetchSimilarAccountsWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
--(void)fetchFollowStatus;
+-(int)privacyStatus;
 -(char)isUnpublished;
 -(void)setMediaCount:(NSNumber *)arg1 ;
 -(char)isVerified;
 -(NSString *)byline;
--(NSString *)socialContext;
--(void)setByline:(NSString *)arg1 ;
 -(void)changeFriendshipStatusWithAction:(int)arg1 ;
+-(NSString *)socialContext;
 -(char)favorited;
 -(void)toggleFavoritedStatusShowSuccessAlert:(char)arg1 ;
 -(void)setFollowStatus:(int)arg1 ;
 -(NSArray *)similarUsers;
 -(void)removeSimilarUsers:(id)arg1 ;
 -(void)setSimilarUsers:(NSArray *)arg1 ;
--(void)fetchAdditionalUserDataWithCompletion:(/*^block*/id)arg1 ;
--(void)setProfileActionNeeded:(char)arg1 ;
--(void)setPrivacyStatus:(int)arg1 ;
--(void)setSocialContext:(NSString *)arg1 ;
--(void)setProfilePicURL:(NSURL *)arg1 ;
--(NSNumber *)followerCount;
--(NSNumber *)followingCount;
--(void)setUnseenCount:(NSNumber *)arg1 ;
--(NSNumber *)unseenCount;
--(char)isBusiness;
--(NSString *)pageName;
--(NSString *)trackingToken;
--(void)setTrackingToken:(NSString *)arg1 ;
--(void)setIncomingRequestPending:(char)arg1 ;
--(NSNumber *)mutualFollowersCount;
--(NSNumber *)friendScore;
--(NSString *)publicEmail;
--(NSString *)publicPhoneNumber;
--(NSString *)publicPhoneNumberCountryCode;
--(NSString *)pageCategory;
--(unsigned)contactPreference;
--(NSString *)publicLocationName;
--(NSString *)publicZipCode;
--(NSString *)publicCityName;
--(NSString *)publicCityID;
--(CLLocation *)publicLocationCoordinates;
--(void)setPublicEmail:(NSString *)arg1 ;
--(void)setContactPreference:(unsigned)arg1 ;
+-(void)fetchFollowStatus;
 -(void)onFriendStatusReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onFriendStatusFailed:(id)arg1 fromRequest:(id)arg2 ;
--(void)setLastFollowStatus:(int)arg1 ;
 -(void)updateCountsForCurrentUserDidStopFollowing;
 -(void)updateCountsForCurrentUserDidStartFollowing;
 -(void)setOngoingFriendshipRequest:(id)arg1 ;
@@ -210,39 +178,62 @@
 -(void)successHandlerForChangeFriendshipStatusAction:(int)arg1 response:(id)arg2 completion:(/*^block*/id)arg3 ;
 -(void)showAlertForAgeGateError:(id)arg1 forAction:(int)arg2 completion:(/*^block*/id)arg3 ;
 -(void)updateCountsForCurrentUserDidNotApproveFollowRequest;
--(void)setFavorited:(char)arg1 ;
--(void)updateFriendshipStatusWithResponse:(id)arg1 ;
--(int)lastFollowStatus;
--(void)updateFollowingCount:(int)arg1 ;
--(void)updateFollowerCount:(int)arg1 ;
--(void)toggleBlockStatus;
 -(void)suggestUserWithResponseHandler:(/*^block*/id)arg1 ;
+-(NSString *)profilePicID;
+-(char)hasAnonymousProfilePicture;
+-(char)staff;
 -(char)isAdRater;
 -(char)isNeedy;
 -(char)isGeoIPBlocked;
 -(NSString *)geoIPBlockedExtraInfo;
+-(char)isFollowRestricted;
 -(NSString *)biography;
+-(NSString *)trackingToken;
 -(char)profileActionNeeded;
+-(NSNumber *)friendScore;
+-(NSNumber *)mutualFollowersCount;
 -(char)onDirectBlacklist;
+-(NSNumber *)unseenCount;
 -(NSString *)profileContext;
+-(NSString *)publicEmail;
+-(NSString *)publicPhoneNumber;
+-(NSString *)publicPhoneNumberCountryCode;
+-(NSString *)pageCategory;
+-(CLLocation *)publicLocationCoordinates;
+-(NSString *)publicLocationName;
+-(NSString *)publicCityName;
+-(NSString *)publicCityID;
+-(NSString *)publicZipCode;
+-(unsigned)contactPreference;
+-(char)isBusiness;
 -(char)canSeeOrganicInsights;
 -(char)canConvertToBusiness;
+-(NSString *)pageName;
 -(void)setNeedy:(char)arg1 ;
+-(void)setFavorited:(char)arg1 ;
 -(void)setBiography:(NSString *)arg1 ;
 -(void)setExternalURL:(NSURL *)arg1 ;
 -(void)setGeoMediaCount:(unsigned)arg1 ;
 -(void)setUsertagsCount:(unsigned)arg1 ;
+-(void)setPrivacyStatus:(int)arg1 ;
 -(void)setGeoIPBlocked:(char)arg1 ;
 -(void)setGeoIPBlockedExtraInfo:(NSString *)arg1 ;
 -(void)setFollowRestricted:(char)arg1 ;
+-(void)updateFriendshipStatusWithResponse:(id)arg1 ;
 -(void)configureFollowStatus:(id)arg1 ;
+-(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setUnpublished:(char)arg1 ;
 -(void)setHasChainingUsers:(char)arg1 ;
+-(void)setProfileActionNeeded:(char)arg1 ;
+-(void)setByline:(NSString *)arg1 ;
 -(void)setMutualFollowersCount:(NSNumber *)arg1 ;
 -(void)setFriendScore:(NSNumber *)arg1 ;
--(void)setHDProfilePicVersions:(NSArray *)arg1 ;
+-(void)setHasAnonymousProfilePicture:(char)arg1 ;
 -(void)setHDProfilePicURLInfo:(NSDictionary *)arg1 ;
+-(void)setProfilePicID:(NSString *)arg1 ;
 -(void)setOnDirectBlacklist:(char)arg1 ;
+-(void)setSocialContext:(NSString *)arg1 ;
+-(void)setUnseenCount:(NSNumber *)arg1 ;
 -(void)setProfileContext:(NSString *)arg1 ;
 -(void)setCanBoostPost:(char)arg1 ;
 -(void)setCanSeeOrganicInsights:(char)arg1 ;
@@ -250,6 +241,7 @@
 -(void)parseBusinessInfo:(id)arg1 withDict:(id)arg2 ;
 -(void)setIsBusiness:(char)arg1 ;
 -(void)convertBusinessBackToUser;
+-(void)setPublicEmail:(NSString *)arg1 ;
 -(void)setPublicCityName:(NSString *)arg1 ;
 -(void)setPublicCityID:(NSString *)arg1 ;
 -(void)setPublicLocationCoordinates:(CLLocation *)arg1 ;
@@ -257,24 +249,36 @@
 -(void)setPublicZipCode:(NSString *)arg1 ;
 -(void)setPublicPhoneNumber:(NSString *)arg1 ;
 -(void)setPublicPhoneNumberCountryCode:(NSString *)arg1 ;
+-(void)setContactPreference:(unsigned)arg1 ;
 -(void)setPageCategory:(NSString *)arg1 ;
 -(id)userInfoDict;
+-(char)hasSimilarUsers;
 -(id)similarUserInfoDict;
--(NSArray *)HDProfilePicVersions;
 -(NSDictionary *)HDProfilePicURLInfo;
+-(NSNumber *)followerCount;
+-(NSNumber *)followingCount;
 -(unsigned)geoMediaCount;
 -(id)fullOrDisplayName;
+-(void)setIncomingRequestPending:(char)arg1 ;
 -(void)setDirectShareBlocked:(char)arg1 ;
 -(char)rejects_staff_privileges;
 -(id)HDProfilePicURL;
 -(CGSize)HDProfilePicSize;
 -(char)friendshipStatusPending;
+-(void)updateFollowerCount:(int)arg1 ;
+-(void)updateFollowingCount:(int)arg1 ;
 -(id)formattedLocationName;
 -(char)hasContactOptions;
 -(char)directShareBlocked;
+-(char)incomingRequestPending;
 -(void)setRejects_staff_privileges:(char)arg1 ;
+-(char)hasChainingUsers;
 -(void)setAdRater:(char)arg1 ;
 -(unsigned)usertagsCount;
+-(int)lastFollowStatus;
+-(void)setLastFollowStatus:(int)arg1 ;
+-(void)toggleBlockStatus;
+-(void)fetchAdditionalUserDataWithCompletion:(/*^block*/id)arg1 ;
 -(NSURL *)externalURL;
 -(id)primaryName;
 -(id)initWithCoder:(id)arg1 ;

@@ -5,27 +5,31 @@
 
 @interface IGAlertActionBar : IGAlertBar {
 
+	char _shouldDismissOnTap;
 	UITapGestureRecognizer* _tapGestureRecognizer;
 	/*^block*/id _tapActionBlock;
 	/*^block*/id _completeBlock;
 
 }
 
+@property (assign,nonatomic) char shouldDismissOnTap;                                    //@synthesize shouldDismissOnTap=_shouldDismissOnTap - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * tapGestureRecognizer;              //@synthesize tapGestureRecognizer=_tapGestureRecognizer - In the implementation block
 @property (nonatomic,copy) id tapActionBlock;                                            //@synthesize tapActionBlock=_tapActionBlock - In the implementation block
 @property (nonatomic,copy) id completeBlock;                                             //@synthesize completeBlock=_completeBlock - In the implementation block
 +(id)sharedAlertBar;
--(void)setTapActionBlock:(id)arg1 ;
 -(void)setCompleteBlock:(id)arg1 ;
 -(void)hideAfterDelay;
 -(void)resetCallbackBlocks;
--(id)tapActionBlock;
+-(char)shouldDismissOnTap;
 -(void)cancelHidePerformSelector;
 -(id)completeBlock;
--(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 delay:(double)arg4 updateExistingAlertBar:(char)arg5 actionBlock:(/*^block*/id)arg6 completeBlock:(/*^block*/id)arg7 ;
 -(void)dismissAndNotify:(char)arg1 ;
 -(void)didShowAlertView;
 -(void)didHideAlertView;
+-(void)setShouldDismissOnTap:(char)arg1 ;
+-(void)setTapActionBlock:(id)arg1 ;
+-(id)tapActionBlock;
+-(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 delay:(double)arg4 updateExistingAlertBar:(char)arg5 actionBlock:(/*^block*/id)arg6 completeBlock:(/*^block*/id)arg7 ;
 -(UITapGestureRecognizer *)tapGestureRecognizer;
 -(id)init;
 -(void)willMoveToWindow:(id)arg1 ;

@@ -18,13 +18,13 @@
 @property (nonatomic,readonly) NSIndexSet * videoIndexSet;              //@synthesize videoIndexSet=_videoIndexSet - In the implementation block
 @property (assign,nonatomic) char shouldPaddingBottom;                  //@synthesize shouldPaddingBottom=_shouldPaddingBottom - In the implementation block
 +(int)placeholderItemNum;
--(id)initWithPivots:(id)arg1 imageWidth:(float)arg2 shouldExpand:(char)arg3 ;
--(void)setShouldPaddingBottom:(char)arg1 ;
 -(NSArray *)imageURLs;
+-(id)initWithPivots:(id)arg1 imageWidth:(float)arg2 shouldExpand:(char)arg3 ;
 -(void)showMoreItems;
 -(char)moreItemAvailable;
 -(NSIndexSet *)videoIndexSet;
 -(char)shouldPaddingBottom;
+-(void)setShouldPaddingBottom:(char)arg1 ;
 -(int)visibleItems;
 -(float)imageWidth;
 @end

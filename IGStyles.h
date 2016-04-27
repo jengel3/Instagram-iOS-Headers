@@ -1,11 +1,15 @@
 
 
 @interface IGStyles : NSObject
-+(char)useWhiteNavAndTabs;
++(char)whiteoutEnabled;
 +(char)useWhiteCamera;
-+(char)useUpdatedTypography;
-+(char)useDirectBubbleIcon;
-+(char)useUpdatedTextColors;
++(void)configureCreationNavigationBar:(id)arg1 ;
++(id)creationBarTitleTextAttributes;
 +(char)useVibrantTabs;
++(void)logWhiteoutExposure;
++(int)activeWhiteoutGroup;
++(int)deviceWhiteoutGroup;
++(char)useUpdatedTypography;
++(char)useSemiboldForMedium;
 @end
 

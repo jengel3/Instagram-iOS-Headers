@@ -13,7 +13,7 @@
 -(void)setExperiment:(IGExperiment *)arg1 ;
 -(IGExperiment *)experiment;
 -(void)onCloseTapped;
--(id)userGroupAtIndexPath:(id)arg1 ;
+-(id)groupAtIndexPath:(id)arg1 ;
 -(id)initWithExperiment:(id)arg1 ;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;

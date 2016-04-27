@@ -27,12 +27,12 @@
 @property (readonly) unsigned* numberOfRows; 
 +(id)sectionWithTitle:(id)arg1 stories:(id)arg2 ;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
--(void)setStories:(NSOrderedSet *)arg1 ;
--(NSOrderedSet *)stories;
 -(NSMutableDictionary *)webViewCellSizes;
 -(void)webNewsCell:(id)arg1 didCalculateHeight:(float)arg2 ;
 -(void)newsCell:(id)arg1 openURL:(id)arg2 ;
 -(void)setUpTableView:(id)arg1 ;
+-(NSOrderedSet *)stories;
+-(void)setStories:(NSOrderedSet *)arg1 ;
 -(void)setDelegate:(id<IGNewsDataSourceSectionDelegate>)arg1 ;
 -(id)init;
 -(void)setTitle:(NSString *)arg1 ;

@@ -34,7 +34,6 @@
 @property (assign,nonatomic) unsigned pointingDeviceDownIndex; 
 +(id)defaultPieSliceColorForIndex:(unsigned)arg1 ;
 +(char)needsDisplayForKey:(id)arg1 ;
--(void)setSliceDirection:(int)arg1 ;
 -(char)pointingDeviceDownEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceUpEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(void)setLabelRotation:(float)arg1 ;
@@ -79,6 +78,7 @@
 -(NSArray *)sliceRadialOffsets;
 -(void)setSliceRadialOffsets:(NSArray *)arg1 ;
 -(void)setPieInnerRadius:(float)arg1 ;
+-(void)setSliceDirection:(int)arg1 ;
 -(void)setCenterAnchor:(CGPoint)arg1 ;
 -(void)setLabelRotationRelativeToRadius:(char)arg1 ;
 -(void)setOverlayFill:(CPTFill *)arg1 ;

@@ -24,16 +24,12 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) int status; 
--(id)analyticsModule;
 -(char)enableNavState;
--(IGNetworkSource *)networkSource;
--(void)setNetworkSource:(IGNetworkSource *)arg1 ;
--(void)networkSource:(id)arg1 didFetchObject:(id)arg2 ;
--(void)networkSource:(id)arg1 didFetchMoreWithObject:(id)arg2 ;
--(void)networkSource:(id)arg1 didFailWithError:(id)arg2 ;
--(NSMutableSet *)loggedImpressions;
+-(id)analyticsModule;
 -(id)initWithClusterKey:(id)arg1 type:(id)arg2 ;
+-(NSMutableSet *)loggedImpressions;
 -(void)setLoggedImpressions:(NSMutableSet *)arg1 ;
+-(IGNetworkSource *)networkSource;
 -(void)followStatusNotification:(id)arg1 ;
 -(void)setNetworkSourceStatus:(int)arg1 ;
 -(void)fetchMoreData;
@@ -48,6 +44,9 @@
 -(char)loadedOnce;
 -(char)failedWithAuthorizationError;
 -(id)emptyMessage;
+-(void)networkSource:(id)arg1 didFetchObject:(id)arg2 ;
+-(void)networkSource:(id)arg1 didFetchMoreWithObject:(id)arg2 ;
+-(void)networkSource:(id)arg1 didFailWithError:(id)arg2 ;
 -(id)feedStatusViewDataSource;
 -(id)exploreViewModelForObject:(id)arg1 ;
 -(void)didSelectObject:(id)arg1 atIndex:(int)arg2 ;
@@ -58,6 +57,7 @@
 -(void)didDisplayObject:(id)arg1 atIndex:(int)arg2 ;
 -(void)willDisplayObject:(id)arg1 atIndex:(int)arg2 mediaIndex:(unsigned)arg3 ;
 -(void)didDisplayObject:(id)arg1 atIndex:(int)arg2 mediaIndex:(unsigned)arg3 ;
+-(void)setNetworkSource:(IGNetworkSource *)arg1 ;
 -(void)setClusterKey:(NSString *)arg1 ;
 -(unsigned)itemCount;
 -(void)fetchData;

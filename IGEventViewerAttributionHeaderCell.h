@@ -22,17 +22,17 @@
 @property (assign,nonatomic,__weak) UIButton * moreButton;                                                //@synthesize moreButton=_moreButton - In the implementation block
 +(id)cellIdentifier;
 -(IGProfilePictureImageView *)profileImageView;
--(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
+-(UILabel *)usernameLabel;
 -(void)configureView;
 -(void)didTapMoreButton:(id)arg1 ;
--(void)didReceiveTapGesture:(id)arg1 ;
 -(UIImageView *)verifiedBadgeImageView;
--(void)setMoreButtonHidden:(char)arg1 ;
 -(void)layoutMoreButton;
--(void)configureWithImageURL:(id)arg1 username:(id)arg2 isVerified:(char)arg3 ;
 -(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)setVerifiedBadgeImageView:(UIImageView *)arg1 ;
+-(void)setMoreButtonHidden:(char)arg1 ;
+-(void)didReceiveTapGesture:(id)arg1 ;
+-(void)configureWithImageURL:(id)arg1 username:(id)arg2 isVerified:(char)arg3 ;
 -(UIButton *)moreButton;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;

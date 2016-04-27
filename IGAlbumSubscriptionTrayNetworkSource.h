@@ -31,6 +31,7 @@
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 willLoadItemsFromResponse:(id)arg2 ;
+-(void)fetchDataIfNotFullyLoaded;
 -(void)fetchData;
 -(void)setDelegate:(id<IGAlbumSubscriptionTrayNetworkSourceDelegate>)arg1 ;
 -(void)dealloc;

@@ -15,11 +15,11 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,__weak,readonly) RCTBridge * bridge;                             //@synthesize bridge=_bridge - In the implementation block
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> methodQueue; 
-+(void)didReceiveLocalNotification:(id)arg1 ;
 +(id)moduleName;
 +(void)didRegisterUserNotificationSettings:(id)arg1 ;
 +(void)didRegisterForRemoteNotificationsWithDeviceToken:(id)arg1 ;
 +(void)didReceiveRemoteNotification:(id)arg1 ;
++(void)didReceiveLocalNotification:(id)arg1 ;
 +(id)__rct_export__1460;
 +(id)__rct_export__1541;
 +(id)__rct_export__1592;

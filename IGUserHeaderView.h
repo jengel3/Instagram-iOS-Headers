@@ -19,8 +19,8 @@
 @property (nonatomic,retain) UILabel * subtitleLabel;                            //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 @property (nonatomic,retain) IGProfilePictureImageView * imageView;              //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UIImageView * verifiedImageView;                    //@synthesize verifiedImageView=_verifiedImageView - In the implementation block
--(UIButton *)followButton;
 -(void)setFollowButton:(UIButton *)arg1 ;
+-(UIButton *)followButton;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(UILabel *)titleLabel;

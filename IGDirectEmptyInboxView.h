@@ -12,16 +12,18 @@
 
 }
 
-@property (nonatomic,retain) UILabel * titleLabel;                    //@synthesize titleLabel=_titleLabel - In the implementation block
-@property (nonatomic,retain) UILabel * subtitleLabel;                 //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
-@property (nonatomic,retain) UIImageView * nuxImageView;              //@synthesize nuxImageView=_nuxImageView - In the implementation block
+@property (nonatomic,readonly) UILabel * titleLabel;                    //@synthesize titleLabel=_titleLabel - In the implementation block
+@property (nonatomic,readonly) UILabel * subtitleLabel;                 //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
+@property (nonatomic,readonly) UIImageView * nuxImageView;              //@synthesize nuxImageView=_nuxImageView - In the implementation block
+-(void)setupNUXImageView;
+-(void)setupTitleLabel;
+-(void)setupSubtitleLabel;
+-(void)configureLabel:(id)arg1 ;
 -(UIImageView *)nuxImageView;
--(void)setNuxImageView:(UIImageView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;
 -(UILabel *)subtitleLabel;
--(void)setTitleLabel:(UILabel *)arg1 ;
--(void)setSubtitleLabel:(UILabel *)arg1 ;
+-(void)setupSubviews;
 @end
 

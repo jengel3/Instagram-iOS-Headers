@@ -22,12 +22,12 @@
 +(id)videoResponseHeaderForRange:(NSRange)arg1 totalLength:(long long)arg2 ;
 +(NSRange)readRangeForListener:(id)arg1 downloadedLength:(long long)arg2 ;
 -(void)mediaRequest:(id)arg1 didReceiveDownloadBytesRead:(unsigned)arg2 totalBytesRead:(long long)arg3 totalBytesExpectedToRead:(long long)arg4 forURL:(id)arg5 ;
--(void)downloadAll;
--(void)removeRangedDataListener:(id)arg1 ;
--(void)addRangedDataListener:(id)arg1 ;
--(id)initWithURL:(id)arg1 partialData:(id)arg2 ;
 -(void)dataBecomeAvailable;
 -(void)endWithError:(id)arg1 ;
+-(void)removeRangedDataListener:(id)arg1 ;
+-(id)initWithURL:(id)arg1 partialData:(id)arg2 ;
+-(void)downloadAll;
+-(void)addRangedDataListener:(id)arg1 ;
 -(void)cancel;
 -(void)setDelegate:(id<IGVideoRequestDelegate>)arg1 ;
 -(id<IGVideoRequestDelegate>)delegate;

@@ -26,9 +26,9 @@
 @property (nonatomic,retain) UIView * separatorLine;                                                //@synthesize separatorLine=_separatorLine - In the implementation block
 @property (nonatomic,retain) NSString * titleText;                                                  //@synthesize titleText=_titleText - In the implementation block
 @property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
--(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
+-(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;
 -(IGFollowAllButton *)followAllButton;
 -(void)setFollowAllButton:(IGFollowAllButton *)arg1 ;
 -(IGFindUsersView *)usersListView;

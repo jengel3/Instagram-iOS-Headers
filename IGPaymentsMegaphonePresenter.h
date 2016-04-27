@@ -18,10 +18,10 @@
 -(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
 -(IGGenericMegaphone *)megaphone;
 -(id)viewForMegaphone;
--(void)logMegaphoneSeen;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)megaphoneViewNeedsResize:(id)arg1 ;
+-(void)logMegaphoneSeen;
 -(id)initWithMegaphone:(id)arg1 delegate:(id)arg2 ;
 -(void)setDelegate:(id<IGMegaphonePresenterDelegate>)arg1 ;
 -(id<IGMegaphonePresenterDelegate>)delegate;

@@ -20,9 +20,9 @@
 @property (nonatomic,readonly) NSString * deviceId;                           //@synthesize deviceId=_deviceId - In the implementation block
 @property (nonatomic,readonly) NSString * appId;                              //@synthesize appId=_appId - In the implementation block
 @property (nonatomic,readonly) int sequenceId;                                //@synthesize sequenceId=_sequenceId - In the implementation block
--(id)initWithDictionary:(id)arg1 deviceId:(id)arg2 appId:(id)arg3 sequenceId:(int)arg4 ;
 -(int)sequenceId;
 -(NSDate *)authTokenExpirationDate;
+-(id)initWithDictionary:(id)arg1 deviceId:(id)arg2 appId:(id)arg3 sequenceId:(int)arg4 ;
 -(id)initWithUrl:(id)arg1 authToken:(id)arg2 authTokenExpirationDate:(id)arg3 deviceId:(id)arg4 appId:(id)arg5 sequenceId:(int)arg6 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

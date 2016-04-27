@@ -14,8 +14,8 @@
 	NSString* __thrift_deviceName;
 
 }
--(id)initWithAppVersion:(id)arg1 platformType:(int)arg2 platformSoftwareVersion:(id)arg3 platformHardwareVersion:(id)arg4 deviceUUID:(id)arg5 deviceName:(id)arg6 ;
 -(id)toDict;
+-(id)initWithAppVersion:(id)arg1 platformType:(int)arg2 platformSoftwareVersion:(id)arg3 platformHardwareVersion:(id)arg4 deviceUUID:(id)arg5 deviceName:(id)arg6 ;
 -(id)init;
 -(id)description;
 -(id)mutableCopyWithZone:(NSZone*)arg1 ;

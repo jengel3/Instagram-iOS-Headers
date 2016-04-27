@@ -31,6 +31,7 @@
 -(unsigned)headerCount;
 -(void)clearAllData;
 -(void)clearEstimatedData;
+-(void)clearLastKnowAttributesInRect;
 -(id)headerAttributesAtIndexPath:(id)arg1 ;
 -(id)itemAttributesAtIndexPath:(id)arg1 ;
 -(void)saveAttributes:(id)arg1 ;

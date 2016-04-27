@@ -36,16 +36,10 @@
 @property (assign,nonatomic) CGPoint cropCenter;                              //@synthesize cropCenter=_cropCenter - In the implementation block
 @property (assign,nonatomic) float cropScaleRatio;                            //@synthesize cropScaleRatio=_cropScaleRatio - In the implementation block
 @property (nonatomic,readonly) _GLKMatrix4 cropTransform;                     //@synthesize cropTransform=_cropTransform - In the implementation block
--(void)setCropScaleRatio:(float)arg1 ;
--(float)cropScaleRatio;
--(void)updatePerspectiveTransform;
--(CGPoint)cropCenter;
--(float)originalCropAspectRatio;
--(void)setOriginalCropAspectRatio:(float)arg1 ;
 -(void)setCropCenter:(CGPoint)arg1 ;
 -(NSArray *)contentRegion;
--(float)orientationAngle;
--(void)setOrientationAngle:(float)arg1 ;
+-(CGPoint)cropCenter;
+-(void)updatePerspectiveTransform;
 -(void)generatePerspectiveTransform;
 -(void)updateCropTransformWithPerspectiveTransform:(_GLKMatrix4)arg1 ;
 -(float)zoomingScaleForPerspective:(_GLKMatrix4)arg1 withOriginCenter:(CGPoint)arg2 ;
@@ -53,8 +47,14 @@
 -(CGPoint)computePositionForPerspectiveTransform:(_GLKMatrix4)arg1 coordinate:(CGPoint)arg2 ;
 -(CGPoint)aspectRatioAdjustedPointFromPoint:(CGPoint)arg1 forAspectRatio:(float)arg2 ;
 -(float)computeDigonalScaleRatioWithStartPoint:(CGPoint)arg1 endPoint:(CGPoint)arg2 origin:(CGPoint)arg3 ;
+-(void)setOrientationAngle:(float)arg1 ;
+-(void)setCropScaleRatio:(float)arg1 ;
 -(void)setCropRotateAngle:(float)arg1 ;
+-(float)originalCropAspectRatio;
+-(void)setOriginalCropAspectRatio:(float)arg1 ;
+-(float)orientationAngle;
 -(float)cropRotateAngle;
+-(float)cropScaleRatio;
 -(_GLKMatrix4)cropTransform;
 -(float)aspectRatio;
 -(id)init;

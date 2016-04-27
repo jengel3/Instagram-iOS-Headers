@@ -22,26 +22,27 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGDirectContentUpoadCellDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator;              //@synthesize uploadDecorator=_uploadDecorator - In the implementation block
-+(float)commentWidthForFrameWidth:(float)arg1 ;
 +(id)emojiCommentStyle;
 +(id)commentStyle;
 +(char)handlesExternalURLs;
 +(float)heightForCellWithCommentText:(id)arg1 forWidth:(float)arg2 ;
--(IGCoreTextView *)commentTextView;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
++(float)commentWidthForFrameWidth:(float)arg1 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)performDelete;
+-(IGCoreTextView *)commentTextView;
+-(void)setCommentTextView:(IGCoreTextView *)arg1 ;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(id)timestampText;
 -(void)setCellDecorator:(id)arg1 ;
 -(void)setUploadDecorator:(IGDirectContentCellUploadDecorator *)arg1 ;
 -(void)handleUploadCellTap;
 -(void)performRetry;
--(void)performDelete;
+-(void)uploadDecoratorShowFailedUI:(id)arg1 ;
 -(void)showUploadFailedUI;
 -(void)showUploadSendingUI;
 -(CGRect)tapTargetFrame;
 -(id)cellDecorator;
--(void)setCommentTextView:(IGCoreTextView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGDirectContentUpoadCellDelegate>)arg1 ;
 -(void)layoutSubviews;

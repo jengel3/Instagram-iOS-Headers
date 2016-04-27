@@ -21,11 +21,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithCenterLocation:(id)arg1 ;
 -(void)setWrapperView:(UIView *)arg1 ;
 -(void)setCenterLocation:(CLLocation *)arg1 ;
 -(void)setFrameView:(UIImageView *)arg1 ;
 -(UIView *)wrapperView;
+-(id)initWithCenterLocation:(id)arg1 ;
 -(CLLocation *)centerLocation;
 -(void)dealloc;
 -(UIImageView *)frameView;

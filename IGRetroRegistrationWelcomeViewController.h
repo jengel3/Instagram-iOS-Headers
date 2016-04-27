@@ -27,14 +27,14 @@
 -(void)facebookAuthHelper:(id)arg1 willProceedEmailTakenAutoLoginWithLoggedInDict:(id)arg2 ;
 -(void)facebookAuthHelper:(id)arg1 willProceedRegistrationWithFBInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelper:(id)arg1 willResetPasswordWithViewController:(id)arg2 ;
--(void)onFacebookAuthSuccess:(id)arg1 ;
--(void)onFacebookAuthCancelled:(id)arg1 ;
--(void)loginButtonTapped;
 -(void)setFacebookButtonLoading:(char)arg1 ;
 -(IGFacebookAuthHelper *)fbAuthHelper;
 -(void)authWithFacebookForRegistration;
+-(void)onFacebookAuthSuccess:(id)arg1 ;
+-(void)onFacebookAuthCancelled:(id)arg1 ;
 -(/*^block*/id)fbAuthCompletionHandler;
 -(void)setFbAuthHelper:(IGFacebookAuthHelper *)arg1 ;
+-(void)loginButtonTapped;
 -(void)signupButtonTapped;
 -(void)FBButtonTapped;
 -(void)handleLoggedInUserForResponse:(id)arg1 facebookAccessToken:(id)arg2 ;

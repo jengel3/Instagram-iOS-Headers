@@ -32,11 +32,6 @@
 @property (assign,nonatomic) int toViewSubType;                        //@synthesize toViewSubType=_toViewSubType - In the implementation block
 @property (nonatomic,readonly) NSString * toViewEntityId;              //@synthesize toViewEntityId=_toViewEntityId - In the implementation block
 +(id)sharedInstance;
--(void)setExtractUserInfo:(id)arg1 ;
--(void)logRaindropEvent:(id)arg1 withNavState:(id)arg2 ;
--(void)raindropSwitchWithToViewType:(int)arg1 toViewSubType:(int)arg2 toViewEntityId:(id)arg3 ;
--(int)toViewType;
--(int)toViewSubType;
 -(NSString *)toViewEntityId;
 -(void)_updateActivitySession;
 -(void)_writeGrobalBeaconToFile;
@@ -46,8 +41,13 @@
 -(void)addLoggedEvent:(id)arg1 logEntry:(id)arg2 ;
 -(void)_logRaindropBeaconEvent;
 -(void)_logRaindropEntry:(id)arg1 withNavState:(id)arg2 ;
+-(void)logRaindropEvent:(id)arg1 withNavState:(id)arg2 ;
+-(void)raindropSwitchWithToViewType:(int)arg1 toViewSubType:(int)arg2 toViewEntityId:(id)arg3 ;
 -(id)getLoggedEvents;
+-(void)setExtractUserInfo:(id)arg1 ;
+-(int)toViewType;
 -(void)setToViewType:(int)arg1 ;
+-(int)toViewSubType;
 -(void)setToViewSubType:(int)arg1 ;
 -(void)dealloc;
 -(id)init;

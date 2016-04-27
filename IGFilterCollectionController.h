@@ -44,7 +44,6 @@
 +(id)sharedFilterClasses;
 +(id)sharedFiltersHiddenByDefault;
 +(id)filtersHiddenByDefault;
--(NSMutableArray *)orderedFilterClasses;
 -(char)isVisibleFilterClass:(Class)arg1 ;
 -(void)logFilterManagementState;
 -(Class)selectedFilterClass;
@@ -52,12 +51,6 @@
 -(void)fetchStaticThumbnailForFilterClass:(Class)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setFilterClass:(Class)arg1 isVisible:(char)arg2 ;
 -(void)moveFilterClassFromIndex:(int)arg1 toIndex:(int)arg2 ;
--(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 willMoveToIndexPath:(id)arg3 ;
--(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canMoveToIndexPath:(id)arg3 ;
--(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canBeRemovedAtPoint:(CGPoint)arg3 ;
--(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 wasRemovedAtPoint:(CGPoint)arg3 ;
--(void)collectionView:(id)arg1 layout:(id)arg2 willBeginDraggingItemAtIndexPath:(id)arg3 ;
--(void)collectionView:(id)arg1 layout:(id)arg2 willEndDraggingItemAtIndexPath:(id)arg3 ;
 -(void)generateFilterPreviewThumbnailsForImage:(id)arg1 ;
 -(void)selectFilter:(Class)arg1 animated:(char)arg2 ;
 -(NSMutableSet *)activeFilterSet;
@@ -85,6 +78,13 @@
 -(char)scrollingToFilter;
 -(void)setAllFiltersById:(NSDictionary *)arg1 ;
 -(void)setNewFilterIds:(NSMutableSet *)arg1 ;
+-(NSMutableArray *)orderedFilterClasses;
+-(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canBeRemovedAtPoint:(CGPoint)arg3 ;
+-(char)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 canMoveToIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 willMoveToIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 layout:(id)arg2 willBeginDraggingItemAtIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 layout:(id)arg2 willEndDraggingItemAtIndexPath:(id)arg3 ;
+-(void)collectionView:(id)arg1 itemAtIndexPath:(id)arg2 wasRemovedAtPoint:(CGPoint)arg3 ;
 -(void)setDelegate:(id<IGFilterCollectionControllerDelegate>)arg1 ;
 -(id)init;
 -(void)scrollViewDidScroll:(id)arg1 ;

@@ -21,8 +21,8 @@
 -(void)setAccountTakeOverView:(IGAccountTakeOverView *)arg1 ;
 -(IGAccountTakeOverView *)accountTakeOverView;
 -(void)signUp;
--(FBSDKAccessToken *)facebookAccessToken;
 -(id)initWithLoggedInDictionary:(id)arg1 facebookAccessToken:(id)arg2 ;
+-(FBSDKAccessToken *)facebookAccessToken;
 -(void)setFacebookAccessToken:(FBSDKAccessToken *)arg1 ;
 -(void)setDelegate:(id<IGAccountTakeOverViewControllerDelegate>)arg1 ;
 -(id<IGAccountTakeOverViewControllerDelegate>)delegate;

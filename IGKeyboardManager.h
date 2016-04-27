@@ -18,13 +18,13 @@
 @property (nonatomic,readonly) char keyboardIsVisible;                     //@synthesize keyboardIsVisible=_keyboardIsVisible - In the implementation block
 +(id)sharedKeyboardManager;
 -(float)keyboardHeight;
--(float)keyboardAnimationDuration;
+-(void)setKeyboardHeight:(float)arg1 ;
 -(int)keyboardAnimationCurve;
+-(float)keyboardAnimationDuration;
 -(void)setKeyboardAnimationCurve:(int)arg1 ;
 -(void)setKeyboardAnimationDuration:(float)arg1 ;
--(void)warmKeyboard;
--(void)setKeyboardHeight:(float)arg1 ;
 -(char)keyboardIsVisible;
+-(void)warmKeyboard;
 -(void)dealloc;
 -(id)init;
 -(UIView *)keyboard;

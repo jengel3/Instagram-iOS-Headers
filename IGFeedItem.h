@@ -2,7 +2,7 @@
 #import <Instagram/IGPost.h>
 #import <Instagram/IGStoredObject.h>
 
-@class IGUsertagGroup, NSString, NSNumber, IGSponsoredPostInfo, IGPivotMediaInfo, NSArray, IGPostItem, IGDirectResponseInfo, IGCommentModel;
+@class IGUsertagGroup, NSString, NSNumber, IGSponsoredPostInfo, IGPivotMediaInfo, IGPostItem, IGDirectResponseInfo, IGCommentModel;
 
 @interface IGFeedItem : IGPost <IGStoredObject> {
 
@@ -11,7 +11,6 @@
 	char _isHidden;
 	char _isWaitingForPivot;
 	char _showPivot;
-	char _hasBeenPromoted;
 	char _carouselLinkButtonOverride;
 	char _expanded;
 	NSString* _permalink;
@@ -23,14 +22,14 @@
 	NSNumber* _iTunesItemIdentifier;
 	IGSponsoredPostInfo* _sponsoredPostInfo;
 	NSString* _organicTrackingToken;
+	int _promotionState;
 	IGPivotMediaInfo* _pivotInfo;
-	NSArray* _albumItems;
 
 }
 
+@property (nonatomic,copy,readonly) NSString * ig_productSessionKey; 
 @property (nonatomic,readonly) IGPostItem * firstItem; 
 @property (nonatomic,readonly) IGPostItem * lastItem; 
-@property (nonatomic,copy,readonly) NSString * ig_productSessionKey; 
 @property (copy,readonly) NSString * permalink;                                   //@synthesize permalink=_permalink - In the implementation block
 @property (readonly) char inPhotosOfYou;                                          //@synthesize inPhotosOfYou=_inPhotosOfYou - In the implementation block
 @property (readonly) NSString * exploreAlgorithm;                                 //@synthesize exploreAlgorithm=_exploreAlgorithm - In the implementation block
@@ -48,39 +47,28 @@
 @property (readonly) IGCommentModel * headline; 
 @property (readonly) char isDirectResponse; 
 @property (readonly) char isAdsCarousel; 
-@property (readonly) char hasBeenPromoted;                                        //@synthesize hasBeenPromoted=_hasBeenPromoted - In the implementation block
+@property (readonly) char hasBeenPromoted; 
+@property (readonly) int promotionState;                                          //@synthesize promotionState=_promotionState - In the implementation block
 @property (assign) char carouselLinkButtonOverride;                               //@synthesize carouselLinkButtonOverride=_carouselLinkButtonOverride - In the implementation block
 @property (retain) IGPivotMediaInfo * pivotInfo;                                  //@synthesize pivotInfo=_pivotInfo - In the implementation block
-@property (retain) NSArray * albumItems;                                          //@synthesize albumItems=_albumItems - In the implementation block
 @property (assign) char expanded;                                                 //@synthesize expanded=_expanded - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)centralizedStore;
--(id)usertags;
 -(id)firstUnseenItemNewerThan:(id)arg1 ;
--(NSString *)mediaId;
--(char)isAdsCarousel;
--(char)carouselLinkButtonOverride;
+-(IGSponsoredPostInfo *)sponsoredPostInfo;
+-(char)isDirectResponse;
 -(IGDirectResponseInfo *)directResponseInfo;
 -(int)directResponseStyle;
+-(void)setPromotedState:(int)arg1 ;
+-(NSString *)mediaId;
 -(int)directResponseHeaderStyle;
--(id)buildMoreCommentsStyledString;
--(id)buildLikersStyledString;
--(id)buildFeaturedBadgeStyledString;
--(id)buildExploreContextString;
--(id)buildHyperlapseContextString;
--(id)buildLayoutContextString;
--(id)buildBoomerangContextString;
--(id)buildViewCountStyledString;
--(id)buildTimestampContextStringWithExplore:(char)arg1 ;
--(char)isSponsoredApp;
--(IGSponsoredPostInfo *)sponsoredPostInfo;
+-(id)usertags;
 -(id)urlToPostComment;
 -(id)urlToDeleteComment:(id)arg1 ;
 -(id)urlToFlagComment:(id)arg1 ;
--(id)likeText;
 -(id)buildLikeCellStyledStringForNoneLikeString:(id)arg1 ;
 -(id)buildLikeCellStyledStringWithIcon:(id)arg1 andText:(id)arg2 ;
 -(id)bylineStyleString;
@@ -89,8 +77,6 @@
 -(id)featuredBadgeText;
 -(id)defaultStyleString;
 -(id)viewCountTextWithUrl;
--(id)viewCountText;
--(id)buildShortFormatTimestamp;
 -(id)simplifiedLikeText;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 index:(int)arg4 analyticsMetadata:(id)arg5 completion:(/*^block*/id)arg6 ;
 -(void)fetchAndShowPivotIfNeededForRequestEntry:(int)arg1 ;
@@ -100,31 +86,47 @@
 -(void)fetchPivotsWithRequestEntry:(int)arg1 ;
 -(void)setPivotInfo:(IGPivotMediaInfo *)arg1 ;
 -(void)setIsWaitingForPivot:(char)arg1 ;
--(char)isDirectResponse;
 -(char)showPivot;
+-(char)isAdsCarousel;
+-(char)carouselLinkButtonOverride;
+-(id)buildLikersStyledString;
+-(id)buildBoomerangContextString;
+-(id)buildMoreCommentsStyledString;
+-(id)buildHyperlapseContextString;
+-(id)buildLayoutContextString;
+-(id)buildExploreContextString;
+-(id)buildFeaturedBadgeStyledString;
+-(id)buildViewCountStyledString;
+-(id)buildTimestampContextStringWithExplore:(char)arg1 ;
+-(id)buildShortFormatTimestamp;
+-(int)promotionState;
 -(NSString *)permalink;
 -(char)hasBeenPromoted;
 -(void)deleteItem;
+-(void)deletePostItemFromItem:(id)arg1 ;
 -(void)performLike:(char)arg1 withUser:(id)arg2 userDidDoubleTap:(char)arg3 userInfo:(id)arg4 index:(int)arg5 analyticsMetadata:(id)arg6 analyticsModule:(id)arg7 requestSourceParams:(id)arg8 completion:(/*^block*/id)arg9 ;
 -(void)setCarouselLinkButtonOverride:(char)arg1 ;
 -(void)markAsExpanded;
+-(char)isSponsoredApp;
 -(NSString *)ig_productSessionKey;
 -(void)setMediaIdWithPk:(id)arg1 ;
 -(void)setUsertagsFromEntry:(id)arg1 ;
 -(void)setSponsoredPostInfoFromEntry:(id)arg1 ;
+-(int)promotionStateFromString:(id)arg1 ;
 -(id)mediaIdFromPK:(id)arg1 ;
 -(char)isWaitingForPivot;
 -(void)setShowPivot:(char)arg1 ;
--(void)setInPhotosOfYou:(char)arg1 ;
 -(char)hasPivot;
--(char)inPhotosOfYou;
--(NSString *)organicTrackingToken;
 -(void)setOrganicTrackingToken:(NSString *)arg1 ;
+-(NSString *)organicTrackingToken;
+-(id)viewCountText;
+-(id)likeText;
+-(void)setInPhotosOfYou:(char)arg1 ;
+-(char)inPhotosOfYou;
 -(IGCommentModel *)headline;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isHidden;
--(char)isEqual:(id)arg1 ;
 -(NSString *)description;
 -(IGPostItem *)firstItem;
 -(char)isExpanded;
@@ -132,8 +134,6 @@
 -(void)setExpanded:(char)arg1 ;
 -(char)expanded;
 -(IGPostItem *)lastItem;
--(void)setAlbumItems:(NSArray *)arg1 ;
--(NSArray *)albumItems;
 -(NSNumber *)iTunesItemIdentifier;
 -(char)updateWithDictionary:(id)arg1 ;
 @end

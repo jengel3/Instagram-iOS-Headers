@@ -16,8 +16,8 @@
 @property (nonatomic,retain) IGProfilePictureImageView * profilePic;              //@synthesize profilePic=_profilePic - In the implementation block
 @property (nonatomic,retain) UILabel * titleLabel;                                //@synthesize titleLabel=_titleLabel - In the implementation block
 -(IGProfilePictureImageView *)profilePic;
--(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(id)unfollowTitle;
+-(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

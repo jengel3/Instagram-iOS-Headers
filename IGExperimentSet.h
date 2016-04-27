@@ -27,11 +27,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)cacheDirectory;
 -(id)experiments;
--(int)experimentType;
--(void)setExperimentType:(int)arg1 ;
 -(id)initWithExperimentType:(int)arg1 defaultExperiments:(id)arg2 uniqueIdentifier:(id)arg3 ;
 -(void)refreshExperimentsIfNecessary;
 -(char)wantsColdStart;
+-(int)experimentType;
 -(void)setWantsColdStart:(char)arg1 ;
 -(id)experimentForKey:(id)arg1 ;
 -(id)cachedExperimentForKey:(id)arg1 ;
@@ -41,6 +40,7 @@
 -(NSArray *)defaultExperiments;
 -(id)cacheFilePath;
 -(char)updateExperimentsWithPayload:(id)arg1 ;
+-(void)setExperimentType:(int)arg1 ;
 -(void)setDefaultExperiments:(NSArray *)arg1 ;
 -(NSString *)uniqueIdentifier;
 -(void)setUniqueIdentifier:(NSString *)arg1 ;

@@ -25,10 +25,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setShadowHidden:(char)arg1 ;
 -(void)setPost:(id)arg1 ;
 -(void)setupSubviewsWithFrame:(CGRect)arg1 ;
 -(IGBlurredImageView *)blurredImageView;
--(void)setShadowHidden:(char)arg1 ;
 -(void)configureSingleTap;
 -(void)didReceiveSingleTap:(id)arg1 ;
 -(void)setSingleTap:(UITapGestureRecognizer *)arg1 ;

@@ -46,9 +46,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)accessibilityNudgeButtonWithLabel:(id)arg1 initialValue:(id)arg2 ;
 -(UIView *)trackView;
--(CGSize)touchTargetInflation;
--(void)setTouchTargetInflation:(CGSize)arg1 ;
--(void)setPositiveOnlySlider:(char)arg1 ;
 -(void)setThumbView:(UIImageView *)arg1 ;
 -(void)setCenterView:(UIImageView *)arg1 ;
 -(void)onPan:(id)arg1 ;
@@ -65,7 +62,10 @@
 -(UITapGestureRecognizer *)tapGesture;
 -(UIPanGestureRecognizer *)panGesture;
 -(float)valueForSliderPosition:(float)arg1 ;
+-(CGSize)touchTargetInflation;
+-(void)setTouchTargetInflation:(CGSize)arg1 ;
 -(char)positiveOnlySlider;
+-(void)setPositiveOnlySlider:(char)arg1 ;
 -(UIImageView *)thumbView;
 -(void)setTrackView:(UIView *)arg1 ;
 -(void)setHighlightedTrackView:(UIView *)arg1 ;

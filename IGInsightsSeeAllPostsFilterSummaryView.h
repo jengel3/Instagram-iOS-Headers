@@ -19,12 +19,12 @@
 @property (nonatomic,copy) NSString * dataOrdering;              //@synthesize dataOrdering=_dataOrdering - In the implementation block
 @property (nonatomic,copy) NSString * skeleton;                  //@synthesize skeleton=_skeleton - In the implementation block
 @property (nonatomic,readonly) UILabel * label;                  //@synthesize label=_label - In the implementation block
--(NSString *)timeframe;
--(NSString *)dataOrdering;
--(void)updateMediaType:(id)arg1 timeframe:(id)arg2 dataOrdering:(id)arg3 skeleton:(id)arg4 ;
 -(void)setTimeframe:(NSString *)arg1 ;
 -(void)setDataOrdering:(NSString *)arg1 ;
 -(id)generatedLabelTextAttributedString;
+-(NSString *)timeframe;
+-(NSString *)dataOrdering;
+-(void)updateMediaType:(id)arg1 timeframe:(id)arg2 dataOrdering:(id)arg3 skeleton:(id)arg4 ;
 -(NSString *)mediaType;
 -(void)setMediaType:(NSString *)arg1 ;
 -(NSString *)skeleton;

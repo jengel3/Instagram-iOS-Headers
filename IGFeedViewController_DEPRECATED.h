@@ -1,7 +1,6 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGFeedNetworkSourceViewController.h>
-#import <Instagram/IGActionSheetDelegate.h>
 #import <Instagram/IGAlbumFullscreenViewControllerDelegate.h>
 #import <Instagram/IGFeedPromotionBannerDelegate.h>
 #import <Instagram/IGUserInTagDisplayDelegate.h>
@@ -28,10 +27,11 @@
 #import <Instagram/IGRaindropAnalyticsDelegate.h>
 #import <Instagram/IGBugReportingProtocol.h>
 #import <Instagram/IGCollectionViewControllerDataSource.h>
+#import <Instagram/IGActionSheetDelegate.h>
 
 @class IGImagePreparer, NSMutableArray, IGFeedFocusCoordinator, NSIndexPath, IGFeedCollectionViewLayoutDataSource, NSArray, IGFullViewImpressionTracker, IGItemVisibilityTracker, IGFeedItem, IGStoreProductSessionManager, IGFeedItemViewingSessionManager, IGFeedUsertagManager, IGCollectionViewVisibility, IGFeedVideoCellManager, IGFeedDirectResponseHandler, NSMutableDictionary, IGFeedHeartAnimator, IGFeedDataSource, IGFeedPreviewingHandler, IGComposedWebViewLogger, IGComposedWebViewSharingLogger, IGFeedReshareNUXManager, IGFeedItemSectionImpressionTracker, NSString;
 
-@interface IGFeedViewController_DEPRECATED : IGFeedNetworkSourceViewController <IGActionSheetDelegate, IGAlbumFullscreenViewControllerDelegate, IGFeedPromotionBannerDelegate, IGUserInTagDisplayDelegate, IGFeedItemDirectResponseLoggingProviderDelegate, IGFeedItemAlbumCellDelegate, IGFeedItemPageCellDelegate, IGItemVisibilityTrackerDelegate, IGFeedItemLoggingProviderDelegate, IGFeedItemActionCellDelegate, IGFeedItemAppHeaderDelegate, IGFeedItemHeaderDelegate, IGFeedItemTextCellDelegate, IGFeedItemPhotoCellDelegate, IGFeedSectionVisibilityTrackerDelegate, IGUnifiedWebViewControllerBrowsingLifeCycleDelegate, IGFeedItemPivotGridCellDelegate, IGFeedVideoCellInteractionDelegate, IGFeedVideoCellAnalyticsDelegate, IGFeedReshareNUXManagerDatasource, IGFeedItemBusinessCellDelegate, IGFeedNetworkSourceHideDelegate, IGAnalyticsModule, IGFeedCollectionViewLayoutDelegate, IGRaindropAnalyticsDelegate, IGBugReportingProtocol, IGCollectionViewControllerDataSource> {
+@interface IGFeedViewController_DEPRECATED : IGFeedNetworkSourceViewController <IGAlbumFullscreenViewControllerDelegate, IGFeedPromotionBannerDelegate, IGUserInTagDisplayDelegate, IGFeedItemDirectResponseLoggingProviderDelegate, IGFeedItemAlbumCellDelegate, IGFeedItemPageCellDelegate, IGItemVisibilityTrackerDelegate, IGFeedItemLoggingProviderDelegate, IGFeedItemActionCellDelegate, IGFeedItemAppHeaderDelegate, IGFeedItemHeaderDelegate, IGFeedItemTextCellDelegate, IGFeedItemPhotoCellDelegate, IGFeedSectionVisibilityTrackerDelegate, IGUnifiedWebViewControllerBrowsingLifeCycleDelegate, IGFeedItemPivotGridCellDelegate, IGFeedVideoCellInteractionDelegate, IGFeedVideoCellAnalyticsDelegate, IGFeedReshareNUXManagerDatasource, IGFeedItemBusinessCellDelegate, IGFeedNetworkSourceHideDelegate, IGAnalyticsModule, IGFeedCollectionViewLayoutDelegate, IGRaindropAnalyticsDelegate, IGBugReportingProtocol, IGCollectionViewControllerDataSource, IGActionSheetDelegate> {
 
 	IGImagePreparer* _imagePreparer;
 	NSMutableArray* _addedBannerViews;
@@ -98,16 +98,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGFeedDirectResponseHandler *)directResponseHandler;
+-(id)getMutedList:(id)arg1 ;
+-(char)enableNavState;
+-(id)analyticsModule;
 -(void)albumFullscreenViewControllerShouldDismiss:(id)arg1 ;
 -(IGFeedFocusCoordinator *)focusCoordinator;
--(void)setFocusCoordinator:(IGFeedFocusCoordinator *)arg1 ;
--(id)analyticsModule;
--(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
--(id)extraDictionaryForFeedItem:(id)arg1 ;
--(char)enableNavState;
+-(void)setFocusCoordinator:(IGFeedFocusCoordinator *)arg1 ;
 -(id)initWithFeedNetworkSource:(id)arg1 feedLayout:(int)arg2 showsPullToRefresh:(char)arg3 ;
 -(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
@@ -115,17 +113,10 @@
 -(void)reloadWithNewObjects:(id)arg1 ;
 -(void)scrollToFeedItem:(id)arg1 animated:(char)arg2 ;
 -(IGFeedVideoCellManager *)videoCellManager;
+-(void)feedNetworkSource:(id)arg1 didHideObject:(id)arg2 ;
 -(unsigned)contextualFeedInfiniteScrollCap;
 -(void)setVideoCellManager:(IGFeedVideoCellManager *)arg1 ;
--(IGCollectionViewVisibility *)collectionViewVisibility;
--(void)feedNetworkSource:(id)arg1 didHideObject:(id)arg2 ;
--(void)feedItemAppHeaderDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
--(void)feedItemHeaderDidTapUser:(id)arg1 ;
--(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
--(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapLocation:(id)arg1 ;
+-(id)extraDictionaryForFeedItem:(id)arg1 ;
 -(char)feedViewLayout:(id)arg1 shouldHideHeaderForSection:(unsigned)arg2 withObjects:(id)arg3 ;
 -(id)collectionViewController:(id)arg1 viewForSupplementaryViewOfKind:(id)arg2 forItemAtIndexPath:(id)arg3 ;
 -(void)feedItemActionCellPageControlDidChangeValue:(id)arg1 ;
@@ -134,10 +125,6 @@
 -(void)feedItemActionCellDidTapMoreButton:(id)arg1 ;
 -(void)feedItemActionCellDidTapSendButton:(id)arg1 ;
 -(void)feedItemActionCellDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemAlbumCellDidTap:(id)arg1 ;
--(void)feedItemBusinessCellDidTapPromote:(id)arg1 ;
--(void)feedItemBusinessCellDidTapViewInsights:(id)arg1 ;
--(id)extraDictionaryForFeedItem:(id)arg1 directResponseInfo:(id)arg2 ;
 -(void)feedItemPageCell:(id)arg1 didScrollToPageIndex:(int)arg2 fromIndex:(int)arg3 ;
 -(void)feedItemPageCellDidInitialSingleTap:(id)arg1 ;
 -(void)feedItemPageCellDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
@@ -147,20 +134,30 @@
 -(void)feedItemPhotoCellDidInitialSingleTap:(id)arg1 ;
 -(void)feedItemPhotoCellDidDoubleTapToLike:(id)arg1 ;
 -(void)feedItemPhotoCellDidSingleTap:(id)arg1 continueAction:(char)arg2 ;
--(void)feedItemPivotGridCellDidTapSeeMore:(id)arg1 ;
 -(void)feedItemTextCellDidTapOnMore:(id)arg1 ;
 -(void)feedItemTextCell:(id)arg1 didTapOnURL:(id)arg2 ;
 -(void)feedItemTextCell:(id)arg1 didLongPressReplyText:(id)arg2 ;
--(void)videoCellDidDoubleTap:(id)arg1 ;
 -(void)feedPromotionBannerDidTapDismiss:(id)arg1 withConfiguration:(id)arg2 ;
--(void)itemVisibilityTracker:(id)arg1 itemDidAppear:(id)arg2 ;
--(void)itemVisibilityTracker:(id)arg1 itemDidDisappear:(id)arg2 ;
--(void)itemVisibilityTracker:(id)arg1 itemDidStartViewing:(id)arg2 ;
+-(id)extraDictionaryForFeedItem:(id)arg1 directResponseInfo:(id)arg2 ;
+-(void)videoCellDidDoubleTap:(id)arg1 ;
 -(IGFeedHeartAnimator *)heartAnimator;
+-(IGFeedDirectResponseHandler *)directResponseHandler;
+-(void)feedItemAlbumCellDidTap:(id)arg1 ;
+-(void)feedItemHeaderDidTapUser:(id)arg1 ;
+-(void)feedItemHeaderDidTapLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
 -(id)feedVideoCellCurrentIGAnalyticsMetadata:(id)arg1 ;
 -(int)feedVideoCellPosition:(id)arg1 ;
+-(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)userInTagView:(id)arg1 didTapOnTagView:(id)arg2 ;
+-(void)feedItemBusinessCellDidTapViewInsights:(id)arg1 ;
+-(void)feedItemBusinessCellDidTapPromote:(id)arg1 ;
+-(void)feedItemBusinessCellDidTapViewAdGuideline:(id)arg1 ;
 -(void)setDirectResponseHandler:(IGFeedDirectResponseHandler *)arg1 ;
+-(IGCollectionViewVisibility *)collectionViewVisibility;
 -(IGFullViewImpressionTracker *)fullViewImpressionTracker;
 -(void)collectionViewController:(id)arg1 prepareContext:(id)arg2 forObjects:(id)arg3 ;
 -(int)collectionViewController:(id)arg1 numberOfSectionsForObjects:(id)arg2 context:(id)arg3 ;
@@ -181,8 +178,6 @@
 -(void)handleDidEndScrolling;
 -(void)didTakeRefreshAction;
 -(id)feedItemForCollectionViewCell:(id)arg1 ;
--(void)tracker:(id)arg1 feedSectionDidAppear:(id)arg2 ;
--(void)tracker:(id)arg1 feedSectionDidDisappear:(id)arg2 ;
 -(id)currentScrollPosition;
 -(CGPoint)contentOffsetForScrollPosition:(id)arg1 ;
 -(void)performWhilePreservingPosition:(/*^block*/id)arg1 ;
@@ -190,7 +185,6 @@
 -(CGSize)imageSizeToLoadForTimeline;
 -(/*^block*/id)screenshotLogBlock;
 -(void)logFeedItem:(id)arg1 coverage:(id)arg2 forEvent:(id)arg3 ;
--(void)configureCollectionViewDataSource:(id)arg1 ;
 -(void)setFeedPreviewingDelegate:(IGFeedPreviewingHandler *)arg1 ;
 -(IGFeedPreviewingHandler *)feedPreviewingDelegate;
 -(void)updateCollectionViewHelpers;
@@ -200,7 +194,6 @@
 -(void)beginFeedItemVisibilityTracking;
 -(void)endFeedItemVisibilityTracking;
 -(void)endCollectionViewContentsVisibilityTracking;
--(void)registerClasses;
 -(IGFeedDataSource *)feedDataSource;
 -(IGFeedCollectionViewLayoutDataSource *)layoutDataSource;
 -(void)setUsertagManager:(IGFeedUsertagManager *)arg1 ;
@@ -215,16 +208,11 @@
 -(NSMutableDictionary *)pageCellStates;
 -(NSMutableDictionary *)albumCellCoordinators;
 -(void)decodeAdjacentImageForIndexPath:(id)arg1 ;
--(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 synchronus:(char)arg3 forceAnimated:(char)arg4 completionBlock:(/*^block*/id)arg5 ;
--(void)reloadWithCurrentObjectsAnimated:(char)arg1 ;
--(id)currentLoadingObjects;
--(id)currentLoadingContext;
 -(IGItemVisibilityTracker *)collectionViewContentsVisibility;
 -(void)setVisibilityTrackingDisabled:(char)arg1 ;
 -(void)notifyVisibilityTrackersWithVisibleContentRect:(CGRect)arg1 ;
 -(char)isVisibilityTrackingDisabled;
 -(NSArray *)visibilityTrackers;
--(void)handleDidDisplayFeedItem:(id)arg1 ;
 -(IGStoreProductSessionManager *)storeProductManager;
 -(id)ctaPresenterContextForFeedItem:(id)arg1 ;
 -(id)arrayOfCellsWithClass:(Class)arg1 inSection:(int)arg2 ;
@@ -239,29 +227,43 @@
 -(void)performLikeForItemAtIndexPath:(id)arg1 ;
 -(IGFeedItem *)feedItemForWebview;
 -(void)setFeedItemForWebview:(IGFeedItem *)arg1 ;
--(char)feedViewLayout:(id)arg1 shouldBringNonHeaderItemToFrontForIndexPath:(id)arg2 ;
+-(void)feedItemAppHeaderDidTapCustomizableButton:(id)arg1 ;
+-(void)tracker:(id)arg1 feedSectionDidAppear:(id)arg2 ;
+-(void)tracker:(id)arg1 feedSectionDidDisappear:(id)arg2 ;
+-(void)feedItemPivotGridCellDidTapSeeMore:(id)arg1 ;
 -(id)bugReportDescription;
--(CGPoint)offsetForFeedItemAtIndex:(int)arg1 ;
 -(char)isMobileAppInstallEngagementFeedItem:(id)arg1 withDirectResponseInfo:(id)arg2 ;
--(void)showPostsFeedForItemAtIndexPath:(id)arg1 ;
--(id)postsFeedViewControllerForRankedIndex:(int)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(void)setFullViewImpressionTracker:(IGFullViewImpressionTracker *)arg1 ;
 -(void)setCollectionViewContentsVisibility:(IGItemVisibilityTracker *)arg1 ;
 -(void)setStoreProductManager:(IGStoreProductSessionManager *)arg1 ;
--(IGFeedItemViewingSessionManager *)viewingSessionManager;
 -(void)setViewingSessionManager:(IGFeedItemViewingSessionManager *)arg1 ;
 -(void)setPageCellStates:(NSMutableDictionary *)arg1 ;
 -(void)setAlbumCellCoordinators:(NSMutableDictionary *)arg1 ;
 -(IGFeedItemSectionImpressionTracker *)mainFeedIndexPathTracker;
 -(void)setMainFeedIndexPathTracker:(IGFeedItemSectionImpressionTracker *)arg1 ;
+-(IGFeedItemViewingSessionManager *)viewingSessionManager;
+-(void)itemVisibilityTracker:(id)arg1 itemDidAppear:(id)arg2 ;
+-(void)itemVisibilityTracker:(id)arg1 itemDidDisappear:(id)arg2 ;
+-(void)itemVisibilityTracker:(id)arg1 itemDidStartViewing:(id)arg2 ;
+-(CGPoint)offsetForFeedItemAtIndex:(int)arg1 ;
+-(void)handleDidDisplayFeedItem:(id)arg1 ;
+-(id)postsFeedViewControllerForRankedIndex:(int)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
+-(id)currentLoadingObjects;
+-(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 synchronus:(char)arg3 forceAnimated:(char)arg4 completionBlock:(/*^block*/id)arg5 ;
+-(void)configureCollectionViewDataSource:(id)arg1 ;
+-(void)registerClasses;
+-(id)currentLoadingContext;
+-(void)reloadWithCurrentObjectsAnimated:(char)arg1 ;
+-(char)feedViewLayout:(id)arg1 shouldBringNonHeaderItemToFrontForIndexPath:(id)arg2 ;
+-(void)showPostsFeedForItemAtIndexPath:(id)arg1 ;
 -(id)objects;
 -(void)dealloc;
 -(void)scrollViewDidScroll:(id)arg1 ;
+-(void)scrollViewWillBeginDragging:(id)arg1 ;
 -(void)scrollViewWillEndDragging:(id)arg1 withVelocity:(CGPoint)arg2 targetContentOffset:(inout CGPoint*)arg3 ;
 -(void)scrollViewDidEndDecelerating:(id)arg1 ;
 -(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;
 -(void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3 ;
--(void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3 ;
 -(void)applicationDidBecomeActive:(id)arg1 ;
 -(void)applicationDidEnterBackground:(id)arg1 ;
 -(id)context;

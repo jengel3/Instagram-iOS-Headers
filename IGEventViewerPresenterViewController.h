@@ -1,18 +1,18 @@
 
-#import <UIKit/UIViewController.h>
+#import <Instagram/IGViewController.h>
 #import <Instagram/IGEventViewerViewControllerDelegate.h>
 #import <Instagram/IGEventServiceNetworkDelegate.h>
 #import <Instagram/IGEventServiceCacheDelegate.h>
-#import <Instagram/IGEventViewerMediaPreloaderCompletionDelegate.h>
+#import <Instagram/IGMediaPreloaderCompletionDelegate.h>
 #import <Instagram/IGEventViewerSoundStateListenerDelegate.h>
 #import <Instagram/IGTimerProxyObjectType.h>
 
-@class IGEventViewerMediaPreloader, UIView, IGEventViewerLoadingView, IGEventViewerSoundBadge, IGEventService, NSArray, IGEventViewerViewController, IGChannelFocusCoordinator, IGEventViewerSoundStateListener, NSTimer, IGTimerProxy, IGEventViewerAnalyticsLogger, NSString;
+@class IGMediaPreloader, UIView, IGEventViewerLoadingView, IGEventViewerSoundBadge, IGEventService, NSArray, IGEventViewerViewController, IGChannelFocusCoordinator, IGEventViewerSoundStateListener, NSTimer, IGTimerProxy, IGEventViewerAnalyticsLogger, NSString;
 
-@interface IGEventViewerPresenterViewController : UIViewController <IGEventViewerViewControllerDelegate, IGEventServiceNetworkDelegate, IGEventServiceCacheDelegate, IGEventViewerMediaPreloaderCompletionDelegate, IGEventViewerSoundStateListenerDelegate, IGTimerProxyObjectType> {
+@interface IGEventViewerPresenterViewController : IGViewController <IGEventViewerViewControllerDelegate, IGEventServiceNetworkDelegate, IGEventServiceCacheDelegate, IGMediaPreloaderCompletionDelegate, IGEventViewerSoundStateListenerDelegate, IGTimerProxyObjectType> {
 
 	char _shouldHideStatusBar;
-	IGEventViewerMediaPreloader* _mediaPreloader;
+	IGMediaPreloader* _mediaPreloader;
 	UIView* _snapshotView;
 	UIView* _dimmedView;
 	IGEventViewerLoadingView* _loadingView;
@@ -33,7 +33,7 @@
 @property (nonatomic,__weak,readonly) IGEventViewerLoadingView * loadingView;                   //@synthesize loadingView=_loadingView - In the implementation block
 @property (nonatomic,__weak,readonly) IGEventViewerSoundBadge * soundBadge;                     //@synthesize soundBadge=_soundBadge - In the implementation block
 @property (nonatomic,readonly) IGEventService * eventService;                                   //@synthesize eventService=_eventService - In the implementation block
-@property (nonatomic,readonly) IGEventViewerMediaPreloader * mediaPreloader;                    //@synthesize mediaPreloader=_mediaPreloader - In the implementation block
+@property (nonatomic,readonly) IGMediaPreloader * mediaPreloader;                               //@synthesize mediaPreloader=_mediaPreloader - In the implementation block
 @property (nonatomic,copy) NSArray * initialPosts;                                              //@synthesize initialPosts=_initialPosts - In the implementation block
 @property (nonatomic,retain) IGEventViewerViewController * eventViewerController;               //@synthesize eventViewerController=_eventViewerController - In the implementation block
 @property (nonatomic,retain) IGChannelFocusCoordinator * focusCoordinator;                      //@synthesize focusCoordinator=_focusCoordinator - In the implementation block
@@ -54,7 +54,6 @@
 -(void)eventService:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)eventService:(id)arg1 didLoadInitialPosts:(id)arg2 ;
 -(void)eventService:(id)arg1 didFetchMorePosts:(id)arg2 ;
--(void)eventMediaPreloaderDidFinishLoading:(id)arg1 ;
 -(void)setTimerProxy:(IGTimerProxy *)arg1 ;
 -(IGTimerProxy *)timerProxy;
 -(id)initWithEventService:(id)arg1 soundStateListener:(id)arg2 logger:(id)arg3 focusCoordinator:(id)arg4 ;
@@ -64,25 +63,26 @@
 -(void)setupSoundBadge;
 -(IGEventViewerSoundBadge *)soundBadge;
 -(void)didReceiveTapGestureRecognizer:(id)arg1 ;
--(IGEventViewerSoundStateListener *)soundStateListener;
 -(void)requestInitialPosts;
 -(char)shouldHideStatusBar;
 -(UIView *)dimmedView;
 -(IGEventViewerViewController *)eventViewerController;
--(IGEventService *)eventService;
 -(void)setInitialPosts:(NSArray *)arg1 ;
 -(NSArray *)initialPosts;
--(IGEventViewerMediaPreloader *)mediaPreloader;
 -(void)presentEventViewer;
 -(void)loadPosts:(id)arg1 ;
 -(void)dismissLoadingView;
 -(void)prepareToDismiss;
--(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
 -(void)setEventViewerController:(IGEventViewerViewController *)arg1 ;
 -(void)setShouldHideStatusBar:(char)arg1 ;
 -(void)dismissEventViewer;
+-(void)mediaPreloaderDidFinishLoading:(id)arg1 ;
+-(IGEventService *)eventService;
+-(IGMediaPreloader *)mediaPreloader;
 -(void)didDismissEventViewerViewController:(id)arg1 ;
 -(void)soundListenerDidUpdate:(id)arg1 ;
+-(IGEventViewerSoundStateListener *)soundStateListener;
+-(void)setSoundStateListener:(IGEventViewerSoundStateListener *)arg1 ;
 -(id)initWithConfiguration:(id)arg1 focusCoordinator:(id)arg2 ;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)stopTimer;
@@ -98,6 +98,7 @@
 -(void)setTimer:(NSTimer *)arg1 ;
 -(NSTimer *)timer;
 -(void)setupSubviews;
+-(char)prefersNavigationBarHidden;
 -(IGEventViewerLoadingView *)loadingView;
 @end
 

@@ -21,8 +21,8 @@
 +(id)__rct_export__1122;
 +(id)__rct_export__1233;
 +(void)load;
--(void)applicationDidChangeStatusBarFrame:(id)arg1 ;
 -(NSObject*<OS_dispatch_queue>)methodQueue;
+-(void)applicationDidChangeStatusBarFrame:(id)arg1 ;
 -(void)applicationWillChangeStatusBarFrame:(id)arg1 ;
 -(void)emitEvent:(id)arg1 forNotification:(id)arg2 ;
 -(void)getHeight:(/*^block*/id)arg1 ;

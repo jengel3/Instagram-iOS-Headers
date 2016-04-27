@@ -30,8 +30,8 @@
 -(void)handleRequestTokenResponse:(id)arg1 ;
 -(void)handleAccessTokenResponse:(id)arg1 ;
 -(id)extractVerifierFromURL:(id)arg1 ;
--(void)handleCallbackURL:(id)arg1 ;
 -(void)startAuthorization;
+-(void)handleCallbackURL:(id)arg1 ;
 -(void)setDelegate:(id<IGFlickrAuthDelegate>)arg1 ;
 -(void)dealloc;
 -(id)init;

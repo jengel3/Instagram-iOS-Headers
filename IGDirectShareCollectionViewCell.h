@@ -2,13 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 
-@class NSArray, IGDirectThreadAvatarView, UILabel, UIView;
+@class IGDirectThreadAvatarView, UILabel, UIView;
 
 @interface IGDirectShareCollectionViewCell : UICollectionViewCell {
 
 	char _showWhiteOverlay;
 	char _showBlueRing;
-	NSArray* _users;
 	IGDirectThreadAvatarView* _profileView;
 	UILabel* _usernameLabel;
 	UILabel* _detailLabel;
@@ -17,7 +16,6 @@
 
 }
 
-@property (nonatomic,retain) NSArray * users;                                     //@synthesize users=_users - In the implementation block
 @property (assign,nonatomic) char showWhiteOverlay;                               //@synthesize showWhiteOverlay=_showWhiteOverlay - In the implementation block
 @property (assign,nonatomic) char showBlueRing;                                   //@synthesize showBlueRing=_showBlueRing - In the implementation block
 @property (nonatomic,retain) IGDirectThreadAvatarView * profileView;              //@synthesize profileView=_profileView - In the implementation block
@@ -27,17 +25,18 @@
 @property (nonatomic,retain) UIView * blueRing;                                   //@synthesize blueRing=_blueRing - In the implementation block
 +(float)contractedCellWidth;
 +(float)cellHeight;
--(UILabel *)usernameLabel;
 -(void)setShowWhiteOverlay:(char)arg1 ;
+-(IGDirectThreadAvatarView *)profileView;
+-(void)setUsernameLabel:(UILabel *)arg1 ;
+-(UILabel *)usernameLabel;
 -(UIView *)whiteOverlay;
 -(char)showWhiteOverlay;
--(void)setWhiteOverlay:(UIView *)arg1 ;
--(IGDirectThreadAvatarView *)profileView;
--(void)setProfileView:(IGDirectThreadAvatarView *)arg1 ;
--(void)setUsernameLabel:(UILabel *)arg1 ;
 -(char)showBlueRing;
 -(void)setShowBlueRing:(char)arg1 ;
 -(void)showWhiteOverlay:(char)arg1 withAnimation:(char)arg2 ;
+-(void)setUsers:(id)arg1 shouldShowDetails:(char)arg2 ;
+-(void)setProfileView:(IGDirectThreadAvatarView *)arg1 ;
+-(void)setWhiteOverlay:(UIView *)arg1 ;
 -(UIView *)blueRing;
 -(void)setBlueRing:(UIView *)arg1 ;
 -(UILabel *)detailLabel;
@@ -45,8 +44,6 @@
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)prepareForReuse;
--(void)setUsernameText:(id)arg1 ;
--(NSArray *)users;
--(void)setUsers:(NSArray *)arg1 ;
+-(void)setDisplayText:(id)arg1 ;
 @end
 

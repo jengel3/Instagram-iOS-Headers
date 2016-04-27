@@ -8,13 +8,14 @@
 +(id)NSNumber:(id)arg1 ;
 +(id)UIColor:(id)arg1 ;
 +(id)NSURL:(id)arg1 ;
-+(SCD_Struct_RC77)RCTLocationOptions:(id)arg1 ;
++(id)NSDictionary:(id)arg1 ;
++(double)double:(id)arg1 ;
++(double)NSTimeInterval:(id)arg1 ;
++(char)BOOL:(id)arg1 ;
++(SCD_Struct_RC26)RCTLocationOptions:(id)arg1 ;
 +(id)UILocalNotification:(id)arg1 ;
 +(id)NSNumberArray:(id)arg1 ;
 +(id)NSData:(id)arg1 ;
-+(id)NSDictionary:(id)arg1 ;
-+(double)NSTimeInterval:(id)arg1 ;
-+(double)double:(id)arg1 ;
 +(float)CGFloat:(id)arg1 ;
 +(unsigned)NSUInteger:(id)arg1 ;
 +(id)UIFont:(id)arg1 withFamily:(id)arg2 size:(id)arg3 weight:(id)arg4 style:(id)arg5 scaleMultiplier:(float)arg6 ;
@@ -24,7 +25,6 @@
 +(NSURL*)RCTFileURL:(id)arg1 ;
 +(CGColorRef)CGColor:(id)arg1 ;
 +(id)id:(id)arg1 ;
-+(char)BOOL:(id)arg1 ;
 +(float)float:(id)arg1 ;
 +(int)int:(id)arg1 ;
 +(long long)int64_t:(id)arg1 ;
@@ -86,8 +86,8 @@
 +(int)UIActivityIndicatorViewStyle:(id)arg1 ;
 +(double)CLLocationDegrees:(id)arg1 ;
 +(double)CLLocationDistance:(id)arg1 ;
-+(SCD_Struct_IG26)CLLocationCoordinate2D:(id)arg1 ;
-+(SCD_Struct_IG26)MKCoordinateSpan:(id)arg1 ;
++(SCD_Struct_RC32)CLLocationCoordinate2D:(id)arg1 ;
++(SCD_Struct_RC32)MKCoordinateSpan:(id)arg1 ;
 +(id)RCTMapAnnotation:(id)arg1 ;
 +(id)RCTMapOverlay:(id)arg1 ;
 +(unsigned)MKMapType:(id)arg1 ;
@@ -95,7 +95,7 @@
 +(id)RCTMapOverlayArray:(id)arg1 ;
 +(int)UIDatePickerMode:(id)arg1 ;
 +(unsigned)MKPinAnnotationColor:(id)arg1 ;
-+(SCD_Struct_IG28)MKCoordinateRegion:(id)arg1 ;
++(SCD_Struct_RC33)MKCoordinateRegion:(id)arg1 ;
 +(int)UIProgressViewStyle:(id)arg1 ;
 +(int)UIScrollViewKeyboardDismissMode:(id)arg1 ;
 +(int)UIScrollViewIndicatorStyle:(id)arg1 ;

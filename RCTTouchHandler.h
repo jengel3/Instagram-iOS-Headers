@@ -12,6 +12,7 @@
 	char _dispatchedInitialTouches;
 	char _recordingInteractionTiming;
 	double _mostRecentEnqueueJS;
+	unsigned short _coalescingKey;
 
 }
 -(void)handleGestureUpdate:(id)arg1 ;

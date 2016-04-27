@@ -19,9 +19,9 @@
 +(id)simpleTestData;
 -(unsigned)photosOfYou;
 -(char)isValidToShow;
--(unsigned)relationships;
 -(void)setRelationships:(unsigned)arg1 ;
 -(void)setPhotosOfYou:(unsigned)arg1 ;
+-(unsigned)relationships;
 -(void)setUserTags:(unsigned)arg1 ;
 -(unsigned)userTags;
 -(id)initWithDictionary:(id)arg1 ;

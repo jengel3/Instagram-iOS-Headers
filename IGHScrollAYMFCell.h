@@ -34,11 +34,11 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(float)suggestedCellHeightForType:(int)arg1 ;
 +(float)suggestedCellWidth;
--(UILabel *)usernameLabel;
 -(void)dismissButtonTapped;
--(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
+-(UILabel *)usernameLabel;
 -(IGFollowButton *)followButton;
 -(IGProfilePictureImageView *)profilePicImageView;
+-(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)setUpSubViews;
 -(float)socialContextLabelHeight;
 -(UILabel *)socialContextLabel;

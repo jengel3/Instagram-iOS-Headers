@@ -29,10 +29,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)addAllSubviews;
--(id)initWithWidth:(float)arg1 title:(id)arg2 items:(id)arg3 ;
 -(NSArray *)relatedItems;
 -(CGSize)sizeForText:(id)arg1 collectionView:(id)arg2 layout:(id)arg3 ;
 -(NSMutableDictionary *)cellTextToSizesCache;
+-(id)initWithWidth:(float)arg1 title:(id)arg2 items:(id)arg3 ;
 -(void)setDelegate:(id<IGRelatedItemsHeaderViewDelegate>)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;

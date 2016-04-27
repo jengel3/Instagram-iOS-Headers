@@ -3,7 +3,7 @@
 #import <UIKit/UIView.h>
 
 @protocol IGFeedToggleViewDelegate;
-@class UIImageView, UILabel, UIButton, NSMutableArray;
+@class UIImageView, UILabel, UIButton, NSMutableArray, UIView;
 
 @interface IGFeedToggleView : UIView {
 
@@ -14,12 +14,16 @@
 	id<IGFeedToggleViewDelegate> _delegate;
 	NSMutableArray* _buttons;
 	int _userTagCount;
+	UIView* _topSeparator;
+	UIView* _bottomSeparator;
 
 }
 
 @property (assign,nonatomic,__weak) id<IGFeedToggleViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) NSMutableArray * buttons;                                  //@synthesize buttons=_buttons - In the implementation block
 @property (assign,nonatomic) int userTagCount;                                          //@synthesize userTagCount=_userTagCount - In the implementation block
+@property (nonatomic,retain) UIView * topSeparator;                                     //@synthesize topSeparator=_topSeparator - In the implementation block
+@property (nonatomic,retain) UIView * bottomSeparator;                                  //@synthesize bottomSeparator=_bottomSeparator - In the implementation block
 +(int)height;
 -(void)switchedMode:(id)arg1 ;
 -(id)initWithMapAndUsertagButtons;
@@ -36,6 +40,10 @@
 -(void)layoutSubviews;
 -(id<IGFeedToggleViewDelegate>)delegate;
 -(NSMutableArray *)buttons;
+-(void)setTopSeparator:(UIView *)arg1 ;
+-(UIView *)topSeparator;
+-(void)setBottomSeparator:(UIView *)arg1 ;
+-(UIView *)bottomSeparator;
 -(void)setButtons:(NSMutableArray *)arg1 ;
 @end
 

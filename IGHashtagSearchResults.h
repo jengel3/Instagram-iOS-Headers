@@ -42,35 +42,36 @@
 @property (nonatomic,copy,readonly) NSString * tapEventName;                              //@synthesize tapEventName=_tapEventName - In the implementation block
 @property (nonatomic,copy,readonly) NSString * tapCancelEventName;                        //@synthesize tapCancelEventName=_tapCancelEventName - In the implementation block
 @property (assign,nonatomic) char enableFrequentItems;                                    //@synthesize enableFrequentItems=_enableFrequentItems - In the implementation block
+-(NSString *)moduleName;
+-(NSString *)viewSubType;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
 -(unsigned)numberOfLocalResults;
 -(id)fallbackIcon;
--(NSString *)viewSubType;
--(char)enableFrequentItems;
--(char)shouldShowFrequentSection;
+-(char)canShowLocationCell;
+-(id)allSearchResults;
 -(void)filterBySearchString:(id)arg1 surfaceRankInfo:(id)arg2 ;
 -(char)isLocalItem:(id)arg1 ;
 -(char)noSearchQuery:(id)arg1 ;
--(id)allSearchResults;
 -(id)tableSectionsWithViewController:(id)arg1 ;
 -(id)idResultsList;
 -(void)clearFrequent;
 -(void)frequentItemsLoaded;
+-(id)filteredRecentItems;
 -(int)filterResultState:(int)arg1 ;
 -(void)addLoadedNotifications;
 -(void)addLocationTracker;
--(NSString *)moduleName;
+-(char)shouldShowFrequentSection;
 -(int)raindropViewType;
 -(char)raindropEnableNavState;
 -(int)raindropSearchType;
 -(int)raindropViewSubType;
--(char)canShowLocationCell;
 -(char)shouldShowSectionHeader;
 -(NSString *)queryType;
 -(NSString *)tapEventName;
 -(NSString *)tapCancelEventName;
+-(char)enableFrequentItems;
 -(void)setEnableFrequentItems:(char)arg1 ;
 -(id)searchBarPlaceholder;
 -(void)onSearchTextDidChange:(id)arg1 ;

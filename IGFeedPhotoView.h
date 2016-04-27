@@ -39,12 +39,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)imageSpecLabelForURLString:(id)arg1 imageWidth:(float)arg2 imageHeight:(float)arg3 dataLength:(unsigned)arg4 ;
 +(id)valueInString:(id)arg1 forPattern:(id)arg2 ;
--(IGUsertagGroup *)usertags;
 -(void)onTap:(id)arg1 ;
--(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(void)setTagViewDelegate:(id<IGUserInTagDisplayDelegate>)arg1 ;
--(void)progressImageView:(id)arg1 didLoadImage:(id)arg2 withDataLength:(unsigned)arg3 ;
--(void)progressImageView:(id)arg1 didFailLoadWithError:(id)arg2 ;
+-(IGUsertagGroup *)usertags;
+-(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(char)isShowingUsertags;
 -(void)showUsertagsIndicator:(char)arg1 animated:(char)arg2 ;
 -(char)hasUsertags;
@@ -55,6 +53,8 @@
 -(void)toggleImageInfoDisplay;
 -(void)setIsShowingUsertagsIndicator:(char)arg1 ;
 -(UILabel *)imageSpecLabel;
+-(void)progressImageView:(id)arg1 didLoadImage:(id)arg2 withDataLength:(unsigned)arg3 ;
+-(void)progressImageView:(id)arg1 didFailLoadWithError:(id)arg2 ;
 -(CGRect)userTagIndicatorFrame;
 -(void)updateImageSpecLabel:(id)arg1 withDataLength:(unsigned)arg2 ;
 -(id<IGUserInTagDisplayDelegate>)tagViewDelegate;

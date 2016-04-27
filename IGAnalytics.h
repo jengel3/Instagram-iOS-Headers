@@ -15,6 +15,8 @@
 	NSString* _APIKey;
 	NSString* _APISecret;
 	char _periodicUploadEnabled;
+	NSString* _toView;
+	NSString* _toViewEntityId;
 	NSString* _userID;
 	NSString* _facebookID;
 	IGAnalyticsLogFileManager* _logFileManager;
@@ -32,6 +34,8 @@
 
 }
 
+@property (nonatomic,retain) NSString * toView;                                               //@synthesize toView=_toView - In the implementation block
+@property (nonatomic,retain) NSString * toViewEntityId;                                       //@synthesize toViewEntityId=_toViewEntityId - In the implementation block
 @property (nonatomic,copy) NSString * userID;                                                 //@synthesize userID=_userID - In the implementation block
 @property (nonatomic,copy) NSString * facebookID;                                             //@synthesize facebookID=_facebookID - In the implementation block
 @property (nonatomic,retain) IGAnalyticsLogFileManager * logFileManager;                      //@synthesize logFileManager=_logFileManager - In the implementation block
@@ -51,26 +55,20 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)setLogFileDirectory:(id)arg1 ;
-+(void)setNoLatencyLogFileDirectory:(id)arg1 ;
 +(void)setPeriodicUploadEnabled:(char)arg1 ;
 +(void)setPeriodicUploadTimeInterval:(int)arg1 ;
++(void)setNoLatencyLogFileDirectory:(id)arg1 ;
 +(void)logApplicationInit;
-+(double)applicationLaunchTimestamp;
 +(void)logApplicationLaunch:(char)arg1 ;
 +(void)logApplicationForeground;
++(double)applicationLaunchTimestamp;
++(void)setLogFileDirectory:(id)arg1 ;
 +(id)sharedAnalytics;
+-(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
+-(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
+-(void)startTimer:(id)arg1 uuid:(id)arg2 ;
 -(void)setPeriodicUploadEnabled:(char)arg1 ;
 -(void)setPeriodicUploadTimeInterval:(int)arg1 ;
--(void)startAnalyticsWithAPIKey:(id)arg1 secret:(id)arg2 deviceID:(id)arg3 userID:(id)arg4 facebookID:(id)arg5 ;
--(void)handleUserIDUpdated:(id)arg1 ;
--(void)handleFacebookIDUpdated:(id)arg1 ;
--(void)recordAverage:(id)arg1 value:(double)arg2 ;
--(void)logTimeSpentForModule:(id)arg1 ;
--(void)startTimer:(id)arg1 uuid:(id)arg2 ;
--(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
--(void)logApplication:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 ;
--(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
 -(IGAnalyticsLogFileManager *)logFileManager;
 -(void)setLogFileManager:(IGAnalyticsLogFileManager *)arg1 ;
 -(void)setUploader:(IGAnalyticsUploader *)arg1 ;
@@ -86,7 +84,6 @@
 -(double)accumulatedBackgroundTime;
 -(void)setAccumulatedBackgroundTime:(double)arg1 ;
 -(void)logApplication:(id)arg1 state:(id)arg2 timestamp:(double)arg3 ;
--(void)runWhenAppIsResponsive:(/*^block*/id)arg1 ;
 -(void)scheduleUploadTimer;
 -(char)periodicUploadEnabled;
 -(int)periodicUploadTimeInterval;
@@ -106,6 +103,7 @@
 -(void)setConnectionObserver:(IGAnalyticsConnectionObserver *)arg1 ;
 -(void)logNoLatencyEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 ;
 -(void)logApplicationPush:(id)arg1 withType:(int)arg2 userInfo:(id)arg3 ;
+-(void)setToViewEntityId:(NSString *)arg1 ;
 -(void)logApplicationPushNotificationsSettings:(id)arg1 onStateTransition:(id)arg2 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 ;
 -(int)lastAppIconBadgeNumber;
@@ -115,12 +113,20 @@
 -(IGAnalyticsLogFileManager *)noLatencyFileManager;
 -(void)logNoLatencyUploadSuccessWithResponseData:(id)arg1 rawResponse:(id)arg2 ;
 -(IGAnalyticsUploader *)uploader;
+-(void)handleUserIDUpdated:(id)arg1 ;
+-(void)handleFacebookIDUpdated:(id)arg1 ;
+-(void)startAnalyticsWithAPIKey:(id)arg1 secret:(id)arg2 deviceID:(id)arg3 userID:(id)arg4 facebookID:(id)arg5 ;
 -(void)logBinaryEvent:(id)arg1 data:(id)arg2 ;
+-(void)logApplication:(id)arg1 didFinishLaunchingWithOptions:(id)arg2 ;
+-(void)switchToView:(id)arg1 entityId:(id)arg2 ;
+-(void)logTimeSpentForModule:(id)arg1 ;
+-(NSString *)toViewEntityId;
 -(IGAnalyticsConnectionObserver *)connectionObserver;
 -(NSTimer *)uploadTimer;
 -(void)setUploadTimer:(NSTimer *)arg1 ;
 -(void)connectionObserver:(id)arg1 connectionChangedWithReachability:(id)arg2 radioTechnology:(id)arg3 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 channel:(int)arg6 ;
+-(void)recordAverage:(id)arg1 value:(double)arg2 ;
 -(void)analyticsLoggerForEvent:(id)arg1 addExtraEventInfoTo:(id)arg2 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
 -(NSString *)facebookID;
@@ -128,6 +134,8 @@
 -(void)immediateActiveSeconds:(id)arg1 didProduceData:(id)arg2 forModule:(id)arg3 ;
 -(void)dealloc;
 -(id)init;
+-(NSString *)toView;
+-(void)setToView:(NSString *)arg1 ;
 -(void)endSession;
 -(void)beginSession;
 -(double)currentTimestamp;

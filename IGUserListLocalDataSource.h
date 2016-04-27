@@ -1,10 +1,9 @@
 
 #import <Instagram/IGAutocompleteAbstractDataSource.h>
-#import <Instagram/IGAutocompleteDataSource.h>
 
-@class NSMutableDictionary, NSDictionary, NSString;
+@class NSMutableDictionary, NSDictionary;
 
-@interface IGUserListLocalDataSource : IGAutocompleteAbstractDataSource <IGAutocompleteDataSource> {
+@interface IGUserListLocalDataSource : IGAutocompleteAbstractDataSource {
 
 	char _excludesCurrentUser;
 	NSMutableDictionary* _additionalUsers;
@@ -15,11 +14,7 @@
 @property (assign,nonatomic) char excludesCurrentUser;                                //@synthesize excludesCurrentUser=_excludesCurrentUser - In the implementation block
 @property (nonatomic,retain) NSMutableDictionary * additionalUsers;                   //@synthesize additionalUsers=_additionalUsers - In the implementation block
 @property (nonatomic,retain) NSDictionary * additionalUserSearchStrings;              //@synthesize additionalUserSearchStrings=_additionalUserSearchStrings - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
--(void)setFilteredResults:(id)arg1 ;
+-(void)setUnfilteredResults:(id)arg1 ;
 -(void)addUsersForFeedItem:(id)arg1 ;
 -(void)filterUsersInSet:(int)arg1 scope:(int)arg2 query:(id)arg3 ;
 -(void)setExcludesCurrentUser:(char)arg1 ;

@@ -23,10 +23,10 @@
 -(void)setupHeader;
 -(float)topLayoutGuideLength;
 -(void)asDict;
--(void)configureCell:(id)arg1 atIndexPath:(id)arg2 ;
--(id)initWithMessageInfo:(id)arg1 ;
 -(IGRealtimeMessageInfo *)messageInfo;
 -(void)setMessageInfo:(IGRealtimeMessageInfo *)arg1 ;
+-(void)configureCell:(id)arg1 atIndexPath:(id)arg2 ;
+-(id)initWithMessageInfo:(id)arg1 ;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 ;

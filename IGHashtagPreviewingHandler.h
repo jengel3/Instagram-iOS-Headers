@@ -20,9 +20,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithController:(id)arg1 handler:(id)arg2 ;
 -(IGHashtagModel *)hashtag;
 -(void)setHashtag:(IGHashtagModel *)arg1 ;
+-(id)initWithController:(id)arg1 handler:(id)arg2 ;
 -(id)previewingContext:(id)arg1 viewControllerForLocation:(CGPoint)arg2 ;
 -(void)previewingContext:(id)arg1 commitViewController:(id)arg2 ;
 -(id<IGPreviewingControllerHandler>)handler;

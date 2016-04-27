@@ -32,11 +32,11 @@
 +(void)setCurrentAccessToken:(id)arg1 ;
 +(void)refreshCurrentAccessToken:(/*^block*/id)arg1 ;
 +(char)supportsSecureCoding;
--(char)hasGranted:(id)arg1 ;
 -(NSSet *)declinedPermissions;
 -(id)initWithTokenString:(id)arg1 permissions:(id)arg2 declinedPermissions:(id)arg3 appID:(id)arg4 userID:(id)arg5 expirationDate:(id)arg6 refreshDate:(id)arg7 ;
 -(NSDate *)refreshDate;
 -(char)isEqualToAccessToken:(id)arg1 ;
+-(char)hasGranted:(id)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

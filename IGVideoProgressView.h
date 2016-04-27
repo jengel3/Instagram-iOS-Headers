@@ -38,24 +38,24 @@
 @property (assign,nonatomic) int counter;                                          //@synthesize counter=_counter - In the implementation block
 @property (assign,nonatomic) float runningTime;                                    //@synthesize runningTime=_runningTime - In the implementation block
 +(float)defaultHeight;
--(IGVideoInfo *)videoInfo;
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
--(void)addClip:(id)arg1 ;
--(float)runningTime;
--(float)maxVideoDuration;
--(void)setMaxVideoDuration:(float)arg1 ;
--(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)setIsLive:(char)arg1 ;
 -(void)onClipAdded:(id)arg1 ;
+-(void)setVideoInfo:(IGVideoInfo *)arg1 ;
+-(IGVideoInfo *)videoInfo;
+-(void)setMaxVideoDuration:(float)arg1 ;
+-(float)runningTime;
 -(char)lastClipIsSelected;
 -(void)setLastClipIsSelected:(char)arg1 ;
 -(void)removeLastClip;
+-(void)addClip:(id)arg1 ;
 -(void)setVideoRecordingEnabled:(char)arg1 ;
 -(void)setShouldExpandLastClipToFillAllWidth:(char)arg1 ;
 -(CGPoint)blinkerCenter;
+-(float)maxVideoDuration;
 -(UIView *)minDurationView;
 -(void)reloadAllClips;
 -(UIView *)blinkerView;
+-(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)setRunningTime:(float)arg1 ;
 -(void)updateBlinker;
 -(NSMutableArray *)clipBarViews;

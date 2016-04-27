@@ -44,7 +44,6 @@
 @property (nonatomic,readonly) UIBarButtonItem * rightButtonItem;              //@synthesize rightButtonItem=_rightButtonItem - In the implementation block
 @property (nonatomic,copy) id onLeftButtonPress;                               //@synthesize onLeftButtonPress=_onLeftButtonPress - In the implementation block
 @property (nonatomic,copy) id onRightButtonPress;                              //@synthesize onRightButtonPress=_onRightButtonPress - In the implementation block
--(void)setShadowHidden:(char)arg1 ;
 -(void)handleLeftButtonPress;
 -(void)handleRightButtonPress;
 -(void)setBackButtonIcon:(UIImage *)arg1 ;
@@ -57,6 +56,7 @@
 -(UIImage *)rightButtonIcon;
 -(NSString *)rightButtonTitle;
 -(UIImage *)backButtonIcon;
+-(void)setShadowHidden:(char)arg1 ;
 -(id)onLeftButtonPress;
 -(void)setOnLeftButtonPress:(id)arg1 ;
 -(id)onRightButtonPress;

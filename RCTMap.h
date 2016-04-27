@@ -38,7 +38,6 @@
 @property (nonatomic,copy) id onAnnotationDragStateChange;                    //@synthesize onAnnotationDragStateChange=_onAnnotationDragStateChange - In the implementation block
 @property (nonatomic,copy) id onAnnotationFocus;                              //@synthesize onAnnotationFocus=_onAnnotationFocus - In the implementation block
 @property (nonatomic,copy) id onAnnotationBlur;                               //@synthesize onAnnotationBlur=_onAnnotationBlur - In the implementation block
--(id)onChange;
 -(void)setAnnotationIDs:(NSArray *)arg1 ;
 -(void)setOverlayIDs:(NSArray *)arg1 ;
 -(void)setOverlays:(id)arg1 ;
@@ -64,11 +63,12 @@
 -(void)setHasStartedRendering:(char)arg1 ;
 -(float)maxDelta;
 -(float)minDelta;
+-(id)onChange;
 -(void)setOnChange:(id)arg1 ;
 -(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(void)removeReactSubview:(id)arg1 ;
 -(id)reactSubviews;
--(void)setRegion:(SCD_Struct_IG28)arg1 animated:(char)arg2 ;
+-(void)setRegion:(SCD_Struct_RC33)arg1 animated:(char)arg2 ;
 -(void)setShowsCompass:(char)arg1 ;
 -(char)showsCompass;
 -(void)setShowsUserLocation:(char)arg1 ;

@@ -10,6 +10,7 @@
 @interface IGDirectKeyboardTextViewController : UIViewController <UITextViewDelegate, IGAutocompleteControllerTextInput> {
 
 	char _shouldHoldFirstResponder;
+	char _hideLikeButton;
 	IGChevronTitleButton* _chevronTitleButton;
 	id<IGDirectKeyboardTextViewControllerDelegate> _delegate;
 	int _state;
@@ -35,6 +36,7 @@
 @property (assign,nonatomic,__weak) id<IGDirectKeyboardTextViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int state;                                                                   //@synthesize state=_state - In the implementation block
 @property (assign,nonatomic) char shouldHoldFirstResponder;                                               //@synthesize shouldHoldFirstResponder=_shouldHoldFirstResponder - In the implementation block
+@property (assign,nonatomic) char hideLikeButton;                                                         //@synthesize hideLikeButton=_hideLikeButton - In the implementation block
 @property (nonatomic,retain) IGDirectKeyboardTextView * textView;                                         //@synthesize textView=_textView - In the implementation block
 @property (nonatomic,retain) IGButton * sendButton;                                                       //@synthesize sendButton=_sendButton - In the implementation block
 @property (nonatomic,retain) IGTapButton * likeButton;                                                    //@synthesize likeButton=_likeButton - In the implementation block
@@ -60,31 +62,34 @@
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(float)defaultHeight;
--(char)deviceHasCamera;
 -(void)dismissButtonTapped;
 -(void)setCameraButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)cameraButton;
+-(char)deviceHasCamera;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
--(void)setTextViewContainer:(UIControl *)arg1 ;
--(UIControl *)textViewContainer;
+-(void)setHideLikeButton:(char)arg1 ;
 -(UILabel *)warningView;
 -(void)onChevronTitleButtonTapped;
 -(void)setWarningView:(UILabel *)arg1 ;
--(char)shouldHoldFirstResponder;
--(void)setShouldHoldFirstResponder:(char)arg1 ;
--(IGGradientView *)bottomGradientView;
+-(char)hideLikeButton;
+-(id)createLikeButton;
 -(void)sendAction:(id)arg1 ;
 -(void)likeAction:(id)arg1 ;
 -(void)cameraAction:(id)arg1 ;
 -(void)updateLikeButtonAndSendButton;
 -(float)maxTextHeight;
--(float)textContentLayoutHeight;
 -(void)showPickDisabledAssetAnimation;
--(void)setLikeButton:(IGTapButton *)arg1 ;
--(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(void)setTextFont:(UIFont *)arg1 ;
 -(void)setMaxTextHeight:(float)arg1 ;
+-(void)setShouldHoldFirstResponder:(char)arg1 ;
+-(char)shouldHoldFirstResponder;
+-(float)textContentLayoutHeight;
+-(UIControl *)textViewContainer;
+-(void)setTextViewContainer:(UIControl *)arg1 ;
+-(void)setLikeButton:(IGTapButton *)arg1 ;
+-(IGGradientView *)bottomGradientView;
+-(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(void)setDelegate:(id<IGDirectKeyboardTextViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGDirectKeyboardTextViewControllerDelegate>)delegate;

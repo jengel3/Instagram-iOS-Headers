@@ -16,10 +16,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)initWithView:(id)arg1 threadID:(id)arg2 ;
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
--(id)initWithView:(id)arg1 threadID:(id)arg2 ;
 -(void)setThreadID:(NSString *)arg1 ;
 -(NSString *)view;
 -(void)setView:(NSString *)arg1 ;

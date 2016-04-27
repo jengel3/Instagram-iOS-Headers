@@ -29,9 +29,6 @@
 @property (nonatomic,retain) NSString * authenticationPrompt;              //@synthesize authenticationPrompt=_authenticationPrompt - In the implementation block
 @property (nonatomic,readonly) NSArray * allKeys; 
 @property (nonatomic,readonly) NSArray * allItems; 
-+(id)keyChainStoreWithService:(id)arg1 ;
-+(char)removeItemForKey:(id)arg1 ;
-+(id)keyChainStore;
 +(id)stringForKey:(id)arg1 service:(id)arg2 accessGroup:(id)arg3 error:(id*)arg4 ;
 +(id)argumentError:(id)arg1 ;
 +(id)keyChainStoreWithService:(id)arg1 accessGroup:(id)arg2 ;
@@ -48,9 +45,12 @@
 +(id)securityError:(long)arg1 ;
 +(char)removeAllItemsForService:(id)arg1 accessGroup:(id)arg2 error:(id*)arg3 ;
 +(char)removeAllItemsWithError:(id*)arg1 ;
++(char)removeItemForKey:(id)arg1 ;
 +(id)prettify:(void*)arg1 items:(id)arg2 ;
 +(void)requestSharedWebCredentialForDomain:(id)arg1 account:(id)arg2 completion:(/*^block*/id)arg3 ;
 +(void)setDefaultService:(id)arg1 ;
++(id)keyChainStore;
++(id)keyChainStoreWithService:(id)arg1 ;
 +(id)keyChainStoreWithServer:(id)arg1 protocolType:(int)arg2 ;
 +(id)keyChainStoreWithServer:(id)arg1 protocolType:(int)arg2 authenticationType:(int)arg3 ;
 +(id)stringForKey:(id)arg1 service:(id)arg2 ;
@@ -95,7 +95,6 @@
 +(id)dataForKey:(id)arg1 ;
 +(char)setData:(id)arg1 forKey:(id)arg2 ;
 +(char)setString:(id)arg1 forKey:(id)arg2 ;
--(char)removeItemForKey:(id)arg1 ;
 -(id)initWithService:(id)arg1 accessGroup:(id)arg2 ;
 -(id)initWithServer:(id)arg1 protocolType:(int)arg2 authenticationType:(int)arg3 ;
 -(id)stringForKey:(id)arg1 error:(id*)arg2 ;
@@ -107,6 +106,7 @@
 -(id)attributesWithKey:(id)arg1 value:(id)arg2 error:(id*)arg3 ;
 -(char)setData:(id)arg1 forKey:(id)arg2 label:(id)arg3 comment:(id)arg4 error:(id*)arg5 ;
 -(char)removeAllItemsWithError:(id*)arg1 ;
+-(char)removeItemForKey:(id)arg1 ;
 -(void*)itemClassObject;
 -(void)setSharedPassword:(id)arg1 forAccount:(id)arg2 completion:(/*^block*/id)arg3 ;
 -(void*)protocolTypeObject;

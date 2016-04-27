@@ -25,13 +25,13 @@
 @property (nonatomic,readonly) NSData * imageData; 
 @property (nonatomic,readonly) char isPhoto; 
 -(UIImage *)fullSizeImage;
+-(char)isFromLibrary;
+-(int)devicePosition;
 -(void)setCroppedImage:(UIImage *)arg1 ;
 -(void)setDisplayImage:(UIImage *)arg1 ;
 -(void)setDevicePosition:(int)arg1 ;
--(char)isFromLibrary;
--(int)devicePosition;
--(void)setIsFromLibrary:(char)arg1 ;
 -(UIImage *)croppedImage;
+-(void)setIsFromLibrary:(char)arg1 ;
 -(NSData *)imageData;
 -(char)isPhoto;
 -(UIImage *)displayImage;

@@ -40,11 +40,11 @@
 -(IGFindUsersViewDataSource *)findUsersViewDataSource;
 -(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
--(void)didAuthorizeWithDataRequest:(id)arg1 ;
 -(void)didFailToAuthorizeWithReason:(id)arg1 ;
--(id)newFindUsersView;
--(void)updateNavigationRightBarButtonItem;
+-(void)didAuthorizeWithDataRequest:(id)arg1 ;
 -(void)findUsersView:(id)arg1 didTapOnUser:(id)arg2 atIndex:(unsigned)arg3 ;
+-(void)updateNavigationRightBarButtonItem;
+-(id)newFindUsersView;
 -(id)newFindUsersViewDataSource;
 -(void)findUsersView:(id)arg1 scrollViewDidScroll:(id)arg2 ;
 -(void)findUsersView:(id)arg1 scrollViewWillEndDragging:(id)arg2 withVelocity:(CGPoint)arg3 targetContentOffset:(inout CGPoint*)arg4 ;
@@ -55,8 +55,8 @@
 -(IGFindUsersView *)usersView;
 -(void)fetchUsers;
 -(void)showErrorLoadMessageIfPossible:(id)arg1 ;
--(void)onCloseTapped:(id)arg1 ;
 -(void)setUsersView:(IGFindUsersView *)arg1 ;
+-(void)onCloseTapped:(id)arg1 ;
 -(void)dealloc;
 -(void)viewWillAppear:(char)arg1 ;
 -(CGSize)contentSizeForViewInPopover;

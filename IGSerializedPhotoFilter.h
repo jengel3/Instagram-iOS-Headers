@@ -22,8 +22,8 @@
 @property (nonatomic,retain) NSString * fragmentShader;                 //@synthesize fragmentShader=_fragmentShader - In the implementation block
 +(id)photoFilterWithDictionary:(id)arg1 ;
 +(id)photoFilterFromFile:(id)arg1 ;
--(NSString *)filterName;
 -(NSString *)fragmentFunctions;
+-(NSString *)filterName;
 -(void)setSamplers:(NSDictionary *)arg1 ;
 -(void)setFragmentFunctions:(NSString *)arg1 ;
 -(void)setBorderImageData:(NSData *)arg1 ;

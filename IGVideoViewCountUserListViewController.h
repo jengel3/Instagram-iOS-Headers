@@ -10,7 +10,6 @@
 
 @property (assign,nonatomic) char showExpandedLikersList;                //@synthesize showExpandedLikersList=_showExpandedLikersList - In the implementation block
 @property (assign,nonatomic) char showLikesBelowLikersList;              //@synthesize showLikesBelowLikersList=_showLikesBelowLikersList - In the implementation block
--(id)likeText;
 -(id)initWithFeedItemPK:(id)arg1 ;
 -(void)updateWithFeedItemPK:(id)arg1 ;
 -(char)shouldShowViewCountSection;
@@ -20,6 +19,7 @@
 -(id)viewCountCell;
 -(id)likersHeaderCell;
 -(id)likesCountCell;
+-(id)likeText;
 -(char)showExpandedLikersList;
 -(void)setShowExpandedLikersList:(char)arg1 ;
 -(char)showLikesBelowLikersList;

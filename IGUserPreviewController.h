@@ -30,15 +30,14 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
--(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGFeedNetworkSource *)feedSource;
--(id)previewActionBarItems;
+-(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(void)setPreviewWidth:(float)arg1 ;
 -(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;
 -(void)showDirectShare;
--(void)viewProfile;
--(float)previewWidth;
 -(UINavigationController *)navigationControllerForPushing;
+-(float)previewWidth;
+-(id)previewActionBarItems;
 -(void)updatePreviewItems;
 -(void)setUserPreviewView:(IGUserPreviewView *)arg1 ;
 -(IGUserPreviewView *)userPreviewView;
@@ -47,6 +46,7 @@
 -(void)userFollowStatusChangedNotification:(id)arg1 ;
 -(void)editProfile;
 -(void)unfollowUser;
+-(void)viewProfile;
 -(void)toggleNotifications;
 -(void)followUser;
 -(IGPreviewEventManager *)logger;

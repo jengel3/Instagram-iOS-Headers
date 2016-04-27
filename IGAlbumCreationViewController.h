@@ -1,5 +1,6 @@
 
 #import <UIKit/UIViewController.h>
+#import <Instagram/IGAlbumAddTextViewControllerDelegate.h>
 #import <Instagram/IGAlbumCameraViewControllerDelegate.h>
 #import <Instagram/IGAlbumFullscreenViewControllerDelegate.h>
 #import <Instagram/IGAlbumTitleViewControllerDelegate.h>
@@ -7,7 +8,7 @@
 @protocol IGAlbumCreationViewControllerDataDelegate, IGAlbumCreationViewControllerNavigationDelegate, UIViewControllerTransitioningDelegate;
 @class IGAlbumCreationViewModel, IGAlbumFullscreenViewController, IGAlbumCameraViewController, NSString;
 
-@interface IGAlbumCreationViewController : UIViewController <IGAlbumCameraViewControllerDelegate, IGAlbumFullscreenViewControllerDelegate, IGAlbumTitleViewControllerDelegate> {
+@interface IGAlbumCreationViewController : UIViewController <IGAlbumAddTextViewControllerDelegate, IGAlbumCameraViewControllerDelegate, IGAlbumFullscreenViewControllerDelegate, IGAlbumTitleViewControllerDelegate> {
 
 	id<IGAlbumCreationViewControllerDataDelegate> _dataDelegate;
 	id<IGAlbumCreationViewControllerNavigationDelegate> _navigationDelegate;
@@ -30,19 +31,21 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)albumCameraViewControllerDidDismiss:(id)arg1 ;
--(void)albumCameraViewControllerDidTapAddPeople:(id)arg1 ;
--(void)albumCameraViewControllerDidTapTitle:(id)arg1 ;
--(void)albumCameraViewControllerDidTapRetake:(id)arg1 ;
--(void)albumCameraViewControllerDidTapCurrentAlbumButton:(id)arg1 ;
--(void)albumCameraViewController:(id)arg1 didEnterState:(int)arg2 ;
--(void)albumCameraViewController:(id)arg1 didPickAsset:(id)arg2 ;
 -(void)currentAlbumUpdated:(id)arg1 ;
 -(void)setupViewMode;
 -(IGAlbumFullscreenViewController *)fullscreenController;
 -(void)switchChildViewControllersFromController:(id)arg1 toController:(id)arg2 ;
 -(void)setFullscreenController:(IGAlbumFullscreenViewController *)arg1 ;
 -(void)initFullscreenController;
+-(void)albumAddTextViewController:(id)arg1 didFinishWithText:(id)arg2 position:(float)arg3 ;
+-(void)albumCameraViewController:(id)arg1 didEnterState:(int)arg2 ;
+-(void)albumCameraViewControllerDidDismiss:(id)arg1 ;
+-(void)albumCameraViewController:(id)arg1 didPickAsset:(id)arg2 ;
+-(void)albumCameraViewControllerDidTapTitle:(id)arg1 ;
+-(void)albumCameraViewControllerDidTapAddPeople:(id)arg1 ;
+-(void)albumCameraViewControllerDidTapAddText:(id)arg1 ;
+-(void)albumCameraViewControllerDidTapCurrentAlbumButton:(id)arg1 ;
+-(void)albumCameraViewControllerDidTapRetake:(id)arg1 ;
 -(void)albumCameraViewController:(id)arg1 didTapDisabledAsset:(id)arg2 ;
 -(void)albumFullscreenViewControllerShouldDismiss:(id)arg1 ;
 -(void)albumFullscreenViewControllerDidTapCameraButton:(id)arg1 ;
@@ -52,7 +55,6 @@
 -(IGAlbumCreationViewModel *)viewModel;
 -(void)setViewModel:(IGAlbumCreationViewModel *)arg1 ;
 -(void)dealloc;
--(id)init;
 -(char)prefersStatusBarHidden;
 -(void)loadView;
 -(void)viewWillAppear:(char)arg1 ;
@@ -60,6 +62,7 @@
 -(void)viewDidAppear:(char)arg1 ;
 -(void)dismiss;
 -(unsigned)viewMode;
+-(id)initWithModel:(id)arg1 ;
 -(void)setDataDelegate:(id<IGAlbumCreationViewControllerDataDelegate>)arg1 ;
 -(id<IGAlbumCreationViewControllerDataDelegate>)dataDelegate;
 -(IGAlbumCameraViewController *)cameraViewController;

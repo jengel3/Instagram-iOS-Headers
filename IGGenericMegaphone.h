@@ -42,18 +42,18 @@
 @property (nonatomic,retain) UIImage * sideImage;                          //@synthesize sideImage=_sideImage - In the implementation block
 @property (assign,nonatomic) float imageTopPadding;                        //@synthesize imageTopPadding=_imageTopPadding - In the implementation block
 +(id)megaphoneFromDictionary:(id)arg1 ;
+-(char)dismissible;
 -(int)megaphoneType;
 -(id)initWithTitle:(id)arg1 message:(id)arg2 dismissible:(char)arg3 type:(id)arg4 iconURL:(id)arg5 backgroundColor:(id)arg6 dismissButtonColor:(id)arg7 titleColor:(id)arg8 messageColor:(id)arg9 buttonOne:(id)arg10 buttonTwo:(id)arg11 uuid:(id)arg12 actionInfo:(id)arg13 megaphoneType:(int)arg14 buttonLayout:(int)arg15 ;
--(void)setSideImage:(UIImage *)arg1 ;
--(void)setImageTopPadding:(float)arg1 ;
--(id)initWithTitle:(id)arg1 message:(id)arg2 dismissible:(char)arg3 buttonOne:(id)arg4 ;
--(char)dismissible;
 -(int)buttonLayout;
 -(IGMegaphoneButton *)buttonOne;
 -(IGMegaphoneButton *)buttonTwo;
 -(UIColor *)dismissButtonColor;
 -(UIImage *)sideImage;
 -(float)imageTopPadding;
+-(id)initWithTitle:(id)arg1 message:(id)arg2 dismissible:(char)arg3 buttonOne:(id)arg4 ;
+-(void)setSideImage:(UIImage *)arg1 ;
+-(void)setImageTopPadding:(float)arg1 ;
 -(UIColor *)messageColor;
 -(UIColor *)backgroundColor;
 -(NSString *)type;

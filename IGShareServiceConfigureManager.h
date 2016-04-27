@@ -21,8 +21,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
--(void)showAdvancedOptionsForServiceType:(int)arg1 ;
--(void)configureServiceType:(int)arg1 ;
 -(void)onFlickrLoginCompleted;
 -(void)onTwitterOAuthCompleted;
 -(void)onFacebookCurrentUserInfoLoaded;
@@ -32,6 +30,7 @@
 -(void)onServiceReauthenticationLoginNeeded:(id)arg1 ;
 -(void)displayViewController:(id)arg1 forServiceType:(int)arg2 ;
 -(void)onFacebookLoginCompleted;
+-(void)showAdvancedOptionsForServiceType:(int)arg1 ;
 -(void)onWeiboLoginCompleted;
 -(void)onMixiLoginCompleted;
 -(void)onTumblrLoginCompleted;
@@ -41,6 +40,7 @@
 -(void)onOdnoklassnikiLoginCompleted;
 -(void)displayViewController:(id)arg1 forServiceType:(int)arg2 animated:(char)arg3 ;
 -(void)onServiceLoginCompleted:(int)arg1 animated:(char)arg2 ;
+-(void)configureServiceType:(int)arg1 ;
 -(void)onServiceLoginCompleted:(int)arg1 ;
 -(void)presentMixiPrivacyPicker;
 -(void)mixiDidSelectPrivacySetting:(int)arg1 ;

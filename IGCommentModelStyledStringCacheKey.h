@@ -24,10 +24,10 @@
 @property (nonatomic,readonly) int maximumUntruncatedNumberOfLines;              //@synthesize maximumUntruncatedNumberOfLines=_maximumUntruncatedNumberOfLines - In the implementation block
 @property (nonatomic,readonly) int truncatedToNumberOfLines;                     //@synthesize truncatedToNumberOfLines=_truncatedToNumberOfLines - In the implementation block
 @property (nonatomic,readonly) char newline;                                     //@synthesize newline=_newline - In the implementation block
--(id)initWithPrimaryName:(id)arg1 text:(id)arg2 truncationString:(id)arg3 width:(float)arg4 maximumUntruncatedNumberOfLines:(int)arg5 truncatedToNumberOfLines:(int)arg6 newline:(char)arg7 ;
 -(int)maximumUntruncatedNumberOfLines;
 -(int)truncatedToNumberOfLines;
 -(char)newline;
+-(id)initWithPrimaryName:(id)arg1 text:(id)arg2 truncationString:(id)arg3 width:(float)arg4 maximumUntruncatedNumberOfLines:(int)arg5 truncatedToNumberOfLines:(int)arg6 newline:(char)arg7 ;
 -(NSString *)primaryName;
 -(NSString *)truncationString;
 -(char)isEqual:(id)arg1 ;

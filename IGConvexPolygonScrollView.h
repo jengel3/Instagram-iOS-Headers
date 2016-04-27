@@ -55,14 +55,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSArray *)contentRegion;
+-(_GLKMatrix4)contentTransform;
+-(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)cancelAnimations;
 -(void)setViewModelSize:(CGSize)arg1 ;
--(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)setContentRegion:(NSArray *)arg1 ;
 -(void)setRotateAngle:(float)arg1 ;
 -(float)rotateAngle;
--(_GLKMatrix4)contentTransform;
+-(NSArray *)contentRegion;
 -(void)_panFromGestureRecognizer:(id)arg1 ;
 -(void)_pinchFromGestureRecognizer:(id)arg1 ;
 -(char)_isVisibleRegionInsideConvexPolygonWithOffset:(CGPoint)arg1 scale:(float)arg2 ;

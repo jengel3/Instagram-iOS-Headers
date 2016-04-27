@@ -35,11 +35,11 @@
 -(id)categoryForCoordinate:(int)arg1 atIndex:(unsigned)arg2 ;
 -(char)pointingDeviceDownEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceUpEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
--(CGPoint)plotAreaViewPointForPlotPoint:(SCD_Struct_CP96*)arg1 numberOfCoordinates:(unsigned)arg2 ;
+-(CGPoint)plotAreaViewPointForPlotPoint:(SCD_Struct_CP53*)arg1 numberOfCoordinates:(unsigned)arg2 ;
 -(void)doublePrecisionPlotPoint:(double*)arg1 numberOfCoordinates:(unsigned)arg2 forPlotAreaViewPoint:(CGPoint)arg3 ;
 -(CGPoint)plotAreaViewPointForDoublePrecisionPlotPoint:(double*)arg1 numberOfCoordinates:(unsigned)arg2 ;
 -(void)removeAllCategories;
--(void)plotPoint:(SCD_Struct_CP96*)arg1 numberOfCoordinates:(unsigned)arg2 forPlotAreaViewPoint:(CGPoint)arg3 ;
+-(void)plotPoint:(SCD_Struct_CP53*)arg1 numberOfCoordinates:(unsigned)arg2 forPlotAreaViewPoint:(CGPoint)arg3 ;
 -(char)allowsUserInteraction;
 -(void)setCategoryNames:(NSMutableDictionary *)arg1 ;
 -(id)orderedSetForCoordinate:(int)arg1 ;
@@ -56,7 +56,7 @@
 -(id)plotPointForPlotAreaViewPoint:(CGPoint)arg1 ;
 -(CGPoint)plotAreaViewPointForEvent:(UIEvent*)arg1 ;
 -(id)plotPointForEvent:(UIEvent*)arg1 ;
--(void)plotPoint:(SCD_Struct_CP96*)arg1 numberOfCoordinates:(unsigned)arg2 forEvent:(UIEvent*)arg3 ;
+-(void)plotPoint:(SCD_Struct_CP53*)arg1 numberOfCoordinates:(unsigned)arg2 forEvent:(UIEvent*)arg3 ;
 -(void)doublePrecisionPlotPoint:(double*)arg1 numberOfCoordinates:(unsigned)arg2 forEvent:(UIEvent*)arg3 ;
 -(void)setScaleType:(int)arg1 forCoordinate:(int)arg2 ;
 -(void)scaleToFitPlots:(id)arg1 ;

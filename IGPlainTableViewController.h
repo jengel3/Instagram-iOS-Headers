@@ -18,8 +18,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)hasRowsInSection:(int)arg1 ;
 -(void)setTableInsets;
+-(char)hasRowsInSection:(int)arg1 ;
 -(void)dealloc;
 -(id)init;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

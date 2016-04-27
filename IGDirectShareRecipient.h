@@ -21,13 +21,15 @@
 +(id)recipientWithUsers:(id)arg1 ;
 +(id)recipientWithThread:(id)arg1 ;
 +(id)userComparisonKeyForUsers:(id)arg1 ;
--(void)setThreadID:(NSString *)arg1 ;
--(NSString *)userComparisonKey;
++(id)recipientWithPublicThread:(id)arg1 ;
 -(unsigned)recipientType;
+-(NSString *)userComparisonKey;
+-(void)setThreadID:(NSString *)arg1 ;
 -(void)setRecipientType:(unsigned)arg1 ;
 -(void)setUserComparisonKey:(NSString *)arg1 ;
 -(char)hasSameUsersAsRecipient:(id)arg1 ;
 -(char)isGroupThread;
+-(char)isPublicThread;
 -(NSString *)displayText;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

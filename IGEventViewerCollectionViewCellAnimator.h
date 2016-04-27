@@ -25,8 +25,8 @@
 -(char)isMediaCell:(id)arg1 ;
 -(id)visibleCellsUsingPredicate:(id)arg1 ;
 -(char)isHeaderCell:(id)arg1 ;
--(void)updateVisibleCellsForTargetIndexPath:(id)arg1 animated:(char)arg2 ;
 -(void)updateVisibleCellsWithDynamicCrossFadeAnimated:(char)arg1 centeredIndexPath:(id)arg2 ;
+-(void)updateVisibleCellsForTargetIndexPath:(id)arg1 animated:(char)arg2 ;
 -(UICollectionView *)collectionView;
 -(id)initWithCollectionView:(id)arg1 ;
 @end

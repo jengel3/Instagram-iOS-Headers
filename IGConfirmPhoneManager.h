@@ -23,7 +23,6 @@
 @property (assign,nonatomic) char resendSMSDelayPassed;                                      //@synthesize resendSMSDelayPassed=_resendSMSDelayPassed - In the implementation block
 -(void)resetResendTimer;
 -(int)numSMSResends;
--(IGConfirmPhoneSettings *)confirmPhoneSettings;
 -(IGCountdownTimer *)robocallTimer;
 -(void)invalidateResendTimer;
 -(void)setResendSMSDelayPassed:(char)arg1 ;
@@ -32,13 +31,14 @@
 -(NSTimer *)resendSMSTimer;
 -(void)setResendSMSTimer:(NSTimer *)arg1 ;
 -(void)resendTimerFired:(id)arg1 ;
--(void)timer:(id)arg1 didFireWithSecondsLeft:(int)arg2 ;
 -(id)initWithConfirmPhoneSettings:(id)arg1 ;
 -(void)invalidateActiveTimer;
 -(void)continueActiveTimer;
 -(void)updateManagerAfterResendingCode;
 -(char)canResendSMS;
 -(void)setRobocallTimer:(IGCountdownTimer *)arg1 ;
+-(void)timer:(id)arg1 didFireWithSecondsLeft:(int)arg2 ;
+-(IGConfirmPhoneSettings *)confirmPhoneSettings;
 -(void)setDelegate:(id<IGConfirmPhoneManagerDelegate>)arg1 ;
 -(id<IGConfirmPhoneManagerDelegate>)delegate;
 @end

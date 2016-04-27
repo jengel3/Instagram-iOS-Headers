@@ -41,14 +41,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(UIButton *)replyButton;
+-(void)replyButtonTapped:(id)arg1 ;
 -(void)setupReplyButton;
 -(void)setupReportButton;
 -(IGCommentContentView *)commentView;
 -(void)showActions:(char)arg1 animated:(char)arg2 ;
 -(void)reportButtonTapped:(id)arg1 ;
--(void)replyButtonTapped:(id)arg1 ;
 -(UIButton *)reportButton;
--(UIButton *)replyButton;
 -(void)setCellSwipeActionManager:(IGCellSwipeActionManager *)arg1 ;
 -(void)showActions:(char)arg1 duration:(float)arg2 ;
 -(void)setShowActions:(char)arg1 ;

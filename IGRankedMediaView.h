@@ -29,20 +29,20 @@
 @property (nonatomic,retain) NSArray * mediaURLs;                                                      //@synthesize mediaURLs=_mediaURLs - In the implementation block
 @property (nonatomic,retain) UILabel * postCountLabel;                                                 //@synthesize postCountLabel=_postCountLabel - In the implementation block
 +(CGSize)thumbnailSizeForConstrainedWidth:(float)arg1 ;
--(void)setAllMediaCount:(unsigned)arg1 ;
--(void)setRankedContentVisible:(char)arg1 ;
--(void)setAllMediaContentVisible:(char)arg1 ;
--(void)setMediaURLs:(id)arg1 videoIconIndexes:(id)arg2 ;
--(NSArray *)thumbnailImageViews;
 -(char)isRankedContentVisible;
 -(UILabel *)rankedLabel;
+-(NSArray *)thumbnailImageViews;
 -(char)isAllMediaContentVisible;
 -(UILabel *)postCountLabel;
 -(UILabel *)allMediaLabel;
+-(void)setMediaURLs:(id)arg1 videoIconIndexes:(id)arg2 ;
 -(id)newThumbnailView;
 -(void)setThumbnailImageViews:(NSArray *)arg1 ;
 -(void)tappedImageView:(id)arg1 ;
 -(id)thumbnailViewAtPoint:(CGPoint)arg1 ;
+-(void)setAllMediaCount:(unsigned)arg1 ;
+-(void)setRankedContentVisible:(char)arg1 ;
+-(void)setAllMediaContentVisible:(char)arg1 ;
 -(void)setRankedLabel:(UILabel *)arg1 ;
 -(void)setAllMediaLabel:(UILabel *)arg1 ;
 -(void)setPostCountLabel:(UILabel *)arg1 ;

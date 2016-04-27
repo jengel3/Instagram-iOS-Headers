@@ -32,11 +32,11 @@
 @property (assign,nonatomic,__weak) IGDynamics1D * spring;                  //@synthesize spring=_spring - In the implementation block
 -(UIImageView *)accessoryImageView;
 -(UIImageView *)springContentView;
--(char)shouldShowTitle;
 -(void)setCurrentScale:(float)arg1 ;
 -(void)scaleUp:(char)arg1 withVelocity:(char)arg2 ;
 -(float)currentScale;
 -(void)setSpring:(IGDynamics1D *)arg1 ;
+-(char)shouldShowTitle;
 -(void)setSpringContentView:(UIImageView *)arg1 ;
 -(void)setAccessoryImageView:(UIImageView *)arg1 ;
 -(UIImageView *)iconImageView;

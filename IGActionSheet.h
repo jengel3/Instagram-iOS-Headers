@@ -26,8 +26,8 @@
 @property (nonatomic,retain) NSMutableArray * actions;                                     //@synthesize actions=_actions - In the implementation block
 @property (assign,nonatomic,__weak) id<IGActionSheetDelegate> actionDelegate;              //@synthesize actionDelegate=_actionDelegate - In the implementation block
 +(void)addButtonWithTitle:(id)arg1 style:(int)arg2 ;
-+(void)showWithCallback:(/*^block*/id)arg1 ;
 +(void)showWithDelegate:(id)arg1 ;
++(void)showWithCallback:(/*^block*/id)arg1 ;
 +(id)sharedIGActionSheet;
 +(void)addButtonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 +(void)hideImmediately;

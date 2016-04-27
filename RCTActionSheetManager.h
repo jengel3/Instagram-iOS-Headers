@@ -19,7 +19,7 @@
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> methodQueue; 
 +(id)moduleName;
 +(id)__rct_export__520;
-+(id)__rct_export__1521;
++(id)__rct_export__1531;
 +(void)load;
 -(CGRect)sourceRectInView:(id)arg1 anchorViewTag:(id)arg2 ;
 -(NSObject*<OS_dispatch_queue>)methodQueue;

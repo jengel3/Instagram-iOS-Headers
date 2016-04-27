@@ -31,14 +31,14 @@
 @property (nonatomic,retain) UIColor * linkHighlightedColor;              //@synthesize linkHighlightedColor=_linkHighlightedColor - In the implementation block
 @property (nonatomic,retain) UIColor * shadowColor;                       //@synthesize shadowColor=_shadowColor - In the implementation block
 @property (assign,nonatomic) float shadowOffset;                          //@synthesize shadowOffset=_shadowOffset - In the implementation block
--(UIFont *)defaultBoldFont;
--(void)setMaxLineHeight:(float)arg1 ;
--(void)setDefaultBoldFont:(UIFont *)arg1 ;
 -(UIColor *)linkHighlightedColor;
--(void)setLinkHighlightedColor:(UIColor *)arg1 ;
--(void)setMinLineHeight:(float)arg1 ;
 -(float)minLineHeight;
+-(void)setMinLineHeight:(float)arg1 ;
 -(float)maxLineHeight;
+-(void)setMaxLineHeight:(float)arg1 ;
+-(UIFont *)defaultBoldFont;
+-(void)setDefaultBoldFont:(UIFont *)arg1 ;
+-(void)setLinkHighlightedColor:(UIColor *)arg1 ;
 -(void)setDefaultColor:(UIColor *)arg1 ;
 -(void)setLinkColor:(UIColor *)arg1 ;
 -(void)setParagraphSpacing:(float)arg1 ;
@@ -53,6 +53,7 @@
 -(UIColor *)shadowColor;
 -(int)textAlignment;
 -(void)setDefaultFont:(UIFont *)arg1 ;
+-(id)initWithFont:(id)arg1 ;
 -(UIColor *)defaultColor;
 -(float)firstLineHeadIndent;
 -(void)setFirstLineHeadIndent:(float)arg1 ;

@@ -56,10 +56,8 @@
 @property (nonatomic,readonly) float maxSlideAmount; 
 @property (nonatomic,readonly) UIView * contentContainerView;                                            //@synthesize contentContainerView=_contentContainerView - In the implementation block
 +(float)profilePictureWidthOffset;
--(void)profilePictureTapped:(id)arg1 ;
 -(void)setPendingDeleteAction:(char)arg1 ;
 -(char)pendingDeleteAction;
--(float)cellContentYOffset;
 -(CGRect)bubbleFrame;
 -(void)setHidesBubbleBackground:(char)arg1 ;
 -(id)timestampText;
@@ -75,13 +73,15 @@
 -(UILongPressGestureRecognizer *)contentMenuLongPressRecognizer;
 -(void)setSlideAmount:(float)arg1 ;
 -(void)setShowUsername:(char)arg1 ;
--(char)isSameUserContent;
+-(float)slideAmount;
 -(float)profilePictureYOffset;
+-(float)cellContentYOffset;
 -(float)maxSlideAmount;
 -(char)showUsername;
+-(char)isSameUserContent;
 -(float)usernameXOffset;
 -(id)backgroundImageIsForCurrentUser:(char)arg1 ;
--(float)slideAmount;
+-(void)profilePictureTapped:(id)arg1 ;
 -(void)setProfilePictureAlpha:(float)arg1 ;
 -(void)setHideProfilePicture:(char)arg1 ;
 -(void)setProfilePictureY:(float)arg1 ;

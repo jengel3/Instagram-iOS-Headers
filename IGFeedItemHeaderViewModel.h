@@ -35,18 +35,18 @@
 @property (nonatomic,retain) IGLocation * location;                             //@synthesize location=_location - In the implementation block
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 configuration:(id)arg2 ;
--(int)accessoryViewType;
--(CLLocation *)mediaCoord;
--(NSString *)sponsoredPostLabel;
--(char)showSponsoredPostIcon;
--(NSDate *)takenAt;
--(NSString *)customizableButtonTitle;
--(char)canShowExpiringIcon;
 -(NSDate *)expiringAt;
+-(CLLocation *)mediaCoord;
 -(id)initWithUser:(id)arg1 location:(id)arg2 takenAt:(id)arg3 expiringAt:(id)arg4 mediaCoord:(id)arg5 editing:(char)arg6 ;
+-(char)canShowExpiringIcon;
+-(char)showSponsoredPostIcon;
+-(NSString *)sponsoredPostLabel;
+-(NSDate *)takenAt;
 -(void)setTakenAt:(NSDate *)arg1 ;
 -(void)setExpiringAt:(NSDate *)arg1 ;
 -(void)setMediaCoord:(CLLocation *)arg1 ;
+-(int)accessoryViewType;
+-(NSString *)customizableButtonTitle;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(NSString *)primaryName;

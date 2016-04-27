@@ -2,7 +2,6 @@
 
 #import <Instagram/Instagram-Structs.h>
 @interface FBSDKInternalUtility : NSObject
-+(id)topMostViewController;
 +(id)JSONStringForObject:(id)arg1 error:(id*)arg2 invalidObjectHandler:(/*^block*/id)arg3 ;
 +(void)dictionary:(id)arg1 setObject:(id)arg2 forKey:(id)arg3 ;
 +(id)objectForJSONString:(id)arg1 error:(id*)arg2 ;
@@ -16,10 +15,10 @@
 +(char)isSafariBundleIdentifier:(id)arg1 ;
 +(void)extractPermissionsFromResponse:(id)arg1 grantedPermissions:(id)arg2 declinedPermissions:(id)arg3 ;
 +(unsigned long)currentTimeInMilliseconds;
-+(char)isOSRunTimeVersionAtLeast:(SCD_Struct_IG27)arg1 ;
++(char)isOSRunTimeVersionAtLeast:(SCD_Struct_FB63)arg1 ;
 +(id)bundleForStrings;
 +(char)shouldManuallyAdjustOrientation;
-+(int)_compareOperatingSystemVersion:(SCD_Struct_IG27)arg1 toVersion:(SCD_Struct_IG27)arg2 ;
++(int)_compareOperatingSystemVersion:(SCD_Struct_FB63)arg1 toVersion:(SCD_Struct_FB63)arg2 ;
 +(id)_convertObjectToJSONObject:(id)arg1 invalidObjectHandler:(/*^block*/id)arg2 stop:(char*)arg3 ;
 +(char)isUIKitLinkTimeVersionAtLeast:(int)arg1 ;
 +(id)convertRequestValue:(id)arg1 ;
@@ -37,9 +36,10 @@
 +(id)viewControllerforView:(id)arg1 ;
 +(char)isFacebookAppInstalled;
 +(char)isMessengerAppInstalled;
++(id)topMostViewController;
 +(void)deleteFacebookCookies;
 +(char)object:(id)arg1 isEqualToObject:(id)arg2 ;
-+(SCD_Struct_IG27)operatingSystemVersion;
++(SCD_Struct_FB63)operatingSystemVersion;
 +(id)appURLScheme;
 -(id)init;
 @end

@@ -24,10 +24,10 @@
 +(IGCarouselMetrics)defaultMetrics;
 -(CALayer *)separatorLayer;
 -(id)layoutForMetrics:(IGCarouselMetrics)arg1 ;
--(CGRect)separatorFrame;
+-(void)setSeparatorLayer:(CALayer *)arg1 ;
 -(void)prepareForDragging;
 -(CGPoint)targetContentOffsetForVelocity:(CGPoint)arg1 targetContentOffset:(CGPoint)arg2 ;
--(void)setSeparatorLayer:(CALayer *)arg1 ;
+-(CGRect)separatorFrame;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;

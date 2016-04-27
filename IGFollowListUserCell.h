@@ -25,21 +25,21 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(UIView *)bottomLine;
--(void)setBottomLine:(UIView *)arg1 ;
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
 -(void)similarAccountsControl:(id)arg1 didReplenishUserAtIndexPath:(id)arg2 ;
 -(void)similarAccountsViewDidTapOnClose:(id)arg1 ;
 -(void)similarAccountsViewDidTapOnSeeAllAccounts:(id)arg1 ;
--(IGSimilarAccountsControl *)similarAccountsControl;
--(IGSimilarAccountsView *)similarAccountsView;
+-(UIView *)bottomLine;
+-(void)setBottomLine:(UIView *)arg1 ;
 -(void)setDismissActionBlock:(id)arg1 ;
 -(id)dismissActionBlock;
 -(id<IGFollowListUserCellDelegate>)followListUserCelldelegate;
--(void)configureCellWithUser:(id)arg1 showSimilarAccountsView:(char)arg2 showSocialContext:(char)arg3 followActionBlock:(/*^block*/id)arg4 dismissActionBlock:(/*^block*/id)arg5 ;
 -(void)setSimilarAccountsView:(IGSimilarAccountsView *)arg1 ;
 -(void)setSimilarAccountsControl:(IGSimilarAccountsControl *)arg1 ;
 -(void)setFollowListUserCelldelegate:(id<IGFollowListUserCellDelegate>)arg1 ;
+-(IGSimilarAccountsView *)similarAccountsView;
+-(IGSimilarAccountsControl *)similarAccountsControl;
+-(void)configureCellWithUser:(id)arg1 showSimilarAccountsView:(char)arg2 showSocialContext:(char)arg3 followActionBlock:(/*^block*/id)arg4 dismissActionBlock:(/*^block*/id)arg5 ;
 -(void)dealloc;
 -(void)layoutSubviews;
 @end

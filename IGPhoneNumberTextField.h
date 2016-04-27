@@ -26,11 +26,6 @@
 @property (nonatomic,retain) UIView * disclosureView;                                                   //@synthesize disclosureView=_disclosureView - In the implementation block
 @property (nonatomic,retain) UIView * textFieldLeftView;                                                //@synthesize textFieldLeftView=_textFieldLeftView - In the implementation block
 @property (nonatomic,retain) UIImageView * iconImageView;                                               //@synthesize iconImageView=_iconImageView - In the implementation block
--(NSString *)countryNumber;
--(void)setCountryNumber:(NSString *)arg1 ;
--(void)setCountryWithCode:(id)arg1 andCountryNumber:(id)arg2 ;
--(void)setCountryWithCode:(id)arg1 ;
--(void)setPhoneFieldDelegate:(id<IGPhoneNumberTextFieldDelegate>)arg1 ;
 -(void)initializeSubviews;
 -(id)newDisclosureView;
 -(id)countryCodeColor;
@@ -46,6 +41,11 @@
 -(UIButton *)countryCodeButton;
 -(void)setCountryNumberLabelAttributedTextWithLabel:(id)arg1 countryNumber:(id)arg2 ;
 -(id<IGPhoneNumberTextFieldDelegate>)phoneFieldDelegate;
+-(void)setCountryNumber:(NSString *)arg1 ;
+-(void)setCountryWithCode:(id)arg1 andCountryNumber:(id)arg2 ;
+-(void)setCountryWithCode:(id)arg1 ;
+-(void)setPhoneFieldDelegate:(id<IGPhoneNumberTextFieldDelegate>)arg1 ;
+-(NSString *)countryNumber;
 -(void)setCountryCodeButton:(UIButton *)arg1 ;
 -(void)setCountryCodeLabel:(UILabel *)arg1 ;
 -(void)setCountryNumberLabel:(UILabel *)arg1 ;

@@ -29,9 +29,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)videoPool;
--(id)dequeueReusablePlayer;
+-(UIView *)videoPlayerView;
+-(void)setVideoPlayerView:(UIView *)arg1 ;
 -(void)finishUsingPlayer:(id)arg1 ;
--(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;
+-(id)dequeueReusablePlayer;
 -(void)videoPlayer:(id)arg1 didLoadVideoInView:(id)arg2 ;
 -(void)videoPlayerLoadedFirstFrame:(id)arg1 ;
 -(void)videoPlayerDidPlayToEnd:(id)arg1 ;
@@ -44,8 +45,7 @@
 -(void)videoPlayer:(id)arg1 didUpdatePlaybackProgress:(float)arg2 ;
 -(void)videoPrepareForReuse;
 -(IGMediaThumbnailSelectableOverlay *)selectableOverlay;
--(UIView *)videoPlayerView;
--(void)setVideoPlayerView:(UIView *)arg1 ;
+-(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;
 -(void)setSelectableOverlay:(IGMediaThumbnailSelectableOverlay *)arg1 ;
 -(void)setIsSelectable:(char)arg1 ;
 -(IGFeedVideoPlayer *)videoPlayer;

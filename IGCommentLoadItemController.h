@@ -14,17 +14,17 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGCommentLoadItemDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,retain) IGCommentLoadMore * loadMore;                               //@synthesize loadMore=_loadMore - In the implementation block
+@property (nonatomic,readonly) IGCommentLoadMore * loadMore;                             //@synthesize loadMore=_loadMore - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
--(id)cellForItemAtIndex:(int)arg1 ;
--(id)supplementaryViewSource;
 -(id)displayDelegate;
--(void)setLoadMore:(IGCommentLoadMore *)arg1 ;
+-(id)supplementaryViewSource;
+-(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
+-(void)didUpdateToItem:(id)arg1 ;
+-(id)cellClasses;
+-(id)cellForItemAtIndex:(int)arg1 ;
 -(IGCommentLoadMore *)loadMore;
 -(void)setDelegate:(id<IGCommentLoadItemDelegate>)arg1 ;
 -(id<IGCommentLoadItemDelegate>)delegate;

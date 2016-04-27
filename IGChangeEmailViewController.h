@@ -27,9 +27,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(char)prefersTabBarHidden;
 -(IGTextField *)changeEmailField;
--(void)setupNavigationItems;
 -(id)initWithEmail:(id)arg1 fromSource:(int)arg2 ;
 -(void)setChangeEmailField:(IGTextField *)arg1 ;
+-(void)setupNavigationItems;
 -(void)setDelegate:(id<IGChangeEmailViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;

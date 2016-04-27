@@ -27,10 +27,10 @@
 -(id)post;
 -(void)setPost:(id)arg1 ;
 -(void)associateAsPhotoViewDelegate;
--(id)accessibleElements;
 -(void)feedPhotoViewDidLoadImage:(id)arg1 ;
 -(void)feedPhotoDidDoubleTapToLike:(id)arg1 ;
 -(void)feedPhotoViewDidTap:(id)arg1 ;
+-(id)accessibleElements;
 -(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
 -(void)dismissOverlayAnimated:(char)arg1 ;
 -(void)hideUsertagsIndicatorForPost:(id)arg1 ;

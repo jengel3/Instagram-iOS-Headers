@@ -18,8 +18,8 @@
 @property (nonatomic,readonly) UIVisualEffectView * vibrancyView;              //@synthesize vibrancyView=_vibrancyView - In the implementation block
 @property (nonatomic,readonly) UITabBar * tabBarForBlurEffect;                 //@synthesize tabBarForBlurEffect=_tabBarForBlurEffect - In the implementation block
 -(NSMutableArray *)tabButtons;
--(void)addTabButton:(id)arg1 ;
 -(UITabBar *)tabBarForBlurEffect;
+-(void)addTabButton:(id)arg1 ;
 -(UIVisualEffectView *)vibrancyView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

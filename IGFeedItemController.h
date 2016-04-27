@@ -16,17 +16,21 @@
 #import <Instagram/IGRaindropAnalyticsDelegate.h>
 #import <Instagram/IGUserInTagDisplayDelegate.h>
 #import <Instagram/IGFeedItemBusinessCellDelegate.h>
+#import <Instagram/IGFeedItemHiddenConfirmationCellDelegate.h>
 #import <Instagram/IGListItemType.h>
 
-@protocol IGFeedItemConfigurationType, IGFeedItemLoggingProviderDelegateIGFeedItemDirectResponseLoggingProviderDelegate;
-@class IGAnalyticsMetadata, IGFeedItem, NSArray, IGFeedHeartAnimator, IGUser, IGFeedVideoCellManager, IGListAdapterScrollingContext, IGFeedDirectResponseHandler, IGFeedItemTimelineViewModel, IGFeedItemPageCellState, IGAlbumFocusCoordinator, NSString;
+@protocol IGFeedItemConfigurationType, IGFeedConfigurationType, IGFeedItemLoggingProviderDelegateIGFeedItemDirectResponseLoggingProviderDelegate;
+@class IGAnalyticsMetadata, IGFeedItem, NSArray, IGFeedHeartAnimator, IGUser, IGFeedVideoCellManager, IGListAdapterScrollingContext, IGFeedDirectResponseHandler, IGFeedItemTimelineViewModel, IGFeedItemPageCellState, IGAlbumFocusCoordinator, IGFeedItemHeader, NSString;
 
-@interface IGFeedItemController : IGListItemController <IGActionSheetDelegate, IGAlbumFullscreenViewControllerDelegate, IGFeedItemActionCellDelegate, IGFeedItemAlbumCellDelegate, IGFeedItemHeaderDelegate, IGFeedItemPageCellDelegate, IGFeedItemPhotoCellDelegate, IGFeedItemTextCellDelegate, IGFeedVideoCellInteractionDelegate, IGFeedVideoCellAnalyticsDelegate, IGListDisplayDelegate, IGListSupplementaryViewSource, IGRaindropAnalyticsDelegate, IGUserInTagDisplayDelegate, IGFeedItemBusinessCellDelegate, IGListItemType> {
+@interface IGFeedItemController : IGListItemController <IGActionSheetDelegate, IGAlbumFullscreenViewControllerDelegate, IGFeedItemActionCellDelegate, IGFeedItemAlbumCellDelegate, IGFeedItemHeaderDelegate, IGFeedItemPageCellDelegate, IGFeedItemPhotoCellDelegate, IGFeedItemTextCellDelegate, IGFeedVideoCellInteractionDelegate, IGFeedVideoCellAnalyticsDelegate, IGListDisplayDelegate, IGListSupplementaryViewSource, IGRaindropAnalyticsDelegate, IGUserInTagDisplayDelegate, IGFeedItemBusinessCellDelegate, IGFeedItemHiddenConfirmationCellDelegate, IGListItemType> {
 
 	char _pendingDidEndDisplayCollapse;
+	char _hasQueuedBatchUpdate;
+	char _showEasyReportingActionSheet;
 	IGAnalyticsMetadata* _analyticsMetadata;
 	IGFeedItem* _feedItem;
-	id<IGFeedItemConfigurationType> _configuration;
+	id<IGFeedItemConfigurationType> _itemConfiguration;
+	id<IGFeedConfigurationType> _feedConfiguration;
 	NSArray* _cellClasses;
 	IGFeedHeartAnimator* _heartAnimator;
 	IGUser* _currentUser;
@@ -37,12 +41,14 @@
 	IGFeedItemTimelineViewModel* _itemViewModel;
 	IGFeedItemPageCellState* _pageCellState;
 	IGAlbumFocusCoordinator* _albumFocusCoordinator;
+	IGFeedItemHeader* _headerView;
 
 }
 
 @property (nonatomic,retain) IGAnalyticsMetadata * analyticsMetadata;                                                                                      //@synthesize analyticsMetadata=_analyticsMetadata - In the implementation block
 @property (nonatomic,readonly) IGFeedItem * feedItem;                                                                                                      //@synthesize feedItem=_feedItem - In the implementation block
-@property (nonatomic,readonly) id<IGFeedItemConfigurationType> configuration;                                                                              //@synthesize configuration=_configuration - In the implementation block
+@property (nonatomic,readonly) id<IGFeedItemConfigurationType> itemConfiguration;                                                                          //@synthesize itemConfiguration=_itemConfiguration - In the implementation block
+@property (nonatomic,readonly) id<IGFeedConfigurationType> feedConfiguration;                                                                              //@synthesize feedConfiguration=_feedConfiguration - In the implementation block
 @property (nonatomic,readonly) NSArray * cellClasses;                                                                                                      //@synthesize cellClasses=_cellClasses - In the implementation block
 @property (nonatomic,__weak,readonly) IGFeedHeartAnimator * heartAnimator;                                                                                 //@synthesize heartAnimator=_heartAnimator - In the implementation block
 @property (nonatomic,__weak,readonly) IGUser * currentUser;                                                                                                //@synthesize currentUser=_currentUser - In the implementation block
@@ -53,46 +59,47 @@
 @property (nonatomic,retain) IGFeedItemTimelineViewModel * itemViewModel;                                                                                  //@synthesize itemViewModel=_itemViewModel - In the implementation block
 @property (nonatomic,retain) IGFeedItemPageCellState * pageCellState;                                                                                      //@synthesize pageCellState=_pageCellState - In the implementation block
 @property (nonatomic,readonly) IGAlbumFocusCoordinator * albumFocusCoordinator;                                                                            //@synthesize albumFocusCoordinator=_albumFocusCoordinator - In the implementation block
+@property (nonatomic,retain) IGFeedItemHeader * headerView;                                                                                                //@synthesize headerView=_headerView - In the implementation block
 @property (assign,nonatomic) char pendingDidEndDisplayCollapse;                                                                                            //@synthesize pendingDidEndDisplayCollapse=_pendingDidEndDisplayCollapse - In the implementation block
+@property (assign,nonatomic) char hasQueuedBatchUpdate;                                                                                                    //@synthesize hasQueuedBatchUpdate=_hasQueuedBatchUpdate - In the implementation block
+@property (assign,nonatomic) char showEasyReportingActionSheet;                                                                                            //@synthesize showEasyReportingActionSheet=_showEasyReportingActionSheet - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)feedCellTypeClassMap;
--(IGFeedDirectResponseHandler *)directResponseHandler;
--(IGFeedItem *)feedItem;
--(void)albumFullscreenViewControllerShouldDismiss:(id)arg1 ;
--(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
--(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
--(void)listAdapter:(id)arg1 didScrollListItemController:(id)arg2 ;
--(NSArray *)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
--(id)cellForItemAtIndex:(int)arg1 ;
--(id)supplementaryViewSource;
--(id)displayDelegate;
--(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(IGAnalyticsMetadata *)analyticsMetadata;
--(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
+-(id)displayDelegate;
+-(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
+-(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 ;
+-(id)supplementaryViewSource;
+-(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
+-(CGSize)sizeForSupplementaryViewOfKind:(id)arg1 atIndex:(int)arg2 ;
+-(CGSize)estimatedSizeForSupplementaryViewOfKind:(id)arg1 atIndex:(int)arg2 ;
+-(void)didUpdateToItem:(id)arg1 ;
+-(NSArray *)cellClasses;
+-(id)supplementaryViewKindClasses;
+-(id)cellForItemAtIndex:(int)arg1 ;
+-(id)viewForSupplementaryElementOfKind:(id)arg1 atIndex:(int)arg2 ;
+-(void)listAdapter:(id)arg1 didScrollListItemController:(id)arg2 ;
+-(void)albumFullscreenViewControllerShouldDismiss:(id)arg1 ;
+-(IGFeedItem *)feedItem;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
+-(id)actionCell;
+-(void)setPageCellState:(IGFeedItemPageCellState *)arg1 ;
 -(IGFeedVideoCellManager *)videoCellManager;
--(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
--(void)feedItemHeaderDidTapUser:(id)arg1 ;
--(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
--(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapLocation:(id)arg1 ;
+-(void)onFeedItemHidden:(id)arg1 ;
 -(void)feedItemActionCellPageControlDidChangeValue:(id)arg1 ;
 -(void)feedItemActionCellDidTapLikeButton:(id)arg1 ;
 -(void)feedItemActionCellDidTapCommentButton:(id)arg1 ;
 -(void)feedItemActionCellDidTapMoreButton:(id)arg1 ;
 -(void)feedItemActionCellDidTapSendButton:(id)arg1 ;
 -(void)feedItemActionCellDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemAlbumCellDidTap:(id)arg1 ;
--(void)feedItemBusinessCellDidTapPromote:(id)arg1 ;
--(void)feedItemBusinessCellDidTapViewInsights:(id)arg1 ;
+-(void)feedItemHiddenConfirmationCellDidTapShowPost:(id)arg1 ;
+-(void)feedItemHiddenConfirmationCellDidDismiss:(id)arg1 ;
 -(IGFeedItemPageCellState *)pageCellState;
 -(void)feedItemPageCell:(id)arg1 didScrollToPageIndex:(int)arg2 fromIndex:(int)arg3 ;
 -(void)feedItemPageCellDidInitialSingleTap:(id)arg1 ;
@@ -108,16 +115,12 @@
 -(void)feedItemTextCell:(id)arg1 didLongPressReplyText:(id)arg2 ;
 -(void)videoCellDidDoubleTap:(id)arg1 ;
 -(void)pushControllerForUser:(id)arg1 ;
--(void)onFeedItemUpdated:(id)arg1 ;
--(void)onFeedItemHidden:(id)arg1 ;
--(void)onFeedItemDeleted:(id)arg1 ;
 -(id<IGFeedItemLoggingProviderDelegate><IGFeedItemDirectResponseLoggingProviderDelegate>)loggingProvider;
+-(id<IGFeedItemConfigurationType>)itemConfiguration;
 -(IGFeedHeartAnimator *)heartAnimator;
 -(void)showOverlayWithDelay:(float)arg1 index:(int)arg2 ;
 -(IGFeedItemTimelineViewModel *)itemViewModel;
 -(IGListAdapterScrollingContext *)scrollingContext;
--(void)setItemViewModel:(IGFeedItemTimelineViewModel *)arg1 ;
--(void)reloadLikeAndUFICells;
 -(id)ctaPresenterContextForFeedItem:(id)arg1 presentationContext:(id)arg2 ;
 -(IGAlbumFocusCoordinator *)albumFocusCoordinator;
 -(void)configureTextCell:(id)arg1 forIndex:(int)arg2 ;
@@ -126,33 +129,52 @@
 -(void)configureVideoCell:(id)arg1 ;
 -(void)configurePageCell:(id)arg1 ;
 -(void)configureHiddenNoReasonCell:(id)arg1 ;
+-(void)configureHiddenAdConfirmationCell:(id)arg1 ;
+-(void)configureHiddenSpamConfirmationCell:(id)arg1 ;
 -(void)configureAlbumCell:(id)arg1 ;
 -(void)configureBusinessCell:(id)arg1 ;
 -(void)configurePlaceholderCell:(id)arg1 forType:(int)arg2 ;
--(id)supplementaryViewKindClasses;
+-(void)onFeedItemUpdated:(id)arg1 ;
+-(void)onFeedItemDeleted:(id)arg1 ;
+-(void)configureHeaderView:(id)arg1 ;
+-(void)setHasQueuedBatchUpdate:(char)arg1 ;
+-(char)hasQueuedBatchUpdate;
+-(void)setItemViewModel:(IGFeedItemTimelineViewModel *)arg1 ;
 -(char)pendingDidEndDisplayCollapse;
 -(void)hideForDidEndDisplay;
 -(void)setPendingDidEndDisplayCollapse:(char)arg1 ;
 -(void)pushCommentsWithReplyText:(id)arg1 ;
+-(IGFeedDirectResponseHandler *)directResponseHandler;
 -(void)pushLocationController;
 -(void)animateHeartAndPerformLike;
--(id)actionCell;
+-(void)reloadCaptionCell;
+-(void)setShowEasyReportingActionSheet:(char)arg1 ;
+-(id<IGFeedConfigurationType>)feedConfiguration;
+-(char)showEasyReportingActionSheet;
 -(void)presentUsertagsController;
+-(void)feedItemAlbumCellDidTap:(id)arg1 ;
+-(void)feedItemHeaderDidTapUser:(id)arg1 ;
+-(void)feedItemHeaderDidTapLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
 -(id)feedVideoCellCurrentIGAnalyticsMetadata:(id)arg1 ;
 -(int)feedVideoCellPosition:(id)arg1 ;
--(id)viewForSupplementaryElementOfKind:(id)arg1 atIndex:(int)arg2 ;
--(CGSize)sizeForSupplementaryViewOfKind:(id)arg1 atIndex:(int)arg2 ;
--(CGSize)estimatedSizeForSupplementaryViewOfKind:(id)arg1 atIndex:(int)arg2 ;
+-(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)userInTagView:(id)arg1 didTapOnTagView:(id)arg2 ;
--(id)initWithFeedItem:(id)arg1 configuration:(id)arg2 heartAnimator:(id)arg3 videoCellManager:(id)arg4 scrollingContext:(id)arg5 loggingProvider:(id)arg6 currentUser:(id)arg7 ;
+-(void)feedItemBusinessCellDidTapViewInsights:(id)arg1 ;
+-(void)feedItemBusinessCellDidTapPromote:(id)arg1 ;
+-(void)feedItemBusinessCellDidTapViewAdGuideline:(id)arg1 ;
+-(id)initWithItemConfiguration:(id)arg1 feedConfiguration:(id)arg2 heartAnimator:(id)arg3 videoCellManager:(id)arg4 scrollingContext:(id)arg5 loggingProvider:(id)arg6 currentUser:(id)arg7 ;
 -(id)pageCell;
--(void)handleFeedItemChange:(int)arg1 ;
 -(void)setAnalyticsMetadata:(IGAnalyticsMetadata *)arg1 ;
 -(void)setDirectResponseHandler:(IGFeedDirectResponseHandler *)arg1 ;
 -(void)dealloc;
 -(NSString *)description;
+-(IGFeedItemHeader *)headerView;
+-(void)setHeaderView:(IGFeedItemHeader *)arg1 ;
 -(unsigned)numberOfItems;
--(id<IGFeedItemConfigurationType>)configuration;
 -(void)didSelectItemAtIndex:(int)arg1 ;
 -(IGUser *)currentUser;
 -(CGSize)sizeForItemAtIndex:(int)arg1 ;

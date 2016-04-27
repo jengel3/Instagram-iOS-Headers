@@ -39,14 +39,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGAnalyticsMetadata *)analyticsMetadata;
 -(IGHorizontalPanGestureRecognizer *)panGesture;
 -(void)setPanGesture:(IGHorizontalPanGestureRecognizer *)arg1 ;
--(IGAnalyticsMetadata *)analyticsMetadata;
 -(void)updateForVisibleChange;
 -(void)navigationAnimatorWillAnimateTransition:(id)arg1 ;
 -(void)navigationAnimatorDidFinishTransition:(id)arg1 ;
 -(id)popToMainViewController:(char)arg1 ;
--(IGScrollingHeaderCoordinator *)scrollingHeaderCoordinator;
 -(void)setNavigationPopAnimator:(IGNavigationPopAnimator *)arg1 ;
 -(void)setNavigationPushAnimator:(IGNavigationPushAnimator *)arg1 ;
 -(IGNavigationPopAnimator *)navigationPopAnimator;
@@ -58,6 +57,7 @@
 -(void)setInitialTranslation:(CGPoint)arg1 ;
 -(CGPoint)initialTranslation;
 -(UIViewController *)poppingViewController;
+-(IGScrollingHeaderCoordinator *)scrollingHeaderCoordinator;
 -(UIViewController *)fromPreviewViewController;
 -(void)setFromPreviewViewController:(UIViewController *)arg1 ;
 -(void)setNavigationBarUnderlay:(UIView *)arg1 ;

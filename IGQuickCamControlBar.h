@@ -28,15 +28,10 @@
 @property (nonatomic,retain) IGTapButton * cropButton;                                      //@synthesize cropButton=_cropButton - In the implementation block
 @property (assign,nonatomic) char startCrop;                                                //@synthesize startCrop=_startCrop - In the implementation block
 @property (nonatomic,retain) UIView * overlay;                                              //@synthesize overlay=_overlay - In the implementation block
--(void)setSwitchCameraButton:(IGTapButton *)arg1 ;
--(IGTapButton *)switchCameraButton;
 -(void)onSwitchCamerasButtonTapped;
--(void)setCaptureButton:(IGQuickCamCaptureButton *)arg1 ;
--(IGQuickCamCaptureButton *)captureButton;
 -(void)setBoomerangButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)boomerangButton;
 -(void)onBoomerangButtonTapped;
--(void)onBackButtonTapped;
 -(void)setStartCrop:(char)arg1 ;
 -(IGTapButton *)cropButton;
 -(void)toggleCropButtonColor;
@@ -44,13 +39,18 @@
 -(void)onCropButtonTapped;
 -(char)startCrop;
 -(void)toggleOverlay;
--(void)setCaptureButtonState:(int)arg1 ;
 -(void)enableCaptureButton:(char)arg1 ;
+-(void)setCaptureButtonState:(int)arg1 ;
+-(void)setSwitchCameraButtonAccessibilityValue:(id)arg1 ;
 -(char)captureButtonEnabled;
 -(void)setCaptureButtonVideoRecordProgress:(float)arg1 ;
--(void)setSwitchCameraButtonAccessibilityValue:(id)arg1 ;
--(void)enableSwitchCameraButton:(char)arg1 ;
 -(void)setCaptureButtonDelegate:(id)arg1 ;
+-(void)enableSwitchCameraButton:(char)arg1 ;
+-(void)setSwitchCameraButton:(IGTapButton *)arg1 ;
+-(IGTapButton *)switchCameraButton;
+-(void)setCaptureButton:(IGQuickCamCaptureButton *)arg1 ;
+-(IGQuickCamCaptureButton *)captureButton;
+-(void)onBackButtonTapped;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGQuickCamControlBarDelegate>)arg1 ;
 -(void)layoutSubviews;

@@ -3,7 +3,7 @@
 #import <Instagram/RCTInvalidating.h>
 
 @protocol RCTBridgeDelegate;
-@class NSURL, NSDictionary, RCTRedBox, RCTAccessibilityManager, RCTDevMenu, RCTUIManager, RCTImageLoader, RCTImageStoreManager, RCTNetworking, NSArray, RCTEventDispatcher, NSString;
+@class NSURL, NSDictionary, NSLock, RCTRedBox, RCTAccessibilityManager, RCTDevMenu, RCTUIManager, RCTImageLoader, RCTImageStoreManager, RCTNetworking, NSArray, RCTEventDispatcher, NSString;
 
 @interface RCTBridge : NSObject <RCTInvalidating> {
 
@@ -13,6 +13,7 @@
 	id<RCTBridgeDelegate> _delegate;
 	NSDictionary* _launchOptions;
 	CFDictionaryRef _flowIDMap;
+	NSLock* _flowIDMapLock;
 	RCTBridge* _batchedBridge;
 	/*^block*/id _moduleProvider;
 	long long _flowID;
@@ -36,41 +37,44 @@
 @property (getter=isValid,nonatomic,readonly) char valid; 
 @property (assign,nonatomic) long long flowID;                                              //@synthesize flowID=_flowID - In the implementation block
 @property (assign,nonatomic) CFDictionaryRef flowIDMap;                                     //@synthesize flowIDMap=_flowIDMap - In the implementation block
+@property (nonatomic,retain) NSLock * flowIDMapLock;                                        //@synthesize flowIDMapLock=_flowIDMapLock - In the implementation block
 @property (retain) RCTBridge * batchedBridge;                                               //@synthesize batchedBridge=_batchedBridge - In the implementation block
 @property (nonatomic,copy,readonly) id moduleProvider;                                      //@synthesize moduleProvider=_moduleProvider - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)setCurrentBridge:(id)arg1 ;
 +(id)currentBridge;
++(void)setCurrentBridge:(id)arg1 ;
 +(void)initialize;
 -(RCTUIManager *)uiManager;
 -(RCTEventDispatcher *)eventDispatcher;
--(id)moduleProvider;
--(id)initWithBundleURL:(id)arg1 moduleProvider:(/*^block*/id)arg2 launchOptions:(id)arg3 ;
--(Class)executorClass;
--(void)setExecutorClass:(Class)arg1 ;
--(NSArray *)moduleClasses;
+-(void)bindKeys;
 -(id)moduleForName:(id)arg1 ;
 -(char)moduleIsInitialized:(Class)arg1 ;
--(void)bindKeys;
--(char)isBatchActive;
--(long long)flowID;
--(void)setFlowID:(long long)arg1 ;
--(CFDictionaryRef)flowIDMap;
--(void)setFlowIDMap:(CFDictionaryRef)arg1 ;
 -(void)createBatchedBridge;
 -(void)setBatchedBridge:(RCTBridge *)arg1 ;
 -(id)initWithDelegate:(id)arg1 launchOptions:(id)arg2 ;
 -(id)modulesConformingToProtocol:(id)arg1 ;
+-(Class)executorClass;
+-(void)setExecutorClass:(Class)arg1 ;
+-(long long)flowID;
+-(void)setFlowID:(long long)arg1 ;
+-(CFDictionaryRef)flowIDMap;
+-(void)setFlowIDMap:(CFDictionaryRef)arg1 ;
+-(NSLock *)flowIDMapLock;
+-(void)setFlowIDMapLock:(NSLock *)arg1 ;
+-(id)moduleProvider;
 -(void)enqueueJSCall:(id)arg1 args:(id)arg2 ;
 -(void)enqueueCallback:(id)arg1 args:(id)arg2 ;
 -(RCTBridge *)batchedBridge;
+-(id)initWithBundleURL:(id)arg1 moduleProvider:(/*^block*/id)arg2 launchOptions:(id)arg3 ;
 -(id)moduleForClass:(Class)arg1 ;
 -(RCTAccessibilityManager *)accessibilityManager;
 -(RCTDevMenu *)devMenu;
 -(RCTRedBox *)redBox;
+-(NSArray *)moduleClasses;
+-(char)isBatchActive;
 -(RCTImageLoader *)imageLoader;
 -(RCTImageStoreManager *)imageStoreManager;
 -(RCTNetworking *)networking;

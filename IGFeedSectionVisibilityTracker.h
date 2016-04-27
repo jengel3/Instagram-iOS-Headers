@@ -19,10 +19,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)updateWithVisibleElementLayoutAttributeFeedItemMap:(id)arg1 visibleContentRect:(CGRect)arg2 ;
--(IGItemDiffing *)tracker;
 -(void)itemDiffing:(id)arg1 didChangeWithItemAdded:(id)arg2 ;
 -(void)itemDiffing:(id)arg1 didChangeWithItemRemoved:(id)arg2 ;
+-(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
+-(IGItemDiffing *)tracker;
 -(id<IGFeedSectionVisibilityTrackerDelegate>)delegate;
 -(id)initWithDelegate:(id)arg1 ;
 @end

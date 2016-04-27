@@ -26,9 +26,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(NSString *)rawVideoLocationString;
 -(void)prepareToShare;
 -(id)sharingInfo;
--(NSString *)rawVideoLocationString;
 -(id)initWithVideo:(id)arg1 ;
 -(void)updateKeyPosition:(float)arg1 ;
 -(void)updateIsAudioMuted:(char)arg1 ;
@@ -42,12 +42,12 @@
 -(int)posterFrameIndex;
 -(float)videoTimeLength;
 -(int)videoSourceType;
--(void)updateWithVideo:(id)arg1 ;
--(char)isFastVideo;
--(char)isBoomerang;
 -(void)setRawVideoLocationString:(NSString *)arg1 ;
 -(void)setPosterFrameIndex:(int)arg1 ;
 -(void)setIsAudioMuted:(char)arg1 ;
+-(char)isBoomerang;
+-(void)updateWithVideo:(id)arg1 ;
+-(char)isFastVideo;
 -(IGVideoComposition *)videoComposition;
 -(char)isAudioMuted;
 @end

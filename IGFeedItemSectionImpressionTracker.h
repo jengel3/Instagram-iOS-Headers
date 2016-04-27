@@ -22,11 +22,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGMainFeedNetworkSource *)feedNetworkSource;
--(id)initWithFeedNetworkSource:(id)arg1 ;
--(void)updateWithVisibleElementLayoutAttributeFeedItemMap:(id)arg1 visibleContentRect:(CGRect)arg2 ;
 -(void)itemDiffing:(id)arg1 didChangeWithItemAdded:(id)arg2 ;
 -(void)itemDiffing:(id)arg1 didChangeWithItemRemoved:(id)arg2 ;
+-(IGMainFeedNetworkSource *)feedNetworkSource;
+-(id)initWithFeedNetworkSource:(id)arg1 ;
+-(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
 -(IGItemDiffing *)indexPathTracker;
 -(NSDictionary *)indexToFeedItemMap;
 -(void)setIndexToFeedItemMap:(NSDictionary *)arg1 ;

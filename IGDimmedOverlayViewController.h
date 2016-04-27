@@ -17,8 +17,8 @@
 @property (nonatomic,retain) UIView * grayOverlayView;                                               //@synthesize grayOverlayView=_grayOverlayView - In the implementation block
 -(void)setGrayOverlayView:(UIView *)arg1 ;
 -(UIView *)grayOverlayView;
--(void)grayOverlayViewTapped;
 -(void)setDimmedOverlayAlpha:(float)arg1 ;
+-(void)grayOverlayViewTapped;
 -(void)setDelegate:(id<IGDimmedOverlayViewControllerDelegate>)arg1 ;
 -(id<IGDimmedOverlayViewControllerDelegate>)delegate;
 -(int)statusBarStyle;

@@ -23,8 +23,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)onDismissButtonTapped;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
+-(void)onDismissButtonTapped;
 -(void)configureCellWithConfiguration:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGFeedPromotionBannerDelegate>)arg1 ;

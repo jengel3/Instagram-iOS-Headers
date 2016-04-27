@@ -49,8 +49,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
 -(id)analyticsModule;
+-(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
 -(void)setPullToRefreshViewManager:(IGPullToRefreshViewManager *)arg1 ;
 -(IGPullToRefreshViewManager *)pullToRefreshViewManager;
 -(id)currentActiveScrollView;
@@ -59,11 +59,6 @@
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
 -(void)setTtiLogger:(IGExploreTTILogger *)arg1 ;
--(void)exploreCell:(id)arg1 didTapMediaAtIndex:(unsigned)arg2 ;
--(void)updateCellVisibility:(id)arg1 imageView:(id)arg2 mediaIndex:(unsigned)arg3 ;
--(void)exploreCellDidTapFollow:(id)arg1 ;
--(void)exploreCellDidTapDismiss:(id)arg1 ;
--(void)exploreCellDidTapFollowing:(id)arg1 ;
 -(void)marqueeAttributionView:(id)arg1 didTapUsername:(id)arg2 ;
 -(void)fetchMoreData;
 -(void)fetchDidFinishWithItems:(id)arg1 ;
@@ -80,7 +75,6 @@
 -(void)didDisplayObject:(id)arg1 atIndex:(int)arg2 ;
 -(void)willDisplayObject:(id)arg1 atIndex:(int)arg2 mediaIndex:(unsigned)arg3 ;
 -(void)didDisplayObject:(id)arg1 atIndex:(int)arg2 mediaIndex:(unsigned)arg3 ;
--(IGExploreMarqueeItem *)marqueeItem;
 -(void)setInitialIndicatorView:(UIActivityIndicatorView *)arg1 ;
 -(UIActivityIndicatorView *)initialIndicatorView;
 -(void)stopInitialIndicatorView;
@@ -91,8 +85,14 @@
 -(NSMutableSet *)lastVisibleIndexPaths;
 -(NSMutableSet *)lastVisibleImageURLs;
 -(NSMutableSet *)lastImageURLs;
+-(IGExploreMarqueeItem *)marqueeItem;
 -(void)didDismissObject:(id)arg1 atIndex:(int)arg2 ;
 -(void)updateCellVisibility:(id)arg1 indexPath:(id)arg2 imageView:(id)arg3 mediaIndex:(unsigned)arg4 ;
+-(void)updateCellVisibility:(id)arg1 imageView:(id)arg2 mediaIndex:(unsigned)arg3 ;
+-(void)exploreCellDidTapFollow:(id)arg1 ;
+-(void)exploreCellDidTapDismiss:(id)arg1 ;
+-(void)exploreCellDidTapFollowing:(id)arg1 ;
+-(void)exploreCell:(id)arg1 didTapMediaAtIndex:(unsigned)arg2 ;
 -(void)setMarqueeItem:(IGExploreMarqueeItem *)arg1 ;
 -(void)setFeedStatusView:(IGFeedStatusView *)arg1 ;
 -(void)setLoadingMoreView:(UIActivityIndicatorView *)arg1 ;

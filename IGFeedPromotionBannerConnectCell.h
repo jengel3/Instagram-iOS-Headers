@@ -15,8 +15,8 @@
 @property (nonatomic,retain) IGSimpleButton * actionButton;              //@synthesize actionButton=_actionButton - In the implementation block
 @property (assign,nonatomic) CGSize titleSize;                           //@synthesize titleSize=_titleSize - In the implementation block
 @property (assign,nonatomic) CGSize subtitleSize;                        //@synthesize subtitleSize=_subtitleSize - In the implementation block
--(void)configureCellWithConfiguration:(id)arg1 ;
 -(CGSize)titleSize;
+-(void)configureCellWithConfiguration:(id)arg1 ;
 -(void)setTitleSize:(CGSize)arg1 ;
 -(CGSize)subtitleSize;
 -(void)setSubtitleSize:(CGSize)arg1 ;

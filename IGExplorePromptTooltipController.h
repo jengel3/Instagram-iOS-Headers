@@ -33,8 +33,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setImageURLs:(NSArray *)arg1 ;
--(void)explorePromptMediaViewDidTapOnPromptView;
--(void)explorePromptMediaViewDidTapOnCloseButton;
 -(void)mainFeedScrollTriggered:(id)arg1 ;
 -(void)explorePreloadDidFinish:(id)arg1 ;
 -(void)mainFeedDidScrollToOldPost:(id)arg1 ;
@@ -53,6 +51,8 @@
 -(void)setIsTooltipVisible:(char)arg1 ;
 -(void)dismissPrompt;
 -(char)isTooltipVisible;
+-(void)explorePromptMediaViewDidTapOnPromptView;
+-(void)explorePromptMediaViewDidTapOnCloseButton;
 -(id)configureTooltipViewForViewWidth:(float)arg1 ;
 -(void)setExploreView:(IGExplorePromptMediaView *)arg1 ;
 -(void)setTooltipView:(IGExplorePromptTooltipView *)arg1 ;

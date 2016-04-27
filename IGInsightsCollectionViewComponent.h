@@ -26,9 +26,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(NSArray *)mediaIDs;
 -(IGInsightsQuery *)buttonQuery;
--(NSArray *)medias;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 medias:(id)arg4 pageInfo:(id)arg5 ;
 -(NSDictionary *)pageInfo;
+-(NSArray *)medias;
 -(id)style;
 -(NSString *)header;
 -(NSString *)buttonText;

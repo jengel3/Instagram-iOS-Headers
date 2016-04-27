@@ -2,12 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 #import <Instagram/IGCoreTextLinkHandler.h>
-#import <Instagram/IGAppInstallAlertViewControllerDelegate.h>
+#import <Instagram/IGCustomAlertViewControllerDelegate.h>
 
 @protocol IGFeedItemTextCellDelegate, IGFeedItemLoggingProviderDelegate;
 @class IGFeedItem, IGCoreTextView, IGStyledString, NSString, UIImageView, IGAppInstallationsHelper;
 
-@interface IGFeedItemTextCell : UICollectionViewCell <IGCoreTextLinkHandler, IGAppInstallAlertViewControllerDelegate> {
+@interface IGFeedItemTextCell : UICollectionViewCell <IGCoreTextLinkHandler, IGCustomAlertViewControllerDelegate> {
 
 	char _showTimeStamp;
 	char _showExploreContext;
@@ -43,24 +43,22 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)heightWithStyledString:(id)arg1 showTimeStamp:(char)arg2 constrainedToWidth:(float)arg3 ;
+-(IGStyledString *)styledString;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)setStyledString:(IGStyledString *)arg1 ;
 -(IGFeedItem *)feedItem;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
--(void)appInstallAlertViewDidConfirm:(id)arg1 ;
+-(void)customAlertViewDidConfirm:(id)arg1 ;
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
 -(void)showBoomerangAppInstallAlertViewPopover;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
--(void)setFeedItem:(id)arg1 delegate:(id)arg2 loggingDelegate:(id)arg3 textHorizontalPadding:(float)arg4 styledString:(id)arg5 cellType:(int)arg6 showTimeStamp:(char)arg7 accessibilityLabel:(id)arg8 showExploreContext:(char)arg9 ;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
--(id)accessibleElements;
--(void)setStyledString:(IGStyledString *)arg1 ;
--(IGCoreTextView *)coreTextView;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)setCoreTextView:(IGCoreTextView *)arg1 ;
--(IGStyledString *)styledString;
 -(char)showExploreContext;
 -(void)setShowExploreContext:(char)arg1 ;
+-(id)accessibleElements;
+-(IGCoreTextView *)coreTextView;
 -(IGCoreTextView *)auxLabel;
 -(float)textHorizontalPadding;
 -(char)showTimeStamp;
@@ -83,7 +81,9 @@
 -(void)setAuxLabelString:(id)arg1 ;
 -(void)boomerangAttributionTapped;
 -(char)isLongTapAllowedForCellType:(int)arg1 ;
+-(void)setFeedItem:(id)arg1 delegate:(id)arg2 loggingDelegate:(id)arg3 textHorizontalPadding:(float)arg4 styledString:(id)arg5 cellType:(int)arg6 showTimeStamp:(char)arg7 accessibilityLabel:(id)arg8 showExploreContext:(char)arg9 ;
 -(int)iconTypeForLikes;
+-(void)setCoreTextView:(IGCoreTextView *)arg1 ;
 -(NSString *)accessibilityLabelForStyledString;
 -(void)setAuxLabel:(IGCoreTextView *)arg1 ;
 -(float)topPadding;

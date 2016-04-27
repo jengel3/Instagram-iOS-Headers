@@ -52,21 +52,16 @@
 @property (nonatomic,retain) FBAnimationPerformanceTracker * apTracker;                           //@synthesize apTracker=_apTracker - In the implementation block
 @property (nonatomic,readonly) IGExploreVolumeViewController * volumeViewController;              //@synthesize volumeViewController=_volumeViewController - In the implementation block
 @property (assign,nonatomic) char hasInteractedOnExplore;                                         //@synthesize hasInteractedOnExplore=_hasInteractedOnExplore - In the implementation block
+-(char)enableNavState;
+-(id)analyticsModule;
+-(id)analyticsModule;
+-(void)reportDurationInMS:(int)arg1 smallDropEvent:(double)arg2 largeDropEvent:(double)arg3 ;
+-(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
--(id)analyticsModule;
--(id)analyticsModule;
--(char)enableNavState;
--(NSMutableSet *)loggedImpressions;
 -(void)_setSurfaceRankInfoForSection:(unsigned)arg1 ;
--(void)logMarqueeItemClick:(id)arg1 index:(unsigned)arg2 ;
--(void)logMarqueeItemImpression:(id)arg1 inJumbotronView:(id)arg2 atIndex:(unsigned)arg3 ;
--(void)logTrendingItemImpression:(id)arg1 withTrend:(id)arg2 section:(unsigned)arg3 atIndexPath:(id)arg4 ;
--(void)logTrendingItemClick:(id)arg1 withTrend:(id)arg2 section:(unsigned)arg3 atIndexPath:(id)arg4 ;
--(void)logMediaClick:(id)arg1 atIndex:(int)arg2 ;
--(void)logMediaImpression:(id)arg1 viewed:(char)arg2 atIndex:(int)arg3 ;
 -(void)mainFeedReloadDidFinish:(id)arg1 ;
 -(void)appDidEnterBackgroundNotification:(id)arg1 ;
 -(void)appDidBecomeActiveNotification:(id)arg1 ;
@@ -104,25 +99,28 @@
 -(char)shouldSendBackgroundFetchFinishNotification;
 -(void)setLastFullFetch:(NSDate *)arg1 ;
 -(void)sendOutNotificationForUserInteract;
+-(void)logMediaClick:(id)arg1 atIndex:(int)arg2 ;
 -(id)postsFeedViewControllerForIndexPath:(id)arg1 title:(id)arg2 subtitle:(id)arg3 entityId:(id)arg4 entryPoint:(int)arg5 ;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)updateCellVisibility:(id)arg1 atIndex:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
 -(void)setMarqueeWasPaging:(char)arg1 ;
 -(char)marqueeWasPaging;
+-(void)logMediaImpression:(id)arg1 viewed:(char)arg2 atIndex:(int)arg3 ;
+-(void)logMarqueeItemClick:(id)arg1 index:(unsigned)arg2 ;
+-(void)logMarqueeItemImpression:(id)arg1 inJumbotronView:(id)arg2 atIndex:(unsigned)arg3 ;
+-(void)logTrendingItemClick:(id)arg1 withTrend:(id)arg2 section:(unsigned)arg3 atIndexPath:(id)arg4 ;
 -(void)presentViewController:(id)arg1 forCarouselItem:(id)arg2 ;
 -(void)carouselsView:(id)arg1 didTapButtonInCarouselSection:(unsigned)arg2 ;
+-(void)logTrendingItemImpression:(id)arg1 withTrend:(id)arg2 section:(unsigned)arg3 atIndexPath:(id)arg4 ;
 -(void)searchControllerSearchBarTapped:(id)arg1 ;
 -(void)searchControllerCancelButtonTapped:(id)arg1 ;
 -(void)searchController:(id)arg1 switchedToViewController:(id)arg2 ;
 -(void)searchControllerPeopleIconTapped:(id)arg1 ;
 -(void)searchControllerDirectIconTapped:(id)arg1 ;
--(void)reportDurationInMS:(int)arg1 smallDropEvent:(double)arg2 largeDropEvent:(double)arg3 ;
--(void)reportStackTrace:(id)arg1 withSlide:(id)arg2 frameTime:(int)arg3 ;
 -(void)resetSearchControllerIfNeeded;
 -(void)prepareForPopToRootTransition;
 -(void)showErrorLoadMessageIfPossible;
--(id)createPopularPostsFeedViewController;
 -(unsigned)numberOfMarqueeItemsInJumbotronView:(id)arg1 ;
 -(id)jumbotronView:(id)arg1 marqueeItemAtIndexPath:(id)arg2 ;
 -(unsigned)numberOfCarouselsInCarouselsView:(id)arg1 ;
@@ -135,6 +133,7 @@
 -(void)jumbotronView:(id)arg1 didDisplayMarqueeItemAtIndex:(unsigned)arg2 ;
 -(void)carouselsView:(id)arg1 didSelectCarouselItemAtIndexPath:(id)arg2 ;
 -(void)carouselsView:(id)arg1 didDisplayCarouselItemAtIndexPath:(id)arg2 ;
+-(NSMutableSet *)loggedImpressions;
 -(void)setLoggedImpressions:(NSMutableSet *)arg1 ;
 -(char)wasFreshExploreLoad;
 -(void)setWasFreshExploreLoad:(char)arg1 ;

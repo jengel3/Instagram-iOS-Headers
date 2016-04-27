@@ -14,9 +14,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSString *)rootString;
 -(id)parseGraphQLResponseWithResult:(id)arg1 error:(id*)arg2 ;
--(id)initWithRootString:(id)arg1 ;
+-(NSString *)rootString;
 -(void)setRootString:(NSString *)arg1 ;
+-(id)initWithRootString:(id)arg1 ;
 @end
 

@@ -66,12 +66,12 @@
 +(id)legendWithPlots:(id)arg1 ;
 +(id)legendWithGraph:(id)arg1 ;
 +(char)needsDisplayForKey:(id)arg1 ;
--(void)addPlot:(id)arg1 ;
 -(char)pointingDeviceDownEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceUpEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(void)setBorderLineStyle:(id)arg1 ;
 -(void)renderAsVectorInContext:(CGContextRef)arg1 ;
 -(id)initWithPlots:(id)arg1 ;
+-(void)addPlot:(id)arg1 ;
 -(id)allPlots;
 -(NSMutableArray *)plots;
 -(char)layoutChanged;

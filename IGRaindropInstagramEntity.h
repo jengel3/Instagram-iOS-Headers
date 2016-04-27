@@ -13,9 +13,9 @@
 	IGRaindropPlace* __thrift_place;
 
 }
--(id)initWithHashtag:(id)arg1 ;
 -(id)toDict;
 -(id)initWithMarquee:(id)arg1 ;
+-(id)initWithHashtag:(id)arg1 ;
 -(id)initWithUser:(id)arg1 ;
 -(id)init;
 -(id)description;

@@ -48,12 +48,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGLocationMetadata *)locationMetadata;
 -(IGNearbyLocationDataSource *)locationDataSource;
 -(void)setLocationDataSource:(IGNearbyLocationDataSource *)arg1 ;
+-(IGLocationMetadata *)locationMetadata;
 -(void)setLocationMetadata:(IGLocationMetadata *)arg1 ;
--(void)setNuxLabel:(IGLabel *)arg1 ;
--(IGLabel *)nuxLabel;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(id)locationForIndexPath:(id)arg1 ;
 -(void)locationDataSourceDidStartLoading;
@@ -69,6 +67,7 @@
 -(void)layoutSuggestionView;
 -(void)showActiveLocationDetailView:(char)arg1 ;
 -(char)authStatusNotDenied;
+-(IGLabel *)nuxLabel;
 -(void)onLocationTitleControlTapped;
 -(void)locationClearButtonTapped;
 -(void)showLocationSettingInstruction;
@@ -86,6 +85,7 @@
 -(void)setClearButton:(IGButton *)arg1 ;
 -(IGLocationPickerViewController *)locationPickerVC;
 -(void)setLocationPickerVC:(IGLocationPickerViewController *)arg1 ;
+-(void)setNuxLabel:(IGLabel *)arg1 ;
 -(float)cellHeight;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setLocations:(NSArray *)arg1 ;

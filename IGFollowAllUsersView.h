@@ -22,8 +22,8 @@
 -(void)setUserCount:(unsigned)arg1 ;
 -(IGFollowAllButton *)followAllButton;
 -(unsigned)userCount;
--(void)setCountLabel:(UILabel *)arg1 ;
 -(void)setFollowAllButton:(IGFollowAllButton *)arg1 ;
+-(void)setCountLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setHorizontalPadding:(float)arg1 ;
 -(float)horizontalPadding;

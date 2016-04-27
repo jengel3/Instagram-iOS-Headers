@@ -23,12 +23,12 @@
 @property (nonatomic,retain) UIImageView * chevronView;                          //@synthesize chevronView=_chevronView - In the implementation block
 @property (nonatomic,retain) IGShareThumbnailView * thumbnailViews;              //@synthesize thumbnailViews=_thumbnailViews - In the implementation block
 @property (nonatomic,retain) NSArray * previewMediaPhotos;                       //@synthesize previewMediaPhotos=_previewMediaPhotos - In the implementation block
++(float)heightForCellWithTitleText:(id)arg1 andSubtitleText:(id)arg2 andWidth:(float)arg3 andThumbnails:(id)arg4 ;
++(float)sideImageWidth;
 +(float)labelWidthForFrameWidth:(float)arg1 ;
 +(id)titleStyledStringWithText:(id)arg1 ;
 +(float)thumbnailWidthForFrameWidth:(float)arg1 ;
 +(float)cellWidthForFrameWidth:(float)arg1 ;
-+(float)sideImageWidth;
-+(float)heightForCellWithTitleText:(id)arg1 andSubtitleText:(id)arg2 andWidth:(float)arg3 andThumbnails:(id)arg4 ;
 -(id)defaultBackgroundImage;
 -(id)highlightedBackgroundImage;
 -(id)previewMedia;

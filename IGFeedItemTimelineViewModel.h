@@ -19,15 +19,15 @@
 -(IGFeedItem *)feedItem;
 -(int)feedItemCellTypeForRow:(int)arg1 ;
 -(id)initWithFeedItem:(id)arg1 configuration:(id)arg2 ;
--(id)commentForTextTimelineRow:(int)arg1 ;
--(int)cellTypeForTextTimelineRow:(int)arg1 ;
--(int)numberOfFeedCellsBeforeComments;
--(int)numberOfTextRowsInTimeline;
 -(char)shouldShowTimestamp;
 -(char)shouldShowInsights;
 -(char)shouldShowPivotGrid;
+-(int)numberOfTextRowsInTimeline;
 -(NSArray *)textRowItems;
 -(int)totalNumberOfRows;
+-(int)numberOfFeedCellsBeforeComments;
+-(int)cellTypeForTextTimelineRow:(int)arg1 ;
+-(id)commentForTextTimelineRow:(int)arg1 ;
 -(id<IGFeedItemConfigurationType>)configuration;
 -(NSArray *)rowItems;
 @end

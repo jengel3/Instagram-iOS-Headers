@@ -34,7 +34,7 @@
 -(void)play;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id<IGFeedItemAlbumCellDelegate>)delegate;
--(void)stop;
 -(void)prepareForReuse;
+-(void)pause;
 @end
 

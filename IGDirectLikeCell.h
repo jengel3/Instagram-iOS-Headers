@@ -25,13 +25,14 @@
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator;              //@synthesize uploadDecorator=_uploadDecorator - In the implementation block
 +(id)likeImage;
 +(float)likeCellHeight;
+-(void)performDelete;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(id)timestampText;
 -(void)setCellDecorator:(id)arg1 ;
 -(void)setUploadDecorator:(IGDirectContentCellUploadDecorator *)arg1 ;
 -(void)handleUploadCellTap;
 -(void)performRetry;
--(void)performDelete;
+-(void)uploadDecoratorShowFailedUI:(id)arg1 ;
 -(void)showUploadFailedUI;
 -(void)showUploadSendingUI;
 -(CGRect)tapTargetFrame;

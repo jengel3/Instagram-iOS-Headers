@@ -31,13 +31,13 @@
 +(id)settingsKey:(id)arg1 provider:(id)arg2 prefix:(id)arg3 ;
 +(void)removeFromUserDefaultsWithServiceProviderName:(id)arg1 prefix:(id)arg2 ;
 -(id)initWithKey:(id)arg1 secret:(id)arg2 ;
--(id)initWithHTTPResponseBody:(id)arg1 ;
 -(id)initWithKey:(id)arg1 secret:(id)arg2 session:(id)arg3 duration:(id)arg4 attributes:(id)arg5 created:(id)arg6 renewable:(char)arg7 ;
 -(void)setVerifier:(NSString *)arg1 ;
 -(NSString *)verifier;
 -(char)isForRenewal;
 -(id)attributeString;
 -(char)isEqualToToken:(id)arg1 ;
+-(id)initWithHTTPResponseBody:(id)arg1 ;
 -(id)initWithUserDefaultsUsingServiceProviderName:(id)arg1 prefix:(id)arg2 ;
 -(int)storeInUserDefaultsWithServiceProviderName:(id)arg1 prefix:(id)arg2 ;
 -(void)setDurationWithString:(id)arg1 ;

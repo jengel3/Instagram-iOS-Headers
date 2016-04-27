@@ -39,14 +39,14 @@
 +(id)unmanagedLocationWithDictionary:(id)arg1 ;
 +(id)getRaindropPlacesFromLocations:(id)arg1 ;
 -(NSString *)streetAddress;
--(int)loggingPlaceSource;
 -(NSString *)loggingId;
 -(id)relatedItemDisplayName;
+-(int)loggingPlaceSource;
 -(CLLocation *)locationCoord;
--(void)fetchAdditionalInfo;
 -(id)relatedItemId;
 -(id)relatedItemURL;
 -(id)relatedItemType;
+-(void)fetchAdditionalInfo;
 -(NSString *)foursquareV2ID;
 -(NSString *)facebookPlacesID;
 -(NSString *)facebookEventsID;

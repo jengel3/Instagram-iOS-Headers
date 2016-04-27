@@ -35,9 +35,9 @@
 -(void)messageTextViewClearButtonTapped;
 -(void)updateMessageTextView;
 -(void)updateClearButton;
--(void)startEditing;
 -(void)setMessageTextViewClearButton:(UIButton *)arg1 ;
 -(void)setPlaceholderTextLabel:(UILabel *)arg1 ;
+-(void)startEditing;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGDirectGrowingMessageTextViewDelegate>)arg1 ;
 -(void)dealloc;

@@ -15,9 +15,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)handleCallbackURL:(id)arg1 ;
 -(void)startAuthorization;
 -(id)pathSubstringForCallbackURL:(id)arg1 ;
+-(void)handleCallbackURL:(id)arg1 ;
 -(void)userDidNotAuthorize;
 -(id)extractTokenAndVerifierFromURL:(id)arg1 ;
 -(void)userDidAuthorizeWithTokenKey:(id)arg1 secret:(id)arg2 username:(id)arg3 ;

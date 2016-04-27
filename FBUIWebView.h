@@ -5,7 +5,7 @@
 #import <Instagram/FBWebView.h>
 
 @protocol UIScrollViewDelegate, FBWebViewAnalytics;
-@class UIWebView, FBUIWebViewDelegateAdaptor, NJKWebViewProgress, NSHashTable, UIView, NSString, NSURL, UIScrollView, NSURLRequest;
+@class NSString, NSURL, UIScrollView, UIView, NSURLRequest, UIWebView, FBUIWebViewDelegateAdaptor, NJKWebViewProgress, NSHashTable;
 
 @interface FBUIWebView : UIView <NJKWebViewProgressDelegate, FBWebView> {
 
@@ -51,8 +51,12 @@
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                          //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
 +(char)automaticallyNotifiesObserversForKey:(id)arg1 ;
--(NSURL *)currentLocationURL;
 -(void)webViewProgress:(id)arg1 didUpdateProgress:(float)arg2 ;
+-(id)initWithFrame:(CGRect)arg1 analytics:(id)arg2 ;
+-(void)_layoutBannerView;
+-(NSURL *)currentLocationURL;
+-(id)_webBrowserView;
+-(void)_loadingStateChanged:(char)arg1 ;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;
 -(void)updateOrientationWithOrientation:(int)arg1 ;
@@ -63,10 +67,6 @@
 -(int)webViewImplementation;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1 ;
--(id)initWithFrame:(CGRect)arg1 analytics:(id)arg2 ;
--(void)_layoutBannerView;
--(id)_webBrowserView;
--(void)_loadingStateChanged:(char)arg1 ;
 -(void)_titleAndURLMayHaveChanged;
 -(void)_navigationHistoryMayHaveChanged;
 -(id<FBWebViewAnalytics>)analytics;

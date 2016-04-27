@@ -3,7 +3,7 @@
 #import <libobjc.A.dylib/AVCaptureVideoDataOutputSampleBufferDelegate.h>
 #import <Instagram/AVCaptureAudioDataOutputSampleBufferDelegate.h>
 
-@protocol OS_dispatch_queue, IGCaptureManagerDelegate, IGVideoSampleBufferDelegate, IGAudioSampleBufferDelegate, IGVideoSessionDelegate;
+@protocol OS_dispatch_queue, IGCaptureManagerDelegate, IGCaptureManagerVideoSampleBufferDelegate, IGCaptureManagerAudioSampleBufferDelegate, IGCaptureManagerAudioSessionDelegate, IGCaptureManagerVideoSessionDelegate;
 @class AVCaptureVideoPreviewLayer, NSObject, AVCaptureSession, AVCaptureDevice, AVCaptureDeviceInput, AVCaptureVideoDataOutput, AVCaptureAudioDataOutput, AVCaptureStillImageOutput, IGKVOHandle, IGSampleBuffer, IGTargetBlock, NSString;
 
 @interface IGCaptureManager : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate> {
@@ -19,9 +19,10 @@
 	AVCaptureVideoPreviewLayer* _previewLayer;
 	NSObject*<OS_dispatch_queue> _videoBufferQueue;
 	id<IGCaptureManagerDelegate> _delegate;
-	id<IGVideoSampleBufferDelegate> _videoBufferDelegate;
-	id<IGAudioSampleBufferDelegate> _audioBufferDelegate;
-	id<IGVideoSessionDelegate> _videoSessionDelegate;
+	id<IGCaptureManagerVideoSampleBufferDelegate> _videoSampleBufferDelegate;
+	id<IGCaptureManagerAudioSampleBufferDelegate> _audioSampleBufferDelegate;
+	id<IGCaptureManagerAudioSessionDelegate> _audioSessionDelegate;
+	id<IGCaptureManagerVideoSessionDelegate> _videoSessionDelegate;
 	int _sessionPreset;
 	AVCaptureSession* _videoSession;
 	AVCaptureSession* _audioSession;
@@ -42,62 +43,56 @@
 
 }
 
-@property (nonatomic,retain) AVCaptureVideoPreviewLayer * previewLayer;                               //@synthesize previewLayer=_previewLayer - In the implementation block
-@property (assign,nonatomic) char isCapturingStillImage;                                              //@synthesize isCapturingStillImage=_isCapturingStillImage - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> videoBufferQueue;                           //@synthesize videoBufferQueue=_videoBufferQueue - In the implementation block
-@property (assign,nonatomic,__weak) id<IGCaptureManagerDelegate> delegate;                            //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGVideoSampleBufferDelegate> videoBufferDelegate;              //@synthesize videoBufferDelegate=_videoBufferDelegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGAudioSampleBufferDelegate> audioBufferDelegate;              //@synthesize audioBufferDelegate=_audioBufferDelegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGVideoSessionDelegate> videoSessionDelegate;                  //@synthesize videoSessionDelegate=_videoSessionDelegate - In the implementation block
+@property (nonatomic,retain) AVCaptureVideoPreviewLayer * previewLayer;                                                   //@synthesize previewLayer=_previewLayer - In the implementation block
+@property (assign,nonatomic) char isCapturingStillImage;                                                                  //@synthesize isCapturingStillImage=_isCapturingStillImage - In the implementation block
+@property (nonatomic,retain) NSObject*<OS_dispatch_queue> videoBufferQueue;                                               //@synthesize videoBufferQueue=_videoBufferQueue - In the implementation block
+@property (assign,nonatomic,__weak) id<IGCaptureManagerDelegate> delegate;                                                //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGCaptureManagerVideoSampleBufferDelegate> videoSampleBufferDelegate;              //@synthesize videoSampleBufferDelegate=_videoSampleBufferDelegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGCaptureManagerAudioSampleBufferDelegate> audioSampleBufferDelegate;              //@synthesize audioSampleBufferDelegate=_audioSampleBufferDelegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGCaptureManagerAudioSessionDelegate> audioSessionDelegate;                        //@synthesize audioSessionDelegate=_audioSessionDelegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGCaptureManagerVideoSessionDelegate> videoSessionDelegate;                        //@synthesize videoSessionDelegate=_videoSessionDelegate - In the implementation block
 @property (assign,nonatomic) int cameraPosition; 
-@property (assign,nonatomic) int sessionPreset;                                                       //@synthesize sessionPreset=_sessionPreset - In the implementation block
-@property (assign,nonatomic) CGSize videoSizeForCurrentSessionPreset;                                 //@synthesize videoSizeForCurrentSessionPreset=_videoSizeForCurrentSessionPreset - In the implementation block
+@property (assign,nonatomic) int sessionPreset;                                                                           //@synthesize sessionPreset=_sessionPreset - In the implementation block
+@property (assign,nonatomic) CGSize videoSizeForCurrentSessionPreset;                                                     //@synthesize videoSizeForCurrentSessionPreset=_videoSizeForCurrentSessionPreset - In the implementation block
 @property (assign,nonatomic) int flashMode; 
-@property (assign,nonatomic) char audioEnabled;                                                       //@synthesize audioEnabled=_audioEnabled - In the implementation block
-@property (nonatomic,retain) AVCaptureSession * videoSession;                                         //@synthesize videoSession=_videoSession - In the implementation block
-@property (nonatomic,retain) AVCaptureSession * audioSession;                                         //@synthesize audioSession=_audioSession - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> captureQueue;                               //@synthesize captureQueue=_captureQueue - In the implementation block
-@property (nonatomic,retain) AVCaptureDevice * videoDevice;                                           //@synthesize videoDevice=_videoDevice - In the implementation block
-@property (nonatomic,retain) AVCaptureDeviceInput * videoDeviceInput;                                 //@synthesize videoDeviceInput=_videoDeviceInput - In the implementation block
-@property (nonatomic,retain) AVCaptureVideoDataOutput * videoDataOutput;                              //@synthesize videoDataOutput=_videoDataOutput - In the implementation block
-@property (nonatomic,retain) AVCaptureDeviceInput * audioDeviceInput;                                 //@synthesize audioDeviceInput=_audioDeviceInput - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> audioBufferQueue;                           //@synthesize audioBufferQueue=_audioBufferQueue - In the implementation block
-@property (nonatomic,retain) AVCaptureAudioDataOutput * audioDataOutput;                              //@synthesize audioDataOutput=_audioDataOutput - In the implementation block
-@property (nonatomic,retain) AVCaptureStillImageOutput * stillImageOutput;                            //@synthesize stillImageOutput=_stillImageOutput - In the implementation block
-@property (assign,nonatomic) char focusRequested;                                                     //@synthesize focusRequested=_focusRequested - In the implementation block
-@property (assign,nonatomic) char flashFired;                                                         //@synthesize flashFired=_flashFired - In the implementation block
-@property (assign,nonatomic) char sessionStarted;                                                     //@synthesize sessionStarted=_sessionStarted - In the implementation block
-@property (assign,nonatomic) char startSessionOnEnteringForeground;                                   //@synthesize startSessionOnEnteringForeground=_startSessionOnEnteringForeground - In the implementation block
-@property (assign,nonatomic) char needsResume;                                                        //@synthesize needsResume=_needsResume - In the implementation block
-@property (nonatomic,retain) IGKVOHandle * flashActiveObserver;                                       //@synthesize flashActiveObserver=_flashActiveObserver - In the implementation block
-@property (nonatomic,retain) IGKVOHandle * adjustingFocusObserver;                                    //@synthesize adjustingFocusObserver=_adjustingFocusObserver - In the implementation block
-@property (nonatomic,retain) IGKVOHandle * adjustingExposureObserver;                                 //@synthesize adjustingExposureObserver=_adjustingExposureObserver - In the implementation block
-@property (nonatomic,retain) IGSampleBuffer * imageBuffer;                                            //@synthesize imageBuffer=_imageBuffer - In the implementation block
-@property (nonatomic,retain) IGTargetBlock * exposureUpdateBlock;                                     //@synthesize exposureUpdateBlock=_exposureUpdateBlock - In the implementation block
+@property (assign,nonatomic) char audioEnabled;                                                                           //@synthesize audioEnabled=_audioEnabled - In the implementation block
+@property (nonatomic,retain) AVCaptureSession * videoSession;                                                             //@synthesize videoSession=_videoSession - In the implementation block
+@property (nonatomic,retain) AVCaptureSession * audioSession;                                                             //@synthesize audioSession=_audioSession - In the implementation block
+@property (nonatomic,retain) NSObject*<OS_dispatch_queue> captureQueue;                                                   //@synthesize captureQueue=_captureQueue - In the implementation block
+@property (nonatomic,retain) AVCaptureDevice * videoDevice;                                                               //@synthesize videoDevice=_videoDevice - In the implementation block
+@property (nonatomic,retain) AVCaptureDeviceInput * videoDeviceInput;                                                     //@synthesize videoDeviceInput=_videoDeviceInput - In the implementation block
+@property (nonatomic,retain) AVCaptureVideoDataOutput * videoDataOutput;                                                  //@synthesize videoDataOutput=_videoDataOutput - In the implementation block
+@property (nonatomic,retain) AVCaptureDeviceInput * audioDeviceInput;                                                     //@synthesize audioDeviceInput=_audioDeviceInput - In the implementation block
+@property (nonatomic,retain) NSObject*<OS_dispatch_queue> audioBufferQueue;                                               //@synthesize audioBufferQueue=_audioBufferQueue - In the implementation block
+@property (nonatomic,retain) AVCaptureAudioDataOutput * audioDataOutput;                                                  //@synthesize audioDataOutput=_audioDataOutput - In the implementation block
+@property (nonatomic,retain) AVCaptureStillImageOutput * stillImageOutput;                                                //@synthesize stillImageOutput=_stillImageOutput - In the implementation block
+@property (assign,nonatomic) char focusRequested;                                                                         //@synthesize focusRequested=_focusRequested - In the implementation block
+@property (assign,nonatomic) char flashFired;                                                                             //@synthesize flashFired=_flashFired - In the implementation block
+@property (assign,nonatomic) char sessionStarted;                                                                         //@synthesize sessionStarted=_sessionStarted - In the implementation block
+@property (assign,nonatomic) char startSessionOnEnteringForeground;                                                       //@synthesize startSessionOnEnteringForeground=_startSessionOnEnteringForeground - In the implementation block
+@property (assign,nonatomic) char needsResume;                                                                            //@synthesize needsResume=_needsResume - In the implementation block
+@property (nonatomic,retain) IGKVOHandle * flashActiveObserver;                                                           //@synthesize flashActiveObserver=_flashActiveObserver - In the implementation block
+@property (nonatomic,retain) IGKVOHandle * adjustingFocusObserver;                                                        //@synthesize adjustingFocusObserver=_adjustingFocusObserver - In the implementation block
+@property (nonatomic,retain) IGKVOHandle * adjustingExposureObserver;                                                     //@synthesize adjustingExposureObserver=_adjustingExposureObserver - In the implementation block
+@property (nonatomic,retain) IGSampleBuffer * imageBuffer;                                                                //@synthesize imageBuffer=_imageBuffer - In the implementation block
+@property (nonatomic,retain) IGTargetBlock * exposureUpdateBlock;                                                         //@synthesize exposureUpdateBlock=_exposureUpdateBlock - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(char)deviceHasDualCameras;
-+(char)deviceHasCamera;
 +(CGRect)cameraCropRectForSize:(CGSize)arg1 ;
++(char)deviceHasCamera;
++(char)deviceHasDualCameras;
 +(CGRect)cameraCropRectForImage:(id)arg1 ;
--(void)setVideoBufferDelegate:(id<IGVideoSampleBufferDelegate>)arg1 ;
--(void)setAudioBufferDelegate:(id<IGAudioSampleBufferDelegate>)arg1 ;
--(id)initWithCameraPosition:(int)arg1 sessionPreset:(int)arg2 audioEnabled:(char)arg3 ;
--(char)currentDeviceHasFlash;
--(void)switchCameras;
--(CGSize)videoSizeForCurrentSessionPreset;
--(char)focusAtPoint:(CGPoint)arg1 ;
--(char)exposeAtPoint:(CGPoint)arg1 ;
--(NSObject*<OS_dispatch_queue>)videoBufferQueue;
 -(void)sessionNotification:(id)arg1 ;
 -(void)setNeedsResume:(char)arg1 ;
 -(void)setStartSessionOnEnteringForeground:(char)arg1 ;
 -(NSObject*<OS_dispatch_queue>)captureQueue;
 -(void)internalStartSession;
 -(AVCaptureSession *)videoSession;
--(id<IGVideoSessionDelegate>)videoSessionDelegate;
+-(id<IGCaptureManagerVideoSessionDelegate>)videoSessionDelegate;
+-(AVCaptureSession *)audioSession;
+-(id<IGCaptureManagerAudioSessionDelegate>)audioSessionDelegate;
 -(IGKVOHandle *)adjustingFocusObserver;
 -(IGKVOHandle *)adjustingExposureObserver;
 -(IGKVOHandle *)flashActiveObserver;
@@ -108,16 +103,16 @@
 -(void)setFlashActiveObserver:(IGKVOHandle *)arg1 ;
 -(AVCaptureDevice *)videoDevice;
 -(AVCaptureVideoDataOutput *)videoDataOutput;
+-(NSObject*<OS_dispatch_queue>)videoBufferQueue;
 -(AVCaptureAudioDataOutput *)audioDataOutput;
 -(NSObject*<OS_dispatch_queue>)audioBufferQueue;
 -(void)configureVideoDeviceInput;
 -(void)configureAudioDeviceInput;
 -(char)canStartAudio;
 -(char)needsResume;
--(AVCaptureSession *)audioSession;
 -(char)startSessionOnEnteringForeground;
--(id<IGVideoSampleBufferDelegate>)videoBufferDelegate;
--(id<IGAudioSampleBufferDelegate>)audioBufferDelegate;
+-(id<IGCaptureManagerVideoSampleBufferDelegate>)videoSampleBufferDelegate;
+-(id<IGCaptureManagerAudioSampleBufferDelegate>)audioSampleBufferDelegate;
 -(char)isUsingVideoSessionPreset;
 -(AVCaptureDeviceInput *)videoDeviceInput;
 -(id)capturePreset;
@@ -126,12 +121,21 @@
 -(char)isAudioSessionAuthorized;
 -(void)setVideoDeviceInput:(AVCaptureDeviceInput *)arg1 ;
 -(void)setIsCapturingStillImage:(char)arg1 ;
+-(id)initWithCameraPosition:(int)arg1 sessionPreset:(int)arg2 audioEnabled:(char)arg3 ;
 -(id)stringForApplicationState;
+-(char)currentDeviceHasFlash;
 -(char)isVideoSessionRunning;
 -(void)adjustBrightnessForCinema;
+-(CGSize)videoSizeForCurrentSessionPreset;
+-(void)switchCameras;
+-(char)focusAtPoint:(CGPoint)arg1 ;
+-(char)exposeAtPoint:(CGPoint)arg1 ;
 -(void)takePictureWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)setVideoBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(void)setVideoSessionDelegate:(id<IGVideoSessionDelegate>)arg1 ;
+-(void)setVideoSampleBufferDelegate:(id<IGCaptureManagerVideoSampleBufferDelegate>)arg1 ;
+-(void)setAudioSampleBufferDelegate:(id<IGCaptureManagerAudioSampleBufferDelegate>)arg1 ;
+-(void)setAudioSessionDelegate:(id<IGCaptureManagerAudioSessionDelegate>)arg1 ;
+-(void)setVideoSessionDelegate:(id<IGCaptureManagerVideoSessionDelegate>)arg1 ;
 -(void)setVideoSizeForCurrentSessionPreset:(CGSize)arg1 ;
 -(void)setVideoSession:(AVCaptureSession *)arg1 ;
 -(void)setAudioSession:(AVCaptureSession *)arg1 ;

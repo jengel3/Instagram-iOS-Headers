@@ -16,6 +16,8 @@
 @interface IGDirectShareSheet : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, IGDirectRecipientDataSourceDelegate, UIViewControllerTransitioningDelegate, IGDirectGrowingMessageTextViewDelegate, IGViewControllerSlideable, IGSwipeDismissManagerDelegate> {
 
 	char _loadingResults;
+	NSArray* _allSections;
+	NSArray* _publicThreadsRecipients;
 	NSArray* _defaultRecipients;
 	NSArray* _searchResults;
 	IGDirectShareRecipient* _selectedRecipient;
@@ -39,6 +41,8 @@
 
 }
 
+@property (nonatomic,retain) NSArray * allSections;                                     //@synthesize allSections=_allSections - In the implementation block
+@property (nonatomic,readonly) NSArray * publicThreadsRecipients;                       //@synthesize publicThreadsRecipients=_publicThreadsRecipients - In the implementation block
 @property (nonatomic,retain) NSArray * defaultRecipients;                               //@synthesize defaultRecipients=_defaultRecipients - In the implementation block
 @property (nonatomic,retain) NSArray * searchResults;                                   //@synthesize searchResults=_searchResults - In the implementation block
 @property (nonatomic,retain) IGDirectShareRecipient * selectedRecipient;                //@synthesize selectedRecipient=_selectedRecipient - In the implementation block
@@ -66,53 +70,60 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(UIView *)topLine;
--(void)setTopLine:(UIView *)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
--(void)setSwipeDismissManager:(IGSwipeDismissManager *)arg1 ;
--(IGSwipeDismissManager *)swipeDismissManager;
--(void)onOverlayTapped;
--(void)messageViewClearButtonTappedWhileNoText:(id)arg1 ;
--(void)messageView:(id)arg1 didUpdateToHeight:(float)arg2 ;
 -(void)uploadCurrentContentToRecipient:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
--(id)warningMessage;
+-(void)updateAllSections;
 -(void)layoutViewsFirstTime;
 -(void)updateViewsFromShareState:(unsigned)arg1 toShareState:(unsigned)arg2 animated:(char)arg3 ;
+-(void)setSwipeDismissManager:(IGSwipeDismissManager *)arg1 ;
+-(IGSwipeDismissManager *)swipeDismissManager;
 -(IGDirectShareRecipient *)selectedRecipient;
 -(IGDirectGrowingMessageTextView *)messageView;
+-(id)warningMessage;
 -(UIView *)warningLine;
+-(float)externalShareControllerHeight;
+-(id)externalShareController;
 -(UIButton *)searchButton;
 -(UIButton *)searchBarClearButton;
 -(UIButton *)bottomButton;
 -(void)searchBarClearButtonTapped;
 -(void)handleNewQueryString:(id)arg1 ;
 -(void)setSearchBarClearButtonAlpha:(float)arg1 ;
+-(void)onOverlayTapped;
 -(void)onBottomButtonTapped;
 -(void)onSearchButtonTapped;
 -(void)setSelectedRecipient:(IGDirectShareRecipient *)arg1 ;
 -(void)updateMessageViewToVisible:(char)arg1 animated:(char)arg2 ;
 -(void)updateBottomButton;
 -(void)updateTitleStrings;
--(id)shareTitleString;
+-(id)sendToTitleString;
 -(id)subtitleStringForCurrentRecipients;
 -(float)bottomOfFrame;
 -(void)updateMessageViewToHeight:(float)arg1 toVisible:(char)arg2 animated:(char)arg3 ;
+-(NSArray *)publicThreadsRecipients;
+-(NSArray *)defaultRecipients;
+-(int)typeOfSection:(int)arg1 ;
 -(char)loadingResults;
 -(id)shareRecipientAtIndexPath:(id)arg1 ;
 -(void)bumpNewRecipientToFront:(id)arg1 ;
 -(void)logSelectionEventForRecipient:(id)arg1 atIndexPath:(id)arg2 ;
--(NSArray *)defaultRecipients;
 -(void)setDefaultRecipients:(NSArray *)arg1 ;
 -(void)setLoadingResults:(char)arg1 ;
 -(char)useNewSearchEndpoint;
 -(void)logCurrentImpressionEventsForSearchWithQuery:(id)arg1 forSelectedItem:(id)arg2 withSelectedUserIDs:(id)arg3 atIndexPath:(id)arg4 ;
 -(id)loggingDictionaryForRecipient:(id)arg1 ;
+-(void)messageView:(id)arg1 didUpdateToHeight:(float)arg2 ;
+-(void)messageViewClearButtonTappedWhileNoText:(id)arg1 ;
 -(void)swipeDismissManager:(id)arg1 willDismissViewController:(id)arg2 ;
 -(void)swipeDismissManager:(id)arg1 didDismissViewController:(id)arg2 ;
 -(void)showView;
+-(void)setPublicThreadsRecipients:(NSArray *)arg1 ;
+-(int)sectionForType:(int)arg1 ;
 -(void)setBottomButton:(UIButton *)arg1 ;
 -(void)setSearchButton:(UIButton *)arg1 ;
+-(void)setTopLine:(UIView *)arg1 ;
 -(void)setMessageView:(IGDirectGrowingMessageTextView *)arg1 ;
 -(void)setSearchBarClearButton:(UIButton *)arg1 ;
 -(void)setWarningLine:(UIView *)arg1 ;
@@ -125,7 +136,9 @@
 -(int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2 ;
 -(id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(int)numberOfSectionsInCollectionView:(id)arg1 ;
+-(id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3 ;
 -(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;
+-(UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(int)arg3 ;
 -(float)collectionView:(id)arg1 layout:(id)arg2 minimumLineSpacingForSectionAtIndex:(int)arg3 ;
 -(int)preferredStatusBarStyle;
 -(char)prefersStatusBarHidden;
@@ -140,6 +153,7 @@
 -(id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3 ;
 -(id)animationControllerForDismissedController:(id)arg1 ;
 -(UITextField *)searchBar;
+-(CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForFooterInSection:(int)arg3 ;
 -(void)send;
 -(void)setTitleLabel:(UILabel *)arg1 ;
 -(void)setSubtitleLabel:(UILabel *)arg1 ;
@@ -154,9 +168,11 @@
 -(void)setShareState:(unsigned)arg1 ;
 -(void)setContentContainerView:(UIView *)arg1 ;
 -(void)setKeyboardFrame:(CGRect)arg1 ;
+-(void)setAllSections:(NSArray *)arg1 ;
 -(void)setOverlayView:(UIView *)arg1 ;
 -(UIView *)overlayView;
 -(void)keyboardWillShow:(id)arg1 ;
 -(void)keyboardWillHide:(id)arg1 ;
+-(NSArray *)allSections;
 @end
 

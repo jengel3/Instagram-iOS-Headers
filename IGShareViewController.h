@@ -16,7 +16,7 @@
 
 	IGKVOHandle* _readyToShareObserver;
 	IGKVOHandle* _scrollViewObserver;
-	char _isInMode;
+	char _isInCaptionMode;
 	char _overlayIsOpaque;
 	char _overlayHasDropShadow;
 	char _renderInProgress;
@@ -35,6 +35,7 @@
 	IGCaptionCell* _captionCell;
 	IGAutocompleteController* _autocompleteController;
 	UIView* _headerView;
+	UIView* _topShadowView;
 	IGShareToggle* _legacyShareToggle;
 	IGShareButton* _bottomShareButton;
 	UIView* _overlayView;
@@ -58,6 +59,7 @@
 @property (nonatomic,retain) IGCaptionCell * captionCell;                                          //@synthesize captionCell=_captionCell - In the implementation block
 @property (nonatomic,retain) IGAutocompleteController * autocompleteController;                    //@synthesize autocompleteController=_autocompleteController - In the implementation block
 @property (nonatomic,retain) UIView * headerView;                                                  //@synthesize headerView=_headerView - In the implementation block
+@property (nonatomic,retain) UIView * topShadowView;                                               //@synthesize topShadowView=_topShadowView - In the implementation block
 @property (nonatomic,retain) IGShareToggle * legacyShareToggle;                                    //@synthesize legacyShareToggle=_legacyShareToggle - In the implementation block
 @property (nonatomic,retain) IGShareButton * bottomShareButton;                                    //@synthesize bottomShareButton=_bottomShareButton - In the implementation block
 @property (nonatomic,retain) UIView * overlayView;                                                 //@synthesize overlayView=_overlayView - In the implementation block
@@ -67,28 +69,27 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)analyticsMetadata;
+-(char)enableNavState;
 -(id)analyticsModule;
+-(void)keyboardWillChangeFrame:(id)arg1 ;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
 -(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
 -(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
--(id)initWithMediaMetadata:(id)arg1 ;
--(void)setRenderInProgress:(char)arg1 ;
 -(char)overlayIsOpaque;
 -(char)prefersNavbarBottomBorderHidden;
--(id)analyticsMetadata;
 -(id)ig_keyViewControllers;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
 -(IGAutocompleteController *)autocompleteController;
--(char)enableNavState;
--(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
--(void)onBackButtonTapped;
 -(void)onChevronTitleButtonTapped;
 -(void)setShareManager:(UIViewController*<IGShareManager>)arg1 ;
 -(UIViewController*<IGShareManager>)shareManager;
+-(id)initWithMediaMetadata:(id)arg1 ;
 -(void)setShareMode:(int)arg1 ;
 -(int)shareMode;
+-(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
 -(char)captionCellMediaOverlayViewTapEnabled;
 -(void)captionCellMediaOverlayViewTapped;
 -(void)captionTextViewDidChange:(id)arg1 ;
@@ -96,15 +97,10 @@
 -(void)captionTextViewDidBeginEditing:(id)arg1 ;
 -(void)captionTextViewDidEndEditing:(id)arg1 text:(id)arg2 ;
 -(char)captionTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
--(int)numberOfItemsInDropdownView:(id)arg1 ;
--(id)dropdownView:(id)arg1 titleForItemForIndex:(int)arg2 ;
--(void)dropdownView:(id)arg1 didSelectItemAtIndex:(int)arg2 ;
 -(id)allResultsList:(id)arg1 ;
--(void)logAutocomplete:(id)arg1 clickEventAtIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
 -(void)setOverlayIsOpaque:(char)arg1 ;
 -(void)updateNavigationItemWithModeTitle:(id)arg1 animated:(char)arg2 ;
 -(void)stopProgressHUDIfSlowDevice;
--(void)keyboardWillChangeFrame:(id)arg1 ;
 -(IGCaptionCell *)captionCell;
 -(void)onOverlayViewTapped:(id)arg1 ;
 -(CGRect)viewRectMinusNavigationBarAndShareButton;
@@ -124,6 +120,9 @@
 -(IGShareModeDropdownView *)shareModeDropdownView;
 -(void)setLegacyShareToggle:(IGShareToggle *)arg1 ;
 -(IGShareToggle *)legacyShareToggle;
+-(void)setTopShadowView:(UIView *)arg1 ;
+-(UIView *)topShadowView;
+-(void)updateTopShadowOffset;
 -(void)internalSetShareMode:(int)arg1 ;
 -(void)toggleTitleShareMode;
 -(void)addOverlayViewHidden;
@@ -136,9 +135,15 @@
 -(void)layoutAutocompleteTableForKeyboardHeight:(float)arg1 ;
 -(void)enterCaptionMode;
 -(void)onCaptionModeOKButtonTapped;
+-(void)onBackButtonTapped;
 -(void)exitCaptionMode;
+-(void)logAutocomplete:(id)arg1 clickEventAtIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
 -(void)configureStickySharingSelections;
 -(char)shouldEnableStickySharing;
+-(void)setRenderInProgress:(char)arg1 ;
+-(int)numberOfItemsInDropdownView:(id)arg1 ;
+-(id)dropdownView:(id)arg1 titleForItemForIndex:(int)arg2 ;
+-(void)dropdownView:(id)arg1 didSelectItemAtIndex:(int)arg2 ;
 -(char)overlayHasDropShadow;
 -(void)setOverlayHasDropShadow:(char)arg1 ;
 -(void)setCaptionCell:(IGCaptionCell *)arg1 ;

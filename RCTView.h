@@ -57,7 +57,6 @@
 -(void)reactSetFrame:(CGRect)arg1 ;
 -(void)updateClippedSubviews;
 -(void)react_updateClippedSubviewsWithClipRect:(CGRect)arg1 relativeToView:(id)arg2 ;
--(void)setRemoveClippedSubviews:(char)arg1 ;
 -(void)reactSetInheritedBackgroundColor:(id)arg1 ;
 -(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(void)removeReactSubview:(id)arg1 ;
@@ -66,7 +65,7 @@
 -(void)remountSubview:(id)arg1 ;
 -(void)mountOrUnmountSubview:(id)arg1 withClipRect:(CGRect)arg2 relativeToView:(id)arg3 ;
 -(UIEdgeInsets)bordersAsInsets;
--(SCD_Struct_RC83*)borderColors;
+-(SCD_Struct_RC36*)borderColors;
 -(void)updateClippingForLayer:(id)arg1 ;
 -(id)onAccessibilityTap;
 -(void)setOnAccessibilityTap:(id)arg1 ;
@@ -74,6 +73,7 @@
 -(void)setOnMagicTap:(id)arg1 ;
 -(void)setPointerEvents:(int)arg1 ;
 -(int)pointerEvents;
+-(void)setRemoveClippedSubviews:(char)arg1 ;
 -(char)removeClippedSubviews;
 -(void)setBorderRadius:(float)arg1 ;
 -(void)setBorderTopLeftRadius:(float)arg1 ;

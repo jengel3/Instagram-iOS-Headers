@@ -33,7 +33,6 @@
 @property (nonatomic,retain) UIView * loadingView;                                       //@synthesize loadingView=_loadingView - In the implementation block
 @property (assign,nonatomic) double loadingViewFadeDelay;                                //@synthesize loadingViewFadeDelay=_loadingViewFadeDelay - In the implementation block
 @property (assign,nonatomic) double loadingViewFadeDuration;                             //@synthesize loadingViewFadeDuration=_loadingViewFadeDuration - In the implementation block
--(id)initWithBundleURL:(id)arg1 moduleName:(id)arg2 initialProperties:(id)arg3 launchOptions:(id)arg4 ;
 -(NSString *)moduleName;
 -(id)reactTag;
 -(void)bridgeDidReload;
@@ -43,6 +42,7 @@
 -(id)initWithBridge:(id)arg1 moduleName:(id)arg2 initialProperties:(id)arg3 ;
 -(UIViewController *)reactViewController;
 -(void)runApplication:(id)arg1 ;
+-(id)initWithBundleURL:(id)arg1 moduleName:(id)arg2 initialProperties:(id)arg3 launchOptions:(id)arg4 ;
 -(void)setSizeFlexibility:(int)arg1 ;
 -(void)setAppProperties:(NSDictionary *)arg1 ;
 -(void)setIntrinsicSize:(CGSize)arg1 ;
