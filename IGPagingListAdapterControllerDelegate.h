@@ -1,0 +1,5 @@
+
+
+@protocol IGPagingListAdapterControllerDelegate <IGListAdapterDataSource>
+@end
+
