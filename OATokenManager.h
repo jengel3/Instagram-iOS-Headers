@@ -21,13 +21,13 @@
 	char isDispatching;
 
 }
--(void)requestToken;
 -(void)call:(id)arg1 failedWithProblem:(id)arg2 ;
 -(void)call:(id)arg1 failedWithError:(id)arg2 ;
 -(id)initWithConsumer:(id)arg1 token:(id)arg2 oauthBase:(id)arg3 realm:(id)arg4 callback:(id)arg5 delegate:(id)arg6 ;
 -(void)exchangeToken;
 -(void)deleteSavedRequestToken;
 -(void)renewToken;
+-(void)requestToken;
 -(void)performCall:(id)arg1 ;
 -(void)dequeue:(id)arg1 ;
 -(SEL)getSelector:(id)arg1 ;

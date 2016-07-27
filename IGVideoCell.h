@@ -21,10 +21,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setPost:(id)arg1 ;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
 -(void)feedItemVideoView:(id)arg1 didToggleAudio:(char)arg2 ;
 -(void)didDoubleTapFeedItemVideoView:(id)arg1 ;
+-(void)configureWithPostItem:(id)arg1 coverImageURL:(id)arg2 videoLogger:(id)arg3 ;
 -(void)setVideoView:(IGFeedItemVideoView *)arg1 ;
 -(IGFeedItemVideoView *)videoView;
 -(id)initWithFrame:(CGRect)arg1 ;

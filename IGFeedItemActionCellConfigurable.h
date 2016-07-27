@@ -15,10 +15,10 @@
 -(void)setLoggingDelegate:(id)arg1;
 -(void)setAccessoryViewType:(int)arg1;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)setCustomizableButtonHidden:(char)arg1 animated:(char)arg2;
 -(int)ctaLayout;
 -(char)sponsoredPostAllowed;
 -(void)setCustomizableButtonPrimaryTitle:(id)arg1 secondaryTitle:(id)arg2;
--(void)setCustomizableButtonHidden:(char)arg1 animated:(char)arg2;
 -(void)setSponsoredPostAllowed:(char)arg1;
 -(int)accessoryViewType;
 -(void)setCtaLayout:(int)arg1;

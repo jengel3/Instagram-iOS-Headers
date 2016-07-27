@@ -18,8 +18,8 @@
 @property (assign,nonatomic) float angle;                 //@synthesize angle=_angle - In the implementation block
 @property (assign,nonatomic) float opacity;               //@synthesize opacity=_opacity - In the implementation block
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(id)fragmentFunctions;
 -(void)configureProgram:(id)arg1 ;
+-(id)fragmentFunctions;
 -(id)fragmentShader;
 -(id)init;
 -(CGPoint)center;

@@ -28,14 +28,14 @@
 -(IGStatButton *)followingButton;
 -(IGExploreEmptyView *)emptyView;
 -(void)setEmptyView:(IGExploreEmptyView *)arg1 ;
--(void)updatePosts:(id)arg1 followers:(id)arg2 following:(id)arg3 verified:(char)arg4 ;
--(void)updateFeedItems:(id)arg1 ;
 -(IGStatButton *)postsButton;
+-(IGStatButton *)followersButton;
+-(void)updateFeedItems:(id)arg1 ;
+-(void)updatePosts:(id)arg1 followers:(id)arg2 following:(id)arg3 verified:(char)arg4 ;
+-(void)setFollowersButton:(IGStatButton *)arg1 ;
 -(void)setPostsButton:(IGStatButton *)arg1 ;
 -(char)showAsPrivate;
 -(void)setShowAsPrivate:(char)arg1 ;
--(IGStatButton *)followersButton;
--(void)setFollowersButton:(IGStatButton *)arg1 ;
 -(id)initWithUser:(id)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

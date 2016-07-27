@@ -19,23 +19,22 @@
 @property (assign,nonatomic) char needsAttention;                           //@synthesize needsAttention=_needsAttention - In the implementation block
 @property (assign,nonatomic) char clearsAttentionWhenSelected;              //@synthesize clearsAttentionWhenSelected=_clearsAttentionWhenSelected - In the implementation block
 @property (nonatomic,retain) UIView * viewForVibrancyEffect;                //@synthesize viewForVibrancyEffect=_viewForVibrancyEffect - In the implementation block
-+(char)shouldUseNewIcons;
-+(id)tabBarButtonWithIconNamed:(id)arg1 highlightedIconNamed:(id)arg2 ;
 +(id)homeButton;
 +(id)exploreButton;
 +(id)cameraButton;
 +(id)newsButton;
 +(id)profileButtonWithProfilePictureImageView:(id)arg1 ;
 +(id)profileButton;
--(void)setClearsAttentionWhenSelected:(char)arg1 ;
--(void)setViewForVibrancyEffect:(UIView *)arg1 ;
--(UIImageView *)markView;
--(void)updateMark;
--(char)clearsAttentionWhenSelected;
--(void)setMarkView:(UIImageView *)arg1 ;
++(id)tabBarButtonWithIconNamed:(id)arg1 highlightedIconNamed:(id)arg2 ;
 -(UIView *)viewForVibrancyEffect;
 -(void)setNeedsAttention:(char)arg1 ;
 -(char)needsAttention;
+-(void)setClearsAttentionWhenSelected:(char)arg1 ;
+-(void)setViewForVibrancyEffect:(UIView *)arg1 ;
+-(void)updateMark;
+-(char)clearsAttentionWhenSelected;
+-(UIImageView *)markView;
+-(void)setMarkView:(UIImageView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setHighlighted:(char)arg1 ;

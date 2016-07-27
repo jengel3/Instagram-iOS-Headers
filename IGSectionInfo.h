@@ -15,8 +15,8 @@
 @property (nonatomic,copy) NSString * title;                     //@synthesize title=_title - In the implementation block
 @property (nonatomic,retain) id sectionType;                     //@synthesize sectionType=_sectionType - In the implementation block
 @property (nonatomic,copy) NSArray * rowsInfoArray;              //@synthesize rowsInfoArray=_rowsInfoArray - In the implementation block
--(NSArray *)rowsInfoArray;
 -(void)setRowsInfoArray:(NSArray *)arg1 ;
+-(NSArray *)rowsInfoArray;
 -(id)sectionType;
 -(void)setSectionType:(id)arg1 ;
 -(void)setTitle:(NSString *)arg1 ;

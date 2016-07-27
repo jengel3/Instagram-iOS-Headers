@@ -34,6 +34,7 @@
 -(void)logUserTapForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 withOption:(unsigned)arg5 ;
 -(void)logUserHeaderTapForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 withHeaderOption:(unsigned)arg5 ;
 -(void)logEventExitTapForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 exitSource:(id)arg5 ;
+-(void)logGestureForPost:(id)arg1 atIndexPath:(id)arg2 mediaDuration:(float)arg3 timeSpentSeconds:(float)arg4 gestureType:(id)arg5 ;
 -(void)logImpressionForPost:(id)arg1 ;
 -(void)logVideoShouldStartPlayingForPost:(id)arg1 ;
 -(float)cachedProgress;

@@ -20,7 +20,6 @@
 -(void)navigationController:(id)arg1 willNavigateToViewController:(id)arg2 ;
 -(void)navigationController:(id)arg1 didNavigateToViewController:(id)arg2 animated:(char)arg3 ;
 -(void)navigationController:(id)arg1 didPopViewController:(id)arg2 animated:(char)arg3 ;
--(id)initWithEntrypoint:(id)arg1 ;
 -(id)logEvent:(id)arg1 atStep:(id)arg2 ;
 -(NSString *)entrypoint;
 -(id)logSubmitEvent:(id)arg1 atStep:(id)arg2 withStartPageInfo:(id)arg3 endPageInfo:(id)arg4 ;
@@ -33,6 +32,7 @@
 -(void)logFlowFinishStep:(id)arg1 ;
 -(void)logFlowStartStep:(id)arg1 ;
 -(void)logFlowErrorAtStep:(id)arg1 withMessage:(id)arg2 ;
+-(id)initWithEntrypoint:(id)arg1 ;
 -(void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(char)arg3 ;
 -(void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(char)arg3 ;
 @end

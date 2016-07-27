@@ -12,8 +12,6 @@
 @property (assign,nonatomic) char cachedRequestSamplingFlag;                    //@synthesize cachedRequestSamplingFlag=_cachedRequestSamplingFlag - In the implementation block
 @property (nonatomic,retain) NSRegularExpression * cdnSuffixRegex;              //@synthesize cdnSuffixRegex=_cdnSuffixRegex - In the implementation block
 +(id)scheduleWebViewEvent:(id)arg1 ;
--(void)handleUserIDUpdated:(id)arg1 ;
--(void)handleFacebookIDUpdated:(id)arg1 ;
 -(void)updateCachedRequestSamplingFlag;
 -(void)appDidLaunch:(id)arg1 ;
 -(void)exploreFollowPeopleOpened:(id)arg1 ;
@@ -39,7 +37,9 @@
 -(void)onNetworkRequest:(id)arg1 ;
 -(void)feedDidScrollToBottom:(id)arg1 ;
 -(void)handleUserSwitched:(id)arg1 ;
+-(void)handleUserIDUpdated:(id)arg1 ;
 -(void)handleLogoutAllUsers:(id)arg1 ;
+-(void)handleFacebookIDUpdated:(id)arg1 ;
 -(void)logTimeSpent;
 -(void)onCommentDeleteButtonTapped:(id)arg1 ;
 -(void)onCommentSwipeToDelete:(id)arg1 ;

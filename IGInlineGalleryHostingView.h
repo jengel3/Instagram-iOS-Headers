@@ -22,8 +22,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)didInteractOutsideWhenOpen;
 -(id)initWithInlineGallery:(id)arg1 ;
+-(void)didInteractOutsideWhenOpen;
 -(void)setDelegate:(id<IGInlineGalleryViewDelegate>)arg1 ;
 -(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 ;
 -(void)layoutSubviews;

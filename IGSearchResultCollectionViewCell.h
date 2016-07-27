@@ -33,9 +33,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(CGSize)cellSize;
 -(UILabel *)usernameLabel;
--(void)setUsernameLabel:(UILabel *)arg1 ;
 -(IGProfilePictureImageView *)profileView;
 -(void)setProfileView:(IGProfilePictureImageView *)arg1 ;
+-(void)setUsernameLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 andBorderStyle:(int)arg2 ;
 -(UILabel *)unseenLabel;
 -(void)setLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;

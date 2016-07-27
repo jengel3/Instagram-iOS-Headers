@@ -40,14 +40,12 @@
 +(float)iconSizeForCellSize:(CGSize)arg1 ;
 +(float)iconPaddingForCellSize:(CGSize)arg1 ;
 +(CGSize)cellSizeToFit:(CGSize)arg1 ;
+-(UIView *)iconContainer;
 -(void)setLayoutCenterAligned:(char)arg1 ;
 -(void)setShowsHighlightIndicator:(char)arg1 ;
 -(void)setPressedBackgroundColor:(UIColor *)arg1 ;
 -(void)setIconBackgroundColor:(UIColor *)arg1 ;
--(UIView *)iconContainer;
--(char)showsHighlightIndicator;
 -(void)setNormalBackgroundColor:(UIColor *)arg1 ;
--(id)LX_snapshotView;
 -(UIColor *)pressedBackgroundColor;
 -(char)layoutCenterAligned;
 -(UIColor *)iconBackgroundColor;
@@ -57,6 +55,8 @@
 -(void)setIconBackgroundView:(UIView *)arg1 ;
 -(UIImageView *)iconContainerBorderView;
 -(void)setIconContainerBorderView:(UIImageView *)arg1 ;
+-(char)showsHighlightIndicator;
+-(id)LX_snapshotView;
 -(UIColor *)normalBackgroundColor;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

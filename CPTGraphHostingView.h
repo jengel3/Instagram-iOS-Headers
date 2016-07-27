@@ -18,11 +18,11 @@
 @property (assign,nonatomic) char collapsesLayers; 
 @property (assign,nonatomic) char allowPinchScaling; 
 +(Class)layerClass;
--(char)collapsesLayers;
 -(void)setHostedGraph:(CPTGraph *)arg1 ;
+-(CPTGraph *)hostedGraph;
+-(char)collapsesLayers;
 -(void)setCollapsesLayers:(char)arg1 ;
 -(void)setAllowPinchScaling:(char)arg1 ;
--(CPTGraph *)hostedGraph;
 -(char)allowPinchScaling;
 -(void)handlePinchGesture:(id)arg1 ;
 -(void)graphNeedsRedraw:(id)arg1 ;

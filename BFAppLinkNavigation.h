@@ -21,9 +21,9 @@
 +(id)navigateToURLInBackground:(id)arg1 ;
 +(void)setDefaultResolver:(id)arg1 ;
 +(int)navigateToAppLink:(id)arg1 error:(id*)arg2 ;
+-(NSDictionary *)extras;
 -(void)setExtras:(NSDictionary *)arg1 ;
 -(void)setAppLinkData:(NSDictionary *)arg1 ;
--(NSDictionary *)extras;
 -(id)stringByEscapingQueryString:(id)arg1 ;
 -(id)appLinkURLWithTargetURL:(id)arg1 error:(id*)arg2 ;
 -(void)postAppLinkNavigateEventNotificationWithTargetURL:(id)arg1 error:(id)arg2 type:(int)arg3 ;

@@ -26,15 +26,15 @@
 @property (assign,nonatomic) char showWhiteOverlay;                                      //@synthesize showWhiteOverlay=_showWhiteOverlay - In the implementation block
 @property (assign,nonatomic) char showEmptyCheckmark;                                    //@synthesize showEmptyCheckmark=_showEmptyCheckmark - In the implementation block
 +(UIEdgeInsets)separatorInsets;
+-(UIView *)whiteOverlay;
+-(char)showWhiteOverlay;
+-(void)setWhiteOverlay:(UIView *)arg1 ;
+-(void)setShowWhiteOverlay:(char)arg1 ;
 -(IGDirectThreadAvatarView *)profilePictureView;
 -(void)setProfilePictureView:(IGDirectThreadAvatarView *)arg1 ;
 -(void)setLineView:(UIView *)arg1 ;
 -(void)setShowEmptyCheckmark:(char)arg1 ;
 -(char)showEmptyCheckmark;
--(UIView *)whiteOverlay;
--(char)showWhiteOverlay;
--(void)setShowWhiteOverlay:(char)arg1 ;
--(void)setWhiteOverlay:(UIView *)arg1 ;
 -(void)setUser:(id)arg1 ;
 -(void)setShowSeparator:(char)arg1 ;
 -(char)showSeparator;

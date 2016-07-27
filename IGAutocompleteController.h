@@ -84,16 +84,12 @@
 -(id)tableView:(id)arg1 hashtagCellForRow:(int)arg2 ;
 -(id)tableView:(id)arg1 userCellForRow:(int)arg2 ;
 -(void)updateTextInputWithAutocompleteText:(id)arg1 ;
--(void)setCommittingText:(char)arg1 ;
 -(IGUserListAutocompleteDataSource *)usersRemoteDataSource;
 -(IGHashtagAutocompleteDataSource *)hashtagsRemoteDataSource;
 -(IGUserListLocalDataSource *)usersLocalDataSource;
 -(IGHashtagListLocalDataSource *)hashtagsLocalDataSource;
 -(char)isReverseScroll;
--(char)isCommittingText;
 -(char)useRemoteDataSources;
--(void)setUseRemoteDataSources:(char)arg1 ;
--(void)setAnalyticsModule:(NSString *)arg1 ;
 -(NSRange)currentAutocompleteRange;
 -(void)setCurrentAutocompleteRange:(NSRange)arg1 ;
 -(NSString *)currentAutocompletePrefix;
@@ -106,6 +102,10 @@
 -(char)stringQualifies:(id)arg1 ;
 -(void)hideAndResetResults;
 -(void)textInputDidChange;
+-(char)isCommittingText;
+-(void)setCommittingText:(char)arg1 ;
+-(void)setUseRemoteDataSources:(char)arg1 ;
+-(void)setAnalyticsModule:(NSString *)arg1 ;
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFinishLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFailLoad:(id)arg1 ;

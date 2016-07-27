@@ -15,11 +15,11 @@
 @property (nonatomic,retain) UILabel * titleLabel;                       //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * subtitleLabel;                    //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * additionalInfoLabel;              //@synthesize additionalInfoLabel=_additionalInfoLabel - In the implementation block
--(UILabel *)additionalInfoLabel;
--(void)setAdditionalInfoLabelText:(id)arg1 ;
--(void)setAdditionalInfoLabel:(UILabel *)arg1 ;
 -(void)setSubtitleLabelText:(id)arg1 ;
 -(void)setTitleLabelText:(id)arg1 ;
+-(UILabel *)additionalInfoLabel;
+-(void)setAdditionalInfoLabel:(UILabel *)arg1 ;
+-(void)setAdditionalInfoLabelText:(id)arg1 ;
 -(id)init;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

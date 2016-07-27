@@ -19,8 +19,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(NSString *)renderStyle;
--(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 renderStyle:(id)arg3 ;
 -(NSArray *)paragraphUnits;
+-(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 renderStyle:(id)arg3 ;
 -(NSString *)title;
 -(id)style;
 @end

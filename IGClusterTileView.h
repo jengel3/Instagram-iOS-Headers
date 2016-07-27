@@ -36,8 +36,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)imageViewFailedToLoadImage:(id)arg1 error:(id)arg2 ;
--(void)imageViewLoadedImage:(id)arg1 ;
 -(void)showFullResolutionImage;
 -(void)loadThumbnailUrl:(id)arg1 fullResolutionUrl:(id)arg2 showFullResolutionWhenDownloaded:(char)arg3 ;
 -(void)setPreviousCenter:(CGPoint)arg1 ;
@@ -55,6 +53,8 @@
 -(void)flashHighlightWithDuration:(float)arg1 ;
 -(void)setCounterLabel:(UILabel *)arg1 ;
 -(void)setCounterBubble:(UIImageView *)arg1 ;
+-(void)imageViewLoadedImage:(id)arg1 ;
+-(void)imageViewFailedToLoadImage:(id)arg1 error:(id)arg2 ;
 -(void)showSpinner;
 -(id)button;
 -(id)initWithFrame:(CGRect)arg1 ;

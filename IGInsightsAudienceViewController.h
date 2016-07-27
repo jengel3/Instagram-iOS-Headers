@@ -13,12 +13,13 @@
 @property (nonatomic,retain) IGInsightsComponentListViewController * componentListViewController;              //@synthesize componentListViewController=_componentListViewController - In the implementation block
 @property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;                                          //@synthesize loggingHelper=_loggingHelper - In the implementation block
 -(id)analyticsModule;
--(IGInsightsLoggingHelper *)loggingHelper;
 -(char)canHostInlineGallery:(char)arg1 ;
--(IGInsightsComponentListViewController *)componentListViewController;
--(void)setComponentListViewController:(IGInsightsComponentListViewController *)arg1 ;
--(id)initWithQuery:(id)arg1 loggingHelper:(id)arg2 ;
+-(IGInsightsLoggingHelper *)loggingHelper;
+-(char)prefersTabBarHidden;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
+-(IGInsightsComponentListViewController *)componentListViewController;
+-(id)initWithQuery:(id)arg1 loggingHelper:(id)arg2 ;
+-(void)setComponentListViewController:(IGInsightsComponentListViewController *)arg1 ;
 -(void)loadView;
 -(void)viewDidLayoutSubviews;
 -(void)didMoveToParentViewController:(id)arg1 ;

@@ -4,7 +4,7 @@
 #import <Instagram/FBWebView.h>
 
 @protocol FBWebViewAlertHandler, FBWebViewAnalytics;
-@class WKWebView, FBWKWebViewDelegateAdaptor, FBKVOController, NSURL, NSDate, UIView, NSURLRequest, WKNavigation, NSString, UIScrollView;
+@class WKWebView, FBWKWebViewDelegateAdaptor, FBKVOController, UIView, NSURLRequest, WKNavigation, NSString, NSURL, UIScrollView;
 
 @interface FBWKWebView : UIView <FBWebView> {
 
@@ -14,8 +14,6 @@
 	FBKVOController* _KVOController;
 	char _readyToNavigate;
 	/*^block*/id _pendingBlockToRunWhenReady;
-	NSURL* _previousURL;
-	NSDate* _previousURLSetDate;
 	char _isBannerAtTop;
 	char _youtubeNavigationFix;
 	char _recoveredFromOOMCrash;
@@ -54,7 +52,6 @@
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                           //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
 +(void)setUnsupportedMIMETypes:(id)arg1 ;
--(void)_layoutBannerView;
 -(NSURL *)currentLocationURL;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;
@@ -64,9 +61,10 @@
 -(void)setDisplayState:(int)arg1 ;
 -(char)isBannerAtTop;
 -(void)setIsBannerAtTop:(char)arg1 ;
--(int)webViewImplementation;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1 ;
+-(int)webViewImplementation;
+-(void)_layoutBannerView;
 -(id<FBWebViewAnalytics>)analytics;
 -(void)setAnalytics:(id<FBWebViewAnalytics>)arg1 ;
 -(void)_navigationHistoryChanged;
@@ -75,6 +73,7 @@
 -(id)_disableLocationServicesScriptString;
 -(id)_TTIMetricScriptString;
 -(id)_getSelectionScriptString;
+-(id)_getVideoEventScriptString;
 -(void)_loadingStateChanged;
 -(void)_estimatedProgressChanged;
 -(void)_titleChanged;
@@ -85,8 +84,8 @@
 -(WKNavigation *)perfLogNavigation;
 -(void)setPerfLogNavigation:(WKNavigation *)arg1 ;
 -(id)initWithProcessPoolContainer:(id)arg1 frame:(CGRect)arg2 analytics:(id)arg3 alertHandler:(id)arg4 ;
--(void)addScriptMessageHandlerForName:(id)arg1 ;
 -(char)recoveredFromOOMCrash;
+-(void)addScriptMessageHandlerForName:(id)arg1 ;
 -(UIView *)bannerView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<FBWebViewDelegate>)arg1 ;

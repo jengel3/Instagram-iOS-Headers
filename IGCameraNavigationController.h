@@ -35,18 +35,21 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)initWithMetadata:(id)arg1 mode:(int)arg2 userSession:(id)arg3 ;
 -(UIView *)navigationBarShadow;
 -(void)setNavigationBarShadow:(UIView *)arg1 ;
 -(float)verticalOffset;
+-(void)pushViewController:(id)arg1 viewWillBeVisible:(char)arg2 animated:(char)arg3 ;
 -(void)setIsTranslucent:(char)arg1 ;
+-(void)popViewControllerWithPoppedToViewWillBeVisible:(char)arg1 animated:(char)arg2 ;
 -(void)reloadNavigationItem:(id)arg1 animated:(char)arg2 ;
 -(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2 fromOrigin:(int)arg3 ;
 -(void)mediaCaptureViewController:(id)arg1 didProduceVideoComposition:(id)arg2 ;
+-(id)ig_keyViewControllers;
 -(void)setVerticalOffset:(float)arg1 ;
 -(void)reloadNavigationItem:(id)arg1 ;
 -(void)pushViewControllersForDraft:(id)arg1 ;
--(id)ig_keyViewControllers;
--(id)initWithMetadata:(id)arg1 mode:(int)arg2 userSession:(id)arg3 ;
+-(void)popToRootViewControllerAndResetMediaMetadataWithNewDraft:(id)arg1 ;
 -(IGEditorViewController *)currentEditor;
 -(void)setCurrentEditor:(IGEditorViewController *)arg1 ;
 -(void)setDelegate:(id<IGCameraNavigationControllerDelegate>)arg1 ;
@@ -74,7 +77,6 @@
 -(void)viewDidDisappear:(char)arg1 ;
 -(void)pushViewController:(id)arg1 animated:(char)arg2 ;
 -(void)setNavigationBarHidden:(char)arg1 ;
--(void)popToRootViewControllerAnimated:(char)arg1 ;
 -(IGUserSession *)userSession;
 @end
 

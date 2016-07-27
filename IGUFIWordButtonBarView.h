@@ -52,6 +52,7 @@
 -(char)showLikedButton;
 -(void)onCommentTextButtonPressed:(id)arg1 ;
 -(void)onSendTextButtonPressed:(id)arg1 ;
+-(void)setContentEdgeInsetsOnTextButtons:(UIEdgeInsets)arg1 ;
 -(void)setFontOnTextButtons:(float)arg1 ;
 -(void)setDelegate:(id<IGUFIButtonBarViewDelegate>)arg1 ;
 -(void)layoutSubviews;

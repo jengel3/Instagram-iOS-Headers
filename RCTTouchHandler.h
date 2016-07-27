@@ -15,12 +15,12 @@
 	unsigned short _coalescingKey;
 
 }
+-(id)initWithBridge:(id)arg1 ;
 -(void)handleGestureUpdate:(id)arg1 ;
 -(void)_updateReactTouchAtIndex:(int)arg1 ;
 -(void)_updateAndDispatchTouches:(id)arg1 eventName:(id)arg2 originatingTime:(double)arg3 ;
 -(void)_recordNewTouches:(id)arg1 ;
 -(void)_recordRemovedTouches:(id)arg1 ;
--(id)initWithBridge:(id)arg1 ;
 -(void)cancel;
 -(id)initWithTarget:(id)arg1 action:(SEL)arg2 ;
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2 ;

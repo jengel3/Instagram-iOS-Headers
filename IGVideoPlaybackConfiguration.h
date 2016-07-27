@@ -18,12 +18,12 @@
 @property (nonatomic,readonly) char showTimeIndicator;                      //@synthesize showTimeIndicator=_showTimeIndicator - In the implementation block
 @property (nonatomic,readonly) char allowCaption;                           //@synthesize allowCaption=_allowCaption - In the implementation block
 -(char)audioEnabled;
--(char)looping;
--(char)showOneTapIndicatorNUX;
--(char)allowHardwareSoundControl;
--(char)showTimeIndicator;
--(char)allowCaption;
 -(id)initWithLooping:(char)arg1 audioEnabled:(char)arg2 allowHardwareSoundControl:(char)arg3 showOneTapIndicatorNUX:(char)arg4 showTimeIndicator:(char)arg5 allowCaption:(char)arg6 ;
+-(char)looping;
+-(char)showTimeIndicator;
+-(char)showOneTapIndicatorNUX;
+-(char)allowCaption;
+-(char)allowHardwareSoundControl;
 -(id)init;
 @end
 

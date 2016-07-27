@@ -10,10 +10,10 @@
 }
 
 @property (nonatomic,readonly) int workingRangeSize;              //@synthesize workingRangeSize=_workingRangeSize - In the implementation block
--(void)updateWorkingRangesWithListAdapter:(id)arg1 ;
 -(id)initWithWorkingRangeSize:(int)arg1 ;
 -(void)willDisplayItemAtIndexPath:(id)arg1 forListAdapter:(id)arg2 ;
 -(void)didEndDisplayingItemAtIndexPath:(id)arg1 forListAdapter:(id)arg2 ;
+-(void)updateWorkingRangesWithListAdapter:(id)arg1 ;
 -(int)workingRangeSize;
 @end
 

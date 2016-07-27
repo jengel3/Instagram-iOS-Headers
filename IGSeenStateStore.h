@@ -19,20 +19,22 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)clearForUserPK:(id)arg1 ;
 +(id)diskCacheFilePathForUser:(id)arg1 ;
++(void)clearForUserPK:(id)arg1 ;
 +(void)removeFromDisk:(id)arg1 ;
--(void)willSwitchUsers;
--(void)willLogOut;
 -(NSString *)userSessionPK;
 -(NSObject*<OS_dispatch_queue>)archiveQueue;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)initWithUserSessionPK:(id)arg1 ;
 -(void)saveToDisk;
 -(void)markSeenForFeedItem:(id)arg1 ;
--(void)validateSeenStateObject;
--(void)updateSeenStateObjectWithSeenIDParameter:(id)arg1 ;
 -(id)seenIDsString;
 -(id)unseenIDsString;
+-(void)loadFromDisk;
+-(void)validateSeenStateObject;
+-(void)updateSeenStateObjectWithSeenIDParameter:(id)arg1 ;
+-(void)logSeenStateStoreWithAction:(id)arg1 succeed:(char)arg2 extra:(id)arg3 ;
 -(void)updateSeenStateOnRequestSuccessWithFeedItems:(id)arg1 seenIDsStringParameter:(id)arg2 isFirstPage:(char)arg3 ;
 -(IGSeenStateObject *)seenStateObject;
 @end

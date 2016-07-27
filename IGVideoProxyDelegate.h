@@ -2,7 +2,7 @@
 
 @protocol IGVideoProxyDelegate <NSObject>
 @required
--(void)videoProxy:(id)arg1 didEndRequest:(id)arg2 forURL:(id)arg3 error:(id)arg4;
+-(void)videoProxyDidEndRequestForURL:(id)arg1 error:(id)arg2;
 
 @end
 

@@ -33,6 +33,7 @@
 -(void)setUpHeaderBar;
 -(void)clearTemporaryAuthCookies;
 -(void)updateHeaderToLoadingView:(char)arg1 withGreyOverlay:(char)arg2 leftButtonEnabled:(char)arg3 ;
+-(void)disableLongPressGestures:(id)arg1 ;
 -(UIView *)loadingOverlayView;
 -(void)setUpNavigationBarWithParams:(id)arg1 ;
 -(void)callToJS:(id)arg1 ;

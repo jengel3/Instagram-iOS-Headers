@@ -1,13 +1,9 @@
 
 
 @interface IGEventViewerQE : NSObject
-+(float)getRatioValueFromQEForParam:(id)arg1 ;
-+(char)allowGestureToClose;
-+(float)ratioYForPullUpGesture;
-+(float)ratioYForPullDownGesture;
-+(float)ratioXForSwipeGesture;
-+(float)ratioYForSwipeGesture;
++(char)allowGestureControlSwipeRight;
 +(char)enableFeedHeader;
 +(char)enableUFIBelowMedia;
++(char)supportPhoto;
 @end
 

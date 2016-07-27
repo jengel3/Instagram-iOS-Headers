@@ -45,8 +45,8 @@
 -(id)combinedAddressString;
 -(char)hasAtLeastOneContactInfo;
 -(NSString *)pageName;
--(NSURL *)profilePictureURL;
 -(NSArray *)connectedInstagramAccountIDs;
+-(NSURL *)profilePictureURL;
 -(IGFacebookPageCity *)city;
 -(id)initWithUser:(id)arg1 ;
 -(IGFacebookPageAddress *)address;

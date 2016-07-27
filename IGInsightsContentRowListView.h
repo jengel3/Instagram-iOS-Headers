@@ -22,9 +22,12 @@
 @property (nonatomic,copy) NSArray * listItemViews;                                                 //@synthesize listItemViews=_listItemViews - In the implementation block
 @property (assign,nonatomic) char showDetails;                                                      //@synthesize showDetails=_showDetails - In the implementation block
 @property (assign,nonatomic,__weak) id<IGInsightsContentRowListViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+-(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 ;
+-(void)setShowDetails:(char)arg1 ;
 -(void)initializeTextButtonWithTitle:(id)arg1 ;
 -(void)initializeChevronButton;
 -(void)initializeListItemViewsWithParagraphUnits:(id)arg1 ;
+-(void)buttonClick:(id)arg1 ;
 -(char)showDetails;
 -(float)getDeltaHeightForSize:(CGSize)arg1 ;
 -(NSArray *)listItemViews;
@@ -37,9 +40,6 @@
 -(void)initializeBottomSeparator;
 -(void)buttonClickInFilterSelectorView;
 -(void)setListItemViews:(NSArray *)arg1 ;
--(void)buttonClick:(id)arg1 ;
--(id)initWithTitle:(id)arg1 paragraphUnits:(id)arg2 ;
--(void)setShowDetails:(char)arg1 ;
 -(void)setDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

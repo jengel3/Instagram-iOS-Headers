@@ -25,15 +25,15 @@
 -(void)setUpTitle;
 -(void)selectButton:(id)arg1 ;
 -(NSArray *)tabButtons;
--(void)setUpContentView;
+-(void)buttonClick:(id)arg1 ;
 -(UIEdgeInsets)contentViewPaddings;
 -(void)layoutTabButtonsWithHeaderViewHeight:(float)arg1 ;
 -(void)setUpTabButtons;
+-(void)setUpContentView;
 -(void)setUpPaddings;
 -(void)unselectButton:(id)arg1 ;
 -(void)setTabButtons:(NSArray *)arg1 ;
 -(void)setContentViewPaddings:(UIEdgeInsets)arg1 ;
--(void)buttonClick:(id)arg1 ;
 -(unsigned)activeIndex;
 -(void)setActiveIndex:(unsigned)arg1 ;
 -(void)setHeaderDelegate:(id)arg1 ;

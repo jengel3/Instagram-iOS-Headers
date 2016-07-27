@@ -35,7 +35,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)enableNavState;
 -(id)analyticsModule;
 -(void)followStatusNotification:(id)arg1 ;
 -(IGDiscoverMorePeopleConnectionView *)facebookConnectionView;
@@ -59,6 +58,7 @@
 -(void)findUsersViewDataSource:(id)arg1 didLoadAllUserIDs:(id)arg2 ;
 -(void)contactsViewController:(id)arg1 didDisconnectContactsWithSuccess:(char)arg2 ;
 -(void)contactsViewControllerWillDisconnectContacts:(id)arg1 ;
+-(char)enableNavState;
 -(id)initWithDataSource:(id)arg1 feedType:(int)arg2 ;
 -(id)feedStatusViewDataSource;
 -(void)fetchMoreData;
@@ -83,9 +83,9 @@
 -(void)setContactsConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
 -(void)setVkConnectionView:(IGDiscoverMorePeopleConnectionView *)arg1 ;
 -(void)setFeedType:(int)arg1 ;
--(id)titleLabelWithUserName:(id)arg1 ;
 -(void)setProfileChainingDismissBlockWithUser:(id)arg1 ;
 -(id)initProfileChainingPeopleFeedViewControllerWithUser:(id)arg1 ;
+-(id)titleLabelWithUserName:(id)arg1 ;
 -(id)initExplorePeopleFeedViewController;
 -(void)fetchData;
 -(void)setDataSource:(IGFindUsersViewDataSource *)arg1 ;

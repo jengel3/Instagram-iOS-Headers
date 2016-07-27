@@ -6,7 +6,7 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 #import <Instagram/RCTFrameUpdateObserver.h>
 
-@class RCTBridge, UIView, NSArray, NSMutableArray, RCTNavigationController, NSTimer, NSString;
+@class RCTBridge, UIView, NSArray, RCTNavigationController, NSTimer, NSString;
 
 @interface RCTNavigator : UIView <RCTWrapperViewControllerNavigationListener, UINavigationControllerDelegate, UIGestureRecognizerDelegate, RCTFrameUpdateObserver> {
 
@@ -22,7 +22,6 @@
 	int _previousRequestedTopOfStack;
 	unsigned _popGestureState;
 	NSArray* _previousViews;
-	NSMutableArray* _currentViews;
 	RCTNavigationController* _navigationController;
 	float _mostRecentProgress;
 	NSTimer* _runTimer;
@@ -37,7 +36,6 @@
 @property (assign,nonatomic) int previousRequestedTopOfStack;                             //@synthesize previousRequestedTopOfStack=_previousRequestedTopOfStack - In the implementation block
 @property (assign,nonatomic) unsigned popGestureState;                                    //@synthesize popGestureState=_popGestureState - In the implementation block
 @property (nonatomic,copy) NSArray * previousViews;                                       //@synthesize previousViews=_previousViews - In the implementation block
-@property (nonatomic,retain) NSMutableArray * currentViews;                               //@synthesize currentViews=_currentViews - In the implementation block
 @property (nonatomic,retain) RCTNavigationController * navigationController;              //@synthesize navigationController=_navigationController - In the implementation block
 @property (nonatomic,readonly) float mostRecentProgress;                                  //@synthesize mostRecentProgress=_mostRecentProgress - In the implementation block
 @property (nonatomic,readonly) NSTimer * runTimer;                                        //@synthesize runTimer=_runTimer - In the implementation block
@@ -53,11 +51,16 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (getter=isPaused,nonatomic,readonly) char paused;                               //@synthesize paused=_paused - In the implementation block
 @property (nonatomic,copy) id pauseCallback;                                              //@synthesize pauseCallback=_pauseCallback - In the implementation block
+-(id)reactViewController;
+-(void)reactBridgeDidFinishTransaction;
+-(id)reactSuperview;
+-(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
+-(void)removeReactSubview:(id)arg1 ;
+-(void)didUpdateReactSubviews;
 -(id)initWithBridge:(id)arg1 ;
 -(void)didUpdateFrame:(id)arg1 ;
 -(id)pauseCallback;
 -(void)setPauseCallback:(id)arg1 ;
--(id)reactViewController;
 -(void)dispatchFakeScrollEvent;
 -(void)freeLock;
 -(unsigned)popGestureState;
@@ -79,18 +82,11 @@
 -(void)setPopGestureState:(unsigned)arg1 ;
 -(NSArray *)previousViews;
 -(void)setPreviousViews:(NSArray *)arg1 ;
--(NSMutableArray *)currentViews;
--(void)setCurrentViews:(NSMutableArray *)arg1 ;
 -(float)mostRecentProgress;
 -(NSTimer *)runTimer;
 -(int)currentlyTransitioningFrom;
 -(int)currentlyTransitioningTo;
 -(UIView *)dummyView;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
--(id)reactSuperview;
--(void)reactBridgeDidFinishTransaction;
 -(char)isPaused;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

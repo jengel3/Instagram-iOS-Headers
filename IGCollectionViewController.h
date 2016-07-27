@@ -58,6 +58,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(float)headerAdjustmentAmount;
 -(id)initWithLayout:(id)arg1 showsPullToRefresh:(char)arg2 ;
 -(void)reloadWithCurrentObjects;
 -(id)currentReloadContext;
@@ -74,6 +75,7 @@
 -(NSArray *)currentLoadingObjects;
 -(id)currentLoadingContext;
 -(void)reloadWithCurrentObjectsAnimated:(char)arg1 completionBlock:(/*^block*/id)arg2 ;
+-(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
 -(id)setupCollectionViewWithLayout:(id)arg1 ;
 -(void)applyContentInset;
 -(char)showsPullToRefreshControl;
@@ -89,7 +91,6 @@
 -(void)setSupplementaryHeaderViewHeight:(float)arg1 animated:(char)arg2 ;
 -(void)setPullToRefreshInset:(float)arg1 ;
 -(void)scrollToTopOfContentInsetAnimated:(char)arg1 ;
--(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
 -(void)didChangeHeaderAdjustmentAmount:(float)arg1 ;
 -(void)setBackgroundSupplementaryHeaderView:(UIView *)arg1 ;
 -(void)setBackgroundSupplementaryFooterView:(UIView *)arg1 ;
@@ -100,7 +101,6 @@
 -(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
 -(float)supplementaryFooterViewHeight;
 -(void)setSupplementaryFooterViewHeight:(float)arg1 ;
--(float)headerAdjustmentAmount;
 -(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)scrollToTopAnimated:(char)arg1 ;
 -(NSArray *)objects;

@@ -5,7 +5,7 @@
 #import <Instagram/IGEventViewerFeedLayoutDelegate.h>
 #import <Instagram/IGEventViewerFeedLayoutDataSource.h>
 
-@protocol IGEventViewerFeedViewScrollingDelegate, IGEventViewerFeedViewDraggingDelegate, IGEventViewerFeedViewGestureDelegate;
+@protocol IGEventViewerFeedViewScrollingDelegate, IGEventViewerFeedViewDraggingDelegate;
 @class IGListCollectionView, IGListAdapter, IGEventViewerFeedLayout, IGEventViewerDataSource, IGEventViewerCollectionViewCellAnimator, NSIndexPath, IGEventViewerActionCell, NSString;
 
 @interface IGEventViewerFeedViewController : UIViewController <UICollectionViewDelegate, IGEventViewerFeedLayoutDelegate, IGEventViewerFeedLayoutDataSource> {
@@ -15,7 +15,6 @@
 	IGEventViewerFeedLayout* _feedLayout;
 	id<IGEventViewerFeedViewScrollingDelegate> _scrollingDelegate;
 	id<IGEventViewerFeedViewDraggingDelegate> _draggingDelegate;
-	id<IGEventViewerFeedViewGestureDelegate> _gestureDelegate;
 	IGEventViewerDataSource* _dataSource;
 	IGEventViewerCollectionViewCellAnimator* _cellAnimator;
 	NSIndexPath* _centeredIndexPathWhenBeginDragging;
@@ -34,7 +33,6 @@
 @property (nonatomic,__weak,readonly) IGEventViewerFeedLayout * feedLayout;                                    //@synthesize feedLayout=_feedLayout - In the implementation block
 @property (assign,nonatomic,__weak) id<IGEventViewerFeedViewScrollingDelegate> scrollingDelegate;              //@synthesize scrollingDelegate=_scrollingDelegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGEventViewerFeedViewDraggingDelegate> draggingDelegate;                //@synthesize draggingDelegate=_draggingDelegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGEventViewerFeedViewGestureDelegate> gestureDelegate;                  //@synthesize gestureDelegate=_gestureDelegate - In the implementation block
 @property (nonatomic,readonly) NSIndexPath * currentlyCenteredIndexPath; 
 @property (nonatomic,readonly) IGFeedItemMediaCell*<IGEventViewerCellType> currentlyCenteredCell; 
 @property (nonatomic,readonly) IGEventViewerActionCell * currentlyCenteredActionCell; 
@@ -52,8 +50,6 @@
 -(void)willScrollToContentOffset:(CGPoint)arg1 ;
 -(NSIndexPath *)centeredIndexPathWhenBeginDragging;
 -(IGEventViewerCollectionViewCellAnimator *)cellAnimator;
--(void)setPanGestureStartLocation:(CGPoint)arg1 ;
--(CGPoint)panGestureStartLocation;
 -(void)eventViewerFeedLayoutDidReachMaximumContentOffset:(id)arg1 ;
 -(CGSize)eventViewerFeedLayout:(id)arg1 sizeForItemAtIndexPath:(id)arg2 ;
 -(IGFeedItemMediaCell*<IGEventViewerCellType>)currentlyCenteredCell;
@@ -61,8 +57,9 @@
 -(id)cellAtIndexPath:(id)arg1 ;
 -(void)setCurrentlyCenteredHeaderCellMoreButtonHidden:(char)arg1 ;
 -(void)setScrollingDelegate:(id<IGEventViewerFeedViewScrollingDelegate>)arg1 ;
+-(CGPoint)panGestureStartLocation;
+-(void)setPanGestureStartLocation:(CGPoint)arg1 ;
 -(void)scrollViewDidEndScrolling;
--(void)handlePanGesture:(id)arg1 ;
 -(void)scrollViewWillBeginDragging:(id)arg1 ;
 -(void)scrollViewWillEndDragging:(id)arg1 withVelocity:(CGPoint)arg2 targetContentOffset:(inout CGPoint*)arg3 ;
 -(void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(char)arg2 ;
@@ -71,8 +68,6 @@
 -(void)viewDidLayoutSubviews;
 -(IGListCollectionView *)collectionView;
 -(void)viewDidLoad;
--(void)setGestureDelegate:(id<IGEventViewerFeedViewGestureDelegate>)arg1 ;
--(id<IGEventViewerFeedViewGestureDelegate>)gestureDelegate;
 -(CGPoint)lastContentOffset;
 -(void)setLastContentOffset:(CGPoint)arg1 ;
 -(IGEventViewerFeedLayout *)feedLayout;

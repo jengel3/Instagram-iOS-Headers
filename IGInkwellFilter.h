@@ -4,8 +4,8 @@
 @interface IGInkwellFilter : IGPhotoFilter
 +(id)filterName;
 +(int)filterType;
--(id)strengthShaderCode;
 -(id)borderName;
+-(id)strengthShaderCode;
 -(id)fragmentShader;
 -(id)samplers;
 @end

@@ -60,14 +60,14 @@
 -(void)setBackupAccessFooterView:(IGGroupedTableViewFooterView *)arg1 ;
 -(NSArray *)backupCodes;
 -(void)setBackupCodes:(NSArray *)arg1 ;
+-(NSString *)countryNumber;
+-(void)setCountryNumber:(NSString *)arg1 ;
+-(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 contactPreference:(unsigned)arg4 ;
 -(void)confirmPhoneNumberViewControllerWantsToChangePhoneNumber:(id)arg1 ;
 -(void)confirmPhoneNumberViewControllerWantsConfirmationCodeResent:(id)arg1 ;
 -(void)confirmPhoneNumberViewControllerDidConfirmPhoneNumber:(id)arg1 withResponse:(id)arg2 ;
--(void)changePhoneNumberViewController:(id)arg1 doneEditingWithCountryNumber:(id)arg2 phoneNumber:(id)arg3 contactPreference:(unsigned)arg4 ;
 -(void)dataFetchedWithDictionary:(id)arg1 ;
 -(void)dataFetchFailed:(id)arg1 ;
--(void)setCountryNumber:(NSString *)arg1 ;
--(NSString *)countryNumber;
 -(id)init;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 viewForFooterInSection:(int)arg2 ;

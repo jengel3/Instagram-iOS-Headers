@@ -31,11 +31,9 @@
 -(id)initWithFeedItem:(id)arg1 ;
 -(void)setShareListManager:(IGShareListManager *)arg1 ;
 -(void)fetchPermalinkForFeedItem:(id)arg1 withSuccessHandler:(/*^block*/id)arg2 errorHandler:(/*^block*/id)arg3 ;
--(void)shareListNeedsFullReload;
--(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
--(id)viewControllerForShareConfiguration;
 -(char)captionCellMediaOverlayViewTapEnabled;
 -(void)captionCellMediaOverlayViewTapped;
+-(void)captionCellEditButtonTapped;
 -(char)captionTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
 -(void)captionTextViewDidBeginEditing:(id)arg1 ;
 -(void)captionTextViewWillBeginEditing:(id)arg1 ;
@@ -52,6 +50,9 @@
 -(id)collectionView:(id)arg1 shareAdditionalCellForItemAtIndexPath:(id)arg2 ;
 -(void)didSelectShareCellAtIndexPath:(id)arg1 ;
 -(void)didSelectAdditionalShareCellAtIndex:(id)arg1 ;
+-(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
+-(id)viewControllerForShareConfiguration;
+-(void)shareListNeedsFullReload;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)dealloc;
 -(void)scrollViewDidScroll:(id)arg1 ;

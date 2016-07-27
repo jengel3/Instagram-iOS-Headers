@@ -3,7 +3,7 @@
 #import <libobjc.A.dylib/NSCoding.h>
 #import <Instagram/IGDKDiffable.h>
 
-@class NSString, IGPhoto, IGVideo, IGUser, NSURL, IGCommentModel, IGDate, IGDirectResponseInfo;
+@class NSString, IGPhoto, IGVideo, IGUser, IGCommentModel, IGDate, IGDirectResponseInfo;
 
 @interface IGPostItem : NSObject <IGMediaPreloaderItem, NSCoding, IGDKDiffable> {
 
@@ -12,7 +12,6 @@
 	IGPhoto* _photo;
 	IGVideo* _video;
 	IGUser* _user;
-	NSURL* _link;
 	NSString* _actionText;
 	IGCommentModel* _headline;
 	IGDate* _takenAtDate;
@@ -29,18 +28,17 @@
 @property (nonatomic,readonly) IGPhoto * photo;                                        //@synthesize photo=_photo - In the implementation block
 @property (nonatomic,readonly) IGVideo * video;                                        //@synthesize video=_video - In the implementation block
 @property (nonatomic,readonly) IGUser * user;                                          //@synthesize user=_user - In the implementation block
-@property (nonatomic,readonly) NSURL * link;                                           //@synthesize link=_link - In the implementation block
 @property (nonatomic,copy,readonly) NSString * actionText;                             //@synthesize actionText=_actionText - In the implementation block
 @property (nonatomic,readonly) IGCommentModel * headline;                              //@synthesize headline=_headline - In the implementation block
 @property (nonatomic,readonly) IGDate * takenAtDate;                                   //@synthesize takenAtDate=_takenAtDate - In the implementation block
 @property (nonatomic,readonly) IGDirectResponseInfo * directResponseInfo;              //@synthesize directResponseInfo=_directResponseInfo - In the implementation block
 -(NSString *)pk;
--(id)diffIdentifier;
 -(IGDate *)takenAtDate;
+-(id)diffIdentifier;
 -(IGDirectResponseInfo *)directResponseInfo;
 -(NSString *)actionText;
 -(id)initWithFeedDictionary:(id)arg1 ;
--(id)initWithType:(int)arg1 photo:(id)arg2 video:(id)arg3 user:(id)arg4 link:(id)arg5 pk:(id)arg6 actionText:(id)arg7 directResponseInfo:(id)arg8 headline:(id)arg9 takenAtDate:(id)arg10 ;
+-(id)initWithType:(int)arg1 photo:(id)arg2 video:(id)arg3 user:(id)arg4 pk:(id)arg5 actionText:(id)arg6 directResponseInfo:(id)arg7 headline:(id)arg8 takenAtDate:(id)arg9 ;
 -(IGCommentModel *)headline;
 -(IGUser *)user;
 -(int)mediaType;
@@ -51,7 +49,6 @@
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(NSString *)description;
--(NSURL *)link;
 -(IGVideo *)video;
 @end
 

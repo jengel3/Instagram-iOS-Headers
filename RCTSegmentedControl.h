@@ -16,8 +16,8 @@
 @property (assign,nonatomic) int selectedIndex;              //@synthesize selectedIndex=_selectedIndex - In the implementation block
 @property (nonatomic,copy) id onChange;                      //@synthesize onChange=_onChange - In the implementation block
 -(id)onChange;
--(void)setOnChange:(id)arg1 ;
 -(void)didChange;
+-(void)setOnChange:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setValues:(NSArray *)arg1 ;
 -(NSArray *)values;

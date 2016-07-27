@@ -26,8 +26,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(id)analyticsModule;
+-(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(id)initWithLogDicts:(id)arg1 ;
 -(id)_imageWithColor:(id)arg1 ;
 -(void)onTableViewLongPress:(id)arg1 ;

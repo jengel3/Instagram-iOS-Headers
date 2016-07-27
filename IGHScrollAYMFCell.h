@@ -42,6 +42,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(float)suggestedCellHeightForType:(int)arg1 ;
 +(float)suggestedCellWidth;
+-(void)dismissButtonTapped;
 -(void)setUpSubViews;
 -(UILabel *)primaryLabel;
 -(IGSpringButton *)fbConnectButton;
@@ -57,9 +58,9 @@
 -(void)configureActionCardsWithCellType:(int)arg1 ;
 -(void)setSecondaryLabelHeight:(float)arg1 ;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
+-(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(void)configureWithItem:(id)arg1 cellType:(int)arg2 ;
 -(void)FBButtonConnected;
--(void)dismissButtonTapped;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGHScrollAYMFCellDelegate>)arg1 ;
 -(void)layoutSubviews;

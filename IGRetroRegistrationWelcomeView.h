@@ -26,14 +26,14 @@
 @property (nonatomic,retain) UIButton * signUpButton;                                                           //@synthesize signUpButton=_signUpButton - In the implementation block
 @property (nonatomic,retain) UIButton * dismissButton;                                                          //@synthesize dismissButton=_dismissButton - In the implementation block
 -(void)showDismissButton;
--(UIButton *)signUpButton;
--(void)setSignUpButton:(UIButton *)arg1 ;
 -(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
 -(IGFacebookButton *)facebookButton;
 -(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
 -(IGChevronTitleButton *)changeLanguageButton;
 -(void)setChangeLanguageButton:(IGChevronTitleButton *)arg1 ;
+-(UIButton *)signUpButton;
+-(void)setSignUpButton:(UIButton *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setBackgroundView:(IGRetroRegistrationBackgroundView *)arg1 ;

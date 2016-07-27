@@ -29,7 +29,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(void)setIsEditing:(char)arg1 ;
--(IGFacebookPageInfo *)pageInfo;
 -(id)cellToRemoveAddressAtIndexPath:(id)arg1 ;
 -(id)addressFieldCellForRowAtIndexPath:(id)arg1 ;
 -(void)removeAddress;
@@ -41,6 +40,7 @@
 -(void)editableProfileCellDidBeginEditing:(id)arg1 ;
 -(char)editableProfileCellWantsReturn:(id)arg1 withValue:(id)arg2 forKey:(id)arg3 ;
 -(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
+-(IGFacebookPageInfo *)pageInfo;
 -(void)saveChanges;
 -(void)setDelegate:(id<IGBusinessConversionAddressViewControllerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

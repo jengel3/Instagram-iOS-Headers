@@ -22,11 +22,11 @@
 +(id)moduleName;
 +(void)load;
 -(NSObject*<OS_dispatch_queue>)methodQueue;
+-(void)sendAppEventWithName:(id)arg1 body:(id)arg2 ;
+-(void)sendTextEventWithType:(int)arg1 reactTag:(id)arg2 text:(id)arg3 key:(id)arg4 eventCount:(int)arg5 ;
 -(void)sendInputEventWithName:(id)arg1 body:(id)arg2 ;
 -(void)flushEventsQueue;
--(void)sendAppEventWithName:(id)arg1 body:(id)arg2 ;
 -(void)sendDeviceEventWithName:(id)arg1 body:(id)arg2 ;
--(void)sendTextEventWithType:(int)arg1 reactTag:(id)arg2 text:(id)arg3 key:(id)arg4 eventCount:(int)arg5 ;
 -(void)sendFakeScrollEvent:(id)arg1 ;
 -(void)sendEvent:(id)arg1 ;
 -(RCTBridge *)bridge;

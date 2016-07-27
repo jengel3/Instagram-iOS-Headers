@@ -16,6 +16,8 @@
 @property (nonatomic,readonly) NSMutableSet * seenIDs;                       //@synthesize seenIDs=_seenIDs - In the implementation block
 -(NSMutableSet *)seenIDs;
 -(NSMutableOrderedSet *)unseenIDs;
+-(id)seenIDsString;
+-(id)unseenIDsString;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

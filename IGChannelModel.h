@@ -20,9 +20,9 @@
 @property (nonatomic,copy,readonly) NSString * title;                    //@synthesize title=_title - In the implementation block
 @property (nonatomic,copy,readonly) NSString * context;                  //@synthesize context=_context - In the implementation block
 @property (nonatomic,retain) IGFeedItem * post;                          //@synthesize post=_post - In the implementation block
--(id)diffIdentifier;
 -(void)setPost:(IGFeedItem *)arg1 ;
 -(IGFeedItem *)post;
+-(id)diffIdentifier;
 -(NSString *)channelType;
 -(id)initWithChannelId:(id)arg1 channelType:(id)arg2 header:(id)arg3 title:(id)arg4 context:(id)arg5 feedItem:(id)arg6 ;
 -(char)isEqual:(id)arg1 ;

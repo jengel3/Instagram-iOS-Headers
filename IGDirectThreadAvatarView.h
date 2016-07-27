@@ -19,7 +19,6 @@
 @property (nonatomic,readonly) CAShapeLayer * singleRingLayer;                            //@synthesize singleRingLayer=_singleRingLayer - In the implementation block
 @property (nonatomic,readonly) CAShapeLayer * doubleRingLayer;                            //@synthesize doubleRingLayer=_doubleRingLayer - In the implementation block
 @property (assign,nonatomic) char selected;                                               //@synthesize selected=_selected - In the implementation block
--(void)setFirstUser:(id)arg1 secondUser:(id)arg2 ;
 -(id)createProfileImageViewWithBorderStyle:(int)arg1 ;
 -(id)createRingLayer;
 -(IGProfilePictureImageView *)frontProfileView;
@@ -32,6 +31,7 @@
 -(CGRect)singleUserFrame;
 -(id)singleRingLayerPath;
 -(float)overlapDistance;
+-(void)setFirstUser:(id)arg1 secondUser:(id)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setSelected:(char)arg1 ;

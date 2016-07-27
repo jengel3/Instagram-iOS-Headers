@@ -34,10 +34,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)updateWidth:(float)arg1 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(id)initWithParagraphComponent:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
 -(void)setSurface:(unsigned)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id)getCollectionViewFlowLayout;
 -(void)initializePageControl;
 -(void)logPageDisplayedAtIndex:(unsigned)arg1 ;
@@ -48,7 +48,7 @@
 -(IGInsightsParagraphComponent *)paragraphComponent;
 -(CGSize)unitSize;
 -(void)setParagraphComponent:(IGInsightsParagraphComponent *)arg1 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
+-(void)updateWidth:(float)arg1 ;
 -(void)setPageControl:(UIPageControl *)arg1 ;
 -(void)layoutSubviews;
 -(void)scrollViewDidEndDecelerating:(id)arg1 ;

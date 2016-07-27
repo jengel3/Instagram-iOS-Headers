@@ -6,10 +6,10 @@
 @property (assign,nonatomic,__weak) id<IGDirectContentUpoadCellDelegate> delegate; 
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator; 
 @required
--(void)performDelete;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(void)handleUploadCellTap;
 -(void)performRetry;
+-(void)performDelete;
 -(void)uploadDecoratorShowFailedUI:(id)arg1;
 -(void)showUploadFailedUI;
 -(void)showUploadSendingUI;

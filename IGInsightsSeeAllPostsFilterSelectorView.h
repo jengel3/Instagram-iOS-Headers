@@ -14,7 +14,6 @@
 	NSArray* _mediaTypes;
 	NSArray* _dataOrderings;
 	NSArray* _timeframes;
-	float _width;
 	UILabel* _headerLabel;
 	UIButton* _submitButton;
 	UIPickerView* _pickerView;
@@ -27,7 +26,6 @@
 @property (nonatomic,copy,readonly) NSArray * mediaTypes;                                                        //@synthesize mediaTypes=_mediaTypes - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * dataOrderings;                                                     //@synthesize dataOrderings=_dataOrderings - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * timeframes;                                                        //@synthesize timeframes=_timeframes - In the implementation block
-@property (nonatomic,readonly) float width;                                                                      //@synthesize width=_width - In the implementation block
 @property (nonatomic,readonly) UILabel * headerLabel;                                                            //@synthesize headerLabel=_headerLabel - In the implementation block
 @property (nonatomic,readonly) UIButton * submitButton;                                                          //@synthesize submitButton=_submitButton - In the implementation block
 @property (nonatomic,retain) UIPickerView * pickerView;                                                          //@synthesize pickerView=_pickerView - In the implementation block
@@ -40,6 +38,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
+-(id<IGInsightsContentRowListViewDelegate>)educationUnitDelegate;
+-(void)setEducationUnitDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
+-(IGInsightsContentRowListView *)educationView;
 -(NSArray *)dataOrderings;
 -(void)setDataOrderings:(NSArray *)arg1 ;
 -(NSArray *)timeframes;
@@ -56,10 +58,6 @@
 -(UIView *)headerSeparator;
 -(id)titleForRow:(int)arg1 forComponent:(int)arg2 ;
 -(void)setHeaderSeparator:(UIView *)arg1 ;
--(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
--(id<IGInsightsContentRowListViewDelegate>)educationUnitDelegate;
--(void)setEducationUnitDelegate:(id<IGInsightsContentRowListViewDelegate>)arg1 ;
--(IGInsightsContentRowListView *)educationView;
 -(UIPickerView *)pickerView;
 -(void)setPickerView:(UIPickerView *)arg1 ;
 -(void)setDelegate:(id<IGInsightsSeeAllPostsFilterSelectorViewDelegate>)arg1 ;
@@ -74,7 +72,6 @@
 -(void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3 ;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(id<IGInsightsSeeAllPostsFilterSelectorViewDelegate>)delegate;
--(float)width;
 -(void)setMediaTypes:(NSArray *)arg1 ;
 -(NSArray *)mediaTypes;
 -(UILabel *)headerLabel;

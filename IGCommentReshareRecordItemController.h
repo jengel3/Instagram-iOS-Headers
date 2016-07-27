@@ -21,13 +21,12 @@
 +(id)confirmationStringFromUsernames:(id)arg1 ;
 +(id)greyAttributes;
 +(id)blueAttributes;
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
 -(NSAttributedString *)confirmationString;
 -(void)setConfirmationString:(NSAttributedString *)arg1 ;
 -(IGCommentReshareRecord *)record;
+-(id)init;
 -(unsigned)numberOfItems;
 -(void)didSelectItemAtIndex:(int)arg1 ;
 -(CGSize)sizeForItemAtIndex:(int)arg1 ;

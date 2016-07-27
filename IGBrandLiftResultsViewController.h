@@ -19,12 +19,12 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(char)prefersTabBarHidden;
 -(id)labelForHeaderInSection:(int)arg1 ;
 -(id)labelForFooterInSection:(int)arg1 ;
--(id)initWithQuestions:(id)arg1 ;
 -(void)setQuestions:(NSArray *)arg1 ;
 -(NSArray *)questions;
+-(id)initWithQuestions:(id)arg1 ;
+-(char)prefersTabBarHidden;
 -(void)dealloc;
 -(float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2 ;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;

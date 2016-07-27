@@ -16,11 +16,13 @@
 @property (nonatomic,copy,readonly) NSString * name;               //@synthesize name=_name - In the implementation block
 @property (nonatomic,readonly) unsigned diskCapacity;              //@synthesize diskCapacity=_diskCapacity - In the implementation block
 @property (nonatomic,readonly) unsigned maxFileCount;              //@synthesize maxFileCount=_maxFileCount - In the implementation block
+-(id)initWithName:(id)arg1 diskCapacity:(unsigned)arg2 maxFileCount:(unsigned)arg3 ;
+-(id)inputStreamForKey:(id)arg1 ;
+-(id)outputStreamForKey:(id)arg1 append:(char)arg2 ;
+-(void)removeAllDataWithDeletionBlock:(/*^block*/id)arg1 ;
+-(char)containsDataForKey:(id)arg1 ;
 -(void)_startBackgroundCacheTrimmingTask;
 -(unsigned)removeExcessFiles;
--(id)initWithName:(id)arg1 diskCapacity:(unsigned)arg2 maxFileCount:(unsigned)arg3 ;
--(char)containsDataForKey:(id)arg1 ;
--(void)removeAllDataWithDeletionBlock:(/*^block*/id)arg1 ;
 -(unsigned)maxFileCount;
 -(void)dealloc;
 -(NSString *)name;

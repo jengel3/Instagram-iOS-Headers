@@ -22,9 +22,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id<IGAnalyticsModule>)analyticsModule;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
 -(id)initWithLoggingProviderDelegate:(id)arg1 analyticsModule:(id)arg2 ;
 -(void)updateWithNewFeedItems:(id)arg1 ;
--(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
 -(IGFeedItemViewingSessionManager *)viewingSessionManager;
 -(void)processTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
 @end

@@ -11,9 +11,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,__weak,readonly) RCTBridge * bridge; 
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> methodQueue; 
-+(id)moduleName;
 +(id)__rct_export__150;
 +(id)__rct_export__221;
++(id)moduleName;
 +(void)load;
 -(id)constantsToExport;
 -(void)showMessage:(id)arg1 style:(int*)arg2 ;

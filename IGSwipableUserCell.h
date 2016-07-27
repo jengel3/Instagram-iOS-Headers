@@ -42,11 +42,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(UILabel *)usernameLabel;
+-(UILabel *)userDetailLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
 -(void)setIsUserVerified:(char)arg1 ;
--(UILabel *)userDetailLabel;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(UIImageView *)verifiedUserBadgeView;
 -(void)setVerifiedUserBadgeView:(UIImageView *)arg1 ;

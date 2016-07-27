@@ -18,10 +18,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sharedHelper;
--(void)sharer:(id)arg1 didFailWithError:(id)arg2 ;
--(void)sharer:(id)arg1 didCompleteWithResults:(id)arg2 ;
--(void)sharerDidCancel:(id)arg1 ;
 -(void)shareFeedItem:(id)arg1 ;
+-(void)sharer:(id)arg1 didCompleteWithResults:(id)arg2 ;
+-(void)sharer:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)sharerDidCancel:(id)arg1 ;
 -(FBSDKMessageDialog *)shareDialog;
 -(char)canShowShareDialog;
 -(void)setShareDialog:(FBSDKMessageDialog *)arg1 ;

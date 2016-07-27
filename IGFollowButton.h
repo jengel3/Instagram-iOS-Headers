@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGSpringButton.h>
 
-@protocol IGFollowButtonDelegate, IGRaindropAnalyticsDelegate;
+@protocol IGFollowButtonDelegate;
 @class IGUser, NSString, IGUnfollowHeaderView, IGPendingRequestView;
 
 @interface IGFollowButton : IGSpringButton {
@@ -12,7 +12,6 @@
 	char _usesTransparentBackground;
 	IGUser* _user;
 	id<IGFollowButtonDelegate> _delegate;
-	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 	NSString* _contextString;
 	IGUnfollowHeaderView* _unfollowHeaderView;
 	IGPendingRequestView* _pendingRequestView;
@@ -20,16 +19,15 @@
 
 }
 
-@property (nonatomic,retain) IGUnfollowHeaderView * unfollowHeaderView;                             //@synthesize unfollowHeaderView=_unfollowHeaderView - In the implementation block
-@property (nonatomic,retain) IGPendingRequestView * pendingRequestView;                             //@synthesize pendingRequestView=_pendingRequestView - In the implementation block
-@property (assign,nonatomic) int currentState;                                                      //@synthesize currentState=_currentState - In the implementation block
-@property (nonatomic,retain) IGUser * user;                                                         //@synthesize user=_user - In the implementation block
-@property (assign,nonatomic) char canShowFollowRequest;                                             //@synthesize canShowFollowRequest=_canShowFollowRequest - In the implementation block
-@property (assign,nonatomic,__weak) id<IGFollowButtonDelegate> delegate;                            //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
-@property (nonatomic,copy) NSString * contextString;                                                //@synthesize contextString=_contextString - In the implementation block
-@property (assign,nonatomic) char showAccessoryView;                                                //@synthesize showAccessoryView=_showAccessoryView - In the implementation block
-@property (assign,nonatomic) char usesTransparentBackground;                                        //@synthesize usesTransparentBackground=_usesTransparentBackground - In the implementation block
+@property (nonatomic,retain) IGUnfollowHeaderView * unfollowHeaderView;               //@synthesize unfollowHeaderView=_unfollowHeaderView - In the implementation block
+@property (nonatomic,retain) IGPendingRequestView * pendingRequestView;               //@synthesize pendingRequestView=_pendingRequestView - In the implementation block
+@property (assign,nonatomic) int currentState;                                        //@synthesize currentState=_currentState - In the implementation block
+@property (nonatomic,retain) IGUser * user;                                           //@synthesize user=_user - In the implementation block
+@property (assign,nonatomic) char canShowFollowRequest;                               //@synthesize canShowFollowRequest=_canShowFollowRequest - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFollowButtonDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,copy) NSString * contextString;                                  //@synthesize contextString=_contextString - In the implementation block
+@property (assign,nonatomic) char showAccessoryView;                                  //@synthesize showAccessoryView=_showAccessoryView - In the implementation block
+@property (assign,nonatomic) char usesTransparentBackground;                          //@synthesize usesTransparentBackground=_usesTransparentBackground - In the implementation block
 -(void)onFriendStatusReceived;
 -(void)acceptFollowRequestWithCompletion:(/*^block*/id)arg1 ;
 -(void)ignoreFollowRequestWithCompletion:(/*^block*/id)arg1 ;
@@ -51,14 +49,12 @@
 -(int)buttonStateForFollowStatus:(int)arg1 ;
 -(IGUnfollowHeaderView *)unfollowHeaderView;
 -(float)findWidthOfFollowAndUnfollowButtons;
--(void)setCanShowFollowRequest:(char)arg1 ;
 -(void)setShowAccessoryView:(char)arg1 ;
 -(void)setUnfollowHeaderView:(IGUnfollowHeaderView *)arg1 ;
 -(void)setPendingRequestView:(IGPendingRequestView *)arg1 ;
 -(char)shouldShowTitle;
--(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
--(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(void)setContextString:(NSString *)arg1 ;
+-(void)setCanShowFollowRequest:(char)arg1 ;
 -(void)setUsesTransparentBackground:(char)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;

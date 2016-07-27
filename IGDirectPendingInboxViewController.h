@@ -8,7 +8,7 @@
 #import <Instagram/IGDirectPendingInboxControllerType.h>
 
 @protocol IGDirectPendingInboxDelegate;
-@class IGUserSession, UITableView, NSOrderedSet, NSString, IGRefreshControl, UIView, NSSet, UIButton, UIBarButtonItem, IGDirectUIPerfLogProxy;
+@class IGUserSession, UITableView, NSOrderedSet, NSString, IGRefreshControl, UIView, NSSet, UIButton, UIBarButtonItem, IGDirectUIPerfLogProxy, IGDirectPendingInboxService;
 
 @interface IGDirectPendingInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingThreadViewDelegate, IGUIPerfLoggable, IGDirectPendingInboxControllerType> {
 
@@ -30,6 +30,7 @@
 	UIBarButtonItem* _doneButton;
 	UIBarButtonItem* _spinnerButton;
 	IGDirectUIPerfLogProxy* _perfLogProxy;
+	IGDirectPendingInboxService* _service;
 
 }
 
@@ -49,6 +50,7 @@
 @property (nonatomic,retain) UIBarButtonItem * doneButton;                                  //@synthesize doneButton=_doneButton - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * spinnerButton;                               //@synthesize spinnerButton=_spinnerButton - In the implementation block
 @property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                         //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
+@property (nonatomic,readonly) IGDirectPendingInboxService * service;                       //@synthesize service=_service - In the implementation block
 @property (assign,nonatomic,__weak) id<IGDirectPendingInboxDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int totalPending;                                              //@synthesize totalPending=_totalPending - In the implementation block
 @property (readonly) unsigned hash; 
@@ -56,12 +58,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(char)prefersTabBarHidden;
 -(id)initWithUserSession:(id)arg1 ;
--(NSString *)oldestCursor;
--(void)setTotalPending:(int)arg1 ;
 -(void)reloadDataFromPullToRefresh;
 -(IGDirectUIPerfLogProxy *)perfLogProxy;
+-(void)setTotalPending:(int)arg1 ;
+-(NSString *)oldestCursor;
 -(void)setOldestCursor:(NSString *)arg1 ;
 -(void)setThreads:(NSOrderedSet *)arg1 ;
 -(char)loadingPreviousThreads;
@@ -72,28 +73,30 @@
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
 -(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
--(void)toggleEditMode;
 -(void)updateRightButton;
 -(void)refreshDataWithOldestCursor:(id)arg1 andCompletion:(/*^block*/id)arg2 ;
 -(void)fetchPendingThreadsCompletion:(/*^block*/id)arg1 ;
 -(void)setSelectedThreads:(NSSet *)arg1 ;
 -(NSSet *)selectedThreads;
--(void)allowTapped;
--(void)declineTapped;
 -(int)totalPending;
 -(id)actionSheetHeaderLabelWithString:(id)arg1 ;
 -(id)allowString;
 -(void)setHasPendingChanges:(char)arg1 ;
+-(id)allThreadIds;
 -(id)declineString;
 -(void)updateFooterView;
 -(id)remainingInviterForThreads:(id)arg1 ;
--(UIButton *)allowButton;
--(UIBarButtonItem *)spinnerButton;
 -(void)threadViewController:(id)arg1 didAcceptThread:(id)arg2 ;
 -(void)threadViewController:(id)arg1 didDeclineThread:(id)arg2 ;
 -(void)setAllowButton:(UIButton *)arg1 ;
 -(void)setSpinnerButton:(UIBarButtonItem *)arg1 ;
+-(void)toggleEditMode;
+-(void)allowTapped;
+-(void)declineTapped;
+-(UIButton *)allowButton;
+-(UIBarButtonItem *)spinnerButton;
 -(char)disableNonEdgeNavigationGesture;
+-(char)prefersTabBarHidden;
 -(char)hasPendingChanges;
 -(void)setDelegate:(id<IGDirectPendingInboxDelegate>)arg1 ;
 -(void)dealloc;
@@ -118,6 +121,7 @@
 -(UIView *)footerView;
 -(void)setFooterView:(UIView *)arg1 ;
 -(void)setEditButton:(UIBarButtonItem *)arg1 ;
+-(IGDirectPendingInboxService *)service;
 -(void)setHeaderLabel:(UIView *)arg1 ;
 -(UIView *)headerLabel;
 -(IGUserSession *)userSession;

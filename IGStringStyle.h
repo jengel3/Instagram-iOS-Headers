@@ -36,11 +36,11 @@
 @property (nonatomic,readonly) UIColor * shadowColor;                       //@synthesize shadowColor=_shadowColor - In the implementation block
 @property (nonatomic,readonly) float shadowOffset;                          //@synthesize shadowOffset=_shadowOffset - In the implementation block
 @property (nonatomic,readonly) char shouldBoldLink;                         //@synthesize shouldBoldLink=_shouldBoldLink - In the implementation block
+-(UIFont *)defaultBoldFont;
+-(char)shouldBoldLink;
+-(UIColor *)linkHighlightedColor;
 -(float)minLineHeight;
 -(float)maxLineHeight;
--(UIFont *)defaultBoldFont;
--(UIColor *)linkHighlightedColor;
--(char)shouldBoldLink;
 -(UIColor *)linkColor;
 -(id)initWithFontSize:(int)arg1 ;
 -(id)init;

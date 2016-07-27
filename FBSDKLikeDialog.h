@@ -21,9 +21,9 @@
 +(id)likeWithObjectID:(id)arg1 objectType:(unsigned)arg2 delegate:(id)arg3 ;
 +(void)initialize;
 -(char)like;
+-(void)_handleCompletionWithDialogResults:(id)arg1 error:(id)arg2 ;
 -(char)canLike;
 -(char)_canLikeNative;
--(void)_handleCompletionWithDialogResults:(id)arg1 error:(id)arg2 ;
 -(char)shouldFailOnDataError;
 -(void)setShouldFailOnDataError:(char)arg1 ;
 -(char)validateWithError:(id*)arg1 ;

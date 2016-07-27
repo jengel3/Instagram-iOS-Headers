@@ -12,8 +12,8 @@
 #import <Instagram/IGCommentReshareHelperDelegate.h>
 #import <Instagram/IGCommentReshareUIManagerDelegate.h>
 
-@protocol IGCommentTextViewProtocol;
-@class IGListCollectionView, IGListAdapter, IGCommentThreadManager, IGBulkCommentDeleteManager, UIView, IGKeyboardInputManager, IGCommentCellRevealManager, IGAutocompleteController, IGCommentReshareHelper, IGCommentReshareUIManager, IGCommentReshareRecord, NSString, IGUser;
+@protocol IGCommentTextViewProtocol, IGFeedItemLoggingProviderDelegate;
+@class IGListCollectionView, IGListAdapter, IGListAdapterPerfLogger, IGCommentThreadManager, IGBulkCommentDeleteManager, UIView, IGKeyboardInputManager, IGCommentCellRevealManager, IGAutocompleteController, IGCommentReshareHelper, IGCommentReshareUIManager, IGCommentReshareRecord, NSString, IGUser, IGFeedItem;
 
 @interface IGCommentThreadViewController : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGCommentThreadManagerDelegate, IGCommentLoadItemDelegate, IGBulkCommentDeleteManagerDelegate, IGGrowingTextViewDelegate, IGAutocompleteControllerDelegate, IGCommentItemDelegate, IGCommentReshareHelperDelegate, IGCommentReshareUIManagerDelegate> {
 
@@ -21,11 +21,12 @@
 	char _shouldSupportReshare;
 	char _showKeyboardOnAppear;
 	char _appearedOnce;
-	char _needsManualScrollToBottom;
 	char _scrolledToBottomOnce;
 	char _autoScrollPaused;
+	char _showRefreshButton;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
+	IGListAdapterPerfLogger* _adapterPerfLogger;
 	IGCommentThreadManager* _threadManager;
 	IGBulkCommentDeleteManager* _bulkDeleteManager;
 	UIView*<IGCommentTextViewProtocol> _commentTextView;
@@ -39,11 +40,14 @@
 	NSString* _prefillText;
 	NSString* _placeholderText;
 	IGUser* _currentUser;
+	IGFeedItem* _feedItem;
+	id<IGFeedItemLoggingProviderDelegate> _loggingDelegate;
 
 }
 
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                                                 //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                                           //@synthesize listAdapter=_listAdapter - In the implementation block
+@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                                           //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGCommentThreadManager * threadManager;                                                //@synthesize threadManager=_threadManager - In the implementation block
 @property (nonatomic,readonly) IGBulkCommentDeleteManager * bulkDeleteManager;                                        //@synthesize bulkDeleteManager=_bulkDeleteManager - In the implementation block
 @property (nonatomic,readonly) UIView*<IGCommentTextViewProtocol> commentTextView;                                    //@synthesize commentTextView=_commentTextView - In the implementation block
@@ -60,40 +64,46 @@
 @property (nonatomic,readonly) NSString * placeholderText;                                                            //@synthesize placeholderText=_placeholderText - In the implementation block
 @property (nonatomic,readonly) char showKeyboardOnAppear;                                                             //@synthesize showKeyboardOnAppear=_showKeyboardOnAppear - In the implementation block
 @property (assign,nonatomic) char appearedOnce;                                                                       //@synthesize appearedOnce=_appearedOnce - In the implementation block
-@property (assign,nonatomic) char needsManualScrollToBottom;                                                          //@synthesize needsManualScrollToBottom=_needsManualScrollToBottom - In the implementation block
 @property (assign,nonatomic) char scrolledToBottomOnce;                                                               //@synthesize scrolledToBottomOnce=_scrolledToBottomOnce - In the implementation block
 @property (assign,nonatomic) char autoScrollPaused;                                                                   //@synthesize autoScrollPaused=_autoScrollPaused - In the implementation block
 @property (nonatomic,retain) IGUser * currentUser;                                                                    //@synthesize currentUser=_currentUser - In the implementation block
+@property (nonatomic,readonly) IGFeedItem * feedItem;                                                                 //@synthesize feedItem=_feedItem - In the implementation block
+@property (nonatomic,__weak,readonly) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;                          //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
+@property (assign,nonatomic) char showRefreshButton;                                                                  //@synthesize showRefreshButton=_showRefreshButton - In the implementation block
 @property (assign,nonatomic) char disableAutoScroll;                                                                  //@synthesize disableAutoScroll=_disableAutoScroll - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)enableNavState;
 -(id)analyticsModule;
+-(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(IGListAdapter *)listAdapter;
--(char)prefersTabBarHidden;
+-(IGFeedItem *)feedItem;
+-(void)growingTextViewDidBeginEditing:(id)arg1 ;
+-(void)growingTextViewDidEndEditing:(id)arg1 ;
+-(void)growingTextViewDidChange:(id)arg1 ;
+-(char)growingTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
+-(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
+-(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
+-(char)growingTextViewShouldReturn:(id)arg1 ;
+-(void)postComment;
 -(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
 -(void)didDismissReshareUI;
 -(void)setupCollectionViewAndAdapter;
 -(void)setupTextViewAndAutocomplete;
 -(IGCommentThreadManager *)threadManager;
--(void)setNeedsManualScrollToBottom:(char)arg1 ;
 -(UIView*<IGCommentTextViewProtocol>)commentTextView;
 -(void)setupReshareUIManager;
 -(char)showKeyboardOnAppear;
 -(char)appearedOnce;
 -(void)setAppearedOnce:(char)arg1 ;
--(char)needsManualScrollToBottom;
--(char)shouldAutoScrollToBottom;
--(void)scrollToBottomOnceAnimated:(char)arg1 ;
 -(IGBulkCommentDeleteManager *)bulkDeleteManager;
+-(float)textViewMinHeight;
 -(IGAutocompleteController *)autocompleteController;
 -(IGKeyboardInputManager *)keyboardInputManager;
--(float)textViewMinHeight;
+-(char)showRefreshButton;
 -(char)shouldSupportReshare;
 -(NSString *)prefillText;
 -(void)onSendButtonTapped:(id)arg1 ;
@@ -107,12 +117,14 @@
 -(IGCommentReshareHelper *)commentReshareHelper;
 -(void)updateText:(id)arg1 ;
 -(void)resharePost;
--(void)postComment;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(void)setCommentReshareRecord:(IGCommentReshareRecord *)arg1 ;
 -(void)commitAutoCorrectSuggestionsAndUpdateTextForReshare;
 -(void)setAutoScrollPaused:(char)arg1 ;
 -(IGCommentCellRevealManager *)cellRevealManager;
 -(IGCommentReshareRecord *)commentReshareRecord;
+-(char)shouldAutoScrollToBottom;
+-(void)scrollToBottomOnceAnimated:(char)arg1 ;
 -(id)commentDeleteUndoMessageForNumberOfComments:(int)arg1 ;
 -(IGCommentReshareUIManager *)commentReshareUIManager;
 -(void)didUpdateCommentThreadManager:(id)arg1 operation:(unsigned)arg2 ;
@@ -121,13 +133,6 @@
 -(void)commentDeleteManagerDidStartCommentDeletion:(id)arg1 ;
 -(void)commentDeleteManagerDidFinishCommentDeletion:(id)arg1 ;
 -(void)commentDeleteManagerDidFailToDeleteComments:(id)arg1 ;
--(void)growingTextViewDidBeginEditing:(id)arg1 ;
--(void)growingTextViewDidEndEditing:(id)arg1 ;
--(void)growingTextViewDidChange:(id)arg1 ;
--(char)growingTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
--(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
--(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
--(char)growingTextViewShouldReturn:(id)arg1 ;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
 -(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
@@ -139,6 +144,12 @@
 -(id)initWithFeedItem:(id)arg1 prefillText:(id)arg2 currentUser:(id)arg3 loggingDelegate:(id)arg4 multiAccounts:(char)arg5 shouldSupportReshare:(char)arg6 showKeyboardOnAppear:(char)arg7 ;
 -(id)analyticsExtras;
 -(void)setDisableAutoScroll:(char)arg1 ;
+-(void)setShowRefreshButton:(char)arg1 ;
+-(char)enableNavState;
+-(void)onRefreshButton:(id)arg1 ;
+-(IGListAdapterPerfLogger *)adapterPerfLogger;
+-(char)prefersTabBarHidden;
+-(void)updateRefreshButton;
 -(void)setCurrentUser:(IGUser *)arg1 ;
 -(NSString *)placeholderText;
 -(void)dealloc;
@@ -151,6 +162,7 @@
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
 -(void)viewWillDisappear:(char)arg1 ;
+-(id)refreshButton;
 -(IGUser *)currentUser;
 @end
 

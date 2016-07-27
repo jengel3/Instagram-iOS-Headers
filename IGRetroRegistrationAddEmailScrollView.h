@@ -23,10 +23,10 @@
 @property (nonatomic,retain) IGRetroRegistrationTextField * emailField;               //@synthesize emailField=_emailField - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationNextButton * nextButton;              //@synthesize nextButton=_nextButton - In the implementation block
 @property (nonatomic,retain) IGCoreTextView * termView;                               //@synthesize termView=_termView - In the implementation block
+-(IGRetroRegistrationTextField *)emailField;
 -(UIButton *)switchToPhoneRegiButton;
 -(void)setSwitchToPhoneRegiButton:(UIButton *)arg1 ;
 -(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
--(IGRetroRegistrationTextField *)emailField;
 -(IGCoreTextView *)termView;
 -(void)setTermView:(IGCoreTextView *)arg1 ;
 -(UILabel *)descriptionLabel;

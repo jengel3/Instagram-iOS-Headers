@@ -4,6 +4,7 @@
 @required
 -(char)captionCellMediaOverlayViewTapEnabled;
 -(void)captionCellMediaOverlayViewTapped;
+-(void)captionCellEditButtonTapped;
 -(char)captionTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3;
 -(void)captionTextViewDidBeginEditing:(id)arg1;
 -(void)captionTextViewWillBeginEditing:(id)arg1;

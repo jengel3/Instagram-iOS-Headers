@@ -29,8 +29,6 @@
 @property (nonatomic,retain) CALayer * shadowLayer;                                        //@synthesize shadowLayer=_shadowLayer - In the implementation block
 @property (assign,nonatomic) float keyPosition;                                            //@synthesize keyPosition=_keyPosition - In the implementation block
 @property (assign,nonatomic,__weak) id<IGVideoScrubberViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(float)keyPosition;
--(void)setKeyPosition:(float)arg1 ;
 -(void)onPan:(id)arg1 ;
 -(void)configureShadowLayer;
 -(void)configureFramesContainer;
@@ -41,10 +39,12 @@
 -(UIView *)frameViewsContainer;
 -(void)updateFrameRects;
 -(CALayer *)shadowLayer;
+-(float)keyPosition;
 -(int)xForPosition:(float)arg1 ;
 -(UIView *)centerHandle;
 -(void)onThumbnailStripTapped:(id)arg1 ;
 -(NSMutableArray *)frameViews;
+-(void)setKeyPosition:(float)arg1 ;
 -(void)handleMoveToCenterHandleX:(int)arg1 ;
 -(int)scrubPadding;
 -(int)scrubbableWidth;

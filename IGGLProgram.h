@@ -17,15 +17,15 @@
 @property (nonatomic,readonly) unsigned program;                            //@synthesize program=_program - In the implementation block
 @property (nonatomic,copy,readonly) NSDictionary * attributes;              //@synthesize attributes=_attributes - In the implementation block
 @property (nonatomic,copy,readonly) NSDictionary * uniforms;                //@synthesize uniforms=_uniforms - In the implementation block
+-(void)addGLDeallocBlock:(/*^block*/id)arg1 ;
+-(int)uniformLocationForName:(id)arg1 ;
+-(void)flushUniforms;
 -(id)initWithVertexShader:(id)arg1 fragmentShader:(id)arg2 ;
 -(id)parseUniforms;
 -(id)parseAttributes;
 -(void)setValue:(id)arg1 forUniformName:(id)arg2 ;
 -(void)setTexture:(id)arg1 forUniformName:(id)arg2 ;
 -(NSMutableArray *)deallocBlocks;
--(void)addGLDeallocBlock:(/*^block*/id)arg1 ;
--(int)uniformLocationForName:(id)arg1 ;
--(void)flushUniforms;
 -(void)setDeallocBlocks:(NSMutableArray *)arg1 ;
 -(unsigned)program;
 -(NSDictionary *)uniforms;

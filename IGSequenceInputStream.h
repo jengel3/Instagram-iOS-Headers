@@ -14,7 +14,7 @@
 }
 -(id)initWithInputStreams:(id)arg1 ;
 -(char)getBuffer:(char**)arg1 length:(unsigned*)arg2 ;
--(char)_setCFClientFlags:(unsigned long)arg1 callback:(/*function pointer*/void*)arg2 context:(SCD_Struct_IG7*)arg3 ;
+-(char)_setCFClientFlags:(unsigned long)arg1 callback:(/*function pointer*/void*)arg2 context:(SCD_Struct_IG21*)arg3 ;
 -(void)_scheduleInCFRunLoop:(CFRunLoopRef)arg1 forMode:(CFStringRef)arg2 ;
 -(void)_unscheduleFromCFRunLoop:(CFRunLoopRef)arg1 forMode:(CFStringRef)arg2 ;
 -(void)removeFromRunLoop:(id)arg1 forMode:(id)arg2 ;

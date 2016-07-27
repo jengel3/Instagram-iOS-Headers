@@ -30,13 +30,13 @@
 @property (assign,nonatomic) char displayNewFilterNUX;                       //@synthesize displayNewFilterNUX=_displayNewFilterNUX - In the implementation block
 +(CGSize)cellSizeToFit:(CGSize)arg1 ;
 -(void)setShowsHighlightIndicator:(char)arg1 ;
--(char)showsHighlightIndicator;
--(id)LX_snapshotView;
 -(void)updateTitleStyle;
 -(UILabel *)nuxLabel;
 -(void)setDisplayNewFilterNUX:(char)arg1 animated:(char)arg2 ;
+-(char)showsHighlightIndicator;
 -(char)displayNewFilterNUX;
 -(void)setDisplayNewFilterNUX:(char)arg1 ;
+-(id)LX_snapshotView;
 -(void)configureForManageFiltersCell;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setImage:(id)arg1 ;

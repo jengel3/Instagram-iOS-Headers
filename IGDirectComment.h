@@ -15,25 +15,26 @@
 
 }
 
-@property (nonatomic,copy) NSString * text;                                     //@synthesize text=_text - In the implementation block
-@property (nonatomic,copy) NSArray * links;                                     //@synthesize links=_links - In the implementation block
-@property (nonatomic,copy) NSString * storageKey;                               //@synthesize storageKey=_storageKey - In the implementation block
+@property (nonatomic,copy) NSString * text;                                             //@synthesize text=_text - In the implementation block
+@property (nonatomic,copy) NSArray * links;                                             //@synthesize links=_links - In the implementation block
+@property (nonatomic,copy) NSString * storageKey;                                       //@synthesize storageKey=_storageKey - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;              //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;                      //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,readonly) char canConvertToFullMessageByAddingItemID; 
 -(IGDirectContentUploadInfo *)uploadInfo;
 -(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
--(id)uploadableModelWithParameter:(id)arg1 ;
+-(char)canConvertToFullMessageByAddingItemID;
 -(void)updateLinksWithDictionary:(id)arg1 ;
 -(NSString *)storageKey;
 -(void)setStorageKey:(NSString *)arg1 ;
--(id)initAsUploadWithText:(id)arg1 recipient:(id)arg2 storageKey:(id)arg3 links:(id)arg4 ;
--(id)dictionaryForRealtimeUpload;
--(char)supportsNonSimpleFormatForRealtime;
+-(id)uploadableModelWithParameter:(id)arg1 ;
 -(char)hasExactlyOneLink;
 -(id)contentTypeString;
+-(id)dictionaryForRealtimeUpload;
+-(id)initAsUploadWithText:(id)arg1 recipient:(id)arg2 storageKey:(id)arg3 links:(id)arg4 ;
 -(char)isUploading;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

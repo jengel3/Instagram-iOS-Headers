@@ -18,6 +18,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)reportCrash;
 -(void)didDismissRageShakeViewController:(id)arg1 didSendReport:(char)arg2 ;
 -(id)windowDescriptionData;
 -(void)promptBugReporter;
@@ -26,7 +27,6 @@
 -(id)screenshotData;
 -(void)presentReportThankYouAlert;
 -(void)onFlexTapGesture:(id)arg1 ;
--(void)reportCrash;
 -(void)reportBug;
 -(void)showAnalyticsEvents;
 -(void)showTestSettings;

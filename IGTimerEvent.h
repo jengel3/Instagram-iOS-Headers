@@ -10,12 +10,12 @@
 }
 
 @property (nonatomic,retain) NSMutableDictionary * pendingEvents;              //@synthesize pendingEvents=_pendingEvents - In the implementation block
+-(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
+-(void)startTimer:(id)arg1 uuid:(id)arg2 ;
 -(id)keyForTimer:(id)arg1 uuid:(id)arg2 ;
 -(id)processEvent:(id)arg1 ;
 -(id)createEventObjectForTimer:(id)arg1 uuid:(id)arg2 ;
--(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
 -(void)setPendingEvents:(NSMutableDictionary *)arg1 ;
--(void)startTimer:(id)arg1 uuid:(id)arg2 ;
 -(void)save;
 -(void)reset;
 -(id)initWithDelegate:(id)arg1 ;

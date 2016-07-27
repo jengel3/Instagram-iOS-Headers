@@ -19,20 +19,20 @@
 @property (assign,nonatomic) float luxBlendAmount;                      //@synthesize luxBlendAmount=_luxBlendAmount - In the implementation block
 @property (assign,nonatomic) float slope;                               //@synthesize slope=_slope - In the implementation block
 @property (nonatomic,retain) IGSurface * claheCDF;                      //@synthesize claheCDF=_claheCDF - In the implementation block
+-(void)setLuxBlendAmount:(float)arg1 ;
+-(float)luxBlendAmount;
+-(void)clearCachesNotOfSize:(CGSize)arg1 ;
 -(void)render:(id)arg1 to:(id)arg2 ;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(id)fragmentFunctions;
 -(IGSurface *)claheCDF;
 -(void)setClaheCDF:(IGSurface *)arg1 ;
--(void)clearCachesNotOfSize:(CGSize)arg1 ;
+-(id)fragmentFunctions;
 -(IGSurface *)antiLuxSurface;
 -(void)setAntiLuxSurface:(IGSurface *)arg1 ;
 -(IGSurface *)starlightSurface;
 -(void)setStarlightSurface:(IGSurface *)arg1 ;
 -(float)slope;
 -(void)setSlope:(float)arg1 ;
--(float)luxBlendAmount;
--(void)setLuxBlendAmount:(float)arg1 ;
 -(void)reduceMemoryUsage;
 -(void)render:(id)arg1 to:(id)arg2 useInternalCaches:(char)arg3 ;
 -(id)fragmentShader;

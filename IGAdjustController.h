@@ -34,7 +34,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)hasAdjustedValues;
 -(void)updateCropView;
 -(id)perspectiveContentRegion;
 -(void)commitCroppingIfNeeded;
@@ -48,6 +47,7 @@
 -(float)perspectiveRotateAngleForRotateMode:(unsigned)arg1 ;
 -(void)setPerspectiveRotationWithXRotatationAngle:(float)arg1 YRotationAngle:(float)arg2 ZRotationAngle:(float)arg3 ;
 -(void)setPerspectiveRotationAngle:(float)arg1 rotationType:(unsigned)arg2 ;
+-(char)hasAdjustedValues;
 -(void)confirmCropping;
 -(void)cancelCropping;
 -(NSArray *)_perspectiveContentRegion;

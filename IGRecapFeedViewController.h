@@ -28,7 +28,7 @@
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(void)loadFollowAccountListFromResponse:(id)arg1 ;
 -(IGFeedFollowPeopleCell *)feedFollowPeopleCell;
--(void)setFollowAccountList:(NSArray *)arg1 ;
 -(void)setFeedFollowPeopleCell:(IGFeedFollowPeopleCell *)arg1 ;
+-(void)setFollowAccountList:(NSArray *)arg1 ;
 @end
 

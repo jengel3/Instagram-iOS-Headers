@@ -2,23 +2,32 @@
 
 #import <Instagram/Instagram-Structs.h>
 @interface RCTConvert : NSObject
++(id)NSURL:(id)arg1 ;
++(id)UIFont:(id)arg1 withFamily:(id)arg2 size:(id)arg3 weight:(id)arg4 style:(id)arg5 scaleMultiplier:(float)arg6 ;
++(id)UIFont:(id)arg1 withSize:(id)arg2 ;
++(id)UIFont:(id)arg1 withWeight:(id)arg2 ;
++(id)UIFont:(id)arg1 withStyle:(id)arg2 ;
++(id)UIFont:(id)arg1 withFamily:(id)arg2 ;
 +(id)NSString:(id)arg1 ;
++(id)NSDictionary:(id)arg1 ;
++(double)NSTimeInterval:(id)arg1 ;
++(id)NSData:(id)arg1 ;
++(id)NSURLRequest:(id)arg1 ;
++(id)NSDictionaryArray:(id)arg1 ;
++(char)BOOL:(id)arg1 ;
++(CGPoint)CGPoint:(id)arg1 ;
++(CGSize)CGSize:(id)arg1 ;
++(int)RCTResizeMode:(id)arg1 ;
++(id)UIColor:(id)arg1 ;
 +(id)NSStringArray:(id)arg1 ;
 +(int)NSInteger:(id)arg1 ;
 +(id)NSNumber:(id)arg1 ;
-+(id)UIColor:(id)arg1 ;
-+(id)NSURL:(id)arg1 ;
-+(id)NSDictionary:(id)arg1 ;
 +(double)double:(id)arg1 ;
-+(double)NSTimeInterval:(id)arg1 ;
-+(char)BOOL:(id)arg1 ;
-+(SCD_Struct_RC48)RCTLocationOptions:(id)arg1 ;
++(SCD_Struct_RC136)RCTLocationOptions:(id)arg1 ;
 +(id)UILocalNotification:(id)arg1 ;
 +(id)NSNumberArray:(id)arg1 ;
-+(id)NSData:(id)arg1 ;
 +(float)CGFloat:(id)arg1 ;
 +(unsigned)NSUInteger:(id)arg1 ;
-+(id)UIFont:(id)arg1 withFamily:(id)arg2 size:(id)arg3 weight:(id)arg4 style:(id)arg5 scaleMultiplier:(float)arg6 ;
 +(char)RCTFontStyle:(id)arg1 ;
 +(float)RCTFontWeight:(id)arg1 ;
 +(id)NSArray:(id)arg1 ;
@@ -31,7 +40,6 @@
 +(unsigned long long)uint64_t:(id)arg1 ;
 +(id)NSSet:(id)arg1 ;
 +(id)NSIndexSet:(id)arg1 ;
-+(id)NSURLRequest:(id)arg1 ;
 +(id)NSDate:(id)arg1 ;
 +(id)NSTimeZone:(id)arg1 ;
 +(int)NSLineBreakMode:(id)arg1 ;
@@ -47,8 +55,6 @@
 +(int)UIReturnKeyType:(id)arg1 ;
 +(int)UIViewContentMode:(id)arg1 ;
 +(int)UIBarStyle:(id)arg1 ;
-+(CGPoint)CGPoint:(id)arg1 ;
-+(CGSize)CGSize:(id)arg1 ;
 +(CGRect)CGRect:(id)arg1 ;
 +(UIEdgeInsets)UIEdgeInsets:(id)arg1 ;
 +(int)CGLineJoin:(id)arg1 ;
@@ -56,16 +62,11 @@
 +(CATransform3D)CATransform3D:(id)arg1 ;
 +(CGAffineTransform)CGAffineTransform:(id)arg1 ;
 +(id)UIFont:(id)arg1 ;
-+(id)UIFont:(id)arg1 withSize:(id)arg2 ;
-+(id)UIFont:(id)arg1 withWeight:(id)arg2 ;
-+(id)UIFont:(id)arg1 withStyle:(id)arg2 ;
-+(id)UIFont:(id)arg1 withFamily:(id)arg2 ;
 +(id)NSURLArray:(id)arg1 ;
 +(id)RCTFileURLArray:(id)arg1 ;
 +(id)UIColorArray:(id)arg1 ;
 +(id)NSArrayArray:(id)arg1 ;
 +(id)NSStringArrayArray:(id)arg1 ;
-+(id)NSDictionaryArray:(id)arg1 ;
 +(id)CGColorArray:(id)arg1 ;
 +(id)NSPropertyList:(id)arg1 ;
 +(char)css_backface_visibility_t:(id)arg1 ;
@@ -86,8 +87,8 @@
 +(int)UIActivityIndicatorViewStyle:(id)arg1 ;
 +(double)CLLocationDegrees:(id)arg1 ;
 +(double)CLLocationDistance:(id)arg1 ;
-+(SCD_Struct_RC53)CLLocationCoordinate2D:(id)arg1 ;
-+(SCD_Struct_RC53)MKCoordinateSpan:(id)arg1 ;
++(SCD_Struct_IG34)CLLocationCoordinate2D:(id)arg1 ;
++(SCD_Struct_IG34)MKCoordinateSpan:(id)arg1 ;
 +(id)RCTMapAnnotation:(id)arg1 ;
 +(id)RCTMapOverlay:(id)arg1 ;
 +(unsigned)MKMapType:(id)arg1 ;
@@ -95,13 +96,12 @@
 +(id)RCTMapOverlayArray:(id)arg1 ;
 +(int)UIDatePickerMode:(id)arg1 ;
 +(unsigned)MKPinAnnotationColor:(id)arg1 ;
-+(SCD_Struct_RC54)MKCoordinateRegion:(id)arg1 ;
++(SCD_Struct_IG36)MKCoordinateRegion:(id)arg1 ;
 +(int)UIProgressViewStyle:(id)arg1 ;
 +(int)UIScrollViewKeyboardDismissMode:(id)arg1 ;
 +(int)UIScrollViewIndicatorStyle:(id)arg1 ;
 +(int)UITabBarSystemItem:(id)arg1 ;
 +(int)UITabBarItemPositioning:(id)arg1 ;
 +(unsigned long long)UIAccessibilityTraits:(id)arg1 ;
-+(int)RCTResizeMode:(id)arg1 ;
 @end
 

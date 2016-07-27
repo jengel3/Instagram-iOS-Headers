@@ -8,7 +8,7 @@
 #import <Instagram/IGToastViewDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
-@class IGTabBar, IGTabBarButton, NSArray, IGToastViewPopup, IGToastData, IGSwitchUsersController, UIWindow, IGDimmedOverlayViewController, IGInlineGalleryViewController, IGExplorePromptTooltipPresenter, IGNavigationController, IGNewsViewController, UIViewController, UIView, NSString;
+@class IGTabBar, IGTabBarButton, NSArray, IGUserSession, IGToastViewPopup, IGToastData, IGSwitchUsersController, UIWindow, IGDimmedOverlayViewController, IGInlineGalleryViewController, IGExplorePromptTooltipPresenter, IGNavigationController, IGNewsViewController, UIViewController, UIView, NSString;
 
 @interface IGTabBarController : UIViewController <IGDimmedOverlayViewControllerDelegate, IGExplorePromptTooltipPresenterDelegate, IGInlineGalleryPresenter, IGNavigationControllerDelegate, IGSwitchUsersControllerDelegate, IGToastViewDelegate, UIGestureRecognizerDelegate> {
 
@@ -22,6 +22,7 @@
 	char _isDisplayingSwitchUsersTableView;
 	NSArray* _viewControllers;
 	int _selectedTabBarItem;
+	IGUserSession* _userSession;
 	IGToastViewPopup* _activityToastView;
 	int _cameraButtonMode;
 	IGToastData* _suppressedToastData;
@@ -34,6 +35,7 @@
 
 }
 
+@property (nonatomic,readonly) IGUserSession * userSession;                                            //@synthesize userSession=_userSession - In the implementation block
 @property (assign,nonatomic) char isPerformingTabBarAction;                                            //@synthesize isPerformingTabBarAction=_isPerformingTabBarAction - In the implementation block
 @property (nonatomic,retain) IGToastViewPopup * activityToastView;                                     //@synthesize activityToastView=_activityToastView - In the implementation block
 @property (nonatomic,readonly) IGNavigationController * newsNavigationController; 
@@ -57,9 +59,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)navigationController:(id)arg1 willNavigateToViewController:(id)arg2 ;
--(void)navigationController:(id)arg1 didNavigateToViewController:(id)arg2 animated:(char)arg3 ;
--(void)navigationController:(id)arg1 didPopViewController:(id)arg2 animated:(char)arg3 ;
+-(void)prefetchAndFocusInboxInNewsTab;
+-(void)setSelectedTabBarItem:(int)arg1 animated:(char)arg2 ;
+-(id)initWithUserSession:(id)arg1 ;
 -(void)inboxCountDidUpdate:(id)arg1 ;
 -(void)settingsCountDidUpdate:(id)arg1 ;
 -(void)toastCountsReceived:(id)arg1 ;
@@ -79,7 +81,6 @@
 -(void)newsButtonPressed;
 -(void)profileButtonPressed;
 -(void)profileButtonLongPressed:(id)arg1 ;
--(void)setSelectedTabBarItem:(int)arg1 animated:(char)arg2 ;
 -(void)setNeedsAttention:(char)arg1 forItem:(int)arg2 ;
 -(void)initializeInlineGalleryVCIfNeeded;
 -(IGNavigationController *)newsNavigationController;
@@ -116,6 +117,9 @@
 -(float)referenceYPositionForInlineGallery:(id)arg1 ;
 -(void)inlineGallery:(id)arg1 didUpdateToState:(int)arg2 ;
 -(void)autoPromptInlineGallery:(id)arg1 ;
+-(void)navigationController:(id)arg1 willNavigateToViewController:(id)arg2 ;
+-(void)navigationController:(id)arg1 didNavigateToViewController:(id)arg2 animated:(char)arg3 ;
+-(void)navigationController:(id)arg1 didPopViewController:(id)arg2 animated:(char)arg3 ;
 -(void)switchUsersControllerDidSelectRowWithCurrentUser:(id)arg1 ;
 -(void)switchUsersController:(id)arg1 tableViewDidSelectRowWithUser:(id)arg2 ;
 -(void)switchUsersControllerDidSelectAddAccountRow:(id)arg1 ;
@@ -126,7 +130,6 @@
 -(void)impressionDebugging:(id)arg1 ;
 -(void)openURLInNewsTab:(id)arg1 ;
 -(void)refetchUserProfile;
--(void)prefetchAndFocusInboxInNewsTab;
 -(id)navigationControllerForTabBarItem:(int)arg1 ;
 -(void)setActivityToastView:(IGToastViewPopup *)arg1 ;
 -(int)cameraButtonMode;
@@ -137,7 +140,6 @@
 -(void)setDimmedOverlayWindow:(UIWindow *)arg1 ;
 -(void)setDimmedOverlayViewController:(IGDimmedOverlayViewController *)arg1 ;
 -(void)dealloc;
--(id)init;
 -(char)shouldAutorotate;
 -(char)shouldAutorotateToInterfaceOrientation:(int)arg1 ;
 -(void)viewDidLoad;
@@ -147,6 +149,7 @@
 -(UIView *)tabBar;
 -(NSArray *)viewControllers;
 -(UIViewController *)selectedViewController;
+-(IGUserSession *)userSession;
 -(void)homeButtonPressed;
 @end
 

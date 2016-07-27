@@ -3,7 +3,7 @@
 #import <Instagram/RCTView.h>
 #import <UIKit/UITextViewDelegate.h>
 
-@class RCTEventDispatcher, NSString, UITextView, RCTText, NSAttributedString, NSMutableArray, UITextRange, UIScrollView, UIColor, NSNumber, UIFont;
+@class RCTEventDispatcher, NSString, UITextView, RCTText, NSAttributedString, UIScrollView, UITextRange, UIColor, NSNumber, UIFont;
 
 @interface RCTTextView : RCTView <UITextViewDelegate> {
 
@@ -11,15 +11,16 @@
 	NSString* _placeholder;
 	UITextView* _placeholderView;
 	UITextView* _textView;
-	int _nativeEventCount;
 	RCTText* _richTextView;
 	NSAttributedString* _pendingAttributedText;
-	NSMutableArray* _subviews;
-	char _blockTextShouldChange;
+	UIScrollView* _scrollView;
 	UITextRange* _previousSelectionRange;
 	unsigned _previousTextLength;
 	float _previousContentHeight;
-	UIScrollView* _scrollView;
+	NSString* _predictedText;
+	char _blockTextShouldChange;
+	char _nativeUpdatesInFlight;
+	int _nativeEventCount;
 	char _blurOnSubmit;
 	char _clearTextOnFocus;
 	char _selectTextOnFocus;
@@ -29,6 +30,7 @@
 	NSNumber* _maxLength;
 	/*^block*/id _onChange;
 	/*^block*/id _onSelectionChange;
+	/*^block*/id _onTextInput;
 	UIEdgeInsets _contentInset;
 
 }
@@ -46,22 +48,17 @@
 @property (nonatomic,retain) NSNumber * maxLength;                               //@synthesize maxLength=_maxLength - In the implementation block
 @property (nonatomic,copy) id onChange;                                          //@synthesize onChange=_onChange - In the implementation block
 @property (nonatomic,copy) id onSelectionChange;                                 //@synthesize onSelectionChange=_onSelectionChange - In the implementation block
+@property (nonatomic,copy) id onTextInput;                                       //@synthesize onTextInput=_onTextInput - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)reactWillMakeFirstResponder;
--(void)reactDidMakeFirstResponder;
 -(id)onChange;
--(void)setOnChange:(id)arg1 ;
 -(id)initWithEventDispatcher:(id)arg1 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
--(char)automaticallyAdjustContentInsets;
--(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
 -(void)setAutoCorrect:(char)arg1 ;
 -(char)autoCorrect;
+-(void)reactWillMakeFirstResponder;
+-(void)reactDidMakeFirstResponder;
 -(char)selectTextOnFocus;
 -(void)setSelectTextOnFocus:(char)arg1 ;
 -(char)blurOnSubmit;
@@ -70,13 +67,20 @@
 -(void)setMostRecentEventCount:(int)arg1 ;
 -(id)onSelectionChange;
 -(void)setOnSelectionChange:(id)arg1 ;
--(void)performTextUpdate;
 -(id)defaultPlaceholderTextColor;
+-(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
+-(void)performTextUpdate;
+-(void)removeReactSubview:(id)arg1 ;
 -(void)performPendingTextUpdate;
--(void)_setPlaceholderVisibility;
 -(id)defaultPlaceholderFont;
+-(void)didUpdateReactSubviews;
 -(char)clearTextOnFocus;
 -(void)setClearTextOnFocus:(char)arg1 ;
+-(char)automaticallyAdjustContentInsets;
+-(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
+-(void)setOnChange:(id)arg1 ;
+-(id)onTextInput;
+-(void)setOnTextInput:(id)arg1 ;
 -(void)setPlaceholderTextColor:(UIColor *)arg1 ;
 -(UIColor *)placeholderTextColor;
 -(id)initWithFrame:(CGRect)arg1 ;
@@ -102,6 +106,7 @@
 -(void)setMaxLength:(NSNumber *)arg1 ;
 -(void)updateContentSize;
 -(void)updateFrames;
+-(void)updatePlaceholderVisibility;
 -(void)updatePlaceholder;
 -(NSNumber *)maxLength;
 @end

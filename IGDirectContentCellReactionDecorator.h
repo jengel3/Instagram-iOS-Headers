@@ -59,8 +59,6 @@
 -(void)layoutNux;
 -(UITapGestureRecognizer *)cellDoubleTapRecognizer;
 -(id<IGDirectReactionDecoratorDelegate>)reactionDelegate;
--(id)nuxLabelForReshare;
--(id)nuxLabelForOtherContent;
 -(UIImageView *)emptyHeartImage;
 -(void)setEmptyHeartImage:(UIImageView *)arg1 ;
 -(char)alreadyLikedContent;

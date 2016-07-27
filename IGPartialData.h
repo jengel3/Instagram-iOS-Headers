@@ -17,14 +17,14 @@
 @property (assign,nonatomic) unsigned bufferedLength;                  //@synthesize bufferedLength=_bufferedLength - In the implementation block
 @property (assign,nonatomic) unsigned totalLength;                     //@synthesize totalLength=_totalLength - In the implementation block
 +(id)emptyData;
--(char)hasDataForRange:(NSRange)arg1 ;
+-(char)hasBufferedData;
 -(unsigned)downloadedLength;
+-(void)setBufferedLength:(unsigned)arg1 ;
+-(void)increaseBufferedDataBy:(unsigned)arg1 ;
+-(char)hasDataForRange:(NSRange)arg1 ;
 -(id)downloadedData;
 -(id)initWithPartialData:(id)arg1 totalLength:(unsigned)arg2 ;
--(void)increaseBufferedDataBy:(unsigned)arg1 ;
--(char)hasBufferedData;
 -(unsigned)bufferedLength;
--(void)setBufferedLength:(unsigned)arg1 ;
 -(id)description;
 -(id)downloadStream;
 -(void)setTotalLength:(unsigned)arg1 ;

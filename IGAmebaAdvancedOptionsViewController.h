@@ -11,11 +11,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(void)configurePostToCell:(id)arg1 ;
 -(id)tableView:(id)arg1 optionCellForRow:(int)arg2 ;
 -(id)unlinkCellForTableView:(id)arg1 ;
 -(void)didSelectThemeRow;
 -(void)themesViewController:(id)arg1 didSelectTheme:(id)arg2 ;
--(void)configurePostToCell:(id)arg1 ;
 -(id)init;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;

@@ -23,9 +23,9 @@
 -(void)setPhAsset:(PHAsset *)arg1 ;
 -(void)setAlAsset:(ALAsset *)arg1 ;
 -(void)setDevicePosition:(int)arg1 ;
+-(int)devicePosition;
 -(PHAsset *)phAsset;
 -(ALAsset *)alAsset;
 -(char)isFromLibrary;
--(int)devicePosition;
 @end
 

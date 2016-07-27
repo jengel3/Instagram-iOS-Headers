@@ -19,9 +19,9 @@
 @property (nonatomic,readonly) id<IGDirectResponseLogging> logger;                                                      //@synthesize logger=_logger - In the implementation block
 @property (assign,nonatomic,__weak) UIViewController * viewController;                                                  //@synthesize viewController=_viewController - In the implementation block
 -(id<IGFeedItemDirectResponseLoggingProviderDelegate>)loggingDelegate;
--(void)openWebViewForURL:(id)arg1 feedItemContext:(id)arg2 directResponseInfo:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(void)logFailedActionForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 openTarget:(id)arg4 ;
 -(id)extraDictionaryForFeedItem:(id)arg1 directResponseInfo:(id)arg2 context:(id)arg3 openTarget:(id)arg4 ;
+-(void)openWebViewForURL:(id)arg1 feedItemContext:(id)arg2 directResponseInfo:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(void)setBrowserController:(IGBrowserController *)arg1 ;
 -(IGBrowserController *)browserController;
 -(id)initWithLogger:(id)arg1 loggingDelegate:(id)arg2 ;

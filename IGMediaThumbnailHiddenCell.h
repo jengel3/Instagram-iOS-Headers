@@ -15,8 +15,8 @@
 @property (nonatomic,readonly) IGBlurredImageView * blurredImageView;              //@synthesize blurredImageView=_blurredImageView - In the implementation block
 @property (nonatomic,readonly) CALayer * touchDownLayer;                           //@synthesize touchDownLayer=_touchDownLayer - In the implementation block
 @property (nonatomic,readonly) UIImageView * hiddenIcon;                           //@synthesize hiddenIcon=_hiddenIcon - In the implementation block
--(void)configureCellWithPost:(id)arg1 ;
 -(IGBlurredImageView *)blurredImageView;
+-(void)configureCellWithPost:(id)arg1 ;
 -(CALayer *)touchDownLayer;
 -(UIImageView *)hiddenIcon;
 -(id)initWithFrame:(CGRect)arg1 ;

@@ -42,6 +42,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(void)setReturnToCollectionAnimationDuration:(float)arg1 ;
+-(CGSize)collectionView:(id)arg1 sizeForItemAtIndexPath:(id)arg2 withDesiredSize:(CGSize)arg3 ;
 -(void)setScrollingSpeed:(float)arg1 ;
 -(void)setDraggingContainerView:(UIView *)arg1 ;
 -(void)handleApplicationWillResignActive:(id)arg1 ;
@@ -61,7 +62,6 @@
 -(UIEdgeInsets)scrollingTriggerEdgeInsets;
 -(void)setupScrollTimerInDirection:(int)arg1 ;
 -(UILongPressGestureRecognizer *)rearrangeHotspotGestureRecognizer;
--(CGSize)collectionView:(id)arg1 sizeForItemAtIndexPath:(id)arg2 withDesiredSize:(CGSize)arg3 ;
 -(void)setUpGestureRecognizersOnCollectionView;
 -(void)setScrollingTriggerEdgeInsets:(UIEdgeInsets)arg1 ;
 -(void)handleLongPressGesture:(id)arg1 ;

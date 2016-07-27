@@ -13,7 +13,7 @@
 -(void)loadEntriesFromResponse:(id)arg1 clearOut:(char)arg2 ;
 -(id<IGExploreMainFeedNetworkSourceDelegate>)exploreDelegate;
 -(void)refreshWithNewItems:(id)arg1 clearOut:(char)arg2 ;
--(id)initWithPostClass:(Class)arg1 ;
+-(id)initWithPostClass:(Class)arg1 userSession:(id)arg2 ;
 -(void)setExploreDelegate:(id<IGExploreMainFeedNetworkSourceDelegate>)arg1 ;
 @end
 

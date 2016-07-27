@@ -47,6 +47,10 @@
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
 -(void)setFeedPromotionBannerType:(int)arg1 ;
+-(id)cellPromotionButtonTappedActionBlock;
+-(id)cellImpressionActionBlock;
+-(int)feedPromotionBannerType;
+-(id)cellDismssActionBlock;
 -(void)buildCenterTextWithTextRuns:(id)arg1 ;
 -(void)setMutableCenterText:(NSMutableAttributedString *)arg1 ;
 -(NSMutableAttributedString *)mutableCenterText;
@@ -57,11 +61,9 @@
 -(void)setCellPromotionButtonTappedActionBlock:(id)arg1 ;
 -(void)logBannerButtonTapped;
 -(void)setCellTapActionBlock:(id)arg1 ;
--(id)cellPromotionButtonTappedActionBlock;
 -(void)setPromotionDismissed:(char)arg1 ;
 -(void)setupActionBlockForFollowDestination;
 -(void)setShowDismissButton:(char)arg1 ;
--(int)feedPromotionBannerType;
 -(void)setupActionBlocksForPromotionWithType:(int)arg1 ;
 -(id)nameOfFeedPromotionBannerType;
 -(id)initWithButtonText:(id)arg1 centerText:(id)arg2 icon:(id)arg3 ;
@@ -71,8 +73,6 @@
 -(char)showDismissButton;
 -(char)promotionDismissed;
 -(id)cellTapActionBlock;
--(id)cellImpressionActionBlock;
--(id)cellDismssActionBlock;
 -(void)setTitle:(NSString *)arg1 ;
 -(id)initWithDictionary:(id)arg1 ;
 -(NSString *)title;

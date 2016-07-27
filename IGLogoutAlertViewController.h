@@ -43,7 +43,6 @@
 -(void)onConfirmModal;
 -(void)setConfirmButton:(IGButton *)arg1 ;
 -(void)setConfirmButtonText:(NSString *)arg1 ;
--(id)createTitleLabel;
 -(id)createCheckboxMessageLabel;
 -(void)onToggleEnrollmentStatus;
 -(id)createCancelButton;
@@ -55,7 +54,6 @@
 -(id)confirmBlock;
 -(char)checkboxChecked;
 -(id)initWithTitle:(id)arg1 checkboxMessage:(id)arg2 checkboxChecked:(char)arg3 cancelButtonTitle:(id)arg4 otherButtonTitle:(id)arg5 cancelBlock:(/*^block*/id)arg6 otherBlock:(/*^block*/id)arg7 ;
--(char)prefersTabBarHidden;
 -(void)setCheckboxMessageLabel:(UILabel *)arg1 ;
 -(void)setCheckbox:(UISwitch *)arg1 ;
 -(NSString *)checkboxMessageText;
@@ -65,6 +63,8 @@
 -(void)setConfirmBlock:(id)arg1 ;
 -(void)setCheckboxChecked:(char)arg1 ;
 -(void)setTapGestureRecognizerForConfirmingModal:(UITapGestureRecognizer *)arg1 ;
+-(id)createTitleLabel;
+-(char)prefersTabBarHidden;
 -(void)viewDidLayoutSubviews;
 -(UILabel *)titleLabel;
 -(IGButton *)cancelButton;

@@ -22,9 +22,9 @@
 -(void)setDidObserveHeaderBecomeFullyVisible:(char)arg1 ;
 -(void)updateVolumeView;
 -(char)didObserveHeaderBecomeFullyVisible;
+-(void)headerItemScrolledStateDidChange:(id)arg1 ;
 -(id)initWithScrollingHeaderItem:(id)arg1 ;
 -(void)updateForViewControllerBecomeVisible:(char)arg1 ;
--(void)headerItemScrolledStateDidChange:(id)arg1 ;
 -(void)setViewIsVisible:(char)arg1 ;
 -(char)viewIsVisible;
 -(IGScrollingHeaderItem *)headerItem;

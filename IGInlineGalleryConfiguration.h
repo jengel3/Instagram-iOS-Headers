@@ -8,6 +8,7 @@
 +(int)newMediaThreshold;
 +(int)maxBackoffInDays;
 +(int)maxDismissals;
++(int)lookbackTimeInHours;
 +(id)lastInteractedTime;
 +(int)intValueOf:(id)arg1 withDefault:(id)arg2 ;
 +(id)debugSummaryString;

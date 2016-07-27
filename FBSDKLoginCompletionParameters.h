@@ -25,11 +25,11 @@
 @property (assign,getter=isSystemAccount,nonatomic) char systemAccount;              //@synthesize systemAccount=_systemAccount - In the implementation block
 @property (nonatomic,copy) NSDate * expirationDate;                                  //@synthesize expirationDate=_expirationDate - In the implementation block
 @property (nonatomic,copy) NSString * challenge;                                     //@synthesize challenge=_challenge - In the implementation block
--(NSSet *)declinedPermissions;
 -(NSString *)accessTokenString;
+-(NSSet *)declinedPermissions;
+-(char)isSystemAccount;
 -(void)setAccessTokenString:(NSString *)arg1 ;
 -(void)setDeclinedPermissions:(NSSet *)arg1 ;
--(char)isSystemAccount;
 -(void)setSystemAccount:(char)arg1 ;
 -(NSError *)error;
 -(id)init;

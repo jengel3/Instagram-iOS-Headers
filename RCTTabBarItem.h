@@ -25,9 +25,9 @@
 @property (assign,getter=isSelected,nonatomic) char selected;              //@synthesize selected=_selected - In the implementation block
 @property (nonatomic,readonly) UITabBarItem * barItem;                     //@synthesize barItem=_barItem - In the implementation block
 @property (nonatomic,copy) id onPress;                                     //@synthesize onPress=_onPress - In the implementation block
+-(id)reactViewController;
 -(void)setOnPress:(id)arg1 ;
 -(id)onPress;
--(id)reactViewController;
 -(UITabBarItem *)barItem;
 -(void)setSystemIcon:(int)arg1 ;
 -(void)setSelectedIcon:(UIImage *)arg1 ;

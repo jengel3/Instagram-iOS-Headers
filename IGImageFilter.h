@@ -21,23 +21,23 @@
 @property (assign,nonatomic) _GLKMatrix4 textureTransform;               //@synthesize textureTransform=_textureTransform - In the implementation block
 @property (assign,nonatomic) float strength;                             //@synthesize strength=_strength - In the implementation block
 @property (nonatomic,retain) NSString * fullFragmentShader;              //@synthesize fullFragmentShader=_fullFragmentShader - In the implementation block
-+(id)filterName;
 +(id)overlayTitle;
++(id)filterName;
 +(int)filterType;
+-(void)setContentTransform:(_GLKMatrix4)arg1 ;
+-(_GLKMatrix4)contentTransform;
+-(_GLKMatrix4)textureTransform;
+-(void)setTextureTransform:(_GLKMatrix4)arg1 ;
 -(id)fullVertexShader;
 -(NSString *)fullFragmentShader;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(_GLKMatrix4)textureTransform;
--(void)setTextureTransform:(_GLKMatrix4)arg1 ;
--(_GLKMatrix4)contentTransform;
--(void)setContentTransform:(_GLKMatrix4)arg1 ;
+-(void)configureProgram:(id)arg1 ;
+-(id)fragmentShaderPrecision;
+-(id)fragmentFunctions;
+-(id)strengthShaderCode;
 -(void)setFullFragmentShader:(NSString *)arg1 ;
 -(id)generateFullFragmentShader;
--(id)fragmentShaderPrecision;
--(id)strengthShaderCode;
--(id)fragmentFunctions;
 -(void)setFlip:(char)arg1 ;
--(void)configureProgram:(id)arg1 ;
 -(id)vertexShader;
 -(id)fragmentShader;
 -(id)init;

@@ -2,13 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <MapKit/MKMapView.h>
 
-@class UIView, CLLocationManager, NSMutableArray, NSTimer, NSArray;
+@class UIView, CLLocationManager, NSTimer, NSArray;
 
 @interface RCTMap : MKMapView {
 
 	UIView* _legalLabel;
 	CLLocationManager* _locationManager;
-	NSMutableArray* _reactSubviews;
 	char _followUserLocation;
 	char _hasStartedRendering;
 	float _minDelta;
@@ -38,6 +37,9 @@
 @property (nonatomic,copy) id onAnnotationDragStateChange;                    //@synthesize onAnnotationDragStateChange=_onAnnotationDragStateChange - In the implementation block
 @property (nonatomic,copy) id onAnnotationFocus;                              //@synthesize onAnnotationFocus=_onAnnotationFocus - In the implementation block
 @property (nonatomic,copy) id onAnnotationBlur;                               //@synthesize onAnnotationBlur=_onAnnotationBlur - In the implementation block
+-(id)onChange;
+-(void)didUpdateReactSubviews;
+-(void)setOnChange:(id)arg1 ;
 -(void)setAnnotationIDs:(NSArray *)arg1 ;
 -(void)setOverlayIDs:(NSArray *)arg1 ;
 -(void)setOverlays:(id)arg1 ;
@@ -63,12 +65,7 @@
 -(void)setHasStartedRendering:(char)arg1 ;
 -(float)maxDelta;
 -(float)minDelta;
--(id)onChange;
--(void)setOnChange:(id)arg1 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
--(void)setRegion:(SCD_Struct_RC54)arg1 animated:(char)arg2 ;
+-(void)setRegion:(SCD_Struct_IG36)arg1 animated:(char)arg2 ;
 -(void)setShowsCompass:(char)arg1 ;
 -(char)showsCompass;
 -(void)setShowsUserLocation:(char)arg1 ;

@@ -1,11 +1,11 @@
 
 #import <Instagram/Instagram-Structs.h>
-#import <libobjc.A.dylib/NSCoding.h>
+#import <libobjc.A.dylib/NSSecureCoding.h>
 #import <libobjc.A.dylib/NSCopying.h>
 
 @class IGFeedItem, NSMutableSet, NSSet;
 
-@interface IGUsertagGroup : NSObject <NSCoding, NSCopying> {
+@interface IGUsertagGroup : NSObject <NSSecureCoding, NSCopying> {
 
 	IGFeedItem* _feedItem;
 	NSMutableSet* _inTagsSet;
@@ -15,6 +15,7 @@
 @property (nonatomic,retain) NSMutableSet * inTagsSet;                  //@synthesize inTagsSet=_inTagsSet - In the implementation block
 @property (nonatomic,readonly) NSSet * inTags; 
 @property (assign,nonatomic,__weak) IGFeedItem * feedItem;              //@synthesize feedItem=_feedItem - In the implementation block
++(char)supportsSecureCoding;
 -(IGFeedItem *)feedItem;
 -(NSSet *)inTags;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;

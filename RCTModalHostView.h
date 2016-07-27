@@ -24,15 +24,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
+-(void)removeReactSubview:(id)arg1 ;
+-(void)didUpdateReactSubviews;
 -(id)initWithBridge:(id)arg1 ;
 -(void)notifyForBoundsChange:(CGRect)arg1 ;
 -(char)hasAnimationType;
 -(void)dismissModalViewController;
 -(id)onShow;
 -(void)setOnShow:(id)arg1 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)didMoveToWindow;

@@ -35,12 +35,12 @@
 @property (assign,nonatomic,__weak) NSArray * allContent;                                                  //@synthesize allContent=_allContent - In the implementation block
 @property (nonatomic,retain) NSIndexPath * currentlyExpandedIndexPath;                                     //@synthesize currentlyExpandedIndexPath=_currentlyExpandedIndexPath - In the implementation block
 +(Class)invalidationContextClass;
--(NSArray *)allContent;
 -(void)calculateAndCacheAttributes;
 -(IGDirectThreadLayoutInvalidationContext *)igInvalidationContext;
 -(void)setIgInvalidationContext:(IGDirectThreadLayoutInvalidationContext *)arg1 ;
 -(CGSize)calculatedCollectionViewContentSize;
 -(NSDictionary *)itemAttributes;
+-(NSArray *)allContent;
 -(void)setAllContent:(NSArray *)arg1 ;
 -(NSIndexPath *)currentlyExpandedIndexPath;
 -(void)setCurrentlyExpandedIndexPath:(NSIndexPath *)arg1 ;

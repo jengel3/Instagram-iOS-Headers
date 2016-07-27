@@ -28,9 +28,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(void)logUserImpressionAtPosition:(unsigned)arg1 ;
--(void)logTapActionAtPosition:(unsigned)arg1 ;
--(void)logFollowActionAtPosition:(unsigned)arg1 ;
 -(void)setSimilarAccountSource:(unsigned)arg1 ;
 -(void)setFollowButtonType:(int)arg1 ;
 -(NSMutableOrderedSet *)similarAccounts;
@@ -41,6 +38,9 @@
 -(void)logImpressions;
 -(void)setSimilarAccountsControlDelegate:(id<IGSimilarAccountsControlDelegate>)arg1 ;
 -(void)setSimilarAccounts:(NSMutableOrderedSet *)arg1 ;
+-(void)logUserImpressionAtPosition:(unsigned)arg1 ;
+-(void)logTapActionAtPosition:(unsigned)arg1 ;
+-(void)logFollowActionAtPosition:(unsigned)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)init;

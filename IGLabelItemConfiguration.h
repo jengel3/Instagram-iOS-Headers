@@ -23,11 +23,12 @@
 @property (nonatomic,readonly) char hideTopSeparator;                      //@synthesize hideTopSeparator=_hideTopSeparator - In the implementation block
 @property (nonatomic,readonly) char hideBottomSeparator;                   //@synthesize hideBottomSeparator=_hideBottomSeparator - In the implementation block
 +(id)commentHeaderConfig;
++(id)activityItemHeaderConfig;
 -(id)initWithCellBackgroundColor:(id)arg1 textLabelColor:(id)arg2 textLabelFont:(id)arg3 separatorColor:(id)arg4 labelViewInsets:(UIEdgeInsets)arg5 hideTopSeparator:(char)arg6 hideBottomSeparator:(char)arg7 ;
+-(char)hideTopSeparator;
 -(UIFont *)textLabelFont;
 -(UIColor *)separaterColor;
 -(UIEdgeInsets)labelViewInsets;
--(char)hideTopSeparator;
 -(char)hideBottomSeparator;
 -(UIColor *)cellBackgroundColor;
 -(UIColor *)textLabelColor;

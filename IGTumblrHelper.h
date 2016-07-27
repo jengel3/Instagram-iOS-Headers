@@ -31,17 +31,17 @@
 +(void)logoutFromDefaults:(id)arg1 ;
 +(id)sharedTumblrHelper;
 +(id)serviceName;
--(id)sharingInfo;
+-(void)reauthorizeIfNeeded;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)logoutAndUnlink;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(char)isConfigurable;
 -(char)hasAdvancedOptions;
--(char)requiresLocationCoordinate;
 -(char)hasEverBeenConfigured;
 -(char)isAvailableInCurrentLocale;
 -(char)supportsMediaType:(int)arg1 ;
+-(char)requiresLocationCoordinate;
 -(void)onTumblrLoginCompleted:(id)arg1 ;
 -(id)currentUsername;
 -(id)prefUsernameKey;
@@ -52,7 +52,6 @@
 -(void)followTicket:(id)arg1 didSucceedWithData:(id)arg2 ;
 -(void)followTicket:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)followInstagram;
--(void)reauthorizeIfNeeded;
 -(char)needsToReauthorize;
 -(id)viewControllerForAdvancedOptions;
 -(char)loginPending;
@@ -64,6 +63,7 @@
 -(id)loginFooterMessage;
 -(void)prepareCell:(id)arg1 forIndexPath:(id)arg2 ;
 -(void)saveLoginInfo;
+-(id)sharingInfo;
 -(void)setCurrentUser:(IGUser *)arg1 ;
 -(void)dealloc;
 -(void)setConsumer:(OAConsumer *)arg1 ;

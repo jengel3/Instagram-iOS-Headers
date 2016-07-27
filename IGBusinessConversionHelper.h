@@ -1,7 +1,6 @@
 
 
 @interface IGBusinessConversionHelper : NSObject
-+(void)showBusinessConversionCompletionAlertWithPopoverDelegate:(id)arg1 ;
 +(void)switchBackToPersonalAccountFromViewController:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
 +(id)cityPlaceholderText;
 +(void)handleNewUpdateWithPageInfo:(id)arg1 completion:(/*^block*/id)arg2 ;
@@ -18,6 +17,7 @@
 +(id)needContactMethodErrorString;
 +(id)basicPhoneNumberField;
 +(id)phoneNumberFieldWithCountrySelector;
++(id)emailField;
 +(id)addressField;
 +(id)addressPlaceholderText;
 +(unsigned)contactPreferenceForString:(id)arg1 ;
@@ -25,6 +25,5 @@
 +(void)finishConversionWithPageInfo:(id)arg1 completion:(/*^block*/id)arg2 ;
 +(id)textButtonWithTitle:(id)arg1 ;
 +(char)validatePageInfo:(id)arg1 withError:(id*)arg2 ;
-+(id)emailField;
 @end
 

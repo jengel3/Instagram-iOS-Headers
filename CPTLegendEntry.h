@@ -22,10 +22,10 @@
 @property (assign,nonatomic) unsigned row; 
 @property (assign,nonatomic) unsigned column; 
 @property (nonatomic,readonly) CGSize titleSize; 
--(CPTPlot *)plot;
--(void)drawTitleInRect:(CGRect)arg1 inContext:(CGContextRef)arg2 scale:(float)arg3 ;
 -(CGSize)titleSize;
+-(CPTPlot *)plot;
 -(void)setPlot:(CPTPlot *)arg1 ;
+-(void)drawTitleInRect:(CGRect)arg1 inContext:(CGContextRef)arg2 scale:(float)arg3 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

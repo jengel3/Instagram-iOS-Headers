@@ -13,9 +13,9 @@
 
 @property (nonatomic,readonly) UILabel * label;                    //@synthesize label=_label - In the implementation block
 @property (nonatomic,readonly) UIImageView * chevron;              //@synthesize chevron=_chevron - In the implementation block
--(void)configureWithViewModel:(id)arg1 ;
 -(void)setupLabel;
 -(void)setupChevron;
+-(void)configureWithViewModel:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UILabel *)label;

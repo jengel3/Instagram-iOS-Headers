@@ -32,8 +32,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(char)hasValidPhone;
 -(id)emailConfirmationView;
 -(id)smsConfirmationView;

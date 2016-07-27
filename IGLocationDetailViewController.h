@@ -45,14 +45,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)enableNavState;
 -(id)analyticsModule;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(id)analyticsExtras;
--(void)composedPeopleYouFollowView:(id)arg1 didTapSocialItemAtIndex:(unsigned)arg2 ;
--(IGMediaThumbnailLogger *)mediaLogger;
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
+-(char)enableNavState;
+-(void)composedPeopleYouFollowView:(id)arg1 didTapSocialItemAtIndex:(unsigned)arg2 ;
+-(IGMediaThumbnailLogger *)mediaLogger;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
 -(NSArray *)forceMediaIDs;

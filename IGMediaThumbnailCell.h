@@ -37,14 +37,15 @@
 -(void)videoPlayerLoadedFirstFrame:(id)arg1 ;
 -(void)videoPlayerDidPlayToEnd:(id)arg1 ;
 -(void)videoPlayerWillPrepareAssetForPlayback:(id)arg1 ;
--(void)videoPlayer:(id)arg1 playbackBufferEmpty:(char)arg2 ;
--(void)videoPlayer:(id)arg1 playbackBufferLikelyToKeepUp:(char)arg2 ;
+-(void)videoPlayerBufferEmpty:(id)arg1 ;
+-(void)videoPlayerBufferLikelyToKeepUp:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didFailToPlaybackWithError:(id)arg2 ;
 -(void)videoPlayerDidPlay:(id)arg1 ;
 -(void)videoPlayerDidPause:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didUpdateLoadingProgress:(float)arg2 ;
 -(void)videoPlayer:(id)arg1 didUpdatePlaybackProgress:(float)arg2 ;
 -(void)videoPlayerDidFinishSeeking:(id)arg1 ;
+-(void)setImage:(id)arg1 isVideo:(char)arg2 ;
 -(void)videoPrepareForReuse;
 -(IGMediaThumbnailSelectableOverlay *)selectableOverlay;
 -(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;

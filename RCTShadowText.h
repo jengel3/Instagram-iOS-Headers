@@ -21,6 +21,7 @@
 	float _letterSpacing;
 	float _lineHeight;
 	unsigned _numberOfLines;
+	int _lineBreakMode;
 	int _textAlign;
 	int _writingDirection;
 	UIColor* _textDecorationColor;
@@ -44,6 +45,7 @@
 @property (assign,nonatomic) float letterSpacing;                        //@synthesize letterSpacing=_letterSpacing - In the implementation block
 @property (assign,nonatomic) float lineHeight;                           //@synthesize lineHeight=_lineHeight - In the implementation block
 @property (assign,nonatomic) unsigned numberOfLines;                     //@synthesize numberOfLines=_numberOfLines - In the implementation block
+@property (assign,nonatomic) int lineBreakMode;                          //@synthesize lineBreakMode=_lineBreakMode - In the implementation block
 @property (assign,nonatomic) CGSize shadowOffset;                        //@synthesize shadowOffset=_shadowOffset - In the implementation block
 @property (assign,nonatomic) int textAlign;                              //@synthesize textAlign=_textAlign - In the implementation block
 @property (assign,nonatomic) int writingDirection;                       //@synthesize writingDirection=_writingDirection - In the implementation block
@@ -56,18 +58,17 @@
 @property (assign,nonatomic) CGSize textShadowOffset;                    //@synthesize textShadowOffset=_textShadowOffset - In the implementation block
 @property (assign,nonatomic) float textShadowRadius;                     //@synthesize textShadowRadius=_textShadowRadius - In the implementation block
 @property (nonatomic,retain) UIColor * textShadowColor;                  //@synthesize textShadowColor=_textShadowColor - In the implementation block
--(void)applyLayoutToChildren:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
--(void)applyLayoutNode:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
--(id)processUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
--(void)fillCSSNode:(css_node*)arg1 ;
--(void)dirtyText;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
 -(void)contentSizeMultiplierDidChange:(id)arg1 ;
+-(void)dirtyText;
+-(id)processUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
+-(id)buildTextStorageForWidth:(float)arg1 widthMode:(int)arg2 ;
+-(void)applyLayoutNode:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
 -(id)_attributedStringWithFontFamily:(id)arg1 fontSize:(id)arg2 fontWeight:(id)arg3 fontStyle:(id)arg4 letterSpacing:(id)arg5 useBackgroundColor:(char)arg6 foregroundColor:(id)arg7 backgroundColor:(id)arg8 opacity:(float)arg9 ;
 -(void)_addAttribute:(id)arg1 withValue:(id)arg2 toAttributedString:(id)arg3 ;
 -(void)_setParagraphStyleOnAttributedString:(id)arg1 heightOfTallestSubview:(float)arg2 ;
+-(void)fillCSSNode:(css_node*)arg1 ;
 -(void)setAllowFontScaling:(char)arg1 ;
+-(void)applyLayoutToChildren:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
 -(void)setIsHighlighted:(char)arg1 ;
 -(void)setTextDecorationColor:(UIColor *)arg1 ;
 -(void)setTextDecorationLine:(int)arg1 ;
@@ -81,13 +82,15 @@
 -(CGSize)textShadowOffset;
 -(float)textShadowRadius;
 -(void)recomputeText;
--(id)buildTextStorageForWidth:(float)arg1 widthMode:(int)arg2 ;
+-(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
+-(void)removeReactSubview:(id)arg1 ;
 -(void)setTextAlign:(int)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
 -(id)description;
 -(void)setNumberOfLines:(unsigned)arg1 ;
+-(void)setLineBreakMode:(int)arg1 ;
 -(float)lineHeight;
 -(void)setShadowOffset:(CGSize)arg1 ;
 -(float)opacity;
@@ -97,6 +100,7 @@
 -(void)setLineHeight:(float)arg1 ;
 -(id)attributedString;
 -(UIColor *)color;
+-(int)lineBreakMode;
 -(unsigned)numberOfLines;
 -(void)setColor:(UIColor *)arg1 ;
 -(void)setFontSize:(float)arg1 ;

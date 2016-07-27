@@ -35,6 +35,8 @@
 -(void)setUpViewHierarchy;
 -(void)setNavigationBarSuperview:(UIView *)arg1 ;
 -(UIView *)navigationBarSuperview;
+-(void)updateWithPercentComplete:(float)arg1 ;
+-(void)finishTransitionWithCompleted:(char)arg1 andVelocity:(float)arg2 ;
 -(void)putBackViewHierarchyWithCompleted:(char)arg1 ;
 -(void)moveToPercentCompleted:(float)arg1 ;
 -(void)setTabBarSuperview:(UIView *)arg1 ;
@@ -47,8 +49,6 @@
 -(UIView *)tabBarSuperview;
 -(void)setInteractiveTransitionDimmedStatusBar:(char)arg1 ;
 -(char)interactiveTransitionDimmedStatusBar;
--(void)updateWithPercentComplete:(float)arg1 ;
--(void)finishTransitionWithCompleted:(char)arg1 andVelocity:(float)arg2 ;
 -(void)setFromHeaderSnapshot:(UIView *)arg1 ;
 -(void)setToHeaderSnapshot:(UIView *)arg1 ;
 -(char)isInteractive;

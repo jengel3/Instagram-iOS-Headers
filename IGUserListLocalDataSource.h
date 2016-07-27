@@ -15,8 +15,8 @@
 @property (nonatomic,retain) NSDictionary * additionalUserSearchStrings;              //@synthesize additionalUserSearchStrings=_additionalUserSearchStrings - In the implementation block
 @property (assign,nonatomic) char excludesCurrentUser;                                //@synthesize excludesCurrentUser=_excludesCurrentUser - In the implementation block
 -(void)setUnfilteredResults:(id)arg1 ;
--(void)addUsersForFeedItem:(id)arg1 ;
 -(void)filterUsersInSet:(int)arg1 scope:(int)arg2 query:(id)arg3 ;
+-(void)addUsersForFeedItem:(id)arg1 ;
 -(void)addUsers:(id)arg1 ;
 -(/*^block*/id)usernameComparator;
 -(id)searchStringsForCharacter:(id)arg1 ;

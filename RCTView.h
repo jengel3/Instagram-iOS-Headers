@@ -2,12 +2,13 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIColor;
+@class UIColor;
 
 @interface RCTView : UIView {
 
-	NSMutableArray* _reactSubviews;
 	UIColor* _backgroundColor;
+	char _removeClippedSubviews;
+	int _reactZIndex;
 	/*^block*/id _onAccessibilityTap;
 	/*^block*/id _onMagicTap;
 	int _pointerEvents;
@@ -34,7 +35,8 @@
 @property (nonatomic,copy) id onAccessibilityTap;                         //@synthesize onAccessibilityTap=_onAccessibilityTap - In the implementation block
 @property (nonatomic,copy) id onMagicTap;                                 //@synthesize onMagicTap=_onMagicTap - In the implementation block
 @property (assign,nonatomic) int pointerEvents;                           //@synthesize pointerEvents=_pointerEvents - In the implementation block
-@property (assign,nonatomic) char removeClippedSubviews; 
+@property (assign,nonatomic) int reactZIndex;                             //@synthesize reactZIndex=_reactZIndex - In the implementation block
+@property (assign,nonatomic) char removeClippedSubviews;                  //@synthesize removeClippedSubviews=_removeClippedSubviews - In the implementation block
 @property (assign,nonatomic) float borderRadius;                          //@synthesize borderRadius=_borderRadius - In the implementation block
 @property (assign,nonatomic) float borderTopLeftRadius;                   //@synthesize borderTopLeftRadius=_borderTopLeftRadius - In the implementation block
 @property (assign,nonatomic) float borderTopRightRadius;                  //@synthesize borderTopRightRadius=_borderTopRightRadius - In the implementation block
@@ -55,25 +57,23 @@
 +(void)autoAdjustInsetsForView:(id)arg1 withScrollView:(id)arg2 updateOffset:(char)arg3 ;
 +(UIEdgeInsets)contentInsetsForView:(id)arg1 ;
 -(void)reactSetFrame:(CGRect)arg1 ;
+-(void)reactSetInheritedBackgroundColor:(id)arg1 ;
+-(void)didUpdateReactSubviews;
 -(void)updateClippedSubviews;
 -(void)react_updateClippedSubviewsWithClipRect:(CGRect)arg1 relativeToView:(id)arg2 ;
--(void)reactSetInheritedBackgroundColor:(id)arg1 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
+-(void)setRemoveClippedSubviews:(char)arg1 ;
 -(void)react_remountAllSubviews;
--(void)remountSubview:(id)arg1 ;
--(void)mountOrUnmountSubview:(id)arg1 withClipRect:(CGRect)arg2 relativeToView:(id)arg3 ;
 -(UIEdgeInsets)bordersAsInsets;
--(SCD_Struct_RC63*)borderColors;
+-(SCD_Struct_RC144*)borderColors;
 -(void)updateClippingForLayer:(id)arg1 ;
+-(int)reactZIndex;
+-(void)setReactZIndex:(int)arg1 ;
 -(id)onAccessibilityTap;
 -(void)setOnAccessibilityTap:(id)arg1 ;
 -(id)onMagicTap;
 -(void)setOnMagicTap:(id)arg1 ;
 -(void)setPointerEvents:(int)arg1 ;
 -(int)pointerEvents;
--(void)setRemoveClippedSubviews:(char)arg1 ;
 -(char)removeClippedSubviews;
 -(void)setBorderRadius:(float)arg1 ;
 -(void)setBorderTopLeftRadius:(float)arg1 ;

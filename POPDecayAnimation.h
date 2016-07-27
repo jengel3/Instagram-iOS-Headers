@@ -12,10 +12,10 @@
 +(id)animation;
 -(void)_initState;
 -(void)_appendDescription:(id)arg1 debug:(char)arg2 ;
--(id)reversedVelocity;
--(id)originalVelocity;
 -(void)_ensureComputedProperties;
 -(void)_invalidateComputedProperties;
+-(id)originalVelocity;
+-(id)reversedVelocity;
 -(id)init;
 -(void)setVelocity:(id)arg1 ;
 -(double)duration;

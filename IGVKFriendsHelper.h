@@ -15,8 +15,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)authorizeAndFetchUsers;
+-(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)onVkontakteAuthSuccessDismissOAuth:(char)arg1 ;
 -(void)onVkontakteAuthSuccess;
 -(void)onVkontakteAuthFailure;

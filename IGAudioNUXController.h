@@ -16,6 +16,9 @@
 @property (nonatomic,retain) IGMediaOverlayIndicator * indicator;                           //@synthesize indicator=_indicator - In the implementation block
 -(void)didPressVolumeButton:(id)arg1 ;
 -(IGMediaOverlayIndicator *)indicator;
+-(void)didTapOnVideo;
+-(void)showOneTapIndicatorNUXAnimated:(char)arg1 ;
+-(id)initWithIndicator:(id)arg1 ;
 -(void)setIndicator:(IGMediaOverlayIndicator *)arg1 ;
 -(void)didChangeMuteSwitch:(id)arg1 ;
 -(void)updateIndicatorWithAudioEnabled:(char)arg1 ;
@@ -23,9 +26,6 @@
 -(char)hasShownPlaybackNUX;
 -(void)setHasShownPlaybackNUX:(char)arg1 ;
 -(id)iconNameForAudioEnabled:(char)arg1 ;
--(id)initWithIndicator:(id)arg1 ;
--(void)showOneTapIndicatorNUXAnimated:(char)arg1 ;
--(void)didTapOnVideo;
 -(void)setDelegate:(id<IGAudioNUXControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGAudioNUXControllerDelegate>)delegate;

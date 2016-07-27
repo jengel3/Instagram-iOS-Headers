@@ -15,9 +15,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSString *)moduleName;
--(void)didCompleteUpdateForListAdapterUpdater:(id)arg1 ;
--(void)listAdapterUpdater:(id)arg1 updatedWithStats:(IGListAdapterUpdaterPerfStats)arg2 ;
 -(id)initWithModuleName:(id)arg1 ;
+-(void)listAdapterUpdater:(id)arg1 updatedWithStats:(IGListAdapterUpdaterPerfStats)arg2 ;
+-(void)didCompleteUpdateForListAdapterUpdater:(id)arg1 ;
+-(NSString *)moduleName;
 @end
 

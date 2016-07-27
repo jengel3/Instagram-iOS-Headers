@@ -26,11 +26,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(char)prefersTabBarHidden;
 -(IGTextField *)changeEmailField;
 -(id)initWithEmail:(id)arg1 fromSource:(int)arg2 ;
 -(void)setChangeEmailField:(IGTextField *)arg1 ;
 -(void)setupNavigationItems;
+-(char)prefersTabBarHidden;
 -(void)setDelegate:(id<IGChangeEmailViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;

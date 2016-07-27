@@ -38,6 +38,7 @@
 @property (nonatomic,retain) NSString * uploadComment;                                                       //@synthesize uploadComment=_uploadComment - In the implementation block
 @property (assign,nonatomic) char isFirstAppearance;                                                         //@synthesize isFirstAppearance=_isFirstAppearance - In the implementation block
 @property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;                                           //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,readonly) char canConvertToFullMessageByAddingItemID; 
 @property (nonatomic,readonly) NSURL * cacheKeyURL; 
 @property (nonatomic,retain) NSData * imageData;                                                             //@synthesize imageData=_imageData - In the implementation block
 @property (nonatomic,retain) IGUploadModel * uploadModel;                                                    //@synthesize uploadModel=_uploadModel - In the implementation block
@@ -48,12 +49,17 @@
 @property (assign,nonatomic) unsigned lastReactionType;                                                      //@synthesize lastReactionType=_lastReactionType - In the implementation block
 @property (nonatomic,readonly) IGDirectItemIdBasedImageURLProcessor * previewImageURLProcessor;              //@synthesize previewImageURLProcessor=_previewImageURLProcessor - In the implementation block
 -(id)imageURLForWidth:(float)arg1 ;
+-(IGUploadModel *)uploadModel;
+-(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
+-(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
+-(id)imageURLOfAtLeastWidth:(float)arg1 scale:(float)arg2 ;
+-(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
+-(IGDirectContentUploadInfo *)uploadInfo;
 -(NSURL *)cacheKeyURL;
 -(char)useMainCameraUploadFlow;
--(IGUploadModel *)uploadModel;
 -(void)setUploadModel:(IGUploadModel *)arg1 ;
--(IGDirectContentUploadInfo *)uploadInfo;
 -(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
+-(char)canConvertToFullMessageByAddingItemID;
 -(NSArray *)reactions;
 -(id)copyOfContentWithReactionFilter:(id)arg1 ;
 -(void)setReactions:(NSArray *)arg1 ;
@@ -61,15 +67,12 @@
 -(void)setReactionsNeedsReRender:(char)arg1 ;
 -(unsigned)lastReactionType;
 -(void)setLastReactionType:(unsigned)arg1 ;
--(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
--(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
--(id)imageURLOfAtLeastWidth:(float)arg1 scale:(float)arg2 ;
--(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
--(id)contentTypeString;
 -(NSString *)uploadComment;
 -(void)setUploadComment:(NSString *)arg1 ;
--(IGDirectItemIdBasedImageURLProcessor *)previewImageURLProcessor;
+-(id)contentTypeString;
+-(id)initWithCurrentUser:(id)arg1 sentDate:(id)arg2 itemId:(id)arg3 recipient:(id)arg4 comment:(id)arg5 aspectRatio:(CGSize)arg6 useMainCameraUploadFlow:(char)arg7 ;
 -(void)setUseMainCameraUploadFlow:(char)arg1 ;
+-(IGDirectItemIdBasedImageURLProcessor *)previewImageURLProcessor;
 -(char)isFirstAppearance;
 -(void)setIsFirstAppearance:(char)arg1 ;
 -(id)initAsUploadWithComment:(id)arg1 recipient:(id)arg2 aspectRatio:(CGSize)arg3 useMainCameraUploadFlow:(char)arg4 ;

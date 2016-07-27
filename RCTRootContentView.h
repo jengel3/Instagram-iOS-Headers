@@ -20,9 +20,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(char)contentHasAppeared;
 -(id)initWithFrame:(CGRect)arg1 bridge:(id)arg2 reactTag:(id)arg3 sizeFlexiblity:(int)arg4 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

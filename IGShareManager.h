@@ -8,11 +8,11 @@
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController * delegate; 
 @required
+-(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2;
 -(void)setShareString:(id)arg1;
 -(void)configureWithHeaderView:(id)arg1;
 -(NSString *)shareString;
 -(char)isReadyToShare;
--(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2;
 -(void)setDelegate:(id)arg1;
 -(UIViewController *)delegate;
 -(UIScrollView *)scrollView;

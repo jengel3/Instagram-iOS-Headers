@@ -32,9 +32,10 @@
 -(id)initWithLogger:(id)arg1 ;
 -(void)stopCurrentlyPlayingPhoto;
 -(void)playPhotoForItem:(id)arg1 ;
+-(void)pauseCurrentlyPlayingPhoto;
+-(IGEventViewerPlaybackItem *)playbackItem;
 -(char)isCurrentlyPlayingPhoto;
 -(double)timerProgress;
--(IGEventViewerPlaybackItem *)playbackItem;
 -(void)setTimerProgress:(double)arg1 ;
 -(void)setPlaybackItem:(IGEventViewerPlaybackItem *)arg1 ;
 -(void)feedPhotoViewDidLoadImage:(id)arg1 ;

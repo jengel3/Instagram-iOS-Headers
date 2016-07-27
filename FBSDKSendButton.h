@@ -17,12 +17,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,copy) id<FBSDKSharingContent> shareContent; 
 -(void)configureButton;
+-(id<FBSDKSharingContent>)shareContent;
+-(void)setShareContent:(id<FBSDKSharingContent>)arg1 ;
 -(id)analyticsParameters;
 -(id)impressionTrackingEventName;
 -(id)impressionTrackingIdentifier;
 -(char)isImplicitlyDisabled;
--(id<FBSDKSharingContent>)shareContent;
--(void)setShareContent:(id<FBSDKSharingContent>)arg1 ;
 -(void)_share:(id)arg1 ;
 @end
 

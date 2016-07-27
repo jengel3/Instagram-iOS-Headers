@@ -8,8 +8,8 @@
 
 @interface IGDirectGroupNamingViewController : UIViewController <UITextFieldDelegate> {
 
-	id<IGDirectGroupNamingViewControllerDelegate> _delegate;
 	IGTextField* _nameTextField;
+	id<IGDirectGroupNamingViewControllerDelegate> _delegate;
 	UIButton* _closeButton;
 
 }

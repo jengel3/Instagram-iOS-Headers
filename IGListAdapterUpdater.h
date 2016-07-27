@@ -7,6 +7,7 @@
 
 @interface IGListAdapterUpdater : NSObject <IGListUpdatingDelegate> {
 
+	char _movesAsDeletesInserts;
 	char _queuedUpdateIsAnimated;
 	char _queuedReloadData;
 	char _batchUpdateOrReloadInProgress;
@@ -40,6 +41,17 @@
 @property (assign,getter=hasQueuedReloadData,nonatomic) char queuedReloadData;                      //@synthesize queuedReloadData=_queuedReloadData - In the implementation block
 @property (assign,nonatomic) char batchUpdateOrReloadInProgress;                                    //@synthesize batchUpdateOrReloadInProgress=_batchUpdateOrReloadInProgress - In the implementation block
 @property (assign,nonatomic,__weak) id<IGListAdapterUpdaterPerfDelegate> perfDelegate;              //@synthesize perfDelegate=_perfDelegate - In the implementation block
+@property (assign,nonatomic) char movesAsDeletesInserts;                                            //@synthesize movesAsDeletesInserts=_movesAsDeletesInserts - In the implementation block
+-(void)setMovesAsDeletesInserts:(char)arg1 ;
+-(void)setPerfDelegate:(id<IGListAdapterUpdaterPerfDelegate>)arg1 ;
+-(id)itemLookupPointerFunctions;
+-(void)performUpdateWithCollectionView:(id)arg1 fromItems:(id)arg2 toItems:(id)arg3 animated:(char)arg4 itemTransitionBlock:(/*^block*/id)arg5 completion:(/*^block*/id)arg6 ;
+-(void)reloadDataWithCollectionView:(id)arg1 itemUpdateBlock:(/*^block*/id)arg2 completion:(/*^block*/id)arg3 ;
+-(void)reloadCollectionView:(id)arg1 sections:(id)arg2 ;
+-(void)reloadItemsInCollectionView:(id)arg1 indexPaths:(id)arg2 ;
+-(void)insertItemsIntoCollectionView:(id)arg1 indexPaths:(id)arg2 ;
+-(void)deleteItemsFromCollectionView:(id)arg1 indexPaths:(id)arg2 ;
+-(void)performUpdateWithCollectionView:(id)arg1 animated:(char)arg2 itemUpdates:(/*^block*/id)arg3 completion:(/*^block*/id)arg4 ;
 -(char)hasQueuedReloadData;
 -(NSMutableArray *)itemUpdateBlocks;
 -(NSArray *)fromItems;
@@ -48,7 +60,6 @@
 -(void)setBatchUpdateOrReloadInProgress:(char)arg1 ;
 -(void)cleanupState;
 -(void)cleanupUpdateBlockState;
--(char)batchUpdateOrReloadInProgress;
 -(id)itemTransitionBlock;
 -(char)queuedUpdateIsAnimated;
 -(void)beginPerformBatchUpdatesToItems:(id)arg1 ;
@@ -60,6 +71,7 @@
 -(id<IGListAdapterUpdaterPerfDelegate>)perfDelegate;
 -(void)endPerformBatchUpdates;
 -(void)queueUpdateWithCollectionView:(id)arg1 ;
+-(char)movesAsDeletesInserts;
 -(void)sendStatsForDiffResult:(IGDKStats)arg1 insertCount:(int)arg2 deleteCount:(int)arg3 reloadCount:(int)arg4 moveCount:(int)arg5 deleteItemCount:(int)arg6 insertItemCount:(int)arg7 reloadItemCount:(int)arg8 ;
 -(void)setPendingTransitionToItems:(NSArray *)arg1 ;
 -(void)setQueuedUpdateIsAnimated:(char)arg1 ;
@@ -68,20 +80,12 @@
 -(void)setReloadUpdates:(id)arg1 ;
 -(void)setQueuedReloadData:(char)arg1 ;
 -(void)setItemTransitionBlock:(id)arg1 ;
+-(char)batchUpdateOrReloadInProgress;
 -(void)performReloadDataWithCollectionView:(id)arg1 ;
 -(void)performBatchUpdatesWithCollectionView:(id)arg1 ;
 -(NSArray *)pendingTransitionToItems;
--(id)itemLookupPointerFunctions;
--(void)performUpdateWithCollectionView:(id)arg1 fromItems:(id)arg2 toItems:(id)arg3 animated:(char)arg4 itemTransitionBlock:(/*^block*/id)arg5 completion:(/*^block*/id)arg6 ;
--(void)insertItemsIntoCollectionView:(id)arg1 indexPaths:(id)arg2 ;
--(void)deleteItemsFromCollectionView:(id)arg1 indexPaths:(id)arg2 ;
--(void)reloadItemsInCollectionView:(id)arg1 indexPaths:(id)arg2 ;
--(void)reloadDataWithCollectionView:(id)arg1 itemUpdateBlock:(/*^block*/id)arg2 completion:(/*^block*/id)arg3 ;
--(void)reloadCollectionView:(id)arg1 sections:(id)arg2 ;
--(void)performUpdateWithCollectionView:(id)arg1 animated:(char)arg2 itemUpdates:(/*^block*/id)arg3 completion:(/*^block*/id)arg4 ;
 -(id)filterIndexPaths:(id)arg1 removingSections:(id)arg2 ;
 -(id)trimmedIndexPaths:(id)arg1 inSections:(id)arg2 ;
--(void)setPerfDelegate:(id<IGListAdapterUpdaterPerfDelegate>)arg1 ;
 -(void)setItemUpdateBlocks:(NSMutableArray *)arg1 ;
 -(char)hasChanges;
 -(id)init;

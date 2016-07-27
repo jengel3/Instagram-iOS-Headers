@@ -17,12 +17,12 @@
 @property (nonatomic,readonly) IGDirectResponseInfo * directResponseInfo;              //@synthesize directResponseInfo=_directResponseInfo - In the implementation block
 @property (nonatomic,readonly) int directResponseStyle;                                //@synthesize directResponseStyle=_directResponseStyle - In the implementation block
 @property (nonatomic,readonly) NSString * actionText;                                  //@synthesize actionText=_actionText - In the implementation block
+-(IGFeedItem *)feedItem;
+-(id)initWithFeedItem:(id)arg1 ;
 -(id)spondoredInfo;
 -(int)directResponseStyle;
 -(IGDirectResponseInfo *)directResponseInfo;
 -(NSString *)actionText;
--(IGFeedItem *)feedItem;
--(id)initWithFeedItem:(id)arg1 ;
 -(IGSponsoredPostInfo *)sponsoredPostInfo;
 -(char)isDirectResponse;
 -(id)valueForKey:(id)arg1 ;

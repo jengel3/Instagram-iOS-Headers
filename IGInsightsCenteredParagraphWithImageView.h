@@ -20,12 +20,12 @@
 @property (nonatomic,readonly) UIImageView * imageView;                            //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;              //@synthesize loggingHelper=_loggingHelper - In the implementation block
 -(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 paragraphUnit:(id)arg2 loggingHelper:(id)arg3 ;
 -(void)initializeSubtitleWithParagraphUnit:(id)arg1 ;
 -(void)initializeImageViewWithParagraphUnit:(id)arg1 ;
 -(void)initializeActionButtonWithParagraphUnit:(id)arg1 ;
 -(void)onCreatePostButtonTapped:(id)arg1 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(UIButton *)button;
 -(void)layoutSubviews;
 -(CGRect)frame;

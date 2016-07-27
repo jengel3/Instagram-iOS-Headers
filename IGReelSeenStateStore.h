@@ -19,15 +19,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)clearForUserPK:(id)arg1 ;
 +(id)diskCacheFilePathForUser:(id)arg1 ;
--(void)willSwitchUsers;
--(void)willLogOut;
++(void)clearForUserPK:(id)arg1 ;
 -(NSString *)userSessionPK;
 -(void)setSeenStateList:(NSMutableArray *)arg1 ;
 -(NSObject*<OS_dispatch_queue>)archiveQueue;
 -(NSMutableArray *)seenStateList;
 -(void)setLastSeenDate:(id)arg1 forReelPK:(id)arg2 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
 -(id)initWithUserSessionPK:(id)arg1 ;
 -(id)lastSeenDateForReelPK:(id)arg1 ;
 -(void)syncServerLastSeenDate:(id)arg1 forReelPK:(id)arg2 ;

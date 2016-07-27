@@ -18,9 +18,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic) unsigned reactionType;                 //@synthesize reactionType=_reactionType - In the implementation block
--(char)like;
 -(unsigned)reactionType;
 -(void)setReactionType:(unsigned)arg1 ;
+-(char)like;
 -(id)initWithUser:(id)arg1 withLike:(char)arg2 ;
 -(void)setLike:(char)arg1 ;
 -(id)filteredReactionsFromReactions:(id)arg1 ;

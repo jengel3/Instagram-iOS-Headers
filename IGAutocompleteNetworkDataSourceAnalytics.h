@@ -10,9 +10,9 @@
 @property (nonatomic,readonly) char isResponseQueryLocation; 
 @required
 -(NSDictionary *)analyticsInfo;
--(NSString *)responseQueryText;
 -(int)numberOfLocalResults;
 -(char)isLocalResult:(id)arg1;
+-(NSString *)responseQueryText;
 -(NSString *)responseRankToken;
 -(char)responseWasFoundInQueryCache;
 -(char)isResponseQueryLocation;

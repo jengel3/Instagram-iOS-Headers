@@ -77,7 +77,6 @@
 @property (assign,nonatomic) char enabled;                                              //@synthesize enabled=_enabled - In the implementation block
 @property (assign,nonatomic) char highlighted;                                          //@synthesize highlighted=_highlighted - In the implementation block
 @property (assign,nonatomic) char selected;                                             //@synthesize selected=_selected - In the implementation block
--(void)highlight:(char)arg1 ;
 -(void)setTapPadding:(UIOffset)arg1 ;
 -(void)setDefaultTitleLabelText:(NSString *)arg1 ;
 -(void)setSelectedTitleLabelText:(NSString *)arg1 ;
@@ -116,12 +115,14 @@
 -(void)updateBackground;
 -(void)doHighlight:(char)arg1 ;
 -(void)doHighlightYES;
+-(void)highlight:(char)arg1 ;
 -(void)doHighlightNO;
 -(UIOffset)tapPadding;
 -(UIColor *)disabledBackgroundColor;
 -(void)sizeToFitLabel;
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)setDefaultTitleLabelShadowOffset:(float)arg1 ;
+-(void)setHighlightedBackgroundColor:(UIColor *)arg1 ;
 -(void)setHighlightedTitleLabelShadowOffset:(float)arg1 ;
 -(void)setSelectedBackgroundColor:(UIColor *)arg1 ;
 -(void)setSelectedTitleLabelShadowOffset:(float)arg1 ;
@@ -130,13 +131,12 @@
 -(void)setDisabledTitleLabelShadowColor:(UIColor *)arg1 ;
 -(void)setDisabledTitleLabelShadowOffset:(float)arg1 ;
 -(char)animatesDeselection;
+-(void)setAnimatesDeselection:(char)arg1 ;
 -(char)delaysSelection;
 -(void)setDelaysSelection:(char)arg1 ;
 -(char)forwardsContentTouches;
--(void)setHighlightedBackgroundImageView:(UIImageView *)arg1 ;
 -(void)setForwardsContentTouches:(char)arg1 ;
--(void)setAnimatesDeselection:(char)arg1 ;
--(void)setHighlightedBackgroundColor:(UIColor *)arg1 ;
+-(void)setHighlightedBackgroundImageView:(UIImageView *)arg1 ;
 -(void)updateTitleLabel;
 -(char)enabled;
 -(id)initWithFrame:(CGRect)arg1 ;

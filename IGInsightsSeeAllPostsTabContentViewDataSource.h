@@ -45,10 +45,13 @@
 -(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
+-(void)setFilterUnit:(IGInsightsFilterUnit *)arg1 ;
+-(void)setFilterSummaryTitle:(NSString *)arg1 ;
+-(id)getFilterUnit;
+-(NSString *)filterSummaryTitle;
 -(NSArray *)allMediaBundles;
 -(NSArray *)educationUnits;
 -(void)setCollectionViewComponent:(IGInsightsCollectionViewComponent *)arg1 ;
--(void)setFilterUnit:(IGInsightsFilterUnit *)arg1 ;
 -(void)setAllMediaBundles:(NSArray *)arg1 ;
 -(void)fetchInsightsDataForQuery:(id)arg1 ;
 -(void)requestInsightsDataForCurrentQueryItems;
@@ -58,8 +61,6 @@
 -(IGInsightsDataProvider *)insightsDataProvider;
 -(void)didGetResponseFromInsightsDataProvider:(id)arg1 ;
 -(void)didGetResponseFromMediaBundleDataProvider:(id)arg1 ;
--(id)getFilterUnit;
--(void)setFilterSummaryTitle:(NSString *)arg1 ;
 -(IGInsightsCollectionViewComponent *)collectionViewComponent;
 -(void)setEducationUnits:(NSArray *)arg1 ;
 -(id)getAllMediaBundles;
@@ -67,7 +68,6 @@
 -(void)cleanupQueryHistory;
 -(void)fetchMediaBundles;
 -(void)fetchMoreMediaBundles;
--(NSString *)filterSummaryTitle;
 -(IGInsightsFilterUnit *)filterUnit;
 -(void)setDelegate:(id<IGInsightsSeeAllPostsTabContentViewDataSourceDelegate>)arg1 ;
 -(id)init;

@@ -4,16 +4,18 @@
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
 @protocol IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate;
-@class UIView, NSString, CALayer, UILongPressGestureRecognizer, UIImageView;
+@class UIView, NSString, IGPreviewMediaView, CALayer, UILongPressGestureRecognizer, UIImageView;
 
 @interface IGSearchResultCell : IGPlainTableViewCell <UIGestureRecognizerDelegate> {
 
+	char _shouldShowPreviewMediaView;
 	char _showUnseen;
 	char _showUnseenContext;
 	UIView* _iconView;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 	id<IGSearchResultCellDelegate> _delegate;
 	NSString* _itemId;
+	IGPreviewMediaView* _previewMediaView;
 	CALayer* _separatorLayer;
 	UILongPressGestureRecognizer* _contentMenuLongPressRecognizer;
 	UIImageView* _unseenToastView;
@@ -29,25 +31,35 @@
 @property (nonatomic,retain) UIView * iconView;                                                          //@synthesize iconView=_iconView - In the implementation block
 @property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;                   //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGSearchResultCellDelegate> delegate;                             //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic) char shouldShowPreviewMediaView;                                            //@synthesize shouldShowPreviewMediaView=_shouldShowPreviewMediaView - In the implementation block
+@property (nonatomic,retain) IGPreviewMediaView * previewMediaView;                                      //@synthesize previewMediaView=_previewMediaView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(CGRect)unseenToastViewFrame;
++(float)heightOfMediaItemWithCellWidth:(float)arg1 ;
 +(id)formatedPostCount:(unsigned)arg1 ;
 +(id)backgroundColor;
 +(float)height;
 -(void)onContentMenuPress:(id)arg1 ;
 -(void)setContentMenuLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;
 -(UILongPressGestureRecognizer *)contentMenuLongPressRecognizer;
--(CALayer *)separatorLayer;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
+-(void)setPreviewMediaView:(IGPreviewMediaView *)arg1 ;
+-(IGPreviewMediaView *)previewMediaView;
 -(char)showUnseen;
 -(UIImageView *)unseenToastView;
+-(char)shouldShowPreviewMediaView;
+-(CGRect)iconFrameContainedInBounds:(CGRect)arg1 unseenPadding:(float)arg2 shouldShowPreviewMediaView:(char)arg3 ;
 -(float)labelMinXForIconFrame:(CGRect)arg1 ;
 -(void)layoutLabels:(float)arg1 bounds:(CGRect)arg2 ;
+-(CALayer *)separatorLayer;
+-(CGRect)labelFrameContainedInBounds:(CGRect)arg1 labelFrame:(CGRect)arg2 shouldShowPreviewMediaView:(char)arg3 ;
+-(void)setShouldShowPreviewMediaView:(char)arg1 ;
 -(void)setUnseenToastView:(UIImageView *)arg1 ;
+-(void)setMediaBundlesForCell:(id)arg1 ;
 -(char)showUnseenContext;
 -(void)setHashtag:(id)arg1 ;
 -(NSString *)itemId;
@@ -57,6 +69,7 @@
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;
 -(id<IGSearchResultCellDelegate>)delegate;
 -(char)gestureRecognizerShouldBegin:(id)arg1 ;
+-(void)prepareForReuse;
 -(void)setIcon:(id)arg1 ;
 -(UIView *)iconView;
 -(void)setIconView:(UIView *)arg1 ;

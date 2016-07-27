@@ -8,6 +8,7 @@
 @property (nonatomic,copy,readonly) NSString * viewSubType; 
 @property (nonatomic,readonly) char enableNavState; 
 @property (nonatomic,readonly) char canShowLocationCell; 
+@property (nonatomic,readonly) char canShowPreviewMedia; 
 @property (nonatomic,readonly) char shouldShowSectionHeader; 
 @property (nonatomic,copy,readonly) NSString * noResultsMessage; 
 @property (nonatomic,copy,readonly) NSString * queryType; 
@@ -15,9 +16,8 @@
 @property (nonatomic,copy,readonly) NSString * tapCancelEventName; 
 @property (assign,nonatomic) char enableFrequentItems; 
 @required
--(NSString *)moduleName;
 -(char)enableNavState;
--(NSString *)viewSubType;
+-(NSString *)moduleName;
 -(unsigned)numberOfLocalResults;
 -(char)canShowLocationCell;
 -(id)allSearchResults;
@@ -33,6 +33,8 @@
 -(void)addLoadedNotifications;
 -(void)addLocationTracker;
 -(char)shouldShowFrequentSection;
+-(NSString *)viewSubType;
+-(char)canShowPreviewMedia;
 -(char)shouldShowSectionHeader;
 -(NSString *)queryType;
 -(NSString *)tapEventName;

@@ -2,29 +2,29 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewControllerPreviewingDelegate.h>
 
-@protocol UIViewControllerPreviewingDelegate;
-@class IGNewsTableViewController, IGUserPreviewingHandler, IGFeedItemPreviewingHandler, NSString;
+@protocol IGActivityFeedViewControllerProtocol, UIViewControllerPreviewingDelegate;
+@class IGUserPreviewingHandler, IGFeedItemPreviewingHandler, NSString;
 
 @interface IGActivityPreviewingHandler : NSObject <UIViewControllerPreviewingDelegate> {
 
-	IGNewsTableViewController* _newsViewController;
+	id<IGActivityFeedViewControllerProtocol> _newsViewController;
 	IGUserPreviewingHandler* _userDelegate;
 	IGFeedItemPreviewingHandler* _feedItemDelegate;
 	id<UIViewControllerPreviewingDelegate> _usedDelegate;
 
 }
 
-@property (nonatomic,__weak,readonly) IGNewsTableViewController * newsViewController;              //@synthesize newsViewController=_newsViewController - In the implementation block
-@property (nonatomic,retain) IGUserPreviewingHandler * userDelegate;                               //@synthesize userDelegate=_userDelegate - In the implementation block
-@property (nonatomic,retain) IGFeedItemPreviewingHandler * feedItemDelegate;                       //@synthesize feedItemDelegate=_feedItemDelegate - In the implementation block
-@property (nonatomic,retain) id<UIViewControllerPreviewingDelegate> usedDelegate;                  //@synthesize usedDelegate=_usedDelegate - In the implementation block
+@property (nonatomic,__weak,readonly) id<IGActivityFeedViewControllerProtocol> newsViewController;              //@synthesize newsViewController=_newsViewController - In the implementation block
+@property (nonatomic,retain) IGUserPreviewingHandler * userDelegate;                                            //@synthesize userDelegate=_userDelegate - In the implementation block
+@property (nonatomic,retain) IGFeedItemPreviewingHandler * feedItemDelegate;                                    //@synthesize feedItemDelegate=_feedItemDelegate - In the implementation block
+@property (nonatomic,retain) id<UIViewControllerPreviewingDelegate> usedDelegate;                               //@synthesize usedDelegate=_usedDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGNewsTableViewController *)newsViewController;
+-(id<IGActivityFeedViewControllerProtocol>)newsViewController;
+-(id)initWithNewsListViewController:(id)arg1 ;
 -(IGFeedItemPreviewingHandler *)feedItemDelegate;
--(id)initWithNewsTableViewController:(id)arg1 ;
 -(void)setFeedItemDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGUserPreviewingHandler *)userDelegate;
 -(void)setUsedDelegate:(id<UIViewControllerPreviewingDelegate>)arg1 ;

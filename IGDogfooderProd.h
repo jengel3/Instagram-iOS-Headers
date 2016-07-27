@@ -19,10 +19,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)checkForUpdatesWithForce:(char)arg1 ;
 -(int)updateMode;
 -(void)continueUpdate;
 -(void)refreshUpdateMode;
--(void)checkForUpdatesWithForce:(char)arg1 ;
 -(void)setUpdateMode:(int)arg1 ;
 -(int)updateModeWithUserSessionExists:(char)arg1 isEmployee:(char)arg2 internalBuildsInstalled:(char)arg3 ;
 -(void)checkForUpdatesWithForceInternal:(char)arg1 ;

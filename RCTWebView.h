@@ -36,6 +36,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(char)automaticallyAdjustContentInsets;
+-(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
+-(void)refreshContentInset;
 -(id)baseEvent;
 -(NSString *)injectedJavaScript;
 -(void)setInjectedJavaScript:(NSString *)arg1 ;
@@ -47,9 +50,6 @@
 -(void)setOnLoadingError:(id)arg1 ;
 -(id)onShouldStartLoadWithRequest;
 -(void)setOnShouldStartLoadWithRequest:(id)arg1 ;
--(void)refreshContentInset;
--(char)automaticallyAdjustContentInsets;
--(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

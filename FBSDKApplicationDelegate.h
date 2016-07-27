@@ -23,13 +23,13 @@
 +(void)initializeWithLaunchData:(id)arg1 ;
 +(id)sharedInstance;
 +(void)load;
+-(void)openBridgeAPIRequest:(id)arg1 useSafariViewController:(char)arg2 fromViewController:(id)arg3 completionBlock:(/*^block*/id)arg4 ;
+-(void)openURL:(id)arg1 sender:(id)arg2 handler:(/*^block*/id)arg3 ;
+-(void)openURLWithSafariViewController:(id)arg1 sender:(id)arg2 fromViewController:(id)arg3 handler:(/*^block*/id)arg4 ;
 -(char)_handleBridgeAPIResponseURL:(id)arg1 sourceApplication:(id)arg2 ;
 -(void)_logIfAppLinkEvent:(id)arg1 ;
 -(void)_cancelBridgeRequest;
--(void)openURLWithSafariViewController:(id)arg1 sender:(id)arg2 fromViewController:(id)arg3 handler:(/*^block*/id)arg4 ;
--(void)openURL:(id)arg1 sender:(id)arg2 handler:(/*^block*/id)arg3 ;
 -(void)viewControllerDidDisappear:(id)arg1 animated:(char)arg2 ;
--(void)openBridgeAPIRequest:(id)arg1 useSafariViewController:(char)arg2 fromViewController:(id)arg3 completionBlock:(/*^block*/id)arg4 ;
 -(void)safariViewControllerDidFinish:(id)arg1 ;
 -(void)dealloc;
 -(id)init;

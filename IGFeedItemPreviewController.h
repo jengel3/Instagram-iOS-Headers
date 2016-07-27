@@ -45,14 +45,14 @@
 -(void)showDirectShare;
 -(void)viewProfile;
 -(void)showCommentController;
+-(float)previewWidth;
 -(char)showTimestamp;
 -(void)playVideo;
 -(UINavigationController *)navigationControllerForPushing;
 -(NSString *)analyticsSourceModule;
+-(id)previewActionBarItems;
 -(void)setShowTimestamp:(char)arg1 ;
 -(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 showViewProfileAction:(char)arg3 showTimestamp:(char)arg4 analyticsSourceModule:(id)arg5 ;
--(float)previewWidth;
--(id)previewActionBarItems;
 -(void)setPreviewWidth:(float)arg1 ;
 -(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;
 -(IGPreviewEventManager *)logger;

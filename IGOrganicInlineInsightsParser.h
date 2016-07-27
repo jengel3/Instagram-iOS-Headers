@@ -16,7 +16,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)parseGraphQLResponseWithResult:(id)arg1 error:(id*)arg2 ;
 -(NSString *)mediaID;
--(id)initWithMediaID:(id)arg1 ;
 -(id)validateJSONResponse:(id)arg1 ;
+-(id)initWithMediaID:(id)arg1 ;
 @end
 

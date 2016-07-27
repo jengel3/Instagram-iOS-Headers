@@ -55,11 +55,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(CGPoint)scrollVelocity;
--(_GLKMatrix4)contentTransform;
--(void)setContentTransform:(_GLKMatrix4)arg1 ;
--(void)cancelAnimations;
 -(void)setViewModelSize:(CGSize)arg1 ;
+-(void)cancelAnimations;
+-(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)setContentRegion:(NSArray *)arg1 ;
 -(void)setRotateAngle:(float)arg1 ;
 -(float)rotateAngle;
@@ -67,6 +65,7 @@
 -(void)_panFromGestureRecognizer:(id)arg1 ;
 -(void)_pinchFromGestureRecognizer:(id)arg1 ;
 -(char)_isVisibleRegionInsideConvexPolygonWithOffset:(CGPoint)arg1 scale:(float)arg2 ;
+-(CGPoint)scrollVelocity;
 -(void)_transitionToBounceAnimationWithVelocity:(CGPoint)arg1 ;
 -(void)_noteScrollingEndedAfterDeceleration:(char)arg1 finished:(char)arg2 ;
 -(void)_updateScrollState;
@@ -112,6 +111,7 @@
 -(float)rotateAngleY;
 -(void)setRotateAngleY:(float)arg1 ;
 -(float)rotateAngleZ;
+-(_GLKMatrix4)contentTransform;
 -(CGSize)viewModelSize;
 -(char)decelerating;
 -(char)zoomBouncing;

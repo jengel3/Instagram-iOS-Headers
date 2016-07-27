@@ -17,12 +17,12 @@
 @property (nonatomic,retain) id heartLikeFeedItem;                             //@synthesize heartLikeFeedItem=_heartLikeFeedItem - In the implementation block
 @property (nonatomic,copy) id completionBlock;                                 //@synthesize completionBlock=_completionBlock - In the implementation block
 @property (nonatomic,readonly) IGHeartView * heartImageView;                   //@synthesize heartImageView=_heartImageView - In the implementation block
--(void)animateHeartLikeForCell:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(char)usesLegacyAnimation;
 -(void)setHeartLikeFeedItem:(id)arg1 ;
 -(id)initWithCollectionView:(id)arg1 usesLegacyAnimation:(char)arg2 ;
 -(id)heartLikeFeedItem;
 -(void)updateHeartImageViewLocationToSection:(unsigned)arg1 ;
+-(void)animateHeartLikeForCell:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(IGHeartView *)heartImageView;
 -(void)animateHeartLikeForItem:(id)arg1 atIndex:(int)arg2 completion:(/*^block*/id)arg3 ;
 -(id)completionBlock;

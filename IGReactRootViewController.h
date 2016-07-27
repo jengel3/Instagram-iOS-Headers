@@ -18,9 +18,6 @@
 @property (nonatomic,retain) RCTRootView * rootView;                                             //@synthesize rootView=_rootView - In the implementation block
 -(NSString *)analyticsModule;
 -(void)onCancelModal;
--(char)prefersTabBarHidden;
--(void)setAnalyticsModule:(NSString *)arg1 ;
--(IGReactPerformanceLoggerSession *)perfLoggerSession;
 -(id)initWithRootView:(id)arg1 perfLoggerSession:(id)arg2 title:(id)arg3 analyticsModule:(id)arg4 ;
 -(void)setRightAction:(id)arg1 enabled:(char)arg2 ;
 -(void)setLeftAction:(id)arg1 enabled:(char)arg2 ;
@@ -31,6 +28,9 @@
 -(id)initWithRootView:(id)arg1 perfLoggerSession:(id)arg2 title:(id)arg3 ;
 -(NSString *)appKey;
 -(void)setAppKey:(NSString *)arg1 ;
+-(IGReactPerformanceLoggerSession *)perfLoggerSession;
+-(void)setAnalyticsModule:(NSString *)arg1 ;
+-(char)prefersTabBarHidden;
 -(void)viewWillLayoutSubviews;
 -(void)viewDidLoad;
 -(RCTRootView *)rootView;

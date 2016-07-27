@@ -3,11 +3,11 @@
 
 @interface RCTRefreshControlManager : RCTViewManager
 +(id)moduleName;
++(id)propConfig_tintColor;
 +(id)propConfig_title;
 +(id)propConfig_onRefresh;
 +(id)propConfig_refreshing;
 +(id)propConfig_titleColor;
-+(id)propConfig_tintColor;
 +(void)load;
 -(id)view;
 @end

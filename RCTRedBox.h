@@ -14,6 +14,7 @@
 +(id)moduleName;
 -(void)showErrorMessage:(id)arg1 ;
 -(void)showErrorMessage:(id)arg1 withDetails:(id)arg2 ;
+-(void)showErrorMessage:(id)arg1 withRawStack:(id)arg2 ;
 -(void)showErrorMessage:(id)arg1 withStack:(id)arg2 ;
 -(void)updateErrorMessage:(id)arg1 withStack:(id)arg2 ;
 -(void)showErrorMessage:(id)arg1 withStack:(id)arg2 showIfHidden:(char)arg3 ;

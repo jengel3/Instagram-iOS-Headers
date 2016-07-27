@@ -11,8 +11,8 @@
 
 }
 +(char)supportsSecureCoding;
--(void)parseArray:(id)arg1 ;
 -(id)recoveryConfigurationForCode:(id)arg1 subcode:(id)arg2 request:(id)arg3 ;
+-(void)parseArray:(id)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

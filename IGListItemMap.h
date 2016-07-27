@@ -15,15 +15,15 @@
 @property (nonatomic,readonly) NSMapTable * itemListMap;               //@synthesize itemListMap=_itemListMap - In the implementation block
 @property (nonatomic,readonly) NSMapTable * listIndexMap;              //@synthesize listIndexMap=_listIndexMap - In the implementation block
 @property (nonatomic,retain) NSArray * items;                          //@synthesize items=_items - In the implementation block
--(NSMapTable *)listIndexMap;
--(NSMapTable *)itemListMap;
--(id)itemForSection:(unsigned)arg1 ;
--(id)listItemControllerForItem:(id)arg1 ;
--(unsigned)sectionForListItemController:(id)arg1 ;
 -(unsigned)sectionForItem:(id)arg1 ;
+-(unsigned)sectionForListItemController:(id)arg1 ;
+-(id)listItemControllerForItem:(id)arg1 ;
 -(id)initWithMapTable:(id)arg1 ;
+-(id)itemForSection:(unsigned)arg1 ;
 -(id)listItemControllerForSection:(unsigned)arg1 ;
 -(void)updateWithItems:(id)arg1 listItemControllers:(id)arg2 ;
+-(NSMapTable *)listIndexMap;
+-(NSMapTable *)itemListMap;
 -(void)enumerateItemsAndItemControllersUsingBlock:(/*^block*/id)arg1 ;
 -(void)reset;
 -(id)copyWithZone:(NSZone*)arg1 ;

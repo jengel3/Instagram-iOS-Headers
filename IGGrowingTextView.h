@@ -51,15 +51,15 @@
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 -(UITextView *)internalTextView;
--(unsigned)animationCurve;
 -(void)setMaxNumberOfLines:(int)arg1 ;
+-(void)setAnimateHeightChange:(char)arg1 ;
 -(float)heightForText:(id)arg1 inWidth:(float)arg2 ;
 -(float)heightForText:(id)arg1 ;
 -(void)updateSizeConstraints;
 -(char)animateHeightChange;
 -(float)expandAnimationDuration;
 -(unsigned)expandAnimationCurve;
--(void)setAnimateHeightChange:(char)arg1 ;
+-(unsigned)animationCurve;
 -(void)setInternalTextView:(UITextView *)arg1 ;
 -(int)maxNumberOfLines;
 -(NSString *)placeholderText;

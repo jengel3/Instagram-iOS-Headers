@@ -11,8 +11,8 @@
 
 @property (nonatomic,copy,readonly) NSString * borderName;              //@synthesize borderName=_borderName - In the implementation block
 @property (nonatomic,readonly) UIImage * borderImage; 
--(id)strengthShaderCode;
 -(NSString *)borderName;
+-(id)strengthShaderCode;
 -(id)dataForBundleTextureName:(id)arg1 ;
 -(id)init;
 -(id)dictionaryRepresentation;

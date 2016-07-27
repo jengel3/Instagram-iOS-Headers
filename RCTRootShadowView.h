@@ -12,5 +12,6 @@
 -(int)sizeFlexibility;
 -(id)collectViewsWithUpdatedFrames;
 -(void)applySizeConstraints;
+-(id)init;
 @end
 

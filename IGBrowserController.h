@@ -21,8 +21,8 @@
 @property (assign,nonatomic) double webviewUsageStartTime;                                                              //@synthesize webviewUsageStartTime=_webviewUsageStartTime - In the implementation block
 @property (nonatomic,retain) IGComposedWebViewLogger * webViewLogger;                                                   //@synthesize webViewLogger=_webViewLogger - In the implementation block
 @property (nonatomic,retain) IGComposedWebViewSharingLogger * sharingLogger;                                            //@synthesize sharingLogger=_sharingLogger - In the implementation block
--(IGDirectResponseInfo *)directResponseInfo;
 -(IGFeedItem *)feedItem;
+-(IGDirectResponseInfo *)directResponseInfo;
 -(id<IGFeedItemDirectResponseLoggingProviderDelegate>)loggingDelegate;
 -(id)initWithLoggingDelegate:(id)arg1 ;
 -(void)openWebViewForURL:(id)arg1 feedItem:(id)arg2 directResponseInfo:(id)arg3 viewController:(id)arg4 useSafariViewController:(char)arg5 completion:(/*^block*/id)arg6 ;

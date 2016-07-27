@@ -19,7 +19,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(char)prefersTabBarHidden;
 -(void)validateAndSubmit;
 -(id)indexPathForAccessoryView:(id)arg1 ;
 -(char)scrollToAccessory:(id)arg1 ;
@@ -28,6 +27,7 @@
 -(void)showPasswordLengthAlert;
 -(char)fieldsMatch;
 -(void)showPasswordsDoNotMatchAlert;
+-(char)prefersTabBarHidden;
 -(void)updateDoneButton;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)dealloc;

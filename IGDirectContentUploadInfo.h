@@ -27,17 +27,17 @@
 @property (assign,nonatomic) char isViaRealtime;                               //@synthesize isViaRealtime=_isViaRealtime - In the implementation block
 @property (assign,nonatomic) unsigned autoRetryCount;                          //@synthesize autoRetryCount=_autoRetryCount - In the implementation block
 @property (nonatomic,copy,readonly) NSString * digestDescription; 
--(void)setUploadProgress:(float)arg1 ;
 -(float)uploadProgress;
+-(NSString *)uploadIndexKey;
 -(unsigned)autoRetryCount;
 -(id)stringForUploadStatus:(int)arg1 ;
 -(char)isViaRealtime;
--(NSString *)uploadIndexKey;
 -(void)setUploadIndexKey:(NSString *)arg1 ;
 -(void)setThreadID:(NSString *)arg1 ;
 -(void)setUploadStatus:(int)arg1 ;
 -(void)setIsViaRealtime:(char)arg1 ;
 -(void)setAutoRetryCount:(unsigned)arg1 ;
+-(void)setUploadProgress:(float)arg1 ;
 -(id)initWithRecipient:(id)arg1 ;
 -(IGDirectShareRecipient *)recipient;
 -(void)setRecipient:(IGDirectShareRecipient *)arg1 ;

@@ -18,18 +18,18 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSArray *)itemControllers;
 -(id)itemControllerForItem:(id)arg1 ;
+-(NSArray *)itemControllers;
 -(id)initWithItems:(id)arg1 viewController:(id)arg2 ;
--(id)initWithArrayOfItems:(id)arg1 viewController:(id)arg2 ;
 -(id)initWithItems:(id)arg1 viewController:(id)arg2 itemControllers:(id)arg3 ;
 -(id)itemForIndexPath:(id)arg1 ;
 -(id)tableView:(id)arg1 cellForIndexPath:(id)arg2 ;
 -(void)tableView:(id)arg1 didSelectIndexPath:(id)arg2 searchString:(id)arg3 ;
--(void)pushViewController:(id)arg1 ;
+-(id)initWithArrayOfItems:(id)arg1 viewController:(id)arg2 ;
 -(id)init;
 -(NSOrderedSet *)items;
 -(unsigned)numberOfRows;
 -(IGSearchResultsViewController *)viewController;
+-(void)pushViewController:(id)arg1 animated:(char)arg2 ;
 @end
 

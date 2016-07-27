@@ -17,10 +17,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)contactsHelperWasDeniedContacts;
 -(void)contactsHelperDidFetchContacts:(id)arg1 ;
 -(void)authorizeAndFetchUsers;
+-(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)authorizeAndFetchUsersWithDisclaimerModal:(char)arg1 ;
 -(void)setDelegate:(id<IGContactsFriendsHelperDelegate>)arg1 ;
 -(id<IGContactsFriendsHelperDelegate>)delegate;

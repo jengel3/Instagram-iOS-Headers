@@ -2,9 +2,9 @@
 
 @protocol IGDogfooderProtocol <NSObject>
 @required
+-(void)checkForUpdatesWithForce:(char)arg1;
 -(int)updateMode;
 -(void)continueUpdate;
--(void)checkForUpdatesWithForce:(char)arg1;
 -(void)cancelUpdate;
 
 @end

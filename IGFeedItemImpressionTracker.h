@@ -21,12 +21,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)itemDiffing:(id)arg1 didChangeWithItemAdded:(id)arg2 ;
--(void)itemDiffing:(id)arg1 didChangeWithItemRemoved:(id)arg2 ;
 -(id<IGAnalyticsModule>)analyticsModule;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
--(id)initWithLoggingProviderDelegate:(id)arg1 analyticsModule:(id)arg2 ;
+-(void)itemDiffing:(id)arg1 didChangeWithItemAdded:(id)arg2 ;
+-(void)itemDiffing:(id)arg1 didChangeWithItemRemoved:(id)arg2 ;
 -(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
+-(id)initWithLoggingProviderDelegate:(id)arg1 analyticsModule:(id)arg2 ;
 -(IGItemDiffing *)tracker;
 @end
 

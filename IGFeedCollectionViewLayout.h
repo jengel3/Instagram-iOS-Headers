@@ -37,8 +37,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSRange)rangeOfSectionsInRect:(CGRect)arg1 ;
 -(id)initWithPinsSectionHeaders:(char)arg1 topContentInset:(float)arg2 ;
+-(NSRange)rangeOfSectionsInRect:(CGRect)arg1 ;
 -(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
 -(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 oldObjects:(id)arg3 oldContext:(id)arg4 synchronous:(char)arg5 completionBlock:(/*^block*/id)arg6 ;

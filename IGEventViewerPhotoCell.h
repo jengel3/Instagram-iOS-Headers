@@ -21,7 +21,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setShadowHidden:(char)arg1 ;
 -(void)configurePhotoView;
 -(void)configureSingleTap;
 -(void)didReceiveSingleTap:(id)arg1 ;
@@ -30,6 +29,7 @@
 -(void)setDoubleTap:(UITapGestureRecognizer *)arg1 ;
 -(void)didReceiveDoubleTap:(id)arg1 ;
 -(UITapGestureRecognizer *)singleTap;
+-(void)setShadowHidden:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)layoutSubviews;

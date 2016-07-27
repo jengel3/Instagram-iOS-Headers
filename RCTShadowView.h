@@ -13,6 +13,7 @@
 	char _recomputePadding;
 	char _recomputeMargin;
 	char _recomputeBorder;
+	char _didUpdateSubviews;
 	float _paddingMetaProps[7];
 	float _marginMetaProps[7];
 	float _borderMetaProps[7];
@@ -25,6 +26,7 @@
 	UIColor* _backgroundColor;
 	unsigned _layoutLifecycle;
 	/*^block*/id _onLayout;
+	int _zIndex;
 	CGRect _frame;
 
 }
@@ -43,6 +45,10 @@
 @property (assign,nonatomic) float right; 
 @property (assign,nonatomic) float width; 
 @property (assign,nonatomic) float height; 
+@property (assign,nonatomic) float minWidth; 
+@property (assign,nonatomic) float maxWidth; 
+@property (assign,nonatomic) float minHeight; 
+@property (assign,nonatomic) float maxHeight; 
 @property (assign,nonatomic) CGRect frame;                                    //@synthesize frame=_frame - In the implementation block
 @property (assign,nonatomic) float borderWidth; 
 @property (assign,nonatomic) float borderTopWidth; 
@@ -70,37 +76,41 @@
 @property (assign,nonatomic) int position; 
 @property (assign,nonatomic) int flexWrap; 
 @property (assign,nonatomic) float flex; 
+@property (assign,nonatomic) int zIndex;                                      //@synthesize zIndex=_zIndex - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,copy) NSNumber * reactTag;                               //@synthesize reactTag=_reactTag - In the implementation block
 -(NSNumber *)reactTag;
--(void)setReactTag:(NSNumber *)arg1 ;
--(id)reactTagAtPoint:(CGPoint)arg1 ;
--(void)setViewName:(NSString *)arg1 ;
--(void)didSetProps:(id)arg1 ;
--(void)applyLayoutToChildren:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
--(void)applyLayoutNode:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
--(id)processUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
--(void)collectUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
--(void)fillCSSNode:(css_node*)arg1 ;
--(void)dirtyLayout;
--(void)dirtyPropagation;
--(void)dirtyText;
 -(NSString *)viewName;
--(void)addRecursiveDescriptionToString:(id)arg1 atLevel:(unsigned)arg2 ;
+-(void)setViewName:(NSString *)arg1 ;
+-(void)dirtyLayout;
+-(void)dirtyText;
+-(id)reactSuperview;
+-(id)processUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
+-(void)applyLayoutNode:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
+-(void)dirtyPropagation;
+-(css_node*)cssNode;
+-(void)collectUpdatedFrames:(id)arg1 withFrame:(CGRect)arg2 hidden:(char)arg3 absolutePosition:(CGPoint)arg4 ;
+-(void)fillCSSNode:(css_node*)arg1 ;
+-(void)applyLayoutToChildren:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
+-(id)reactTagAtPoint:(CGPoint)arg1 ;
+-(char)isReactRootView;
+-(char)isTextDirty;
+-(id)reactSubviews;
+-(void)setTextComputed;
+-(UIEdgeInsets)paddingAsInsets;
 -(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
--(id)reactSuperview;
--(char)isReactRootView;
--(void)collectUpdatedFrames:(id)arg1 withFrame:(CGRect)arg2 hidden:(char)arg3 absolutePosition:(CGPoint)arg4 ;
+-(void)didUpdateReactSubviews;
+-(void)setReactTag:(NSNumber *)arg1 ;
+-(void)didSetProps:(id)arg1 ;
+-(void)collectUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
+-(void)addRecursiveDescriptionToString:(id)arg1 atLevel:(unsigned)arg2 ;
 -(CGRect)measureLayoutRelativeToAncestor:(id)arg1 ;
 -(char)isLayoutDirty;
 -(char)isPropagationDirty;
--(char)isTextDirty;
--(void)setTextComputed;
 -(void)setMarginVertical:(float)arg1 ;
 -(float)marginVertical;
 -(void)setMarginHorizontal:(float)arg1 ;
@@ -109,7 +119,6 @@
 -(float)paddingVertical;
 -(void)setPaddingHorizontal:(float)arg1 ;
 -(float)paddingHorizontal;
--(UIEdgeInsets)paddingAsInsets;
 -(void)setFlex:(float)arg1 ;
 -(float)flex;
 -(void)setFlexDirection:(int)arg1 ;
@@ -122,7 +131,6 @@
 -(int)alignItems;
 -(void)setFlexWrap:(int)arg1 ;
 -(int)flexWrap;
--(css_node*)cssNode;
 -(unsigned)layoutLifecycle;
 -(void)setLayoutLifecycle:(unsigned)arg1 ;
 -(id)onLayout;
@@ -154,6 +162,7 @@
 -(float)marginTop;
 -(void)setMarginTop:(float)arg1 ;
 -(float)borderWidth;
+-(float)maxWidth;
 -(float)paddingTop;
 -(void)setPaddingTop:(float)arg1 ;
 -(void)setWidth:(float)arg1 ;
@@ -166,7 +175,12 @@
 -(float)paddingBottom;
 -(void)setPaddingBottom:(float)arg1 ;
 -(void)setLeft:(float)arg1 ;
+-(void)setMaxWidth:(float)arg1 ;
 -(void)setHeight:(float)arg1 ;
+-(int)zIndex;
+-(void)setZIndex:(int)arg1 ;
+-(float)minHeight;
+-(float)minWidth;
 -(void)setTopLeft:(CGPoint)arg1 ;
 -(void)setIntrinsicContentSize:(CGSize)arg1 ;
 -(float)left;
@@ -176,6 +190,9 @@
 -(void)setTop:(float)arg1 ;
 -(void)setRight:(float)arg1 ;
 -(void)setBottom:(float)arg1 ;
+-(float)maxHeight;
+-(void)setMinHeight:(float)arg1 ;
+-(void)setMaxHeight:(float)arg1 ;
 -(float)borderTopWidth;
 -(void)setBorderTopWidth:(float)arg1 ;
 -(float)borderRightWidth;
@@ -187,5 +204,6 @@
 -(void)setMarginRight:(float)arg1 ;
 -(void)setMarginBottom:(float)arg1 ;
 -(void)setMarginLeft:(float)arg1 ;
+-(void)setMinWidth:(float)arg1 ;
 @end
 

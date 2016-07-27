@@ -29,7 +29,9 @@
 -(char)shouldShowInlineInsightsForFeedItem:(id)arg1 ;
 -(char)shouldPopAfterDeletingFeedItem:(id)arg1 ;
 -(id)actionSheetConfigurationForFeedItem:(id)arg1 ;
+-(char)showVerifiedBadge;
 -(char)shouldDisplaySingleCellForFeedItem:(id)arg1 ;
+-(char)shouldUseProfilePhotoForTitleForFeedItem:(id)arg1 ;
 -(IGMainFeedItemConfiguration *)mainFeedItemConfiguration;
 -(id)init;
 @end

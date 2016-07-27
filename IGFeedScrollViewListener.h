@@ -8,6 +8,7 @@
 -(void)scrollViewWillScrollNearTop:(id)arg1;
 -(void)scrollViewDidScroll:(id)arg1;
 -(void)scrollViewWillBeginDragging:(id)arg1;
+-(void)scrollViewDidScrollToTop:(id)arg1;
 
 @end
 

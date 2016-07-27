@@ -15,8 +15,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGFindFriendsHelperDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)authorizeAndFetchUsers;
+-(void)updateUserTotalWithCount:(int)arg1 ;
 -(void)onFacebookAuthSuccess;
 -(void)onFacebookAuthFailure;
 -(void)setDelegate:(id<IGFindFriendsHelperDelegate>)arg1 ;

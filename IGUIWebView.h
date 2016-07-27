@@ -6,7 +6,7 @@
 #import <Instagram/FBWebView.h>
 
 @protocol FBWebViewDelegate;
-@class UIView, UIWebView, NJKWebViewProgress, NSString, NSURL, UIScrollView, NSURLRequest;
+@class NSString, NSURL, UIScrollView, UIView, NSURLRequest, UIWebView, NJKWebViewProgress;
 
 @interface IGUIWebView : UIView <NJKWebViewProgressDelegate, UIWebViewDelegate, FBWebView> {
 
@@ -43,8 +43,8 @@
 @property (assign,nonatomic,__weak) id<FBWebViewDelegate> delegate;               //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                           //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
--(void)webViewProgress:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(NSURL *)currentLocationURL;
+-(void)webViewProgress:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;
 -(void)updateOrientationWithOrientation:(int)arg1 ;
@@ -52,10 +52,10 @@
 -(void)setDisplayState:(int)arg1 ;
 -(char)isBannerAtTop;
 -(void)setIsBannerAtTop:(char)arg1 ;
--(int)webViewImplementation;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1 ;
 -(NJKWebViewProgress *)webViewProgress;
+-(int)webViewImplementation;
 -(UIView *)bannerView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<FBWebViewDelegate>)arg1 ;

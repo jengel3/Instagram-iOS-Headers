@@ -46,15 +46,14 @@
 @property (nonatomic,readonly) char isReadyToShare; 
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController * delegate;              //@synthesize delegate=_delegate - In the implementation block
--(id)analyticsMetadata;
--(char)enableNavState;
 -(id)analyticsModule;
--(NSString *)searchSessionId;
--(void)setSearchSessionId:(NSString *)arg1 ;
+-(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
 -(void)setShareString:(NSString *)arg1 ;
 -(void)configureWithHeaderView:(id)arg1 ;
 -(NSString *)shareString;
 -(char)isReadyToShare;
+-(id)analyticsMetadata;
+-(char)enableNavState;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
 -(void)updateLocationEnabled;
@@ -75,12 +74,13 @@
 -(void)locationSuggestionCell:(id)arg1 didFinishWithLocation:(id)arg2 ;
 -(void)locationSuggestionCelldidClearLocation:(id)arg1 ;
 -(void)locationSuggestionCell:(id)arg1 stateChanged:(int)arg2 ;
--(void)shareListNeedsFullReload;
--(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
--(id)viewControllerForShareConfiguration;
+-(NSString *)searchSessionId;
+-(void)setSearchSessionId:(NSString *)arg1 ;
 -(void)setIsStickyEnabled:(char)arg1 ;
 -(void)setShouldShowShareNewDesign:(char)arg1 ;
--(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
+-(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
+-(id)viewControllerForShareConfiguration;
+-(void)shareListNeedsFullReload;
 -(void)setDelegate:(UIViewController *)arg1 ;
 -(void)dealloc;
 -(UIViewController *)delegate;

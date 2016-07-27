@@ -36,8 +36,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(IGFeedItem *)feedItem;
 -(IGInsightsLoggingHelper *)loggingHelper;
--(id)loggingStringForPromoteState:(int)arg1 ;
 -(void)onOverlayTapped;
+-(id)loggingStringForPromoteState:(int)arg1 ;
 -(int)inlineInsightsType;
 -(void)setOrganicInlineInsightsView:(IGInlineInsightsView *)arg1 ;
 -(IGInlineInsightsView *)organicInlineInsightsView;

@@ -9,7 +9,7 @@
 #import <Instagram/IGDirectInboxControllerType.h>
 #import <Instagram/IGUIPerfLoggable.h>
 
-@class NSOrderedSet, IGUserSession, IGPlainTableView, NSString, IGDirectPendingRequestsHeaderView, NSArray, IGRefreshControl, IGGenericMegaphone, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGDirectEmptyInboxView, IGDirectUIPerfLogProxy, IGDirectPushPromptView, IGDirectCoreService, IGDirectMainInboxAnalyticsLogger, IGDirectNewMessageCoordinator, IGDirectThreadStore;
+@class NSOrderedSet, IGUserSession, IGPlainTableView, NSString, IGDirectPendingRequestsHeaderView, NSArray, IGRefreshControl, IGGenericMegaphone, IGGenericMegaphoneView, IGDefaultGenericMegaphoneLogger, IGDirectEmptyInboxView, IGDirectUIPerfLogProxy, IGDirectPushPromptView, IGDirectInboxService, IGDirectMainInboxAnalyticsLogger, IGDirectNewMessageCoordinator, IGDirectThreadStore;
 
 @interface IGDirectMainInboxViewController : IGViewController <UITableViewDataSource, UITableViewDelegate, IGDirectPendingInboxDelegate, IGDirectPushPromptViewDelegate, IGDirectInboxCellDelegate, IGGenericMegaphoneViewDelegate, IGDirectInboxControllerType, IGUIPerfLoggable> {
 
@@ -33,7 +33,7 @@
 	IGDirectEmptyInboxView* _emptyInboxView;
 	IGDirectUIPerfLogProxy* _perfLogProxy;
 	IGDirectPushPromptView* _pushPromptView;
-	IGDirectCoreService* _service;
+	IGDirectInboxService* _service;
 	IGDirectMainInboxAnalyticsLogger* _analyticsLogger;
 	IGDirectNewMessageCoordinator* _messageCoordinator;
 
@@ -60,7 +60,7 @@
 @property (assign,nonatomic) char needsRefreshForThreadUpdateNotification;                           //@synthesize needsRefreshForThreadUpdateNotification=_needsRefreshForThreadUpdateNotification - In the implementation block
 @property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                                  //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
 @property (nonatomic,retain) IGDirectPushPromptView * pushPromptView;                                //@synthesize pushPromptView=_pushPromptView - In the implementation block
-@property (nonatomic,readonly) IGDirectCoreService * service;                                        //@synthesize service=_service - In the implementation block
+@property (nonatomic,readonly) IGDirectInboxService * service;                                       //@synthesize service=_service - In the implementation block
 @property (nonatomic,readonly) IGDirectMainInboxAnalyticsLogger * analyticsLogger;                   //@synthesize analyticsLogger=_analyticsLogger - In the implementation block
 @property (nonatomic,readonly) IGDirectNewMessageCoordinator * messageCoordinator;                   //@synthesize messageCoordinator=_messageCoordinator - In the implementation block
 @property (readonly) unsigned hash; 
@@ -70,12 +70,6 @@
 -(id)analyticsModule;
 -(id)initWithUserSession:(id)arg1 ;
 -(IGDirectThreadStore *)directThreadStore;
--(NSString *)oldestCursor;
--(IGGenericMegaphone *)megaphone;
--(IGDirectMainInboxAnalyticsLogger *)analyticsLogger;
--(void)pendingInbox:(id)arg1 didUpdateThread:(id)arg2 withAccept:(char)arg3 remainingInviter:(id)arg4 ;
--(void)pendingInboxDidClear:(id)arg1 ;
--(void)pendingInboxDidActionThreads:(id)arg1 ;
 -(void)inboxUpdateNotificationReceivedWithMegaphone:(id)arg1 ;
 -(void)inboxUpdateNotificationReceived:(id)arg1 ;
 -(void)threadUpdateNotificationReceived;
@@ -86,6 +80,7 @@
 -(void)setMegaphoneView:(IGGenericMegaphoneView *)arg1 ;
 -(IGGenericMegaphoneView *)megaphoneView;
 -(void)updateTableHeaderView;
+-(IGGenericMegaphone *)megaphone;
 -(IGDefaultGenericMegaphoneLogger *)megaphoneLogger;
 -(IGDirectPushPromptView *)pushPromptView;
 -(void)refreshDataWithFullRefresh:(char)arg1 completion:(/*^block*/id)arg2 ;
@@ -98,6 +93,7 @@
 -(IGDirectUIPerfLogProxy *)perfLogProxy;
 -(void)setIsFetchingData:(char)arg1 ;
 -(void)setPendingRequestUsers:(NSArray *)arg1 ;
+-(NSString *)oldestCursor;
 -(void)setOldestCursor:(NSString *)arg1 ;
 -(void)setThreads:(NSOrderedSet *)arg1 ;
 -(void)setHasLoadedOnce:(char)arg1 ;
@@ -128,6 +124,9 @@
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
+-(void)pendingInbox:(id)arg1 didUpdateThread:(id)arg2 withAccept:(char)arg3 remainingInviter:(id)arg4 ;
+-(void)pendingInboxDidClear:(id)arg1 ;
+-(void)pendingInboxDidActionThreads:(id)arg1 ;
 -(void)pushPromptViewTappedDismiss:(id)arg1 ;
 -(void)pushPromptViewDidTapSettingsButton:(id)arg1 ;
 -(char)inboxCellWantsToPan:(id)arg1 ;
@@ -142,6 +141,7 @@
 -(void)setCountedAt:(NSString *)arg1 ;
 -(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
 -(void)setPushPromptView:(IGDirectPushPromptView *)arg1 ;
+-(IGDirectMainInboxAnalyticsLogger *)analyticsLogger;
 -(int)pendingRequestCount;
 -(void)setPendingRequestCount:(int)arg1 ;
 -(void)scrollToTopAnimated:(char)arg1 ;
@@ -160,7 +160,7 @@
 -(void)viewDidAppear:(char)arg1 ;
 -(void)setRefreshControl:(IGRefreshControl *)arg1 ;
 -(IGRefreshControl *)refreshControl;
--(IGDirectCoreService *)service;
+-(IGDirectInboxService *)service;
 -(IGUserSession *)userSession;
 -(NSOrderedSet *)threads;
 @end

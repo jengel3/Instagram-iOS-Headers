@@ -27,6 +27,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setSaveButton:(id)arg1 ;
+-(id)saveButton;
+-(id)feedItem;
+-(void)shareItem:(id)arg1 ;
+-(void)saveNow;
+-(void)saveItem:(id)arg1 ;
+-(void)setFrame:(CGRect)arg1 ;
 -(id)accessibleElements;
 -(void)adjustViewWithConstraintSize:(CGSize)arg1 ;
 -(void)updateUFIButtonWithFeedItem:(id)arg1 animated:(char)arg2 ;

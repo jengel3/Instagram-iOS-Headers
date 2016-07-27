@@ -34,12 +34,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(void)setDaysUntilPrompt:(double)arg1 ;
-+(void)setUsesUntilPrompt:(int)arg1 ;
-+(void)setSignificantEventsUntilPrompt:(int)arg1 ;
-+(void)setTimeBeforeReminding:(double)arg1 ;
-+(void)appEnteredForeground:(char)arg1 ;
-+(void)userDidSignificantEvent:(char)arg1 ;
 +(void)appLaunched;
 +(void)appLaunched:(char)arg1 ;
 +(id)getRootViewController;
@@ -47,8 +41,14 @@
 +(void)rateApp;
 +(void)closeModal;
 +(void)setLogStringBlock:(/*^block*/id)arg1 ;
++(void)setDaysUntilPrompt:(double)arg1 ;
++(void)setUsesUntilPrompt:(int)arg1 ;
++(void)setSignificantEventsUntilPrompt:(int)arg1 ;
++(void)setTimeBeforeReminding:(double)arg1 ;
 +(void)setUsesAnimation:(char)arg1 ;
 +(void)setRatingDisabled:(char)arg1 ;
++(void)appEnteredForeground:(char)arg1 ;
++(void)userDidSignificantEvent:(char)arg1 ;
 +(id)sharedInstance;
 +(void)setDelegate:(id)arg1 ;
 +(void)setStatusBarStyle:(int)arg1 ;
@@ -56,8 +56,6 @@
 +(void)setAppId:(id)arg1 ;
 -(NSString *)cancelButtonText;
 -(void)setCancelButtonText:(NSString *)arg1 ;
--(void)setRateButtonText:(NSString *)arg1 ;
--(void)setRateLaterButtonText:(NSString *)arg1 ;
 -(void)setDebugMode:(int)arg1 ;
 -(NSString *)sendFeedbackButtonText;
 -(NSString *)rateLaterButtonText;
@@ -77,6 +75,8 @@
 -(void)hideRatingAlert;
 -(void)incrementSignificantEventAndRate:(char)arg1 ;
 -(int)appUpgradesSeedCount;
+-(void)setRateButtonText:(NSString *)arg1 ;
+-(void)setRateLaterButtonText:(NSString *)arg1 ;
 -(void)setSendFeedbackButtonText:(NSString *)arg1 ;
 -(void)appWillResignActive;
 -(void)setDelegate:(NSObject*<AppiraterDelegate>)arg1 ;

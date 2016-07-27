@@ -40,7 +40,6 @@
 	IGKVOHandle* _adjustingExposureObserver;
 	IGSampleBuffer* _imageBuffer;
 	IGTargetBlock* _exposureUpdateBlock;
-	CGSize _videoSizeForCurrentSessionPreset;
 
 }
 
@@ -74,8 +73,9 @@
 @property (assign,nonatomic,__weak) id<IGCaptureManagerVideoSessionDelegate> videoSessionDelegate;                        //@synthesize videoSessionDelegate=_videoSessionDelegate - In the implementation block
 @property (assign,nonatomic) int cameraPosition; 
 @property (assign,nonatomic) int sessionPreset;                                                                           //@synthesize sessionPreset=_sessionPreset - In the implementation block
-@property (assign,nonatomic) CGSize videoSizeForCurrentSessionPreset;                                                     //@synthesize videoSizeForCurrentSessionPreset=_videoSizeForCurrentSessionPreset - In the implementation block
 @property (assign,nonatomic) int flashMode; 
+@property (assign,nonatomic) int torchMode; 
+@property (assign,nonatomic) float zoom; 
 @property (assign,nonatomic) char audioEnabled;                                                                           //@synthesize audioEnabled=_audioEnabled - In the implementation block
 @property (assign,nonatomic) char videoStabilizationEnabled;                                                              //@synthesize videoStabilizationEnabled=_videoStabilizationEnabled - In the implementation block
 @property (readonly) unsigned hash; 
@@ -91,6 +91,7 @@
 -(id)initWithCameraPosition:(int)arg1 sessionPreset:(int)arg2 audioEnabled:(char)arg3 ;
 -(void)setAudioSessionDelegate:(id<IGCaptureManagerAudioSessionDelegate>)arg1 ;
 -(char)currentDeviceHasFlash;
+-(void)takePictureWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)switchCameras;
 -(CGSize)videoSizeForCurrentSessionPreset;
 -(char)focusAtPoint:(CGPoint)arg1 ;
@@ -136,9 +137,7 @@
 -(void)setIsCapturingStillImage:(char)arg1 ;
 -(char)isVideoSessionRunning;
 -(void)adjustBrightnessForCinema;
--(void)takePictureWithCompletionHandler:(/*^block*/id)arg1 ;
 -(void)setVideoSessionDelegate:(id<IGCaptureManagerVideoSessionDelegate>)arg1 ;
--(void)setVideoSizeForCurrentSessionPreset:(CGSize)arg1 ;
 -(void)setVideoSession:(AVCaptureSession *)arg1 ;
 -(void)setAudioSession:(AVCaptureSession *)arg1 ;
 -(void)setCaptureQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
@@ -157,8 +156,11 @@
 -(void)setDelegate:(id<IGCaptureManagerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGCaptureManagerDelegate>)delegate;
+-(float)zoom;
+-(void)setZoom:(float)arg1 ;
 -(void)setPreviewLayer:(AVCaptureVideoPreviewLayer *)arg1 ;
 -(int)flashMode;
+-(int)torchMode;
 -(char)flashFired;
 -(AVCaptureDeviceInput *)audioDeviceInput;
 -(int)sessionPreset;
@@ -170,6 +172,7 @@
 -(void)setStillImageOutput:(AVCaptureStillImageOutput *)arg1 ;
 -(AVCaptureStillImageOutput *)stillImageOutput;
 -(void)setFlashMode:(int)arg1 ;
+-(void)setTorchMode:(int)arg1 ;
 -(void)setSessionStarted:(char)arg1 ;
 -(char)sessionStarted;
 -(void)stopSession;

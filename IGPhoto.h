@@ -2,10 +2,11 @@
 #import <Instagram/Instagram-Structs.h>
 #import <libobjc.A.dylib/NSCoding.h>
 #import <Instagram/IGImageURLProvider.h>
+#import <Instagram/IGAlbumImageProvider.h>
 
 @class NSString, NSData, NSArray;
 
-@interface IGPhoto : NSObject <NSCoding, IGImageURLProvider> {
+@interface IGPhoto : NSObject <NSCoding, IGImageURLProvider, IGAlbumImageProvider> {
 
 	NSString* _mediaID;
 	NSData* _previewImageData;
@@ -25,7 +26,6 @@
 +(id)arrayForImageVersions:(id)arg1 ;
 +(CGSize)aspectRatioForImageVersions:(id)arg1 ;
 +(CGSize)imageSizeForImageVersion:(id)arg1 ;
--(NSData *)previewImageData;
 -(id)imageURLForWidth:(float)arg1 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
@@ -33,6 +33,7 @@
 -(id)thumbnailURLForAspectFillSize:(CGSize)arg1 option:(int)arg2 ;
 -(id)initWithFeedItemDictionary:(id)arg1 ;
 -(id)initWithImageVersions:(id)arg1 ;
+-(NSData *)previewImageData;
 -(id)initWithImageVersions:(id)arg1 mediaID:(id)arg2 originalMediaSize:(CGSize)arg3 previewImageData:(id)arg4 ;
 -(NSArray *)imageVersions;
 -(int)originalAspectRatioImageIndexNearestToWidth:(float)arg1 scale:(float)arg2 ;

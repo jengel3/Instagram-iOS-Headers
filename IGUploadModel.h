@@ -35,7 +35,9 @@
 	NSString* _errorMessage;
 	int _numberOfFailedConfigures;
 	int _numberOfFailedUploads;
+	NSDate* _lastConfigureFailureTimestamp;
 	NSDate* _lastUploadFailureTimestamp;
+	int _numberOfAutoRetryAttempts;
 	int _numberOfManualCancels;
 	int _autoRetryResumeUploadCount;
 	int _autoRetryConfigureCount;
@@ -52,6 +54,10 @@
 	NSDate* _lastUserActionTime;
 	NSDate* _shareActionTime;
 	NSMutableArray* _uploadStepCounts;
+	int _uploadWidthMin;
+	int _uploadWidthMax;
+	int _uploadWidthMaxForHiResLandscape;
+	float _minDownscaleHQResize;
 	double _configureStartTimestamp;
 
 }
@@ -65,6 +71,7 @@
 @property (assign,nonatomic) unsigned videoBytesUploaded;                                //@synthesize videoBytesUploaded=_videoBytesUploaded - In the implementation block
 @property (assign,nonatomic) int numberOfFailedConfigures;                               //@synthesize numberOfFailedConfigures=_numberOfFailedConfigures - In the implementation block
 @property (assign,nonatomic) int numberOfFailedUploads;                                  //@synthesize numberOfFailedUploads=_numberOfFailedUploads - In the implementation block
+@property (nonatomic,retain) NSDate * lastConfigureFailureTimestamp;                     //@synthesize lastConfigureFailureTimestamp=_lastConfigureFailureTimestamp - In the implementation block
 @property (nonatomic,retain) NSDate * lastUploadFailureTimestamp;                        //@synthesize lastUploadFailureTimestamp=_lastUploadFailureTimestamp - In the implementation block
 @property (assign,nonatomic) int postStatus;                                             //@synthesize postStatus=_postStatus - In the implementation block
 @property (assign,nonatomic) int postAction;                                             //@synthesize postAction=_postAction - In the implementation block
@@ -76,6 +83,10 @@
 @property (nonatomic,retain) NSDate * lastUserActionTime;                                //@synthesize lastUserActionTime=_lastUserActionTime - In the implementation block
 @property (nonatomic,retain) NSDate * shareActionTime;                                   //@synthesize shareActionTime=_shareActionTime - In the implementation block
 @property (nonatomic,retain) NSMutableArray * uploadStepCounts;                          //@synthesize uploadStepCounts=_uploadStepCounts - In the implementation block
+@property (assign,nonatomic) int uploadWidthMin;                                         //@synthesize uploadWidthMin=_uploadWidthMin - In the implementation block
+@property (assign,nonatomic) int uploadWidthMax;                                         //@synthesize uploadWidthMax=_uploadWidthMax - In the implementation block
+@property (assign,nonatomic) int uploadWidthMaxForHiResLandscape;                        //@synthesize uploadWidthMaxForHiResLandscape=_uploadWidthMaxForHiResLandscape - In the implementation block
+@property (assign,nonatomic) float minDownscaleHQResize;                                 //@synthesize minDownscaleHQResize=_minDownscaleHQResize - In the implementation block
 @property (assign,nonatomic) int uploadDataType;                                         //@synthesize uploadDataType=_uploadDataType - In the implementation block
 @property (nonatomic,retain) UIImage * image; 
 @property (nonatomic,readonly) NSData * imageData;                                       //@synthesize imageData=_imageData - In the implementation block
@@ -84,6 +95,7 @@
 @property (nonatomic,readonly) NSString * uploadID; 
 @property (nonatomic,readonly) int fromStatus;                                           //@synthesize fromStatus=_fromStatus - In the implementation block
 @property (nonatomic,readonly) int toStatus;                                             //@synthesize toStatus=_toStatus - In the implementation block
+@property (nonatomic,readonly) int targetStatus; 
 @property (assign,nonatomic,__weak) IGRequest * request;                                 //@synthesize request=_request - In the implementation block
 @property (nonatomic,retain) NSMutableDictionary * postDict;                             //@synthesize postDict=_postDict - In the implementation block
 @property (assign,nonatomic) int resultStatus;                                           //@synthesize resultStatus=_resultStatus - In the implementation block
@@ -99,6 +111,7 @@
 @property (assign,nonatomic,__weak) IGVideoRenderer * videoRenderer;                     //@synthesize videoRenderer=_videoRenderer - In the implementation block
 @property (nonatomic,retain) IGRequestError * error;                                     //@synthesize error=_error - In the implementation block
 @property (nonatomic,retain) NSString * errorMessage;                                    //@synthesize errorMessage=_errorMessage - In the implementation block
+@property (assign,nonatomic) int numberOfAutoRetryAttempts;                              //@synthesize numberOfAutoRetryAttempts=_numberOfAutoRetryAttempts - In the implementation block
 @property (assign,nonatomic) int numberOfManualCancels;                                  //@synthesize numberOfManualCancels=_numberOfManualCancels - In the implementation block
 @property (nonatomic,readonly) unsigned totalVideoBytesUploaded; 
 @property (nonatomic,readonly) unsigned totalVideoBytesExpectToUpload; 
@@ -111,22 +124,25 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(int)version;
--(void)setUploadProgress:(float)arg1 ;
--(float)uploadProgress;
--(NSString *)userPK;
--(void)setUserPK:(NSString *)arg1 ;
--(float)renderProgress;
--(void)setRenderProgress:(float)arg1 ;
--(void)videoRenderer:(id)arg1 didProgress:(float)arg2 ;
--(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
--(void)videoRenderer:(id)arg1 didFinishRenderingVideoToURL:(id)arg2 canceled:(char)arg3 ;
+-(void)setShareType:(int)arg1 ;
 -(int)uploadDataType;
+-(NSString *)userPK;
+-(NSDate *)uploadStartTime;
+-(int)postStatus;
+-(float)renderProgress;
+-(float)uploadProgress;
+-(void)setVideoMetadata:(IGUploadVideoMetaData *)arg1 ;
 -(int)numberOfFailedUploads;
 -(void)setNumberOfFailedUploads:(int)arg1 ;
 -(NSMutableDictionary *)postDict;
+-(void)setUploadProgress:(float)arg1 ;
 -(void)setPostDict:(NSMutableDictionary *)arg1 ;
 -(void)setVideoDataFileURL:(NSURL *)arg1 ;
+-(void)setRenderProgress:(float)arg1 ;
 -(void)setPostStatus:(int)arg1 toStatus:(int)arg2 ;
+-(void)videoRenderer:(id)arg1 didProgress:(float)arg2 ;
+-(void)videoRenderer:(id)arg1 didFinishRenderingVideoToURL:(id)arg2 canceled:(char)arg3 ;
+-(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
 -(int)shareType;
 -(NSURL *)videoDataFileURL;
 -(IGVideoRenderer *)videoRenderer;
@@ -136,7 +152,6 @@
 -(IGAnalyticsWaterfall *)waterfall;
 -(id)currentNotExpiredVideoUploadURL;
 -(void)setPostStatus:(int)arg1 fromStatus:(int)arg2 toStatus:(int)arg3 ;
--(int)postStatus;
 -(void)setPostStatus:(int)arg1 ;
 -(void)incrementUploadStepCount:(int)arg1 ;
 -(void)handleUploadSuspended;
@@ -153,6 +168,7 @@
 -(void)setVideoBytesUploaded:(unsigned)arg1 ;
 -(int)numberOfFailedConfigures;
 -(void)setNumberOfFailedConfigures:(int)arg1 ;
+-(void)setLastConfigureFailureTimestamp:(NSDate *)arg1 ;
 -(unsigned)totalVideoBytesExpectToUpload;
 -(unsigned)suggestedChunkSize;
 -(NSArray *)videoUploadURLs;
@@ -173,14 +189,18 @@
 -(int)fromStatus;
 -(id)nameForUploadStatus:(int)arg1 ;
 -(int)toStatus;
--(int)targetUploadStatus;
+-(int)targetStatus;
 -(double)configureStartTimestamp;
 -(id)videoQEAnalyticsExtraData;
 -(id)videoAnalyticsExtraDataForStatusEvent;
 -(int)postAction;
 -(id)videoAnalyticsExtraDataForActionEvent;
+-(int)uploadWidthMin;
+-(int)uploadWidthMax;
+-(int)uploadWidthMaxForHiResLandscape;
 -(float)videoMaxDuration;
 -(int)qeUseSVE;
+-(float)minDownscaleHQResize;
 -(id)initWithStartTime:(id)arg1 userPK:(id)arg2 ;
 -(void)didFailUpload;
 -(void)setPostAction:(int)arg1 ;
@@ -191,6 +211,7 @@
 -(void)resetUploadSpeed;
 -(void)logRemoval;
 -(void)logRetry;
+-(void)setUserPK:(NSString *)arg1 ;
 -(void)setUploadDataType:(int)arg1 ;
 -(unsigned)uploadTaskIdentifier;
 -(void)setUploadTaskIdentifier:(unsigned)arg1 ;
@@ -200,7 +221,10 @@
 -(void)setCreatedOffline:(char)arg1 ;
 -(NSString *)transcodeVideoID;
 -(void)setTranscodeVideoID:(NSString *)arg1 ;
+-(NSDate *)lastConfigureFailureTimestamp;
 -(NSDate *)lastUploadFailureTimestamp;
+-(int)numberOfAutoRetryAttempts;
+-(void)setNumberOfAutoRetryAttempts:(int)arg1 ;
 -(void)setNumberOfManualCancels:(int)arg1 ;
 -(int)autoRetryResumeUploadCount;
 -(int)autoRetryConfigureCount;
@@ -208,7 +232,6 @@
 -(NSMutableArray *)currentRangesUploadedAlready;
 -(void)setWaterfall:(IGAnalyticsWaterfall *)arg1 ;
 -(float)videoUploadSpeed;
--(void)setVideoMetadata:(IGUploadVideoMetaData *)arg1 ;
 -(unsigned)photoBytesUploaded;
 -(unsigned)videoBytesUploaded;
 -(void)setVideoMaxDuration:(float)arg1 ;
@@ -221,10 +244,12 @@
 -(void)setShareActionTime:(NSDate *)arg1 ;
 -(NSMutableArray *)uploadStepCounts;
 -(void)setUploadStepCounts:(NSMutableArray *)arg1 ;
--(void)setShareType:(int)arg1 ;
--(void)setUploadStartTime:(NSDate *)arg1 ;
--(NSDate *)uploadStartTime;
+-(void)setUploadWidthMin:(int)arg1 ;
+-(void)setUploadWidthMax:(int)arg1 ;
+-(void)setUploadWidthMaxForHiResLandscape:(int)arg1 ;
+-(void)setMinDownscaleHQResize:(float)arg1 ;
 -(IGUploadVideoMetaData *)videoMetadata;
+-(void)setUploadStartTime:(NSDate *)arg1 ;
 -(void)setVideoRenderer:(IGVideoRenderer *)arg1 ;
 -(NSData *)imageData;
 -(IGRequestError *)error;

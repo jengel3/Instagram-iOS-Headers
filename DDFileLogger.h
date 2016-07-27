@@ -23,6 +23,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id<DDLogFileManager>)logFileManager;
 -(id)loggerName;
 -(id)initWithLogFileManager:(id)arg1 ;
 -(void)maybeRollLogFileDueToSize;
@@ -36,7 +37,6 @@
 -(double)rollingFrequency;
 -(void)setRollingFrequency:(double)arg1 ;
 -(void)rollLogFile;
--(id<DDLogFileManager>)logFileManager;
 -(void)dealloc;
 -(id)init;
 -(void)flush;

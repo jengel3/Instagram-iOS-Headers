@@ -15,10 +15,10 @@
 @property (assign,nonatomic) float filterStrength;                        //@synthesize filterStrength=_filterStrength - In the implementation block
 +(id)localLaplacianMaskForImage:(CVBufferRef)arg1 levels:(int)arg2 alpha:(float)arg3 beta:(float)arg4 applyToLuma:(char)arg5 ;
 +(id)localLaplacianMaskForImage:(CVBufferRef)arg1 ;
--(id)fragmentFunctions;
--(void)configureProgram:(id)arg1 ;
--(float)filterStrength;
 -(void)setFilterStrength:(float)arg1 ;
+-(float)filterStrength;
+-(void)configureProgram:(id)arg1 ;
+-(id)fragmentFunctions;
 -(void)setLocalLaplacianMask:(IGSurface *)arg1 ;
 -(IGSurface *)localLaplacianMask;
 -(id)fragmentShader;

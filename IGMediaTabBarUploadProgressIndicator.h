@@ -18,9 +18,9 @@
 @property (nonatomic,retain) UIImageView * imageView;                            //@synthesize imageView=_imageView - In the implementation block
 @property (assign,nonatomic) float currentProgress;                              //@synthesize currentProgress=_currentProgress - In the implementation block
 -(void)removeKVO;
--(void)reloadUploads;
 -(void)observeAlbumChanges;
 -(void)addKVO;
+-(void)reloadUploads;
 -(void)setCurrentProgress:(float)arg1 ;
 -(float)currentProgress;
 -(id)initWithFrame:(CGRect)arg1 ;

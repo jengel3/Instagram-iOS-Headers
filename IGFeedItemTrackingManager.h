@@ -13,10 +13,10 @@
 +(id)impressionTrackerForFeedItem:(id)arg1 ;
 +(void)removeFeedItem:(id)arg1 ;
 +(void)hideFeedItem:(id)arg1 extraDictionary:(id)arg2 ;
-+(id)websiteClickLinkForFeedItem:(id)arg1 ;
 +(char)isAdRatingFeed;
 +(char)isCTAAdvertiserProfile;
 +(char)isSingleMediaAdSharing;
++(char)isLikesViewAd:(id)arg1 ;
 +(char)isHotOrNotSurvey;
 +(char)allowSponsoredPostForFeedItem:(id)arg1 ;
 +(id)sponsoredItemImpressionTracker;

@@ -27,9 +27,9 @@
 -(id)firstMediaIndexPath;
 -(void)setLockedContentOffset:(CGPoint)arg1 ;
 -(CGPoint)targetContentOffsetInScrollview:(id)arg1 forLayoutAttributes:(id)arg2 ;
--(id)lastItemIndexPath;
 -(id)spinnerIndexPath;
 -(void)setPreviousSpinnerIndexPath:(NSIndexPath *)arg1 ;
+-(id)lastItemIndexPath;
 -(NSIndexPath *)previousSpinnerIndexPath;
 -(CGRect)frameForMediaCellAtIndexPath:(id)arg1 ;
 -(void)configureSpinnerCellSectionItemLayoutAttributes:(id)arg1 ;
@@ -42,6 +42,8 @@
 -(char)lockContentOffsetForUpdates;
 -(CGPoint)lockedContentOffset;
 -(id)lastMediaIndexPath;
+-(float)offsetPercentageOfItemForCenteredItemWithAttributes:(id)arg1 inCollectionView:(id)arg2 ;
+-(float)verticalOffsetForCenteredItemWithAttributes:(id)arg1 inCollectionView:(id)arg2 ;
 -(NSIndexPath *)currentlyCenteredIndexPath;
 -(CGPoint)targetContentOffsetForLayoutAttributes:(id)arg1 ;
 -(void)setCurrentlyCenteredIndexPath:(NSIndexPath *)arg1 ;

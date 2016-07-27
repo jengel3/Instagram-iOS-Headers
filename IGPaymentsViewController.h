@@ -28,6 +28,7 @@
 -(void)setHasStartedRequest:(char)arg1 ;
 -(void)setIsVerifyingFacebookToken:(char)arg1 ;
 -(void)containedWebDidFinishFlowWithWebView:(id)arg1 ;
+-(void)didRequestClientLocation;
 -(char)shouldStartLoadRequestWithCommand:(id)arg1 withParams:(id)arg2 ;
 -(void)didSelectCloseHybridWebView:(id)arg1 ;
 -(id)initWithLogger:(id)arg1 ;

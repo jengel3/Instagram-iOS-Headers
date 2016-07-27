@@ -3,12 +3,12 @@
 #import <UIKit/UICollectionViewCell.h>
 #import <Instagram/IGListAdapterDataSource.h>
 #import <Instagram/IGAlbumSubscriptionTrayCellItemControllerDelegate.h>
-#import <Instagram/IGAlbumSubcriptionTrayFullscreenControllerPresenterDelegate.h>
+#import <Instagram/IGAlbumViewerDelegate.h>
 #import <UIKit/UIViewControllerTransitioningDelegate.h>
 
 @class IGListCollectionView, IGListAdapter, IGAlbumTrayPresentationAnimationController, IGReelSubscriptionTrayModel, NSString;
 
-@interface IGAlbumSubscriptionTrayCollectionCell : UICollectionViewCell <IGListAdapterDataSource, IGAlbumSubscriptionTrayCellItemControllerDelegate, IGAlbumSubcriptionTrayFullscreenControllerPresenterDelegate, UIViewControllerTransitioningDelegate> {
+@interface IGAlbumSubscriptionTrayCollectionCell : UICollectionViewCell <IGListAdapterDataSource, IGAlbumSubscriptionTrayCellItemControllerDelegate, IGAlbumViewerDelegate, UIViewControllerTransitioningDelegate> {
 
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
@@ -27,16 +27,17 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)traySortDescriptors;
 +(float)height;
+-(void)subscriptionTrayItemController:(id)arg1 didSelectCell:(id)arg2 ;
+-(void)albumSeenStateUpdated;
+-(void)albumUploadStatusChanged;
+-(IGListAdapter *)listAdapter;
+-(void)setListAdapter:(IGListAdapter *)arg1 ;
+-(id)cellForItemModel:(id)arg1 ;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(void)albumSubcriptionTrayDidFocusOnModelItem:(id)arg1 ;
--(IGListAdapter *)listAdapter;
--(void)albumSubcriptionTrayFullscreenControllerPresenterDidFinish:(id)arg1 ;
--(void)setListAdapter:(IGListAdapter *)arg1 ;
--(void)subscriptionTrayItemController:(id)arg1 didSelectCell:(id)arg2 ;
--(void)albumSeenStateUpdated;
--(id)cellForItemModel:(id)arg1 ;
+-(void)albumViewerDidFinish:(id)arg1 ;
+-(void)albumViewer:(id)arg1 didFocusOnModelItem:(id)arg2 ;
 -(void)configureWithModel:(id)arg1 viewController:(id)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;

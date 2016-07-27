@@ -55,7 +55,7 @@
 -(void)setTrimRangeDelegate:(id<IGVideoTrimControllerDelegate>)arg1 ;
 -(void)setAlwaysClampsTrimmedRange:(char)arg1 ;
 -(void)setTrimViewContentInsets:(UIEdgeInsets)arg1 ;
--(void)updatePlaybackTime:(SCD_Struct_IG77)arg1 ;
+-(void)updatePlaybackTime:(SCD_Struct_IG52)arg1 ;
 -(void)updateWithVideoClip:(id)arg1 minClipLenght:(float)arg2 maxClipLength:(float)arg3 ;
 -(void)setTimeScale:(float)arg1 ;
 -(void)setConfirmationDisplayType:(unsigned)arg1 ;
@@ -65,14 +65,14 @@
 -(void)trimViewWillBeginUpdatingTrimmedRange:(id)arg1 ;
 -(void)trimView:(id)arg1 didUpdateTrimmedRange:(IGRange)arg2 ;
 -(void)trimViewDidEndUpdatingTrimmedRange:(id)arg1 ;
--(void)videoTrimViewDidPressDone;
--(void)videoTrimViewDidPressCancel;
 -(void)configureNavItems;
 -(void)rejectTrim;
 -(void)confirmTrim;
 -(void)updateVideoTrimmedTimesWithTrimmedRange:(IGRange)arg1 ;
 -(void)finishTrimming;
 -(unsigned)currentRubberbandingType;
+-(void)videoTrimViewDidPressDone;
+-(void)videoTrimViewDidPressCancel;
 -(void)setVideoClip:(IGVideoClip *)arg1 ;
 -(id<IGVideoTrimControllerDelegate>)trimRangeDelegate;
 -(unsigned)confirmationDisplayType;

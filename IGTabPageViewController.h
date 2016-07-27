@@ -33,9 +33,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(int)numberOfPagesForPageViewController:(id)arg1 ;
--(void)pageViewControllerDidFinishScrolling:(id)arg1 ;
 -(id)pageViewController:(id)arg1 controllerForIndex:(int)arg2 ;
 -(void)pageViewController:(id)arg1 willShowViewController:(id)arg2 ;
+-(void)pageViewControllerDidFinishScrolling:(id)arg1 ;
+-(id)ig_keyViewControllers;
 -(char)displaysTabsInNavigationBar;
 -(char)hidesTabControl;
 -(void)setCurrentViewController:(id)arg1 animated:(char)arg2 ;
@@ -45,13 +46,12 @@
 -(id)viewControllerAtIndex:(int)arg1 ;
 -(void)switchToViewController:(id)arg1 animated:(char)arg2 ;
 -(id)initWithContentViewControllers:(id)arg1 ;
--(UIView *)pagingContentView;
--(id)ig_keyViewControllers;
 -(void)tabControl:(id)arg1 tappedSegmentIndex:(unsigned)arg2 ;
 -(void)setDisplaysTabsInNavigationBar:(char)arg1 ;
 -(void)setCurrentViewController:(UIViewController *)arg1 ;
 -(IGTabControl *)tabControl;
 -(UIViewController *)currentViewController;
+-(UIView *)pagingContentView;
 -(void)presentViewController:(id)arg1 animated:(char)arg2 ;
 -(void)setDelegate:(id<IGTabPageViewControllerDelegate>)arg1 ;
 -(id<IGTabPageViewControllerDelegate>)delegate;

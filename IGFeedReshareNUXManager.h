@@ -1,13 +1,14 @@
 
 
 @protocol IGFeedReshareNUXManagerDatasource;
-@class IGListAdapter, UICollectionView;
+@class IGListAdapter, UICollectionView, IGUser;
 
 @interface IGFeedReshareNUXManager : NSObject {
 
 	id<IGFeedReshareNUXManagerDatasource> _feedItemDatasource;
 	IGListAdapter* _listAdapter;
 	UICollectionView* _collectionView;
+	IGUser* _currentUser;
 	int _maxNuxQuota;
 	double _minNUXReshowInterval;
 	double _minNUXReactivationIntervalAfterReshareAction;
@@ -15,6 +16,7 @@
 }
 
 @property (nonatomic,__weak,readonly) UICollectionView * collectionView;                                   //@synthesize collectionView=_collectionView - In the implementation block
+@property (nonatomic,__weak,readonly) IGUser * currentUser;                                                //@synthesize currentUser=_currentUser - In the implementation block
 @property (nonatomic,readonly) int maxNuxQuota;                                                            //@synthesize maxNuxQuota=_maxNuxQuota - In the implementation block
 @property (nonatomic,readonly) double minNUXReshowInterval;                                                //@synthesize minNUXReshowInterval=_minNUXReshowInterval - In the implementation block
 @property (nonatomic,readonly) double minNUXReactivationIntervalAfterReshareAction;                        //@synthesize minNUXReactivationIntervalAfterReshareAction=_minNUXReactivationIntervalAfterReshareAction - In the implementation block
@@ -31,10 +33,11 @@
 -(void)showReshareNUXOnOldFeed;
 -(char)showReshareNUXForFeedItem:(id)arg1 visibleActionCell:(id)arg2 ;
 -(id<IGFeedReshareNUXManagerDatasource>)feedItemDatasource;
+-(id)initWithCollectionView:(id)arg1 currentUser:(id)arg2 ;
 -(void)setFeedItemDatasource:(id<IGFeedReshareNUXManagerDatasource>)arg1 ;
 -(void)scheduleShowingReshareNUX;
 -(void)markNUXAction;
 -(UICollectionView *)collectionView;
--(id)initWithCollectionView:(id)arg1 ;
+-(IGUser *)currentUser;
 @end
 

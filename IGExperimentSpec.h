@@ -28,11 +28,11 @@
 +(id)experimentWithKey:(id)arg1 name:(id)arg2 category:(int)arg3 holdout:(id)arg4 groups:(id)arg5 experimentType:(int)arg6 ;
 +(id)experimentSpecWithKey:(id)arg1 name:(id)arg2 category:(int)arg3 holdout:(id)arg4 booleanValue:(char)arg5 experimentType:(int)arg6 ;
 +(id)holdoutExperimentSpecWithKey:(id)arg1 name:(id)arg2 category:(int)arg3 ;
--(IGExperimentGroup *)defaultGroup;
+-(NSString *)descriptiveName;
 -(NSArray *)predefinedGroups;
+-(IGExperimentGroup *)defaultGroup;
 -(NSString *)associatedHoldoutUniverse;
 -(id)initWithKey:(id)arg1 name:(id)arg2 category:(int)arg3 holdout:(id)arg4 groups:(id)arg5 experimentType:(int)arg6 isSelfHoldoutUniverse:(char)arg7 ;
--(NSString *)descriptiveName;
 -(int)experimentType;
 -(void)setExperimentType:(int)arg1 ;
 -(void)setAssociatedHoldoutUniverse:(NSString *)arg1 ;

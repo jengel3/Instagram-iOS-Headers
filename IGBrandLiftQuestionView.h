@@ -9,7 +9,6 @@
 
 @interface IGBrandLiftQuestionView : UIView <UITableViewDataSource, UITableViewDelegate> {
 
-	char _nextButtonEnabled;
 	id<IGBrandLiftQuestionViewDelegate> _delegate;
 	IGBrandLiftQuestion* _question;
 	NSString* _headerText;
@@ -26,7 +25,6 @@
 @property (nonatomic,retain) UITableView * tableView;                                          //@synthesize tableView=_tableView - In the implementation block
 @property (nonatomic,retain) NSMutableSet * selectedAnswers;                                   //@synthesize selectedAnswers=_selectedAnswers - In the implementation block
 @property (nonatomic,retain) UITableViewCell * nextCell;                                       //@synthesize nextCell=_nextCell - In the implementation block
-@property (assign,nonatomic) char nextButtonEnabled;                                           //@synthesize nextButtonEnabled=_nextButtonEnabled - In the implementation block
 @property (assign,nonatomic,__weak) id<IGBrandLiftQuestionViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -36,9 +34,8 @@
 -(NSMutableSet *)selectedAnswers;
 -(id)answerForIndexPath:(id)arg1 ;
 -(char)nextButtonEnabled;
--(id)initWithQuestion:(id)arg1 headerString:(id)arg2 frame:(CGRect)arg3 ;
 -(void)setNextCell:(UITableViewCell *)arg1 ;
--(void)setNextButtonEnabled:(char)arg1 ;
+-(id)initWithQuestion:(id)arg1 headerString:(id)arg2 frame:(CGRect)arg3 ;
 -(void)setQuestion:(IGBrandLiftQuestion *)arg1 ;
 -(IGBrandLiftQuestion *)question;
 -(void)setDelegate:(id<IGBrandLiftQuestionViewDelegate>)arg1 ;

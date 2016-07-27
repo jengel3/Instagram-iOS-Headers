@@ -20,12 +20,12 @@
 +(id)threadLoggerWithId:(id)arg1 ;
 +(id)mainInboxLogger;
 +(id)pendingInboxLogger;
--(NSString *)viewName;
 -(id)initWithViewName:(id)arg1 threadId:(id)arg2 ;
 -(id)logWillPushFromInboxWithLoggableControllerBlock:(/*^block*/id)arg1 ;
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
+-(NSString *)viewName;
 -(NSString *)threadId;
 @end
 

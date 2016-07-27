@@ -28,8 +28,8 @@
 -(void)dismissAndNotify:(char)arg1 ;
 -(void)didShowAlertView;
 -(void)didHideAlertView;
--(void)setShouldDismissOnTap:(char)arg1 ;
 -(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 delay:(double)arg4 updateExistingAlertBar:(char)arg5 actionBlock:(/*^block*/id)arg6 completeBlock:(/*^block*/id)arg7 ;
+-(void)setShouldDismissOnTap:(char)arg1 ;
 -(UITapGestureRecognizer *)tapGestureRecognizer;
 -(id)init;
 -(void)willMoveToWindow:(id)arg1 ;

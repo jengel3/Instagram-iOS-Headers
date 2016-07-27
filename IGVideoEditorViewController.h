@@ -26,7 +26,6 @@
 	char _videoIsReady;
 	char _viewLoaded;
 	char _hasCancelledShareVC;
-	char _wasInitializedFromDraft;
 	IGVideoInfo* _videoInfo;
 	IGVideoComposition* _workingVideoComposition;
 	IGVideoPlaybackView* _playerView;
@@ -64,8 +63,8 @@
 	IGClipCollectionController* _clipCollectionController;
 	int _videoOrigin;
 	CGSize _videoDisplaySize;
-	SCD_Struct_IG77 _keyTime;
-	SCD_Struct_IG78 _previousTrimmedRange;
+	SCD_Struct_IG52 _keyTime;
+	SCD_Struct_IG67 _previousTrimmedRange;
 
 }
 
@@ -101,21 +100,20 @@
 @property (nonatomic,retain) IGFilterControlView * filterControlView;                            //@synthesize filterControlView=_filterControlView - In the implementation block
 @property (nonatomic,retain) IGClipCollectionController * clipTrayController;                    //@synthesize clipTrayController=_clipTrayController - In the implementation block
 @property (nonatomic,retain) IGVideoTrimViewController * videoTrimViewController;                //@synthesize videoTrimViewController=_videoTrimViewController - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG78 previousTrimmedRange;                               //@synthesize previousTrimmedRange=_previousTrimmedRange - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG67 previousTrimmedRange;                               //@synthesize previousTrimmedRange=_previousTrimmedRange - In the implementation block
 @property (nonatomic,retain) IGSegmentedProgressView * trimProgressView;                         //@synthesize trimProgressView=_trimProgressView - In the implementation block
 @property (nonatomic,retain) IGVideoScrubberView * scrubberView;                                 //@synthesize scrubberView=_scrubberView - In the implementation block
 @property (nonatomic,retain) IGOverlayNuxController * overlayNuxController;                      //@synthesize overlayNuxController=_overlayNuxController - In the implementation block
 @property (assign,nonatomic) char needsVideoUpdate;                                              //@synthesize needsVideoUpdate=_needsVideoUpdate - In the implementation block
 @property (assign,nonatomic) char trimAnimationAlreadyShown;                                     //@synthesize trimAnimationAlreadyShown=_trimAnimationAlreadyShown - In the implementation block
 @property (assign,nonatomic) char isClipTrimMode;                                                //@synthesize isClipTrimMode=_isClipTrimMode - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG77 keyTime;                                            //@synthesize keyTime=_keyTime - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG52 keyTime;                                            //@synthesize keyTime=_keyTime - In the implementation block
 @property (assign,nonatomic) char didReorderTray;                                                //@synthesize didReorderTray=_didReorderTray - In the implementation block
 @property (nonatomic,retain) IGClipCollectionController * clipCollectionController;              //@synthesize clipCollectionController=_clipCollectionController - In the implementation block
 @property (assign,nonatomic) char videoIsReady;                                                  //@synthesize videoIsReady=_videoIsReady - In the implementation block
 @property (assign,nonatomic) char viewLoaded;                                                    //@synthesize viewLoaded=_viewLoaded - In the implementation block
 @property (assign,nonatomic) int videoOrigin;                                                    //@synthesize videoOrigin=_videoOrigin - In the implementation block
 @property (assign,nonatomic) char hasCancelledShareVC;                                           //@synthesize hasCancelledShareVC=_hasCancelledShareVC - In the implementation block
-@property (assign,nonatomic) char wasInitializedFromDraft;                                       //@synthesize wasInitializedFromDraft=_wasInitializedFromDraft - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -124,6 +122,10 @@
 -(id)analyticsModule;
 -(IGVideoInfo *)videoInfo;
 -(void)setVideoInfo:(IGVideoInfo *)arg1 ;
+-(void)cameraControllerDidCancel;
+-(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
+-(void)cameraControllerDidFinishWithDirectShare:(char)arg1 ;
+-(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
 -(void)setPlayerView:(IGVideoPlaybackView *)arg1 ;
 -(void)setMaxVideoDuration:(float)arg1 ;
 -(id)initWithDraft:(id)arg1 userSession:(id)arg2 ;
@@ -131,28 +133,19 @@
 -(char)prefersNavbarBottomBorderHidden;
 -(float)maxVideoDuration;
 -(id)initWithAssetInMediaMetadata:(id)arg1 ;
--(void)cameraControllerDidCancel;
--(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
--(void)cameraControllerDidFinishWithDirectShare:(char)arg1 ;
--(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
--(void)shareViewControllerDidAppear:(id)arg1 ;
--(void)shareViewControllerWillFinish:(id)arg1 ;
--(void)shareViewControllerDidCancel:(id)arg1 ;
+-(id)initWithOrigin:(int)arg1 videoInfo:(id)arg2 mediaMetadata:(id)arg3 ;
 -(void)buildNavbar;
 -(void)videoInfoReady:(id)arg1 ;
--(id)initWithOrigin:(int)arg1 videoInfo:(id)arg2 mediaMetadata:(id)arg3 ;
 -(char)isValidVideo:(id)arg1 ;
 -(void)updateVideoDependentViews;
 -(void)viewWillAppearInner:(char)arg1 ;
 -(void)showInvalidVideoError;
--(void)setWasInitializedFromDraft:(char)arg1 ;
 -(void)buildToolContainerView;
 -(void)buildToolsTabBar;
 -(void)buildToggleToolsTabBar;
 -(void)setOverlayNuxController:(IGOverlayNuxController *)arg1 ;
 -(IGOverlayNuxController *)overlayNuxController;
 -(UIView *)toolsContainerView;
--(char)wasInitializedFromDraft;
 -(void)initializeFromEditsDictionary;
 -(void)prepareForShareStep;
 -(char)videoIsReady;
@@ -229,9 +222,9 @@
 -(char)needsVideoUpdate;
 -(void)generateScrubberFrames;
 -(void)populateThumbnailCacheForClipIndex:(unsigned)arg1 ;
--(id)cachedThumbnailForClip:(id)arg1 andTime:(SCD_Struct_IG77)arg2 ;
--(void)cacheThumbnail:(id)arg1 forClip:(id)arg2 andTime:(SCD_Struct_IG77)arg3 ;
--(id)cacheKeyForClip:(id)arg1 filter:(id)arg2 time:(SCD_Struct_IG77)arg3 ;
+-(id)cachedThumbnailForClip:(id)arg1 andTime:(SCD_Struct_IG52)arg2 ;
+-(void)cacheThumbnail:(id)arg1 forClip:(id)arg2 andTime:(SCD_Struct_IG52)arg3 ;
+-(id)cacheKeyForClip:(id)arg1 filter:(id)arg2 time:(SCD_Struct_IG52)arg3 ;
 -(void)exitTrimControlView;
 -(void)setVideoDisplaySize:(CGSize)arg1 ;
 -(void)setOriginalVideoLength:(float)arg1 ;
@@ -249,7 +242,7 @@
 -(void)clipControllerDidFinishReordering:(id)arg1 ;
 -(id)draggingContainerViewForClipController:(id)arg1 ;
 -(void)filterPlayerViewDidFinishPlayingWithAnimation:(char)arg1 ;
--(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG77)arg2 ;
+-(void)playbackView:(id)arg1 didPlayToTime:(SCD_Struct_IG52)arg2 ;
 -(void)tabBar:(id)arg1 didSelectTabView:(id)arg2 previousTabView:(id)arg3 ;
 -(char)tabBar:(id)arg1 shouldSelectTabView:(id)arg2 ;
 -(void)filterControlViewDidStartDragging:(id)arg1 ;
@@ -262,12 +255,15 @@
 -(void)filterControlView:(id)arg1 didChangeTintColor:(unsigned)arg2 withTintType:(unsigned)arg3 ;
 -(void)filterControlView:(id)arg1 didChangetintIntensity:(float)arg2 tintType:(unsigned)arg3 ;
 -(void)overlayNuxControllerWillDismiss;
--(void)videoTrimController:(id)arg1 willBeginUpdatingWithTrimmedRange:(SCD_Struct_IG78)arg2 ;
--(void)videoTrimController:(id)arg1 didUpdateWithTrimmedRange:(SCD_Struct_IG78)arg2 ;
--(void)videoTrimController:(id)arg1 didFinishUpdatingWithTrimmedRange:(SCD_Struct_IG78)arg2 ;
--(void)videoTrimController:(id)arg1 didConfirmTrimmedRange:(SCD_Struct_IG78)arg2 ;
+-(void)videoTrimController:(id)arg1 willBeginUpdatingWithTrimmedRange:(SCD_Struct_IG67)arg2 ;
+-(void)videoTrimController:(id)arg1 didUpdateWithTrimmedRange:(SCD_Struct_IG67)arg2 ;
+-(void)videoTrimController:(id)arg1 didFinishUpdatingWithTrimmedRange:(SCD_Struct_IG67)arg2 ;
+-(void)videoTrimController:(id)arg1 didConfirmTrimmedRange:(SCD_Struct_IG67)arg2 ;
 -(void)videoTrimControllerDidRejectChanges:(id)arg1 ;
--(SCD_Struct_IG77)keyTime;
+-(void)shareViewControllerDidAppear:(id)arg1 ;
+-(void)shareViewControllerWillFinish:(id)arg1 ;
+-(void)shareViewControllerDidCancel:(id)arg1 ;
+-(SCD_Struct_IG52)keyTime;
 -(IGVideoComposition *)workingVideoComposition;
 -(void)setWorkingVideoComposition:(IGVideoComposition *)arg1 ;
 -(void)setAdjustedFilterStrengthValues:(NSMutableDictionary *)arg1 ;
@@ -296,12 +292,12 @@
 -(void)setClipTrayController:(IGClipCollectionController *)arg1 ;
 -(IGVideoTrimViewController *)videoTrimViewController;
 -(void)setVideoTrimViewController:(IGVideoTrimViewController *)arg1 ;
--(SCD_Struct_IG78)previousTrimmedRange;
--(void)setPreviousTrimmedRange:(SCD_Struct_IG78)arg1 ;
+-(SCD_Struct_IG67)previousTrimmedRange;
+-(void)setPreviousTrimmedRange:(SCD_Struct_IG67)arg1 ;
 -(IGSegmentedProgressView *)trimProgressView;
 -(void)setTrimProgressView:(IGSegmentedProgressView *)arg1 ;
 -(void)setScrubberView:(IGVideoScrubberView *)arg1 ;
--(void)setKeyTime:(SCD_Struct_IG77)arg1 ;
+-(void)setKeyTime:(SCD_Struct_IG52)arg1 ;
 -(char)didReorderTray;
 -(void)setClipCollectionController:(IGClipCollectionController *)arg1 ;
 -(char)viewLoaded;

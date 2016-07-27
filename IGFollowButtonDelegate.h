@@ -1,7 +1,7 @@
 
 
 @protocol IGFollowButtonDelegate <NSObject>
-@optional
+@required
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2;
 -(void)followButtonDidUpdateButtonState:(id)arg1;
 

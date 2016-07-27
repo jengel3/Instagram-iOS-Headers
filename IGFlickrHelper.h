@@ -23,17 +23,17 @@
 +(void)logoutFromDefaults:(id)arg1 ;
 +(id)serviceName;
 +(id)sharedHelper;
--(id)sharingInfo;
+-(void)reauthorizeIfNeeded;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)logoutAndUnlink;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(char)isConfigurable;
 -(char)hasAdvancedOptions;
--(char)requiresLocationCoordinate;
 -(char)hasEverBeenConfigured;
 -(char)isAvailableInCurrentLocale;
 -(char)supportsMediaType:(int)arg1 ;
+-(char)requiresLocationCoordinate;
 -(void)flickrAuthController:(id)arg1 didLoginWithTokenKey:(id)arg2 tokenSecret:(id)arg3 username:(id)arg4 ;
 -(void)flickrAuthControllerLoginFailed:(id)arg1 ;
 -(void)loadTokens;
@@ -41,9 +41,9 @@
 -(id)oldFlickrToken;
 -(void)setTokenKey:(id)arg1 tokenSecret:(id)arg2 username:(id)arg3 save:(char)arg4 ;
 -(id)currentUsername;
--(void)reauthorizeIfNeeded;
 -(char)needsToReauthorize;
 -(id)viewControllerForAdvancedOptions;
+-(id)sharingInfo;
 -(void)logout;
 -(char)isConfigured;
 @end

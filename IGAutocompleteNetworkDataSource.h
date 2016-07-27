@@ -1,7 +1,7 @@
 
 
 @protocol IGAutocompleteNetworkDataSourceDelegate;
-@class IGSearchCacheEntry, NSMutableDictionary, IGRequest, NSTimer;
+@class IGSearchCacheEntry, IGSearchCache, IGRequest, NSTimer;
 
 @interface IGAutocompleteNetworkDataSource : NSObject {
 
@@ -11,7 +11,7 @@
 	unsigned _maxTotalSuggestionCount;
 	unsigned _maxServerResultCount;
 	IGSearchCacheEntry* _currentEntry;
-	NSMutableDictionary* _queryCache;
+	IGSearchCache* _queryCache;
 	IGRequest* _currentRequest;
 	NSTimer* _serverSearchTimer;
 	double _lastServerRequestTime;
@@ -19,7 +19,7 @@
 }
 
 @property (nonatomic,retain) IGSearchCacheEntry * currentEntry;                                        //@synthesize currentEntry=_currentEntry - In the implementation block
-@property (nonatomic,retain) NSMutableDictionary * queryCache;                                         //@synthesize queryCache=_queryCache - In the implementation block
+@property (nonatomic,retain) IGSearchCache * queryCache;                                               //@synthesize queryCache=_queryCache - In the implementation block
 @property (assign,nonatomic) double lastServerRequestTime;                                             //@synthesize lastServerRequestTime=_lastServerRequestTime - In the implementation block
 @property (nonatomic,retain) IGRequest * currentRequest;                                               //@synthesize currentRequest=_currentRequest - In the implementation block
 @property (nonatomic,retain) NSTimer * serverSearchTimer;                                              //@synthesize serverSearchTimer=_serverSearchTimer - In the implementation block
@@ -32,7 +32,7 @@
 -(void)setShouldReverseSort:(char)arg1 ;
 -(id)canonicalQueryString:(id)arg1 ;
 -(IGSearchCacheEntry *)currentEntry;
--(NSMutableDictionary *)queryCache;
+-(IGSearchCache *)queryCache;
 -(void)setCurrentEntry:(IGSearchCacheEntry *)arg1 ;
 -(unsigned)maxTotalSuggestionCount;
 -(id)localSuggestionsForQueryString:(id)arg1 numRequested:(int)arg2 ;
@@ -51,7 +51,7 @@
 -(void)setMaxTotalSuggestionCount:(unsigned)arg1 ;
 -(unsigned)maxServerResultCount;
 -(void)setMaxServerResultCount:(unsigned)arg1 ;
--(void)setQueryCache:(NSMutableDictionary *)arg1 ;
+-(void)setQueryCache:(IGSearchCache *)arg1 ;
 -(void)setCurrentRequest:(IGRequest *)arg1 ;
 -(void)setDelegate:(id<IGAutocompleteNetworkDataSourceDelegate>)arg1 ;
 -(id)init;

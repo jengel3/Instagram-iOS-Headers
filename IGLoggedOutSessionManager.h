@@ -1,9 +1,9 @@
 
 
 @interface IGLoggedOutSessionManager : NSObject
-+(id)loggedOutSessionData;
 +(void)removeLoggedOutSessionData;
 +(void)generateAndSaveLoggedOutSessionData;
++(id)loggedOutSessionData;
 -(void)configureLoggedOutSessionData;
 -(void)dealloc;
 -(id)init;

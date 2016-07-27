@@ -37,9 +37,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)setDefaultConnectionTimeout:(double)arg1 ;
 +(id)userAgent;
--(void)addRequest:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
--(void)facebookURLConnection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4 ;
 -(void)addRequest:(id)arg1 completionHandler:(/*^block*/id)arg2 batchEntryName:(id)arg3 ;
+-(void)overrideVersionPartWith:(id)arg1 ;
+-(void)addRequest:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
+-(void)processorDidAttemptRecovery:(id)arg1 didRecover:(char)arg2 error:(id)arg3 ;
 -(void)addRequest:(id)arg1 completionHandler:(/*^block*/id)arg2 batchParameters:(id)arg3 ;
 -(id)requestWithBatch:(id)arg1 timeout:(double)arg2 ;
 -(void)logRequest:(id)arg1 bodyLength:(unsigned)arg2 bodyLogger:(id)arg3 attachmentLogger:(id)arg4 ;
@@ -59,8 +60,7 @@
 -(id)errorFromResult:(id)arg1 request:(id)arg2 ;
 -(void)processResultBody:(id)arg1 error:(id)arg2 metadata:(id)arg3 canNotifyDelegate:(char)arg4 ;
 -(void)processResultDebugDictionary:(id)arg1 ;
--(void)processorDidAttemptRecovery:(id)arg1 didRecover:(char)arg2 error:(id)arg3 ;
--(void)overrideVersionPartWith:(id)arg1 ;
+-(void)facebookURLConnection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4 ;
 -(FBSDKLogger *)logger;
 -(void)setLogger:(FBSDKLogger *)arg1 ;
 -(double)timeout;

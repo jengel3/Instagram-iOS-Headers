@@ -63,6 +63,7 @@
 	NSNumber* _followerCount;
 	NSNumber* _followingCount;
 	NSNumber* _mediaCount;
+	NSArray* _mediaBundles;
 	NSURL* _externalURL;
 	NSURL* _externalLynxURL;
 	NSURL* _profilePicURL;
@@ -135,6 +136,7 @@
 @property (readonly) NSNumber * followerCount;                            //@synthesize followerCount=_followerCount - In the implementation block
 @property (readonly) NSNumber * followingCount;                           //@synthesize followingCount=_followingCount - In the implementation block
 @property (retain) NSNumber * mediaCount;                                 //@synthesize mediaCount=_mediaCount - In the implementation block
+@property (retain) NSArray * mediaBundles;                                //@synthesize mediaBundles=_mediaBundles - In the implementation block
 @property (retain) NSURL * externalURL;                                   //@synthesize externalURL=_externalURL - In the implementation block
 @property (retain) NSURL * externalLynxURL;                               //@synthesize externalLynxURL=_externalLynxURL - In the implementation block
 @property (retain) NSURL * profilePicURL;                                 //@synthesize profilePicURL=_profilePicURL - In the implementation block
@@ -154,39 +156,39 @@
 +(void)fetchFollowStatusInBulk:(id)arg1 ;
 +(void)onFriendStatusesReceived:(id)arg1 fromRequest:(id)arg2 ;
 +(void)onFriendStatusesFailed:(id)arg1 fromRequest:(id)arg2 ;
--(void)setProfilePicURL:(NSURL *)arg1 ;
--(NSURL *)profilePicURL;
--(id)toDict;
 -(char)staff;
 -(int)followStatus;
+-(id)toDict;
 -(char)canBoostPost;
 -(void)setPageName:(NSString *)arg1 ;
+-(void)setShouldShowInsightsTerms:(char)arg1 ;
 -(char)shouldShowInsightsTerms;
 -(int)toggleFollowStatus;
 -(char)incomingRequestPending;
 -(char)isFollowRestricted;
--(void)fetchSimilarAccountsWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
--(int)privacyStatus;
--(char)isUnpublished;
 -(id)uploadableModelWithParameter:(id)arg1 ;
 -(NSNumber *)mediaCount;
 -(void)setMediaCount:(NSNumber *)arg1 ;
 -(NSString *)byline;
--(void)setByline:(NSString *)arg1 ;
+-(NSArray *)mediaBundles;
 -(void)changeFriendshipStatusWithAction:(int)arg1 ;
+-(void)setByline:(NSString *)arg1 ;
+-(void)setFollowStatus:(int)arg1 ;
+-(int)privacyStatus;
 -(void)toggleFavoritedStatusShowSuccessAlert:(char)arg1 ;
 -(char)isVerified;
 -(NSString *)socialContext;
--(void)setFollowStatus:(int)arg1 ;
+-(void)setSimilarUsers:(NSArray *)arg1 ;
 -(NSArray *)similarUsers;
 -(void)removeSimilarUsers:(id)arg1 ;
--(void)setSimilarUsers:(NSArray *)arg1 ;
 -(void)changeFriendshipStatusWithAction:(int)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setProfileActionNeeded:(char)arg1 ;
 -(void)setPrivacyStatus:(int)arg1 ;
 -(void)setSocialContext:(NSString *)arg1 ;
+-(void)setProfilePicURL:(NSURL *)arg1 ;
 -(NSNumber *)followerCount;
 -(NSNumber *)followingCount;
+-(char)isUnpublished;
 -(void)fetchFollowStatus;
 -(NSString *)searchSocialContext;
 -(NSNumber *)unseenCount;
@@ -195,8 +197,10 @@
 -(NSString *)trackingToken;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(void)setIncomingRequestPending:(char)arg1 ;
+-(void)fetchSimilarAccountsWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(NSNumber *)mutualFollowersCount;
 -(NSNumber *)friendScore;
+-(char)hasSimilarUsers;
 -(NSString *)publicEmail;
 -(NSString *)publicPhoneNumber;
 -(NSString *)publicPhoneNumberCountryCode;
@@ -245,7 +249,6 @@
 -(void)setProfileContext:(NSString *)arg1 ;
 -(void)setCanBoostPost:(char)arg1 ;
 -(void)setCanSeeOrganicInsights:(char)arg1 ;
--(void)setShouldShowInsightsTerms:(char)arg1 ;
 -(void)setCanConvertToBusiness:(char)arg1 ;
 -(void)parseBusinessInfo:(id)arg1 withDict:(id)arg2 ;
 -(void)setHasBiographyTranslation:(char)arg1 ;
@@ -273,12 +276,12 @@
 -(void)setAdRater:(char)arg1 ;
 -(int)lastFollowStatus;
 -(void)setLastFollowStatus:(int)arg1 ;
--(char)canSeeOrganicInsights;
 -(char)canConvertToBusiness;
 -(char)isAdRater;
 -(void)convertBusinessBackToUser;
 -(void)removeBusinessFunctionality;
--(char)hasSimilarUsers;
+-(CGSize)HDProfilePicSize;
+-(NSString *)profilePicID;
 -(char)hasChainingUsers;
 -(unsigned)geoMediaCount;
 -(unsigned)usertagsCount;
@@ -292,15 +295,16 @@
 -(NSURL *)externalLynxURL;
 -(char)isGeoIPBlocked;
 -(NSString *)geoIPBlockedExtraInfo;
--(CGSize)HDProfilePicSize;
 -(char)hasAnonymousProfilePicture;
 -(char)onDirectBlacklist;
 -(char)favorited;
 -(void)toggleBlockStatus;
 -(void)setOnDirectBlacklist:(char)arg1 ;
 -(void)setBiographyTranslation:(NSString *)arg1 ;
--(NSString *)profilePicID;
+-(void)setMediaBundles:(NSArray *)arg1 ;
+-(char)canSeeOrganicInsights;
 -(id)HDProfilePicURL;
+-(NSURL *)profilePicURL;
 -(void)fetchAdditionalUserDataWithCompletion:(/*^block*/id)arg1 ;
 -(NSURL *)externalURL;
 -(id)primaryName;

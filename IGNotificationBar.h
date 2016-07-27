@@ -13,7 +13,6 @@
 	UIActivityIndicatorView* _activityIndicator;
 	IGImageView* _imageView;
 	UILabel* _label;
-	int _disabledCount;
 	NSTimer* _timer;
 	UIPanGestureRecognizer* _pan;
 	UIButton* _dismissButton;
@@ -30,7 +29,6 @@
 @property (nonatomic,retain) UIActivityIndicatorView * activityIndicator;              //@synthesize activityIndicator=_activityIndicator - In the implementation block
 @property (nonatomic,retain) IGImageView * imageView;                                  //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UILabel * label;                                          //@synthesize label=_label - In the implementation block
-@property (assign,nonatomic) int disabledCount;                                        //@synthesize disabledCount=_disabledCount - In the implementation block
 @property (assign,getter=isVisible,nonatomic) char visible;                            //@synthesize visible=_visible - In the implementation block
 @property (nonatomic,retain) NSTimer * timer;                                          //@synthesize timer=_timer - In the implementation block
 @property (nonatomic,retain) UIPanGestureRecognizer * pan;                             //@synthesize pan=_pan - In the implementation block
@@ -53,7 +51,6 @@
 +(char)showBarIfAllowedWithBlock:(/*^block*/id)arg1 ;
 +(id)sharedInstance;
 +(id)defaultTextAttributes;
-+(void)setNotificationsEnabled:(char)arg1 ;
 -(void)setTouchRecognizer:(IGTouchGestureRecognizer *)arg1 ;
 -(IGTouchGestureRecognizer *)touchRecognizer;
 -(void)dismissAction:(id)arg1 ;
@@ -73,8 +70,6 @@
 -(NSTimer *)hideTimer;
 -(void)hideTimer:(id)arg1 ;
 -(void)setHideTimer:(NSTimer *)arg1 ;
--(int)disabledCount;
--(void)setDisabledCount:(int)arg1 ;
 -(id)block;
 -(void)setBlock:(id)arg1 ;
 -(void)setPan:(UIPanGestureRecognizer *)arg1 ;

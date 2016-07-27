@@ -3,26 +3,25 @@
 #import <UIKit/UICollectionReusableView.h>
 
 @protocol IGGridViewHeaderLabelDelegate;
-@class UILabel, IGTapButton, UITapGestureRecognizer;
+@class UILabel, IGTapButton;
 
 @interface IGGridViewHeaderLabel : UICollectionReusableView {
 
 	id<IGGridViewHeaderLabelDelegate> _delegate;
 	UILabel* _label;
-	IGTapButton* _editButton;
-	UITapGestureRecognizer* _editTap;
+	IGTapButton* _secondaryButton;
 
 }
 
 @property (nonatomic,retain) UILabel * label;                                                //@synthesize label=_label - In the implementation block
-@property (nonatomic,retain) IGTapButton * editButton;                                       //@synthesize editButton=_editButton - In the implementation block
-@property (nonatomic,retain) UITapGestureRecognizer * editTap;                               //@synthesize editTap=_editTap - In the implementation block
+@property (nonatomic,retain) IGTapButton * secondaryButton;                                  //@synthesize secondaryButton=_secondaryButton - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGridViewHeaderLabelDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(float)height;
--(void)setShowsEditLabel:(char)arg1 ;
--(void)didTapEdit;
--(UITapGestureRecognizer *)editTap;
--(void)setEditTap:(UITapGestureRecognizer *)arg1 ;
+-(void)setShowsSecondaryLabel:(char)arg1 ;
+-(void)didTapMore;
+-(IGTapButton *)secondaryButton;
+-(void)setSecondaryButton:(IGTapButton *)arg1 ;
+-(void)setSecondaryText:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGGridViewHeaderLabelDelegate>)arg1 ;
 -(void)layoutSubviews;
@@ -32,7 +31,5 @@
 -(void)prepareForReuse;
 -(UILabel *)label;
 -(void)setLabel:(UILabel *)arg1 ;
--(void)setEditButton:(IGTapButton *)arg1 ;
--(IGTapButton *)editButton;
 @end
 

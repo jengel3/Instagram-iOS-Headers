@@ -28,11 +28,11 @@
 -(UIButton *)forwardButton;
 -(void)setForwardButton:(UIButton *)arg1 ;
 -(unsigned)contentViewCount;
--(void)setUpContentView;
 -(void)layoutButtonsWithY:(float)arg1 ;
 -(void)setContentViewCount:(unsigned)arg1 ;
 -(void)setupNavigateButtons;
 -(void)buttonClick:(id)arg1 ;
+-(void)setUpContentView;
 -(int)activeIndex;
 -(void)setActiveIndex:(int)arg1 ;
 -(void)setDataSource:(id<IGInsightsCenteredTitleTabPageViewDataSource>)arg1 ;

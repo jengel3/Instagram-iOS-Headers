@@ -26,11 +26,11 @@
 @property (nonatomic,copy) NSString * placeID;                              //@synthesize placeID=_placeID - In the implementation block
 @property (nonatomic,copy) NSString * ref;                                  //@synthesize ref=_ref - In the implementation block
 +(char)supportsSecureCoding;
--(NSString *)previewPropertyName;
 -(NSArray *)peopleIDs;
--(char)isEqualToShareOpenGraphContent:(id)arg1 ;
--(void)setPreviewPropertyName:(NSString *)arg1 ;
 -(void)setPeopleIDs:(NSArray *)arg1 ;
+-(char)isEqualToShareOpenGraphContent:(id)arg1 ;
+-(NSString *)previewPropertyName;
+-(void)setPreviewPropertyName:(NSString *)arg1 ;
 -(void)setContentURL:(NSURL *)arg1 ;
 -(NSURL *)contentURL;
 -(id)initWithCoder:(id)arg1 ;

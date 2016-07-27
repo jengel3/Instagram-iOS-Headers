@@ -18,16 +18,16 @@
 @property (nonatomic,readonly) char isActive;                                   //@synthesize isActive=_isActive - In the implementation block
 +(void)singleShotLogEntry:(id)arg1 logEntry:(id)arg2 ;
 +(void)singleShotLogEntry:(id)arg1 formatString:(id)arg2 ;
-+(unsigned)generateSerialNumber;
++(void)registerStringToReplace:(id)arg1 replaceWith:(id)arg2 ;
 +(void)singleShotLogEntry:(id)arg1 timestampTag:(id)arg2 formatString:(id)arg3 ;
 +(void)registerCurrentTime:(id)arg1 withTag:(id)arg2 ;
-+(void)registerStringToReplace:(id)arg1 replaceWith:(id)arg2 ;
++(unsigned)generateSerialNumber;
 -(NSString *)loggingBehavior;
--(unsigned)loggerSerialNumber;
--(NSMutableString *)internalContents;
 -(id)initWithLoggingBehavior:(id)arg1 ;
+-(unsigned)loggerSerialNumber;
 -(void)emitToNSLog;
 -(void)appendKey:(id)arg1 value:(id)arg2 ;
+-(NSMutableString *)internalContents;
 -(char)isActive;
 -(void)appendString:(id)arg1 ;
 -(void)appendFormat:(id)arg1 ;

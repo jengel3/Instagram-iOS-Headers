@@ -17,6 +17,7 @@
 	char _hasStartedCapture;
 	char _shouldCaptureFrames;
 	char _changingModes;
+	char _enableVideoTimer;
 	id<IGCaptureControllerDelegate> _delegate;
 	int _cameraMode;
 	IGMediaMetadata* _mediaMetadata;
@@ -51,6 +52,7 @@
 @property (nonatomic,retain) UIBarButtonItem * videoNextButton;                            //@synthesize videoNextButton=_videoNextButton - In the implementation block
 @property (nonatomic,retain) IGDirectedNUXView * nuxView;                                  //@synthesize nuxView=_nuxView - In the implementation block
 @property (nonatomic,retain) NSOperationQueue * cameraModeQueue;                           //@synthesize cameraModeQueue=_cameraModeQueue - In the implementation block
+@property (nonatomic,readonly) char enableVideoTimer;                                      //@synthesize enableVideoTimer=_enableVideoTimer - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCaptureControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int devicePosition; 
 @property (assign,nonatomic) char shouldDelayCapture;                                      //@synthesize shouldDelayCapture=_shouldDelayCapture - In the implementation block
@@ -61,37 +63,39 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) IGCameraNavigationController * navController; 
--(id)analyticsModule;
 -(IGCaptureManager *)captureManager;
 -(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
+-(void)setHasStartedCapture:(char)arg1 ;
 -(char)hasStartedCapture;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(void)updateFlashButton;
--(void)setHasStartedCapture:(char)arg1 ;
 -(void)updateStabilizationSampler;
--(IGVideoInfo *)videoInfo;
 -(void)setDevicePosition:(int)arg1 ;
+-(id)analyticsModule;
 -(IGVideoRecorder *)videoRecorder;
 -(void)switchCameras;
 -(void)updateVideoSize;
--(int)devicePosition;
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
+-(IGVideoInfo *)videoInfo;
 -(void)captureManagerDidSatisfyFocusRequest;
 -(char)cameraIsReady;
+-(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(void)captureManagerDidDropAudioBuffer;
 -(void)captureManagerDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)captureManagerWillTakePhoto;
 -(void)captureManagerNeedsResume:(char)arg1 ;
 -(void)captureManagerDidDropVideoBuffer;
 -(void)captureManagerDidCaptureVideoBuffer:(opaqueCMSampleBufferRef)arg1 ;
+-(int)devicePosition;
 -(void)toggleFlashMode;
 -(void)updateHardwareOptionButtons;
 -(void)setMaxVideoDuration:(float)arg1 ;
+-(char)enableVideoTimer;
 -(void)deleteClipButtonTapped;
 -(void)deleteClipButtonLongPressed:(id)arg1 ;
 -(void)focusUpdateRequested:(id)arg1 ;
 -(void)setCameraMode:(int)arg1 animated:(char)arg2 informCaptureView:(char)arg3 ;
 -(char)cameraModeLocked;
+-(void)setCameraModeLocked:(char)arg1 ;
 -(void)videoNextButtonTapped;
 -(void)setCameraMode:(int)arg1 animated:(char)arg2 ;
 -(void)updateSwitchCamerasButton;
@@ -109,6 +113,7 @@
 -(id)initWithDraft:(id)arg1 userSession:(id)arg2 ;
 -(char)overlayIsOpaque;
 -(char)prefersNavbarBottomBorderHidden;
+-(id)initWithMediaMetadata:(id)arg1 ;
 -(void)showAudioPermissionDialogIfNecessary;
 -(char)shouldDelayCapture;
 -(void)setShouldDelayCapture:(char)arg1 ;
@@ -130,8 +135,6 @@
 -(void)setNuxView:(IGDirectedNUXView *)arg1 ;
 -(NSOperationQueue *)cameraModeQueue;
 -(void)setCameraModeQueue:(NSOperationQueue *)arg1 ;
--(id)initWithMediaMetadata:(id)arg1 ;
--(void)setCameraModeLocked:(char)arg1 ;
 -(void)startCapture;
 -(void)setDelegate:(id<IGCaptureControllerDelegate>)arg1 ;
 -(id<IGCaptureControllerDelegate>)delegate;

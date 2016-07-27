@@ -1,10 +1,10 @@
 
 #import <Instagram/IGDirectMainInboxPendingRequestLogging.h>
-#import <Instagram/IGDirectMainInboxEnterThreadLogging.h>
+#import <Instagram/IGDirectInboxEnterThreadLogging.h>
 
 @class NSString;
 
-@interface IGDirectMainInboxAnalyticsLogger : NSObject <IGDirectMainInboxPendingRequestLogging, IGDirectMainInboxEnterThreadLogging>
+@interface IGDirectMainInboxAnalyticsLogger : NSObject <IGDirectMainInboxPendingRequestLogging, IGDirectInboxEnterThreadLogging>
 
 @property (nonatomic,readonly) NSString * analyticsModule; 
 @property (readonly) unsigned hash; 
@@ -14,11 +14,11 @@
 -(NSString *)analyticsModule;
 -(void)logDidEnterPendingRequestsViewWithCount:(int)arg1 ;
 -(void)logDidEnterThreadFromInboxAtIndex:(int)arg1 ;
--(void)logComposerNewMessagePlusButtonTapped;
--(void)logComposerSendPhotoVideoButtonTapped;
--(void)logComposerSendMessageButtonTapped;
 -(void)logDidDisplayPushPromptFromInbox;
 -(void)logDidConfirmPushPromptFromInbox;
 -(void)logDidDismissPushPromptFromInbox;
+-(void)logComposerNewMessagePlusButtonTapped;
+-(void)logComposerSendPhotoVideoButtonTapped;
+-(void)logComposerSendMessageButtonTapped;
 @end
 

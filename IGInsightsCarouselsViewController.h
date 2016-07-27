@@ -29,10 +29,10 @@
 -(IGInsightsQuery *)buttonQuery;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 loggingHelper:(id)arg4 ;
 -(IGInsightsCarouselsView *)insightsCarouselsView;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)didSelectCellOnCarouselsView:(id)arg1 forFeedItem:(id)arg2 atIndex:(int)arg3 ;
 -(void)didTapButtonOnCarouselsView:(id)arg1 ;
 -(void)setInsightsCarouselsView:(IGInsightsCarouselsView *)arg1 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(NSString *)header;
 -(id<IGInsightsComponentViewControllerNavigationDelegate>)navigationDelegate;
 -(void)setNavigationDelegate:(id<IGInsightsComponentViewControllerNavigationDelegate>)arg1 ;

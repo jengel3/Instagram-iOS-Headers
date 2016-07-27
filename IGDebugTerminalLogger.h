@@ -19,8 +19,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)loggerName;
 -(id)initWithFileLogContext:(int)arg1 ;
+-(id)loggerName;
 -(void)logMessage:(id)arg1 ;
 @end
 

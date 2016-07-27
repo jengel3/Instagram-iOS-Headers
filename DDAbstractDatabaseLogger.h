@@ -25,6 +25,7 @@
 @property (assign) double maxAge; 
 @property (assign) double deleteInterval; 
 @property (assign) char deleteOnEverySave; 
+-(void)performDelete;
 -(void)didAddLogger;
 -(void)willRemoveLogger;
 -(void)destroySaveTimer;
@@ -33,7 +34,6 @@
 -(void)db_save;
 -(void)db_delete;
 -(void)performSaveAndSuspendSaveTimer;
--(void)performDelete;
 -(void)updateDeleteTimer;
 -(void)createSuspendedSaveTimer;
 -(void)updateAndResumeSaveTimer;

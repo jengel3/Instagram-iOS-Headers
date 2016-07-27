@@ -24,11 +24,11 @@
 @property (assign,nonatomic,__weak) id<IGBrandLiftThankYouViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)setShowResults:(char)arg1 ;
 -(char)showResults;
+-(id)initWithText:(id)arg1 showResults:(char)arg2 withFrame:(CGRect)arg3 ;
 -(IGLabel *)showResultsLabel;
 -(IGLabel *)doneLabel;
 -(void)doneLabelTapped;
 -(void)showResultsLabelTapped;
--(id)initWithText:(id)arg1 showResults:(char)arg2 withFrame:(CGRect)arg3 ;
 -(void)setDoneLabel:(IGLabel *)arg1 ;
 -(void)setShowResultsLabel:(IGLabel *)arg1 ;
 -(void)setButtonStyle:(IGStringStyle *)arg1 ;

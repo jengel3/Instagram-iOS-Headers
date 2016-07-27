@@ -15,10 +15,10 @@
 @property (nonatomic,copy) NSMutableData * passbookConnectionData;                  //@synthesize passbookConnectionData=_passbookConnectionData - In the implementation block
 @property (assign,nonatomic,__weak) id<FBPassLoaderDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) char isLoading; 
+-(void)loadWithRequest:(id)arg1 ;
 -(void)setPassbookConnection:(NSURLConnection *)arg1 ;
 -(NSURLConnection *)passbookConnection;
 -(void)setPassbookConnectionData:(NSMutableData *)arg1 ;
--(void)loadWithRequest:(id)arg1 ;
 -(NSMutableData *)passbookConnectionData;
 -(void)cancelLoading;
 -(void)setDelegate:(id<FBPassLoaderDelegate>)arg1 ;

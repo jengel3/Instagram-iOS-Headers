@@ -2,19 +2,19 @@
 
 #import <Instagram/Instagram-Structs.h>
 @interface FBSDKDynamicFrameworkLoader : NSObject
-+(SecRandomRef)loadkSecRandomDefault;
 +(void*)loadkSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
-+(void*)loadkSecValueData;
++(SecRandomRef)loadkSecRandomDefault;
 +(void*)loadkSecAttrAccessible;
-+(void*)loadkSecReturnData;
++(void*)loadkSecAttrAccount;
++(void*)loadkSecValueData;
 +(void*)loadkSecMatchLimitOne;
 +(void*)loadkSecMatchLimit;
-+(void*)loadkSecClassGenericPassword;
++(void*)loadkSecReturnData;
 +(void*)loadkSecClass;
++(void*)loadkSecClassGenericPassword;
 +(void*)loadkSecAttrService;
-+(void*)loadkSecAttrAccount;
-+(void*)loadkSecAttrAccessGroup;
 +(void*)loadkSecAttrGeneric;
++(void*)loadkSecAttrAccessGroup;
 -(id)init;
 @end
 

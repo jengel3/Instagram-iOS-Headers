@@ -6,17 +6,15 @@
 @property (nonatomic,retain) UIImage * displayImage; 
 @property (nonatomic,retain) UIImage * croppedImage; 
 @property (assign,nonatomic) char isFromLibrary; 
-@property (assign,nonatomic) int devicePosition; 
 @property (nonatomic,readonly) NSData * imageData; 
 @property (nonatomic,readonly) char isPhoto; 
 @required
--(void)setCroppedImage:(id)arg1;
 -(void)setDisplayImage:(id)arg1;
--(void)setDevicePosition:(int)arg1;
--(char)isFromLibrary;
+-(void)setCroppedImage:(id)arg1;
 -(int)devicePosition;
--(void)setIsFromLibrary:(char)arg1;
 -(UIImage *)croppedImage;
+-(char)isFromLibrary;
+-(void)setIsFromLibrary:(char)arg1;
 -(NSData *)imageData;
 -(char)isPhoto;
 -(UIImage *)displayImage;

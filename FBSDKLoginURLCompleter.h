@@ -11,11 +11,11 @@
 	char _performExplicitFallback;
 
 }
+-(id)initWithURLParameters:(id)arg1 appID:(id)arg2 ;
+-(void)completeLogIn:(id)arg1 withHandler:(/*^block*/id)arg2 ;
 -(void)setParametersWithDictionary:(id)arg1 appID:(id)arg2 ;
 -(void)setErrorWithDictionary:(id)arg1 ;
 -(void)attemptBrowserLogIn:(id)arg1 ;
--(void)completeLogIn:(id)arg1 withHandler:(/*^block*/id)arg2 ;
--(id)initWithURLParameters:(id)arg1 appID:(id)arg2 ;
 -(id)init;
 @end
 

@@ -11,6 +11,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)enableNavState;
 -(id)newFindUsersViewDataSource;
 -(void)authorizeAndFetchUsers;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;

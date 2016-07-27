@@ -1,7 +1,7 @@
 
 
 @interface IGAppiraterHandler : NSObject
-+(void)userPerformedSignificationEvent;
 +(void)appLaunched;
++(void)userPerformedSignificationEvent;
 @end
 

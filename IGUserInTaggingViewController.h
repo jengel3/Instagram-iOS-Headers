@@ -36,8 +36,8 @@
 -(id)analyticsModule;
 -(void)onCancelModal;
 -(IGUsertagGroup *)usertags;
--(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(id)initWithImageView:(id)arg1 ;
+-(void)setUsertags:(IGUsertagGroup *)arg1 ;
 -(void)onDoneTapped;
 -(void)onLargeImageReady:(id)arg1 ;
 -(void)keyboardWillChange:(id)arg1 ;
@@ -46,6 +46,8 @@
 -(void)updateTaggingViewAndLabels;
 -(char)isRemoveLeadingAtCharacterEnabled;
 -(id)stringAfterRemovingLeadingWhitespaceAndAtCharacters:(id)arg1 ;
+-(char)isFullListAutoFetchEnabled;
+-(int)fullListAutoFetchThreshold;
 -(void)userInTaggingViewDidStartTaggingAtPosition:(CGPoint)arg1 ;
 -(void)userInTaggingViewDidAddTag:(id)arg1 ;
 -(void)userInTaggingViewDidMoveTag:(id)arg1 ;

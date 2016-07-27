@@ -1,10 +1,10 @@
 
 #import <Instagram/Instagram-Structs.h>
-#import <UIKit/UICollectionReusableView.h>
+#import <UIKit/UICollectionViewCell.h>
 
 @class UILabel, CALayer;
 
-@interface IGLabelSupplementaryView : UICollectionReusableView {
+@interface IGLabelSupplementaryView : UICollectionViewCell {
 
 	UILabel* _textLabel;
 	CALayer* _topSeparator;

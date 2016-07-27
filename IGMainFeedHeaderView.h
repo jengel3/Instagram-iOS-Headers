@@ -16,12 +16,13 @@
 @property (nonatomic,readonly) UIView * logoImageView;                                      //@synthesize logoImageView=_logoImageView - In the implementation block
 @property (nonatomic,readonly) UILabel * headerLabel;                                       //@synthesize headerLabel=_headerLabel - In the implementation block
 @property (assign,nonatomic,__weak) id<IGMainFeedHeaderViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(void)setupLogoView;
 -(void)setupHeaderLabel;
+-(void)displayInstagramLogo;
+-(void)hideLogoAndDisplayAttributedString:(id)arg1 ;
+-(void)displayAttributedString:(id)arg1 ;
+-(void)setupLogoView;
 -(void)tapOnLabel:(id)arg1 ;
 -(UIView *)logoImageView;
--(void)displayInstagramLogoWithAnimation:(char)arg1 ;
--(void)displayAttributedString:(id)arg1 animated:(char)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGMainFeedHeaderViewDelegate>)arg1 ;
 -(void)layoutSubviews;

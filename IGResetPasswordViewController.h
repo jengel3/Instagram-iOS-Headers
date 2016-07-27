@@ -28,8 +28,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(void)userUpdated:(id)arg1 ;
 -(void)signIn;
+-(void)userUpdated:(id)arg1 ;
 -(char)validateLengthAllowZeroLength:(char)arg1 ;
 -(char)isSubmitting;
 -(char)validateMatching;

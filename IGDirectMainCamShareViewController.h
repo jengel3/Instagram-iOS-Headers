@@ -55,16 +55,20 @@
 @property (nonatomic,readonly) char isReadyToShare; 
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController * delegate;                    //@synthesize delegate=_delegate - In the implementation block
--(id)analyticsMetadata;
--(char)enableNavState;
 -(id)analyticsModule;
+-(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
+-(void)dataSourceDidStartLoading:(id)arg1 ;
+-(void)dataSourceDidFinishLoading:(id)arg1 ;
+-(void)dataSourceDidFailLoad:(id)arg1 ;
+-(int)sectionForType:(int)arg1 ;
+-(void)setSelectedThread:(IGDirectThread *)arg1 ;
+-(IGTokenField *)tokenField;
 -(void)setCollapseGroups:(char)arg1 ;
 -(void)setSingleUsers:(NSOrderedSet *)arg1 ;
 -(void)setGroupThreads:(NSOrderedSet *)arg1 ;
 -(void)updateShareStatus;
 -(void)updateSections;
 -(void)setTokenField:(IGTokenField *)arg1 ;
--(IGTokenField *)tokenField;
 -(IGDirectThread *)selectedThread;
 -(void)endEditingSearchCell;
 -(void)reloadWithoutAnimation;
@@ -75,7 +79,6 @@
 -(NSOrderedSet *)groupThreads;
 -(void)setForceHide:(char)arg1 ;
 -(void)reloadGroupSectionWithAnimation:(int)arg1 ;
--(int)sectionForType:(int)arg1 ;
 -(void)reloadSectionWithoutAnimation:(int)arg1 ;
 -(void)setSectionHeaderViews:(NSMutableDictionary *)arg1 ;
 -(char)isPerformingSearch;
@@ -87,7 +90,6 @@
 -(NSOrderedSet *)singleUsers;
 -(void)handleSelectionForThread:(id)arg1 atIndexPath:(id)arg2 ;
 -(void)handleSelectionForUser:(id)arg1 atIndexPath:(id)arg2 fromSearch:(char)arg3 ;
--(void)setSelectedThread:(IGDirectThread *)arg1 ;
 -(id)sendToGroupString;
 -(void)setShareString:(NSString *)arg1 ;
 -(id)sendString;
@@ -103,10 +105,8 @@
 -(void)configureWithHeaderView:(id)arg1 ;
 -(NSString *)shareString;
 -(char)isReadyToShare;
--(void)dataSourceDidStartLoading:(id)arg1 ;
--(void)dataSourceDidFinishLoading:(id)arg1 ;
--(void)dataSourceDidFailLoad:(id)arg1 ;
--(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
+-(id)analyticsMetadata;
+-(char)enableNavState;
 -(void)setDataSource:(IGDirectRecipientDataSource *)arg1 ;
 -(void)setDelegate:(UIViewController *)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

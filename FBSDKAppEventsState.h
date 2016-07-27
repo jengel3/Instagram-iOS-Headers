@@ -21,11 +21,11 @@
 +(char)supportsSecureCoding;
 -(id)initWithToken:(id)arg1 appID:(id)arg2 ;
 -(char)isCompatibleWithTokenString:(id)arg1 appID:(id)arg2 ;
--(void)addEventsFromAppEventState:(id)arg1 ;
 -(void)addEvent:(id)arg1 isImplicit:(char)arg2 ;
--(char)areAllEventsImplicit;
 -(char)isCompatibleWithAppEventsState:(id)arg1 ;
+-(void)addEventsFromAppEventState:(id)arg1 ;
 -(id)JSONStringForEvents:(char)arg1 ;
+-(char)areAllEventsImplicit;
 -(unsigned)numSkipped;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

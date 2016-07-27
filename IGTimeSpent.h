@@ -1,12 +1,12 @@
 
 #import <Instagram/IGEventAggregator.h>
-#import <Instagram/FBAnalyticsTimeSpentDelegate.h>
+#import <Instagram/IGAnalyticsTimeSpentDelegate.h>
 
-@class FBAnalyticsTimeSpent, NSString;
+@class IGAnalyticsTimeSpent, NSString;
 
-@interface IGTimeSpent : IGEventAggregator <FBAnalyticsTimeSpentDelegate> {
+@interface IGTimeSpent : IGEventAggregator <IGAnalyticsTimeSpentDelegate> {
 
-	FBAnalyticsTimeSpent* _timeSpent;
+	IGAnalyticsTimeSpent* _timeSpent;
 
 }
 

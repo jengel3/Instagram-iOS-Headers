@@ -59,12 +59,13 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(id)analyticsExtras;
--(void)resetSearchViewForRootVC:(id)arg1 ;
 -(void)animatePushTransition:(id)arg1 duration:(double)arg2 complete:(/*^block*/id)arg3 ;
 -(void)performPopTransition:(id)arg1 toVC:(id)arg2 duration:(double)arg3 complete:(/*^block*/id)arg4 ;
+-(char)enableNavState;
 -(char)disableNavigationGesture;
 -(char)disableNonEdgeNavigationGesture;
--(void)onSearchTextDidChange:(id)arg1 ;
+-(CGRect)searchBarFrame;
+-(void)resetSearchViewForRootVC:(id)arg1 ;
 -(void)searchBarButtonTapped:(id)arg1 ;
 -(void)searchBarCancelButtonTapped:(id)arg1 ;
 -(void)searchBarPeopleIconTapped:(id)arg1 ;
@@ -86,7 +87,6 @@
 -(void)updateSearchbarPlaceholderForController:(id)arg1 ;
 -(char)willMoveToParentVC;
 -(void)setWillMoveToParentVC:(char)arg1 ;
--(CGRect)searchBarFrame;
 -(IGExploreAutocompleteSearchHelper *)searchHelper;
 -(id)createSearchObserverForSearchResultViewController:(id)arg1 ;
 -(void)setTopResultsContentOffsetObserver:(IGKVOHandle *)arg1 ;
@@ -111,6 +111,7 @@
 -(void)setOriginalHostingContenViewFrame:(CGRect)arg1 ;
 -(CGRect)originalHostingTabControlFrame;
 -(void)setOriginalHostingTabControlFrame:(CGRect)arg1 ;
+-(void)onSearchTextDidChange:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
 -(char)isActive;

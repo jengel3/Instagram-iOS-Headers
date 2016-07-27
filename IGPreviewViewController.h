@@ -24,10 +24,12 @@
 	NSArray* _actionItems;
 	CGPoint _panningOrigin;
 	CGPoint _panningViewOrigin;
+	CGRect _sourceRect;
 
 }
 
 @property (nonatomic,readonly) UIViewController * contentViewControler;              //@synthesize contentViewControler=_contentViewControler - In the implementation block
+@property (nonatomic,readonly) CGRect sourceRect;                                    //@synthesize sourceRect=_sourceRect - In the implementation block
 @property (nonatomic,retain) FXBlurView * blurView;                                  //@synthesize blurView=_blurView - In the implementation block
 @property (nonatomic,retain) UIView * movableView;                                   //@synthesize movableView=_movableView - In the implementation block
 @property (nonatomic,retain) UIView * maskedView;                                    //@synthesize maskedView=_maskedView - In the implementation block
@@ -48,9 +50,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)ig_keyViewControllers;
 -(UIImageView *)arrowView;
 -(void)setArrowView:(UIImageView *)arg1 ;
--(id)ig_keyViewControllers;
+-(void)didTap:(id)arg1 ;
 -(void)setMovableView:(UIView *)arg1 ;
 -(UIView *)movableView;
 -(UIViewController *)contentViewControler;
@@ -81,18 +84,18 @@
 -(void)setIsShowingActionView:(char)arg1 ;
 -(char)isActionViewShownBeforePanning;
 -(void)setActionItems:(NSArray *)arg1 ;
+-(id)initWithContentViewController:(id)arg1 sourceRect:(CGRect)arg2 ;
 -(void)didStartPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didEndPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didCancelPanFromExternalGestureRecognizer:(id)arg1 ;
--(void)didTap:(id)arg1 ;
 -(void)didPan:(id)arg1 ;
 -(NSArray *)actionItems;
+-(CGRect)sourceRect;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
 -(id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3 ;
 -(id)animationControllerForDismissedController:(id)arg1 ;
--(id)initWithContentViewController:(id)arg1 ;
 -(FXBlurView *)blurView;
 -(void)setBlurView:(FXBlurView *)arg1 ;
 -(IGActionGroupView *)actionView;

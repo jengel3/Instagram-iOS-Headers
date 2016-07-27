@@ -19,16 +19,16 @@
 @property (nonatomic,retain) UIButton * countrycodeButton;                //@synthesize countrycodeButton=_countrycodeButton - In the implementation block
 @property (nonatomic,copy) NSString * countryNumber;                      //@synthesize countryNumber=_countryNumber - In the implementation block
 @property (nonatomic,readonly) UIButton * countryCodeButton;              //@synthesize countryCodeButton=_countryCodeButton - In the implementation block
+-(NSString *)countryNumber;
+-(void)setCountryNumber:(NSString *)arg1 ;
+-(UIView *)textFieldLeftView;
 -(id)configureCountryCodeButton;
 -(UIView *)lineSeparatorView;
--(UIButton *)countryCodeButton;
--(UIView *)textFieldLeftView;
--(void)setCountryNumber:(NSString *)arg1 ;
--(NSString *)countryNumber;
--(void)updateCountryName:(id)arg1 countryNumber:(id)arg2 ;
--(id)formatPhoneNumber;
 -(UIButton *)countrycodeButton;
 -(void)setCountrycodeButton:(UIButton *)arg1 ;
+-(UIButton *)countryCodeButton;
+-(void)updateCountryName:(id)arg1 countryNumber:(id)arg2 ;
+-(id)formatPhoneNumber;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 @end

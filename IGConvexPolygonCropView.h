@@ -11,7 +11,6 @@
 
 	IGConvexPolygonScrollView* _scrollView;
 	id<IGConvexPolygonCropViewDelegate> _delegate;
-	GLKMatrix4 _contentTransform;
 
 }
 
@@ -19,15 +18,13 @@
 @property (assign,nonatomic) float cropZoomScale; 
 @property (assign,nonatomic) CGPoint cropCenter; 
 @property (nonatomic,copy) NSArray * contentRegion; 
-@property (assign,nonatomic) _GLKMatrix4 contentTransform;                                     //@synthesize contentTransform=_contentTransform - In the implementation block
 @property (assign,nonatomic,__weak) id<IGConvexPolygonCropViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(_GLKMatrix4)contentTransform;
--(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)cancelAnimations;
+-(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)setContentRegion:(NSArray *)arg1 ;
 -(void)setCropZoomScale:(float)arg1 ;
 -(void)setCropCenter:(CGPoint)arg1 ;

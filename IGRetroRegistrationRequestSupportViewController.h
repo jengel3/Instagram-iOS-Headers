@@ -39,10 +39,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
--(char)submitting;
--(void)setSubmitting:(char)arg1 ;
+-(UITapGestureRecognizer *)tapGesture;
 -(id)initWithUsername:(id)arg1 twoFactorIdentifier:(id)arg2 ;
 -(void)keyboardWillHide;
 -(void)setRequestSupportView:(IGRetroRegistrationRequestSupportView *)arg1 ;
@@ -62,6 +60,8 @@
 -(void)setRequestSupportType:(unsigned)arg1 ;
 -(NSString *)twoFactorIdentifier;
 -(void)setTwoFactorIdentifier:(NSString *)arg1 ;
+-(char)submitting;
+-(void)setSubmitting:(char)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)setDelegate:(id<IGRetroRegistrationRequestSupportDelegate>)arg1 ;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

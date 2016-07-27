@@ -1,12 +1,11 @@
 
 
-@class NSString, IGFeedItem, IGUser, NSDate, CLLocation, IGLocation;
+@class IGFeedItem, IGUser, NSDate, CLLocation, NSString, IGLocation;
 
 @interface IGFeedItemHeaderViewModel : NSObject {
 
-	char _showSponsoredPostIcon;
 	char _editing;
-	NSString* _sponsoredPostLabel;
+	char _showVerifiedBadge;
 	IGFeedItem* _feedItem;
 	IGUser* _user;
 	NSDate* _takenAt;
@@ -26,18 +25,18 @@
 @property (nonatomic,readonly) IGFeedItem * feedItem;                           //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,readonly) char editing;                                    //@synthesize editing=_editing - In the implementation block
 @property (nonatomic,readonly) NSString * locationName; 
-@property (nonatomic,readonly) char showSponsoredPostIcon;                      //@synthesize showSponsoredPostIcon=_showSponsoredPostIcon - In the implementation block
-@property (nonatomic,readonly) NSString * sponsoredPostLabel;                   //@synthesize sponsoredPostLabel=_sponsoredPostLabel - In the implementation block
 @property (nonatomic,readonly) int accessoryViewType;                           //@synthesize accessoryViewType=_accessoryViewType - In the implementation block
 @property (nonatomic,readonly) NSString * customizableButtonTitle;              //@synthesize customizableButtonTitle=_customizableButtonTitle - In the implementation block
+@property (nonatomic,readonly) char showVerifiedBadge;                          //@synthesize showVerifiedBadge=_showVerifiedBadge - In the implementation block
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 configuration:(id)arg2 ;
--(NSString *)sponsoredPostLabel;
+-(id)sponsoredPostLabel;
 -(char)showSponsoredPostIcon;
 -(NSDate *)takenAt;
 -(NSString *)customizableButtonTitle;
 -(void)setTakenAt:(NSDate *)arg1 ;
 -(void)setMediaCoord:(CLLocation *)arg1 ;
+-(char)showVerifiedBadge;
 -(CLLocation *)mediaCoord;
 -(id)initWithUser:(id)arg1 location:(id)arg2 takenAt:(id)arg3 mediaCoord:(id)arg4 editing:(char)arg5 ;
 -(int)accessoryViewType;

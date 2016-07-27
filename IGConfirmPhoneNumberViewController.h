@@ -51,9 +51,9 @@
 -(void)setConfirmNumberTextField:(IGTextField *)arg1 ;
 -(void)setConfirmPhoneSettings:(IGConfirmPhoneSettings *)arg1 ;
 -(void)setConfirmationType:(int)arg1 ;
+-(IGConfirmPhoneSettings *)confirmPhoneSettings;
 -(char)submitting;
 -(void)setSubmitting:(char)arg1 ;
--(IGConfirmPhoneSettings *)confirmPhoneSettings;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)setDelegate:(id<IGConfirmPhoneNumberViewControllerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForFooterInSection:(int)arg2 ;

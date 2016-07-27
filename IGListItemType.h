@@ -2,8 +2,6 @@
 
 @protocol IGListItemType <NSObject>
 @required
--(id)cellClasses;
--(CGSize*)estimatedSizeForItemAtIndex:(int)arg1;
 -(id)cellForItemAtIndex:(int)arg1;
 -(void)didUpdateToItem:(id)arg1;
 -(unsigned)numberOfItems;

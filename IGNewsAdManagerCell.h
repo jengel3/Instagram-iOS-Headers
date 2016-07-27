@@ -32,6 +32,7 @@
 -(void)setUpRightArrow;
 -(void)setUpViewHierarchy;
 -(IGUnreadBubbleView *)unreadBubbleView;
+-(void)setPendingAdsCount:(unsigned)arg1 ;
 -(void)setUpIcon;
 -(void)setUpUnreadBubbleView;
 -(CGRect)layoutForIcon;
@@ -40,7 +41,6 @@
 -(CGRect)layoutForSubtitleWithIconRect:(CGRect)arg1 subtitleSize:(CGSize)arg2 ;
 -(CGRect)layoutForUnreadBubbleWithTitleRect:(CGRect)arg1 iconRect:(CGRect)arg2 ;
 -(unsigned)pendingAdsCount;
--(void)setPendingAdsCount:(unsigned)arg1 ;
 -(UIImageView *)rightArrow;
 -(void)layoutSubviews;
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;

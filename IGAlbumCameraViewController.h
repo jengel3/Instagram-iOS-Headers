@@ -1,189 +1,124 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
-#import <Instagram/IGAlbumCameraPreviewActionViewDelegate.h>
 #import <Instagram/IGCaptureManagerAudioSampleBufferDelegate.h>
 #import <Instagram/IGCaptureManagerAudioSessionDelegate.h>
 #import <Instagram/IGCaptureManagerDelegate.h>
 #import <Instagram/IGCaptureManagerVideoSampleBufferDelegate.h>
-#import <Instagram/IGDrawControllerDelegate.h>
 #import <Instagram/IGQuickCamCaptureButtonDelegate.h>
+#import <Instagram/IGQuickCamAssetProcessorGenerationDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
+#import <UIKit/UIImagePickerControllerDelegate.h>
 #import <UIKit/UINavigationControllerDelegate.h>
+#import <UIKit/UITextViewDelegate.h>
 
-@protocol IGAlbumCameraViewControllerDelegate, IGQuickCamInputAsset, IGQuickCamOutputAsset, OS_dispatch_queue;
-@class UIView, UITextView, IGTapButton, IGAlbumCameraPreviewActionView, IGQuickCamCaptureButton, UIImageView, IGCaptureManager, IGVideoRecorder, NSObject, IGStabilizationSampler, IGSampleBuffer, IGCameraAccessPromptView, IGLibraryAccessPromptView, IGAlbumCameraPreviewViewController, IGReelCreationModel, IGDrawViewController, NSString;
+@protocol IGAlbumCameraViewControllerDelegate, IGQuickCamInputAsset, IGQuickCamOutputAsset;
+@class IGTapButton, IGQuickCamCaptureButton, UIView, IGGradientView, IGQuickCamAssetProcessor, UIImageView, IGCaptureManager, IGVideoRecorder, IGStabilizationSampler, IGSampleBuffer, IGCameraAccessPromptView, IGLibraryAccessPromptView, NSString;
 
-@interface IGAlbumCameraViewController : UIViewController <IGAlbumCameraPreviewActionViewDelegate, IGCaptureManagerAudioSampleBufferDelegate, IGCaptureManagerAudioSessionDelegate, IGCaptureManagerDelegate, IGCaptureManagerVideoSampleBufferDelegate, IGDrawControllerDelegate, IGQuickCamCaptureButtonDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate> {
+@interface IGAlbumCameraViewController : UIViewController <IGCaptureManagerAudioSampleBufferDelegate, IGCaptureManagerAudioSessionDelegate, IGCaptureManagerDelegate, IGCaptureManagerVideoSampleBufferDelegate, IGQuickCamCaptureButtonDelegate, IGQuickCamAssetProcessorGenerationDelegate, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate> {
 
 	char _visible;
 	char _isBackgrounded;
 	char _hasStartedCapture;
 	char _hasReceivedAudioFrames;
 	char _hasShownAudioPermissionsDeniedAlertView;
-	char _hasCaptureButtonConfirmed;
 	int _state;
 	id<IGAlbumCameraViewControllerDelegate> _delegate;
-	UIView* _contentView;
-	UITextView* _captionTextView;
 	IGTapButton* _closeButton;
-	IGTapButton* _retakeButton;
-	IGTapButton* _addTextButton;
-	IGTapButton* _addDrawingButton;
-	IGAlbumCameraPreviewActionView* _previewActionView;
 	IGQuickCamCaptureButton* _captureButton;
 	IGTapButton* _flashButton;
 	IGTapButton* _switchCameraButton;
-	int _fullSizeRequestID;
-	unsigned _contentEditingInputRequestID;
+	UIView* _flashScreenView;
+	UIView* _contentView;
+	IGGradientView* _topGradient;
+	IGGradientView* _bottomGradient;
 	id<IGQuickCamInputAsset> _inputAsset;
 	id<IGQuickCamOutputAsset> _outputAsset;
+	IGQuickCamAssetProcessor* _assetProcessor;
 	UIView* _previewView;
 	UIImageView* _focusRing;
 	IGCaptureManager* _captureManager;
 	IGVideoRecorder* _videoRecorder;
-	NSObject*<OS_dispatch_queue> _imageBufferQueue;
 	IGStabilizationSampler* _stabilizer;
 	IGSampleBuffer* _imageBufferData;
 	IGCameraAccessPromptView* _cameraPermissionDeniedView;
 	IGLibraryAccessPromptView* _libraryAccessDeniedView;
 	/*^block*/id _recordAwaitingAudioSessionBlock;
-	IGAlbumCameraPreviewViewController* _previewViewController;
-	id<IGQuickCamInputAsset> _previewAsset;
-	IGReelCreationModel* _albumModel;
-	IGDrawViewController* _drawViewController;
-	IGTapButton* _drawCancelButton;
-	IGTapButton* _drawConfirmButton;
-	IGTapButton* _drawUndoButton;
-	UIImageView* _drawingOverlayImageView;
 
 }
 
-@property (nonatomic,retain) UIView * contentView;                                                    //@synthesize contentView=_contentView - In the implementation block
-@property (nonatomic,retain) UITextView * captionTextView;                                            //@synthesize captionTextView=_captionTextView - In the implementation block
-@property (nonatomic,retain) IGTapButton * closeButton;                                               //@synthesize closeButton=_closeButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * retakeButton;                                              //@synthesize retakeButton=_retakeButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * addTextButton;                                             //@synthesize addTextButton=_addTextButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * addDrawingButton;                                          //@synthesize addDrawingButton=_addDrawingButton - In the implementation block
-@property (nonatomic,retain) IGAlbumCameraPreviewActionView * previewActionView;                      //@synthesize previewActionView=_previewActionView - In the implementation block
-@property (nonatomic,retain) IGQuickCamCaptureButton * captureButton;                                 //@synthesize captureButton=_captureButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * flashButton;                                               //@synthesize flashButton=_flashButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * switchCameraButton;                                        //@synthesize switchCameraButton=_switchCameraButton - In the implementation block
-@property (assign,nonatomic) int fullSizeRequestID;                                                   //@synthesize fullSizeRequestID=_fullSizeRequestID - In the implementation block
-@property (assign,nonatomic) unsigned contentEditingInputRequestID;                                   //@synthesize contentEditingInputRequestID=_contentEditingInputRequestID - In the implementation block
-@property (nonatomic,retain) id<IGQuickCamInputAsset> inputAsset;                                     //@synthesize inputAsset=_inputAsset - In the implementation block
-@property (nonatomic,retain) id<IGQuickCamOutputAsset> outputAsset;                                   //@synthesize outputAsset=_outputAsset - In the implementation block
-@property (assign,nonatomic) char isBackgrounded;                                                     //@synthesize isBackgrounded=_isBackgrounded - In the implementation block
-@property (nonatomic,retain) UIView * previewView;                                                    //@synthesize previewView=_previewView - In the implementation block
-@property (nonatomic,retain) UIImageView * focusRing;                                                 //@synthesize focusRing=_focusRing - In the implementation block
-@property (nonatomic,retain) IGCaptureManager * captureManager;                                       //@synthesize captureManager=_captureManager - In the implementation block
-@property (nonatomic,retain) IGVideoRecorder * videoRecorder;                                         //@synthesize videoRecorder=_videoRecorder - In the implementation block
-@property (nonatomic,retain) NSObject*<OS_dispatch_queue> imageBufferQueue;                           //@synthesize imageBufferQueue=_imageBufferQueue - In the implementation block
-@property (nonatomic,retain) IGStabilizationSampler * stabilizer;                                     //@synthesize stabilizer=_stabilizer - In the implementation block
-@property (retain) IGSampleBuffer * imageBufferData;                                                  //@synthesize imageBufferData=_imageBufferData - In the implementation block
-@property (nonatomic,retain) IGCameraAccessPromptView * cameraPermissionDeniedView;                   //@synthesize cameraPermissionDeniedView=_cameraPermissionDeniedView - In the implementation block
-@property (nonatomic,retain) IGLibraryAccessPromptView * libraryAccessDeniedView;                     //@synthesize libraryAccessDeniedView=_libraryAccessDeniedView - In the implementation block
-@property (assign,nonatomic) char hasStartedCapture;                                                  //@synthesize hasStartedCapture=_hasStartedCapture - In the implementation block
-@property (assign) char hasReceivedAudioFrames;                                                       //@synthesize hasReceivedAudioFrames=_hasReceivedAudioFrames - In the implementation block
-@property (assign,nonatomic) char hasShownAudioPermissionsDeniedAlertView;                            //@synthesize hasShownAudioPermissionsDeniedAlertView=_hasShownAudioPermissionsDeniedAlertView - In the implementation block
-@property (assign,nonatomic) char hasCaptureButtonConfirmed;                                          //@synthesize hasCaptureButtonConfirmed=_hasCaptureButtonConfirmed - In the implementation block
-@property (nonatomic,copy) id recordAwaitingAudioSessionBlock;                                        //@synthesize recordAwaitingAudioSessionBlock=_recordAwaitingAudioSessionBlock - In the implementation block
-@property (nonatomic,retain) IGAlbumCameraPreviewViewController * previewViewController;              //@synthesize previewViewController=_previewViewController - In the implementation block
-@property (nonatomic,retain) id<IGQuickCamInputAsset> previewAsset;                                   //@synthesize previewAsset=_previewAsset - In the implementation block
-@property (nonatomic,retain) IGReelCreationModel * albumModel;                                        //@synthesize albumModel=_albumModel - In the implementation block
-@property (nonatomic,retain) IGDrawViewController * drawViewController;                               //@synthesize drawViewController=_drawViewController - In the implementation block
-@property (nonatomic,retain) IGTapButton * drawCancelButton;                                          //@synthesize drawCancelButton=_drawCancelButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * drawConfirmButton;                                         //@synthesize drawConfirmButton=_drawConfirmButton - In the implementation block
-@property (nonatomic,retain) IGTapButton * drawUndoButton;                                            //@synthesize drawUndoButton=_drawUndoButton - In the implementation block
-@property (nonatomic,retain) UIImageView * drawingOverlayImageView;                                   //@synthesize drawingOverlayImageView=_drawingOverlayImageView - In the implementation block
-@property (assign,getter=isVisible,nonatomic) char visible;                                           //@synthesize visible=_visible - In the implementation block
-@property (assign,nonatomic) int state;                                                               //@synthesize state=_state - In the implementation block
-@property (assign,nonatomic,__weak) id<IGAlbumCameraViewControllerDelegate> delegate;                 //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) UIView * contentView;                                                 //@synthesize contentView=_contentView - In the implementation block
+@property (nonatomic,retain) IGGradientView * topGradient;                                         //@synthesize topGradient=_topGradient - In the implementation block
+@property (nonatomic,retain) IGGradientView * bottomGradient;                                      //@synthesize bottomGradient=_bottomGradient - In the implementation block
+@property (nonatomic,retain) id<IGQuickCamInputAsset> inputAsset;                                  //@synthesize inputAsset=_inputAsset - In the implementation block
+@property (nonatomic,retain) id<IGQuickCamOutputAsset> outputAsset;                                //@synthesize outputAsset=_outputAsset - In the implementation block
+@property (nonatomic,retain) IGQuickCamAssetProcessor * assetProcessor;                            //@synthesize assetProcessor=_assetProcessor - In the implementation block
+@property (assign,nonatomic) char isBackgrounded;                                                  //@synthesize isBackgrounded=_isBackgrounded - In the implementation block
+@property (nonatomic,retain) UIView * previewView;                                                 //@synthesize previewView=_previewView - In the implementation block
+@property (nonatomic,retain) UIImageView * focusRing;                                              //@synthesize focusRing=_focusRing - In the implementation block
+@property (nonatomic,retain) IGCaptureManager * captureManager;                                    //@synthesize captureManager=_captureManager - In the implementation block
+@property (nonatomic,retain) IGVideoRecorder * videoRecorder;                                      //@synthesize videoRecorder=_videoRecorder - In the implementation block
+@property (nonatomic,retain) IGStabilizationSampler * stabilizer;                                  //@synthesize stabilizer=_stabilizer - In the implementation block
+@property (retain) IGSampleBuffer * imageBufferData;                                               //@synthesize imageBufferData=_imageBufferData - In the implementation block
+@property (nonatomic,retain) IGCameraAccessPromptView * cameraPermissionDeniedView;                //@synthesize cameraPermissionDeniedView=_cameraPermissionDeniedView - In the implementation block
+@property (nonatomic,retain) IGLibraryAccessPromptView * libraryAccessDeniedView;                  //@synthesize libraryAccessDeniedView=_libraryAccessDeniedView - In the implementation block
+@property (assign,nonatomic) char hasStartedCapture;                                               //@synthesize hasStartedCapture=_hasStartedCapture - In the implementation block
+@property (assign) char hasReceivedAudioFrames;                                                    //@synthesize hasReceivedAudioFrames=_hasReceivedAudioFrames - In the implementation block
+@property (assign,nonatomic) char hasShownAudioPermissionsDeniedAlertView;                         //@synthesize hasShownAudioPermissionsDeniedAlertView=_hasShownAudioPermissionsDeniedAlertView - In the implementation block
+@property (nonatomic,copy) id recordAwaitingAudioSessionBlock;                                     //@synthesize recordAwaitingAudioSessionBlock=_recordAwaitingAudioSessionBlock - In the implementation block
+@property (assign,getter=isVisible,nonatomic) char visible;                                        //@synthesize visible=_visible - In the implementation block
+@property (assign,nonatomic) int state;                                                            //@synthesize state=_state - In the implementation block
+@property (assign,nonatomic,__weak) id<IGAlbumCameraViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,readonly) IGTapButton * closeButton;                                          //@synthesize closeButton=_closeButton - In the implementation block
+@property (nonatomic,readonly) IGQuickCamCaptureButton * captureButton;                            //@synthesize captureButton=_captureButton - In the implementation block
+@property (nonatomic,readonly) IGTapButton * flashButton;                                          //@synthesize flashButton=_flashButton - In the implementation block
+@property (nonatomic,readonly) IGTapButton * switchCameraButton;                                   //@synthesize switchCameraButton=_switchCameraButton - In the implementation block
+@property (nonatomic,readonly) UIView * flashScreenView;                                           //@synthesize flashScreenView=_flashScreenView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)undoLastStroke;
--(void)drawControllerDidAddStroke:(id)arg1 ;
--(void)albumCameraPreviewActionViewDidTapShare:(id)arg1 ;
 -(IGCaptureManager *)captureManager;
 -(void)setViewColorToDefault;
 -(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
--(void)setImageBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(NSObject*<OS_dispatch_queue>)imageBufferQueue;
 -(void)focusTap:(id)arg1 ;
--(void)handleDismiss:(id)arg1 ;
+-(void)handleSwipeUpGesture:(id)arg1 ;
+-(void)handlePinchToZoom:(id)arg1 ;
 -(void)setFocusRing:(UIImageView *)arg1 ;
 -(UIImageView *)focusRing;
--(void)setAddTextButton:(IGTapButton *)arg1 ;
--(IGTapButton *)addTextButton;
--(void)addTextButtonTapped;
--(void)setAddDrawingButton:(IGTapButton *)arg1 ;
--(IGTapButton *)addDrawingButton;
--(void)addDrawingButtonTapped;
 -(void)closeButtonTapped;
--(void)setCaptionTextView:(UITextView *)arg1 ;
--(UITextView *)captionTextView;
--(void)setPreviewActionView:(IGAlbumCameraPreviewActionView *)arg1 ;
--(IGAlbumCameraPreviewActionView *)previewActionView;
 -(void)flashButtonTapped;
--(void)setRetakeButton:(IGTapButton *)arg1 ;
--(IGTapButton *)retakeButton;
--(void)retakeButtonTapped;
--(void)setSwitchCameraButton:(IGTapButton *)arg1 ;
--(IGTapButton *)switchCameraButton;
 -(void)onSwitchCamerasButtonTapped;
--(void)setCaptureButton:(IGQuickCamCaptureButton *)arg1 ;
--(IGQuickCamCaptureButton *)captureButton;
--(void)startLibrary;
+-(void)setHasStartedCapture:(char)arg1 ;
+-(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
 -(char)hasStartedCapture;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
 -(void)updateFlashButton;
 -(void)showCameraPermissionDeniedView;
--(void)setHasStartedCapture:(char)arg1 ;
 -(void)updateStabilizationSampler;
--(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
--(IGReelCreationModel *)albumModel;
--(void)setAlbumModel:(IGReelCreationModel *)arg1 ;
--(void)updateCaption;
--(void)dismissDrawingOverlay;
 -(IGCameraAccessPromptView *)cameraPermissionDeniedView;
 -(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
--(UIImageView *)drawingOverlayImageView;
--(void)cancelDrawing;
--(void)confirmDrawing;
--(void)presentDrawingOverlay;
--(void)clearDrawing;
--(void)setHasCaptureButtonConfirmed:(char)arg1 ;
--(void)confirmAssetIfPossible;
--(char)hasCaptureButtonConfirmed;
--(id<IGQuickCamOutputAsset>)outputAsset;
--(void)finalizeOutputAsset;
--(void)setOutputAsset:(id<IGQuickCamOutputAsset>)arg1 ;
 -(void)setInputAsset:(id<IGQuickCamInputAsset>)arg1 ;
--(CGRect)cropRectForOutputAsset;
--(id<IGQuickCamInputAsset>)inputAsset;
--(id)finalizeImage:(id)arg1 cropRect:(CGRect)arg2 ;
+-(void)flashScreen;
 -(void)confirmInputAsset:(id)arg1 ;
--(void)internalSetState:(int)arg1 ;
--(IGSampleBuffer *)imageBufferData;
 -(void)showAudioPermissionsDeniedAlertView;
 -(void)stopRecordingOnCaptureQueue:(char)arg1 ;
 -(IGVideoRecorder *)videoRecorder;
 -(void)updateVideoSize;
--(int)fullSizeRequestID;
--(void)setFullSizeRequestID:(int)arg1 ;
--(unsigned)contentEditingInputRequestID;
--(void)setContentEditingInputRequestID:(unsigned)arg1 ;
--(id<IGQuickCamInputAsset>)previewAsset;
--(void)setPreviewAsset:(id<IGQuickCamInputAsset>)arg1 ;
+-(UIView *)flashScreenView;
+-(id<IGQuickCamInputAsset>)inputAsset;
+-(void)setAssetProcessor:(IGQuickCamAssetProcessor *)arg1 ;
+-(IGQuickCamAssetProcessor *)assetProcessor;
+-(IGQuickCamCaptureButton *)captureButton;
+-(void)finishWithOutputAsset:(id)arg1 ;
 -(void)captureManagerDidSatisfyFocusRequest;
 -(char)cameraIsReady;
 -(IGStabilizationSampler *)stabilizer;
--(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
 -(void)setHasReceivedAudioFrames:(char)arg1 ;
 -(id)recordAwaitingAudioSessionBlock;
 -(void)setRecordAwaitingAudioSessionBlock:(id)arg1 ;
+-(void)internalSetState:(int)arg1 ;
+-(id)inputLibraryAssetForFrameworkAsset:(id)arg1 ;
 -(void)captureManagerDidDropAudioBuffer;
 -(void)captureManagerDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)captureManagerAudioSessionDidStartRunning:(id)arg1 ;
@@ -195,27 +130,26 @@
 -(void)captureButtonDidBeginRecording;
 -(void)captureButtonDidEndRecording;
 -(void)captureButtonDidConfirm;
--(void)configureWithViewModel:(id)arg1 ;
--(id)inputLibraryAssetForFrameworkAsset:(id)arg1 ;
--(void)albumCameraPreviewActionViewDidTapAlbum:(id)arg1 ;
+-(void)quickCamAssetProcessor:(id)arg1 didGeneratePhotoAsset:(id)arg2 ;
+-(void)quickCamAssetProcessor:(id)arg1 didGenerateVideoAsset:(id)arg2 ;
+-(void)quickCamAssetProcessor:(id)arg1 didUpdateProgress:(float)arg2 ;
+-(void)quickCamAssetProcessorDidDetectIncompatible:(id)arg1 ;
+-(void)quickCamAssetProcessorDidFailProcessing:(id)arg1 ;
+-(IGTapButton *)switchCameraButton;
+-(IGGradientView *)topGradient;
+-(void)setTopGradient:(IGGradientView *)arg1 ;
+-(IGGradientView *)bottomGradient;
+-(void)setBottomGradient:(IGGradientView *)arg1 ;
+-(id<IGQuickCamOutputAsset>)outputAsset;
+-(void)setOutputAsset:(id<IGQuickCamOutputAsset>)arg1 ;
+-(IGSampleBuffer *)imageBufferData;
+-(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
 -(IGLibraryAccessPromptView *)libraryAccessDeniedView;
 -(void)setLibraryAccessDeniedView:(IGLibraryAccessPromptView *)arg1 ;
 -(char)hasReceivedAudioFrames;
 -(char)hasShownAudioPermissionsDeniedAlertView;
 -(void)setHasShownAudioPermissionsDeniedAlertView:(char)arg1 ;
--(IGDrawViewController *)drawViewController;
--(void)setDrawViewController:(IGDrawViewController *)arg1 ;
--(IGTapButton *)drawCancelButton;
--(void)setDrawCancelButton:(IGTapButton *)arg1 ;
--(IGTapButton *)drawConfirmButton;
--(void)setDrawConfirmButton:(IGTapButton *)arg1 ;
--(IGTapButton *)drawUndoButton;
--(void)setDrawUndoButton:(IGTapButton *)arg1 ;
--(void)setDrawingOverlayImageView:(UIImageView *)arg1 ;
 -(void)startCapture;
--(IGAlbumCameraPreviewViewController *)previewViewController;
--(void)setPreviewViewController:(IGAlbumCameraPreviewViewController *)arg1 ;
--(void)setCloseButton:(IGTapButton *)arg1 ;
 -(void)setDelegate:(id<IGAlbumCameraViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGAlbumCameraViewControllerDelegate>)delegate;
@@ -233,16 +167,17 @@
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
--(void)viewWillDisappear:(char)arg1 ;
 -(char)isVisible;
+-(void)imagePickerControllerDidCancel:(id)arg1 ;
+-(void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2 ;
 -(void)stopRecording;
--(void)setFlashButton:(IGTapButton *)arg1 ;
 -(IGTapButton *)flashButton;
 -(UIView *)previewView;
 -(void)setPreviewView:(UIView *)arg1 ;
 -(void)cancelRecording;
 -(void)setFlashMode:(int)arg1 ;
 -(void)startRecording;
+-(void)stopCapture;
 -(IGTapButton *)closeButton;
 @end
 

@@ -14,7 +14,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSString *)moduleName;
 -(id)analyticsModule;
 -(id)initWithModuleName:(id)arg1 ;
 -(char)shouldPrefetchMediaForFeedItems;
@@ -22,5 +21,6 @@
 -(char)allowAutoPlay;
 -(id)feedAccessibilityIdentifier;
 -(unsigned)tombstoneTypeForFeed;
+-(NSString *)moduleName;
 @end
 

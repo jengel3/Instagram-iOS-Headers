@@ -4,16 +4,16 @@
 #import <Instagram/IGVideoPlaybackControllerProgressDelegate.h>
 
 @protocol IGEventViewerVideoPlaybackControllerDelegate;
-@class IGFeedVideoManager, IGEventViewerAnalyticsLogger, IGEventViewerPlaybackItem, IGVideoPlaybackController, IGFeedVideoPlayer, NSString;
+@class IGEventViewerPlaybackItem, IGFeedVideoManager, IGEventViewerAnalyticsLogger, IGVideoPlaybackController, IGFeedVideoPlayer, NSString;
 
 @interface IGEventViewerVideoPlaybackController : NSObject <IGFeedItemVideoViewDelegate, IGVideoPlaybackControllerDelegate, IGVideoPlaybackControllerProgressDelegate> {
 
 	char _audioEnabled;
 	char _currentVideoDidPlayToEnd;
 	id<IGEventViewerVideoPlaybackControllerDelegate> _delegate;
+	IGEventViewerPlaybackItem* _playbackItem;
 	IGFeedVideoManager* _feedVideoManager;
 	IGEventViewerAnalyticsLogger* _logger;
-	IGEventViewerPlaybackItem* _playbackItem;
 	unsigned _videoRetryCount;
 	float _currentVideoStartTime;
 	IGVideoPlaybackController* _videoPlaybackController;
@@ -23,7 +23,6 @@
 @property (nonatomic,readonly) IGFeedVideoManager * feedVideoManager;                                       //@synthesize feedVideoManager=_feedVideoManager - In the implementation block
 @property (nonatomic,readonly) IGEventViewerAnalyticsLogger * logger;                                       //@synthesize logger=_logger - In the implementation block
 @property (nonatomic,retain) IGEventViewerPlaybackItem * playbackItem;                                      //@synthesize playbackItem=_playbackItem - In the implementation block
-@property (nonatomic,readonly) IGFeedVideoPlayer * currentPlayer; 
 @property (assign,nonatomic) char currentVideoDidPlayToEnd;                                                 //@synthesize currentVideoDidPlayToEnd=_currentVideoDidPlayToEnd - In the implementation block
 @property (assign,nonatomic) unsigned videoRetryCount;                                                      //@synthesize videoRetryCount=_videoRetryCount - In the implementation block
 @property (assign,nonatomic) float currentVideoStartTime;                                                   //@synthesize currentVideoStartTime=_currentVideoStartTime - In the implementation block
@@ -31,6 +30,7 @@
 @property (assign,nonatomic,__weak) id<IGEventViewerVideoPlaybackControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) float currentProgress; 
 @property (nonatomic,readonly) float currentDuration; 
+@property (nonatomic,readonly) IGFeedVideoPlayer * currentPlayer; 
 @property (assign,nonatomic) char audioEnabled;                                                             //@synthesize audioEnabled=_audioEnabled - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 

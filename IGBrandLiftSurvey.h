@@ -17,17 +17,17 @@
 @property (nonatomic,copy) NSString * surveyID;                   //@synthesize surveyID=_surveyID - In the implementation block
 @property (nonatomic,copy) NSString * trackingToken;              //@synthesize trackingToken=_trackingToken - In the implementation block
 @property (assign,nonatomic) char showResults;                    //@synthesize showResults=_showResults - In the implementation block
-+(id)mockBrandLiftSurveyJSON;
 +(id)surveyForServerMessage:(id)arg1 ;
++(id)mockBrandLiftSurveyJSON;
 -(NSString *)trackingToken;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(NSString *)surveyID;
 -(void)setSurveyID:(NSString *)arg1 ;
 -(void)setQuestions:(NSArray *)arg1 ;
--(NSArray *)questions;
 -(void)setShowResults:(char)arg1 ;
 -(void)setPrimerText:(NSString *)arg1 ;
--(NSString *)primerText;
+-(NSArray *)questions;
 -(char)showResults;
+-(NSString *)primerText;
 @end
 

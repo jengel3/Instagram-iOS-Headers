@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIApplicationDelegate.h>
 
-@class UIWindow, IGSurveyManager, IGAnalyticsManager, IGFeedItemTrackingManager, IGNavigationEventManager, IGLocalNotificationManager, IGLoggedOutSessionManager, IGTypicalMetricsManager, IGDirectRefreshService, NSMutableSet, NSTimer, IGShortcutHandler, NSString;
+@class UIWindow, IGSurveyManager, IGAnalyticsManager, IGFeedItemTrackingManager, IGNavigationEventManager, IGLocalNotificationManager, IGLoggedOutSessionManager, IGTypicalMetricsManager, IGReactModuleManager, NSMutableSet, NSTimer, IGShortcutHandler, NSString;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -17,7 +17,7 @@
 	IGLocalNotificationManager* _localNotificationManager;
 	IGLoggedOutSessionManager* _loggedOutSessionManager;
 	IGTypicalMetricsManager* _typicalMetricsManager;
-	IGDirectRefreshService* _directRefreshService;
+	IGReactModuleManager* _reactModuleManager;
 	NSMutableSet* _seenErrorURLs;
 	NSTimer* _memoryWarningTimer;
 	IGShortcutHandler* _shortcutHandler;
@@ -31,7 +31,7 @@
 @property (nonatomic,retain) IGLocalNotificationManager * localNotificationManager;              //@synthesize localNotificationManager=_localNotificationManager - In the implementation block
 @property (nonatomic,retain) IGLoggedOutSessionManager * loggedOutSessionManager;                //@synthesize loggedOutSessionManager=_loggedOutSessionManager - In the implementation block
 @property (nonatomic,retain) IGTypicalMetricsManager * typicalMetricsManager;                    //@synthesize typicalMetricsManager=_typicalMetricsManager - In the implementation block
-@property (nonatomic,retain) IGDirectRefreshService * directRefreshService;                      //@synthesize directRefreshService=_directRefreshService - In the implementation block
+@property (nonatomic,retain) IGReactModuleManager * reactModuleManager;                          //@synthesize reactModuleManager=_reactModuleManager - In the implementation block
 @property (assign,nonatomic) char handledOpenWithURLInDidFinishLaunching;                        //@synthesize handledOpenWithURLInDidFinishLaunching=_handledOpenWithURLInDidFinishLaunching - In the implementation block
 @property (assign,nonatomic) char handledPushNoteInDidFinishLaunching;                           //@synthesize handledPushNoteInDidFinishLaunching=_handledPushNoteInDidFinishLaunching - In the implementation block
 @property (nonatomic,retain) NSMutableSet * seenErrorURLs;                                       //@synthesize seenErrorURLs=_seenErrorURLs - In the implementation block
@@ -43,7 +43,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)exitIfSafe;
 -(void)setFeedItemTrackingManager:(IGFeedItemTrackingManager *)arg1 ;
 -(void)setAnalyticsManager:(IGAnalyticsManager *)arg1 ;
 -(void)setSurveyManager:(IGSurveyManager *)arg1 ;
@@ -51,6 +50,7 @@
 -(void)setLocalNotificationManager:(IGLocalNotificationManager *)arg1 ;
 -(void)setLoggedOutSessionManager:(IGLoggedOutSessionManager *)arg1 ;
 -(void)setTypicalMetricsManager:(IGTypicalMetricsManager *)arg1 ;
+-(void)setReactModuleManager:(IGReactModuleManager *)arg1 ;
 -(char)hasSetupLogging;
 -(void)setHasSetupLogging:(char)arg1 ;
 -(void)logMemoryCrashAndPromptToRestartIfNeeded;
@@ -60,14 +60,16 @@
 -(void)logVoiceOverEnabledAtLaunch;
 -(void)startMainAppAnimated:(char)arg1 ;
 -(void)setHandledPushNoteInDidFinishLaunching:(char)arg1 ;
--(void)setDirectRefreshService:(IGDirectRefreshService *)arg1 ;
 -(void)toggleMemoryProfiler;
 -(void)configureFLEX;
+-(void)exitIfSafe;
 -(void)applicationLifecycleChange:(id)arg1 ;
 -(void)userLoginCompleted:(id)arg1 ;
 -(void)userLogout:(id)arg1 ;
 -(void)networkRequestDidFail:(id)arg1 ;
 -(void)voiceOverStatusDidChange:(id)arg1 ;
+-(void)logPreferredTextSizeAtLogin:(id)arg1 ;
+-(void)preferredContentSizeDidChange:(id)arg1 ;
 -(void)registerForPush;
 -(char)handledPushNoteInDidFinishLaunching;
 -(NSTimer *)memoryWarningTimer;
@@ -83,7 +85,7 @@
 -(IGLocalNotificationManager *)localNotificationManager;
 -(IGLoggedOutSessionManager *)loggedOutSessionManager;
 -(IGTypicalMetricsManager *)typicalMetricsManager;
--(IGDirectRefreshService *)directRefreshService;
+-(IGReactModuleManager *)reactModuleManager;
 -(char)handledOpenWithURLInDidFinishLaunching;
 -(void)setHandledOpenWithURLInDidFinishLaunching:(char)arg1 ;
 -(void)dealloc;

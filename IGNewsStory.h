@@ -57,12 +57,13 @@
 +(id)urlForLinkWithType:(id)arg1 target:(id)arg2 ;
 +(void)linkifyStyledString:(id)arg1 link:(id)arg2 targetURL:(id)arg3 ;
 +(char)isLinkBold:(id)arg1 ;
--(IGStyledString *)styledString;
--(void)setStyledString:(IGStyledString *)arg1 ;
+-(void)setShouldMute:(char)arg1 ;
+-(char)shouldMute;
 -(NSString *)pk;
+-(void)setStyledString:(IGStyledString *)arg1 ;
 -(void)setPk:(NSString *)arg1 ;
 -(void)setThreadID:(NSString *)arg1 ;
--(NSString *)actionURLString;
+-(IGStyledString *)styledString;
 -(int)storyType;
 -(void)configureWithDictionary:(id)arg1 ;
 -(void)setStoryType:(int)arg1 ;
@@ -72,6 +73,7 @@
 -(void)setActionURLString:(NSString *)arg1 ;
 -(IGStyledString *)storyStyledString;
 -(char)hideProfile;
+-(NSString *)actionURLString;
 -(NSArray *)mediaDictionaries;
 -(void)setProfilePictureURL:(NSURL *)arg1 ;
 -(NSURL *)profilePictureURL;

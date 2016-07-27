@@ -13,7 +13,6 @@
 	IGRetroRegistrationPhoneNumberField* _phoneNumberField;
 	IGRetroRegistrationNextButton* _sendButton;
 	IGTextField* _inputView;
-	int _inputMode;
 	UIButton* _loginHelperButton;
 	IGFacebookButton* _facebookButton;
 	UIImageView* _iconView;
@@ -36,10 +35,9 @@
 @property (nonatomic,retain) IGFacebookButton * facebookButton;                                                 //@synthesize facebookButton=_facebookButton - In the implementation block
 @property (assign,nonatomic) char isTabEnabled;                                                                 //@synthesize isTabEnabled=_isTabEnabled - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationTextField * emailField;                                         //@synthesize emailField=_emailField - In the implementation block
-@property (assign,nonatomic) int inputMode;                                                                     //@synthesize inputMode=_inputMode - In the implementation block
 +(id)createTitleLabel;
-+(id)createDescriptionLabel;
 +(id)createIconView;
++(id)createDescriptionLabel;
 +(id)createToggleView;
 +(id)createSwitchButton;
 +(id)createEmailField;
@@ -47,13 +45,13 @@
 +(id)createSendButton;
 +(id)createLoginHelperButton;
 +(id)createFacebookButton;
+-(IGRetroRegistrationTextField *)emailField;
+-(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
 -(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
 -(IGFacebookButton *)facebookButton;
 -(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
 -(IGRetroRegistrationPhoneNumberField *)phoneNumberField;
--(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
--(IGRetroRegistrationTextField *)emailField;
 -(void)switchToEmailView;
 -(char)isTabEnabled;
 -(IGRetroRegistrationSignInHelperToggleView *)toggleView;
@@ -72,7 +70,6 @@
 -(IGTextField *)inputView;
 -(void)setInputView:(IGTextField *)arg1 ;
 -(void)setInputMode:(int)arg1 ;
--(int)inputMode;
 -(void)setTitleLabel:(UILabel *)arg1 ;
 -(UIImageView *)iconView;
 -(void)setIconView:(UIImageView *)arg1 ;

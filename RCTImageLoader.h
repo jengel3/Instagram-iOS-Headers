@@ -36,8 +36,8 @@
 @property (nonatomic,__weak,readonly) RCTBridge * bridge;                             //@synthesize bridge=_bridge - In the implementation block
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> methodQueue; 
 +(id)moduleName;
-+(id)__rct_export__6762;
 +(void)load;
+-(id)sendRequest:(id)arg1 withDelegate:(id)arg2 ;
 -(/*^block*/id)loadImageWithURLRequest:(id)arg1 callback:(/*^block*/id)arg2 ;
 -(/*^block*/id)loadImageWithURLRequest:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 clipped:(char)arg4 resizeMode:(int)arg5 progressBlock:(/*^block*/id)arg6 completionBlock:(/*^block*/id)arg7 ;
 -(id)imageURLLoaderForURL:(id)arg1 ;
@@ -45,9 +45,7 @@
 -(/*^block*/id)decodeImageData:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 clipped:(char)arg4 resizeMode:(int)arg5 completionBlock:(/*^block*/id)arg6 ;
 -(/*^block*/id)loadImageOrDataWithURLRequest:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 progressBlock:(/*^block*/id)arg5 completionBlock:(/*^block*/id)arg6 ;
 -(id)imageDataDecoderForData:(id)arg1 ;
--(id)sendRequest:(id)arg1 withDelegate:(id)arg2 ;
 -(/*^block*/id)getImageSizeForURLRequest:(id)arg1 block:(/*^block*/id)arg2 ;
--(void)prefetchImage:(id)arg1 resolve:(/*^block*/id)arg2 reject:(/*^block*/id)arg3 ;
 -(unsigned)maxConcurrentLoadingTasks;
 -(void)setMaxConcurrentLoadingTasks:(unsigned)arg1 ;
 -(unsigned)maxConcurrentDecodingTasks;

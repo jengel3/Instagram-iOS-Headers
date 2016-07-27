@@ -49,6 +49,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(float)currentWidth;
 -(void)onTouchDown;
 -(IGUsertag *)usertag;
 -(void)show:(char)arg1 withAnimation:(int)arg2 ;
@@ -56,7 +57,6 @@
 -(void)setExpanded:(char)arg1 animated:(char)arg2 ;
 -(void)onRemove;
 -(void)onDragExit;
--(float)currentWidth;
 -(CGRect)proposedFrame;
 -(void)handlePanFromRecognizer:(id)arg1 ;
 -(CGPoint)caretPointWithCenter:(CGPoint)arg1 ;

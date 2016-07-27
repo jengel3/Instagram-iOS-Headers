@@ -19,11 +19,11 @@
 @property (nonatomic,readonly) UIView * progressActiveRectView;                 //@synthesize progressActiveRectView=_progressActiveRectView - In the implementation block
 @property (nonatomic,readonly) UIView * progressBackgroudRectView;              //@synthesize progressBackgroudRectView=_progressBackgroudRectView - In the implementation block
 @property (nonatomic,readonly) float percentage;                                //@synthesize percentage=_percentage - In the implementation block
+-(id)initWithTitle:(id)arg1 subtitle:(id)arg2 percentage:(float)arg3 ;
 -(void)layoutTitles;
 -(void)layoutProgressCharts;
 -(UIView *)progressBackgroudRectView;
 -(UIView *)progressActiveRectView;
--(id)initWithTitle:(id)arg1 subtitle:(id)arg2 percentage:(float)arg3 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(UILabel *)titleLabel;

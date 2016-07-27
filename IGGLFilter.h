@@ -14,12 +14,12 @@
 -(void)render:(id)arg1 to:(id)arg2 ;
 -(id)fullVertexShader;
 -(id)fullFragmentShader;
--(id)textureWithContentsOfData:(id)arg1 ;
--(id)programForContext:(id)arg1 ;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(id)shaderConstsForSplineSamplers;
 -(NSBundle *)assetBundle;
 -(void)setAssetBundle:(NSBundle *)arg1 ;
+-(id)textureWithContentsOfData:(id)arg1 ;
+-(id)programForContext:(id)arg1 ;
+-(id)shaderConstsForSplineSamplers;
 -(id)textureNamed:(id)arg1 ;
 -(id)init;
 -(id)samplers;

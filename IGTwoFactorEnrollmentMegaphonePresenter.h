@@ -17,12 +17,12 @@
 @property (nonatomic,readonly) id<IGGenericMegaphoneLogger> logger;                         //@synthesize logger=_logger - In the implementation block
 @property (assign,nonatomic,__weak) id<IGMegaphonePresenterDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(unsigned)buttonActionFromString:(id)arg1 ;
+-(IGGenericMegaphoneViewV2 *)megaphoneView;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)megaphoneViewNeedsResize:(id)arg1 ;
 -(id)viewForMegaphone;
 -(void)logMegaphoneSeen;
--(IGGenericMegaphoneViewV2 *)megaphoneView;
 -(id)initWithMegaphone:(id)arg1 logger:(id)arg2 ;
 -(void)handleTwoFactorEnabled:(id)arg1 ;
 -(id<IGGenericMegaphoneLogger>)logger;

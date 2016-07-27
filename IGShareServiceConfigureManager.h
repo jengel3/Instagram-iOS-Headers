@@ -40,12 +40,12 @@
 -(void)onOdnoklassnikiLoginCompleted;
 -(void)displayViewController:(id)arg1 forServiceType:(int)arg2 animated:(char)arg3 ;
 -(void)onServiceLoginCompleted:(int)arg1 animated:(char)arg2 ;
--(void)configureServiceType:(int)arg1 ;
 -(void)onServiceLoginCompleted:(int)arg1 ;
 -(void)presentMixiPrivacyPicker;
 -(void)mixiDidSelectPrivacySetting:(int)arg1 ;
 -(void)mixiDidCancelPrivacySetting;
 -(void)dismissEmailModal;
+-(void)configureServiceType:(int)arg1 ;
 -(void)setPresentationStyle:(int)arg1 ;
 -(void)setDelegate:(id<IGShareServiceConfigureManagerDelegate>)arg1 ;
 -(void)dealloc;

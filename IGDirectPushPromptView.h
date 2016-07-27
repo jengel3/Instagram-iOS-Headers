@@ -23,10 +23,10 @@
 +(float)heightForTitle:(id)arg1 andMessage:(id)arg2 withWidth:(float)arg3 ;
 +(id)titleStyledStringForText:(id)arg1 ;
 +(id)messageStyledStringForText:(id)arg1 ;
+-(void)dismissButtonTapped;
 -(id)initWithFrame:(CGRect)arg1 andTitle:(id)arg2 andMessage:(id)arg3 andButtonText:(id)arg4 ;
 -(void)settingsButtonTapped;
 -(void)setSettingsButton:(IGButton *)arg1 ;
--(void)dismissButtonTapped;
 -(void)setDelegate:(id<IGDirectPushPromptViewDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(id<IGDirectPushPromptViewDelegate>)delegate;

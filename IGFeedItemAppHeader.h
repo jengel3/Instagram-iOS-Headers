@@ -36,6 +36,7 @@
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setAccessoryViewType:(int)arg1 ;
 -(UIButton *)customizableButton;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(UIButton*<IGSponsorableButton>)sponsoredPostButton;
 -(IGStringStyle *)boldGrayStyle;
 -(void)onTitleButtonTapped:(id)arg1 ;
@@ -44,7 +45,6 @@
 -(void)setSponsoredPostButton:(UIButton*<IGSponsorableButton>)arg1 ;
 -(void)setBoldGrayStyle:(IGStringStyle *)arg1 ;
 -(void)setBoldLinkStyle:(IGStringStyle *)arg1 ;
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(void)setCustomizableButton:(UIButton *)arg1 ;
 -(void)onCustomizableButtonPressed:(id)arg1 ;
 -(int)accessoryViewType;
@@ -57,7 +57,6 @@
 -(void)setDelegate:(id<IGFeedItemAppHeaderDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(id<IGFeedItemAppHeaderDelegate>)delegate;
--(void)prepareForReuse;
 -(IGAppIconImageView *)imageView;
 -(void)setImageView:(IGAppIconImageView *)arg1 ;
 @end

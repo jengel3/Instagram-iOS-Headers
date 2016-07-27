@@ -31,11 +31,11 @@
 -(void)setPossibleAnswers:(NSArray *)arg1 ;
 -(int)questionStyle;
 -(NSString *)questionID;
--(NSArray *)possibleAnswers;
 -(int)totalResponders;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(NSString *)surveyID;
 -(void)setSurveyID:(NSString *)arg1 ;
+-(NSArray *)possibleAnswers;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(NSString *)subtitle;

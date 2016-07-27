@@ -23,9 +23,9 @@
 -(void)setDisableIndicator:(char)arg1 ;
 -(void)showGlyph:(char)arg1 animated:(char)arg2 duration:(float)arg3 delay:(float)arg4 completion:(/*^block*/id)arg5 ;
 -(void)setIndicatorState:(int)arg1 ;
+-(int)indicatorState;
 -(char)disableIndicator;
 -(id)accessibilityButtons;
--(int)indicatorState;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setAccessibilityLabel:(id)arg1 ;

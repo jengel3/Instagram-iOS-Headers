@@ -8,6 +8,7 @@
 @interface IGSloppyTouchSlider : UIControl <UIGestureRecognizerDelegate> {
 
 	char _positiveOnlySlider;
+	char _defaultColorOnlySlider;
 	char _isSliding;
 	float _value;
 	UIImageView* _thumbView;
@@ -40,14 +41,20 @@
 @property (assign,nonatomic) float value;                                         //@synthesize value=_value - In the implementation block
 @property (assign,nonatomic) CGSize touchTargetInflation;                         //@synthesize touchTargetInflation=_touchTargetInflation - In the implementation block
 @property (assign,nonatomic) char positiveOnlySlider;                             //@synthesize positiveOnlySlider=_positiveOnlySlider - In the implementation block
+@property (assign,nonatomic) char defaultColorOnlySlider;                         //@synthesize defaultColorOnlySlider=_defaultColorOnlySlider - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)accessibilityNudgeButtonWithLabel:(id)arg1 initialValue:(id)arg2 ;
+-(void)setPositiveOnlySlider:(char)arg1 ;
+-(void)setDefaultColorOnlySlider:(char)arg1 ;
+-(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
 -(UITapGestureRecognizer *)tapGesture;
 -(UIView *)trackView;
 -(void)setThumbView:(UIImageView *)arg1 ;
+-(id)defaultTrackColor;
+-(id)highlightedTrackColor;
 -(void)setCenterView:(UIImageView *)arg1 ;
 -(void)onPan:(id)arg1 ;
 -(void)onTap:(id)arg1 ;
@@ -63,10 +70,10 @@
 -(void)setIsSliding:(char)arg1 ;
 -(UIPanGestureRecognizer *)panGesture;
 -(float)valueForSliderPosition:(float)arg1 ;
--(void)setPositiveOnlySlider:(char)arg1 ;
 -(CGSize)touchTargetInflation;
 -(void)setTouchTargetInflation:(CGSize)arg1 ;
 -(char)positiveOnlySlider;
+-(char)defaultColorOnlySlider;
 -(UIImageView *)thumbView;
 -(void)setTrackView:(UIView *)arg1 ;
 -(void)setHighlightedTrackView:(UIView *)arg1 ;
@@ -77,7 +84,6 @@
 -(float)sliderPosition;
 -(char)isSliding;
 -(void)setPanGesture:(UIPanGestureRecognizer *)arg1 ;
--(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
 -(UIButton *)addAccessibilityButton;
 -(void)setAddAccessibilityButton:(UIButton *)arg1 ;
 -(UIButton *)subtractAccessibilityButton;

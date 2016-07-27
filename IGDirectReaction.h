@@ -12,19 +12,19 @@
 
 }
 
-@property (assign,nonatomic) int type;                                          //@synthesize type=_type - In the implementation block
+@property (assign,nonatomic) int type;                                                  //@synthesize type=_type - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;              //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;                      //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,readonly) char canConvertToFullMessageByAddingItemID; 
 -(IGDirectContentUploadInfo *)uploadInfo;
 -(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
--(id)dictionaryForRealtimeUpload;
--(char)supportsNonSimpleFormatForRealtime;
+-(char)canConvertToFullMessageByAddingItemID;
 -(id)contentTypeString;
--(id)initWithRectionType:(int)arg1 recipient:(id)arg2 currentUser:(id)arg3 sentAt:(id)arg4 itemID:(id)arg5 ;
--(id)initWithRectionType:(int)arg1 recipient:(id)arg2 ;
+-(id)dictionaryForRealtimeUpload;
+-(id)initWithRectionType:(int)arg1 recipient:(id)arg2 currentUser:(id)arg3 ;
 -(char)isUploading;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

@@ -38,9 +38,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(IGCoreTextView *)captionTextView;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)setupBlurView;
 -(void)setupDimmedLayer;
 -(void)setupUFIButtons;
@@ -49,6 +48,7 @@
 -(int*)ufiStyle;
 -(CALayer *)dimmedLayer;
 -(IGCoreTextView *)viewCountTextView;
+-(IGCoreTextView *)captionTextView;
 -(IGCoreTextView *)viewAllCommentsTextView;
 -(UIView*<IGUFIButtonBarViewProtocol>)ufiButtons;
 -(void)updateUFIButtonWithFeedItem:(id)arg1 animated:(char)arg2 ;

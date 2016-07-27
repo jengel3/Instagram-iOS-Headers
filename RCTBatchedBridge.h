@@ -32,9 +32,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)logMessage:(id)arg1 level:(id)arg2 ;
 -(void)batchDidComplete;
 -(void)partialBatchDidFlush;
+-(void)logMessage:(id)arg1 level:(id)arg2 ;
 -(void)stopLoadingWithError:(id)arg1 ;
 -(void)loadSource:(/*^block*/id)arg1 ;
 -(void)initModulesWithDispatchGroup:(id)arg1 ;

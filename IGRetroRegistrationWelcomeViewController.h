@@ -22,6 +22,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)dismissButtonTapped;
 -(id)createBackButton;
 -(void)facebookAuthHelper:(id)arg1 willProceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelperDidTapSignUpButton:(id)arg1 ;
@@ -29,7 +30,6 @@
 -(void)facebookAuthHelper:(id)arg1 willProceedEmailTakenAutoLoginWithLoggedInDict:(id)arg2 ;
 -(void)facebookAuthHelper:(id)arg1 willProceedRegistrationWithFBInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelper:(id)arg1 willResetPasswordWithViewController:(id)arg2 ;
--(void)dismissButtonTapped;
 -(void)loginButtonTapped;
 -(void)fetchFBUsername;
 -(void)signupButtonTapped;

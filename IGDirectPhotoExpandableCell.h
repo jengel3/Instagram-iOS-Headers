@@ -18,5 +18,6 @@
 -(void)layoutSubviews;
 -(void)prepareForReuse;
 -(void)setContent:(id)arg1 ;
+-(id)mediaView;
 @end
 

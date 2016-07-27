@@ -15,8 +15,8 @@
 @property (nonatomic,copy) NSArray * targets;                    //@synthesize targets=_targets - In the implementation block
 @property (nonatomic,retain) NSURL * webURL;                     //@synthesize webURL=_webURL - In the implementation block
 @property (assign,nonatomic) char isBackToReferrer;              //@synthesize isBackToReferrer=_isBackToReferrer - In the implementation block
-+(id)appLinkWithSourceURL:(id)arg1 targets:(id)arg2 webURL:(id)arg3 isBackToReferrer:(char)arg4 ;
 +(id)appLinkWithSourceURL:(id)arg1 targets:(id)arg2 webURL:(id)arg3 ;
++(id)appLinkWithSourceURL:(id)arg1 targets:(id)arg2 webURL:(id)arg3 isBackToReferrer:(char)arg4 ;
 -(id)initWithIsBackToReferrer:(char)arg1 ;
 -(void)setIsBackToReferrer:(char)arg1 ;
 -(char)isBackToReferrer;

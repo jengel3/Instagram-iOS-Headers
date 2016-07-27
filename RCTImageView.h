@@ -13,6 +13,7 @@
 	int _renderingMode;
 	RCTImageSource* _source;
 	float _blurRadius;
+	int _resizeMode;
 	/*^block*/id _onLoadStart;
 	/*^block*/id _onProgress;
 	/*^block*/id _onError;
@@ -32,8 +33,8 @@
 @property (assign,nonatomic) int renderingMode;                    //@synthesize renderingMode=_renderingMode - In the implementation block
 @property (nonatomic,retain) RCTImageSource * source;              //@synthesize source=_source - In the implementation block
 @property (assign,nonatomic) float blurRadius;                     //@synthesize blurRadius=_blurRadius - In the implementation block
+@property (assign,nonatomic) int resizeMode;                       //@synthesize resizeMode=_resizeMode - In the implementation block
 -(void)cancelImageLoad;
--(id)initWithBridge:(id)arg1 ;
 -(void)reactSetFrame:(CGRect)arg1 ;
 -(void)clearImageIfDetached;
 -(char)sourceNeedsReload;
@@ -46,11 +47,12 @@
 -(void)setOnLoad:(id)arg1 ;
 -(id)onLoadEnd;
 -(void)setOnLoadEnd:(id)arg1 ;
+-(id)initWithBridge:(id)arg1 ;
+-(int)resizeMode;
 -(void)setImage:(id)arg1 ;
 -(void)dealloc;
 -(void)didMoveToWindow;
 -(id)init;
--(void)setContentMode:(int)arg1 ;
 -(void)setBlurRadius:(float)arg1 ;
 -(UIEdgeInsets)capInsets;
 -(int)renderingMode;
@@ -58,6 +60,7 @@
 -(RCTImageSource *)source;
 -(void)setSource:(RCTImageSource *)arg1 ;
 -(void)updateImage;
+-(void)setResizeMode:(int)arg1 ;
 -(id)onError;
 -(void)setOnError:(id)arg1 ;
 -(void)setRenderingMode:(int)arg1 ;

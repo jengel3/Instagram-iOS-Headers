@@ -9,10 +9,10 @@
 @property (assign,nonatomic) double duration; 
 @property (nonatomic,retain) CAMediaTimingFunction * timingFunction; 
 +(id)animationWithPropertyNamed:(id)arg1 ;
++(id)easeInEaseOutAnimation;
 +(id)linearAnimation;
 +(id)easeInAnimation;
 +(id)easeOutAnimation;
-+(id)easeInEaseOutAnimation;
 +(id)defaultAnimation;
 +(id)animation;
 -(void)_initState;

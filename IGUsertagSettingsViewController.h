@@ -19,13 +19,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)setPhotoCount:(int)arg1 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(id)tableView:(id)arg1 subtitleForHeaderInSection:(int)arg2 ;
 -(void)onDoneButtonTapped;
 -(void)submitWithStartHandler:(/*^block*/id)arg1 completionHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
--(id)tableView:(id)arg1 subtitleForHeaderInSection:(int)arg2 ;
 -(int)photoCount;
+-(void)setPhotoCount:(int)arg1 ;
 -(id)init;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;

@@ -22,12 +22,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(id)photoWithImageURL:(id)arg1 userGenerated:(char)arg2 ;
 +(id)photoWithImage:(id)arg1 userGenerated:(char)arg2 ;
++(id)photoWithImageURL:(id)arg1 userGenerated:(char)arg2 ;
 +(char)supportsSecureCoding;
--(char)isUserGenerated;
 -(void)setUserGenerated:(char)arg1 ;
 -(char)isEqualToSharePhoto:(id)arg1 ;
+-(char)isUserGenerated;
 -(void)setImage:(UIImage *)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

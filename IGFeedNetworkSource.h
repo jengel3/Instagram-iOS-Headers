@@ -3,7 +3,7 @@
 #import <Instagram/IGFetchedResultsControllerDelegate.h>
 
 @protocol IGFeedNetworkSourceDelegate, IGFeedNetworkSourceHideDelegate, OS_dispatch_queue;
-@class NSArray, IGPrefetchPostsConfiguration, NSString, NSMutableArray, NSDictionary, IGFetchedResultsController, IGBulkMediaRequestManager, NSObject, NSDate;
+@class NSArray, IGUserSession, IGPrefetchPostsConfiguration, NSString, NSMutableArray, NSDictionary, IGFetchedResultsController, IGBulkMediaRequestManager, NSObject, NSDate;
 
 @interface IGFeedNetworkSource : NSObject <IGFeedStatusViewDataSource, IGFetchedResultsControllerDelegate> {
 
@@ -19,6 +19,7 @@
 	char _sendInstalledAppsHeader;
 	char _sendDeviceIDHeader;
 	NSArray* _posts;
+	IGUserSession* _userSession;
 	id<IGFeedNetworkSourceDelegate> _delegate;
 	id<IGFeedNetworkSourceHideDelegate> _hideDelegate;
 	NSArray* _downloadedPosts;
@@ -56,6 +57,7 @@
 @property (assign) char isUpdatingPosts;                                                           //@synthesize isUpdatingPosts=_isUpdatingPosts - In the implementation block
 @property (nonatomic,retain) NSDate * lastFetchTime;                                               //@synthesize lastFetchTime=_lastFetchTime - In the implementation block
 @property (nonatomic,copy) NSString * fetchPath;                                                   //@synthesize fetchPath=_fetchPath - In the implementation block
+@property (nonatomic,readonly) IGUserSession * userSession;                                        //@synthesize userSession=_userSession - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedNetworkSourceDelegate> delegate;                      //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedNetworkSourceHideDelegate> hideDelegate;              //@synthesize hideDelegate=_hideDelegate - In the implementation block
 @property (readonly) NSArray * downloadedPosts;                                                    //@synthesize downloadedPosts=_downloadedPosts - In the implementation block
@@ -83,21 +85,21 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(id)feedForAlbumFullscreenViewerWithChannelPK:(id)arg1 ;
-+(id)feedForReelPrivateArchive;
-+(id)feedWithFeedItem:(id)arg1 ;
-+(id)feedWithItems:(id)arg1 ;
++(id)feedForAlbumFullscreenViewerWithChannelPK:(id)arg1 userSession:(id)arg2 ;
++(id)feedForReelPrivateArchiveUserSession:(id)arg1 ;
++(id)feedWithFeedItem:(id)arg1 userSession:(id)arg2 ;
++(id)feedWithItems:(id)arg1 userSession:(id)arg2 ;
 +(id)fetchPathForMediaID:(id)arg1 ;
-+(id)feedWithPopular;
-+(id)mainFeedNetworkSource;
-+(id)feedWithReelsTimeline;
-+(id)feedWithTag:(id)arg1 loadedPosts:(id)arg2 ;
-+(id)feedWithLocation:(id)arg1 loadedPosts:(id)arg2 ;
-+(id)feedWithMediaID:(id)arg1 ;
-+(id)feedWithLiked;
-+(id)feedWithUser:(id)arg1 ;
-+(id)feedWithPhotosOfUser:(id)arg1 ;
--(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 ;
++(id)feedWithPopularUserSession:(id)arg1 ;
++(id)feedWithReelsTimelineUserSession:(id)arg1 ;
++(id)feedWithTag:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
++(id)mainFeedNetworkSourceUserSession:(id)arg1 ;
++(id)feedWithLocation:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
++(id)feedWithMediaID:(id)arg1 userSession:(id)arg2 ;
++(id)feedWithLikedUserSession:(id)arg1 ;
++(id)feedWithUser:(id)arg1 userSession:(id)arg2 ;
++(id)feedWithPhotosOfUser:(id)arg1 userSession:(id)arg2 ;
+-(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 userSession:(id)arg3 ;
 -(void)setTruncationPolicy:(int)arg1 ;
 -(void)setPrefetchConfiguration:(IGPrefetchPostsConfiguration *)arg1 ;
 -(void)setShouldEagerLoadImages:(char)arg1 ;
@@ -108,9 +110,10 @@
 -(id)hyperlapseBannerConfigurationForHashtag:(id)arg1 ;
 -(id)boomerangBannerConfigurationForHashtag:(id)arg1 ;
 -(id)layoutBannerConfigurationForHashtag:(id)arg1 ;
--(id)initWithTag:(id)arg1 loadedPosts:(id)arg2 ;
--(id)initWithLocation:(id)arg1 loadedPosts:(id)arg2 ;
--(id)initWithPosts:(id)arg1 postClass:(Class)arg2 fetchPath:(id)arg3 ;
+-(id)initWithTag:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
+-(id)initWithLocation:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
+-(id)initWithLocation:(id)arg1 userSession:(id)arg2 ;
+-(id)initWithPosts:(id)arg1 postClass:(Class)arg2 fetchPath:(id)arg3 userSession:(id)arg4 ;
 -(void)setPostClass:(Class)arg1 ;
 -(void)setEmptyMessage:(NSString *)arg1 ;
 -(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
@@ -132,7 +135,6 @@
 -(void)setLastFetchTime:(NSDate *)arg1 ;
 -(char)failedWithAuthorizationError;
 -(NSString *)nextMaxID;
--(IGBulkMediaRequestManager *)requestManager;
 -(id)buildRequestWithParameters:(id)arg1 maxID:(id)arg2 ;
 -(id)injectedCompleteFeedResponse:(id)arg1 ;
 -(void)handleSuccessBlockWithResponse:(id)arg1 requestConfig:(id)arg2 ;
@@ -157,6 +159,7 @@
 -(int)truncationPolicy;
 -(char)shouldEagerLoadImages;
 -(IGPrefetchPostsConfiguration *)prefetchConfiguration;
+-(IGBulkMediaRequestManager *)requestManager;
 -(char)feedRestricted;
 -(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
 -(NSString *)emptyMessage;
@@ -184,10 +187,10 @@
 -(void)setPromotionBannerConfigurations:(NSMutableArray *)arg1 ;
 -(void)setResponseLoadQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(void)setFetchPath:(NSString *)arg1 ;
+-(id)initWithTag:(id)arg1 userSession:(id)arg2 ;
 -(void)setUserActivityType:(NSString *)arg1 ;
 -(NSDictionary *)userActivityUserInfo;
 -(void)setUserActivityUserInfo:(NSDictionary *)arg1 ;
--(id)initWithTag:(id)arg1 ;
 -(unsigned)itemCount;
 -(char)fetchData;
 -(void)setDelegate:(id<IGFeedNetworkSourceDelegate>)arg1 ;
@@ -199,10 +202,10 @@
 -(void)setStatus:(int)arg1 ;
 -(void)setMoreAvailable:(char)arg1 ;
 -(char)moreAvailable;
+-(IGUserSession *)userSession;
 -(NSString *)userActivityType;
 -(void)setErrorMessage:(NSString *)arg1 ;
 -(NSString *)errorMessage;
--(id)initWithLocation:(id)arg1 ;
 -(unsigned)errorCode;
 -(void)setErrorCode:(unsigned)arg1 ;
 @end

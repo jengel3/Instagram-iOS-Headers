@@ -9,8 +9,8 @@
 @property (assign,nonatomic) char inValueUpdate; 
 @property (nonatomic,retain) NSNumber * location; 
 @property (nonatomic,retain) NSNumber * length; 
-@property (assign,nonatomic) SCD_Struct_CP85 locationDecimal; 
-@property (assign,nonatomic) SCD_Struct_CP85 lengthDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP126 locationDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP126 lengthDecimal; 
 @property (assign,nonatomic) double locationDouble; 
 @property (assign,nonatomic) double lengthDouble; 
 -(void)intersectionPlotRange:(id)arg1 ;

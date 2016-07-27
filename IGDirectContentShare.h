@@ -14,20 +14,22 @@
 
 }
 
-@property (nonatomic,retain) NSString * originalItemThreadId;                   //@synthesize originalItemThreadId=_originalItemThreadId - In the implementation block
-@property (nonatomic,retain) IGDirectContent * originalItem;                    //@synthesize originalItem=_originalItem - In the implementation block
+@property (nonatomic,retain) NSString * originalItemThreadId;                           //@synthesize originalItemThreadId=_originalItemThreadId - In the implementation block
+@property (nonatomic,retain) IGDirectContent * originalItem;                            //@synthesize originalItem=_originalItem - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;              //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;                      //@synthesize uploadInfo=_uploadInfo - In the implementation block
+@property (nonatomic,readonly) char canConvertToFullMessageByAddingItemID; 
 -(IGDirectContentUploadInfo *)uploadInfo;
 -(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
+-(char)canConvertToFullMessageByAddingItemID;
 -(id)uploadableModelWithParameter:(id)arg1 ;
--(id)contentTypeString;
 -(NSString *)originalItemThreadId;
 -(void)setOriginalItemThreadId:(NSString *)arg1 ;
 -(id)initWithContent:(id)arg1 originalItemThreadId:(id)arg2 ;
+-(id)contentTypeString;
 -(IGDirectContent *)originalItem;
 -(void)setOriginalItem:(IGDirectContent *)arg1 ;
 -(void)setRecipient:(id)arg1 ;

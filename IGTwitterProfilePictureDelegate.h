@@ -5,8 +5,8 @@
 -(void)imageTicketDidFinishWithURL:(id)arg1;
 
 @required
--(void)imageTicketDidFinishWithData:(id)arg1;
 -(void)imageTicketDidFail;
+-(void)imageTicketDidFinishWithData:(id)arg1;
 
 @end
 

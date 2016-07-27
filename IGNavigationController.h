@@ -27,22 +27,24 @@
 @property (nonatomic,retain) IGNavigationPopAnimator * navigationPopAnimator;                           //@synthesize navigationPopAnimator=_navigationPopAnimator - In the implementation block
 @property (nonatomic,retain) IGNavigationPushAnimator * navigationPushAnimator;                         //@synthesize navigationPushAnimator=_navigationPushAnimator - In the implementation block
 @property (assign,nonatomic,__weak) UIViewController * poppingViewController;                           //@synthesize poppingViewController=_poppingViewController - In the implementation block
-@property (assign,nonatomic) CGPoint initialTranslation;                                                //@synthesize initialTranslation=_initialTranslation - In the implementation block
 @property (nonatomic,retain) UIView * navigationBarUnderlay;                                            //@synthesize navigationBarUnderlay=_navigationBarUnderlay - In the implementation block
 @property (assign,nonatomic,__weak) id<IGNavigationControllerDelegate> navigationDelegate;              //@synthesize navigationDelegate=_navigationDelegate - In the implementation block
 @property (nonatomic,readonly) IGNavigationBar * navigationBar; 
 @property (nonatomic,readonly) double transitionDuration; 
 @property (nonatomic,readonly) IGAnalyticsMetadata * analyticsMetadata;                                 //@synthesize analyticsMetadata=_analyticsMetadata - In the implementation block
+@property (assign,nonatomic) CGPoint initialTranslation;                                                //@synthesize initialTranslation=_initialTranslation - In the implementation block
 @property (nonatomic,retain) UIViewController * fromPreviewViewController;                              //@synthesize fromPreviewViewController=_fromPreviewViewController - In the implementation block
 @property (nonatomic,readonly) IGScrollingHeaderCoordinator * scrollingHeaderCoordinator;               //@synthesize scrollingHeaderCoordinator=_scrollingHeaderCoordinator - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGAnalyticsMetadata *)analyticsMetadata;
+-(CGPoint)initialTranslation;
+-(void)setInitialTranslation:(CGPoint)arg1 ;
 -(IGHorizontalPanGestureRecognizer *)panGesture;
 -(void)setPanGesture:(IGHorizontalPanGestureRecognizer *)arg1 ;
 -(void)updateForVisibleChange;
+-(IGAnalyticsMetadata *)analyticsMetadata;
 -(void)navigationAnimatorWillAnimateTransition:(id)arg1 ;
 -(void)navigationAnimatorDidFinishTransition:(id)arg1 ;
 -(void)setNavigationPopAnimator:(IGNavigationPopAnimator *)arg1 ;
@@ -53,8 +55,6 @@
 -(id)ig_tabBarController;
 -(id)ig_topViewController;
 -(void)setPoppingViewController:(UIViewController *)arg1 ;
--(void)setInitialTranslation:(CGPoint)arg1 ;
--(CGPoint)initialTranslation;
 -(UIViewController *)poppingViewController;
 -(IGScrollingHeaderCoordinator *)scrollingHeaderCoordinator;
 -(UIViewController *)fromPreviewViewController;

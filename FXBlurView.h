@@ -38,6 +38,7 @@
 +(void)setUpdatesEnabled;
 +(void)setUpdatesDisabled;
 +(Class)layerClass;
+-(void)setUnderlyingView:(UIView *)arg1 ;
 -(void)clearImage;
 -(void)updateAsynchronously:(char)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setBlurEnabled:(char)arg1 ;
@@ -54,7 +55,6 @@
 -(id)snapshotOfUnderlyingView;
 -(id)blurredSnapshot:(id)arg1 radius:(float)arg2 ;
 -(void)setLayerContents:(id)arg1 ;
--(void)setUnderlyingView:(UIView *)arg1 ;
 -(char)iterationsSet;
 -(void)setIterationsSet:(char)arg1 ;
 -(char)blurRadiusSet;

@@ -32,8 +32,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)imageViewFailedToLoadImage:(id)arg1 error:(id)arg2 ;
--(void)imageViewLoadedImage:(id)arg1 ;
 -(void)dismissOverlayAnimated:(char)arg1 ;
 -(void)setupSubviewsWithImageURL:(id)arg1 directResponseInfo:(id)arg2 frame:(CGRect)arg3 ;
 -(void)transparentViewTapped:(id)arg1 ;
@@ -51,6 +49,8 @@
 -(void)setTransparentView:(UIView *)arg1 ;
 -(void)setOverlayTextButton:(IGTapButton *)arg1 ;
 -(void)setOverlayIconButton:(IGTapButton *)arg1 ;
+-(void)imageViewLoadedImage:(id)arg1 ;
+-(void)imageViewFailedToLoadImage:(id)arg1 error:(id)arg2 ;
 -(void)showOverlayAnimated:(char)arg1 ;
 -(void)setDelegate:(id<IGDirectResponseOverlayViewDelegate>)arg1 ;
 -(void)layoutSubviews;

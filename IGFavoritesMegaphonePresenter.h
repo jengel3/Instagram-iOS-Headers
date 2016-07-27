@@ -24,12 +24,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(char)shouldShowFavoritesMegaphone;
 +(id)newFavoritesMegaphone;
--(id)viewForMegaphone;
--(void)logMegaphoneSeen;
 -(IGGenericMegaphoneView *)megaphoneView;
 -(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
 -(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
 -(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
+-(id)viewForMegaphone;
+-(void)logMegaphoneSeen;
 -(unsigned)displaySource;
 -(void)logWasSeen;
 -(char)megaphoneSeen;

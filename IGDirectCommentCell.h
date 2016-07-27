@@ -22,23 +22,23 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGDirectContentUpoadCellDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator;              //@synthesize uploadDecorator=_uploadDecorator - In the implementation block
++(float)commentWidthForFrameWidth:(float)arg1 ;
++(float)heightForCellWithCommentText:(id)arg1 forWidth:(float)arg2 ;
 +(id)emojiCommentStyle;
 +(id)commentStyle;
 +(char)handlesExternalURLs;
-+(float)commentWidthForFrameWidth:(float)arg1 ;
-+(float)heightForCellWithCommentText:(id)arg1 forWidth:(float)arg2 ;
--(void)performDelete;
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(IGCoreTextView *)commentTextView;
--(id)timestampText;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(void)handleUploadCellTap;
 -(void)performRetry;
+-(void)performDelete;
 -(void)uploadDecoratorShowFailedUI:(id)arg1 ;
 -(void)showUploadFailedUI;
 -(void)showUploadSendingUI;
 -(void)setUploadDecorator:(IGDirectContentCellUploadDecorator *)arg1 ;
+-(id)timestampText;
 -(void)setCommentTextView:(IGCoreTextView *)arg1 ;
 -(id)cellDecorator;
 -(void)setCellDecorator:(id)arg1 ;

@@ -2,8 +2,6 @@
 
 @interface IGExplorePromptConfiguration : NSObject
 +(int)getIntegerValueForParam:(id)arg1 ;
-+(int)timeToPrefetchExploreV2;
-+(int)timeToPrefetchExploreV3;
 +(int)numberOfPostBeforePrompt;
 +(double)timeToFadeOut;
 +(double)intervalBetweenImpressions;

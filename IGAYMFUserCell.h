@@ -5,7 +5,7 @@
 #import <Instagram/IGFollowButtonDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
 
-@protocol IGAYMFUserCellDelegate;
+@protocol IGAYMFUserCellDelegate, IGRaindropAnalyticsDelegate;
 @class IGProfilePictureImageView, UILabel, IGFollowButton, UIButton, UIView, UIScrollView, NSString;
 
 @interface IGAYMFUserCell : UICollectionViewCell <UIScrollViewDelegate, IGFollowButtonDelegate, UIGestureRecognizerDelegate> {
@@ -19,24 +19,28 @@
 	UIView* _separatorLineView;
 	UIView* _swipableContentView;
 	UIScrollView* _swipableContentScrollView;
+	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 
 }
 
-@property (nonatomic,readonly) IGProfilePictureImageView * profilePicImageView;              //@synthesize profilePicImageView=_profilePicImageView - In the implementation block
-@property (nonatomic,readonly) UILabel * usernameLabel;                                      //@synthesize usernameLabel=_usernameLabel - In the implementation block
-@property (nonatomic,readonly) UILabel * userDetailLabel;                                    //@synthesize userDetailLabel=_userDetailLabel - In the implementation block
-@property (nonatomic,readonly) IGFollowButton * followButton;                                //@synthesize followButton=_followButton - In the implementation block
-@property (nonatomic,readonly) UIButton * dismissButton;                                     //@synthesize dismissButton=_dismissButton - In the implementation block
-@property (nonatomic,readonly) UIView * separatorLineView;                                   //@synthesize separatorLineView=_separatorLineView - In the implementation block
-@property (nonatomic,readonly) UIView * swipableContentView;                                 //@synthesize swipableContentView=_swipableContentView - In the implementation block
-@property (nonatomic,readonly) UIScrollView * swipableContentScrollView;                     //@synthesize swipableContentScrollView=_swipableContentScrollView - In the implementation block
-@property (assign,nonatomic,__weak) id<IGAYMFUserCellDelegate> delegate;                     //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,readonly) IGProfilePictureImageView * profilePicImageView;                     //@synthesize profilePicImageView=_profilePicImageView - In the implementation block
+@property (nonatomic,readonly) UILabel * usernameLabel;                                             //@synthesize usernameLabel=_usernameLabel - In the implementation block
+@property (nonatomic,readonly) UILabel * userDetailLabel;                                           //@synthesize userDetailLabel=_userDetailLabel - In the implementation block
+@property (nonatomic,readonly) IGFollowButton * followButton;                                       //@synthesize followButton=_followButton - In the implementation block
+@property (nonatomic,readonly) UIButton * dismissButton;                                            //@synthesize dismissButton=_dismissButton - In the implementation block
+@property (nonatomic,readonly) UIView * separatorLineView;                                          //@synthesize separatorLineView=_separatorLineView - In the implementation block
+@property (nonatomic,readonly) UIView * swipableContentView;                                        //@synthesize swipableContentView=_swipableContentView - In the implementation block
+@property (nonatomic,readonly) UIScrollView * swipableContentScrollView;                            //@synthesize swipableContentScrollView=_swipableContentScrollView - In the implementation block
+@property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;              //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGAYMFUserCellDelegate> delegate;                            //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(UILabel *)usernameLabel;
 -(UILabel *)userDetailLabel;
+-(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
+-(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
 -(void)configureWithUser:(id)arg1 context:(id)arg2 analyticsDelegate:(id)arg3 ;
 -(UIScrollView *)swipableContentScrollView;
 -(UIView *)swipableContentView;

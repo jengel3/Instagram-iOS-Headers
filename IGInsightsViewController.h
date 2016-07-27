@@ -18,14 +18,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(id)subtitleDateString;
 -(id)analyticsModule;
+-(char)canHostInlineGallery:(char)arg1 ;
 -(id)initWithEntryPoint:(id)arg1 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(void)didAcceptTermsAndConditionsWithWelcomeNUXVIewController:(id)arg1 ;
 -(id)initWithLoggingHelper:(id)arg1 ;
--(char)canHostInlineGallery:(char)arg1 ;
 -(UIViewController *)currentViewController;
--(id)timezoneName;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)didSelectComponentListViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
 -(void)setUpInitialViewController;
@@ -33,6 +33,7 @@
 -(id)createComponentsViewController;
 -(id)generateQuery;
 -(void)transitionToViewController:(id)arg1 ;
+-(id)timezoneName;
 -(void)viewDidLayoutSubviews;
 -(void)didMoveToParentViewController:(id)arg1 ;
 -(void)viewWillAppear:(char)arg1 ;

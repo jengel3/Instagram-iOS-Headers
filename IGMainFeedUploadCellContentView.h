@@ -38,6 +38,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(UIButton *)retryButton;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
 -(void)setActivePost:(IGUploadModel *)arg1 ;
@@ -50,7 +51,6 @@
 -(void)updateUploadPhase:(unsigned)arg1 withProgress:(float)arg2 ;
 -(NSDate *)uploadStart;
 -(void)setUploadStart:(NSDate *)arg1 ;
--(UIButton *)retryButton;
 -(void)setRetryButton:(UIButton *)arg1 ;
 -(void)setRemoveButton:(UIButton *)arg1 ;
 -(UIImageView *)imageOverlayView;

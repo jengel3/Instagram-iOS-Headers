@@ -20,11 +20,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(char)supportsSecureCoding;
+-(void)setAppLinkURL:(NSURL *)arg1 ;
+-(NSURL *)appInvitePreviewImageURL;
 -(void)setAppInvitePreviewImageURL:(NSURL *)arg1 ;
 -(char)isEqualToAppInviteContent:(id)arg1 ;
--(void)setAppLinkURL:(NSURL *)arg1 ;
 -(NSURL *)appLinkURL;
--(NSURL *)appInvitePreviewImageURL;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;

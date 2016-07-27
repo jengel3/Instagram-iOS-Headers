@@ -3,13 +3,12 @@
 #import <Instagram/IGGroupedTableViewController.h>
 #import <UIKit/UIAlertViewDelegate.h>
 #import <Instagram/IGRageShakeViewControllerDelegate.h>
-#import <Instagram/IGClusterBrowsingV2ViewControllerDelegate.h>
 #import <Instagram/IGBusinessConversionViewControllerDelegate.h>
 
 @protocol IGBusinessConversionDelegate;
 @class NSArray, IGGroupedTableViewFooterView, IGSwitch, IGUserSession, NSString;
 
-@interface IGAccountSettingsViewController : IGGroupedTableViewController <UIAlertViewDelegate, IGRageShakeViewControllerDelegate, IGClusterBrowsingV2ViewControllerDelegate, IGBusinessConversionViewControllerDelegate> {
+@interface IGAccountSettingsViewController : IGGroupedTableViewController <UIAlertViewDelegate, IGRageShakeViewControllerDelegate, IGBusinessConversionViewControllerDelegate> {
 
 	NSArray* _followSectionRowTypes;
 	NSArray* _accountSectionRowTypes;
@@ -36,11 +35,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)closeSettings;
 -(id)analyticsModule;
--(id)appVersionString;
 -(id)initWithUserSession:(id)arg1 ;
--(void)clusterBrowsingV2ViewControllerDidSkip:(id)arg1 ;
--(void)clusterBrowsingV2ViewController:(id)arg1 willContinueToViewController:(id)arg2 ;
 -(void)didDismissRageShakeViewController:(id)arg1 didSendReport:(char)arg2 ;
 -(void)presentReportThankYouAlert;
 -(void)businessConversionViewControllerDidDismiss:(id)arg1 ;
@@ -58,6 +55,7 @@
 -(id)developerSectionRows;
 -(int)followRowTypeForRow:(int)arg1 ;
 -(void)logTapEventForServiceType:(int)arg1 ;
+-(void)inviteFBFriends;
 -(int)accountRowForRow:(int)arg1 ;
 -(void)sendChangePasswordRequest;
 -(void)setIsSwitchingAccount:(char)arg1 ;
@@ -72,6 +70,7 @@
 -(void)showSSOCheckboxDialogPrechecked:(char)arg1 indexPath:(id)arg2 logoutBlock:(/*^block*/id)arg3 ;
 -(void)showDoubleDialogWithIndexPath:(id)arg1 logoutBlock:(/*^block*/id)arg2 ;
 -(void)presentReportProblemAlert;
+-(id)appVersionString;
 -(void)tableView:(id)arg1 didSelectFollowRow:(int)arg2 ;
 -(void)tableView:(id)arg1 didSelectAccountRow:(int)arg2 ;
 -(void)tableView:(id)arg1 didSelectSettingsRow:(int)arg2 ;

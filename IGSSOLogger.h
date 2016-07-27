@@ -17,16 +17,16 @@
 @property (assign,nonatomic) double viewControllerInitializationStartTime;              //@synthesize viewControllerInitializationStartTime=_viewControllerInitializationStartTime - In the implementation block
 @property (assign) char isComplete;                                                     //@synthesize isComplete=_isComplete - In the implementation block
 +(id)sharedInstance;
--(NSMutableDictionary *)extras;
--(void)setIsComplete:(char)arg1 ;
 -(void)markTimeForEvent:(id)arg1 ;
 -(void)completeSSOProcess;
+-(void)setIsComplete:(char)arg1 ;
 -(void)cancelForReason:(id)arg1 ;
 -(void)markLoginViewControllerInitializationStarted;
 -(void)markLoginViewControllerViewDidLoadStarted;
 -(void)markSSOFetchDeviceIDStarted;
 -(void)markSSOContinueAsNetworkRequestSubmitted;
 -(void)markSSOContinueAsNetworkRequestResponseReceived;
+-(NSMutableDictionary *)extras;
 -(double)viewControllerInitializationStartTime;
 -(void)setViewControllerInitializationStartTime:(double)arg1 ;
 -(char)isComplete;

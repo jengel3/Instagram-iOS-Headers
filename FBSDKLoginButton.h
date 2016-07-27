@@ -36,9 +36,9 @@
 -(id)analyticsParameters;
 -(id)impressionTrackingEventName;
 -(id)impressionTrackingIdentifier;
--(unsigned)loginBehavior;
 -(unsigned)defaultAudience;
 -(void)setDefaultAudience:(unsigned)arg1 ;
+-(unsigned)loginBehavior;
 -(void)setLoginBehavior:(unsigned)arg1 ;
 -(unsigned)tooltipBehavior;
 -(void)_showTooltipIfNeeded;

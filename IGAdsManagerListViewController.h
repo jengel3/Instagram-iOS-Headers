@@ -29,6 +29,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)canHostInlineGallery:(char)arg1 ;
 -(void)setEmptyListView:(IGAdManagerEmptyListView *)arg1 ;
 -(IGAdManagerEmptyListView *)emptyListView;
 -(NSArray*)adsArrayForSection:(int)arg1 ;

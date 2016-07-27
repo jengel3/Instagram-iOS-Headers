@@ -25,6 +25,13 @@
 -(void)assetsLibraryDidChange:(id)arg1 ;
 -(void)filterAssetsGroup:(id)arg1 ;
 -(void)refreshAssetGroup:(id)arg1 ;
+-(id)initWithMaxItems:(int)arg1 ;
+-(char)hasCameraRollAccess;
+-(void)pauseDataFetch;
+-(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
+-(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
+-(id)errorMessageIfInvalidAssetAtIndexPath:(id)arg1 ;
+-(id)metadataForAssetAtIndexPath:(id)arg1 ;
 -(void)assignDefaultPhotoGroupWithCompletion:(/*^block*/id)arg1 ;
 -(ALAssetsGroup *)savedPhotosGroup;
 -(id)extractAssetsForGroup:(id)arg1 ;
@@ -33,13 +40,6 @@
 -(id)assetForIndexPath:(id)arg1 ;
 -(int)numMediaSince:(double)arg1 ;
 -(void)setMaxItems:(int)arg1 ;
--(id)initWithMaxItems:(int)arg1 ;
--(char)hasCameraRollAccess;
--(void)pauseDataFetch;
--(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
--(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
--(id)errorMessageIfInvalidAssetAtIndexPath:(id)arg1 ;
--(id)metadataForAssetAtIndexPath:(id)arg1 ;
 -(void)setAssetsLibrary:(ALAssetsLibrary *)arg1 ;
 -(void)setAssets:(NSArray *)arg1 ;
 -(NSArray *)assets;

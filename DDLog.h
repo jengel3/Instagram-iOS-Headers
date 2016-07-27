@@ -1,6 +1,7 @@
 
 
 @interface DDLog : NSObject
++(void)addLogger:(id)arg1 ;
 +(id)loggingQueue;
 +(void)lt_addLogger:(id)arg1 ;
 +(void)lt_removeLogger:(id)arg1 ;
@@ -14,7 +15,6 @@
 +(int)logLevelForClass:(Class)arg1 ;
 +(void)setLogLevel:(int)arg1 forClass:(Class)arg2 ;
 +(int)logLevelForTag:(id)arg1 ;
-+(void)addLogger:(id)arg1 ;
 +(void)removeLogger:(id)arg1 ;
 +(void)removeAllLoggers;
 +(void)log:(char)arg1 level:(int)arg2 flag:(int)arg3 context:(int)arg4 file:(const char*)arg5 className:(const char*)arg6 function:(const char*)arg7 line:(int)arg8 format:(id)arg9 ;

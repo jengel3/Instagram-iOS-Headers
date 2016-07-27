@@ -17,10 +17,10 @@
 @property (assign,nonatomic) int sidePadding;                               //@synthesize sidePadding=_sidePadding - In the implementation block
 @property (nonatomic,retain) UIColor * defaultBackgroundColor;              //@synthesize defaultBackgroundColor=_defaultBackgroundColor - In the implementation block
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
+-(void)setSidePadding:(int)arg1 ;
 -(void)configureTextLabels;
 -(void)applySelectedStyle:(char)arg1 ;
 -(int)sidePadding;
--(void)setSidePadding:(int)arg1 ;
 -(char)enabled;
 -(void)layoutSubviews;
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;

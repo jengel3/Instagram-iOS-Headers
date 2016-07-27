@@ -3,8 +3,8 @@
 
 @interface RCTSwitchManager : RCTViewManager
 +(id)moduleName;
-+(id)propConfig_tintColor;
 +(id)propConfig_onChange;
++(id)propConfig_tintColor;
 +(id)propConfig_value;
 +(id)propConfig_disabled;
 +(id)propConfig_onTintColor;

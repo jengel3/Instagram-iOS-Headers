@@ -45,15 +45,15 @@
 -(char)dismissible;
 -(id)initWithTitle:(id)arg1 message:(id)arg2 dismissible:(char)arg3 type:(id)arg4 iconURL:(id)arg5 backgroundColor:(id)arg6 dismissButtonColor:(id)arg7 titleColor:(id)arg8 messageColor:(id)arg9 buttonOne:(id)arg10 buttonTwo:(id)arg11 uuid:(id)arg12 actionInfo:(id)arg13 megaphoneType:(int)arg14 buttonLayout:(int)arg15 ;
 -(int)megaphoneType;
+-(void)setSideImage:(UIImage *)arg1 ;
+-(void)setImageTopPadding:(float)arg1 ;
+-(id)initWithTitle:(id)arg1 message:(id)arg2 dismissible:(char)arg3 buttonOne:(id)arg4 ;
 -(int)buttonLayout;
 -(IGMegaphoneButton *)buttonOne;
 -(IGMegaphoneButton *)buttonTwo;
 -(UIColor *)dismissButtonColor;
 -(UIImage *)sideImage;
 -(float)imageTopPadding;
--(id)initWithTitle:(id)arg1 message:(id)arg2 dismissible:(char)arg3 buttonOne:(id)arg4 ;
--(void)setSideImage:(UIImage *)arg1 ;
--(void)setImageTopPadding:(float)arg1 ;
 -(UIColor *)messageColor;
 -(UIColor *)backgroundColor;
 -(NSString *)type;

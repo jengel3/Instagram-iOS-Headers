@@ -29,13 +29,12 @@
 @property (assign,nonatomic) char isLoading;                              //@synthesize isLoading=_isLoading - In the implementation block
 @property (readonly) char hasRightButton; 
 +(id)itemWithWebViewParams:(id)arg1 ;
--(void)setRightButtonTitle:(NSString *)arg1 ;
--(NSString *)rightButtonTitle;
 -(NSString *)screenId;
 -(void)setIsLeftButtonActive:(char)arg1 ;
 -(void)setIsRightButtonActive:(char)arg1 ;
 -(void)setLeftButtonJSCallback:(NSString *)arg1 ;
 -(void)setLeftButtonType:(unsigned)arg1 ;
+-(void)setRightButtonTitle:(NSString *)arg1 ;
 -(void)setRightButtonJSCallback:(NSString *)arg1 ;
 -(NSString *)leftButtonJSCallback;
 -(NSString *)rightButtonJSCallback;
@@ -43,6 +42,7 @@
 -(unsigned)leftButtonType;
 -(char)isLeftButtonActive;
 -(char)hasRightButton;
+-(NSString *)rightButtonTitle;
 -(char)isRightButtonActive;
 -(id)init;
 -(void)setTitle:(NSString *)arg1 ;

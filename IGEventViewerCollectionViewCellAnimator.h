@@ -1,5 +1,6 @@
 
 
+#import <Instagram/Instagram-Structs.h>
 @class UICollectionView, NSString;
 
 @interface IGEventViewerCollectionViewCellAnimator : NSObject {
@@ -23,6 +24,8 @@
 -(void)updateCrossFadeForVisibleMediaCells:(id)arg1 ;
 -(void)updateCrossFadeForVisibleHeaderCells:(id)arg1 centeredIndexPath:(id)arg2 ;
 -(void)updateCrossFadeForVisibleActionCells:(id)arg1 centeredIndexPath:(id)arg2 ;
+-(float)alphaForHeaderCellAtSection:(unsigned)arg1 frameInWindow:(CGRect)arg2 ;
+-(float)alphaForActionCellAtSection:(unsigned)arg1 frameInWindow:(CGRect)arg2 ;
 -(NSString *)videoCellId;
 -(NSString *)photoCellId;
 -(NSString *)headerCellId;
@@ -31,6 +34,7 @@
 -(id)visibleCellsUsingPredicate:(id)arg1 ;
 -(char)isHeaderCell:(id)arg1 ;
 -(char)isActionCell:(id)arg1 ;
+-(float)cellHeightForItem:(int)arg1 atSection:(unsigned)arg2 ;
 -(void)updateVisibleCellsWithDynamicCrossFadeAnimated:(char)arg1 centeredIndexPath:(id)arg2 ;
 -(void)updateVisibleCellsForTargetIndexPath:(id)arg1 animated:(char)arg2 ;
 -(UICollectionView *)collectionView;

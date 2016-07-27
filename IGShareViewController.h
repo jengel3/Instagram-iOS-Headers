@@ -22,10 +22,10 @@
 	char _shouldUseNavBarShareButton;
 	char _shouldUseDropDownTitleButton;
 	char _shouldShowDropdownNUX;
-	char _wasInitializedViaDraft;
 	char _canDisableShareScreen;
 	char _shareScreenEnabled;
 	char _captionTextNeedsToBeClearedOnBackOut;
+	char _wasInitializedFromDraft;
 	id<IGShareViewControllerDelegate> _delegate;
 	IGMediaMetadata* _mediaMetadata;
 	int _shareMode;
@@ -73,10 +73,10 @@
 @property (nonatomic,readonly) char shouldUseNavBarShareButton;                                                           //@synthesize shouldUseNavBarShareButton=_shouldUseNavBarShareButton - In the implementation block
 @property (nonatomic,readonly) char shouldUseDropDownTitleButton;                                                         //@synthesize shouldUseDropDownTitleButton=_shouldUseDropDownTitleButton - In the implementation block
 @property (nonatomic,readonly) char shouldShowDropdownNUX;                                                                //@synthesize shouldShowDropdownNUX=_shouldShowDropdownNUX - In the implementation block
-@property (assign,nonatomic) char wasInitializedViaDraft;                                                                 //@synthesize wasInitializedViaDraft=_wasInitializedViaDraft - In the implementation block
 @property (assign,nonatomic) char canDisableShareScreen;                                                                  //@synthesize canDisableShareScreen=_canDisableShareScreen - In the implementation block
 @property (assign,nonatomic) char shareScreenEnabled;                                                                     //@synthesize shareScreenEnabled=_shareScreenEnabled - In the implementation block
 @property (assign,nonatomic) char captionTextNeedsToBeClearedOnBackOut;                                                   //@synthesize captionTextNeedsToBeClearedOnBackOut=_captionTextNeedsToBeClearedOnBackOut - In the implementation block
+@property (assign,nonatomic) char wasInitializedFromDraft;                                                                //@synthesize wasInitializedFromDraft=_wasInitializedFromDraft - In the implementation block
 @property (assign,nonatomic,__weak) id<IGShareViewControllerDelegate> delegate;                                           //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) char renderInProgress;                                                                       //@synthesize renderInProgress=_renderInProgress - In the implementation block
 @property (readonly) unsigned hash; 
@@ -84,15 +84,14 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) IGCameraNavigationController * navController; 
--(id)analyticsMetadata;
--(char)enableNavState;
 -(id)analyticsModule;
--(void)keyboardWillChangeFrame:(id)arg1 ;
 -(id)initWithDraft:(id)arg1 userSession:(id)arg2 ;
 -(char)overlayIsOpaque;
 -(char)prefersNavbarBottomBorderHidden;
--(void)onCancelButtonTapped;
+-(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
 -(void)setRenderInProgress:(char)arg1 ;
+-(id)ig_keyViewControllers;
+-(void)onCancelButtonTapped;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
 -(IGAutocompleteController *)autocompleteController;
@@ -100,9 +99,11 @@
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
 -(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
 -(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
--(id)ig_keyViewControllers;
+-(id)analyticsMetadata;
+-(char)enableNavState;
 -(char)captionCellMediaOverlayViewTapEnabled;
 -(void)captionCellMediaOverlayViewTapped;
+-(void)captionCellEditButtonTapped;
 -(char)captionTextView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;
 -(void)captionTextViewDidBeginEditing:(id)arg1 ;
 -(void)captionTextViewWillBeginEditing:(id)arg1 ;
@@ -111,10 +112,12 @@
 -(id)initWithMediaMetadata:(id)arg1 canDisableShareScreen:(char)arg2 userSession:(id)arg3 ;
 -(void)updateNavigationItemWithModeTitle:(id)arg1 animated:(char)arg2 ;
 -(void)stopProgressHUDIfSlowDevice;
+-(void)keyboardWillChangeFrame:(id)arg1 ;
 -(UIViewController*<IGShareManager>)shareManager;
 -(char)canDisableShareScreen;
 -(int)shareMode;
 -(void)setShareScreenEnabled:(char)arg1 ;
+-(char)wasInitializedFromDraft;
 -(IGCaptionCell *)captionCell;
 -(IGShareSwitchView *)shareSwitchView;
 -(void)onOverlayViewTapped:(id)arg1 ;
@@ -150,6 +153,7 @@
 -(void)updateTopShadowOffset;
 -(void)internalSetShareMode:(int)arg1 ;
 -(void)showShareDropdownNUX;
+-(void)layoutShareButton;
 -(void)toggleTitleShareMode;
 -(void)addOverlayViewHiddenWithRect:(CGRect)arg1 ;
 -(float)navigationBarMaxY;
@@ -175,26 +179,26 @@
 -(void)logAutocomplete:(id)arg1 clickEventAtIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
 -(void)shareWithPreserveShareServicesInfo:(char)arg1 ;
 -(id)removeShareServicesInfoFromDictionary:(id)arg1 ;
+-(void)uploadToDirectRecipient:(id)arg1 ;
 -(void)configureStickySharingSelections;
 -(char)shouldEnableStickySharing;
 -(int)numberOfItemsInDropdownView:(id)arg1 ;
 -(id)dropdownView:(id)arg1 titleForItemForIndex:(int)arg2 ;
 -(void)dropdownView:(id)arg1 didSelectItemAtIndex:(int)arg2 ;
 -(void)directedNUXViewDidTap:(id)arg1 ;
+-(id)initForProfilePictureOptionalSharingWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
 -(void)setDefaultCaptionText:(id)arg1 ;
+-(void)instantShareToFeed;
 -(void)setShareSwitchView:(IGShareSwitchView *)arg1 ;
 -(void)setCaptionCell:(IGCaptionCell *)arg1 ;
 -(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;
--(char)wasInitializedViaDraft;
--(void)setWasInitializedViaDraft:(char)arg1 ;
 -(void)setCanDisableShareScreen:(char)arg1 ;
--(id)initForProfilePictureOptionalSharingWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
--(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
--(void)instantShareToFeed;
+-(void)setWasInitializedFromDraft:(char)arg1 ;
 -(void)setDelegate:(id<IGShareViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGShareViewControllerDelegate>)delegate;
 -(char)prefersStatusBarHidden;
+-(void)viewWillLayoutSubviews;
 -(id)leftBarButtonItem;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;

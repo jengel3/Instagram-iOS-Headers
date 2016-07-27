@@ -9,8 +9,8 @@
 }
 
 @property (assign,nonatomic,__weak) id<IGExplorePhotoMapDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(void)startRequestWithRegion:(SCD_Struct_IG118)arg1 isRefresh:(char)arg2 ;
--(void)startNearbyLocationRequestWithRegion:(SCD_Struct_IG118)arg1 ;
+-(void)startRequestWithRegion:(SCD_Struct_IG36)arg1 isRefresh:(char)arg2 ;
+-(void)startNearbyLocationRequestWithRegion:(SCD_Struct_IG36)arg1 ;
 -(void)setDelegate:(id<IGExplorePhotoMapDataSourceDelegate>)arg1 ;
 -(id<IGExplorePhotoMapDataSourceDelegate>)delegate;
 @end

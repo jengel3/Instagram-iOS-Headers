@@ -60,6 +60,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)initialize;
+-(void)_SR_commonInit;
 -(id)initWithURLRequest:(id)arg1 protocols:(id)arg2 ;
 -(id)initWithURL:(id)arg1 protocols:(id)arg2 ;
 -(void)_initializeStreams;
@@ -80,7 +81,7 @@
 -(void)handlePong:(id)arg1 ;
 -(void)_handleFrameWithData:(id)arg1 opCode:(int)arg2 ;
 -(void)_addConsumerWithDataLength:(unsigned long)arg1 callback:(/*^block*/id)arg2 readToCurrentFrame:(char)arg3 unmaskBytes:(char)arg4 ;
--(void)_handleFrameHeader:(SCD_Struct_RC50)arg1 curData:(id)arg2 ;
+-(void)_handleFrameHeader:(SCD_Struct_SR69)arg1 curData:(id)arg2 ;
 -(void)_addConsumerWithScanner:(/*^block*/id)arg1 callback:(/*^block*/id)arg2 dataLength:(unsigned long)arg3 ;
 -(void)_pumpScanner;
 -(void)_readUntilBytes:(const void*)arg1 length:(unsigned long)arg2 callback:(/*^block*/id)arg3 ;
@@ -92,7 +93,6 @@
 -(NSOperationQueue *)delegateOperationQueue;
 -(void)setDelegateOperationQueue:(NSOperationQueue *)arg1 ;
 -(NSObject*<OS_dispatch_queue>)delegateDispatchQueue;
--(void)_SR_commonInit;
 -(void)_disconnect;
 -(void)stream:(id)arg1 handleEvent:(unsigned)arg2 ;
 -(void)send:(id)arg1 ;

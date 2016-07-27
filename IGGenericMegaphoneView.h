@@ -29,20 +29,20 @@
 @property (nonatomic,readonly) IGGenericMegaphone * megaphone;                                //@synthesize megaphone=_megaphone - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGenericMegaphoneViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(Class)styleClassForButton:(id)arg1 ;
--(IGGenericMegaphone *)megaphone;
--(void)configureWithMegaphone:(id)arg1 ;
--(IGImageView *)sideImageView;
 -(IGCoreTextView *)messageView;
--(void)layoutButtons;
+-(void)configureWithMegaphone:(id)arg1 ;
+-(IGGenericMegaphone *)megaphone;
 -(void)didSelectButton:(id)arg1 ;
 -(IGButton *)buttonOne;
 -(IGButton *)buttonTwo;
 -(void)didDismiss;
 -(void)layoutSideImageView;
 -(void)layoutDismissButton;
+-(void)layoutButtons;
 -(void)layoutTextView;
 -(float)buttonHorizontalLeftPadding;
 -(float)buttonVerticalPadding;
+-(IGImageView *)sideImageView;
 -(float)rightTextPadding;
 -(float)buttonHorizontalRightPadding;
 -(float)leftTextPadding;

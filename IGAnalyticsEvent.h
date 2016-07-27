@@ -13,19 +13,19 @@
 }
 
 @property (nonatomic,copy) NSString * name;              //@synthesize name=_name - In the implementation block
++(id)eventWithName:(id)arg1 module:(id)arg2 ;
 +(void)recordAverage:(id)arg1 value:(double)arg2 ;
++(void)startTimer:(id)arg1 ;
++(void)incrementCounter:(id)arg1 ;
 +(void)recordEvent:(id)arg1 forTimer:(id)arg2 uuid:(id)arg3 ;
 +(void)startTimer:(id)arg1 uuid:(id)arg2 ;
 +(id)eventWithName:(id)arg1 module:(id)arg2 navState:(id)arg3 ;
-+(id)eventWithName:(id)arg1 module:(id)arg2 ;
-+(void)incrementCounter:(id)arg1 ;
-+(void)startTimer:(id)arg1 ;
 +(void)recordEvent:(id)arg1 forTimer:(id)arg2 ;
 +(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
+-(void)logImmediately;
+-(void)setValue:(id)arg1 forExtraKey:(id)arg2 ;
 -(id)initWithName:(id)arg1 module:(id)arg2 navState:(id)arg3 ;
 -(void)assertHasNotLogged;
--(void)setValue:(id)arg1 forExtraKey:(id)arg2 ;
--(void)logImmediately;
 -(void)dealloc;
 -(id)description;
 -(id)objectForKeyedSubscript:(id)arg1 ;

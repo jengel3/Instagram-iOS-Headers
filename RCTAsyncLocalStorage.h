@@ -29,13 +29,13 @@
 +(id)__rct_export__4304;
 +(id)__rct_export__4385;
 +(void)load;
--(void)clearAllData;
 -(NSObject*<OS_dispatch_queue>)methodQueue;
 -(id)_getValueForKey:(id)arg1 errorOut:(id*)arg2 ;
 -(id)_filePathForKey:(id)arg1 ;
 -(id)_ensureSetup;
 -(id)_writeEntry:(id)arg1 changedManifest:(char*)arg2 ;
 -(id)_writeManifest:(id*)arg1 ;
+-(void)clearAllData;
 -(id)_appendItemForKey:(id)arg1 toArray:(id)arg2 ;
 -(void)multiGet:(id)arg1 callback:(/*^block*/id)arg2 ;
 -(void)multiSet:(id)arg1 callback:(/*^block*/id)arg2 ;

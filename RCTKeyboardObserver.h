@@ -4,8 +4,8 @@
 @interface RCTKeyboardObserver : RCTEventEmitter
 +(id)moduleName;
 +(void)load;
--(id)supportedEvents;
 -(void)keyboardWillChangeFrame:(id)arg1 ;
+-(id)supportedEvents;
 -(void)startObserving;
 -(void)keyboardDidShow:(id)arg1 ;
 -(void)keyboardDidHide:(id)arg1 ;

@@ -68,8 +68,8 @@
 -(void)updateCachedAssets;
 -(void)setPreviousPreheatRect:(CGRect)arg1 ;
 -(CGRect)previousPreheatRect;
--(char)needsSetPhotoLibraryOptions;
 -(void)computeDifferenceBetweenRect:(CGRect)arg1 andRect:(CGRect)arg2 removedHandler:(/*^block*/id)arg3 addedHandler:(/*^block*/id)arg4 ;
+-(char)needsSetPhotoLibraryOptions;
 -(unsigned)assetFilterType;
 -(void)setAssetFilterType:(unsigned)arg1 ;
 -(id)initWithAppearanceType:(int)arg1 ;

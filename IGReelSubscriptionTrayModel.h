@@ -11,8 +11,8 @@
 }
 
 @property (nonatomic,readonly) NSArray * reels;              //@synthesize reels=_reels - In the implementation block
--(id)diffIdentifier;
 -(NSArray *)reels;
+-(id)diffIdentifier;
 -(id)initWithReels:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;

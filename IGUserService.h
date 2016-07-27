@@ -13,6 +13,5 @@
 +(void)clearForUserPK:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(void)cancelAllPendingRequests;
 @end
 

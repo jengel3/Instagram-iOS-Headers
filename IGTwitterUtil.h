@@ -5,9 +5,9 @@
 +(char)hasSystemTwitterAccount;
 +(void)loadProfilePictureForACAccount:(id)arg1 delegate:(id)arg2 ;
 +(void)loadProfilePictureFromOAuthViaSystem:(id)arg1 ;
-+(void)loadProfilePictureWithPlainOAuth:(id)arg1 ;
 +(char)canLoadProfilePicture;
 +(void)loadProfilePictureWithDelegate:(id)arg1 ;
++(void)loadProfilePictureWithPlainOAuth:(id)arg1 ;
 +(id)accountStore;
 +(void)removeHandler:(id)arg1 ;
 @end

@@ -25,18 +25,25 @@
 @property (assign,nonatomic) char buttonDisabled;                              //@synthesize buttonDisabled=_buttonDisabled - In the implementation block
 @property (assign,nonatomic) char hasHighlightedState;                         //@synthesize hasHighlightedState=_hasHighlightedState - In the implementation block
 @property (assign,nonatomic) char useHDPictureIfAvailable;                     //@synthesize useHDPictureIfAvailable=_useHDPictureIfAvailable - In the implementation block
--(id)initWithFrame:(CGRect)arg1 user:(id)arg2 ;
--(void)tapped:(id)arg1 ;
+-(void)setDidTap:(char)arg1 ;
+-(char)didTap;
+-(void)setIsInProfile:(char)arg1 ;
+-(char)isInProfile;
+-(void)displayProfilePic;
+-(void)doubleTapped:(id)arg1 ;
+-(void)singleTapped:(id)arg1 ;
+-(void)didMoveToSuperview;
+-(IGSimpleButton *)profilePicButton;
 -(void)setButtonDisabled:(char)arg1 ;
 -(void)setHasHighlightedState:(char)arg1 ;
--(void)userUpdated:(id)arg1 ;
+-(void)setUseHDPictureIfAvailable:(char)arg1 ;
+-(void)tapped:(id)arg1 ;
 -(id)profilePicURLForUser:(id)arg1 ;
 -(void)updateHighlightedBackgroundColor;
 -(char)buttonDisabled;
 -(char)hasHighlightedState;
--(IGSimpleButton *)profilePicButton;
 -(char)useHDPictureIfAvailable;
--(void)setUseHDPictureIfAvailable:(char)arg1 ;
+-(void)userUpdated:(id)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

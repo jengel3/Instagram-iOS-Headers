@@ -5,7 +5,7 @@
 #import <Instagram/IGAutocompleteControllerTextInput.h>
 
 @protocol IGCaptionCellDelegate;
-@class UIImageView, IGProfilePictureImageView, IGSimpleFrameButton, UITextView, UIView, IGGradientView, NSString;
+@class UIImageView, IGProfilePictureImageView, IGSimpleFrameButton, UITextView, UIView, IGTapButton, IGGradientView, NSString;
 
 @interface IGCaptionCell : UICollectionViewCell <UITextViewDelegate, IGAutocompleteControllerTextInput> {
 
@@ -16,6 +16,7 @@
 	IGSimpleFrameButton* _photoFrameView;
 	UITextView* _textView;
 	UIView* _bottomLine;
+	IGTapButton* _editButton;
 	IGGradientView* _topGradientView;
 	IGGradientView* _bottomGradientView;
 	float _offsetY;
@@ -27,6 +28,7 @@
 @property (nonatomic,retain) IGSimpleFrameButton * photoFrameView;                             //@synthesize photoFrameView=_photoFrameView - In the implementation block
 @property (nonatomic,retain) UITextView * textView;                                            //@synthesize textView=_textView - In the implementation block
 @property (nonatomic,retain) UIView * bottomLine;                                              //@synthesize bottomLine=_bottomLine - In the implementation block
+@property (nonatomic,readonly) IGTapButton * editButton;                                       //@synthesize editButton=_editButton - In the implementation block
 @property (nonatomic,retain) IGGradientView * topGradientView;                                 //@synthesize topGradientView=_topGradientView - In the implementation block
 @property (nonatomic,retain) IGGradientView * bottomGradientView;                              //@synthesize bottomGradientView=_bottomGradientView - In the implementation block
 @property (assign,nonatomic) char shouldShowProfileInCaption;                                  //@synthesize shouldShowProfileInCaption=_shouldShowProfileInCaption - In the implementation block
@@ -47,14 +49,11 @@
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(char)smallerPhotoEnabled;
 +(float)captionPhotoWidth;
-+(float)height;
--(void)setTopGradientView:(IGGradientView *)arg1 ;
--(IGGradientView *)topGradientView;
--(void)setBottomGradientView:(IGGradientView *)arg1 ;
--(IGGradientView *)bottomGradientView;
++(float)heightWithShowsEditButton:(char)arg1 ;
 -(void)setShouldShowProfileInCaption:(char)arg1 ;
 -(id)captionFont;
 -(id)captionPlaceholderText;
+-(void)didTapEdit;
 -(char)biggerFontEnabled;
 -(char)shouldShowProfileInCaption;
 -(char)shouldUseNewCaptionCopy;
@@ -65,13 +64,18 @@
 -(CGRect)photoFrameRectForAspectRatio:(float)arg1 ;
 -(CGRect)profilePictureRect;
 -(void)onMediaTap;
+-(IGGradientView *)topGradientView;
 -(IGSimpleFrameButton *)photoFrameView;
 -(UIView *)bottomLine;
 -(void)setThumbnailViewHidden:(char)arg1 ;
+-(void)setShowsEditButton:(char)arg1 ;
 -(void)setMediaThumbnailView:(id)arg1 aspectRatio:(float)arg2 ;
 -(void)setProfilePictureImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)setPhotoFrameView:(IGSimpleFrameButton *)arg1 ;
 -(void)setBottomLine:(UIView *)arg1 ;
+-(void)setTopGradientView:(IGGradientView *)arg1 ;
+-(IGGradientView *)bottomGradientView;
+-(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGCaptionCellDelegate>)arg1 ;
 -(void)dealloc;
@@ -100,6 +104,7 @@
 -(void)setThumbnailView:(UIImageView *)arg1 ;
 -(UIImageView *)thumbnailView;
 -(UITextView *)textView;
+-(IGTapButton *)editButton;
 -(void)setOffsetY:(float)arg1 ;
 -(float)offsetY;
 @end

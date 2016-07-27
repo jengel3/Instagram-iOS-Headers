@@ -19,15 +19,15 @@
 @property (nonatomic,retain) IGExploreSectionTextHeader * headerView;              //@synthesize headerView=_headerView - In the implementation block
 @property (nonatomic,readonly) UICollectionView * collectionView;                  //@synthesize collectionView=_collectionView - In the implementation block
 @property (assign,nonatomic) IGCarouselMetrics metrics;                            //@synthesize metrics=_metrics - In the implementation block
-+(IGCarouselMetrics)metricsForWidth:(float)arg1 ;
 +(float)heightForCarouselMetrics:(IGCarouselMetrics)arg1 ;
++(IGCarouselMetrics)metricsForWidth:(float)arg1 ;
 +(IGCarouselMetrics)defaultMetrics;
 -(id)layoutForMetrics:(IGCarouselMetrics)arg1 ;
 -(CGRect)separatorFrame;
+-(void)setSeparatorLayer:(CALayer *)arg1 ;
 -(void)prepareForDragging;
 -(CGPoint)targetContentOffsetForVelocity:(CGPoint)arg1 targetContentOffset:(CGPoint)arg2 ;
 -(CALayer *)separatorLayer;
--(void)setSeparatorLayer:(CALayer *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)dealloc;
 -(void)layoutSubviews;

@@ -27,12 +27,14 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)tableView:(id)arg1 userCellForRow:(int)arg2 ;
--(id)noResultsCellForTableView:(id)arg1 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
 -(void)dataSourceDidFailLoad:(id)arg1 ;
+-(id)noResultsCellForTableView:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 usertagTableViewStyle:(int)arg2 ;
 -(void)setTagDelegate:(id<IGUsertagTableViewDelegate>)arg1 ;
+-(unsigned)numberOfCurrentNetworkResults;
+-(unsigned)numberOfCurrentLocalResults;
 -(int)usertagTableViewStyle;
 -(id)searchPromptCellForTableView:(id)arg1 ;
 -(id<IGUsertagTableViewDelegate>)tagDelegate;

@@ -11,7 +11,7 @@
 	NSDictionary* _lastLocationEvent;
 	NSMutableArray* _pendingRequests;
 	char _observingLocation;
-	SCD_Struct_RC48 _observerOptions;
+	SCD_Struct_RC136 _observerOptions;
 
 }
 
@@ -25,11 +25,11 @@
 +(id)__rct_export__2023;
 +(void)load;
 -(id)methodQueue;
+-(id)supportedEvents;
 -(void)checkLocationConfig;
 -(void)beginLocationUpdatesWithDesiredAccuracy:(double)arg1 distanceFilter:(double)arg2 ;
--(id)supportedEvents;
--(void)startObserving:(SCD_Struct_RC48)arg1 ;
--(void)getCurrentPosition:(SCD_Struct_RC48)arg1 withSuccessCallback:(/*^block*/id)arg2 errorCallback:(/*^block*/id)arg3 ;
+-(void)startObserving:(SCD_Struct_RC136)arg1 ;
+-(void)getCurrentPosition:(SCD_Struct_RC136)arg1 withSuccessCallback:(/*^block*/id)arg2 errorCallback:(/*^block*/id)arg3 ;
 -(void)locationManager:(id)arg1 didUpdateLocations:(id)arg2 ;
 -(void)dealloc;
 -(void)timeout:(id)arg1 ;

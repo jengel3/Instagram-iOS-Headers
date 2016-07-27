@@ -23,11 +23,11 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)showWithContent:(id)arg1 delegate:(id)arg2 ;
 +(void)initialize;
--(void)webDialogDidCancel:(id)arg1 ;
--(void)webDialog:(id)arg1 didCompleteWithResults:(id)arg2 ;
--(void)webDialog:(id)arg1 didFailWithError:(id)arg2 ;
 -(char)canShow;
 -(void)_handleCompletionWithDialogResults:(id)arg1 error:(id)arg2 ;
+-(void)webDialog:(id)arg1 didCompleteWithResults:(id)arg2 ;
+-(void)webDialog:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)webDialogDidCancel:(id)arg1 ;
 -(id)_actionTypeNameForActionType:(unsigned)arg1 ;
 -(id)_filtersNameForFilters:(unsigned)arg1 ;
 -(char)frictionlessRequestsEnabled;

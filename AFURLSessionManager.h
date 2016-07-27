@@ -71,15 +71,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id<AFURLResponseSerialization>)responseSerializer;
 -(NSObject*<OS_dispatch_group>)completionGroup;
 -(void)setCompletionGroup:(NSObject*<OS_dispatch_group>)arg1 ;
 -(void)setResponseSerializer:(id<AFURLResponseSerialization>)arg1 ;
 -(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
--(id<AFURLResponseSerialization>)responseSerializer;
 -(AFSecurityPolicy *)securityPolicy;
--(id)initWithSessionConfiguration:(id)arg1 ;
 -(id)downloadTaskDidFinishDownloading;
 -(void)setDownloadTaskDidFinishDownloading:(id)arg1 ;
+-(id)initWithSessionConfiguration:(id)arg1 ;
 -(void)setMutableTaskDelegatesKeyedByTaskIdentifier:(NSMutableDictionary *)arg1 ;
 -(NSArray *)dataTasks;
 -(NSArray *)uploadTasks;

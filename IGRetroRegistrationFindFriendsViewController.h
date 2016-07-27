@@ -35,13 +35,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(IGFindUsersViewDataSource *)findUsersViewDataSource;
--(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
 -(void)contactsFriendsHelperDidTapLearnMore:(id)arg1 ;
+-(IGFindUsersViewDataSource *)findUsersViewDataSource;
 -(void)findUsersView:(id)arg1 didFollowUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
 -(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
@@ -77,6 +76,7 @@
 -(void)setFriendsListView:(IGRegistrationFriendsListView *)arg1 ;
 -(void)setFindFriendsView:(IGRetroRegistrationFindFriendsView *)arg1 ;
 -(void)setFriendsListViewNavBar:(IGRegistrationNavigationBar *)arg1 ;
+-(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
 -(void)setContactsHelper:(IGContactsFriendsHelper *)arg1 ;
 -(void)setDelegate:(id<IGRetroRegistrationFindFriendsViewControllerDelegate>)arg1 ;
 -(void)dealloc;

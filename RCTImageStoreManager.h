@@ -25,6 +25,7 @@
 +(id)__rct_export__1133;
 +(void)load;
 -(NSObject*<OS_dispatch_queue>)methodQueue;
+-(void)getImageForTag:(id)arg1 withBlock:(/*^block*/id)arg2 ;
 -(void)storeImage:(id)arg1 withBlock:(/*^block*/id)arg2 ;
 -(id)sendRequest:(id)arg1 withDelegate:(id)arg2 ;
 -(void)removeImageForTag:(id)arg1 ;
@@ -37,7 +38,6 @@
 -(void)addImageFromBase64:(id)arg1 successCallback:(/*^block*/id)arg2 errorCallback:(/*^block*/id)arg3 ;
 -(id)storeImage:(id)arg1 ;
 -(id)imageForTag:(id)arg1 ;
--(void)getImageForTag:(id)arg1 withBlock:(/*^block*/id)arg2 ;
 -(void)cancelRequest:(id)arg1 ;
 -(char)canHandleRequest:(id)arg1 ;
 @end

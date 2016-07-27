@@ -20,10 +20,10 @@
 @property (nonatomic,readonly) NSString * recoveryActionName;                              //@synthesize recoveryActionName=_recoveryActionName - In the implementation block
 +(char)supportsSecureCoding;
 -(unsigned)errorCategory;
--(NSString *)recoveryActionName;
--(id)initWithRecoveryDescription:(id)arg1 optionDescriptions:(id)arg2 category:(unsigned)arg3 recoveryActionName:(id)arg4 ;
 -(NSString *)localizedRecoveryDescription;
 -(NSArray *)localizedRecoveryOptionDescriptions;
+-(NSString *)recoveryActionName;
+-(id)initWithRecoveryDescription:(id)arg1 optionDescriptions:(id)arg2 category:(unsigned)arg3 recoveryActionName:(id)arg4 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

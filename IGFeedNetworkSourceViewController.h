@@ -10,7 +10,6 @@
 @interface IGFeedNetworkSourceViewController : IGCollectionViewController <IGFeedNetworkSourceDelegate, IGFeedStatusViewDelegate, IGCollectionViewControllerDelegate> {
 
 	char _showRefreshButton;
-	char _allowEmptyStateAndEmptyFeedLoadingIndicator;
 	char _shouldAnnounceFeedRefreshEvents;
 	id<IGFeedItemConfigurationType> _feedItemConfiguration;
 	id<IGFeedConfigurationType> _feedConfiguration;
@@ -33,7 +32,6 @@
 @property (nonatomic,retain) IGFeedNetworkSource * feedSource;                                   //@synthesize feedSource=_feedSource - In the implementation block
 @property (assign,nonatomic) char showRefreshButton;                                             //@synthesize showRefreshButton=_showRefreshButton - In the implementation block
 @property (nonatomic,readonly) NSArray * promotionBannerConfigurations; 
-@property (assign,nonatomic) char allowEmptyStateAndEmptyFeedLoadingIndicator;                   //@synthesize allowEmptyStateAndEmptyFeedLoadingIndicator=_allowEmptyStateAndEmptyFeedLoadingIndicator - In the implementation block
 @property (nonatomic,retain) IGPrefetchPostsConfiguration * prefetchConfiguration;               //@synthesize prefetchConfiguration=_prefetchConfiguration - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -43,7 +41,9 @@
 -(id<IGFeedConfigurationType>)feedConfiguration;
 -(void)setPrefetchConfiguration:(IGPrefetchPostsConfiguration *)arg1 ;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
+-(char)showRefreshButton;
 -(id)analyticsExtras;
+-(void)setShowRefreshButton:(char)arg1 ;
 -(void)setFeedStatusView:(IGFeedStatusView *)arg1 ;
 -(id)restrictedView;
 -(char)isTopOnly;
@@ -59,16 +59,10 @@
 -(NSArray *)promotionBannerConfigurations;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGFeedNetworkSource *)feedSource;
--(void)setShowRefreshButton:(char)arg1 ;
 -(void)setFeedItemConfiguration:(id<IGFeedItemConfigurationType>)arg1 ;
 -(void)addFooterView:(id)arg1 withRank:(int)arg2 animated:(char)arg3 ;
--(IGFeedStatusView *)feedStatusView;
--(void)feedStatusViewDidTapOnInfoView:(id)arg1 ;
--(void)feedStatusView:(id)arg1 didChangeComputedHeight:(float)arg2 ;
--(float)visibleContentHeight;
 -(void)onNetworkTransferRateChanged:(id)arg1 ;
 -(void)reloadWithNewObjects:(id)arg1 ;
--(char)showRefreshButton;
 -(void)setViews:(id)arg1 toWidth:(float)arg2 ;
 -(void)handleLoadedContentDidChange;
 -(void)updateFeedAfterReloadingforFetchAction:(int)arg1 ;
@@ -90,9 +84,12 @@
 -(void)removeFooterView:(id)arg1 animated:(char)arg2 ;
 -(id<IGFeedItemConfigurationType>)feedItemConfiguration;
 -(void)setFeedConfiguration:(id<IGFeedConfigurationType>)arg1 ;
--(void)setAllowEmptyStateAndEmptyFeedLoadingIndicator:(char)arg1 ;
 -(NSMapTable *)headerViewsToRank;
 -(NSMapTable *)footerViewsToRank;
+-(IGFeedStatusView *)feedStatusView;
+-(void)feedStatusViewDidTapOnInfoView:(id)arg1 ;
+-(void)feedStatusView:(id)arg1 didChangeComputedHeight:(float)arg2 ;
+-(float)visibleContentHeight;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(void)updateRestrictedViewWithName:(id)arg1 ;
 -(void)dealloc;

@@ -26,15 +26,19 @@
 @property (assign,nonatomic,__weak) UIViewController * activeViewController;               //@synthesize activeViewController=_activeViewController - In the implementation block
 @property (nonatomic,__weak,readonly) IGNavigationBar * navigationBar;                     //@synthesize navigationBar=_navigationBar - In the implementation block
 @property (nonatomic,__weak,readonly) UIView * statusBar;                                  //@synthesize statusBar=_statusBar - In the implementation block
-+(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
-+(id)scrollingHeaderItemForViewController:(id)arg1 ;
 +(unsigned)navigationBarStateForViewController:(id)arg1 ;
++(id)scrollingHeaderItemForViewController:(id)arg1 ;
 +(unsigned)statusBarStateForViewController:(id)arg1 ;
 +(id)headerSnapshotForViewController:(id)arg1 navigationBar:(id)arg2 ;
++(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
+-(float)headerAdjustmentAmount;
 -(void)setHeaderScrolledAway:(char)arg1 forViewController:(id)arg2 animated:(char)arg3 ;
 -(void)synchronizeViewControllerHeaderState:(id)arg1 ;
--(float)headerAdjustmentAmount;
 -(void)setHeaderAdjustmentAmount:(float)arg1 ;
+-(id)initWithNavigationBar:(id)arg1 ;
+-(void)releaseActiveViewController:(id)arg1 ;
+-(void)layoutHeaderForViewController:(id)arg1 animated:(char)arg2 ;
+-(void)layoutHeaderForActiveViewControllerAnimated:(char)arg1 ;
 -(void)setActiveScrollView:(UIScrollView *)arg1 ;
 -(void)setActiveHeaderItem:(IGScrollingHeaderItem *)arg1 ;
 -(IGScrollingHeaderItem *)activeHeaderItem;
@@ -52,10 +56,6 @@
 -(void)setIsAnimatingTransition:(char)arg1 ;
 -(void)setHeaderY:(float)arg1 animated:(char)arg2 ;
 -(void)positionHeaderAfterScrolling;
--(id)initWithNavigationBar:(id)arg1 ;
--(void)releaseActiveViewController:(id)arg1 ;
--(void)layoutHeaderForViewController:(id)arg1 animated:(char)arg2 ;
--(void)layoutHeaderForActiveViewControllerAnimated:(char)arg1 ;
 -(void)dealloc;
 -(IGNavigationBar *)navigationBar;
 -(UIView *)statusBar;

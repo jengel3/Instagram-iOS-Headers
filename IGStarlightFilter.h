@@ -13,14 +13,14 @@
 
 @property (nonatomic,retain) IGSurface * claheCDF;              //@synthesize claheCDF=_claheCDF - In the implementation block
 @property (assign,nonatomic) float filterStrength;              //@synthesize filterStrength=_filterStrength - In the implementation block
-+(int)numColumns;
 +(id)cdfForPixelBuffer:(CVBufferRef)arg1 slope:(float)arg2 ;
--(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(id)fragmentFunctions;
--(IGSurface *)claheCDF;
--(float)filterStrength;
--(void)setClaheCDF:(IGSurface *)arg1 ;
++(int)numColumns;
 -(void)setFilterStrength:(float)arg1 ;
+-(float)filterStrength;
+-(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
+-(IGSurface *)claheCDF;
+-(void)setClaheCDF:(IGSurface *)arg1 ;
+-(id)fragmentFunctions;
 -(id)fragmentShader;
 -(id)init;
 -(id)copyWithZone:(NSZone*)arg1 ;

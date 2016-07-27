@@ -79,6 +79,7 @@
 -(void)fetchDidFailWithMessage:(id)arg1 ;
 -(void)fetchDidFinishWithMoreItems:(id)arg1 ;
 -(void)reloadObject:(id)arg1 atIndex:(unsigned)arg2 ;
+-(char)enableNavState;
 -(id)feedStatusViewDataSource;
 -(void)fetchMoreData;
 -(id)exploreViewModelForObject:(id)arg1 ;

@@ -19,13 +19,13 @@
 @property (nonatomic,retain) NSString * text;                          //@synthesize text=_text - In the implementation block
 @property (nonatomic,retain) UIColor * textColor; 
 -(CGRect)imageViewFrame;
+-(UIImageView *)cellImageView;
 -(UILabel *)cellLabel;
 -(CGRect)labelFrameForLabel:(id)arg1 ;
 -(CGSize)labelSizeForLabel:(id)arg1 cellWidth:(float)arg2 ;
+-(id)initWithImage:(id)arg1 text:(id)arg2 reuseIdentifier:(id)arg3 ;
 -(void)setCellImageView:(UIImageView *)arg1 ;
 -(void)setCellLabel:(UILabel *)arg1 ;
--(id)initWithImage:(id)arg1 text:(id)arg2 reuseIdentifier:(id)arg3 ;
--(UIImageView *)cellImageView;
 -(void)setImage:(UIImage *)arg1 ;
 -(void)layoutSubviews;
 -(void)setTextColor:(UIColor *)arg1 ;

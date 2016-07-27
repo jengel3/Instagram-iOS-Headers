@@ -14,10 +14,10 @@
 }
 
 @property (assign,nonatomic) int numSecondsIdleToBeNewSession;              //@synthesize numSecondsIdleToBeNewSession=_numSecondsIdleToBeNewSession - In the implementation block
-+(id)getSourceApplication;
-+(void)resetSourceApplication;
 +(void)setSourceApplication:(id)arg1 openURL:(id)arg2 ;
 +(void)registerAutoResetSourceApplication;
++(id)getSourceApplication;
++(void)resetSourceApplication;
 +(void)setSourceApplication:(id)arg1 isFromAppLink:(char)arg2 ;
 +(void)restore:(char)arg1 ;
 +(void)suspend;

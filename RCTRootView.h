@@ -33,13 +33,16 @@
 @property (nonatomic,retain) UIView * loadingView;                                       //@synthesize loadingView=_loadingView - In the implementation block
 @property (assign,nonatomic) double loadingViewFadeDelay;                                //@synthesize loadingViewFadeDelay=_loadingViewFadeDelay - In the implementation block
 @property (assign,nonatomic) double loadingViewFadeDuration;                             //@synthesize loadingViewFadeDuration=_loadingViewFadeDuration - In the implementation block
--(NSString *)moduleName;
+-(id)initWithBridge:(id)arg1 moduleName:(id)arg2 initialProperties:(id)arg3 ;
+-(void)setLoadingViewFadeDelay:(double)arg1 ;
+-(void)setLoadingViewFadeDuration:(double)arg1 ;
 -(id)reactTag;
--(void)bridgeDidReload;
+-(UIViewController *)reactViewController;
+-(NSString *)moduleName;
 -(void)javaScriptDidLoad:(id)arg1 ;
+-(void)bridgeDidReload;
 -(void)hideLoadingView;
 -(void)bundleFinishedLoading:(id)arg1 ;
--(id)initWithBridge:(id)arg1 moduleName:(id)arg2 initialProperties:(id)arg3 ;
 -(void)runApplication:(id)arg1 ;
 -(id)initWithBundleURL:(id)arg1 moduleName:(id)arg2 initialProperties:(id)arg3 launchOptions:(id)arg4 ;
 -(void)setAppProperties:(NSDictionary *)arg1 ;
@@ -49,13 +52,10 @@
 -(CGSize)intrinsicSize;
 -(void)setReactViewController:(UIViewController *)arg1 ;
 -(double)loadingViewFadeDelay;
--(void)setLoadingViewFadeDelay:(double)arg1 ;
 -(double)loadingViewFadeDuration;
--(void)setLoadingViewFadeDuration:(double)arg1 ;
 -(void)setSizeFlexibility:(int)arg1 ;
 -(int)sizeFlexibility;
 -(void)setIntrinsicSize:(CGSize)arg1 ;
--(UIViewController *)reactViewController;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

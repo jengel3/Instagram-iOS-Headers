@@ -18,6 +18,7 @@
 -(CALayer *)separatorLayer;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
+-(void)setSeparatorColor:(id)arg1 ;
 -(float)leftInset;
 -(float)rightInset;
 -(void)setLeftInset:(float)arg1 ;

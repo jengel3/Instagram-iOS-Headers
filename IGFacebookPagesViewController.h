@@ -31,7 +31,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)displayUnknownError;
 -(void)pagesDataSource:(id)arg1 didReceiveError:(id)arg2 ;
 -(void)pagesDataSource:(id)arg1 didLoadPages:(id)arg2 ;
@@ -50,6 +49,7 @@
 -(void)storeFacebookPostingAccountName:(id)arg1 ;
 -(void)storeFacebookPostingAccountAccessToken:(id)arg1 ;
 -(void)handleLoadedPages:(id)arg1 ;
+-(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 -(void)setDelegate:(id<IGFacebookPagesViewControllerDelegate>)arg1 ;

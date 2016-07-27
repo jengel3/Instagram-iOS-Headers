@@ -9,8 +9,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)getMediasFromItem:(id)arg1 ;
 -(id)componentForItemData:(id)arg1 ;
+-(id)getMediasFromItem:(id)arg1 ;
 -(id)getPageInfoFromItem:(id)arg1 ;
 @end
 

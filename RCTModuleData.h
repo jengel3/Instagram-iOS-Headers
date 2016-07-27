@@ -11,7 +11,7 @@
 	RCTBridge* _bridge;
 	NSLock* _instanceLock;
 	char _setupComplete;
-	char _requiresMainThreadSetup;
+	char _requiresMainQueueSetup;
 	char _hasConstantsToExport;
 	char _implementsBatchDidComplete;
 	char _implementsPartialBatchDidFlush;
@@ -26,7 +26,7 @@
 @property (nonatomic,copy,readonly) NSString * name; 
 @property (nonatomic,copy,readonly) NSArray * methods;                                //@synthesize methods=_methods - In the implementation block
 @property (nonatomic,readonly) char hasInstance; 
-@property (nonatomic,readonly) char requiresMainThreadSetup;                          //@synthesize requiresMainThreadSetup=_requiresMainThreadSetup - In the implementation block
+@property (nonatomic,readonly) char requiresMainQueueSetup;                           //@synthesize requiresMainQueueSetup=_requiresMainQueueSetup - In the implementation block
 @property (nonatomic,readonly) char hasConstantsToExport;                             //@synthesize hasConstantsToExport=_hasConstantsToExport - In the implementation block
 @property (nonatomic,readonly) id<RCTBridgeModule> instance;                          //@synthesize instance=_instance - In the implementation block
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> methodQueue;              //@synthesize methodQueue=_methodQueue - In the implementation block
@@ -46,7 +46,7 @@
 -(id)initWithModuleClass:(Class)arg1 bridge:(id)arg2 ;
 -(id)initWithModuleInstance:(id)arg1 bridge:(id)arg2 ;
 -(char)hasInstance;
--(char)requiresMainThreadSetup;
+-(char)requiresMainQueueSetup;
 -(char)hasConstantsToExport;
 -(char)implementsBatchDidComplete;
 -(char)implementsPartialBatchDidFlush;

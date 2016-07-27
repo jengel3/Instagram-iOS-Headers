@@ -49,6 +49,7 @@
 -(IGClusterTileView *)mainTile;
 -(id)rightTile;
 -(void)didFinishExplosionAnimation;
+-(void)backgroundTapped;
 -(void)tileTapped:(id)arg1 ;
 -(void)infoButtonTapped;
 -(id)leftTile;
@@ -69,7 +70,6 @@
 -(void)restoreAfterPinch;
 -(void)collapseCurrentTile:(char)arg1 ;
 -(void)reloadTiles;
--(void)backgroundTapped;
 -(void)handleDoubleTap:(id)arg1 ;
 -(id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2 ;
 -(void)setNeedsDisplay;

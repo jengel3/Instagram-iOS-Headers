@@ -17,13 +17,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(void)setEntryPoint:(int)arg1 ;
 -(char)shouldPrefetchMediaForFeedItems;
 -(char)shouldAutoplayVideos;
 -(char)allowAutoPlay;
 -(id)feedAccessibilityIdentifier;
 -(unsigned)tombstoneTypeForFeed;
 -(id)initWithEntryPoint:(int)arg1 ;
--(void)setEntryPoint:(int)arg1 ;
 -(IGDefaultFeedConfiguration *)defaultConfig;
 -(int)entryPoint;
 @end

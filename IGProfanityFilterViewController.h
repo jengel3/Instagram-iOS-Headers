@@ -13,8 +13,8 @@
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;               //@synthesize spinner=_spinner - In the implementation block
 @property (assign,nonatomic) char initialProfanityFilterSetting;              //@synthesize initialProfanityFilterSetting=_initialProfanityFilterSetting - In the implementation block
 -(id)analyticsModule;
--(char)prefersTabBarHidden;
 -(char)initialProfanityFilterSetting;
+-(char)prefersTabBarHidden;
 -(void)setInitialProfanityFilterSetting:(char)arg1 ;
 -(id)init;
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;

@@ -2,7 +2,7 @@
 
 @protocol IGGridViewHeaderLabelDelegate <NSObject>
 @required
--(void)gridViewHeaderLabelDidTapEdit:(id)arg1;
+-(void)gridViewHeaderLabelDidTapSecondaryButton:(id)arg1;
 
 @end
 

@@ -2,9 +2,9 @@
 
 @protocol IGShareListManagerDelegate <NSObject>
 @required
--(void)shareListNeedsFullReload;
 -(void)shareListNeedsReloadForServiceAtIndex:(int)arg1;
 -(id)viewControllerForShareConfiguration;
+-(void)shareListNeedsFullReload;
 
 @end
 

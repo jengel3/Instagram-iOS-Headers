@@ -29,7 +29,6 @@
 	IGKVOHandle* _playerItemStatusObserver;
 	IGKVOHandle* _playerItemPlaybackLikelyToKeepUpObserver;
 	IGKVOHandle* _playerItemPlaybackBufferEmptyObserver;
-	IGKVOHandle* _playerItemPlaybackBufferFullObserver;
 	IGKVOHandle* _playerItemTimeRangeObserver;
 
 }
@@ -53,7 +52,6 @@
 @property (nonatomic,retain) IGKVOHandle * playerItemStatusObserver;                              //@synthesize playerItemStatusObserver=_playerItemStatusObserver - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * playerItemPlaybackLikelyToKeepUpObserver;              //@synthesize playerItemPlaybackLikelyToKeepUpObserver=_playerItemPlaybackLikelyToKeepUpObserver - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * playerItemPlaybackBufferEmptyObserver;                 //@synthesize playerItemPlaybackBufferEmptyObserver=_playerItemPlaybackBufferEmptyObserver - In the implementation block
-@property (nonatomic,retain) IGKVOHandle * playerItemPlaybackBufferFullObserver;                  //@synthesize playerItemPlaybackBufferFullObserver=_playerItemPlaybackBufferFullObserver - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * playerItemTimeRangeObserver;                           //@synthesize playerItemTimeRangeObserver=_playerItemTimeRangeObserver - In the implementation block
 @property (assign,getter=isAudioEnabled,nonatomic) char audioEnabled;                             //@synthesize audioEnabled=_audioEnabled - In the implementation block
 @property (assign,getter=isLooping,nonatomic) char looping;                                       //@synthesize looping=_looping - In the implementation block
@@ -63,27 +61,26 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(SCD_Struct_IG77)playbackEndTimeForAsset:(id)arg1 ;
++(SCD_Struct_IG18)playbackEndTimeForAsset:(id)arg1 ;
 -(void)loadVideoForURL:(id)arg1 ;
+-(void)frameForTime:(float)arg1 completion:(/*^block*/id)arg2 ;
 -(char)hasPaused;
 -(void)prepareForReuseWithCompletion:(/*^block*/id)arg1 ;
 -(char)requiresResetPlayer;
--(void)loadVideoForURL:(id)arg1 resourceLoaderDelegate:(id)arg2 queue:(id)arg3 ;
--(void)assetFailedToPrepareForPlayback:(id)arg1 ;
+-(char)assetHasAudio;
+-(int)loopCount;
 -(void)removeStreamingPlayerItemObservers;
 -(void)dispatchSyncOnPlayerQueueOrCurrent:(/*^block*/id)arg1 ;
 -(NSObject*<OS_dispatch_queue>)playerQueue;
 -(IGVideoPlayerTargetView *)videoTargetView;
 -(void)dispatchAsyncOnPlayerQueue:(/*^block*/id)arg1 ;
 -(void)setReadyToPlay:(char)arg1 ;
+-(void)assetFailedToPrepareForPlayback:(id)arg1 ;
 -(void)setPlayerItemStatusObserver:(IGKVOHandle *)arg1 ;
 -(void)playbackLikelyToKeepUp:(char)arg1 ;
 -(void)setPlayerItemPlaybackLikelyToKeepUpObserver:(IGKVOHandle *)arg1 ;
 -(void)playbackBufferEmpty:(char)arg1 ;
 -(void)setPlayerItemPlaybackBufferEmptyObserver:(IGKVOHandle *)arg1 ;
--(void)playbackBufferFull:(char)arg1 ;
--(void)setPlayerItemPlaybackBufferFullObserver:(IGKVOHandle *)arg1 ;
--(int)loopCount;
 -(void)setLoopCount:(int)arg1 ;
 -(AVPlayerItem *)streamingPlayerItem;
 -(void)setStreamingPlayerItem:(AVPlayerItem *)arg1 ;
@@ -95,20 +92,19 @@
 -(void)setAssetHasAudio:(char)arg1 ;
 -(void)preparePlayerWithAsset:(id)arg1 ;
 -(void)loadKeys:(id)arg1 forObjects:(id)arg2 completion:(/*^block*/id)arg3 ;
+-(void)loadVideoForURL:(id)arg1 resourceLoaderDelegate:(id)arg2 queue:(id)arg3 ;
 -(void)prepareToPlayURL:(id)arg1 resourceLoaderDelegate:(id)arg2 queue:(id)arg3 ;
 -(void)setHasPaused:(char)arg1 ;
 -(char)playedFirstFrame;
 -(char)readyToPlay;
--(void)onPlaybackTimeChanged:(SCD_Struct_IG77)arg1 ;
+-(void)onPlaybackTimeChanged:(SCD_Struct_IG18)arg1 ;
 -(void)videoPlayerViewIsReadyToDisplay:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didChangePlaybackRate:(float)arg2 ;
--(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG77)arg2 ;
+-(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG18)arg2 ;
 -(void)onTimeRangesUpdated:(id)arg1 ;
--(char)assetHasAudio;
 -(IGKVOHandle *)playerItemStatusObserver;
 -(IGKVOHandle *)playerItemPlaybackLikelyToKeepUpObserver;
 -(IGKVOHandle *)playerItemPlaybackBufferEmptyObserver;
--(IGKVOHandle *)playerItemPlaybackBufferFullObserver;
 -(IGKVOHandle *)playerItemTimeRangeObserver;
 -(void)setPlayerItemTimeRangeObserver:(IGKVOHandle *)arg1 ;
 -(void)setLooping:(char)arg1 ;

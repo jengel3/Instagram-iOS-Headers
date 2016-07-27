@@ -28,10 +28,10 @@
 @property (nonatomic,retain) NSURLCredential * credential;                                                          //@synthesize credential=_credential - In the implementation block
 @property (nonatomic,retain) AFSecurityPolicy * securityPolicy;                                                     //@synthesize securityPolicy=_securityPolicy - In the implementation block
 +(id)manager;
+-(AFHTTPResponseSerializer*<AFURLResponseSerialization>)responseSerializer;
 -(void)setRequestSerializer:(AFHTTPRequestSerializer*<AFURLRequestSerialization>)arg1 ;
 -(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
 -(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
--(AFHTTPResponseSerializer*<AFURLResponseSerialization>)responseSerializer;
 -(char)shouldUseCredentialStorage;
 -(void)setShouldUseCredentialStorage:(char)arg1 ;
 -(AFSecurityPolicy *)securityPolicy;

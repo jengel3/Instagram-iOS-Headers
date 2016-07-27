@@ -10,7 +10,7 @@
 #import <Instagram/IGExploreSearchChildViewController.h>
 
 @protocol IGAutocompleteNetworkDataSourceAnalytics, IGSearchResultsTab, IGSearchResultsViewControllerDelegate;
-@class IGAutocompleteAsyncDataSource, NSString, IGSearchViewController, NSOrderedSet, NSMutableArray, IGListCollectionView, IGListAdapter, IGAnalyticsSearchRankInfo;
+@class IGAutocompleteAsyncDataSource, NSString, IGPreviewMediaView, IGSearchViewController, NSOrderedSet, NSMutableArray, IGListCollectionView, IGListAdapter, IGAnalyticsSearchRankInfo;
 
 @interface IGSearchResultsViewController : IGPlainTableViewController <IGAutocompleteAsyncDataSourceDelegate, IGRaindropAnalyticsDelegate, IGSearchResultCellDelegate, UICollectionViewDelegate, IGAnalyticsModule, IGAnalyticsSearchInfo, IGExploreSearchChildViewController> {
 
@@ -20,6 +20,7 @@
 	id<IGSearchResultsTab> _searchResultsTab;
 	id<IGSearchResultsViewControllerDelegate> _delegate;
 	NSString* _searchText;
+	IGPreviewMediaView* _previewMediaView;
 	IGSearchViewController* _hostingViewController;
 	unsigned _minUnSeenRow;
 	NSOrderedSet* _sectionControllers;
@@ -42,36 +43,35 @@
 @property (nonatomic,readonly) IGAutocompleteAsyncDataSource*<IGAutocompleteNetworkDataSourceAnalytics> dataSource;              //@synthesize dataSource=_dataSource - In the implementation block
 @property (nonatomic,readonly) id<IGSearchResultsTab> searchResultsTab;                                                          //@synthesize searchResultsTab=_searchResultsTab - In the implementation block
 @property (assign,nonatomic,__weak) id<IGSearchResultsViewControllerDelegate> delegate;                                          //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGPreviewMediaView * previewMediaView;                                                              //@synthesize previewMediaView=_previewMediaView - In the implementation block
 @property (nonatomic,readonly) char isSearching;                                                                                 //@synthesize isSearching=_isSearching - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(char)matchQuery:(id)arg1 forItem:(id)arg2 prefixShouldMatch:(char)arg3 ;
++(char)matchQuery:(id)arg1 forItem:(id)arg2 ;
 +(id)targetIdFromItem:(id)arg1 ;
 +(char)showHScrollSuggestions;
-+(id)filteredItems:(id)arg1 hiddenSet:(id)arg2 ;
-+(id)sectionWithHostingViewController:(id)arg1 frequentItems:(id)arg2 recentItems:(id)arg3 shouldShowFrequent:(char)arg4 ;
 +(id)placeDictionary:(id)arg1 ;
 +(id)hashtagDictionaryRepresentation:(id)arg1 ;
 +(id)userDictionaryRepresentation:(id)arg1 ;
 +(id)placeDictionaryRepresentation:(id)arg1 ;
--(char)enableNavState;
++(id)filteredItems:(id)arg1 hiddenSet:(id)arg2 ;
++(id)sectionWithHostingViewController:(id)arg1 frequentItems:(id)arg2 recentItems:(id)arg3 shouldShowFrequent:(char)arg4 ;
 -(id)analyticsModule;
--(IGAnalyticsSearchRankInfo *)searchInfo;
 -(id)searchingCellForTableView:(id)arg1 ;
 -(id)analyticsExtras;
+-(char)enableNavState;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFinishLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFailLoad:(id)arg1 ;
--(int)searchResultState;
--(id)searchBarPlaceholder;
--(void)onSearchTextDidChange:(id)arg1 ;
--(id)fallbackIcon;
+-(void)setPreviewMediaView:(IGPreviewMediaView *)arg1 ;
+-(IGPreviewMediaView *)previewMediaView;
 -(char)searchResultCellShouldLongPress:(id)arg1 ;
 -(void)searchResultCellDidLongPress:(id)arg1 ;
 -(void)setSearchInfo:(IGAnalyticsSearchRankInfo *)arg1 ;
+-(IGAnalyticsSearchRankInfo *)searchInfo;
 -(id<IGSearchResultsTab>)searchResultsTab;
 -(void)reloadTableView;
 -(IGListAdapter *)suggestionListAdapter;
@@ -88,6 +88,7 @@
 -(void)setMinUnSeenRow:(unsigned)arg1 ;
 -(NSOrderedSet *)sectionControllers;
 -(id)sectionControllerForSection:(unsigned)arg1 ;
+-(char)shouldShowPreviewMedia:(id)arg1 indexPath:(id)arg2 ;
 -(void)logSearchResponseToSearchText:(id)arg1 rankToken:(id)arg2 ;
 -(char)isSearchingIndicatorSection:(int)arg1 ;
 -(char)shouldShowLocationCellInSection:(int)arg1 ;
@@ -110,6 +111,10 @@
 -(NSMutableArray *)searchQueryArray;
 -(void)setSearchQueryArray:(NSMutableArray *)arg1 ;
 -(void)setSuggestionCollectionView:(IGListCollectionView *)arg1 ;
+-(int)searchResultState;
+-(id)searchBarPlaceholder;
+-(void)onSearchTextDidChange:(id)arg1 ;
+-(id)fallbackIcon;
 -(void)setHostingViewController:(IGSearchViewController *)arg1 ;
 -(char)isSearching;
 -(void)setSearchText:(NSString *)arg1 ;

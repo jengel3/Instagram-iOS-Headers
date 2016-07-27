@@ -1,16 +1,16 @@
 
 
 @interface IGMediaPermissions : NSObject
-+(char)usePhotosFramework;
-+(char)isLibraryAuthorized;
 +(void)requestCameraAuthorization:(/*^block*/id)arg1 ;
++(char)usePhotosFramework;
 +(char)isAudioAuthorizationDetermined;
 +(void)requestAudioAuthorization:(/*^block*/id)arg1 ;
 +(char)isAudioAuthorized;
 +(char)isAudioAndVideoAuthorized;
-+(void)checkLibraryPermissions:(/*^block*/id)arg1 ;
 +(char)isVideoAuthorizationDetermined;
++(void)checkLibraryPermissions:(/*^block*/id)arg1 ;
 +(char)isVideoAuthorized;
++(char)isLibraryAuthorized;
 +(char)isLibraryPermissionDetermined;
 +(char)hasDeniedCameraAccess;
 @end

@@ -19,6 +19,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)displayAttributeStringWithLastStatus:(int)arg1 attributeString:(id)arg2 ;
 -(id)buildStringForNewStoriesCount:(int)arg1 ;
 -(void)didTapOnMainFeedHeaderViewLabel:(id)arg1 ;
 -(void)setMainFeedStatus:(int)arg1 withNumOfNewStories:(int)arg2 ;

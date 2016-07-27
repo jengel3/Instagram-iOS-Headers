@@ -39,6 +39,7 @@
 -(id)standardCellWithText:(id)arg1 detailedText:(id)arg2 ;
 -(id)headerForErrorStatus:(id)arg1 ;
 -(id)initWithAdViewModel:(id)arg1 logger:(id)arg2 ;
+-(char)canHostInlineGallery:(char)arg1 ;
 -(IGAdsManagerLogger *)logger;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;
 -(float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2 ;

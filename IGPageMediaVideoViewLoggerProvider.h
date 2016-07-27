@@ -1,15 +1,15 @@
 
 
-@class IGPost;
+@class IGFeedItem;
 
 @interface IGPageMediaVideoViewLoggerProvider : NSObject {
 
-	IGPost* _post;
+	IGFeedItem* _post;
 
 }
 
-@property (nonatomic,readonly) IGPost * post;              //@synthesize post=_post - In the implementation block
--(IGPost *)post;
+@property (nonatomic,readonly) IGFeedItem * post;              //@synthesize post=_post - In the implementation block
+-(IGFeedItem *)post;
 -(id)initWithPost:(id)arg1 ;
 -(id)loggerForCarouselIndex:(int)arg1 pk:(id)arg2 ;
 @end

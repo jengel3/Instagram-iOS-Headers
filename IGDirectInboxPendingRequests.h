@@ -23,6 +23,7 @@
 -(int)count;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
+-(id)description;
 -(id)copyWithZone:(NSZone*)arg1 ;
 -(char)isEmpty;
 -(NSArray *)users;

@@ -20,11 +20,11 @@
 +(id)__rct_export__742;
 +(id)__rct_export__803;
 +(void)load;
--(id)supportedEvents;
+-(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
 -(void)webSocketDidOpen:(id)arg1 ;
 -(void)webSocket:(id)arg1 didFailWithError:(id)arg2 ;
--(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
 -(void)webSocket:(id)arg1 didCloseWithCode:(int)arg2 reason:(id)arg3 wasClean:(char)arg4 ;
+-(id)supportedEvents;
 -(void)connect:(id)arg1 protocols:(id)arg2 headers:(id)arg3 socketID:(id)arg4 ;
 -(void)send:(id)arg1 socketID:(id)arg2 ;
 -(void)sendBinary:(id)arg1 socketID:(id)arg2 ;

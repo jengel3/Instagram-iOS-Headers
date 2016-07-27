@@ -25,10 +25,10 @@
 @property (nonatomic,copy,readonly) NSString * username;                                      //@synthesize username=_username - In the implementation block
 -(IGProfilePictureImageView *)profilePictureView;
 -(void)setProfilePictureView:(IGProfilePictureImageView *)arg1 ;
--(NSURL *)profilePictureURL;
 -(void)setConfirmLoginButton:(UIButton *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 username:(id)arg2 profilePictureURL:(id)arg3 ;
 -(UIButton *)confirmLoginButton;
+-(NSURL *)profilePictureURL;
 -(UILabel *)descriptionLabel;
 -(void)layoutSubviews;
 -(UILabel *)titleLabel;

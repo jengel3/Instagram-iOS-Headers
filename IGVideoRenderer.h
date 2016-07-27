@@ -3,7 +3,7 @@
 #import <Instagram/IGVideoWriterDelegate.h>
 
 @protocol IGVideoRendererDelegate, IGVideoRendererProgressDelegate;
-@class IGVideoComposition, IGVideoReader, IGVideoWriter, IGRenderer, IGSurface, IGStabilizationFilter, NSString;
+@class IGVideoComposition, NSProgress, IGVideoReader, IGVideoWriter, IGRenderer, IGSurface, IGStabilizationFilter, NSString;
 
 @interface IGVideoRenderer : NSObject <IGVideoWriterDelegate> {
 
@@ -11,7 +11,7 @@
 	char _saveWhenDone;
 	char _shouldUseFallbackSize;
 	IGVideoComposition* _video;
-	float _progress;
+	NSProgress* _progress;
 	int _status;
 	int _retryCount;
 	id<IGVideoRendererDelegate> _delegate;
@@ -29,9 +29,9 @@
 @property (nonatomic,retain) IGRenderer * renderer;                                                    //@synthesize renderer=_renderer - In the implementation block
 @property (nonatomic,retain) IGSurface * stabilizedFrame;                                              //@synthesize stabilizedFrame=_stabilizedFrame - In the implementation block
 @property (nonatomic,readonly) IGStabilizationFilter * stabilizationFilter;                            //@synthesize stabilizationFilter=_stabilizationFilter - In the implementation block
-@property (assign,nonatomic) float progress;                                                           //@synthesize progress=_progress - In the implementation block
 @property (assign,nonatomic) int status;                                                               //@synthesize status=_status - In the implementation block
 @property (nonatomic,readonly) IGVideoComposition * video;                                             //@synthesize video=_video - In the implementation block
+@property (nonatomic,readonly) NSProgress * progress;                                                  //@synthesize progress=_progress - In the implementation block
 @property (nonatomic,readonly) int retryCount;                                                         //@synthesize retryCount=_retryCount - In the implementation block
 @property (assign,nonatomic,__weak) id<IGVideoRendererDelegate> delegate;                              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGVideoRendererProgressDelegate> progressDelegate;              //@synthesize progressDelegate=_progressDelegate - In the implementation block
@@ -41,32 +41,32 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)initWithVideo:(id)arg1 ;
+-(void)setShouldUseFallbackSize:(char)arg1 ;
+-(IGSurface *)stabilizedFrame;
+-(void)setStabilizedFrame:(IGSurface *)arg1 ;
+-(IGStabilizationFilter *)stabilizationFilter;
+-(char)saveWhenDone;
+-(void)setSaveWhenDone:(char)arg1 ;
 -(id)createVideoReader;
 -(id)createVideoWriter;
 -(char)shouldUseFallbackSize;
 -(id)createRenderer;
 -(IGVideoReader *)videoReader;
--(CVBufferRef)nextRenderedPixelBufferForVideoWriter:(id)arg1 withAdaptor:(id)arg2 getPresentationTime:(SCD_Struct_IG77*)arg3 ;
+-(IGVideoWriter *)videoWriter;
+-(void)setVideoReader:(IGVideoReader *)arg1 ;
+-(void)setVideoWriter:(IGVideoWriter *)arg1 ;
 -(opaqueCMSampleBufferRef)nextAudioSampleBufferForVideoWriter:(id)arg1 ;
 -(void)videoWriter:(id)arg1 didFinishWritingVideoToURL:(id)arg2 ;
 -(void)videoWriter:(id)arg1 didFailWithError:(id)arg2 ;
--(id)initWithVideo:(id)arg1 ;
--(IGVideoWriter *)videoWriter;
--(char)saveWhenDone;
--(void)setSaveWhenDone:(char)arg1 ;
--(void)setShouldUseFallbackSize:(char)arg1 ;
--(void)setVideoReader:(IGVideoReader *)arg1 ;
--(void)setVideoWriter:(IGVideoWriter *)arg1 ;
--(IGSurface *)stabilizedFrame;
--(void)setStabilizedFrame:(IGSurface *)arg1 ;
--(IGStabilizationFilter *)stabilizationFilter;
+-(CVBufferRef)nextRenderedPixelBufferForVideoWriter:(id)arg1 withAdaptor:(id)arg2 getPresentationTime:(SCD_Struct_IG52*)arg3 ;
 -(void)setRenderer:(IGRenderer *)arg1 ;
 -(void)cancel;
 -(void)setDelegate:(id<IGVideoRendererDelegate>)arg1 ;
 -(id<IGVideoRendererDelegate>)delegate;
 -(void)suspend;
--(void)setProgress:(float)arg1 ;
--(float)progress;
+-(void)setProgress:(NSProgress *)arg1 ;
+-(NSProgress *)progress;
 -(int)status;
 -(void)setStatus:(int)arg1 ;
 -(int)retryCount;

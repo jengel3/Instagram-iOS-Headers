@@ -20,8 +20,8 @@
 @property (assign,nonatomic) char youtubeNavigationFix; 
 @optional
 -(char)currentlyCrashed;
--(void)addScriptMessageHandlerForName:(id)arg1;
 -(char)recoveredFromOOMCrash;
+-(void)addScriptMessageHandlerForName:(id)arg1;
 -(id)backForwardList;
 -(void)removeScriptMessageHandlerForName:(id)arg1;
 
@@ -34,9 +34,9 @@
 -(void)setDisplayState:(int)arg1;
 -(char)isBannerAtTop;
 -(void)setIsBannerAtTop:(char)arg1;
--(int)webViewImplementation;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1;
+-(int)webViewImplementation;
 -(UIView *)bannerView;
 -(void)setDelegate:(id)arg1;
 -(void)reload;

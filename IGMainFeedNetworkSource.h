@@ -11,11 +11,9 @@
 	id<IGMainFeedNetworkSourceDelegate> _mainFeedDelegate;
 	NSArray* _followAccountList;
 	NSString* _firstPostBeforeFeedReloadPK;
-	NSString* _userPKAtTimeOfInstantiation;
 
 }
 
-@property (nonatomic,copy,readonly) NSString * userPKAtTimeOfInstantiation;                            //@synthesize userPKAtTimeOfInstantiation=_userPKAtTimeOfInstantiation - In the implementation block
 @property (assign,nonatomic,__weak) id<IGMainFeedNetworkSourceDelegate> mainFeedDelegate;              //@synthesize mainFeedDelegate=_mainFeedDelegate - In the implementation block
 @property (nonatomic,readonly) NSArray * followAccountList;                                            //@synthesize followAccountList=_followAccountList - In the implementation block
 @property (nonatomic,readonly) NSString * firstPostBeforeFeedReloadPK;                                 //@synthesize firstPostBeforeFeedReloadPK=_firstPostBeforeFeedReloadPK - In the implementation block
@@ -24,17 +22,17 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 ;
+-(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 userSession:(id)arg3 ;
 -(void)loadEntriesFromResponse:(id)arg1 clearOut:(char)arg2 ;
 -(id)serializedDataFilePath;
 -(void)deserializeEntriesAtPath:(id)arg1 ;
 -(void)serializeData;
 -(void)deserializeData;
--(NSString *)userPKAtTimeOfInstantiation;
--(id)initWithPosts:(id)arg1 postClass:(Class)arg2 fetchPath:(id)arg3 ;
+-(id)initWithPosts:(id)arg1 postClass:(Class)arg2 fetchPath:(id)arg3 userSession:(id)arg4 ;
 -(char)fetchDataWithParameters:(id)arg1 ;
 -(void)handleSuccessBlockWithResponse:(id)arg1 requestConfig:(id)arg2 ;
 -(char)fetchMoreItemsWithParameters:(id)arg1 ;
+-(void)setIsPrefetch:(char)arg1 ;
 -(char)fetchMoreItems;
 -(NSString *)firstPostBeforeFeedReloadPK;
 -(id)parametersForBatteryInfo;
@@ -43,7 +41,6 @@
 -(void)loadPromotionBannerInfoFromResponse:(id)arg1 ;
 -(void)setMainFeedDelegate:(id<IGMainFeedNetworkSourceDelegate>)arg1 ;
 -(NSArray *)followAccountList;
--(void)setIsPrefetch:(char)arg1 ;
 -(char)fetchData;
 -(void)archiveToFile:(id)arg1 ;
 -(char)isPrefetch;

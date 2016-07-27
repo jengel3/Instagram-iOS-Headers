@@ -19,10 +19,10 @@
 -(void)showAudioPermissionsDeniedAlertView;
 -(IGLibraryAccessPromptView *)libraryAccessDeniedView;
 -(void)setLibraryAccessDeniedView:(IGLibraryAccessPromptView *)arg1 ;
+-(void)showLibraryAccessDeniedView;
 -(id)initWithContentContainerView:(id)arg1 ;
 -(void)showDiscardEditsAlertViewWithDiscardBlock:(/*^block*/id)arg1 keepBlock:(/*^block*/id)arg2 ;
 -(void)showPickDisabledAssetAnimation:(id)arg1 ;
--(void)showLibraryAccessDeniedView;
 -(UIView *)contentContainerView;
 -(void)setContentContainerView:(UIView *)arg1 ;
 @end

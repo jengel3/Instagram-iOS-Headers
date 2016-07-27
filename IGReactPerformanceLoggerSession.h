@@ -17,9 +17,9 @@
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> queue;                    //@synthesize queue=_queue - In the implementation block
 @property (nonatomic,retain) IGReactPerformanceLoggerSessionData * data;              //@synthesize data=_data - In the implementation block
 +(unsigned long long)residentMemoryBytes;
--(void)javaScriptDidLoad:(id)arg1 ;
--(NSString *)viewName;
 -(void)logContentDidAppear;
+-(NSString *)viewName;
+-(void)javaScriptDidLoad:(id)arg1 ;
 -(void)didReceiveJSEvents:(id)arg1 ;
 -(void)reportAnalyticsIfFinished;
 -(id)initWithViewName:(id)arg1 ;

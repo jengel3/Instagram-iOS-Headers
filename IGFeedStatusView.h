@@ -15,17 +15,17 @@
 
 }
 
-@property (nonatomic,retain) IGTableViewInsetInfoView * infoView;                              //@synthesize infoView=_infoView - In the implementation block
-@property (assign,nonatomic) char canHideSelf;                                                 //@synthesize canHideSelf=_canHideSelf - In the implementation block
-@property (assign,nonatomic) char shouldOnlyShowForLoadingMore;                                //@synthesize shouldOnlyShowForLoadingMore=_shouldOnlyShowForLoadingMore - In the implementation block
-@property (nonatomic,retain) NSObject*<IGFeedStatusViewDataSource> dataSource;                 //@synthesize dataSource=_dataSource - In the implementation block
-@property (assign,nonatomic,__weak) NSObject*<IGFeedStatusViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGTableViewInsetInfoView * infoView;                                  //@synthesize infoView=_infoView - In the implementation block
+@property (assign,nonatomic) char canHideSelf;                                                     //@synthesize canHideSelf=_canHideSelf - In the implementation block
+@property (assign,nonatomic) char shouldOnlyShowForLoadingMore;                                    //@synthesize shouldOnlyShowForLoadingMore=_shouldOnlyShowForLoadingMore - In the implementation block
+@property (assign,nonatomic,__weak) NSObject*<IGFeedStatusViewDataSource> dataSource;              //@synthesize dataSource=_dataSource - In the implementation block
+@property (assign,nonatomic,__weak) NSObject*<IGFeedStatusViewDelegate> delegate;                  //@synthesize delegate=_delegate - In the implementation block
 -(void)setShouldOnlyShowForLoadingMore:(char)arg1 ;
--(void)setCanHideSelf:(char)arg1 ;
--(void)updateFeedStatusView;
 -(void)updateForFeedStatusChange;
 -(char)shouldOnlyShowForLoadingMore;
 -(char)canHideSelf;
+-(void)setCanHideSelf:(char)arg1 ;
+-(void)updateFeedStatusView;
 -(void)tableViewInsetInfoViewDidTapOnView:(id)arg1 ;
 -(IGTableViewInsetInfoView *)infoView;
 -(void)setInfoView:(IGTableViewInsetInfoView *)arg1 ;

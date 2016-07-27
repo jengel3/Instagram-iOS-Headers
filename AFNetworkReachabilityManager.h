@@ -19,11 +19,11 @@
 +(id)managerForAddress:(const sockaddr_in*)arg1 ;
 +(id)sharedManager;
 +(id)keyPathsForValuesAffectingValueForKey:(id)arg1 ;
+-(char)isReachableViaWiFi;
+-(char)isReachableViaWWAN;
+-(int)networkReachabilityStatus;
 -(void)setNetworkReachability:(SCNetworkReachabilityRef)arg1 ;
 -(void)setNetworkReachabilityStatus:(int)arg1 ;
--(char)isReachableViaWWAN;
--(char)isReachableViaWiFi;
--(int)networkReachabilityStatus;
 -(SCNetworkReachabilityRef)networkReachability;
 -(id)networkReachabilityStatusBlock;
 -(void)setNetworkReachabilityStatusBlock:(id)arg1 ;

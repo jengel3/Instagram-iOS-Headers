@@ -44,9 +44,8 @@
 @property (assign,nonatomic,__weak) id<IGCustomAlertViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(id)newAlertWithBoomerangConfiguration;
 +(id)newAlertWithLayoutConfiguration;
-+(id)newAlertWithBusinessConfiguration;
-+(id)newAlertForProfilePictureInstantShareToFeedWithImage:(id)arg1 ;
 +(id)newAlertForProfilePictureSharingWithImage:(id)arg1 ;
++(id)newAlertForProfilePictureInstantShareToFeedWithImage:(id)arg1 ;
 -(id)analyticsModule;
 -(UILabel *)appDescriptionLabel;
 -(UIImage *)introImage;

@@ -2,8 +2,8 @@
 
 @protocol IGFeedMegaphoneProvider <NSObject>
 @required
--(id)activeMegaphones;
 -(void)updateServerMegaphoneWithResponse:(id)arg1;
+-(id)activeMegaphones;
 -(unsigned)displaySource;
 
 @end

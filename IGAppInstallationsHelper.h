@@ -18,12 +18,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(char)isBoomerangAppInstalled;
 +(char)isLayoutAppInstalled;
++(void)logAppInstallationsInfo;
 +(void)openLayoutWithAsset:(id)arg1 assetIdentifier:(id)arg2 ;
 +(void)openBoomerang;
 +(char)isHyperlapseAppInstalled;
 +(char)isFBAppInstalled;
 +(char)isAppInstalled:(id)arg1 ;
-+(void)logAppInstallationsInfo;
 -(void)presentAppStoreViewControllerForAppID:(id)arg1 fromViewController:(id)arg2 ;
 -(void)appDidEnterForeground;
 -(void)setAppStoreViewControllerLastAppID:(NSString *)arg1 ;

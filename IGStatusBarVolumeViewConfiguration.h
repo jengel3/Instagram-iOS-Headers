@@ -24,8 +24,8 @@
 +(id)defaultConfiguration;
 -(void)setVolumeViewHeight:(float)arg1 ;
 -(UIColor *)trackValueTintColor;
--(float)volumeViewHeight;
 -(void)setTrackValueTintColor:(UIColor *)arg1 ;
+-(float)volumeViewHeight;
 -(void)setBackgroundColor:(UIColor *)arg1 ;
 -(UIColor *)backgroundColor;
 -(id)init;

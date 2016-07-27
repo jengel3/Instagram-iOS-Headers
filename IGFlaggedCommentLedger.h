@@ -19,9 +19,9 @@
 -(void)willSwitchUsers;
 -(void)willLogOut;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(void)migrateUserDefaultsIfNecessary;
 -(char)containsComment:(id)arg1 ;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(id)initWithSessionUserDefaults:(id)arg1 ;
 -(void)archive;
 -(void)dealloc;

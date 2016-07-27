@@ -2,12 +2,11 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UITextField.h>
 
-@class RCTEventDispatcher, NSMutableArray, UITextRange, UIColor, NSNumber;
+@class RCTEventDispatcher, UITextRange, UIColor, NSNumber;
 
 @interface RCTTextField : UITextField {
 
 	RCTEventDispatcher* _eventDispatcher;
-	NSMutableArray* _reactSubviews;
 	char _jsRequestingFirstResponder;
 	int _nativeEventCount;
 	char _submitted;
@@ -34,20 +33,17 @@
 @property (nonatomic,retain) NSNumber * maxLength;                        //@synthesize maxLength=_maxLength - In the implementation block
 @property (assign,nonatomic) char textWasPasted;                          //@synthesize textWasPasted=_textWasPasted - In the implementation block
 @property (nonatomic,copy) id onSelectionChange;                          //@synthesize onSelectionChange=_onSelectionChange - In the implementation block
--(void)reactWillMakeFirstResponder;
--(void)reactDidMakeFirstResponder;
--(id)initWithEventDispatcher:(id)arg1 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
 -(void)textFieldDidChange;
 -(void)textFieldBeginEditing;
 -(void)textFieldEndEditing;
 -(void)textFieldSubmitEditing;
 -(void)sendSelectionEvent;
+-(id)initWithEventDispatcher:(id)arg1 ;
 -(void)sendKeyValueForString:(id)arg1 ;
 -(void)setAutoCorrect:(char)arg1 ;
 -(char)autoCorrect;
+-(void)reactWillMakeFirstResponder;
+-(void)reactDidMakeFirstResponder;
 -(char)caretHidden;
 -(void)setCaretHidden:(char)arg1 ;
 -(char)selectTextOnFocus;

@@ -18,10 +18,9 @@
 @property (assign,nonatomic,__weak) id<IGEventViewerHeaderViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)didTapCloseButton:(id)arg1 ;
 -(void)setupCloseButton;
+-(void)setupLabels;
 -(void)didReceiveTap:(id)arg1 ;
 -(id)titleAttributesUseSmallFont:(char)arg1 ;
--(id)textKerning;
--(void)setupLabels;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGEventViewerHeaderViewDelegate>)arg1 ;
 -(void)layoutSubviews;

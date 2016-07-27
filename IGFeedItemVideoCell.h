@@ -6,11 +6,11 @@
 #import <Instagram/IGFeedItemVideoViewDoubleTapDelegate.h>
 
 @protocol IGFeedVideoCellInteractionDelegate, IGFeedVideoCellPlayerDelegate;
-@class IGPost, IGFeedItemVideoView, NSString;
+@class IGFeedItem, IGFeedItemVideoView, NSString;
 
 @interface IGFeedItemVideoCell : IGFeedItemMediaCell <IGFeedVideoCell, IGFeedItemVideoViewDelegate, IGFeedItemVideoViewDoubleTapDelegate> {
 
-	IGPost* _post;
+	IGFeedItem* _post;
 	float _percentVisible;
 	id<IGFeedVideoCellInteractionDelegate> _interactionDelegate;
 	id<IGFeedVideoCellPlayerDelegate> _playerDelegate;
@@ -26,17 +26,17 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) float percentVisible;                                                         //@synthesize percentVisible=_percentVisible - In the implementation block
--(void)setPost:(id)arg1 ;
+-(id)post;
 -(void)setPlayerDelegate:(id<IGFeedVideoCellPlayerDelegate>)arg1 ;
 -(id)accessibleElements;
--(id)post;
--(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
+-(void)configureWithPost:(id)arg1 coverImageURL:(id)arg2 ;
+-(unsigned)updatePercentVisible:(float)arg1 ;
+-(float)percentVisible;
 -(void)handleDidBeginPlaying;
 -(void)handleDidPause;
 -(void)handleDidEndPlaying;
 -(void)handleDidRequestPlayback;
--(unsigned)updatePercentVisible:(float)arg1 ;
--(float)percentVisible;
+-(id<IGFeedVideoCellPlayerDelegate>)playerDelegate;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
 -(void)didDoubleTapFeedItemVideoView:(id)arg1 ;
 -(IGFeedItemVideoView *)videoView;

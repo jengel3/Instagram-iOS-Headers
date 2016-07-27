@@ -1,13 +1,12 @@
 
 #import <libobjc.A.dylib/NSCoding.h>
 
-@class NSURL, NSString, NSArray;
+@class NSString, NSArray;
 
 @interface IGDirectResponseInfo : NSObject <NSCoding> {
 
 	char _forceOverlay;
 	char _hideNUXText;
-	NSURL* _actionURL;
 	NSString* _actionText;
 	NSString* _actionHintText;
 	int _actionHandler;
@@ -20,7 +19,6 @@
 
 }
 
-@property (nonatomic,readonly) NSURL * actionURL;                            //@synthesize actionURL=_actionURL - In the implementation block
 @property (nonatomic,copy,readonly) NSString * actionText;                   //@synthesize actionText=_actionText - In the implementation block
 @property (nonatomic,copy,readonly) NSString * actionHintText;               //@synthesize actionHintText=_actionHintText - In the implementation block
 @property (nonatomic,readonly) int actionHandler;                            //@synthesize actionHandler=_actionHandler - In the implementation block
@@ -37,11 +35,11 @@
 -(NSString *)overlayText;
 -(char)hideNUXText;
 -(NSString *)actionHintText;
+-(char)supportsCTA;
 -(NSArray *)iosLinks;
+-(char)forceOverlay;
 -(NSString *)overlaySubtitle;
 -(NSString *)overlayTitle;
--(NSURL *)actionURL;
--(char)forceOverlay;
 -(NSArray *)appUrls;
 -(char)isEqualToDirectResponseInfo:(id)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

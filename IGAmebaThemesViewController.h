@@ -27,11 +27,11 @@
 -(void)amebaAuthDidFinish;
 -(void)fetchThemes;
 -(void)configureThemesSectionCell:(id)arg1 forRow:(int)arg2 ;
--(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)storeAmebaTheme:(id)arg1 ;
 -(void)didSelectThemesSectionRow:(id)arg1 ;
 -(void)displayUnknownError;
 -(void)amebaDidLoadTheme:(id)arg1 ;
+-(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 -(void)setSelectedTheme:(NSDictionary *)arg1 ;

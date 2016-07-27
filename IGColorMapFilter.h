@@ -2,8 +2,8 @@
 #import <Instagram/IGPhotoFilter.h>
 
 @interface IGColorMapFilter : IGPhotoFilter
+-(id)borderName;
 -(id)fragmentShaderPrecision;
 -(id)fragmentFunctions;
--(id)borderName;
 @end
 

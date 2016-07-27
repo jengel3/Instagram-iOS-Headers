@@ -19,8 +19,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
 -(IGFollowAllHeaderItem *)followAllHeaderItem;

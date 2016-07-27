@@ -25,6 +25,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)showWithName:(id)arg1 parameters:(id)arg2 delegate:(id)arg3 ;
+-(void)setDeferVisibility:(char)arg1 ;
 -(id)_generateURL:(id*)arg1 ;
 -(id)_findWindow;
 -(char)_showWebView;
@@ -38,7 +39,6 @@
 -(void)webDialogViewDidCancel:(id)arg1 ;
 -(void)webDialogViewDidFinishLoad:(id)arg1 ;
 -(char)deferVisibility;
--(void)setDeferVisibility:(char)arg1 ;
 -(void)_addObservers;
 -(void)_removeObservers;
 -(char)show;

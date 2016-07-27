@@ -19,11 +19,11 @@
 @property (assign,nonatomic,__weak) IGImageView * postImageView;                               //@synthesize postImageView=_postImageView - In the implementation block
 -(IGProfilePictureImageView *)profileImageView;
 -(UILabel *)usernameLabel;
+-(void)setUsernameLabel:(UILabel *)arg1 ;
 -(UILabel *)timestampLabel;
 -(void)setTimestampLabel:(UILabel *)arg1 ;
 -(IGImageView *)postImageView;
 -(void)setPostImageView:(IGImageView *)arg1 ;
--(void)setUsernameLabel:(UILabel *)arg1 ;
 -(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)configureSubviewsLayout;
 -(void)addAllSubviews;

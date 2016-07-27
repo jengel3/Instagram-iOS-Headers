@@ -14,14 +14,15 @@
 @property (nonatomic,retain) NSArray * captions;                                              //@synthesize captions=_captions - In the implementation block
 @property (assign,nonatomic) char disableCaption;                                             //@synthesize disableCaption=_disableCaption - In the implementation block
 @property (assign,nonatomic,__weak) UIView*<IGVideoCaptionViewType> captionView;              //@synthesize captionView=_captionView - In the implementation block
--(UIView*<IGVideoCaptionViewType>)captionView;
--(void)setCaptionView:(UIView*<IGVideoCaptionViewType>)arg1 ;
++(void)logEventWithName:(id)arg1 url:(id)arg2 reason:(id)arg3 ;
 -(void)setCaptions:(NSArray *)arg1 ;
+-(UIView*<IGVideoCaptionViewType>)captionView;
 -(char)disableCaption;
 -(void)loadCaptionForURL:(id)arg1 ;
 -(void)setDisableCaption:(char)arg1 ;
 -(void)didChangePlaybackTime:(double)arg1 ;
 -(void)didStopPlayback;
+-(void)setCaptionView:(UIView*<IGVideoCaptionViewType>)arg1 ;
 -(NSArray *)captions;
 @end
 

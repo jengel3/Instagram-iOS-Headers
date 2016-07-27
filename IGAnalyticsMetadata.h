@@ -10,13 +10,13 @@
 }
 
 @property (nonatomic,retain) NSMutableArray * analyticsNavStack;              //@synthesize analyticsNavStack=_analyticsNavStack - In the implementation block
+-(void)pushAnalyticsMetadataForViewController:(id)arg1 ;
+-(void)popAnalyticsMetadataForViewController:(id)arg1 ;
+-(id)newAnalyticsNavState;
 -(void)setAnalyticsNavStack:(NSMutableArray *)arg1 ;
 -(NSMutableArray *)analyticsNavStack;
 -(void)pushAnalyticsNavEvent:(id)arg1 ;
 -(id)popAnalyticsNavEvent;
--(void)pushAnalyticsMetadataForViewController:(id)arg1 ;
--(void)popAnalyticsMetadataForViewController:(id)arg1 ;
--(id)newAnalyticsNavState;
 -(id)init;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;

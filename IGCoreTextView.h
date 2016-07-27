@@ -23,7 +23,15 @@
 @property (nonatomic,retain) IGStyledString * styledString;                             //@synthesize styledString=_styledString - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCoreTextLinkHandler> linkHandler;              //@synthesize linkHandler=_linkHandler - In the implementation block
 @property (assign,nonatomic) char usePaddedTapDetection;                                //@synthesize usePaddedTapDetection=_usePaddedTapDetection - In the implementation block
+-(void)callShare:(id)arg1 ;
+-(void)layoutSubviews;
+-(id)initWithWidth:(float)arg1 ;
+-(void)setLinkHandler:(id<IGCoreTextLinkHandler>)arg1 ;
+-(void)setStyledString:(IGStyledString *)arg1 ;
 -(IGStyledString *)styledString;
+-(void)setUsePaddedTapDetection:(char)arg1 ;
+-(id)urlAtPoint:(CGPoint)arg1 ;
+-(void)updateWidth:(float)arg1 ;
 -(char)usePaddedTapDetection;
 -(char)handleTapAtPoint:(CGPoint)arg1 forTouchEvent:(unsigned)arg2 ;
 -(char)handlePaddedTapAtPoint:(CGPoint)arg1 forTouchEvent:(unsigned)arg2 fromLongTap:(char)arg3 ;
@@ -33,14 +41,8 @@
 -(long)findClosestIndexForURLForAttributedString:(id)arg1 nearPoint:(CGPoint)arg2 constrainedSize:(CGSize)arg3 ;
 -(long)tapIndexForTapAtPoint:(CGPoint)arg1 size:(CGSize)arg2 inString:(id)arg3 ;
 -(CGPoint)lineOrigin:(CGPoint)arg1 fromRelativeToPath:(CGPathRef)arg2 toRelativeToContext:(CGContextRef)arg3 ;
--(id)initWithWidth:(float)arg1 ;
--(void)setStyledString:(IGStyledString *)arg1 ;
--(void)updateWidth:(float)arg1 ;
 -(char)handleTapAtIndex:(int)arg1 forTouchEvent:(unsigned)arg2 ;
--(id)urlAtPoint:(CGPoint)arg1 ;
 -(id<IGCoreTextLinkHandler>)linkHandler;
--(void)setLinkHandler:(id<IGCoreTextLinkHandler>)arg1 ;
--(void)setUsePaddedTapDetection:(char)arg1 ;
 -(float)heightForWidth:(float)arg1 ;
 -(void)drawRect:(CGRect)arg1 ;
 -(void)setFrame:(CGRect)arg1 ;

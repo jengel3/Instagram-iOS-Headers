@@ -36,12 +36,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
--(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
--(char)submitting;
--(void)setSubmitting:(char)arg1 ;
+-(UITapGestureRecognizer *)tapGesture;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(FBSDKAccessToken *)facebookAccessToken;
 -(void)loginCompletionHandlerForUser:(id)arg1 error:(id)arg2 statusCode:(int)arg3 ;
 -(id)initWithTwoFactorInfo:(id)arg1 facebookAccessToken:(id)arg2 ;
@@ -55,6 +53,8 @@
 -(IGConfirmPhoneManager *)confirmPhoneManager;
 -(void)setTwoFactorIdentifier:(NSString *)arg1 ;
 -(void)loginWithTwoFactorIdentifier;
+-(char)submitting;
+-(void)setSubmitting:(char)arg1 ;
 -(id)createIndicatorViewAndAddToLoginButton;
 -(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
 -(void)handleLoginErrors:(id)arg1 ;

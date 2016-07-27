@@ -18,10 +18,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setStrong:(IGDismisser *)arg1 ;
--(UIViewController *)presentingController;
 -(void)editPostViewController:(id)arg1 didFinishWithPost:(id)arg2 ;
 -(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
+-(void)setStrong:(IGDismisser *)arg1 ;
+-(UIViewController *)presentingController;
 -(void)setPresentingController:(UIViewController *)arg1 ;
 -(id)init;
 -(void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3 ;

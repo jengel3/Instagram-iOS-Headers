@@ -33,21 +33,21 @@
 @property (nonatomic,retain) UIColor * caretOverlayTintColor;              //@synthesize caretOverlayTintColor=_caretOverlayTintColor - In the implementation block
 @property (assign,nonatomic) char shouldHoldFirstResponder;                //@synthesize shouldHoldFirstResponder=_shouldHoldFirstResponder - In the implementation block
 +(id)iconTintColorForValidity:(int)arg1 ;
--(void)didChange;
 -(void)setIconSpacing:(int)arg1 ;
 -(void)wiggleAnimationWithCompletion:(/*^block*/id)arg1 ;
 -(void)setShouldHoldFirstResponder:(char)arg1 ;
 -(char)shouldHoldFirstResponder;
+-(void)didChange;
 -(UIView *)caretOverlayView;
 -(int)leftViewVerticalLayoutType;
 -(int)iconSpacing;
--(char)isVerifying;
 -(void)setHideCursor:(char)arg1 ;
 -(UIColor *)caretOverlayTintColor;
 -(void)setCaretOverlayView:(UIView *)arg1 ;
 -(void)setLeftViewVerticalLayoutType:(int)arg1 ;
 -(id)initWithPlaceholder:(id)arg1 ;
 -(void)setIsVerifying:(char)arg1 ;
+-(char)isVerifying;
 -(void)setCaretOverlayTintColor:(UIColor *)arg1 ;
 -(void)setValidity:(int)arg1 ;
 -(int)validity;

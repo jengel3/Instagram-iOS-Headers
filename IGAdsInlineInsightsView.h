@@ -32,9 +32,9 @@
 @property (nonatomic,retain) IGFeedItem * feedItem;                                                              //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,retain) NSNumberFormatter * commaNumberFormatter;                                           //@synthesize commaNumberFormatter=_commaNumberFormatter - In the implementation block
 @property (nonatomic,retain) IGInsightsContentRowListView * educationView;                                       //@synthesize educationView=_educationView - In the implementation block
--(NSNumberFormatter *)commaNumberFormatter;
 -(IGFeedItem *)feedItem;
 -(IGInsightsLoggingHelper *)loggingHelper;
+-(NSNumberFormatter *)commaNumberFormatter;
 -(void)initializeStrings;
 -(void)hideContentViews;
 -(void)initializeCommaNumberFormatter;

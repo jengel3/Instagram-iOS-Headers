@@ -52,6 +52,7 @@
 +(id)propConfig_borderTopRightRadius;
 +(id)propConfig_borderBottomLeftRadius;
 +(id)propConfig_borderBottomRightRadius;
++(id)propConfig_zIndex;
 +(id)propConfigShadow_backgroundColor;
 +(id)propConfigShadow_top;
 +(id)propConfigShadow_right;
@@ -59,6 +60,10 @@
 +(id)propConfigShadow_left;
 +(id)propConfigShadow_width;
 +(id)propConfigShadow_height;
++(id)propConfigShadow_minWidth;
++(id)propConfigShadow_maxWidth;
++(id)propConfigShadow_minHeight;
++(id)propConfigShadow_maxHeight;
 +(id)propConfigShadow_borderTopWidth;
 +(id)propConfigShadow_borderRightWidth;
 +(id)propConfigShadow_borderBottomWidth;
@@ -86,11 +91,12 @@
 +(id)propConfigShadow_alignSelf;
 +(id)propConfigShadow_position;
 +(id)propConfigShadow_onLayout;
++(id)propConfigShadow_zIndex;
 +(void)load;
 -(id)constantsToExport;
 -(NSObject*<OS_dispatch_queue>)methodQueue;
--(/*^block*/id)uiBlockToAmendWithShadowView:(id)arg1 ;
 -(/*^block*/id)uiBlockToAmendWithShadowViewRegistry:(id)arg1 ;
+-(/*^block*/id)uiBlockToAmendWithShadowView:(id)arg1 ;
 -(id)customDirectEventTypes;
 -(id)customBubblingEventTypes;
 -(void)set_shouldRasterizeIOS:(id)arg1 forView:(id)arg2 withDefaultView:(id)arg3 ;

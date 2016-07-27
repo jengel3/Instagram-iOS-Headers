@@ -12,6 +12,7 @@
 @interface IGClipCollectionController : NSObject <LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
 
 	char _scrollingToClip;
+	char _shouldHideAddClipCell;
 	IGClipTrayView* _view;
 	IGVideoClip* _selectedClip;
 	id<IGClipCollectionControllerDelegate> _delegate;
@@ -23,6 +24,7 @@
 @property (nonatomic,retain) IGClipTrayView * clipTrayView;                                       //@synthesize clipTrayView=_clipTrayView - In the implementation block
 @property (nonatomic,retain) IGVideoComposition * videoComposition;                               //@synthesize videoComposition=_videoComposition - In the implementation block
 @property (assign,nonatomic) char scrollingToClip;                                                //@synthesize scrollingToClip=_scrollingToClip - In the implementation block
+@property (assign,nonatomic) char shouldHideAddClipCell;                                          //@synthesize shouldHideAddClipCell=_shouldHideAddClipCell - In the implementation block
 @property (nonatomic,readonly) IGClipTrayView * view;                                             //@synthesize view=_view - In the implementation block
 @property (nonatomic,readonly) IGVideoClip * selectedClip;                                        //@synthesize selectedClip=_selectedClip - In the implementation block
 @property (assign,nonatomic,__weak) id<IGClipCollectionControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
@@ -41,7 +43,9 @@
 -(void)setClipTrayView:(IGClipTrayView *)arg1 ;
 -(char)scrollingToClip;
 -(void)setScrollingToClip:(char)arg1 ;
--(void)reloadCollectionWithVideoComposition:(id)arg1 ;
+-(char)shouldHideAddClipCell;
+-(void)setShouldHideAddClipCell:(char)arg1 ;
+-(void)reloadCollectionWithVideoComposition:(id)arg1 shouldHideAddClipCell:(char)arg2 ;
 -(void)reloadClipAtIndex:(unsigned)arg1 ;
 -(IGVideoComposition *)videoComposition;
 -(void)setVideoComposition:(IGVideoComposition *)arg1 ;

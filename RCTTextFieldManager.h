@@ -12,12 +12,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)moduleName;
-+(id)propConfig_color;
-+(id)propConfig_textAlign;
-+(id)propConfig_fontSize;
-+(id)propConfig_fontWeight;
-+(id)propConfig_fontStyle;
-+(id)propConfig_fontFamily;
 +(id)propConfig_caretHidden;
 +(id)propConfig_clearButtonMode;
 +(id)propConfig_password;
@@ -25,6 +19,8 @@
 +(id)propConfig_autoCorrect;
 +(id)propConfig_blurOnSubmit;
 +(id)propConfig_clearTextOnFocus;
++(id)propConfig_color;
++(id)propConfig_textAlign;
 +(id)propConfig_editable;
 +(id)propConfig_enablesReturnKeyAutomatically;
 +(id)propConfig_keyboardType;
@@ -38,6 +34,10 @@
 +(id)propConfig_selectionColor;
 +(id)propConfig_selectTextOnFocus;
 +(id)propConfig_text;
++(id)propConfig_fontSize;
++(id)propConfig_fontWeight;
++(id)propConfig_fontStyle;
++(id)propConfig_fontFamily;
 +(id)propConfig_mostRecentEventCount;
 +(void)load;
 -(/*^block*/id)uiBlockToAmendWithShadowView:(id)arg1 ;

@@ -26,10 +26,10 @@
 @property (nonatomic,copy) NSString * placeID;                          //@synthesize placeID=_placeID - In the implementation block
 @property (nonatomic,copy) NSString * ref;                              //@synthesize ref=_ref - In the implementation block
 +(char)supportsSecureCoding;
--(NSArray *)peopleIDs;
 -(FBSDKSharePhoto *)previewPhoto;
--(char)isEqualToShareVideoContent:(id)arg1 ;
+-(NSArray *)peopleIDs;
 -(void)setPeopleIDs:(NSArray *)arg1 ;
+-(char)isEqualToShareVideoContent:(id)arg1 ;
 -(void)setPreviewPhoto:(FBSDKSharePhoto *)arg1 ;
 -(void)setContentURL:(NSURL *)arg1 ;
 -(NSURL *)contentURL;

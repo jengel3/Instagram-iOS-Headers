@@ -25,9 +25,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)sharedController;
--(void)applicationDidChangeStatusBarFrame:(id)arg1 ;
 -(void)invalidateAutoHideTimer;
 -(void)updateConfig:(id)arg1 ;
+-(void)applicationDidChangeStatusBarFrame:(id)arg1 ;
 -(void)updateStatusBarEnabledState;
 -(void)showView:(char)arg1 completion:(/*^block*/id)arg2 ;
 -(void)enableStatusBarVolumeView:(char)arg1 ;

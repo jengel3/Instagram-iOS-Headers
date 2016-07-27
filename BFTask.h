@@ -33,8 +33,8 @@
 +(id)taskForCompletionOfAllTasksWithResults:(id)arg1 ;
 +(id)taskWithDelay:(int)arg1 ;
 +(id)taskFromExecutor:(id)arg1 withBlock:(/*^block*/id)arg2 ;
--(id)continueWithBlock:(/*^block*/id)arg1 ;
 -(id)continueWithSuccessBlock:(/*^block*/id)arg1 ;
+-(id)continueWithBlock:(/*^block*/id)arg1 ;
 -(id)continueWithExecutor:(id)arg1 withBlock:(/*^block*/id)arg2 ;
 -(char)trySetResult:(id)arg1 ;
 -(void)runContinuations;

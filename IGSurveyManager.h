@@ -10,7 +10,6 @@
 	double _timeAtStartup;
 
 }
--(void)appLaunched:(id)arg1 ;
 -(void)appForegrounded:(id)arg1 ;
 -(void)appBackgrounded:(id)arg1 ;
 -(void)mainFeedDidAppear:(id)arg1 ;
@@ -21,6 +20,7 @@
 -(void)invalidateTimerIfActive;
 -(void)scheduleSurveyDisplayIfNeeded;
 -(void)showPendingSurvey;
+-(void)appLaunched:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
 @end

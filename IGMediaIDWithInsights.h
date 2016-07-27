@@ -23,13 +23,13 @@
 -(NSNumber *)impressionCount;
 -(void)setMediaID:(NSString *)arg1 ;
 -(NSString *)mediaID;
--(void)setReachCount:(NSNumber *)arg1 ;
--(void)setEngagementCount:(NSNumber *)arg1 ;
--(void)setInlineInsightsEducationComponent:(IGInsightsParagraphComponent *)arg1 ;
--(void)setInlineInsightsErrorComponent:(IGInsightsParagraphComponent *)arg1 ;
 -(IGInsightsParagraphComponent *)inlineInsightsErrorComponent;
 -(IGInsightsParagraphComponent *)inlineInsightsEducationComponent;
 -(NSNumber *)reachCount;
 -(NSNumber *)engagementCount;
+-(void)setReachCount:(NSNumber *)arg1 ;
+-(void)setEngagementCount:(NSNumber *)arg1 ;
+-(void)setInlineInsightsEducationComponent:(IGInsightsParagraphComponent *)arg1 ;
+-(void)setInlineInsightsErrorComponent:(IGInsightsParagraphComponent *)arg1 ;
 @end
 

@@ -16,14 +16,14 @@
 +(id)__rct_export__4631;
 +(void)load;
 -(id)methodQueue;
--(id)supportedEvents;
--(id)networkTaskWithRequest:(id)arg1 completionBlock:(/*^block*/id)arg2 ;
 -(/*^block*/id)processDataForHTTPQuery:(id)arg1 callback:(/*^block*/id)arg2 ;
 -(id)stripNullsInRequestHeaders:(id)arg1 ;
 -(id)handlerForRequest:(id)arg1 ;
+-(id)networkTaskWithRequest:(id)arg1 completionBlock:(/*^block*/id)arg2 ;
 -(void)sendData:(id)arg1 forTask:(id)arg2 ;
 -(void)sendRequest:(id)arg1 incrementalUpdates:(char)arg2 responseSender:(/*^block*/id)arg3 ;
 -(/*^block*/id)buildRequest:(id)arg1 completionBlock:(/*^block*/id)arg2 ;
+-(id)supportedEvents;
 -(void)sendRequest:(id)arg1 responseSender:(/*^block*/id)arg2 ;
 -(void)abortRequest:(id)arg1 ;
 -(char)canHandleRequest:(id)arg1 ;

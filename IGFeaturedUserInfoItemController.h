@@ -19,15 +19,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)cellClasses;
--(CGSize)estimatedSizeForItemAtIndex:(int)arg1 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
--(unsigned)maxThumbnails;
 -(void)updateCellVisibility:(id)arg1 imageView:(id)arg2 mediaIndex:(unsigned)arg3 ;
 -(void)exploreCellDidTapFollow:(id)arg1 ;
 -(void)exploreCellDidTapFollowing:(id)arg1 ;
 -(void)exploreCell:(id)arg1 didTapMediaAtIndex:(unsigned)arg2 ;
+-(unsigned)maxThumbnails;
 -(void)friendStatusChanged:(id)arg1 ;
 -(IGFeaturedUserInfo *)featuredUserInfo;
 -(id)exploreViewModelInWidth:(float)arg1 ;

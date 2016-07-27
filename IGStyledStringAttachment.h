@@ -21,12 +21,12 @@
 @property (nonatomic,retain) UIImage * image;                                    //@synthesize image=_image - In the implementation block
 @property (assign,nonatomic) float leftBearing;                                  //@synthesize leftBearing=_leftBearing - In the implementation block
 @property (assign,nonatomic) float rightBearing;                                 //@synthesize rightBearing=_rightBearing - In the implementation block
+-(void)setRightBearing:(float)arg1 ;
+-(void)setLeftBearing:(float)arg1 ;
 -(float)leftBearing;
 -(float)rightBearing;
 -(void)setImageAttributes:(NSDictionary *)arg1 ;
 -(NSDictionary *)imageAttributes;
--(void)setLeftBearing:(float)arg1 ;
--(void)setRightBearing:(float)arg1 ;
 -(CGRect)bounds;
 -(void)setImage:(UIImage *)arg1 ;
 -(void)dealloc;

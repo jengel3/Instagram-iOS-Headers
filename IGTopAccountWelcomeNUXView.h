@@ -29,11 +29,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
--(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)setUpTitle;
 -(void)setUpSubtitle;
 -(void)setUpViewHierarchy;
+-(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
+-(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)setUpAcceptButton;
 -(void)setUpDisclaimerLabel;
 -(void)didTapAcceptTermsAndConditionsButton:(id)arg1 ;

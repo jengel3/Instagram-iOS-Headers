@@ -30,8 +30,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(UITapGestureRecognizer *)tapGesture;
 -(void)setTapGesture:(UITapGestureRecognizer *)arg1 ;
+-(UITapGestureRecognizer *)tapGesture;
+-(void)backgroundTapped;
 -(void)userDidSelectCountryWithName:(id)arg1 countryNumber:(id)arg2 ;
 -(void)facebookAuthHelper:(id)arg1 willProceedTwoFactorWithInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelperDidTapSignUpButton:(id)arg1 ;
@@ -39,7 +40,6 @@
 -(void)facebookAuthHelper:(id)arg1 willProceedEmailTakenAutoLoginWithLoggedInDict:(id)arg2 ;
 -(void)facebookAuthHelper:(id)arg1 willProceedRegistrationWithFBInfo:(id)arg2 facebookAccessToken:(id)arg3 ;
 -(void)facebookAuthHelper:(id)arg1 willResetPasswordWithViewController:(id)arg2 ;
--(void)backgroundTapped;
 -(char)isSubmitting;
 -(void)setIsSubmitting:(char)arg1 ;
 -(void)countryCodeButtonTapped;

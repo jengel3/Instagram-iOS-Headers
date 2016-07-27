@@ -77,14 +77,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(float)tintShadowsIntensity;
--(void)setTintShadowsIntensity:(float)arg1 ;
--(float)tintHighlightsIntensity;
--(void)setTintHighlightsIntensity:(float)arg1 ;
--(unsigned)tintShadowsColor;
--(void)setTintShadowsColor:(unsigned)arg1 ;
--(unsigned)tintHighlightsColor;
--(void)setTintHighlightsColor:(unsigned)arg1 ;
 -(void)onTiltShiftChange:(id)arg1 ;
 -(IGExpandableButton *)perspectiveRollButton;
 -(IGExpandableButton *)straightenButton;
@@ -104,6 +96,10 @@
 -(void)onPerspectiveRollButtonClick;
 -(void)onPerspectivePitchButtonClick;
 -(void)onStraightenButtonClick;
+-(void)setTintShadowsColor:(unsigned)arg1 ;
+-(void)setTintHighlightsColor:(unsigned)arg1 ;
+-(void)setTintShadowsIntensity:(float)arg1 ;
+-(void)setTintHighlightsIntensity:(float)arg1 ;
 -(void)setValuesForTintShadowsColor:(unsigned)arg1 tintHighlightsColor:(unsigned)arg2 tintShadowsIntensity:(float)arg3 tintHighlightsIntensity:(float)arg4 ;
 -(void)_updateLayoutStateForPerspectiveButton:(id)arg1 ;
 -(void)setPerspectiveRotateMode:(unsigned)arg1 ;
@@ -132,6 +128,10 @@
 -(void)setTintControl:(IGFilterTintControl *)arg1 ;
 -(unsigned)tintColorType;
 -(void)setTintColorType:(unsigned)arg1 ;
+-(unsigned)tintShadowsColor;
+-(unsigned)tintHighlightsColor;
+-(float)tintShadowsIntensity;
+-(float)tintHighlightsIntensity;
 -(IGSloppyTouchSlider *)controlSlider;
 -(void)setControlSlider:(IGSloppyTouchSlider *)arg1 ;
 -(IGTiltShiftModeControl *)tiltShiftModeControl;

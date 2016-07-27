@@ -25,8 +25,8 @@
 @property (assign,nonatomic) char shouldFailOnDataError;                            //@synthesize shouldFailOnDataError=_shouldFailOnDataError - In the implementation block
 +(id)shareWithContent:(id)arg1 delegate:(id)arg2 ;
 -(id<FBSDKSharingContent>)shareContent;
--(void)setShareContent:(id<FBSDKSharingContent>)arg1 ;
 -(char)canShare;
+-(void)setShareContent:(id<FBSDKSharingContent>)arg1 ;
 -(char)_hasPublishActions;
 -(char)_stageOpenGraphObject:(id)arg1 connection:(id)arg2 stagingHandler:(/*^block*/id)arg3 completionHandler:(/*^block*/id)arg4 ;
 -(char)_shareLinkContent:(id)arg1 ;
@@ -42,10 +42,10 @@
 -(char)_stageValue:(id)arg1 connection:(id)arg2 stagingHandler:(/*^block*/id)arg3 ;
 -(char)_stagePhoto:(id)arg1 connection:(id)arg2 stagingHandler:(/*^block*/id)arg3 ;
 -(char)_stageArray:(id)arg1 connection:(id)arg2 stagingHandler:(/*^block*/id)arg3 ;
--(char)shouldFailOnDataError;
--(void)setShouldFailOnDataError:(char)arg1 ;
 -(char)createOpenGraphObject:(id)arg1 ;
 -(void)setGraphNode:(NSString *)arg1 ;
+-(char)shouldFailOnDataError;
+-(void)setShouldFailOnDataError:(char)arg1 ;
 -(char)validateWithError:(id*)arg1 ;
 -(void)setDelegate:(id<FBSDKSharingDelegate>)arg1 ;
 -(id)init;

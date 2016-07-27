@@ -9,10 +9,10 @@
 
 }
 +(CVBufferRef)createPixelBufferFromCatromSplines:(id)arg1 ;
+-(id)initWithKnots:(GLKVector2*)arg1 count:(unsigned)arg2 ;
 -(id)initWithKnotCount:(unsigned)arg1 ;
 -(id)tesselateCatmullRomToLinear:(unsigned)arg1 ;
 -(void)createMapFromLinearTesselation:(char*)arg1 mapLen:(unsigned)arg2 ;
--(id)initWithKnots:(GLKVector2*)arg1 count:(unsigned)arg2 ;
 -(unsigned)knotCount;
 -(GLKVector2)knotAtIndex:(unsigned)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

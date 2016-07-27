@@ -1,7 +1,7 @@
 
 #import <Instagram/AFHTTPRequestOperation.h>
 
-@class NSHashTable, NSMapTable, NSMutableURLRequest;
+@class NSHashTable, NSMapTable, NSProgress, NSMutableURLRequest;
 
 @interface IGRequest : AFHTTPRequestOperation {
 
@@ -12,6 +12,7 @@
 	/*^block*/id _headerHandler;
 	NSHashTable* _dependants;
 	NSMapTable* _dependantPriorities;
+	NSProgress* _ig_downloadProgress;
 	double _uploadDurationInMiliseconds;
 	double _downloadDurationInMiliseconds;
 	double _serverLatencyInMiliseconds;
@@ -39,6 +40,7 @@
 @property (assign,nonatomic) char hasFailed;                                           //@synthesize hasFailed=_hasFailed - In the implementation block
 @property (nonatomic,retain) NSHashTable * dependants;                                 //@synthesize dependants=_dependants - In the implementation block
 @property (nonatomic,retain) NSMapTable * dependantPriorities;                         //@synthesize dependantPriorities=_dependantPriorities - In the implementation block
+@property (nonatomic,readonly) NSProgress * ig_downloadProgress;                       //@synthesize ig_downloadProgress=_ig_downloadProgress - In the implementation block
 @property (nonatomic,copy) id headerHandler;                                           //@synthesize headerHandler=_headerHandler - In the implementation block
 @property (nonatomic,readonly) double totalRequestTimeInMiliseconds; 
 @property (nonatomic,readonly) double requestProcessingTimeInMiliseconds; 
@@ -49,20 +51,34 @@
 @property (assign,nonatomic) char isForVideo;                                          //@synthesize isForVideo=_isForVideo - In the implementation block
 @property (nonatomic,readonly) NSMutableURLRequest * mutableRequest; 
 @property (nonatomic,readonly) char isHandlerDisposed;                                 //@synthesize isHandlerDisposed=_isHandlerDisposed - In the implementation block
+-(char)isForVideo;
+-(char)hasFailed;
+-(double)serverLatencyInMiliseconds;
+-(double)uploadDurationInMiliseconds;
+-(double)downloadDurationInMiliseconds;
+-(double)requestProcessingTimeInMiliseconds;
+-(double)totalBytesUp;
+-(double)totalBytesDown;
+-(void)setTotalBytesUp:(double)arg1 ;
+-(void)setTotalBytesDown:(double)arg1 ;
+-(NSMutableURLRequest *)mutableRequest;
+-(id)initWithMutableRequest:(id)arg1 ;
+-(void)addDependant:(id)arg1 withPriority:(int)arg2 ;
+-(void)setHeaderHandler:(id)arg1 ;
+-(double)totalRequestTimeInMiliseconds;
+-(void)removeDependant:(id)arg1 ;
+-(NSProgress *)ig_downloadProgress;
 -(NSHashTable *)dependants;
 -(void)reallySetDownloadProgressBlock:(/*^block*/id)arg1 ;
 -(void)setRequestStartTimestamp:(double)arg1 ;
 -(double)firstUploadTimestamp;
 -(void)setFirstUploadTimestamp:(double)arg1 ;
 -(void)setLastUploadTimestamp:(double)arg1 ;
--(void)setTotalBytesUp:(double)arg1 ;
 -(void)setRequestEndTimestamp:(double)arg1 ;
 -(void)setRequestProcessedTimestamp:(double)arg1 ;
 -(void)setRequestFailedTimestamp:(double)arg1 ;
 -(double)responseReceivedTimestamp;
 -(void)setResponseReceivedTimestamp:(double)arg1 ;
--(double)totalBytesDown;
--(void)setTotalBytesDown:(double)arg1 ;
 -(NSMapTable *)dependantPriorities;
 -(void)setNeedsRetry:(char)arg1 ;
 -(double)requestEndTimestamp;
@@ -70,23 +86,10 @@
 -(double)requestStartTimestamp;
 -(double)requestProcessedTimestamp;
 -(double)lastUploadTimestamp;
--(id)initWithMutableRequest:(id)arg1 ;
--(NSMutableURLRequest *)mutableRequest;
--(void)addDependant:(id)arg1 withPriority:(int)arg2 ;
--(void)removeDependant:(id)arg1 ;
--(double)totalRequestTimeInMiliseconds;
--(double)requestProcessingTimeInMiliseconds;
 -(double)serverLatency;
--(char)hasFailed;
 -(void)disposeHandler;
 -(id)headerHandler;
--(void)setHeaderHandler:(id)arg1 ;
--(double)uploadDurationInMiliseconds;
--(double)downloadDurationInMiliseconds;
--(double)serverLatencyInMiliseconds;
--(double)totalBytesUp;
 -(char)needsRetry;
--(char)isForVideo;
 -(void)setIsForVideo:(char)arg1 ;
 -(char)isHandlerDisposed;
 -(void)setHasFailed:(char)arg1 ;

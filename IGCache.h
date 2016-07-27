@@ -17,12 +17,12 @@
 
 @property (nonatomic,readonly) unsigned diskCapacity;                //@synthesize diskCapacity=_diskCapacity - In the implementation block
 @property (nonatomic,readonly) unsigned maxObjectCount;              //@synthesize maxObjectCount=_maxObjectCount - In the implementation block
+-(id)initWithName:(id)arg1 diskCapacity:(unsigned)arg2 maxObjectCount:(unsigned)arg3 maxInMemoryCount:(unsigned)arg4 maxInMemoryCost:(unsigned)arg5 ;
+-(void)removeAllObjectsWithDeletionBlock:(/*^block*/id)arg1 ;
+-(void)objectForKey:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(id)io_queue_objectForKey:(id)arg1 ;
 -(void)setObject:(id)arg1 forKey:(id)arg2 cost:(unsigned)arg3 completion:(/*^block*/id)arg4 ;
--(id)initWithName:(id)arg1 diskCapacity:(unsigned)arg2 maxObjectCount:(unsigned)arg3 maxInMemoryCount:(unsigned)arg4 maxInMemoryCost:(unsigned)arg5 ;
--(void)objectForKey:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setObject:(id)arg1 forKey:(id)arg2 completion:(/*^block*/id)arg3 ;
--(void)removeAllObjectsWithDeletionBlock:(/*^block*/id)arg1 ;
 -(unsigned)maxObjectCount;
 -(id)objectForKey:(id)arg1 ;
 -(void)removeObjectForKey:(id)arg1 ;

@@ -3,13 +3,12 @@
 #import <UIKit/UIView.h>
 #import <UIKit/UITabBarControllerDelegate.h>
 
-@class UITabBarController, NSMutableArray, UIColor, NSString;
+@class UITabBarController, UIColor, NSString;
 
 @interface RCTTabBar : UIView <UITabBarControllerDelegate> {
 
 	char _tabsChanged;
 	UITabBarController* _tabController;
-	NSMutableArray* _tabViews;
 	UIColor* _unselectedTintColor;
 
 }
@@ -23,10 +22,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)reactViewController;
+-(void)reactBridgeDidFinishTransaction;
 -(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
 -(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
--(void)reactBridgeDidFinishTransaction;
+-(void)didUpdateReactSubviews;
 -(int)itemPositoning;
 -(UIColor *)unselectedTintColor;
 -(void)setUnselectedTintColor:(UIColor *)arg1 ;

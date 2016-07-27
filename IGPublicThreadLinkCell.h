@@ -18,13 +18,13 @@
 @property (assign,nonatomic,__weak) id<IGDirectContentUpoadCellDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) IGDirectContentCellUploadDecorator * uploadDecorator;              //@synthesize uploadDecorator=_uploadDecorator - In the implementation block
 +(float)height;
--(void)performDelete;
 -(void)setLink:(id)arg1 withImage:(id)arg2 ;
 -(void)setLinkPreview:(IGDirectLinkPreview *)arg1 ;
 -(IGDirectLinkPreview *)linkPreview;
 -(IGDirectContentCellUploadDecorator *)uploadDecorator;
 -(void)handleUploadCellTap;
 -(void)performRetry;
+-(void)performDelete;
 -(void)uploadDecoratorShowFailedUI:(id)arg1 ;
 -(void)showUploadFailedUI;
 -(void)showUploadSendingUI;

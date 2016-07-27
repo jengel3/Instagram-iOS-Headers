@@ -28,13 +28,13 @@
 -(NSString *)trackingToken;
 -(void)setAnswerStyle:(int)arg1 ;
 -(void)setPossibleAnswers:(NSArray *)arg1 ;
--(NSArray *)possibleAnswers;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(NSString *)surveyID;
 -(void)setSurveyID:(NSString *)arg1 ;
--(int)answerStyle;
--(void)setShowPrimerView:(char)arg1 ;
 -(char)showPrimerView;
+-(void)setShowPrimerView:(char)arg1 ;
+-(int)answerStyle;
+-(NSArray *)possibleAnswers;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(NSString *)subtitle;

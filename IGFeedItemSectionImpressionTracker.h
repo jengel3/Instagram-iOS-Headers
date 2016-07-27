@@ -22,15 +22,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(IGItemDiffing *)indexPathTracker;
 -(void)itemDiffing:(id)arg1 didChangeWithItemAdded:(id)arg2 ;
 -(void)itemDiffing:(id)arg1 didChangeWithItemRemoved:(id)arg2 ;
--(id)initWithFeedNetworkSource:(id)arg1 ;
 -(void)updateWithTrackingData:(id)arg1 visibleContentRect:(CGRect)arg2 ;
--(IGMainFeedNetworkSource *)feedNetworkSource;
--(IGItemDiffing *)indexPathTracker;
+-(id)initWithFeedNetworkSource:(id)arg1 ;
 -(NSDictionary *)indexToFeedItemMap;
 -(void)setIndexToFeedItemMap:(NSDictionary *)arg1 ;
 -(void)setFeedNetworkSource:(IGMainFeedNetworkSource *)arg1 ;
+-(IGMainFeedNetworkSource *)feedNetworkSource;
 -(UICollectionView *)collectionView;
 -(void)setCollectionView:(UICollectionView *)arg1 ;
 @end

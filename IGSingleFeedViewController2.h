@@ -42,16 +42,16 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)enableNavState;
 -(id)analyticsModule;
+-(id<IGFeedConfigurationType>)feedConfiguration;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(id<IGFeedConfigurationType>)feedConfiguration;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
 -(IGFeedItem *)feedItem;
--(id)initWithFeedNetworkSource:(id)arg1 feedConfiguration:(id)arg2 itemConfiguration:(id)arg3 currentUser:(id)arg4 ;
+-(id)initWithFeedNetworkSource:(id)arg1 feedConfiguration:(id)arg2 itemConfiguration:(id)arg3 userSession:(id)arg4 ;
 -(void)scrollViewDidEndDragging:(id)arg1 ;
+-(char)enableNavState;
 -(void)feedNetworkSource:(id)arg1 didChangeToObjects:(id)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
@@ -74,6 +74,7 @@
 -(void)updateTitle;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)scrollViewWillBeginDragging:(id)arg1 ;
+-(void)scrollViewDidScrollToTop:(id)arg1 ;
 -(void)viewDidLayoutSubviews;
 -(IGListCollectionView *)collectionView;
 -(void)viewDidLoad;

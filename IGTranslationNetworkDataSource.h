@@ -25,9 +25,9 @@
 -(void)setCurrentPK:(NSString *)arg1 ;
 -(void)setCurrentType:(int)arg1 ;
 -(int)currentType;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)loadTranslationForPK:(id)arg1 contentType:(int)arg2 ;
 -(NSString *)currentPK;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setCurrentRequest:(IGRequest *)arg1 ;
 -(void)setDelegate:(id<IGTranslationNetworkDataSourceDelegate>)arg1 ;
 -(id<IGTranslationNetworkDataSourceDelegate>)delegate;

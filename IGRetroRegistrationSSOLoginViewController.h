@@ -29,6 +29,9 @@
 @property (assign,nonatomic,__weak) id<IGRetroRegistrationSSOLoginViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)setProfilePictureURL:(NSString *)arg1 ;
 -(NSString *)profilePictureURL;
+-(id)createIndicatorViewAndAddToLoginButton;
+-(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
+-(void)handleLoginErrors:(id)arg1 ;
 -(void)setIsFetchingLoginInfo:(char)arg1 ;
 -(void)fetchSSOEnabledUsers;
 -(void)setLoginInfoFetcherTimer:(NSTimer *)arg1 ;
@@ -52,9 +55,6 @@
 -(id)getErrorButtonTitle:(id)arg1 ;
 -(void)logSSOLoginFailedWithReason:(id)arg1 ;
 -(char)isFetchingLoginInfo;
--(id)createIndicatorViewAndAddToLoginButton;
--(void)removeIndicatorViewFromLoginButton:(id)arg1 ;
--(void)handleLoginErrors:(id)arg1 ;
 -(void)stopTimer;
 -(void)setDelegate:(id<IGRetroRegistrationSSOLoginViewControllerDelegate>)arg1 ;
 -(id<IGRetroRegistrationSSOLoginViewControllerDelegate>)delegate;

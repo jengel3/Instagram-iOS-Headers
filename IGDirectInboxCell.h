@@ -18,7 +18,6 @@
 	UIImage* _preloadedImage;
 	UILabel* _nameLabel;
 	UILabel* _messageLabel;
-	NSArray* _inboxActions;
 	id<IGDirectInboxCellDelegate> _delegate;
 	float _profilePictureVerticalPadding;
 	IGDirectThreadAvatarView* _profilePicture;
@@ -58,7 +57,6 @@
 @property (assign,nonatomic) char showsMuteIcon;                                         //@synthesize showsMuteIcon=_showsMuteIcon - In the implementation block
 @property (nonatomic,retain) UILabel * nameLabel;                                        //@synthesize nameLabel=_nameLabel - In the implementation block
 @property (nonatomic,retain) UILabel * messageLabel;                                     //@synthesize messageLabel=_messageLabel - In the implementation block
-@property (nonatomic,retain) NSArray * inboxActions;                                     //@synthesize inboxActions=_inboxActions - In the implementation block
 @property (assign,nonatomic) char useEditingMode;                                        //@synthesize useEditingMode=_useEditingMode - In the implementation block
 @property (assign,nonatomic) char isSelectedForEditing;                                  //@synthesize isSelectedForEditing=_isSelectedForEditing - In the implementation block
 @property (assign,nonatomic,__weak) id<IGDirectInboxCellDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
@@ -71,7 +69,6 @@
 -(void)setSwipeableView:(UIView *)arg1 ;
 -(UIView *)swipeableView;
 -(void)onSwipePan:(id)arg1 ;
--(IGDirectThreadAvatarView *)profilePicture;
 -(UIEdgeInsets)defaultSeparatorInset;
 -(UIImageView *)newContentDot;
 -(UIImageView *)muteImageView;
@@ -90,9 +87,7 @@
 -(void)openActionMenu;
 -(void)setStartSwipeGestureX:(float)arg1 ;
 -(UIEdgeInsets)editingSeparatorInset;
--(NSArray *)inboxActions;
 -(char)isSelectedForEditing;
--(void)setProfilePicture:(IGDirectThreadAvatarView *)arg1 ;
 -(void)setNewContentDot:(UIImageView *)arg1 ;
 -(void)setMuteImageView:(UIImageView *)arg1 ;
 -(void)setThumbnailImageView:(IGImageView *)arg1 ;
@@ -100,18 +95,19 @@
 -(void)setCheckMark:(UIImage *)arg1 ;
 -(void)setEmptyCheckBox:(UIImage *)arg1 ;
 -(void)setProfilePictureVerticalPadding:(float)arg1 ;
--(void)setInboxActions:(NSArray *)arg1 ;
+-(void)setInboxActions:(id)arg1 ;
 -(void)setShowsMuteIcon:(char)arg1 ;
 -(void)setNewContent:(char)arg1 ;
--(void)setPendingDeleteAction:(char)arg1 ;
 -(char)hasActionMenuOpen;
 -(void)closeActionMenu;
+-(void)setPendingDeleteAction:(char)arg1 ;
 -(void)setUseEditingMode:(char)arg1 ;
 -(void)setIsSelectedForEditing:(char)arg1 ;
 -(char)pendingDeleteAction;
+-(IGDirectThreadAvatarView *)profilePicture;
+-(void)setProfilePicture:(IGDirectThreadAvatarView *)arg1 ;
 -(UILabel *)nameLabel;
 -(void)setNameLabel:(UILabel *)arg1 ;
--(void)setDetailText:(id)arg1 ;
 -(void)setPreloadedImage:(UIImage *)arg1 ;
 -(void)setDelegate:(id<IGDirectInboxCellDelegate>)arg1 ;
 -(void)layoutSubviews;

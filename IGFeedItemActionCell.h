@@ -57,8 +57,9 @@
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
 -(void)setAccessoryViewType:(int)arg1 ;
 -(UIButton *)customizableButton;
--(id)accessibleElements;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(void)setLineView:(UIView *)arg1 ;
+-(id)accessibleElements;
 -(int)ufiStyle;
 -(void)UFIButtonBarDidTapOnLike:(id)arg1 ;
 -(void)UFIButtonBarDidTapOnComment:(id)arg1 ;
@@ -66,7 +67,9 @@
 -(void)UFIButtonBarDidTapOnLikeViewCount:(id)arg1 ;
 -(void)UFIButtonBarDidTapOnCommentCount:(id)arg1 ;
 -(void)UFIButtonBar:(id)arg1 wantsSizeUpdateAnimated:(char)arg2 ;
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)setCustomizableButtonHidden:(char)arg1 animated:(char)arg2 ;
+-(void)progressCustomizableButtonCTAState;
+-(void)updateUFIButtonWithAnimation;
 -(void)setUfiStyle:(int)arg1 ;
 -(UIView*<IGUFIButtonBarViewProtocol>)ufiButtonBarView;
 -(IGLabelTooltipView *)reshareNUXView;
@@ -86,12 +89,9 @@
 -(void)setReshareNUXView:(IGLabelTooltipView *)arg1 ;
 -(void)didTapTooltipView:(id)arg1 ;
 -(void)setCustomizableButtonPrimaryTitle:(id)arg1 secondaryTitle:(id)arg2 ;
--(void)setCustomizableButtonHidden:(char)arg1 animated:(char)arg2 ;
 -(void)setSponsoredPostAllowed:(char)arg1 ;
 -(int)accessoryViewType;
 -(void)setCtaLayout:(int)arg1 ;
--(void)progressCustomizableButtonCTAState;
--(void)animateHeartLike;
 -(void)showReshareNUXWithArrowDirection:(int)arg1 ;
 -(void)hideReshareNUX;
 -(char)isReshareNUXVisible;

@@ -1,12 +1,14 @@
 
-#import <Instagram/IGUserSessionObject.h>
+#import <Instagram/IGUserSessionClearableObject.h>
 
-@class NSString, NSDictionary;
+@class NSString, IGDraftBeingStored, IGDraftEnumerator, NSLock;
 
-@interface IGCameraDraftManager : NSObject <IGUserSessionObject> {
+@interface IGCameraDraftManager : NSObject <IGUserSessionClearableObject> {
 
 	NSString* _userPK;
-	NSDictionary* _draftCache;
+	IGDraftBeingStored* _draftBeingStored;
+	IGDraftEnumerator* _draftEnumerator;
+	NSLock* _draftEnumeratorLock;
 
 }
 
@@ -14,12 +16,20 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)allStoredDrafts;
++(void)clearForUserPK:(id)arg1 ;
+-(void)willSwitchUsers;
+-(void)willLogOut;
+-(void)clipExportFinished;
+-(id)storedDraftEnumerator;
+-(char)validateDraft:(id)arg1 ;
 -(id)directoryForDraft:(id)arg1 ;
+-(void)encodingFinished;
 -(id)initWithUserPK:(id)arg1 ;
--(void)clearDrafts;
--(void)removeDraft:(id)arg1 ;
--(void)fetchDraftsWithCompletion:(/*^block*/id)arg1 ;
--(char)storeDraft:(id)arg1 ;
+-(void)clearDraftsWithCompletion:(/*^block*/id)arg1 ;
+-(void)removeDraft:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
+-(void)fetchAllDraftsWithCompletion:(/*^block*/id)arg1 ;
+-(void)fetchDraftsCount:(int)arg1 withCompletion:(/*^block*/id)arg2 ;
+-(void)storeDraft:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
+-(void)dealloc;
 @end
 

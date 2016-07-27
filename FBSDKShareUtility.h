@@ -1,10 +1,20 @@
 
 
 @interface FBSDKShareUtility : NSObject
-+(char)_isOpenGraphValue:(id)arg1 ;
++(char)validateAppInviteContent:(id)arg1 error:(id*)arg2 ;
++(void)assertCollection:(id)arg1 ofClass:(id)arg2 name:(id)arg3 ;
++(char)validateGameRequestContent:(id)arg1 error:(id*)arg2 ;
++(id)parametersForShareContent:(id)arg1 shouldFailOnDataError:(char)arg2 ;
++(char)validateShareContent:(id)arg1 error:(id*)arg2 ;
++(id)getOpenGraphNameAndNamespaceFromFullName:(id)arg1 namespace:(id*)arg2 ;
++(void)testShareContent:(id)arg1 containsMedia:(char*)arg2 containsPhotos:(char*)arg3 ;
++(char)buildWebShareContent:(id)arg1 methodName:(id*)arg2 parameters:(id*)arg3 error:(id*)arg4 ;
++(id)feedShareDictionaryForContent:(id)arg1 ;
 +(void)assertOpenGraphValues:(id)arg1 requireKeyNamespace:(char)arg2 ;
-+(void)assertOpenGraphValue:(id)arg1 ;
++(id)convertOpenGraphValues:(id)arg1 ;
 +(void)assertOpenGraphKey:(id)arg1 requireNamespace:(char)arg2 ;
++(void)assertOpenGraphValue:(id)arg1 ;
++(char)_isOpenGraphValue:(id)arg1 ;
 +(id)_convertOpenGraphValueContainer:(id)arg1 requireNamespace:(char)arg2 ;
 +(id)convertOpenGraphValue:(id)arg1 ;
 +(void)_addToParameters:(id)arg1 forShareContent:(id)arg2 ;
@@ -25,17 +35,7 @@
 +(char)_validateAssetLibraryURL:(id)arg1 name:(id)arg2 error:(id*)arg3 ;
 +(id)_convertPhoto:(id)arg1 ;
 +(id)_convertObject:(id)arg1 ;
-+(id)convertOpenGraphValues:(id)arg1 ;
-+(char)validateGameRequestContent:(id)arg1 error:(id*)arg2 ;
 +(char)_validateFileURL:(id)arg1 name:(id)arg2 error:(id*)arg3 ;
-+(char)validateAppInviteContent:(id)arg1 error:(id*)arg2 ;
-+(void)assertCollection:(id)arg1 ofClass:(id)arg2 name:(id)arg3 ;
-+(char)validateShareContent:(id)arg1 error:(id*)arg2 ;
-+(id)getOpenGraphNameAndNamespaceFromFullName:(id)arg1 namespace:(id*)arg2 ;
-+(void)testShareContent:(id)arg1 containsMedia:(char*)arg2 containsPhotos:(char*)arg3 ;
-+(char)buildWebShareContent:(id)arg1 methodName:(id*)arg2 parameters:(id*)arg3 error:(id*)arg4 ;
-+(id)feedShareDictionaryForContent:(id)arg1 ;
-+(id)parametersForShareContent:(id)arg1 shouldFailOnDataError:(char)arg2 ;
 -(id)init;
 @end
 

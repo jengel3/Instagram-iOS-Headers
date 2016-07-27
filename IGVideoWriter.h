@@ -21,7 +21,7 @@
 	IGVideoConfiguration* _videoConfiguration;
 	NSString* _locationMetadataName;
 	CGSize _size;
-	SCD_Struct_IG77 _videoDuration;
+	SCD_Struct_IG52 _videoDuration;
 
 }
 
@@ -35,18 +35,19 @@
 @property (assign,nonatomic) char videoWritingIsFinished;                                       //@synthesize videoWritingIsFinished=_videoWritingIsFinished - In the implementation block
 @property (assign,nonatomic) char audioWritingIsFinished;                                       //@synthesize audioWritingIsFinished=_audioWritingIsFinished - In the implementation block
 @property (nonatomic,readonly) IGVideoConfiguration * videoConfiguration;                       //@synthesize videoConfiguration=_videoConfiguration - In the implementation block
-@property (nonatomic,readonly) SCD_Struct_IG77 videoDuration;                                   //@synthesize videoDuration=_videoDuration - In the implementation block
+@property (nonatomic,readonly) SCD_Struct_IG52 videoDuration;                                   //@synthesize videoDuration=_videoDuration - In the implementation block
 @property (nonatomic,readonly) char isFastVideo;                                                //@synthesize isFastVideo=_isFastVideo - In the implementation block
 @property (nonatomic,readonly) NSString * locationMetadataName;                                 //@synthesize locationMetadataName=_locationMetadataName - In the implementation block
 @property (assign,nonatomic) float progress;                                                    //@synthesize progress=_progress - In the implementation block
 @property (assign,nonatomic,__weak) id<IGVideoWriterDelegate> delegate;                         //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) CGSize size;                                                     //@synthesize size=_size - In the implementation block
--(char)isFastVideo;
--(id)initWithVideoConfiguration:(id)arg1 size:(CGSize)arg2 duration:(SCD_Struct_IG77)arg3 isFastVideo:(char)arg4 locationMetadataName:(id)arg5 ;
--(NSString *)locationMetadataName;
--(float)getVideoBitRate;
 -(AVAssetWriterInput *)videoWriterInput;
 -(AVAssetWriterInput *)audioWriterInput;
+-(void)setVideoWriterInput:(AVAssetWriterInput *)arg1 ;
+-(void)setAudioWriterInput:(AVAssetWriterInput *)arg1 ;
+-(NSString *)locationMetadataName;
+-(float)getVideoBitRate;
+-(char)isFastVideo;
 -(void)setAudioWritingIsFinished:(char)arg1 ;
 -(AVAssetWriterInputPixelBufferAdaptor *)bufferAdaptor;
 -(char)videoWritingIsFinished;
@@ -54,12 +55,11 @@
 -(NSObject*<OS_dispatch_queue>)videoQueue;
 -(void)setVideoWritingIsFinished:(char)arg1 ;
 -(NSObject*<OS_dispatch_queue>)audioQueue;
--(void)setVideoWriterInput:(AVAssetWriterInput *)arg1 ;
--(void)setAudioWriterInput:(AVAssetWriterInput *)arg1 ;
+-(id)initWithVideoConfiguration:(id)arg1 size:(CGSize)arg2 duration:(SCD_Struct_IG52)arg3 isFastVideo:(char)arg4 locationMetadataName:(id)arg5 ;
 -(void)setBufferAdaptor:(AVAssetWriterInputPixelBufferAdaptor *)arg1 ;
 -(void)setVideoQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(void)setAudioQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(SCD_Struct_IG77)videoDuration;
+-(SCD_Struct_IG52)videoDuration;
 -(CGSize)size;
 -(void)setDelegate:(id<IGVideoWriterDelegate>)arg1 ;
 -(id<IGVideoWriterDelegate>)delegate;

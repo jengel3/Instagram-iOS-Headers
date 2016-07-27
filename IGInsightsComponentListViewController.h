@@ -53,7 +53,6 @@
 -(void)didGetResponseForDataProvider:(id)arg1 ;
 -(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(void)setSurface:(unsigned)arg1 ;
--(id)initWithQuery:(id)arg1 surface:(unsigned)arg2 loggingHelper:(id)arg3 ;
 -(void)initializeSpinner;
 -(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
 -(IGInsightsContentRowListView *)educationView;
@@ -70,6 +69,7 @@
 -(void)logLoadError:(id)arg1 ;
 -(void)setAdapters:(NSArray *)arg1 ;
 -(NSArray *)adapters;
+-(id)initWithQuery:(id)arg1 surface:(unsigned)arg2 loggingHelper:(id)arg3 ;
 -(void)setDelegate:(id<IGInsightsComponentListViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(void)reloadData;

@@ -25,7 +25,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)imageViewLoadedImage:(id)arg1 ;
 -(id)initWithSwitchUsersMode:(unsigned)arg1 ;
 -(float)minimumTableViewHeight;
 -(void)updateUserData;
@@ -36,6 +35,7 @@
 -(id)userCellForTableView:(id)arg1 indexPath:(id)arg2 ;
 -(id)addAccountCellForTableView:(id)arg1 indexPath:(id)arg2 ;
 -(void)setSwitchUsersMode:(unsigned)arg1 ;
+-(void)imageViewLoadedImage:(id)arg1 ;
 -(char)isSubmitting;
 -(void)setIsSubmitting:(char)arg1 ;
 -(void)setDelegate:(id<IGSwitchUsersControllerDelegate>)arg1 ;

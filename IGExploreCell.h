@@ -41,11 +41,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
++(float)heightWithConstrainedWidth:(float)arg1 exploreViewModel:(id)arg2 ;
 +(float)avatarHeight;
 +(id)bylineFont;
 +(IGCarouselMetrics)thumbnailsCarouselMetricsWithWidth:(float)arg1 ;
-+(float)heightWithConstrainedWidth:(float)arg1 exploreViewModel:(id)arg2 ;
 +(float)leftRightPadding;
+-(void)setExploreViewModel:(id)arg1 ;
+-(IGThumbnailsGridView *)thumbnailsGridView;
 -(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
 -(UILabel *)bylineLabel;
 -(IGExploreEmptyView *)emptyView;
@@ -60,8 +62,6 @@
 -(void)setEmptyView:(IGExploreEmptyView *)arg1 ;
 -(void)setThumbnailsCarouselView:(IGCarouselView *)arg1 ;
 -(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
--(void)setExploreViewModel:(id)arg1 ;
--(IGThumbnailsGridView *)thumbnailsGridView;
 -(IGExploreViewModel *)viewModel;
 -(void)setViewModel:(IGExploreViewModel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

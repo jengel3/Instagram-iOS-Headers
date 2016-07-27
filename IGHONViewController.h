@@ -37,10 +37,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(IGListAdapter *)listAdapter;
 -(void)setupCollectionViewAndAdapter;
 -(id)extraDictionaryForFeedItem:(id)arg1 ;
 -(void)headerDismissViewDidDismiss:(id)arg1 ;

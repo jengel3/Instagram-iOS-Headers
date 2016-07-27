@@ -6,6 +6,7 @@
 
 @interface IGRetroRegistrationSignUpScrollView : UIScrollView {
 
+	char _shouldSplitUsername;
 	IGRetroRegistrationSignUpViewController* _vcDelegate;
 	IGRetroRegistrationTextField* _passwordField;
 	IGRetroRegistrationNextButton* _nextButton;
@@ -24,6 +25,7 @@
 @property (nonatomic,retain) IGRetroRegistrationNextButton * nextButton;                               //@synthesize nextButton=_nextButton - In the implementation block
 @property (nonatomic,retain) IGCoreTextView * termView;                                                //@synthesize termView=_termView - In the implementation block
 @property (nonatomic,retain) UILabel * photoLabel;                                                     //@synthesize photoLabel=_photoLabel - In the implementation block
+@property (nonatomic,readonly) char shouldSplitUsername;                                               //@synthesize shouldSplitUsername=_shouldSplitUsername - In the implementation block
 @property (assign,nonatomic,__weak) IGRetroRegistrationSignUpViewController * vcDelegate;              //@synthesize vcDelegate=_vcDelegate - In the implementation block
 +(id)createPasswordField;
 -(IGProfilePictureImageView *)profilePictureView;
@@ -31,16 +33,17 @@
 -(UILabel *)photoLabel;
 -(id)pictureView;
 -(IGRetroRegistrationTextField *)fullnameField;
--(IGRetroRegistrationUsernameField *)usernameField;
 -(IGCoreTextView *)termView;
+-(id)initWithFrame:(CGRect)arg1 shouldSplitUsername:(char)arg2 ;
 -(void)addPasswordField;
 -(IGRetroRegistrationSignUpViewController *)vcDelegate;
--(void)setVcDelegate:(IGRetroRegistrationSignUpViewController *)arg1 ;
 -(void)setUsernameField:(IGRetroRegistrationUsernameField *)arg1 ;
 -(void)setFullnameField:(IGRetroRegistrationTextField *)arg1 ;
 -(void)setTermView:(IGCoreTextView *)arg1 ;
 -(void)setPhotoLabel:(UILabel *)arg1 ;
--(id)initWithFrame:(CGRect)arg1 ;
+-(char)shouldSplitUsername;
+-(IGRetroRegistrationUsernameField *)usernameField;
+-(void)setVcDelegate:(IGRetroRegistrationSignUpViewController *)arg1 ;
 -(void)layoutSubviews;
 -(IGRetroRegistrationTextField *)passwordField;
 -(IGRetroRegistrationNextButton *)nextButton;

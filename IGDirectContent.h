@@ -28,16 +28,17 @@
 @property (nonatomic,readonly) char isUploading;                               //@synthesize isUploading=_isUploading - In the implementation block
 @property (nonatomic,readonly) NSString * contentTypeString; 
 -(id)copyBySettingItemID:(id)arg1 ;
--(id)copyBySettingExpireAt:(id)arg1 ;
--(IGDate *)expireAt;
 -(char)senderIsCurrentUser;
+-(id)initWithUser:(id)arg1 sentAt:(id)arg2 itemID:(id)arg3 clientContextId:(id)arg4 viewCount:(unsigned)arg5 expireAt:(id)arg6 ;
+-(void)setExpireAt:(IGDate *)arg1 ;
+-(id)copyBySettingExpireAt:(id)arg1 ;
+-(id)copyBySettingViewCount:(unsigned)arg1 ;
+-(void)setSentAt:(IGDate *)arg1 ;
+-(void)setClientContextId:(NSString *)arg1 ;
 -(id)initWithUser:(id)arg1 sentAt:(id)arg2 itemID:(id)arg3 ;
 -(NSString *)clientContextId;
 -(NSString *)contentTypeString;
--(void)setExpireAt:(IGDate *)arg1 ;
--(void)setClientContextId:(NSString *)arg1 ;
--(void)setSentAt:(IGDate *)arg1 ;
--(id)copyBySettingViewCount:(unsigned)arg1 ;
+-(IGDate *)expireAt;
 -(void)setViewCount:(unsigned)arg1 ;
 -(char)contentHasReactions;
 -(char)isUploading;

@@ -8,9 +8,9 @@
 	NSData* _macKeyData;
 
 }
++(id)randomString:(unsigned)arg1 ;
 +(id)makeMasterKey;
 +(id)randomBytes:(unsigned)arg1 ;
-+(id)randomString:(unsigned)arg1 ;
 -(id)initWithMasterKey:(id)arg1 ;
 -(id)decrypt:(id)arg1 additionalSignedData:(id)arg2 ;
 -(id)_macForIV:(id)arg1 cipherData:(id)arg2 additionalDataToSign:(id)arg3 ;

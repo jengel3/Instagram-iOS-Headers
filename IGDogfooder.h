@@ -1,7 +1,7 @@
 
 
 @interface IGDogfooder : NSObject
-+(id)dogfooderForCurrentBuild;
 +(id)sharedDogfooder;
++(id)dogfooderForCurrentBuild;
 @end
 

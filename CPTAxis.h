@@ -134,6 +134,8 @@
 @property (assign,nonatomic,__weak) CPTPlotArea * plotArea; 
 @property (nonatomic,readonly) CPTAxisSet * axisSet; 
 +(char)needsDisplayForKey:(id)arg1 ;
+-(NSNumber *)titleLocation;
+-(void)setTitleLocation:(NSNumber *)arg1 ;
 -(CPTPlotSpace *)plotSpace;
 -(NSSet *)majorTickLocations;
 -(NSSet *)minorTickLocations;
@@ -167,7 +169,6 @@
 -(CPTAxisTitle *)axisTitle;
 -(float)titleRotation;
 -(int)titleDirection;
--(NSNumber *)titleLocation;
 -(char)needsRelabel;
 -(NSArray *)labelExclusionRanges;
 -(CPTPlotRange *)visibleAxisRange;
@@ -226,7 +227,6 @@
 -(void)setMinorTickLabelTextStyle:(CPTTextStyle *)arg1 ;
 -(void)setTitleRotation:(float)arg1 ;
 -(void)setTitleDirection:(int)arg1 ;
--(void)setTitleLocation:(NSNumber *)arg1 ;
 -(void)setLabelExclusionRanges:(NSArray *)arg1 ;
 -(void)setMajorTickLength:(float)arg1 ;
 -(void)setMinorTickLength:(float)arg1 ;

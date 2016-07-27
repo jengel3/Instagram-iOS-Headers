@@ -12,16 +12,16 @@
 	NSMutableIndexSet* _disabledFilters;
 
 }
+-(id)renderByConsumingSource:(id)arg1 ;
 -(void)render:(id)arg1 to:(id)arg2 ;
--(void)render:(id)arg1 to:(id*)arg2 consumeSource:(char)arg3 ;
--(void)insertFilter:(id)arg1 atIndex:(unsigned)arg2 ;
--(void)removeLastFilter;
--(void)removeFilterAtIndex:(unsigned)arg1 ;
 -(void)setFilterAtIndex:(unsigned)arg1 enabled:(char)arg2 ;
 -(char)isFilterAtIndexEnabled:(unsigned)arg1 ;
+-(void)insertFilter:(id)arg1 atIndex:(unsigned)arg2 ;
+-(void)render:(id)arg1 to:(id*)arg2 consumeSource:(char)arg3 ;
+-(void)removeLastFilter;
+-(void)removeFilterAtIndex:(unsigned)arg1 ;
 -(id)firstFilter;
 -(id)lastFilter;
--(id)renderByConsumingSource:(id)arg1 ;
 -(unsigned)count;
 -(id)init;
 -(id)objectAtIndexedSubscript:(unsigned)arg1 ;

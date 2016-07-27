@@ -11,6 +11,7 @@
 }
 
 @property (nonatomic,readonly) IGFeedItemHeader * headerView;              //@synthesize headerView=_headerView - In the implementation block
++(id)cellIdentifier;
 -(void)setUpHeaderViewWithFrame:(CGRect)arg1 ;
 -(void)configureWithFeedItem:(id)arg1 headerViewDelegate:(id)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;

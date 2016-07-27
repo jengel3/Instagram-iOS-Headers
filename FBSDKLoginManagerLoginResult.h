@@ -19,13 +19,13 @@
 @property (nonatomic,readonly) char isCancelled;                          //@synthesize isCancelled=_isCancelled - In the implementation block
 @property (nonatomic,copy) NSSet * grantedPermissions;                    //@synthesize grantedPermissions=_grantedPermissions - In the implementation block
 @property (nonatomic,copy) NSSet * declinedPermissions;                   //@synthesize declinedPermissions=_declinedPermissions - In the implementation block
--(NSSet *)declinedPermissions;
--(void)setDeclinedPermissions:(NSSet *)arg1 ;
--(char)isSkipped;
 -(NSDictionary *)loggingExtras;
+-(NSSet *)declinedPermissions;
 -(id)initWithToken:(id)arg1 isCancelled:(char)arg2 grantedPermissions:(id)arg3 declinedPermissions:(id)arg4 ;
 -(void)addLoggingExtra:(id)arg1 forKey:(id)arg2 ;
 -(void)setIsSkipped:(char)arg1 ;
+-(void)setDeclinedPermissions:(NSSet *)arg1 ;
+-(char)isSkipped;
 -(id)init;
 -(char)isCancelled;
 -(FBSDKAccessToken *)token;

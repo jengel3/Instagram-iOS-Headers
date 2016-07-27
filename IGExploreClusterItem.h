@@ -28,12 +28,12 @@
 @property (nonatomic,copy,readonly) NSString * byline;                //@synthesize byline=_byline - In the implementation block
 -(NSString *)pk;
 -(NSString *)byline;
+-(NSArray *)mediaBundles;
 -(unsigned)parsedTypeFromDictionary:(id)arg1 ;
 -(id)parsedMediaBundlesFromDictionary:(id)arg1 ;
 -(id)parsedLocationFromDictionary:(id)arg1 ;
 -(id)parsedUserFromDictionary:(id)arg1 ;
 -(id)initWithPk:(id)arg1 type:(unsigned)arg2 location:(id)arg3 user:(id)arg4 mediaBundles:(id)arg5 title:(id)arg6 subtitle:(id)arg7 byline:(id)arg8 ;
--(NSArray *)mediaBundles;
 -(IGUser *)user;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

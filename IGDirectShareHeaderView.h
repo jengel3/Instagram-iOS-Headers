@@ -2,14 +2,12 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
 
-@class NSString, IGDirectShareHeaderViewLayout, IGCoreTextView, UILabel, UIImageView, IGProfilePictureImageView;
+@class IGDirectShareHeaderViewLayout, UILabel, UIImageView, IGProfilePictureImageView;
 
 @interface IGDirectShareHeaderView : UIView {
 
-	NSString* _titleText;
-	NSString* _subtitleText;
 	IGDirectShareHeaderViewLayout* _layout;
-	IGCoreTextView* _titleLabel;
+	UILabel* _titleLabel;
 	UILabel* _subtitleLabel;
 	UIImageView* _chevronView;
 	UIImageView* _sideImageView;
@@ -17,40 +15,41 @@
 
 }
 
-@property (nonatomic,retain) IGCoreTextView * titleLabel;                                       //@synthesize titleLabel=_titleLabel - In the implementation block
+@property (nonatomic,retain) UILabel * titleLabel;                                              //@synthesize titleLabel=_titleLabel - In the implementation block
 @property (nonatomic,retain) UILabel * subtitleLabel;                                           //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 @property (nonatomic,retain) UIImageView * chevronView;                                         //@synthesize chevronView=_chevronView - In the implementation block
 @property (nonatomic,retain) UIImageView * sideImageView;                                       //@synthesize sideImageView=_sideImageView - In the implementation block
 @property (nonatomic,retain) IGProfilePictureImageView * sharedUserProfilePicture;              //@synthesize sharedUserProfilePicture=_sharedUserProfilePicture - In the implementation block
-@property (nonatomic,retain) NSString * titleText;                                              //@synthesize titleText=_titleText - In the implementation block
-@property (nonatomic,retain) NSString * subtitleText;                                           //@synthesize subtitleText=_subtitleText - In the implementation block
 @property (nonatomic,retain) IGDirectShareHeaderViewLayout * layout;                            //@synthesize layout=_layout - In the implementation block
-+(id)titleStyledStringWithText:(id)arg1 ;
-+(float)heightForLayout:(id)arg1 ;
--(id)createTitleLabel;
 -(id)createSubtitleLabel;
+-(id)createTitleLabel;
+-(float)heightWithWidth:(float)arg1 ;
+-(void)setUserForProfileView:(id)arg1 ;
 -(id)createChevronView;
 -(void)setSharedUserProfilePicture:(IGProfilePictureImageView *)arg1 ;
 -(void)setSideImageView:(UIImageView *)arg1 ;
--(UIImageView *)sideImageView;
 -(IGProfilePictureImageView *)sharedUserProfilePicture;
--(void)layoutIcon;
 -(void)layoutTitleAndSubtitle;
 -(void)layoutChevronView;
--(void)setUserForProfileView:(id)arg1 ;
+-(float)titleOffsetX;
+-(float)titleFrameWidth:(float)arg1 ;
+-(float)subtitleHeight;
+-(float)chevronFrameWidth;
+-(float)heightForTextsWithWidth:(float)arg1 ;
+-(float)heightForIcon;
+-(void)layoutIcon;
+-(UIImageView *)sideImageView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)reset;
--(IGCoreTextView *)titleLabel;
+-(UILabel *)titleLabel;
 -(IGDirectShareHeaderViewLayout *)layout;
 -(UILabel *)subtitleLabel;
 -(void)setLayout:(IGDirectShareHeaderViewLayout *)arg1 ;
--(void)setTitleLabel:(IGCoreTextView *)arg1 ;
+-(void)setTitleLabel:(UILabel *)arg1 ;
 -(void)setSubtitleLabel:(UILabel *)arg1 ;
--(void)setTitleText:(NSString *)arg1 ;
--(NSString *)titleText;
--(void)setSubtitleText:(NSString *)arg1 ;
--(NSString *)subtitleText;
+-(void)setTitleText:(id)arg1 ;
+-(void)setSubtitleText:(id)arg1 ;
 -(UIImageView *)chevronView;
 -(void)setChevronView:(UIImageView *)arg1 ;
 @end

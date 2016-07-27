@@ -2,13 +2,12 @@
 #import <Instagram/IGNetworkSourceDelegate.h>
 
 @protocol IGEventServiceNetworkDelegate;
-@class IGNetworkSource, NSString, NSArray, IGEventFeedDataCache, IGEventServiceConfiguration;
+@class IGNetworkSource, NSString, IGEventFeedDataCache, IGEventServiceConfiguration;
 
 @interface IGEventService : NSObject <IGNetworkSourceDelegate> {
 
 	IGNetworkSource* _networkSource;
 	NSString* _eventTitle;
-	NSArray* _cachedPosts;
 	id<IGEventServiceNetworkDelegate> _networkDelegate;
 	IGEventFeedDataCache* _feedDataCache;
 	IGEventServiceConfiguration* _configuration;
@@ -25,7 +24,6 @@
 @property (nonatomic,readonly) NSString * eventTitle;                                               //@synthesize eventTitle=_eventTitle - In the implementation block
 @property (nonatomic,readonly) NSString * eventHeader;                                              //@synthesize eventHeader=_eventHeader - In the implementation block
 @property (nonatomic,readonly) NSString * currentUserPK;                                            //@synthesize currentUserPK=_currentUserPK - In the implementation block
-@property (nonatomic,readonly) NSArray * cachedPosts;                                               //@synthesize cachedPosts=_cachedPosts - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -34,7 +32,7 @@
 -(NSString *)eventTitle;
 -(id<IGEventServiceNetworkDelegate>)networkDelegate;
 -(void)cacheEventFeedData:(id)arg1 ;
--(NSArray *)cachedPosts;
+-(id)cachedPosts;
 -(void)fetchMorePosts;
 -(NSString *)eventHeader;
 -(id)initWithConfiguration:(id)arg1 feedDataCache:(id)arg2 ;

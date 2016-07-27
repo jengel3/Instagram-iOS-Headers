@@ -35,6 +35,13 @@
 @property (assign,nonatomic,__weak) id<IGInlineGalleryDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 -(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
 -(PHImageRequestOptions *)imageRequestOptions;
+-(id)initWithMaxItems:(int)arg1 ;
+-(char)hasCameraRollAccess;
+-(void)pauseDataFetch;
+-(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
+-(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
+-(id)errorMessageIfInvalidAssetAtIndexPath:(id)arg1 ;
+-(id)metadataForAssetAtIndexPath:(id)arg1 ;
 -(int)maxItems;
 -(id)assetForIndexPath:(id)arg1 ;
 -(int)numMediaSince:(double)arg1 ;
@@ -46,13 +53,6 @@
 -(PHFetchResult *)assetsInCollectionResult;
 -(void)setAssetsInCollectionResult:(PHFetchResult *)arg1 ;
 -(void)setChosenCollection:(PHAssetCollection *)arg1 ;
--(id)initWithMaxItems:(int)arg1 ;
--(char)hasCameraRollAccess;
--(void)pauseDataFetch;
--(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
--(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
--(id)errorMessageIfInvalidAssetAtIndexPath:(id)arg1 ;
--(id)metadataForAssetAtIndexPath:(id)arg1 ;
 -(id)fetchOptions;
 -(void)setThumbnailSize:(CGSize)arg1 ;
 -(void)photoLibraryDidChange:(id)arg1 ;

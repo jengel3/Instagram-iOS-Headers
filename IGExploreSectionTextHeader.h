@@ -17,11 +17,11 @@
 @property (nonatomic,readonly) UIButton * actionButton;              //@synthesize actionButton=_actionButton - In the implementation block
 @property (nonatomic,readonly) UIImageView * iconView;               //@synthesize iconView=_iconView - In the implementation block
 @property (assign,nonatomic) unsigned titleLocation;                 //@synthesize titleLocation=_titleLocation - In the implementation block
--(unsigned)titleLocation;
--(void)setTitleLocation:(unsigned)arg1 ;
 -(void)layoutIcon;
 -(void)layoutActionButton;
 -(void)layoutTitle;
+-(unsigned)titleLocation;
+-(void)setTitleLocation:(unsigned)arg1 ;
 -(UIButton *)actionButton;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

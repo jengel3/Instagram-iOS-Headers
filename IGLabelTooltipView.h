@@ -32,14 +32,14 @@
 @property (nonatomic,readonly) UILabel * secondaryLabel;                                  //@synthesize secondaryLabel=_secondaryLabel - In the implementation block
 -(void)setPinPoint:(CGPoint)arg1 ;
 -(void)pinToPoint:(CGPoint)arg1 minX:(float)arg2 maxX:(float)arg3 arrowDirection:(int)arg4 ;
+-(void)didTap:(id)arg1 ;
 -(void)setMinX:(float)arg1 ;
 -(UIImageView *)leftBackground;
 -(UIImageView *)rightBackground;
 -(float)minX;
--(CGPoint)pinPoint;
 -(char)shouldExtendToFullWidth;
+-(CGPoint)pinPoint;
 -(void)setShouldExtendToFullWidth:(char)arg1 ;
--(void)didTap:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGLabelTooltipViewDelegate>)arg1 ;
 -(void)layoutSubviews;

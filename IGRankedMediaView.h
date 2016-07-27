@@ -29,11 +29,11 @@
 @property (assign,nonatomic,__weak) id<IGRankedMediaViewDelegate> delegate;                            //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,copy) NSArray * thumbnailImageViews;                                              //@synthesize thumbnailImageViews=_thumbnailImageViews - In the implementation block
 +(CGSize)thumbnailSizeForConstrainedWidth:(float)arg1 ;
--(UILabel *)rankedLabel;
--(UILabel *)allMediaLabel;
 -(char)isRankedContentVisible;
+-(UILabel *)rankedLabel;
 -(char)isAllMediaContentVisible;
 -(UILabel *)postCountLabel;
+-(UILabel *)allMediaLabel;
 -(void)setMediaURLs:(id)arg1 videoIconIndexes:(id)arg2 ;
 -(id)newThumbnailView;
 -(void)setThumbnailImageViews:(NSArray *)arg1 ;

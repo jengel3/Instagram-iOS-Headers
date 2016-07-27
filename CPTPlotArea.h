@@ -17,16 +17,16 @@
 	CPTFill* fill;
 	int* bottomUpLayerOrder;
 	CGPoint touchedPoint;
-	SCD_Struct_CP85 widthDecimal;
-	SCD_Struct_CP85 heightDecimal;
+	SCD_Struct_CP126 widthDecimal;
+	SCD_Struct_CP126 heightDecimal;
 
 }
 
 @property (assign,nonatomic) int* bottomUpLayerOrder; 
 @property (assign,getter=isUpdatingLayers,nonatomic) char updatingLayers; 
 @property (assign,nonatomic) CGPoint touchedPoint; 
-@property (assign,nonatomic) SCD_Struct_CP85 widthDecimal; 
-@property (assign,nonatomic) SCD_Struct_CP85 heightDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP126 widthDecimal; 
+@property (assign,nonatomic) SCD_Struct_CP126 heightDecimal; 
 @property (nonatomic,retain) CPTGridLineGroup * minorGridLineGroup; 
 @property (nonatomic,retain) CPTGridLineGroup * majorGridLineGroup; 
 @property (nonatomic,retain) CPTAxisSet * axisSet; 
@@ -36,6 +36,7 @@
 @property (nonatomic,retain) NSArray * topDownLayerOrder; 
 @property (nonatomic,copy) CPTLineStyle * borderLineStyle; 
 @property (nonatomic,copy) CPTFill * fill; 
+-(void)setAxisSet:(CPTAxisSet *)arg1 ;
 -(id)sublayersExcludedFromAutomaticLayout;
 -(void)setAxisSetLayersForType:(int)arg1 ;
 -(CPTAxisLabelGroup *)axisLabelGroup;
@@ -50,7 +51,6 @@
 -(CPTLineStyle *)borderLineStyle;
 -(void)setBorderLineStyle:(CPTLineStyle *)arg1 ;
 -(void)renderAsVectorInContext:(CGContextRef)arg1 ;
--(void)setAxisSet:(CPTAxisSet *)arg1 ;
 -(CPTPlotGroup *)plotGroup;
 -(NSArray *)topDownLayerOrder;
 -(void)setTopDownLayerOrder:(NSArray *)arg1 ;
@@ -65,12 +65,12 @@
 -(CGPoint)touchedPoint;
 -(char)isUpdatingLayers;
 -(unsigned)indexForLayerType:(int)arg1 ;
--(void)setWidthDecimal:(SCD_Struct_CP85)arg1 ;
--(void)setHeightDecimal:(SCD_Struct_CP85)arg1 ;
+-(void)setWidthDecimal:(SCD_Struct_CP126)arg1 ;
+-(void)setHeightDecimal:(SCD_Struct_CP126)arg1 ;
 -(void)setBottomUpLayerOrder:(int*)arg1 ;
 -(void)setPlotGroup:(CPTPlotGroup *)arg1 ;
--(SCD_Struct_CP85)widthDecimal;
--(SCD_Struct_CP85)heightDecimal;
+-(SCD_Struct_CP126)widthDecimal;
+-(SCD_Struct_CP126)heightDecimal;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

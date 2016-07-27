@@ -1,6 +1,6 @@
 
 
 @interface IGDirectPendingInboxViewControllerFactory : NSObject
-+(id)viewController;
++(id)viewControllerWithUserSession:(id)arg1 ;
 @end
 

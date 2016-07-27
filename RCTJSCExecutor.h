@@ -9,14 +9,16 @@
 	RCTJavaScriptContext* _context;
 	NSThread* _javaScriptThread;
 	CFDictionaryRef _cookieMap;
-	OpaqueJSStringRef _bundleURL;
 	RandomAccessBundleData* _randomAccessBundle;
+	OpaqueJSValueRef _batchedBridgeRef;
 	RCTJSCWrapper* _jscWrapper;
+	char _useCustomJSCLibrary;
 	char _valid;
 	RCTBridge* _bridge;
 
 }
 
+@property (nonatomic,readonly) char useCustomJSCLibrary;                              //@synthesize useCustomJSCLibrary=_useCustomJSCLibrary - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -26,10 +28,9 @@
 @property (getter=isValid,nonatomic,readonly) char valid;                             //@synthesize valid=_valid - In the implementation block
 +(id)moduleName;
 +(void)runRunLoopThread;
-+(void)setUseCustomJSCLibrary:(char)arg1 ;
-+(char)useCustomJSCLibrary;
-+(id)__rct_export__8850;
++(id)__rct_export__8870;
 +(void)load;
+-(id)initWithUseCustomJSCLibrary:(char)arg1 ;
 -(void)executeBlockOnJavaScriptQueue:(/*^block*/id)arg1 ;
 -(void)addSynchronousHookWithName:(id)arg1 usingBlock:(id)arg2 ;
 -(void)_executeJSCall:(id)arg1 arguments:(id)arg2 callback:(/*^block*/id)arg3 ;
@@ -43,6 +44,7 @@
 -(void)executeAsyncBlockOnJavaScriptQueue:(/*^block*/id)arg1 ;
 -(id)convertJSErrorToNSError:(OpaqueJSValueRef)arg1 context:(OpaqueJSContextRef)arg2 ;
 -(void)toggleProfilingFlag:(id)arg1 ;
+-(char)useCustomJSCLibrary;
 -(void)setContextName:(id)arg1 ;
 -(void)dealloc;
 -(id)init;

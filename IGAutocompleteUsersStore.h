@@ -21,16 +21,15 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
 +(id)archiveURLForUserPK:(id)arg1 ;
-+(void)invalidateExpirationOnAppUpgrade;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(void)loadUsers;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
 -(id)regexPattern;
 -(id)archiveURL;
 -(void)loadUsersFromNotification:(id)arg1 ;
 -(void)onFriendStatusReceived:(id)arg1 ;
 -(void)onUserChanged:(id)arg1 ;
--(void)loadUsers;
 -(NSMutableArray *)recentUserPKs;
 -(void)setBuckets:(NSMutableDictionary *)arg1 ;
 -(void)bucketUser:(id)arg1 ;

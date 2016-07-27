@@ -12,6 +12,7 @@
 +(id)propConfigShadow_letterSpacing;
 +(id)propConfigShadow_lineHeight;
 +(id)propConfigShadow_numberOfLines;
++(id)propConfigShadow_lineBreakMode;
 +(id)propConfigShadow_textAlign;
 +(id)propConfigShadow_textDecorationStyle;
 +(id)propConfigShadow_textDecorationColor;
@@ -23,8 +24,8 @@
 +(id)propConfigShadow_textShadowRadius;
 +(id)propConfigShadow_textShadowColor;
 +(void)load;
--(/*^block*/id)uiBlockToAmendWithShadowView:(id)arg1 ;
 -(/*^block*/id)uiBlockToAmendWithShadowViewRegistry:(id)arg1 ;
+-(/*^block*/id)uiBlockToAmendWithShadowView:(id)arg1 ;
 -(id)view;
 -(id)shadowView;
 @end

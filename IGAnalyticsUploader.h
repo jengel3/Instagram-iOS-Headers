@@ -15,6 +15,7 @@
 	char _logOperations;
 	NSString* _channelName;
 	UIApplication* _application;
+	char _aldrinMode;
 
 }
 -(void)processNextLogFile;
@@ -28,7 +29,7 @@
 -(id)APIRequestParametersForJSONData:(id)arg1 compressed:(char)arg2 ;
 -(char)uploadWithParameters:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(id)signedAPIParameters:(id)arg1 ;
--(id)initWithLoggingAPIKey:(id)arg1 clientToken:(id)arg2 queue:(id)arg3 fileManager:(id)arg4 logOperations:(char)arg5 channelName:(id)arg6 application:(id)arg7 ;
+-(id)initWithLoggingAPIKey:(id)arg1 clientToken:(id)arg2 queue:(id)arg3 fileManager:(id)arg4 logOperations:(char)arg5 channelName:(id)arg6 application:(id)arg7 aldrinMode:(char)arg8 ;
 -(void)processLogFiles;
 @end
 

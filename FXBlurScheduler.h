@@ -18,9 +18,9 @@
 @property (assign,nonatomic) char blurEnabled;                     //@synthesize blurEnabled=_blurEnabled - In the implementation block
 @property (assign,nonatomic) char updating;                        //@synthesize updating=_updating - In the implementation block
 +(id)sharedInstance;
+-(void)updateAsynchronously;
 -(unsigned)viewIndex;
 -(void)setViewIndex:(unsigned)arg1 ;
--(void)updateAsynchronously;
 -(char)blurEnabled;
 -(void)setBlurEnabled:(char)arg1 ;
 -(void)setUpdatesEnabled;

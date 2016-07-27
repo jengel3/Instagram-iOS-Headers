@@ -12,12 +12,12 @@
 @property (assign,nonatomic) float roundingFactor; 
 @property (assign,nonatomic) unsigned clampMode; 
 @property (assign,getter=isAdditive,nonatomic) char additive; 
+-(void)setRoundingFactor:(float)arg1 ;
 -(void)_initState;
 -(void)_appendDescription:(id)arg1 debug:(char)arg2 ;
 -(id)progressMarkers;
 -(void)setProgressMarkers:(id)arg1 ;
 -(float)roundingFactor;
--(void)setRoundingFactor:(float)arg1 ;
 -(unsigned)clampMode;
 -(void)setClampMode:(unsigned)arg1 ;
 -(void)setProperty:(POPAnimatableProperty *)arg1 ;

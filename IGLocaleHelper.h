@@ -7,6 +7,7 @@
 +(id)localeForCurrentLanguage;
 +(char)isLocale:(id)arg1 inLocaleArray:(id)arg2 ;
 +(id)localeForCurrentKeyboard;
++(id)fbLocaleForCurrentLanguage;
 +(char)localeIsEnglish;
 +(char)keyboardLocaleIsFarEast;
 +(char)localeHasSpecialCharacters;

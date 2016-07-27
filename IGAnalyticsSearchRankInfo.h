@@ -31,26 +31,26 @@
 @property (nonatomic,copy) NSString * searchSessionId;                       //@synthesize searchSessionId=_searchSessionId - In the implementation block
 @property (nonatomic,copy) NSString * entityId;                              //@synthesize entityId=_entityId - In the implementation block
 @property (nonatomic,copy) NSString * searchImpressionToken;                 //@synthesize searchImpressionToken=_searchImpressionToken - In the implementation block
--(NSString *)searchQueryText;
+-(void)setRankToken:(NSString *)arg1 ;
+-(NSString *)rankToken;
+-(void)setEntityId:(NSString *)arg1 ;
+-(NSString *)entityId;
+-(NSString *)searchSessionId;
+-(void)setSearchSessionId:(NSString *)arg1 ;
+-(void)setViewSubType:(NSString *)arg1 ;
+-(void)setSearchImpressionToken:(NSString *)arg1 ;
+-(void)setItemRankDisplayOffset:(NSNumber *)arg1 ;
+-(void)setItemRankResponseOffset:(NSNumber *)arg1 ;
+-(void)setRankDisplayRowSize:(NSNumber *)arg1 ;
+-(void)setSearchQueryText:(NSString *)arg1 ;
 -(NSString *)viewSubType;
+-(NSString *)searchQueryText;
 -(NSNumber *)itemRankResponseOffset;
 -(NSNumber *)itemRankDisplayOffset;
 -(NSNumber *)rankDisplayRowSize;
 -(NSNumber *)rankDisplayColumnSize;
--(NSString *)searchSessionId;
--(NSString *)entityId;
 -(NSString *)searchImpressionToken;
--(NSString *)rankToken;
--(void)setSearchQueryText:(NSString *)arg1 ;
--(void)setViewSubType:(NSString *)arg1 ;
--(void)setRankToken:(NSString *)arg1 ;
--(void)setItemRankResponseOffset:(NSNumber *)arg1 ;
--(void)setItemRankDisplayOffset:(NSNumber *)arg1 ;
--(void)setRankDisplayRowSize:(NSNumber *)arg1 ;
 -(void)setRankDisplayColumnSize:(NSNumber *)arg1 ;
--(void)setSearchSessionId:(NSString *)arg1 ;
--(void)setEntityId:(NSString *)arg1 ;
--(void)setSearchImpressionToken:(NSString *)arg1 ;
 -(void)setSearchType:(NSString *)arg1 ;
 -(NSString *)sectionType;
 -(void)setSectionType:(NSString *)arg1 ;

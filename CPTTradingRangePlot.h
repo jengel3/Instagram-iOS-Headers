@@ -42,9 +42,11 @@
 @property (nonatomic,copy) CPTFill * increaseFill; 
 @property (nonatomic,copy) CPTFill * decreaseFill; 
 +(char)needsDisplayForKey:(id)arg1 ;
+-(void)setLineStyle:(CPTLineStyle *)arg1 ;
+-(void)setBarCornerRadius:(float)arg1 ;
+-(CPTLineStyle *)lineStyle;
 -(char)pointingDeviceDownEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
 -(char)pointingDeviceUpEvent:(UIEvent*)arg1 atPoint:(CGPoint)arg2 ;
--(void)setBarCornerRadius:(float)arg1 ;
 -(float)barCornerRadius;
 -(void)reloadBarFillsInIndexRange:(NSRange)arg1 ;
 -(void)reloadBarLineStylesInIndexRange:(NSRange)arg1 ;
@@ -54,8 +56,6 @@
 -(int)coordinateForFieldIdentifier:(unsigned)arg1 ;
 -(void)renderAsVectorInContext:(CGContextRef)arg1 ;
 -(void)drawSwatchForLegend:(id)arg1 atIndex:(unsigned)arg2 inRect:(CGRect)arg3 inContext:(CGContextRef)arg4 ;
--(CPTLineStyle *)lineStyle;
--(void)setLineStyle:(CPTLineStyle *)arg1 ;
 -(void)reloadDataInIndexRange:(NSRange)arg1 ;
 -(void)reloadPlotDataInIndexRange:(NSRange)arg1 ;
 -(unsigned)dataIndexFromInteractionPoint:(CGPoint)arg1 ;

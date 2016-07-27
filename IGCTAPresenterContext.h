@@ -18,11 +18,11 @@
 @property (nonatomic,readonly) IGDirectResponseInfo * directResponseInfo;                                               //@synthesize directResponseInfo=_directResponseInfo - In the implementation block
 @property (nonatomic,__weak,readonly) id<IGFeedItemDirectResponseLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
 @property (assign,nonatomic,__weak) UIViewController * viewController;                                                  //@synthesize viewController=_viewController - In the implementation block
--(IGDirectResponseInfo *)directResponseInfo;
 -(IGFeedItem *)feedItem;
+-(IGDirectResponseInfo *)directResponseInfo;
 -(id<IGFeedItemDirectResponseLoggingProviderDelegate>)loggingDelegate;
--(IGFeedItemPageCellState *)pageCellState;
 -(id)initWithFeedItem:(id)arg1 pageCellState:(id)arg2 directResponseInfo:(id)arg3 loggingDelegate:(id)arg4 ;
+-(IGFeedItemPageCellState *)pageCellState;
 -(void)setViewController:(UIViewController *)arg1 ;
 -(UIViewController *)viewController;
 @end

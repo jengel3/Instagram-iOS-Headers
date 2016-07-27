@@ -23,9 +23,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(UIBarButtonItem *)configureButton;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
+-(UIBarButtonItem *)configureButton;
 -(void)onConfigureButtonTapped:(id)arg1 ;
 -(void)disconnectContacts;
 -(void)contactsFriendsHelperDidTapLearnMore:(id)arg1 ;

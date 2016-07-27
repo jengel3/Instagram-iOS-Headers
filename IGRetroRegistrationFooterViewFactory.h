@@ -2,8 +2,8 @@
 
 @interface IGRetroRegistrationFooterViewFactory : NSObject
 +(id)footerViewSeperator;
-+(id)footerButtonSeparator;
 +(id)footerViewLabel;
++(id)footerButtonSeparator;
 +(id)footerButton;
 @end
 

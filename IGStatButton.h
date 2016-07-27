@@ -14,8 +14,8 @@
 @property (nonatomic,retain) UILabel * countLabel;              //@synthesize countLabel=_countLabel - In the implementation block
 @property (nonatomic,retain) UILabel * nameLabel;               //@synthesize nameLabel=_nameLabel - In the implementation block
 -(UILabel *)countLabel;
--(void)updateTextLabelsForCurrentControlState;
 -(void)setCount:(id)arg1 formattingStyle:(int)arg2 ;
+-(void)updateTextLabelsForCurrentControlState;
 -(void)setCountLabel:(UILabel *)arg1 ;
 -(UILabel *)nameLabel;
 -(void)setNameLabel:(UILabel *)arg1 ;

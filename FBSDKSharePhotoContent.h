@@ -25,8 +25,8 @@
 @property (nonatomic,copy) NSString * ref;                          //@synthesize ref=_ref - In the implementation block
 +(char)supportsSecureCoding;
 -(NSArray *)peopleIDs;
--(char)isEqualToSharePhotoContent:(id)arg1 ;
 -(void)setPeopleIDs:(NSArray *)arg1 ;
+-(char)isEqualToSharePhotoContent:(id)arg1 ;
 -(void)setContentURL:(NSURL *)arg1 ;
 -(NSURL *)contentURL;
 -(id)initWithCoder:(id)arg1 ;

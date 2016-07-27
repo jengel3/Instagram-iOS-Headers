@@ -13,8 +13,8 @@
 +(id)filterName;
 +(int)filterType;
 -(void)render:(id)arg1 to:(id)arg2 ;
--(id)fragmentFunctions;
 -(void)configureProgram:(id)arg1 ;
+-(id)fragmentFunctions;
 -(IGSurface *)splineSurface;
 -(void)setSplineSurface:(IGSurface *)arg1 ;
 -(id)fragmentShader;

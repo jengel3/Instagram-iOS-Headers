@@ -24,14 +24,14 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)popoverMarginForStyle:(int)arg1 ;
+-(id)ig_keyViewControllers;
+-(id)initWithStyle:(int)arg1 rootViewController:(id)arg2 ;
 -(void)presentWithPreferOverFullScreen:(char)arg1 ;
 -(void)updateHeightForViewController:(id)arg1 animated:(char)arg2 ;
+-(void)presentOverFullSreen;
 -(void)navigationController:(id)arg1 willNavigateToViewController:(id)arg2 ;
 -(void)navigationController:(id)arg1 didNavigateToViewController:(id)arg2 animated:(char)arg3 ;
 -(void)navigationController:(id)arg1 didPopViewController:(id)arg2 animated:(char)arg3 ;
--(id)ig_keyViewControllers;
--(id)initWithStyle:(int)arg1 rootViewController:(id)arg2 ;
--(void)presentOverFullSreen;
 -(void)setDelegate:(id<IGPopoverControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGPopoverControllerDelegate>)delegate;

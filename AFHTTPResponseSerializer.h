@@ -21,12 +21,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)serializer;
 -(void)setStringEncoding:(unsigned)arg1 ;
--(id)responseObjectForResponse:(id)arg1 data:(id)arg2 error:(id*)arg3 ;
 -(void)setAcceptableStatusCodes:(NSIndexSet *)arg1 ;
 -(void)setAcceptableContentTypes:(NSSet *)arg1 ;
 -(NSIndexSet *)acceptableStatusCodes;
 -(NSSet *)acceptableContentTypes;
 -(char)validateResponse:(id)arg1 data:(id)arg2 error:(id*)arg3 ;
+-(id)responseObjectForResponse:(id)arg1 data:(id)arg2 error:(id*)arg3 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

@@ -16,9 +16,9 @@
 @property (assign,nonatomic) CGPoint center;              //@synthesize center=_center - In the implementation block
 @property (assign,nonatomic) float angle;                 //@synthesize angle=_angle - In the implementation block
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
+-(void)configureProgram:(id)arg1 ;
 -(id)fragmentShaderPrecision;
 -(id)fragmentFunctions;
--(void)configureProgram:(id)arg1 ;
 -(id)fragmentShader;
 -(id)init;
 -(CGPoint)center;

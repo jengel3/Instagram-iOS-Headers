@@ -51,10 +51,10 @@
 -(void)checkSMSConfirmationCode:(id)arg1 forPhoneNumber:(id)arg2 onComplete:(/*^block*/id)arg3 onError:(/*^block*/id)arg4 ;
 -(NSNumber *)importProfilePictureFlowReactTag;
 -(void)setImportProfilePictureFlowReactTag:(NSNumber *)arg1 ;
--(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePictureWithURL:(id)arg2 fromOption:(int)arg3 ;
--(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
 -(IGProfilePictureHelper *)profilePictureHelper;
+-(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePictureWithURL:(id)arg2 fromOption:(int)arg3 ;
+-(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(id)init;
 @end
 

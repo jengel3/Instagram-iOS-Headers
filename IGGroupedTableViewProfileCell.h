@@ -31,15 +31,15 @@
 +(float)height;
 -(IGProfilePictureImageView *)profilePictureView;
 -(void)setProfilePictureView:(IGProfilePictureImageView *)arg1 ;
--(UIImage *)profilePicture;
--(void)setProfilePicture:(UIImage *)arg1 ;
 -(id)initWithProfilePictureRect:(CGRect)arg1 ;
 -(void)chooseProfilePicture;
+-(UIImage *)profilePicture;
+-(void)setProfilePicture:(UIImage *)arg1 ;
 -(UIButton *)profilePictureEditButton;
 -(void)setProfilePictureEditButton:(UIButton *)arg1 ;
 -(void)profilePictureTapped:(id)arg1 ;
--(IGTextField *)usernameField;
 -(void)setUsernameField:(IGTextField *)arg1 ;
+-(IGTextField *)usernameField;
 -(void)setDelegate:(UIViewController*<UITextFieldDelegate>*<IGProfilePictureHelperDelegate>)arg1 ;
 -(void)dealloc;
 -(id)init;

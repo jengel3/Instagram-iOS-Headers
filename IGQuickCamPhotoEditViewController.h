@@ -35,11 +35,11 @@
 @property (nonatomic,retain) IGContext * renderingContext;                                               //@synthesize renderingContext=_renderingContext - In the implementation block
 @property (assign,nonatomic) int state;                                                                  //@synthesize state=_state - In the implementation block
 @property (assign,nonatomic,__weak) id<IGQuickCamPhotoEditViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(char)currentImageIsFiltered;
 -(void)panAnimationView:(id)arg1 didPanToRightBy:(float)arg2 ;
 -(void)panAnimationView:(id)arg1 didPanToLeftBy:(float)arg2 ;
 -(void)panAnimationView:(id)arg1 willFinishPanAnimationWithDuration:(float)arg2 ;
 -(void)panAnimationViewDidFinishPanToRight:(id)arg1 ;
+-(void)panAnimationViewDidFinish:(id)arg1 ;
 -(void)panAnimationViewDidFinishPanToLeft:(id)arg1 ;
 -(void)panAnimationView:(id)arg1 willCancelPanAnimationWithDuration:(float)arg2 ;
 -(void)panAnimationViewDidUpdateCenterImage:(id)arg1 ;
@@ -55,6 +55,7 @@
 -(void)setPostPipelineFilter:(IGPostPipelineFilter *)arg1 ;
 -(int)selectedFilterIndex;
 -(void)setSelectedFilterIndex:(int)arg1 ;
+-(char)currentImageIsFiltered;
 -(id)getSurfaceFromImage:(id)arg1 withCropRect:(CGRect)arg2 ;
 -(void)setOutSurface:(IGSurface *)arg1 ;
 -(int)filterIndexForIndexOffset:(int)arg1 ;

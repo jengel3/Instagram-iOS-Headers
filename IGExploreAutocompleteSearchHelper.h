@@ -28,9 +28,9 @@
 -(IGBlendedSearchDataSource *)blendedDataSource;
 -(char)responseWasFoundInCache;
 -(void)setResponseWasFoundInCache:(char)arg1 ;
--(NSString *)responseQueryText;
 -(void)setResponseQueryText:(NSString *)arg1 ;
 -(void)setResponseRankToken:(NSString *)arg1 ;
+-(NSString *)responseQueryText;
 -(NSString *)responseRankToken;
 -(void)invalidateResults;
 -(void)dealloc;

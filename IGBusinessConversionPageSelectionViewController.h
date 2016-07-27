@@ -40,7 +40,6 @@
 -(id)parseGraphQLResponseWithResult:(id)arg1 error:(id*)arg2 ;
 -(IGBusinessConversionLoggingHelper *)loggingHelper;
 -(id)titleForFooterInSection:(int)arg1 ;
--(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
 -(void)fetchPages;
 -(id)newDefaultHeaderView;
 -(char)loadedZeroPages;
@@ -56,6 +55,7 @@
 -(void)updateUIAfterCreatePageButtonTapped;
 -(void)businessConversionCreatePageButtonTapped:(id)arg1 ;
 -(id)initWithFacebookAccessToken:(id)arg1 loggingHelper:(id)arg2 ;
+-(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

@@ -27,9 +27,9 @@
 -(IGInsightsQuery *)buttonQuery;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 chartStyle:(id)arg4 chartTab:(id)arg5 loggingHelper:(id)arg6 ;
 -(IGInsightsChartWithCenteredTitleView *)insightsChartView;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)didTapButtonOnHeaderView:(id)arg1 ;
 -(void)setInsightsChartView:(IGInsightsChartWithCenteredTitleView *)arg1 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id<IGInsightsComponentViewControllerNavigationDelegate>)navigationDelegate;
 -(void)setNavigationDelegate:(id<IGInsightsComponentViewControllerNavigationDelegate>)arg1 ;
 @end

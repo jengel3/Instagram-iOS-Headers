@@ -52,11 +52,11 @@
 -(void)setLoadingButton:(UIButton *)arg1 ;
 -(void)setChainingButton:(UIButton *)arg1 ;
 -(void)setButtonsInitialized:(char)arg1 ;
+-(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
 -(UIButton *)followingButton;
 -(UIButton *)requestedButton;
 -(char)isFollowingVisible;
 -(char)isUsingRequestButton;
--(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
 -(void)setUsingRequestButton:(char)arg1 ;
 -(void)setFollowingVisible:(char)arg1 ;
 -(void)setFollowButton:(UIButton *)arg1 ;

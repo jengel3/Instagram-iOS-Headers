@@ -27,8 +27,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)animatePresentTransition:(id)arg1 ;
 -(void)animateDismissTransition:(id)arg1 ;
+-(void)animatePresentTransition:(id)arg1 ;
 -(void)setUseCustomInitialDismissCenter:(char)arg1 ;
 -(void)hideStatusBarForViewControllerIfPossible:(id)arg1 ;
 -(CGAffineTransform)transformFromRect:(CGRect)arg1 toRect:(CGRect)arg2 ;

@@ -42,6 +42,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)ig_keyViewControllers;
 -(void)enableDisabledScrollViews;
 -(id)disableScrollViewsForViewController:(id)arg1 ;
 -(void)setDisabledScrollViews:(NSArray *)arg1 ;
@@ -63,7 +64,6 @@
 -(void)loadAdjacentControllersIfNecessary;
 -(void)insertPagesAtIndexes:(id)arg1 ;
 -(void)setNumberOfCachedAdjacentViewControllers:(int)arg1 ;
--(id)ig_keyViewControllers;
 -(void)setDataSource:(id<IGPageViewControllerDataSource>)arg1 ;
 -(void)setDelegate:(id<IGPageViewControllerDelegate>)arg1 ;
 -(void)dealloc;

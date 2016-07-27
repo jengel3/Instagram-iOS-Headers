@@ -8,6 +8,7 @@
 	char _enableNavState;
 	char _shouldShowSectionHeader;
 	char _canShowLocationCell;
+	char _canShowPreviewMedia;
 	char _enableFrequentItems;
 	NSString* _moduleName;
 	NSString* _searchType;
@@ -30,18 +31,18 @@
 @property (nonatomic,copy,readonly) NSString * viewSubType;                              //@synthesize viewSubType=_viewSubType - In the implementation block
 @property (nonatomic,readonly) char enableNavState;                                      //@synthesize enableNavState=_enableNavState - In the implementation block
 @property (nonatomic,readonly) char canShowLocationCell;                                 //@synthesize canShowLocationCell=_canShowLocationCell - In the implementation block
+@property (nonatomic,readonly) char canShowPreviewMedia;                                 //@synthesize canShowPreviewMedia=_canShowPreviewMedia - In the implementation block
 @property (nonatomic,readonly) char shouldShowSectionHeader;                             //@synthesize shouldShowSectionHeader=_shouldShowSectionHeader - In the implementation block
 @property (nonatomic,copy,readonly) NSString * noResultsMessage;                         //@synthesize noResultsMessage=_noResultsMessage - In the implementation block
 @property (nonatomic,copy,readonly) NSString * queryType;                                //@synthesize queryType=_queryType - In the implementation block
 @property (nonatomic,copy,readonly) NSString * tapEventName;                             //@synthesize tapEventName=_tapEventName - In the implementation block
 @property (nonatomic,copy,readonly) NSString * tapCancelEventName;                       //@synthesize tapCancelEventName=_tapCancelEventName - In the implementation block
 @property (assign,nonatomic) char enableFrequentItems;                                   //@synthesize enableFrequentItems=_enableFrequentItems - In the implementation block
--(NSString *)moduleName;
--(char)enableNavState;
--(NSString *)viewSubType;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
+-(char)enableNavState;
+-(NSString *)moduleName;
 -(unsigned)numberOfLocalResults;
 -(char)canShowLocationCell;
 -(id)allSearchResults;
@@ -57,6 +58,8 @@
 -(void)addLoadedNotifications;
 -(void)addLocationTracker;
 -(char)shouldShowFrequentSection;
+-(NSString *)viewSubType;
+-(char)canShowPreviewMedia;
 -(char)shouldShowSectionHeader;
 -(NSString *)queryType;
 -(NSString *)tapEventName;

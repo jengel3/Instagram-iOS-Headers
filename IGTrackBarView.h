@@ -21,16 +21,16 @@
 @property (nonatomic,readonly) UIView * effectiveContentView;                      //@synthesize effectiveContentView=_effectiveContentView - In the implementation block
 @property (nonatomic,readonly) UIVisualEffectView * visualEffectView;              //@synthesize visualEffectView=_visualEffectView - In the implementation block
 @property (assign,nonatomic) float trackValue;                                     //@synthesize trackValue=_trackValue - In the implementation block
+-(void)setTrackValue:(float)arg1 ;
+-(void)setTrackValueTintColor:(id)arg1 ;
+-(void)setBackgroundOverlayColor:(id)arg1 ;
+-(void)setBackgroundOverlayAlpha:(float)arg1 ;
+-(void)setBackgroundOverlayVisualEffect:(id)arg1 ;
 -(char)isVisualEffectEnabled;
 -(UIView *)trackView;
 -(UIView *)trackValueView;
 -(UIView *)effectiveContentView;
 -(float)trackValue;
--(void)setBackgroundOverlayVisualEffect:(id)arg1 ;
--(void)setBackgroundOverlayAlpha:(float)arg1 ;
--(void)setBackgroundOverlayColor:(id)arg1 ;
--(void)setTrackValue:(float)arg1 ;
--(void)setTrackValueTintColor:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(UIView *)backgroundView;

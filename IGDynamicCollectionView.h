@@ -62,10 +62,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithFrame:(CGRect)arg1 andMaxWidth:(float)arg2 ;
--(void)scrollToLastItemAnimated:(char)arg1 ;
 -(void)cancelCenterSprings;
 -(void)cancelTransformSprings;
+-(id)initWithFrame:(CGRect)arg1 andMaxWidth:(float)arg2 ;
 -(void)setTrackingViewPotentialLandingIndex:(int)arg1 ;
 -(void)setCenterAnimators:(NSMapTable *)arg1 ;
 -(void)setTransformAnimators:(NSMapTable *)arg1 ;
@@ -105,6 +104,7 @@
 -(NSMapTable *)centerAnimators;
 -(NSMapTable *)transformAnimators;
 -(char)rightToLeftDirection;
+-(void)scrollToLastItemAnimated:(char)arg1 ;
 -(void)setAutoscrollDisabled:(char)arg1 ;
 -(void)setRightToLeftDirection:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

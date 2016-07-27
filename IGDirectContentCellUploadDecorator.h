@@ -41,12 +41,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSString *)timestampText;
--(void)notifyStatusChangedForUploadInfo:(id)arg1 ;
--(void)notifyUploadProgressForUploadInfo:(id)arg1 withUploadProgress:(float)arg2 ;
 -(void)showActionMenu;
 -(void)showFailedUI;
 -(void)showSendingUI;
+-(NSString *)timestampText;
+-(void)notifyStatusChangedForUploadInfo:(id)arg1 ;
+-(void)notifyUploadProgressForUploadInfo:(id)arg1 withUploadProgress:(float)arg2 ;
 -(void)detachGestureRecognizers;
 -(void)removeSubviewsFromCell;
 -(void)addSubviewsToCell;

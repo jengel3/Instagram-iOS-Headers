@@ -31,5 +31,6 @@
 -(void)prepareForReuse;
 -(void)setContent:(id)arg1 ;
 -(void)beginAnimation;
+-(id)mediaView;
 @end
 

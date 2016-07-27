@@ -16,8 +16,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)moduleName;
-+(id)__rct_export__520;
 +(id)propConfig_source;
++(id)__rct_export__520;
 +(id)propConfig_bounces;
 +(id)propConfig_scrollEnabled;
 +(id)propConfig_decelerationRate;

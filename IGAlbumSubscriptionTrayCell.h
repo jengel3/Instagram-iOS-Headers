@@ -2,36 +2,27 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 
-@class IGProfilePictureImageView, UILabel, UIView, IGReelSubscriptionTrayItemModel;
+@class IGProfilePictureImageView, UILabel, UIImageView;
 
 @interface IGAlbumSubscriptionTrayCell : UICollectionViewCell {
 
 	IGProfilePictureImageView* _profileImageView;
-	UILabel* _usernameLabel;
-	UIView* _seenDot;
-	IGReelSubscriptionTrayItemModel* _model;
+	UILabel* _titleLabel;
+	UIImageView* _ringImageView;
 
 }
 
-@property (nonatomic,retain) UILabel * usernameLabel;                                     //@synthesize usernameLabel=_usernameLabel - In the implementation block
-@property (nonatomic,retain) UIView * seenDot;                                            //@synthesize seenDot=_seenDot - In the implementation block
-@property (nonatomic,retain) IGReelSubscriptionTrayItemModel * model;                     //@synthesize model=_model - In the implementation block
+@property (nonatomic,readonly) UILabel * titleLabel;                                      //@synthesize titleLabel=_titleLabel - In the implementation block
+@property (nonatomic,readonly) UIImageView * ringImageView;                               //@synthesize ringImageView=_ringImageView - In the implementation block
 @property (nonatomic,readonly) IGProfilePictureImageView * profileImageView;              //@synthesize profileImageView=_profileImageView - In the implementation block
-+(float)sectionPadding;
-+(float)width;
-+(float)height;
--(UIView *)seenDot;
--(void)setSeenDot:(UIView *)arg1 ;
--(void)configureWithModel:(id)arg1 ;
++(CGSize)preferredCellSize;
+-(UIImageView *)ringImageView;
+-(void)configureWithUser:(id)arg1 seen:(char)arg2 isCurrentUserReel:(char)arg3 ;
 -(IGProfilePictureImageView *)profileImageView;
--(UILabel *)usernameLabel;
--(void)setUsernameLabel:(UILabel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setHighlighted:(char)arg1 ;
+-(UILabel *)titleLabel;
 -(void)prepareForReuse;
--(IGReelSubscriptionTrayItemModel *)model;
--(void)setModel:(IGReelSubscriptionTrayItemModel *)arg1 ;
--(void)preload;
 @end
 

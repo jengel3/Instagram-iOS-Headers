@@ -25,6 +25,7 @@
 @property (nonatomic,retain) UIView * contentView; 
 @property (getter=isInteracting,nonatomic,readonly) char interacting; 
 @property (assign,getter=isZoomEnabled,nonatomic) char zoomEnabled; 
+@property (assign,getter=isPanEnabled,nonatomic) char panEnabled; 
 @property (assign,getter=isNonSquareEnabled,nonatomic) char nonSquareEnabled;                                   //@synthesize nonSquareEnabled=_nonSquareEnabled - In the implementation block
 @property (assign,nonatomic) float maximumZoom; 
 @property (assign,nonatomic) CGPoint cropCenter; 
@@ -58,6 +59,8 @@
 -(id<IGCropViewUserInteractionDelegate>)userInteractionDelegate;
 -(id)circularCropperView;
 -(void)setNonSquareEnabled:(char)arg1 ;
+-(void)setPanEnabled:(char)arg1 ;
+-(char)isPanEnabled;
 -(void)setCropZoom:(float)arg1 ;
 -(IGCropInfo)cropInfo;
 -(CGSize)largestOutputSizeWithNoUpscaling;

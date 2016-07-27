@@ -26,9 +26,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)enableNavState;
 -(id)analyticsModule;
 -(void)setEntryPoint:(int)arg1 ;
+-(char)enableNavState;
 -(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
 -(void)reloadWithNewObjects:(id)arg1 ;
 -(void)handleLoadedContentDidChange;

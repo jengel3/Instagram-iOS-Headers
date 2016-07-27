@@ -23,17 +23,17 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
 +(void)clearForUserDefaults:(id)arg1 key:(id)arg2 ;
+-(NSString *)userSessionPK;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(NSString *)userSessionPK;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setUserSessionPK:(NSString *)arg1 ;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(NSSet *)itemIds;
 -(NSString *)defaultsKey;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 defaultsKey:(id)arg3 ;
 -(void)setDefaultsKey:(NSString *)arg1 ;
 -(void)addItemId:(id)arg1 ;
+-(NSSet *)itemIds;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(NSMutableOrderedSet *)store;
 -(void)setStore:(NSMutableOrderedSet *)arg1 ;
 @end

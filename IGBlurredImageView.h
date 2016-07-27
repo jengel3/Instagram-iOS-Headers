@@ -16,12 +16,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)initWithFrame:(CGRect)arg1 blurRadius:(float)arg2 ;
+-(void)setupSubviewsWithFrame:(CGRect)arg1 blurRadius:(float)arg2 ;
 -(void)cancelImageLoad;
--(void)setupSubviewsWithFrame:(CGRect)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)layoutSubviews;
 -(IGImageView *)imageView;
 -(void)setPhoto:(id)arg1 ;
+-(void)setImageURL:(id)arg1 ;
 @end
 

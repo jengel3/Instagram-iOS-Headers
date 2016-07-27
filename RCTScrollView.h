@@ -57,6 +57,14 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) NSObject*<UIScrollViewDelegate> nativeScrollDelegate;              //@synthesize nativeScrollDelegate=_nativeScrollDelegate - In the implementation block
+-(void)reactBridgeDidFinishTransaction;
+-(id)initWithEventDispatcher:(id)arg1 ;
+-(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
+-(void)removeReactSubview:(id)arg1 ;
+-(void)didUpdateReactSubviews;
+-(char)automaticallyAdjustContentInsets;
+-(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
+-(void)didSetProps:(id)arg1 ;
 -(NSIndexSet *)stickyHeaderIndices;
 -(void)setStickyHeaderIndices:(NSIndexSet *)arg1 ;
 -(char)centerContent;
@@ -72,6 +80,8 @@
 -(id)onMomentumScrollEnd;
 -(CGSize)_calculateViewportSize;
 -(CGPoint)calculateOffsetForContentSize:(CGSize)arg1 ;
+-(void)refreshContentInset;
+-(void)setRemoveClippedSubviews:(char)arg1 ;
 -(double)scrollEventThrottle;
 -(void)setScrollEventThrottle:(double)arg1 ;
 -(void)setSnapToInterval:(int)arg1 ;
@@ -83,7 +93,6 @@
 -(void)setOnMomentumScrollEnd:(id)arg1 ;
 -(id)onScrollAnimationEnd;
 -(void)setOnScrollAnimationEnd:(id)arg1 ;
--(id)initWithEventDispatcher:(id)arg1 ;
 -(id)calculateChildFramesData;
 -(void)scrollToOffset:(CGPoint)arg1 ;
 -(void)scrollToOffset:(CGPoint)arg1 animated:(char)arg2 ;
@@ -91,14 +100,6 @@
 -(void)removeScrollListener:(id)arg1 ;
 -(NSObject*<UIScrollViewDelegate>)nativeScrollDelegate;
 -(void)setNativeScrollDelegate:(NSObject*<UIScrollViewDelegate>)arg1 ;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
--(id)reactSubviews;
--(void)reactBridgeDidFinishTransaction;
--(void)setRemoveClippedSubviews:(char)arg1 ;
--(void)refreshContentInset;
--(char)automaticallyAdjustContentInsets;
--(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)setClipsToBounds:(char)arg1 ;

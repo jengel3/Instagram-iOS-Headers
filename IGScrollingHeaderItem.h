@@ -28,6 +28,7 @@
 @property (nonatomic,readonly) NSArray * additionalScrollingViews;                           //@synthesize additionalScrollingViews=_additionalScrollingViews - In the implementation block
 @property (assign,nonatomic) float headerHeight;                                             //@synthesize headerHeight=_headerHeight - In the implementation block
 @property (assign,nonatomic,__weak) id<IGScrollingHeaderItemDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+-(char)headerIsScrolling;
 -(char)headerIsScrolledAway;
 -(id)initWithViewController:(id)arg1 shouldScrollAwayNavigationBar:(char)arg2 shouldScrollAwayStatusBar:(char)arg3 transformNavViews:(id)arg4 ;
 -(void)setScrollView:(id)arg1 additionalScrollingViews:(id)arg2 headerHeight:(float)arg3 ;
@@ -36,7 +37,6 @@
 -(char)shouldScrollAwayNavigationBar;
 -(char)shouldScrollAwayStatusBar;
 -(NSArray *)additionalScrollingViews;
--(char)headerIsScrolling;
 -(NSArray *)transformNavViews;
 -(void)setScrollView:(id)arg1 additionalScrollingViews:(id)arg2 ;
 -(float)maximumHeaderOffset;

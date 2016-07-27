@@ -6,22 +6,22 @@
 #import <Instagram/IGSwitchUsersControllerDelegate.h>
 #import <Instagram/IGDirectedNUXViewDelegate.h>
 #import <Instagram/IGMegaphonePresenterDelegate.h>
-#import <Instagram/IGProfilePictureHelperDelegate.h>
-#import <Instagram/IGProfilePicturePeekDelegate.h>
 #import <Instagram/IGActionSheetDelegate.h>
 #import <Instagram/IGCTAPresenterDelegate.h>
 #import <Instagram/IGBusinessConversionDelegate.h>
-#import <Instagram/IGPopoverControllerDelegate.h>
 #import <Instagram/IGTranslationNetworkDataSourceDelegate.h>
-#import <Instagram/IGTopAccountProfileNUXViewDelegate.h>
+#import <Instagram/IGBusinessToolAlertViewDelegate.h>
 #import <Instagram/IGFollowButtonDelegate.h>
+#import <Instagram/IGBusinessConversionMegaphonePresenterDelegate.h>
+#import <Instagram/IGProfilePeekViewControllerDelegate.h>
+#import <UIKit/UIViewControllerTransitioningDelegate.h>
 #import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGUserDetailHeaderViewDelegate.h>
 
 @protocol IGMegaphonePresenterProtocol, IGCTAPresenterProtocol, IGCTAPresentationViewType;
-@class UIBarButtonItem, IGUser, IGCTAPresenterContext, IGUserSession, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, IGFollowButton, NSArray, IGChevronTitleButton, IGSwitchUsersController, UIImageView, IGUserDetailPreviewingHandler, IGFeedItemPreviewingHandler, IGDirectedNUXView, IGProfilePicturePeekOverlay, IGProfilePictureHelper, IGTombstoneView, UITapGestureRecognizer, IGTranslationNetworkDataSource, IGInsightsLoggingHelper, NSString;
+@class UIBarButtonItem, IGUser, IGCTAPresenterContext, IGUserSession, IGUserDetailHeaderView, IGNuxTapOnCameraView, UIView, UILabel, NSDictionary, IGFollowButton, IGProfilePeekViewController, NSArray, IGChevronTitleButton, IGSwitchUsersController, UIImageView, IGUserDetailPreviewingHandler, IGFeedItemPreviewingHandler, IGDirectedNUXView, IGProfilePictureHelper, IGTombstoneView, UITapGestureRecognizer, IGTranslationNetworkDataSource, IGInsightsLoggingHelper, NSString;
 
-@interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate, IGProfilePictureHelperDelegate, IGProfilePicturePeekDelegate, IGActionSheetDelegate, IGCTAPresenterDelegate, IGBusinessConversionDelegate, IGPopoverControllerDelegate, IGTranslationNetworkDataSourceDelegate, IGTopAccountProfileNUXViewDelegate, IGFollowButtonDelegate, IGAnalyticsModule, IGUserDetailHeaderViewDelegate> {
+@interface IGUserDetailViewController : IGFeedViewController_DEPRECATED <IGFeedStatusRestrictedViewDelegate, IGRaindropAnalyticsDelegate, IGSwitchUsersControllerDelegate, IGDirectedNUXViewDelegate, IGMegaphonePresenterDelegate, IGActionSheetDelegate, IGCTAPresenterDelegate, IGBusinessConversionDelegate, IGTranslationNetworkDataSourceDelegate, IGBusinessToolAlertViewDelegate, IGFollowButtonDelegate, IGBusinessConversionMegaphonePresenterDelegate, IGProfilePeekViewControllerDelegate, UIViewControllerTransitioningDelegate, IGAnalyticsModule, IGUserDetailHeaderViewDelegate> {
 
 	UIBarButtonItem* _configureBarButton;
 	UIBarButtonItem* _insightsBarButton;
@@ -43,6 +43,7 @@
 	UIBarButtonItem* _followBarButton;
 	IGFollowButton* _navBarFollowButton;
 	UIView* _genericHeaderMegaphoneView;
+	IGProfilePeekViewController* _profilePeekVC;
 	NSArray* _accessibleElements;
 	UIView* _overlayViewForTabBar;
 	UIView* _overlayForMainView;
@@ -52,7 +53,6 @@
 	IGUserDetailPreviewingHandler* _userDetailPreviewDelegate;
 	IGFeedItemPreviewingHandler* _thumbnailPreviewDelegate;
 	IGDirectedNUXView* _NUXView;
-	IGProfilePicturePeekOverlay* _profilePeekOverlay;
 	IGProfilePictureHelper* _profilePictureHelper;
 	IGTombstoneView* _tombstoneView;
 	UITapGestureRecognizer* _mainViewNUXDismissTapGuestureRecognizer;
@@ -78,6 +78,7 @@
 @property (nonatomic,retain) UIBarButtonItem * followBarButton;                                              //@synthesize followBarButton=_followBarButton - In the implementation block
 @property (nonatomic,retain) IGFollowButton * navBarFollowButton;                                            //@synthesize navBarFollowButton=_navBarFollowButton - In the implementation block
 @property (nonatomic,retain) UIView * genericHeaderMegaphoneView;                                            //@synthesize genericHeaderMegaphoneView=_genericHeaderMegaphoneView - In the implementation block
+@property (nonatomic,retain) IGProfilePeekViewController * profilePeekVC;                                    //@synthesize profilePeekVC=_profilePeekVC - In the implementation block
 @property (nonatomic,retain) NSArray * accessibleElements;                                                   //@synthesize accessibleElements=_accessibleElements - In the implementation block
 @property (nonatomic,retain) UIView * overlayViewForTabBar;                                                  //@synthesize overlayViewForTabBar=_overlayViewForTabBar - In the implementation block
 @property (nonatomic,retain) UIView * overlayForMainView;                                                    //@synthesize overlayForMainView=_overlayForMainView - In the implementation block
@@ -88,7 +89,6 @@
 @property (nonatomic,retain) IGUserDetailPreviewingHandler * userDetailPreviewDelegate;                      //@synthesize userDetailPreviewDelegate=_userDetailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) IGFeedItemPreviewingHandler * thumbnailPreviewDelegate;                         //@synthesize thumbnailPreviewDelegate=_thumbnailPreviewDelegate - In the implementation block
 @property (nonatomic,retain) IGDirectedNUXView * NUXView;                                                    //@synthesize NUXView=_NUXView - In the implementation block
-@property (nonatomic,retain) IGProfilePicturePeekOverlay * profilePeekOverlay;                               //@synthesize profilePeekOverlay=_profilePeekOverlay - In the implementation block
 @property (nonatomic,retain) IGProfilePictureHelper * profilePictureHelper;                                  //@synthesize profilePictureHelper=_profilePictureHelper - In the implementation block
 @property (nonatomic,retain) IGTombstoneView * tombstoneView;                                                //@synthesize tombstoneView=_tombstoneView - In the implementation block
 @property (assign,nonatomic) char currentlyShowingProfileTombstone;                                          //@synthesize currentlyShowingProfileTombstone=_currentlyShowingProfileTombstone - In the implementation block
@@ -110,13 +110,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)enableNavState;
+-(void)showExperimentController;
 -(id)analyticsModule;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
+-(id)initWithUser:(id)arg1 userSession:(id)arg2 ;
 -(void)onFriendStatusReceived:(id)arg1 ;
--(void)didTapCloseButtonWithTopAccountNUXView:(id)arg1 ;
--(void)didTapGetStartedButtonWithTopAccountNUXView:(id)arg1 ;
+-(void)didTapCloseButtonWithBusinessToolAlertView:(id)arg1 ;
+-(void)didTapCTAButtonButtonWithBusinessToolAlertView:(id)arg1 ;
 -(void)showNUXWithTitle:(id)arg1 atPoint:(CGPoint)arg2 ;
 -(IGDirectedNUXView *)NUXView;
 -(void)setNUXView:(IGDirectedNUXView *)arg1 ;
@@ -126,19 +127,8 @@
 -(void)megaphonePresenterNeedsMegaphoneResize:(id)arg1 ;
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
--(id)initWithUser:(id)arg1 userSession:(id)arg2 ;
+-(char)enableNavState;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
--(IGTombstoneView *)tombstoneView;
--(void)setTombstoneView:(IGTombstoneView *)arg1 ;
--(void)feedToggle:(id)arg1 selectedButton:(int)arg2 ;
--(void)setCtaPresenterContext:(IGCTAPresenterContext *)arg1 ;
--(void)translationNetworkDataSource:(id)arg1 didLoadTranslations:(id)arg2 ;
--(void)translationNetworkDataSource:(id)arg1 didFailWithError:(id)arg2 ;
--(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
--(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
--(void)megaphonePresenterPopViewController:(id)arg1 ;
--(void)megaphonePresenter:(id)arg1 presentViewController:(id)arg2 animated:(char)arg3 completion:(/*^block*/id)arg4 ;
--(void)megaphonePresenter:(id)arg1 handleURL:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 completionBlock:(/*^block*/id)arg3 ;
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
@@ -146,8 +136,22 @@
 -(void)collectionViewController:(id)arg1 didScrollWithDistanceToEndOfContent:(float)arg2 isScrollingDown:(char)arg3 ;
 -(void)feedStatusViewMarkedUnderageWithResponse:(id)arg1 ;
 -(void)feedStatusViewMarkedOverage;
+-(IGTombstoneView *)tombstoneView;
+-(void)setTombstoneView:(IGTombstoneView *)arg1 ;
 -(id)createTombstoneView;
--(void)didDismiss:(id)arg1 ;
+-(void)translationNetworkDataSource:(id)arg1 didLoadTranslations:(id)arg2 ;
+-(void)translationNetworkDataSource:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)setMegaphonePresenter:(id<IGMegaphonePresenterProtocol>)arg1 ;
+-(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
+-(void)megaphonePresenter:(id)arg1 pushViewController:(id)arg2 ;
+-(void)megaphonePresenterPopViewController:(id)arg1 ;
+-(void)megaphonePresenter:(id)arg1 presentViewController:(id)arg2 animated:(char)arg3 completion:(/*^block*/id)arg4 ;
+-(void)megaphonePresenter:(id)arg1 handleURL:(id)arg2 ;
+-(void)megaphonePresenter:(id)arg1 handleButton:(id)arg2 ;
+-(void)feedToggle:(id)arg1 selectedButton:(int)arg2 ;
+-(void)setCtaPresenterContext:(IGCTAPresenterContext *)arg1 ;
+-(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
+-(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(void)badgeInfoDidupdate:(id)arg1 ;
 -(void)animateSwitchUsersTableView;
 -(IGSwitchUsersController *)switchUsersController;
@@ -156,9 +160,13 @@
 -(void)switchUsersController:(id)arg1 tableViewDidSelectRowWithUser:(id)arg2 ;
 -(void)switchUsersControllerDidSelectAddAccountRow:(id)arg1 ;
 -(void)setSwitchUsersController:(IGSwitchUsersController *)arg1 ;
+-(void)didSuccessOnBusinessConversionWithMegaphonePresenter:(id)arg1 ;
 -(void)directedNUXViewDidTap:(id)arg1 ;
--(void)logProfilePeekEvent:(id)arg1 ;
 -(void)popToProfilePeekOverlay;
+-(void)logProfilePeekEvent:(id)arg1 ;
+-(void)profilePeekViewControllerDidTapEditButton;
+-(void)profilePeekViewControllerDidTapMenuButton;
+-(void)profilePictureTapped:(id)arg1 ;
 -(void)hideToolTip;
 -(void)setTranslateDataSource:(IGTranslationNetworkDataSource *)arg1 ;
 -(IGTranslationNetworkDataSource *)translateDataSource;
@@ -181,8 +189,6 @@
 -(void)showAccountSwitchingNUX;
 -(void)showInsightsNUXIfNecessary;
 -(void)presentOrTearDownCameraNUX;
--(id<IGMegaphonePresenterProtocol>)megaphonePresenter;
--(IGProfilePicturePeekOverlay *)profilePeekOverlay;
 -(char)displayingSwitchUsersTableView;
 -(char)currentlyShowingProfileTombstone;
 -(void)layoutTombstoneView;
@@ -200,7 +206,6 @@
 -(void)setBlockedFooterView:(UIView *)arg1 ;
 -(void)overlayViewTapped:(id)arg1 ;
 -(void)updateConfigureButtonsForCurrentUser;
--(void)setMegaphonePresenter:(id<IGMegaphonePresenterProtocol>)arg1 ;
 -(UIView *)genericHeaderMegaphoneView;
 -(void)setGenericHeaderMegaphoneView:(UIView *)arg1 ;
 -(void)updateNetworkSource;
@@ -224,13 +229,14 @@
 -(void)setSwitchUsersTitleView;
 -(char)hasLoggedView;
 -(void)setHasLoggedView:(char)arg1 ;
--(CGRect)profilePicRect;
--(void)preparePeekForPresentation;
--(void)presentFriendshipActionSheetWithOnlyProfilePictureOptions:(char)arg1 ;
+-(void)presentProfilePeekViewControllerAnimated:(char)arg1 ;
+-(void)setProfilePeekVC:(IGProfilePeekViewController *)arg1 ;
 -(void)switchUsersControllerResetTableView:(id)arg1 ;
 -(IGFollowButton *)navBarFollowButton;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 clickPoint:(id)arg4 ;
+-(void)presentFriendshipActionSheetWithOnlyProfilePictureOptions:(char)arg1 ;
 -(void)pushInsightsFromNavigationBar;
+-(void)showBusinessNUX;
 -(void)setCurrentlyShowingProfileTombstone:(char)arg1 ;
 -(void)tombstoneDidTapShowProfile;
 -(void)setShowEasyReportingActionSheetForProfilePic:(char)arg1 ;
@@ -255,27 +261,23 @@
 -(id<IGCTAPresenterProtocol>)ctaPresenter;
 -(void)setCtaPresenter:(id<IGCTAPresenterProtocol>)arg1 ;
 -(void)setCtaView:(UIView*<IGCTAPresentationViewType>)arg1 ;
+-(IGProfilePeekViewController *)profilePeekVC;
 -(void)ctaPresenterDidDismiss:(id)arg1 ;
 -(void)businessConversionDidCompleteFlow;
 -(void)seeAllButtonTappedWithView:(id)arg1 ;
 -(void)profilePictureChangeOptionChosen:(int)arg1 ;
 -(void)didTapProfileCompletionNUX;
 -(void)didTapTranslateBiography;
+-(void)headerViewWantsProfilePeekOverlayHide;
+-(void)headerViewWantsEditProfileViewControllerDismissed;
 -(UILabel *)emptyFeedLabel;
 -(void)setEmptyFeedLabel:(UILabel *)arg1 ;
 -(void)setNavBarFollowButton:(IGFollowButton *)arg1 ;
 -(void)setOverlayViewForTabBar:(UIView *)arg1 ;
 -(void)setOverlayForMainView:(UIView *)arg1 ;
 -(void)setAttentionMarkView:(UIImageView *)arg1 ;
--(void)setProfilePeekOverlay:(IGProfilePicturePeekOverlay *)arg1 ;
 -(void)setMainViewNUXDismissTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
 -(void)setTitleViewNUXDismissTapGuestureRecognizer:(UITapGestureRecognizer *)arg1 ;
--(void)peekOverlayDidPresent:(id)arg1 ;
--(void)peekOverlayDidDismiss:(id)arg1 ;
--(void)peekOverlayUserDidTapDismiss:(id)arg1 ;
--(void)peekOverlayUserDidTapChange:(id)arg1 ;
--(void)peekOverlayUserDidTapMenu:(id)arg1 ;
--(void)profilePictureTapped:(id)arg1 ;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
 -(IGProfilePictureHelper *)profilePictureHelper;
 -(IGUser *)user;
@@ -291,6 +293,8 @@
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
 -(void)viewWillDisappear:(char)arg1 ;
+-(id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3 ;
+-(id)animationControllerForDismissedController:(id)arg1 ;
 -(UIEdgeInsets)preferredContentInsets;
 -(IGUserDetailHeaderView *)headerView;
 -(void)setHeaderView:(IGUserDetailHeaderView *)arg1 ;

@@ -36,6 +36,8 @@
 @property (assign,nonatomic) int maxThumbnails;                                //@synthesize maxThumbnails=_maxThumbnails - In the implementation block
 @property (assign,nonatomic) int thumbnailsPerRow;                             //@synthesize thumbnailsPerRow=_thumbnailsPerRow - In the implementation block
 -(NSString *)byline;
+-(id)initWithFeaturedUserInfo:(id)arg1 width:(float)arg2 thumbnailsPerRow:(unsigned)arg3 showsSocialContext:(char)arg4 ;
+-(void)setMaxThumbnails:(int)arg1 ;
 -(void)applyMediaBundles:(id)arg1 thumbnailSize:(CGSize)arg2 ;
 -(void)setByline:(NSString *)arg1 ;
 -(int)maxThumbnails;
@@ -45,8 +47,6 @@
 -(NSIndexSet *)thumbnailVideoIndexes;
 -(void)setThumbnailVideoIndexes:(NSIndexSet *)arg1 ;
 -(void)setThumbnailsPerRow:(int)arg1 ;
--(id)initWithFeaturedUserInfo:(id)arg1 width:(float)arg2 thumbnailsPerRow:(unsigned)arg3 showsSocialContext:(char)arg4 ;
--(void)setMaxThumbnails:(int)arg1 ;
 -(char)isVerified;
 -(id)init;
 -(void)setTitle:(NSString *)arg1 ;

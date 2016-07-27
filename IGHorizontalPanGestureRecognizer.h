@@ -12,6 +12,7 @@
 	CGPoint _lastPoint;
 	CGPoint _startDeltas;
 	char _rightToLeftPanDisabled;
+	char _leftToRightPanDisabled;
 	UITouch* _touch;
 	CGPoint _startPoint;
 
@@ -20,8 +21,11 @@
 @property (assign,nonatomic) CGPoint startPoint;                       //@synthesize startPoint=_startPoint - In the implementation block
 @property (nonatomic,retain) UITouch * touch;                          //@synthesize touch=_touch - In the implementation block
 @property (assign,nonatomic) char rightToLeftPanDisabled;              //@synthesize rightToLeftPanDisabled=_rightToLeftPanDisabled - In the implementation block
--(char)rightToLeftPanDisabled;
+@property (assign,nonatomic) char leftToRightPanDisabled;              //@synthesize leftToRightPanDisabled=_leftToRightPanDisabled - In the implementation block
 -(void)setRightToLeftPanDisabled:(char)arg1 ;
+-(void)setLeftToRightPanDisabled:(char)arg1 ;
+-(char)rightToLeftPanDisabled;
+-(char)leftToRightPanDisabled;
 -(CGPoint)startPointInView:(id)arg1 ;
 -(id)initWithTarget:(id)arg1 action:(SEL)arg2 ;
 -(CGPoint)locationInView:(id)arg1 ;

@@ -34,7 +34,6 @@
 	char _didReceiveFullSizedBuffer;
 	char _didReorderTray;
 	char _hasCancelledShareVC;
-	char _wasInitializedFromDraft;
 	IGUserSession* _userSession;
 	IGFilteredPhotoView* _editView;
 	int _imageSourceType;
@@ -115,15 +114,12 @@
 @property (assign,nonatomic) char didReorderTray;                                                       //@synthesize didReorderTray=_didReorderTray - In the implementation block
 @property (nonatomic,retain) ALAssetsLibrary * assetsLibrary;                                           //@synthesize assetsLibrary=_assetsLibrary - In the implementation block
 @property (assign,nonatomic) char hasCancelledShareVC;                                                  //@synthesize hasCancelledShareVC=_hasCancelledShareVC - In the implementation block
-@property (assign,nonatomic) char wasInitializedFromDraft;                                              //@synthesize wasInitializedFromDraft=_wasInitializedFromDraft - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) IGCameraNavigationController * navController; 
 -(id)analyticsModule;
--(CGSize)maxTextureSize;
--(void)setLuxEnabled:(char)arg1 ;
 -(id)initWithDraft:(id)arg1 userSession:(id)arg2 ;
 -(char)overlayIsOpaque;
 -(char)prefersNavbarBottomBorderHidden;
@@ -135,6 +131,7 @@
 -(void)setCropZoomScale:(float)arg1 ;
 -(void)setCropCenter:(CGPoint)arg1 ;
 -(CGPoint)cropCenter;
+-(CGSize)maxTextureSize;
 -(id)initWithPhotoOrigin:(int)arg1 sourceType:(int)arg2 mediaMetadata:(id)arg3 userSession:(id)arg4 ;
 -(void)setImage:(id)arg1 cropRect:(CGRect)arg2 ;
 -(void)setReadyToProceed:(char)arg1 ;
@@ -150,16 +147,17 @@
 -(UIView *)toolContainerView;
 -(void)updateEditViewImage;
 -(void)updateReadyState;
+-(UILongPressGestureRecognizer *)showUneditedGestureRecognizer;
 -(id)rotateOverlayButton;
 -(id)gridOverlayButton;
 -(void)allowUserInteraction:(char)arg1 ;
+-(void)setLuxEnabled:(char)arg1 ;
 -(void)setTiltShiftMode:(unsigned)arg1 ;
 -(void)setBordersEnabled:(char)arg1 ;
 -(id)croppedSurfaceWithSize:(CGSize)arg1 ;
 -(void)cancelUploadAndSetNeedsRender;
 -(char)didReceiveFullSizedBuffer;
 -(void)setDidReceiveFullSizedBuffer:(char)arg1 ;
--(UILongPressGestureRecognizer *)showUneditedGestureRecognizer;
 -(UIView*<IGEditorTabView>)filterTabView;
 -(CGRect)pickerFrame;
 -(IGEditorTabBar *)modeTabBar;
@@ -192,6 +190,7 @@
 -(char)useNofilterDefaultCaption;
 -(void)renderWithSize:(CGSize)arg1 completion:(/*^block*/id)arg2 ;
 -(void)gestureShowUnedited:(id)arg1 ;
+-(id)initWithImageFromLightweightCropper:(id)arg1 cropRect:(CGRect)arg2 mediaMetadata:(id)arg3 userSession:(id)arg4 ;
 -(char)luxEnabled;
 -(char)luxHasBeenEdited;
 -(void)setEditView:(IGFilteredPhotoView *)arg1 ;
@@ -217,7 +216,6 @@
 -(void)setMaxTextureSize:(CGSize)arg1 ;
 -(void)setOrientationAngle:(float)arg1 ;
 -(float)orientationAngle;
--(id)initWithImageFromLightweightCropper:(id)arg1 cropRect:(CGRect)arg2 mediaMetadata:(id)arg3 userSession:(id)arg4 ;
 -(id)initWithImageDirectToEditor:(id)arg1 cropRect:(CGRect)arg2 mediaMetadata:(id)arg3 userSession:(id)arg4 ;
 -(void)setImageWithBufferData:(id)arg1 isPreviewBuffer:(char)arg2 ;
 -(id)initForImageFromCameraWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
@@ -225,17 +223,12 @@
 -(id)initWithImageFromLibrary:(id)arg1 cropRect:(CGRect)arg2 mediaMetadata:(id)arg3 userSession:(id)arg4 ;
 -(UIView *)NUXView;
 -(void)setNUXView:(UIView *)arg1 ;
--(id)adjustController;
 -(void)setRenderQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
--(void)shareViewControllerDidAppear:(id)arg1 ;
--(void)shareViewControllerWillFinish:(id)arg1 ;
--(void)shareViewControllerDidCancel:(id)arg1 ;
+-(id)adjustController;
 -(void)buildNavbar;
--(void)setWasInitializedFromDraft:(char)arg1 ;
 -(void)buildToolContainerView;
 -(void)setOverlayNuxController:(IGOverlayNuxController *)arg1 ;
 -(IGOverlayNuxController *)overlayNuxController;
--(char)wasInitializedFromDraft;
 -(void)initializeFromEditsDictionary;
 -(void)prepareForShareStep;
 -(IGFilterCollectionController *)filterTrayController;
@@ -278,6 +271,9 @@
 -(void)filterControlView:(id)arg1 didChangeTintColor:(unsigned)arg2 withTintType:(unsigned)arg3 ;
 -(void)filterControlView:(id)arg1 didChangetintIntensity:(float)arg2 tintType:(unsigned)arg3 ;
 -(void)overlayNuxControllerWillDismiss;
+-(void)shareViewControllerDidAppear:(id)arg1 ;
+-(void)shareViewControllerWillFinish:(id)arg1 ;
+-(void)shareViewControllerDidCancel:(id)arg1 ;
 -(void)setAdjustedFilterStrengthValues:(NSMutableDictionary *)arg1 ;
 -(void)setRearrangeFilterOverlayView:(IGRearrangeOverlayView *)arg1 ;
 -(void)setFilterCollectionView:(UICollectionView *)arg1 ;

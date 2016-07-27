@@ -1,7 +1,7 @@
 
 #import <Instagram/RCTBridgeModule.h>
 
-@class NSString, RCTBridge;
+@class RCTBridge, NSString;
 
 @interface IGReactI18N : NSObject <RCTBridgeModule>
 

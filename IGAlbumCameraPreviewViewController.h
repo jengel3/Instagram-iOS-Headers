@@ -1,124 +1,153 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
-#import <Instagram/IGAssetPlayerViewDelegate.h>
-#import <Instagram/IGCropViewUserInteractionDelegate.h>
-#import <Instagram/IGPanAnimationViewDelegate.h>
+#import <Instagram/IGAlbumCreationDrawingViewControllerDelegate.h>
+#import <UIKit/UITextViewDelegate.h>
+#import <Instagram/IGAlbumSaveMediaRequestDelegate.h>
+#import <UIKit/UIGestureRecognizerDelegate.h>
+#import <Instagram/FBKeyboardObserverDelegate.h>
 
-@class IGAssetPlayerView, UIImageView, UIView, IGCropView, IGCameraGuideView, IGCircularProgressView, IGSurface, IGPostPipelineFilter, IGContext, IGFilterCollectionController, NSArray, IGPanAnimationView, IGAdjustController, UIImage, NSString;
+@protocol IGAlbumCameraPreviewViewControllerDelegate, IGQuickCamOutputAsset;
+@class IGTapButton, IGAlbumCreationShareButton, UIImageView, UIView, IGReelCreationModel, IGAlbumSaveMediaRequest, IGGradientView, UITextView, UITapGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRotationGestureRecognizer, FBKeyboardObserver, IGAlbumCreationDrawingViewController, IGAlbumSwipableFilterView, UIImage, NSString;
 
-@interface IGAlbumCameraPreviewViewController : UIViewController <IGAssetPlayerViewDelegate, IGCropViewUserInteractionDelegate, IGPanAnimationViewDelegate> {
+@interface IGAlbumCameraPreviewViewController : UIViewController <IGAlbumCreationDrawingViewControllerDelegate, UITextViewDelegate, IGAlbumSaveMediaRequestDelegate, UIGestureRecognizerDelegate, FBKeyboardObserverDelegate> {
 
-	IGAssetPlayerView* _playerView;
-	UIImageView* _loadingThumbnailView;
-	UIView* _cropBackground;
-	IGCropView* _cropView;
-	IGCameraGuideView* _guideView;
-	UIImageView* _videoCoverFrameImageView;
-	IGCircularProgressView* _progressView;
-	UIView* _loadingOverlayView;
-	IGSurface* _outSurface;
-	IGPostPipelineFilter* _postPipelineFilter;
-	IGContext* _renderingContext;
-	IGFilterCollectionController* _filterTrayController;
-	NSArray* _filters;
-	int _selectedFilterIndex;
-	IGPanAnimationView* _filterableDisplayView;
-	IGAdjustController* _adjustController;
-	CGSize _filteredRenderSize;
+	char _textMoving;
+	id<IGAlbumCameraPreviewViewControllerDelegate> _delegate;
+	IGTapButton* _retakeButton;
+	IGTapButton* _addTextButton;
+	IGTapButton* _addDrawingButton;
+	IGTapButton* _downloadButton;
+	IGAlbumCreationShareButton* _shareButton;
+	UIImageView* _previewImageView;
+	UIView* _contentView;
+	id<IGQuickCamOutputAsset> _asset;
+	IGReelCreationModel* _albumModel;
+	IGAlbumSaveMediaRequest* _saveRequest;
+	IGGradientView* _topGradient;
+	IGGradientView* _bottomGradient;
+	UITextView* _captionTextView;
+	UIView* _captionDimmingView;
+	UITapGestureRecognizer* _captionBackgroundTapRecognizer;
+	UIPanGestureRecognizer* _captionPanRecognizer;
+	UIPinchGestureRecognizer* _captionPinchRecognizer;
+	UIRotationGestureRecognizer* _captionRotationRecognizer;
+	FBKeyboardObserver* _keyboardObserver;
+	IGAlbumCreationDrawingViewController* _drawingViewController;
+	IGAlbumSwipableFilterView* _swipableFilterView;
+	IGCaptionLocationInfo _previousCaptionLocation;
 
 }
 
-@property (nonatomic,retain) UIView * cropBackground;                                          //@synthesize cropBackground=_cropBackground - In the implementation block
-@property (nonatomic,retain) IGCropView * cropView;                                            //@synthesize cropView=_cropView - In the implementation block
-@property (nonatomic,retain) IGCameraGuideView * guideView;                                    //@synthesize guideView=_guideView - In the implementation block
-@property (nonatomic,retain) UIImageView * videoCoverFrameImageView;                           //@synthesize videoCoverFrameImageView=_videoCoverFrameImageView - In the implementation block
-@property (nonatomic,retain) IGCircularProgressView * progressView;                            //@synthesize progressView=_progressView - In the implementation block
-@property (nonatomic,retain) UIView * loadingOverlayView;                                      //@synthesize loadingOverlayView=_loadingOverlayView - In the implementation block
-@property (nonatomic,retain) IGSurface * outSurface;                                           //@synthesize outSurface=_outSurface - In the implementation block
-@property (nonatomic,retain) IGPostPipelineFilter * postPipelineFilter;                        //@synthesize postPipelineFilter=_postPipelineFilter - In the implementation block
-@property (nonatomic,retain) IGContext * renderingContext;                                     //@synthesize renderingContext=_renderingContext - In the implementation block
-@property (nonatomic,retain) IGFilterCollectionController * filterTrayController;              //@synthesize filterTrayController=_filterTrayController - In the implementation block
-@property (assign,nonatomic) CGSize filteredRenderSize;                                        //@synthesize filteredRenderSize=_filteredRenderSize - In the implementation block
-@property (nonatomic,retain) NSArray * filters;                                                //@synthesize filters=_filters - In the implementation block
-@property (assign,nonatomic) int selectedFilterIndex;                                          //@synthesize selectedFilterIndex=_selectedFilterIndex - In the implementation block
-@property (nonatomic,retain) IGPanAnimationView * filterableDisplayView;                       //@synthesize filterableDisplayView=_filterableDisplayView - In the implementation block
-@property (nonatomic,retain) IGAdjustController * adjustController;                            //@synthesize adjustController=_adjustController - In the implementation block
-@property (nonatomic,retain) IGAssetPlayerView * playerView;                                   //@synthesize playerView=_playerView - In the implementation block
-@property (nonatomic,retain) UIImageView * loadingThumbnailView;                               //@synthesize loadingThumbnailView=_loadingThumbnailView - In the implementation block
+@property (nonatomic,retain) UIImageView * previewImageView;                                              //@synthesize previewImageView=_previewImageView - In the implementation block
+@property (nonatomic,retain) UIView * contentView;                                                        //@synthesize contentView=_contentView - In the implementation block
+@property (nonatomic,retain) id<IGQuickCamOutputAsset> asset;                                             //@synthesize asset=_asset - In the implementation block
 @property (nonatomic,retain) UIImage * image; 
+@property (nonatomic,retain) IGReelCreationModel * albumModel;                                            //@synthesize albumModel=_albumModel - In the implementation block
+@property (nonatomic,retain) IGAlbumSaveMediaRequest * saveRequest;                                       //@synthesize saveRequest=_saveRequest - In the implementation block
+@property (nonatomic,retain) IGGradientView * topGradient;                                                //@synthesize topGradient=_topGradient - In the implementation block
+@property (nonatomic,retain) IGGradientView * bottomGradient;                                             //@synthesize bottomGradient=_bottomGradient - In the implementation block
+@property (nonatomic,retain) UITextView * captionTextView;                                                //@synthesize captionTextView=_captionTextView - In the implementation block
+@property (nonatomic,retain) UIView * captionDimmingView;                                                 //@synthesize captionDimmingView=_captionDimmingView - In the implementation block
+@property (assign,nonatomic) char textMoving;                                                             //@synthesize textMoving=_textMoving - In the implementation block
+@property (nonatomic,retain) UITapGestureRecognizer * captionBackgroundTapRecognizer;                     //@synthesize captionBackgroundTapRecognizer=_captionBackgroundTapRecognizer - In the implementation block
+@property (nonatomic,retain) UIPanGestureRecognizer * captionPanRecognizer;                               //@synthesize captionPanRecognizer=_captionPanRecognizer - In the implementation block
+@property (nonatomic,retain) UIPinchGestureRecognizer * captionPinchRecognizer;                           //@synthesize captionPinchRecognizer=_captionPinchRecognizer - In the implementation block
+@property (nonatomic,retain) UIRotationGestureRecognizer * captionRotationRecognizer;                     //@synthesize captionRotationRecognizer=_captionRotationRecognizer - In the implementation block
+@property (assign,nonatomic) IGCaptionLocationInfo previousCaptionLocation;                               //@synthesize previousCaptionLocation=_previousCaptionLocation - In the implementation block
+@property (nonatomic,retain) FBKeyboardObserver * keyboardObserver;                                       //@synthesize keyboardObserver=_keyboardObserver - In the implementation block
+@property (nonatomic,retain) IGAlbumCreationDrawingViewController * drawingViewController;                //@synthesize drawingViewController=_drawingViewController - In the implementation block
+@property (nonatomic,retain) IGAlbumSwipableFilterView * swipableFilterView;                              //@synthesize swipableFilterView=_swipableFilterView - In the implementation block
+@property (assign,nonatomic,__weak) id<IGAlbumCameraPreviewViewControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,readonly) IGTapButton * retakeButton;                                                //@synthesize retakeButton=_retakeButton - In the implementation block
+@property (nonatomic,readonly) IGTapButton * addTextButton;                                               //@synthesize addTextButton=_addTextButton - In the implementation block
+@property (nonatomic,readonly) IGTapButton * addDrawingButton;                                            //@synthesize addDrawingButton=_addDrawingButton - In the implementation block
+@property (nonatomic,readonly) IGTapButton * downloadButton;                                              //@synthesize downloadButton=_downloadButton - In the implementation block
+@property (nonatomic,readonly) IGAlbumCreationShareButton * shareButton;                                  //@synthesize shareButton=_shareButton - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setCropBackground:(UIView *)arg1 ;
--(UIView *)cropBackground;
--(void)setImageForFilters:(id)arg1 ;
--(CGSize)filteredRenderSize;
--(id)filteredImageFromPipelineUsingSize:(CGSize)arg1 ;
--(void)setFilteredRenderSize:(CGSize)arg1 ;
--(id)getSurfaceFromImage:(id)arg1 ;
--(void)stopVideoPlayer;
--(char)currentImageIsFiltered;
--(id)filteredImage;
--(void)hideLoadingViews;
--(void)setLoadingThumbnailImage:(id)arg1 ;
--(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
--(UIView *)loadingOverlayView;
--(void)cropViewUserInteractionDidBegin:(id)arg1 ;
--(void)cropViewUserInteractionDidEnd:(id)arg1 ;
--(void)setCropView:(IGCropView *)arg1 ;
--(IGCropView *)cropView;
--(void)setGuideView:(IGCameraGuideView *)arg1 ;
--(IGCameraGuideView *)guideView;
--(void)setVideoCoverFrameImageView:(UIImageView *)arg1 ;
--(UIImageView *)videoCoverFrameImageView;
--(void)setLoadingThumbnailView:(UIImageView *)arg1 ;
--(UIImageView *)loadingThumbnailView;
--(void)setLoadingOverlayView:(UIView *)arg1 ;
--(void)assetPlayerViewAssetLoaded:(id)arg1 ;
--(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
--(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG77)arg2 ;
--(void)panAnimationView:(id)arg1 didPanToRightBy:(float)arg2 ;
--(void)panAnimationView:(id)arg1 didPanToLeftBy:(float)arg2 ;
--(void)panAnimationView:(id)arg1 willFinishPanAnimationWithDuration:(float)arg2 ;
--(void)panAnimationViewDidFinishPanToRight:(id)arg1 ;
--(void)panAnimationViewDidFinishPanToLeft:(id)arg1 ;
--(void)panAnimationView:(id)arg1 willCancelPanAnimationWithDuration:(float)arg2 ;
--(void)panAnimationViewDidUpdateCenterImage:(id)arg1 ;
--(void)setAdjustController:(IGAdjustController *)arg1 ;
--(void)setFilterableDisplayView:(IGPanAnimationView *)arg1 ;
--(IGPanAnimationView *)filterableDisplayView;
--(void)setRenderingContext:(IGContext *)arg1 ;
--(void)setPostPipelineFilter:(IGPostPipelineFilter *)arg1 ;
--(int)selectedFilterIndex;
--(void)setSelectedFilterIndex:(int)arg1 ;
--(void)setOutSurface:(IGSurface *)arg1 ;
--(int)filterIndexForIndexOffset:(int)arg1 ;
--(id)imageFromFilterIndex:(unsigned)arg1 ;
--(IGSurface *)outSurface;
--(IGPostPipelineFilter *)postPipelineFilter;
--(void)setupFilters;
--(IGAdjustController *)adjustController;
--(void)resetFilter;
--(IGContext *)renderingContext;
--(IGFilterCollectionController *)filterTrayController;
--(void)setFilterTrayController:(IGFilterCollectionController *)arg1 ;
--(IGAssetPlayerView *)playerView;
--(CGRect)cropRect;
+-(void)setDrawingViewController:(IGAlbumCreationDrawingViewController *)arg1 ;
+-(IGAlbumCreationDrawingViewController *)drawingViewController;
+-(void)addTextButtonTapped;
+-(void)addDrawingButtonTapped;
+-(void)retakeButtonTapped;
+-(void)downloadButtonTapped;
+-(void)setCaptionTextView:(UITextView *)arg1 ;
+-(void)captionMoved:(id)arg1 ;
+-(void)captionBackgroundTapped:(id)arg1 ;
+-(void)shareButtonTapped;
+-(IGReelCreationModel *)albumModel;
+-(id)finalizedOutputAsset;
+-(void)hideControls:(char)arg1 ;
+-(void)setCaptionGesturesEnabled:(char)arg1 ;
+-(IGCaptionLocationInfo)currentCaptionLocationInfo;
+-(void)updateCaptionTransformWithTranslation:(CGPoint)arg1 rotation:(float)arg2 scale:(float)arg3 ;
+-(IGAlbumSwipableFilterView *)swipableFilterView;
+-(char)gestureIsCaptionGesture:(id)arg1 ;
+-(void)setupInitialCaptionStateWithKeyboardFrame:(CGRect)arg1 ;
+-(void)applyFilterToAsset;
+-(id)initWithAsset:(id)arg1 frame:(CGRect)arg2 ;
+-(void)setAlbumModel:(IGReelCreationModel *)arg1 ;
+-(UIView *)captionDimmingView;
+-(void)setCaptionDimmingView:(UIView *)arg1 ;
+-(char)textMoving;
+-(void)setTextMoving:(char)arg1 ;
+-(UITapGestureRecognizer *)captionBackgroundTapRecognizer;
+-(void)setCaptionBackgroundTapRecognizer:(UITapGestureRecognizer *)arg1 ;
+-(UIPanGestureRecognizer *)captionPanRecognizer;
+-(void)setCaptionPanRecognizer:(UIPanGestureRecognizer *)arg1 ;
+-(UIPinchGestureRecognizer *)captionPinchRecognizer;
+-(void)setCaptionPinchRecognizer:(UIPinchGestureRecognizer *)arg1 ;
+-(UIRotationGestureRecognizer *)captionRotationRecognizer;
+-(void)setCaptionRotationRecognizer:(UIRotationGestureRecognizer *)arg1 ;
+-(IGCaptionLocationInfo)previousCaptionLocation;
+-(void)setPreviousCaptionLocation:(IGCaptionLocationInfo)arg1 ;
+-(void)setSwipableFilterView:(IGAlbumSwipableFilterView *)arg1 ;
+-(IGGradientView *)topGradient;
+-(void)setTopGradient:(IGGradientView *)arg1 ;
+-(IGGradientView *)bottomGradient;
+-(void)setBottomGradient:(IGGradientView *)arg1 ;
+-(IGTapButton *)addTextButton;
+-(IGTapButton *)addDrawingButton;
+-(IGTapButton *)retakeButton;
+-(IGTapButton *)downloadButton;
+-(void)drawingViewControllerDidDismiss:(id)arg1 ;
+-(void)setSaveRequest:(IGAlbumSaveMediaRequest *)arg1 ;
+-(void)saveMediaRequest:(id)arg1 didSaveToCameraRollURL:(id)arg2 ;
+-(void)saveMediaRequestDidFailSaving:(id)arg1 ;
+-(void)setKeyboardObserver:(FBKeyboardObserver *)arg1 ;
+-(FBKeyboardObserver *)keyboardObserver;
+-(void)keyboardObserver:(id)arg1 keyboardWillShowWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
+-(void)keyboardObserverKeyboardDidShow:(id)arg1 ;
+-(void)keyboardObserver:(id)arg1 keyboardWillHideWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
+-(void)keyboardObserverKeyboardDidHide:(id)arg1 ;
+-(void)keyboardObserver:(id)arg1 keyboardFrameWillChangeWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
+-(void)keyboardObserver:(id)arg1 keyboardFrameDidChangeWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
+-(void)setPreviewImageView:(UIImageView *)arg1 ;
+-(UITextView *)captionTextView;
+-(IGAlbumSaveMediaRequest *)saveRequest;
 -(void)setImage:(UIImage *)arg1 ;
+-(void)setDelegate:(id<IGAlbumCameraPreviewViewControllerDelegate>)arg1 ;
 -(void)dealloc;
+-(id<IGAlbumCameraPreviewViewControllerDelegate>)delegate;
+-(char)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2 ;
+-(char)prefersStatusBarHidden;
 -(void)reset;
 -(UIImage *)image;
--(void)setFilters:(NSArray *)arg1 ;
--(NSArray *)filters;
--(void)viewWillAppear:(char)arg1 ;
--(void)viewDidLoad;
--(void)setProgressView:(IGCircularProgressView *)arg1 ;
--(IGCircularProgressView *)progressView;
--(void)setVideoPreviewImage:(id)arg1 ;
+-(UIView *)contentView;
+-(void)setContentView:(UIView *)arg1 ;
+-(void)textViewDidBeginEditing:(id)arg1 ;
+-(void)textViewDidEndEditing:(id)arg1 ;
+-(char)textViewShouldBeginEditing:(id)arg1 ;
+-(void)textViewDidChange:(id)arg1 ;
+-(void)commonInit;
+-(id<IGQuickCamOutputAsset>)asset;
+-(void)setAsset:(id<IGQuickCamOutputAsset>)arg1 ;
 -(void)setPreviewImage:(id)arg1 ;
 -(void)setVideo:(id)arg1 ;
--(void)setLoadingProgress:(float)arg1 ;
+-(UIImageView *)previewImageView;
+-(IGAlbumCreationShareButton *)shareButton;
 @end
 

@@ -32,12 +32,10 @@
 -(void)feedStatusViewDidTapOnInfoView:(id)arg1 ;
 -(void)feedStatusView:(id)arg1 didChangeComputedHeight:(float)arg2 ;
 -(float)visibleContentHeight;
--(id)currentActiveScrollView;
--(IGFindUsersViewDataSource *)findUsersViewDataSource;
--(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
 -(void)updateNavigationRightBarButtonItem;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(void)findUsersView:(id)arg1 didTapOnUser:(id)arg2 atIndex:(unsigned)arg3 ;
+-(IGFindUsersViewDataSource *)findUsersViewDataSource;
 -(id)newFindUsersViewDataSource;
 -(IGFindUsersView *)usersView;
 -(void)fetchUsers;
@@ -49,12 +47,14 @@
 -(void)didAuthorizeWithDataRequest:(id)arg1 ;
 -(void)didFailToAuthorizeWithReason:(id)arg1 ;
 -(id)newFindUsersView;
+-(id)currentActiveScrollView;
 -(void)findUsersView:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didTapOnItemWithMediaID:(id)arg2 atIndex:(unsigned)arg3 ;
 -(void)findUsersView:(id)arg1 scrollViewDidScroll:(id)arg2 ;
 -(void)findUsersView:(id)arg1 scrollViewWillEndDragging:(id)arg2 withVelocity:(CGPoint)arg3 targetContentOffset:(inout CGPoint*)arg4 ;
 -(void)findUsersView:(id)arg1 scrollViewDidEndScrolling:(id)arg2 ;
 -(void)findUsersView:(id)arg1 scrollViewDidEndDragging:(id)arg2 ;
+-(void)setFindUsersViewDataSource:(IGFindUsersViewDataSource *)arg1 ;
 -(void)dealloc;
 -(void)viewWillAppear:(char)arg1 ;
 -(CGSize)contentSizeForViewInPopover;

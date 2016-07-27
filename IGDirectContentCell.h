@@ -13,7 +13,6 @@
 
 	char _isSameUserContent;
 	char _hideProfilePicture;
-	char _hidesBubbleBackground;
 	char _showUsername;
 	char _pendingDeleteAction;
 	float _slideAmount;
@@ -27,7 +26,6 @@
 	UILabel* _timestampLabel;
 	UILabel* _senderUsernameLabel;
 	UILongPressGestureRecognizer* _contentMenuLongPressRecognizer;
-	CGRect _tapTargetFrame;
 
 }
 
@@ -41,9 +39,7 @@
 @property (assign,nonatomic) char isSameUserContent;                                                     //@synthesize isSameUserContent=_isSameUserContent - In the implementation block
 @property (assign,nonatomic) char hideProfilePicture;                                                    //@synthesize hideProfilePicture=_hideProfilePicture - In the implementation block
 @property (nonatomic,retain) id<IGDirectContentCellDecorator> cellDecorator;                             //@synthesize cellDecorator=_cellDecorator - In the implementation block
-@property (assign,nonatomic) CGRect tapTargetFrame;                                                      //@synthesize tapTargetFrame=_tapTargetFrame - In the implementation block
 @property (nonatomic,readonly) CGRect bubbleFrame; 
-@property (assign,nonatomic) char hidesBubbleBackground;                                                 //@synthesize hidesBubbleBackground=_hidesBubbleBackground - In the implementation block
 @property (assign,nonatomic) char showUsername;                                                          //@synthesize showUsername=_showUsername - In the implementation block
 @property (nonatomic,readonly) float cellContentYOffset; 
 @property (assign,nonatomic) char pendingDeleteAction;                                                   //@synthesize pendingDeleteAction=_pendingDeleteAction - In the implementation block
@@ -56,9 +52,9 @@
 @property (nonatomic,readonly) float maxSlideAmount; 
 @property (nonatomic,readonly) UIView * contentContainerView;                                            //@synthesize contentContainerView=_contentContainerView - In the implementation block
 +(float)profilePictureWidthOffset;
+-(void)setPendingDeleteAction:(char)arg1 ;
 -(UILabel *)timestampLabel;
 -(id)timestampText;
--(void)setPendingDeleteAction:(char)arg1 ;
 -(UIImageView *)backgroundBubbleView;
 -(UILabel *)senderUsernameLabel;
 -(void)onContentMenuPress:(id)arg1 ;
@@ -80,8 +76,6 @@
 -(void)setHidesBubbleBackground:(char)arg1 ;
 -(void)setIsSameUserContent:(char)arg1 ;
 -(char)hideProfilePicture;
--(void)setTapTargetFrame:(CGRect)arg1 ;
--(char)hidesBubbleBackground;
 -(char)pendingDeleteAction;
 -(void)setBackgroundBubbleView:(UIImageView *)arg1 ;
 -(void)setTimestampLabel:(UILabel *)arg1 ;

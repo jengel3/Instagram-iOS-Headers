@@ -25,11 +25,11 @@
 +(id)pkFromDict:(id)arg1 ;
 -(NSString *)pk;
 -(void)setPk:(NSString *)arg1 ;
--(id)initUnmanagedWithDictionary:(id)arg1 ;
 -(char)isUnmanaged;
+-(id)initUnmanagedWithDictionary:(id)arg1 ;
 -(id)initUnmanaged;
--(id)initWithPk:(id)arg1 ;
 -(id)initUnmanagedWithPk:(id)arg1 ;
+-(id)initWithPk:(id)arg1 ;
 -(char)isStored;
 -(void)setIsStored:(char)arg1 ;
 -(id)initWithCoder:(id)arg1 ;

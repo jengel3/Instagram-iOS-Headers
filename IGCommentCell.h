@@ -5,17 +5,15 @@
 #import <Instagram/IGCellSwipeActionManagerSwipingDelegate.h>
 
 @protocol IGCommentCellDelegate, IGCommentCellInteractionDelegate;
-@class IGCommentContentView, UIView, UIButton, CALayer, IGCellSwipeActionManager, NSString;
+@class IGCommentContentView, UIButton, CALayer, IGCellSwipeActionManager, NSString;
 
 @interface IGCommentCell : UICollectionViewCell <IGCellSwipeActionManagerActionDelegate, IGCellSwipeActionManagerSwipingDelegate> {
 
 	char _isShowingEditActions;
-	char _hideSeparatorView;
 	char _showActions;
 	IGCommentContentView* _commentView;
 	id<IGCommentCellDelegate> _delegate;
 	id<IGCommentCellInteractionDelegate> _interactionDelegate;
-	UIView* _separatorView;
 	UIButton* _replyButton;
 	UIButton* _deleteButton;
 	UIButton* _reportButton;
@@ -26,7 +24,6 @@
 
 }
 
-@property (nonatomic,readonly) UIView * separatorView;                                                     //@synthesize separatorView=_separatorView - In the implementation block
 @property (nonatomic,readonly) UIButton * replyButton;                                                     //@synthesize replyButton=_replyButton - In the implementation block
 @property (nonatomic,readonly) UIButton * deleteButton;                                                    //@synthesize deleteButton=_deleteButton - In the implementation block
 @property (nonatomic,readonly) UIButton * reportButton;                                                    //@synthesize reportButton=_reportButton - In the implementation block
@@ -37,7 +34,6 @@
 @property (assign,nonatomic) int maxActionBarWidth;                                                        //@synthesize maxActionBarWidth=_maxActionBarWidth - In the implementation block
 @property (nonatomic,readonly) IGCommentContentView * commentView;                                         //@synthesize commentView=_commentView - In the implementation block
 @property (nonatomic,readonly) char isShowingEditActions;                                                  //@synthesize isShowingEditActions=_isShowingEditActions - In the implementation block
-@property (assign,nonatomic) char hideSeparatorView;                                                       //@synthesize hideSeparatorView=_hideSeparatorView - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCommentCellDelegate> delegate;                                    //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGCommentCellInteractionDelegate> interactionDelegate;              //@synthesize interactionDelegate=_interactionDelegate - In the implementation block
 @property (readonly) unsigned hash; 
@@ -58,8 +54,6 @@
 -(char)cellSwipeActionManagerShouldAllowSwipeToAction:(id)arg1 ;
 -(void)cellSwipeActionManager:(id)arg1 willCompleteSwipeActionForButton:(id)arg2 ;
 -(void)cellSwipeActionManager:(id)arg1 didCompleteSwipeActionForButton:(id)arg2 ;
--(void)setHideSeparatorView:(char)arg1 ;
--(char)hideSeparatorView;
 -(CALayer *)reportButtonSeparatorLayer;
 -(float)beginningX;
 -(void)setBeginningX:(float)arg1 ;
@@ -80,7 +74,6 @@
 -(void)prepareForReuse;
 -(void)setInteractionDelegate:(id<IGCommentCellInteractionDelegate>)arg1 ;
 -(id<IGCommentCellInteractionDelegate>)interactionDelegate;
--(UIView *)separatorView;
 -(char)isAccessibilityElement;
 -(int)accessibilityElementCount;
 -(id)accessibilityElementAtIndex:(int)arg1 ;

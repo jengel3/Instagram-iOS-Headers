@@ -41,16 +41,14 @@
 -(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(char)loadedOnce;
 -(char)failedWithAuthorizationError;
--(IGBulkMediaRequestManager *)requestManager;
 -(void)setFailedWithAuthorizationError:(char)arg1 ;
+-(IGBulkMediaRequestManager *)requestManager;
 -(id)emptyMessage;
 -(void)setFeaturedUserInfoList:(NSArray *)arg1 ;
+-(NSArray *)featuredUserInfoList;
 -(void)fetchListWithRequest:(id)arg1 ;
 -(void)prefetchThumbnailsForUserInfo:(id)arg1 ;
 -(void)fetchThumbnailIURLsForUserIDs:(id)arg1 ;
--(void)fetchMoreWithRequest:(id)arg1 ;
--(id)parseListResponse:(id)arg1 ;
--(NSArray *)featuredUserInfoList;
 -(void)setMaxId:(NSString *)arg1 ;
 -(void)eagerLoadAvailableThumbnailsForUsers:(id)arg1 ;
 -(void)eagerLoadAllProfilePicturesForUsers:(id)arg1 ;
@@ -60,6 +58,8 @@
 -(char)eagerlyFetchesThumbnails;
 -(void)setEagerlyFetchesProfilePictures:(char)arg1 ;
 -(void)setEagerlyFetchesThumbnails:(char)arg1 ;
+-(void)fetchMoreWithRequest:(id)arg1 ;
+-(id)parseListResponse:(id)arg1 ;
 -(unsigned)itemCount;
 -(void)setDelegate:(id<IGFindUsersViewDataSourceDelegate>)arg1 ;
 -(id)init;

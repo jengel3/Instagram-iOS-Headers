@@ -1,14 +1,16 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <libobjc.A.dylib/NSCoding.h>
+#import <Instagram/IGVideoURLProvider.h>
 
-@class NSNumber, NSURL, NSArray;
+@class NSNumber, NSURL, NSSet, NSArray, NSString;
 
-@interface IGVideo : NSObject <NSCoding> {
+@interface IGVideo : NSObject <NSCoding, IGVideoURLProvider> {
 
 	int _videoLength;
 	NSNumber* _audioDetected;
 	NSURL* _subtitleURL;
+	NSSet* _allVideoURLs;
 	NSArray* _videoVersions;
 	unsigned _cachedHash;
 	CGSize _aspectRatio;
@@ -21,6 +23,11 @@
 @property (nonatomic,readonly) int videoLength;                                              //@synthesize videoLength=_videoLength - In the implementation block
 @property (getter=isAudioDetected,nonatomic,readonly) NSNumber * audioDetected;              //@synthesize audioDetected=_audioDetected - In the implementation block
 @property (nonatomic,readonly) NSURL * subtitleURL;                                          //@synthesize subtitleURL=_subtitleURL - In the implementation block
+@property (nonatomic,readonly) NSSet * allVideoURLs;                                         //@synthesize allVideoURLs=_allVideoURLs - In the implementation block
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 +(int)videoVersionForCurrentNetworkConditions;
 +(CGSize)aspectRatioForVideoVersions:(id)arg1 ;
 +(id)videoInfoDictionaryForVideoVersion:(int)arg1 fromVideoVersions:(id)arg2 ;
@@ -30,7 +37,7 @@
 -(NSURL *)subtitleURL;
 -(id)isAudioDetected;
 -(id)initWithVideoVersions:(id)arg1 videoLength:(int)arg2 audioDetected:(id)arg3 originalMediaSize:(CGSize)arg4 subtitleURL:(id)arg5 ;
--(id)allVideoURLs;
+-(NSSet *)allVideoURLs;
 -(NSArray *)videoVersions;
 -(id)initWithVideoVersions:(id)arg1 videoLength:(int)arg2 audioDetected:(id)arg3 ;
 -(void)setVideoVersions:(NSArray *)arg1 ;
@@ -39,7 +46,7 @@
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
--(id)description;
+-(NSString *)description;
 -(unsigned)cachedHash;
 -(void)setCachedHash:(unsigned)arg1 ;
 -(void)setAspectRatio:(CGSize)arg1 ;

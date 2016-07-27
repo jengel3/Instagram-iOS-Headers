@@ -30,13 +30,14 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
+-(char)enableNavState;
 -(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGFeedNetworkSource *)feedSource;
 -(void)showDirectShare;
 -(void)viewProfile;
--(UINavigationController *)navigationControllerForPushing;
 -(float)previewWidth;
+-(UINavigationController *)navigationControllerForPushing;
 -(id)previewActionBarItems;
 -(void)updatePreviewItems;
 -(void)setUserPreviewView:(IGUserPreviewView *)arg1 ;

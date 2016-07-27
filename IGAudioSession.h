@@ -14,14 +14,14 @@
 @property (assign,nonatomic) float previousVolume;                                           //@synthesize previousVolume=_previousVolume - In the implementation block
 @property (assign,nonatomic) char overrideMuteSwitch;                                        //@synthesize overrideMuteSwitch=_overrideMuteSwitch - In the implementation block
 +(id)sharedInstance;
+-(void)setOverrideMuteSwitch:(char)arg1 ;
+-(void)activatePlaybackSession;
 -(void)activateRecordingSession:(char)arg1 ;
 -(void)setPreviousVolume:(float)arg1 ;
 -(float)previousVolume;
+-(void)activateRecordingSession;
 -(char)overrideMuteSwitch;
 -(MPMusicPlayerController *)musicPlayerController;
--(void)setOverrideMuteSwitch:(char)arg1 ;
--(void)activateRecordingSession;
--(void)activatePlaybackSession;
 -(void)dealloc;
 -(id)init;
 -(void)volumeChanged:(id)arg1 ;

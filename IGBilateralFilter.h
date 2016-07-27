@@ -19,8 +19,6 @@
 @property (assign,nonatomic) float spatialSigma;                        //@synthesize spatialSigma=_spatialSigma - In the implementation block
 @property (nonatomic,readonly) unsigned spatialKernelSize;              //@synthesize spatialKernelSize=_spatialKernelSize - In the implementation block
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(id)fragmentShaderPrecision;
--(id)fragmentFunctions;
 -(void)configureProgram:(id)arg1 ;
 -(id)initWithKernelSize:(unsigned)arg1 ;
 -(float)rangeSigma;
@@ -28,6 +26,8 @@
 -(float)spatialSigma;
 -(void)setSpatialSigma:(float)arg1 ;
 -(unsigned)spatialKernelSize;
+-(id)fragmentShaderPrecision;
+-(id)fragmentFunctions;
 -(id)fragmentShader;
 -(id)init;
 -(id)copyWithZone:(NSZone*)arg1 ;

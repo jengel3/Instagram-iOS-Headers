@@ -33,13 +33,9 @@
 -(id)analyticsModule;
 -(IGBusinessConversionLoggingHelper *)loggingHelper;
 -(void)userDidSelectCountryWithName:(id)arg1 countryNumber:(id)arg2 ;
--(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
--(IGFacebookPageInfo *)pageInfo;
 -(void)addressViewController:(id)arg1 didUpdateInfo:(id)arg2 ;
 -(void)finishConversion;
 -(IGFacebookPageInfo *)startPageInfo;
--(void)setPhoneNumberTextField:(IGPhoneNumberTextField *)arg1 ;
--(IGPhoneNumberTextField *)phoneNumberTextField;
 -(void)setStartPageInfo:(IGFacebookPageInfo *)arg1 ;
 -(void)editableProfileCell:(id)arg1 didUpdateValue:(id)arg2 forDataKey:(id)arg3 ;
 -(void)editableProfileCellDidBeginEditing:(id)arg1 ;
@@ -47,7 +43,11 @@
 -(id)initWithPageInfo:(id)arg1 andLoggingHelper:(id)arg2 ;
 -(id)analyticsFlowStep;
 -(void)setPageInfo:(IGFacebookPageInfo *)arg1 ;
+-(void)setPhoneNumberTextField:(IGPhoneNumberTextField *)arg1 ;
+-(IGPhoneNumberTextField *)phoneNumberTextField;
 -(void)textFieldDidTapCountryButton:(id)arg1 ;
+-(IGFacebookPageInfo *)pageInfo;
+-(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
 -(id)newHeaderView;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

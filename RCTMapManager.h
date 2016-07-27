@@ -11,6 +11,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)moduleName;
++(id)propConfig_onChange;
 +(id)propConfig_showsUserLocation;
 +(id)propConfig_showsPointsOfInterest;
 +(id)propConfig_showsCompass;
@@ -29,7 +30,6 @@
 +(id)propConfig_onAnnotationBlur;
 +(id)propConfig_onPress;
 +(id)propConfig_region;
-+(id)propConfig_onChange;
 +(id)propConfig_scrollEnabled;
 +(void)load;
 -(void)_regionChanged:(id)arg1 ;

@@ -37,19 +37,20 @@
 @property (assign,nonatomic) char isInteractive;                                        //@synthesize isInteractive=_isInteractive - In the implementation block
 @property (assign,nonatomic,__weak) id<IGLocationPickerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) int numOfViewedResults;                                    //@synthesize numOfViewedResults=_numOfViewedResults - In the implementation block
--(char)enableNavState;
+-(void)setTempLocation:(id)arg1 ;
+-(id)tempLocation;
+-(void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2 ;
+-(void)didSelectLocation:(SCD_Struct_IG33)arg1 ;
+-(void)selectCustom;
 -(id)analyticsModule;
--(NSString *)rankToken;
--(IGLocationDataSource *)locationDataSource;
--(void)setLocationDataSource:(IGLocationDataSource *)arg1 ;
 -(void)onCancelModal;
+-(NSString *)rankToken;
+-(char)enableNavState;
+-(void)setLocationDataSource:(IGLocationDataSource *)arg1 ;
+-(IGLocationDataSource *)locationDataSource;
 -(void)setIsInteractive:(char)arg1 ;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
--(void)locationDataSourceDidStartLoading;
--(void)locationDataSourceDidFinishLoadingDataSource:(id)arg1 ;
--(void)locationDataSourceDidFailLoading;
 -(id)initWithSearchSessionId:(id)arg1 ;
--(void)makeSearchBar;
 -(void)makeRefreshButton;
 -(void)makeCancelButton;
 -(void)onLocateButtonTapped;
@@ -62,12 +63,16 @@
 -(void)locationDataSourceWasDeniedAccess;
 -(int)numOfViewedResults;
 -(void)setNumOfViewedResults:(int)arg1 ;
+-(void)locationDataSourceDidStartLoading;
+-(void)locationDataSourceDidFinishLoadingDataSource:(id)arg1 ;
+-(void)locationDataSourceDidFailLoading;
 -(IGKVOHandle *)contentOffsetObserver;
 -(void)searchControllerWillBeginSearch:(id)arg1 ;
 -(void)searchControllerWillEndSearch:(id)arg1 ;
 -(void)searchController:(id)arg1 searchTextDidChange:(id)arg2 ;
 -(void)searchControllerSearchButtonTapped:(id)arg1 ;
 -(void)setContentOffsetObserver:(IGKVOHandle *)arg1 ;
+-(void)makeSearchBar;
 -(void)setDelegate:(id<IGLocationPickerDelegate>)arg1 ;
 -(void)dealloc;
 -(id)init;

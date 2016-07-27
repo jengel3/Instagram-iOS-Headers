@@ -8,9 +8,9 @@
 +(id)__rct_export__1142;
 +(id)__rct_export__1253;
 +(void)load;
+-(void)applicationDidChangeStatusBarFrame:(id)arg1 ;
 -(id)methodQueue;
 -(id)supportedEvents;
--(void)applicationDidChangeStatusBarFrame:(id)arg1 ;
 -(void)applicationWillChangeStatusBarFrame:(id)arg1 ;
 -(void)emitEvent:(id)arg1 forNotification:(id)arg2 ;
 -(void)getHeight:(/*^block*/id)arg1 ;

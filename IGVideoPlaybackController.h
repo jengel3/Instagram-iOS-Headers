@@ -44,8 +44,8 @@
 -(void)videoPlayerLoadedFirstFrame:(id)arg1 ;
 -(void)videoPlayerDidPlayToEnd:(id)arg1 ;
 -(void)videoPlayerWillPrepareAssetForPlayback:(id)arg1 ;
--(void)videoPlayer:(id)arg1 playbackBufferEmpty:(char)arg2 ;
--(void)videoPlayer:(id)arg1 playbackBufferLikelyToKeepUp:(char)arg2 ;
+-(void)videoPlayerBufferEmpty:(id)arg1 ;
+-(void)videoPlayerBufferLikelyToKeepUp:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didFailToPlaybackWithError:(id)arg2 ;
 -(void)videoPlayerDidPlay:(id)arg1 ;
 -(void)videoPlayerDidPause:(id)arg1 ;
@@ -57,10 +57,7 @@
 -(void)playVideoItem:(id)arg1 player:(id)arg2 startTime:(float)arg3 ;
 -(void)logVideoStoppedForReason:(int)arg1 extraInfo:(id)arg2 ;
 -(id)relinquishPlayer;
--(char)audioNUXControllerVideoHasSound:(id)arg1 ;
--(char)audioNUXControllerIsPlayingSound:(id)arg1 ;
--(char)audioNUXControllerIsVideoPlaying:(id)arg1 ;
--(void)showOneTapIndicatorNUXAnimated:(id)arg1 ;
+-(void)applyPlaybackItemSettings;
 -(void)setVideoShouldStartTime:(double)arg1 ;
 -(IGPlaybackTimeIndicatorController *)timeIndicatorController;
 -(void)setUpAudioNUXController;
@@ -83,8 +80,13 @@
 -(void)didPressVolumeButtonNotification:(id)arg1 ;
 -(void)didUnplugHeadphonesNotification:(id)arg1 ;
 -(void)updateCaptionSettingWithAudioEnabled:(char)arg1 ;
+-(void)showOneTapIndicatorNUXAnimated:(id)arg1 ;
 -(void)setAudioNUXController:(IGAudioNUXController *)arg1 ;
+-(char)audioNUXControllerVideoHasSound:(id)arg1 ;
+-(char)audioNUXControllerIsPlayingSound:(id)arg1 ;
+-(char)audioNUXControllerIsVideoPlaying:(id)arg1 ;
 -(void)didSingleTapFeedItemVideoView:(id)arg1 ;
+-(void)resumeWithVideoItem:(id)arg1 player:(id)arg2 ;
 -(IGVideoViewLogger *)logger;
 -(void)setPlayer:(IGFeedVideoPlayer *)arg1 ;
 -(void)setAudioEnabled:(char)arg1 ;

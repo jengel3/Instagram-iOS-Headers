@@ -1,10 +1,12 @@
 
+#import <Instagram/Instagram-Structs.h>
 #import <Instagram/IGMediaMetadataProtocol.h>
-#import <libobjc.A.dylib/NSCoding.h>
+#import <libobjc.A.dylib/NSSecureCoding.h>
+#import <libobjc.A.dylib/NSCopying.h>
 
 @class NSDictionary, NSString;
 
-@interface IGEditsMetadata : NSObject <IGMediaMetadataProtocol, NSCoding> {
+@interface IGEditsMetadata : NSObject <IGMediaMetadataProtocol, NSSecureCoding, NSCopying> {
 
 	NSDictionary* _editsInfo;
 
@@ -15,11 +17,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSDictionary *)editsInfo;
--(id)initWithEditsInfo:(id)arg1 ;
++(char)supportsSecureCoding;
 -(void)prepareToShare;
+-(id)initWithEditsInfo:(id)arg1 ;
 -(id)sharingInfo;
+-(NSDictionary *)editsInfo;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
+-(id)copyWithZone:(NSZone*)arg1 ;
 @end
 

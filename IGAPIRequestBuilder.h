@@ -17,19 +17,19 @@
 }
 +(id)builderWithHTTPMethod:(unsigned)arg1 path:(id)arg2 ;
 +(id)builderWithHTTPMethod:(unsigned)arg1 format:(id)arg2 ;
--(id)commonParametersForPostMethod;
--(id)setBool:(char)arg1 forParameter:(id)arg2 ;
+-(id)setRawValue:(id)arg1 forParameter:(id)arg2 ;
+-(id)sign;
 -(id)setInteger:(int)arg1 forParameter:(id)arg2 ;
 -(id)setDouble:(double)arg1 forParameter:(id)arg2 ;
--(id)setRawValue:(id)arg1 forParameter:(id)arg2 ;
--(id)setFile:(id)arg1 forParameter:(id)arg2 ;
--(id)sign;
 -(id)appendTopAggregatorOverride;
 -(id)addInstalledAppsHeader;
 -(id)addAdsHeader;
 -(id)addDeviceIDHeader;
+-(id)setFile:(id)arg1 forParameter:(id)arg2 ;
+-(id)setBool:(char)arg1 forParameter:(id)arg2 ;
 -(id)installedAppsDictionary;
 -(id)advertisingID;
+-(id)commonParametersForPostMethod;
 -(id)setValue:(id)arg1 forParameter:(id)arg2 ;
 -(id)init;
 -(id)description;

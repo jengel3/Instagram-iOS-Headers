@@ -23,12 +23,12 @@
 @property (nonatomic,retain) IGDirectContent * item;                                                               //@synthesize item=_item - In the implementation block
 @property (nonatomic,retain) UICollectionViewCell * cell;                                                          //@synthesize cell=_cell - In the implementation block
 @property (nonatomic,retain) IGDirectFeedCoordinator * feedCoordinator;                                            //@synthesize feedCoordinator=_feedCoordinator - In the implementation block
--(void)postToFeed:(id)arg1 ;
 -(void)didHideMenu:(id)arg1 ;
 -(void)unsend:(id)arg1 ;
 -(void)flag:(id)arg1 ;
 -(void)unlike:(id)arg1 ;
 -(void)share:(id)arg1 ;
+-(void)postToFeed:(id)arg1 ;
 -(IGUser *)threadViewer;
 -(char)enableShareOwnMediaToFeed;
 -(void)reportContent:(id)arg1 ;

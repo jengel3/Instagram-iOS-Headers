@@ -1,7 +1,7 @@
 
 
 @interface IGDirectSharingHelper : NSObject
-+(void)handleReshareSuccessfulResponse:(id)arg1 recipient:(id)arg2 threadID:(id*)arg3 ;
++(void)handleReshareSuccessWithThreadID:(id)arg1 recipient:(id)arg2 ;
 +(void)handleReshareFailureWithRecipient:(id)arg1 ;
 +(char)isThreadNameTooLong:(id)arg1 ;
 +(char)isBlankString:(id)arg1 ;
@@ -14,7 +14,7 @@
 +(char)isContentDateEligibleForLikes:(id)arg1 ;
 +(char)isReactable:(id)arg1 ;
 +(id)firstEligibleDateForLikes;
-+(id)getThreadFromResponse:(id)arg1 threadID:(id*)arg2 ;
++(id)getCachedThreadWithID:(id)arg1 ;
 +(id)seenUsersForContent:(id)arg1 thread:(id)arg2 pendingMode:(char)arg3 ;
 +(char)isThreadNameValid:(id)arg1 ;
 +(char)showUsernameForIndexPath:(id)arg1 withContents:(id)arg2 ;
@@ -33,7 +33,7 @@
 +(id)postsInContentArray:(id)arg1 ;
 +(id)suppressedContentAfterContent:(id)arg1 allContent:(id)arg2 ;
 +(id)previewImageURLProviderForThread:(id)arg1 ;
-+(void)getOrFetchThreadFromResponse:(id)arg1 completion:(/*^block*/id)arg2 ;
++(void)getOrFetchThreadWithID:(id)arg1 completion:(/*^block*/id)arg2 ;
 +(void)shareContent:(id)arg1 fromThreadId:(id)arg2 ;
 +(id)keyboardWindow;
 @end

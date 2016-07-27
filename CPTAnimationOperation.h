@@ -26,12 +26,12 @@
 @property (getter=isCanceled) char canceled; 
 @property (nonatomic,copy) id<NSCopying><NSObject> identifier; 
 @property (nonatomic,copy) NSDictionary * userInfo; 
+-(int)animationCurve;
 -(void)setBoundObject:(id)arg1 ;
 -(void)setBoundGetter:(SEL)arg1 ;
 -(void)setBoundSetter:(SEL)arg1 ;
 -(id)boundObject;
 -(SEL)boundGetter;
--(int)animationCurve;
 -(SEL)boundSetter;
 -(void)setDelegate:(id<CPTAnimationDelegate>)arg1 ;
 -(id)init;

@@ -27,18 +27,17 @@
 @property (assign,nonatomic) char shouldFailOnDataError;                                //@synthesize shouldFailOnDataError=_shouldFailOnDataError - In the implementation block
 +(id)showFromViewController:(id)arg1 withContent:(id)arg2 delegate:(id)arg3 ;
 +(void)initialize;
--(void)webDialogDidCancel:(id)arg1 ;
+-(char)canShow;
+-(id<FBSDKSharingContent>)shareContent;
+-(void)setShareContent:(id<FBSDKSharingContent>)arg1 ;
 -(void)webDialog:(id)arg1 didCompleteWithResults:(id)arg2 ;
 -(void)webDialog:(id)arg1 didFailWithError:(id)arg2 ;
--(char)canShow;
+-(void)webDialogDidCancel:(id)arg1 ;
 -(void)_invokeDelegateDidFailWithError:(id)arg1 ;
 -(void)_logDialogShow;
 -(char)_canShowNative;
 -(void)_invokeDelegateDidCompleteWithResults:(id)arg1 ;
--(id<FBSDKSharingContent>)shareContent;
--(void)setShareContent:(id<FBSDKSharingContent>)arg1 ;
--(char)shouldFailOnDataError;
--(void)setShouldFailOnDataError:(char)arg1 ;
+-(void)_invokeDelegateDidCancel;
 -(char)_canShowShareSheet;
 -(char)_showAutomatic:(id*)arg1 ;
 -(char)_showBrowser:(id*)arg1 ;
@@ -52,7 +51,6 @@
 -(char)_validateShareContentForFeed:(id*)arg1 ;
 -(char)_validateShareContentForBrowser:(id*)arg1 ;
 -(void)_cleanUpWebDialog;
--(void)_invokeDelegateDidCancel;
 -(void)_handleWebResponseParameters:(id)arg1 error:(id)arg2 ;
 -(char)_isDefaultToShareSheet;
 -(char)_useNativeDialog;
@@ -63,6 +61,8 @@
 -(id)_contentURLs;
 -(char)_canAttributeThroughShareSheet;
 -(char)_validateVideoURL:(id)arg1 error:(id*)arg2 ;
+-(char)shouldFailOnDataError;
+-(void)setShouldFailOnDataError:(char)arg1 ;
 -(char)validateWithError:(id*)arg1 ;
 -(void)setFromViewController:(UIViewController *)arg1 ;
 -(char)show;

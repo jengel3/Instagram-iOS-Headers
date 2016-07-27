@@ -14,8 +14,8 @@
 @property (assign,nonatomic,__weak) UIViewController * fromViewController;                  //@synthesize fromViewController=_fromViewController - In the implementation block
 @property (assign,nonatomic,__weak) id<FBSDKAppInviteDialogDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,copy) FBSDKAppInviteContent * content;                                 //@synthesize content=_content - In the implementation block
-+(id)showWithContent:(id)arg1 delegate:(id)arg2 ;
 +(id)showFromViewController:(id)arg1 withContent:(id)arg2 delegate:(id)arg3 ;
++(id)showWithContent:(id)arg1 delegate:(id)arg2 ;
 +(void)initialize;
 -(char)canShow;
 -(void)_handleCompletionWithDialogResults:(id)arg1 error:(id)arg2 ;

@@ -8,11 +8,12 @@
 #import <Instagram/IGLocationPickerDelegate.h>
 #import <Instagram/IGUserInTaggingViewControllerDelegate.h>
 #import <Instagram/IGFeedItemVideoViewDelegate.h>
+#import <Instagram/IGFeedPhotoViewDelegate.h>
 
 @protocol IGEditPostViewControllerDelegate;
 @class UIView, IGFeedItem, IGAutocompleteController, IGFeedMediaView, UITapGestureRecognizer, IGFeedItemHeader, IGEditPostTextViewController, IGTagPeopleView, UIScrollView, UIBarButtonItem, IGEditedPost, IGNavigationBar, NSString;
 
-@interface IGEditPostViewController : IGViewController <IGEditPostTextViewControllerDelegate, IGFeedItemHeaderDelegate, IGAutocompleteControllerDelegate, IGActionSheetDelegate, IGLocationPickerDelegate, IGUserInTaggingViewControllerDelegate, IGFeedItemVideoViewDelegate> {
+@interface IGEditPostViewController : IGViewController <IGEditPostTextViewControllerDelegate, IGFeedItemHeaderDelegate, IGAutocompleteControllerDelegate, IGActionSheetDelegate, IGLocationPickerDelegate, IGUserInTaggingViewControllerDelegate, IGFeedItemVideoViewDelegate, IGFeedPhotoViewDelegate> {
 
 	char _loading;
 	char _autocompleteShown;
@@ -81,17 +82,18 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
--(void)setCommittingText:(char)arg1 ;
--(char)isCommittingText;
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(IGAutocompleteController *)autocompleteController;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
 -(void)autocompleteControllerDidAutocomplete:(id)arg1 ;
 -(void)autocompleteController:(id)arg1 atIndex:(int)arg2 isUserSearch:(char)arg3 allResults:(id)arg4 ;
+-(void)feedPhotoViewDidLoadImage:(id)arg1 ;
+-(void)feedPhotoDidDoubleTapToLike:(id)arg1 ;
+-(void)feedPhotoViewDidTap:(id)arg1 ;
 -(void)textViewController:(id)arg1 didChangeContentHeightToHeight:(float)arg2 ;
 -(void)textViewController:(id)arg1 textViewDidChange:(id)arg2 ;
 -(void)textViewController:(id)arg1 textViewDidChangeSelection:(id)arg2 ;
@@ -106,6 +108,7 @@
 -(CGRect)backgroundViewFrame;
 -(CGRect)mediaFrame;
 -(CGSize)contentSizeWithCaptionHeight:(float)arg1 ;
+-(char)isCommittingText;
 -(void)setKeyboardAnimationCurve:(int)arg1 ;
 -(void)setKeyboardAnimationDuration:(double)arg1 ;
 -(UITapGestureRecognizer *)mediaViewTapRecognizer;
@@ -117,6 +120,7 @@
 -(char)isKeyboardShowing;
 -(void)disappearWithCurve:(int)arg1 duration:(double)arg2 ;
 -(char)isDisappearing;
+-(void)setCommittingText:(char)arg1 ;
 -(IGEditedPost *)editedPost;
 -(void)mediaViewTapped:(id)arg1 ;
 -(void)scrollViewTapped:(id)arg1 ;
@@ -129,8 +133,18 @@
 -(char)autocompleteShown;
 -(void)setAutocompleteShown:(char)arg1 ;
 -(float)contentOffsetYAtCaret;
+-(void)feedItemHeaderDidTapUser:(id)arg1 ;
+-(void)feedItemHeaderDidTapLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
+-(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
 -(void)setAlphaOnNavBarItems:(float)arg1 ;
+-(void)setBackgroundTabBarView:(UIView *)arg1 ;
+-(void)setMediaFrame:(CGRect)arg1 ;
+-(void)setBackgroundViewFrame:(CGRect)arg1 ;
 -(void)setAutocompleteDivider:(UIView *)arg1 ;
 -(void)setMediaView:(IGFeedMediaView *)arg1 ;
 -(void)setMediaViewTapRecognizer:(UITapGestureRecognizer *)arg1 ;
@@ -138,18 +152,8 @@
 -(void)setTagPeopleView:(IGTagPeopleView *)arg1 ;
 -(void)setEditedPost:(IGEditedPost *)arg1 ;
 -(void)setAboveHeaderView:(UIView *)arg1 ;
--(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
--(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
--(void)setMediaFrame:(CGRect)arg1 ;
--(void)setBackgroundViewFrame:(CGRect)arg1 ;
--(void)setBackgroundTabBarView:(UIView *)arg1 ;
--(void)feedItemHeaderDidTapUser:(id)arg1 ;
--(void)feedItemHeaderDidTapLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
--(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
 -(float)navBarHeight;
+-(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
 -(double)keyboardAnimationDuration;
 -(int)keyboardAnimationCurve;
 -(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;

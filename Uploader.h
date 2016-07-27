@@ -14,6 +14,8 @@
 
 }
 +(id)readConfigurationDataFromFile:(id)arg1 ;
+-(id)initWithConfigFile:(const char*)arg1 ;
+-(char)populateServerDictionary:(id)arg1 ;
 -(void)createServerParameterDictionaries;
 -(void)translateConfigurationData:(id)arg1 ;
 -(char)readMinidumpData;
@@ -22,10 +24,8 @@
 -(id)dictionaryForServerType:(id)arg1 ;
 -(id)urlParameterDictionary;
 -(void)logUploadWithID:(const char*)arg1 ;
--(char)populateServerDictionary:(id)arg1 ;
 -(void)handleNetworkResponse:(id)arg1 withError:(id)arg2 ;
 -(void)uploadData:(id)arg1 name:(id)arg2 ;
--(id)initWithConfigFile:(const char*)arg1 ;
 -(void)dealloc;
 -(id)parameters;
 -(void)report;

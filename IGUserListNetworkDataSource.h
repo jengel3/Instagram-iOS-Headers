@@ -47,9 +47,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSString *)rankToken;
--(void)setRankToken:(NSString *)arg1 ;
 -(void)setUnfilteredResults:(id)arg1 ;
+-(void)setRankToken:(NSString *)arg1 ;
+-(NSString *)rankToken;
 -(void)fetchMoreData;
 -(char)loadedOnce;
 -(NSString *)fetchPath;
@@ -63,6 +63,7 @@
 -(void)onMoreUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(void)onUserFetchFailed:(id)arg1 fromRequest:(id)arg2 ;
 -(NSArray *)allUsersCache;
+-(id)getNamesForUser:(id)arg1 ;
 -(void)setAllUsersCache:(NSArray *)arg1 ;
 -(void)onUsersReceived:(id)arg1 fromRequest:(id)arg2 ;
 -(NSCache *)searchCache;

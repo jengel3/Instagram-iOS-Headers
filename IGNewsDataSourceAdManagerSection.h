@@ -19,10 +19,10 @@
 @property (assign,nonatomic,__weak) id<IGNewsDataSourceSectionDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,readonly) NSString * title; 
 @property (nonatomic,readonly) unsigned* numberOfRows; 
--(unsigned)pendingAdsCount;
--(void)setUpTableView:(id)arg1 ;
 -(void)setPendingAdsCount:(unsigned)arg1 ;
 -(char)willShowAdsManagerSection;
+-(unsigned)pendingAdsCount;
+-(void)setUpTableView:(id)arg1 ;
 -(void)setDelegate:(id<IGNewsDataSourceSectionDelegate>)arg1 ;
 -(id<IGNewsDataSourceSectionDelegate>)delegate;
 -(NSString *)title;

@@ -28,7 +28,6 @@
 	IGTapButton* _dismissButton;
 	IGTapButton* _backButton;
 	UIFont* _textFont;
-	float _maxTextHeight;
 	UILabel* _warningView;
 	IGDirectLinkPreview* _linkPreview;
 
@@ -44,7 +43,6 @@
 @property (nonatomic,retain) IGTapButton * dismissButton;                                                 //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) IGTapButton * backButton;                                                    //@synthesize backButton=_backButton - In the implementation block
 @property (nonatomic,retain) UIFont * textFont;                                                           //@synthesize textFont=_textFont - In the implementation block
-@property (assign,nonatomic) float maxTextHeight;                                                         //@synthesize maxTextHeight=_maxTextHeight - In the implementation block
 @property (nonatomic,retain) UILabel * warningView;                                                       //@synthesize warningView=_warningView - In the implementation block
 @property (nonatomic,retain) IGDirectLinkPreview * linkPreview;                                           //@synthesize linkPreview=_linkPreview - In the implementation block
 @property (nonatomic,retain) IGDirectLinkPreviewManager * linkPreviewManager;                             //@synthesize linkPreviewManager=_linkPreviewManager - In the implementation block
@@ -72,8 +70,7 @@
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(float)defaultHeight;
 -(char)deviceHasCamera;
--(void)setBottomGradientView:(IGGradientView *)arg1 ;
--(IGGradientView *)bottomGradientView;
+-(void)dismissButtonTapped;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
 -(void)setLinkPreview:(IGDirectLinkPreview *)arg1 ;
@@ -101,7 +98,6 @@
 -(void)setHideLikeButton:(char)arg1 ;
 -(void)setCameraButton:(IGTapButton *)arg1 ;
 -(void)setTextFont:(UIFont *)arg1 ;
--(void)setMaxTextHeight:(float)arg1 ;
 -(void)setWarningView:(UILabel *)arg1 ;
 -(char)showLinkPreview;
 -(void)setShowLinkPreview:(char)arg1 ;
@@ -112,8 +108,9 @@
 -(UIControl *)textViewContainer;
 -(void)setTextViewContainer:(UIControl *)arg1 ;
 -(IGTapButton *)cameraButton;
+-(IGGradientView *)bottomGradientView;
+-(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(void)onChevronTitleButtonTapped;
--(void)dismissButtonTapped;
 -(void)setDelegate:(id<IGDirectKeyboardTextViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGDirectKeyboardTextViewControllerDelegate>)delegate;

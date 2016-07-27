@@ -27,18 +27,18 @@
 @property (assign,nonatomic,__weak) id<IGFeedItemLoggingProviderDelegate> loggingDelegate;              //@synthesize loggingDelegate=_loggingDelegate - In the implementation block
 +(id)button;
 +(id)chevronImage;
+-(IGFeedItem *)feedItem;
 -(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
 -(void)actionSheetFinishedHiding;
--(IGFeedItem *)feedItem;
 -(void)setLoggingDelegate:(id<IGFeedItemLoggingProviderDelegate>)arg1 ;
+-(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)updateAppearance;
 -(void)onSponsoredPostLabelTapped;
 -(void)setTintedColors:(NSMutableDictionary *)arg1 ;
 -(NSMutableDictionary *)tintedColors;
--(void)updateAppearance;
--(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(IGActionSheetConfiguration *)actionSheetConfiguration;
--(void)setColor:(id)arg1 forState:(unsigned)arg2 ;
 -(void)setActionSheetConfiguration:(IGActionSheetConfiguration *)arg1 ;
+-(void)setColor:(id)arg1 forState:(unsigned)arg2 ;
 -(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(id)init;
 -(char)showIcon;

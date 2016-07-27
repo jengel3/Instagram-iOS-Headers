@@ -21,9 +21,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,retain) IGSurveyQuestion * question;                                         //@synthesize question=_question - In the implementation block
 @property (assign,nonatomic,__weak) id<IGSurveyQuestionControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(void)setQuestion:(IGSurveyQuestion *)arg1 ;
 -(IGSurveyQuestion *)question;
+-(void)configureCell:(id)arg1 forRowAtIndexPath:(id)arg2 ;
 -(id)colorForAnswerAtIndexPath:(id)arg1 ;
 -(void)setDelegate:(id<IGSurveyQuestionControllerDelegate>)arg1 ;
 -(void)dealloc;

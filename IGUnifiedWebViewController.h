@@ -58,13 +58,6 @@
 @property (assign,nonatomic,__weak) id<IGWebViewControllerBrowsingDelegate> browsingDelegate;                                 //@synthesize browsingDelegate=_browsingDelegate - In the implementation block
 @property (assign,nonatomic) char allowModalDismiss;                                                                          //@synthesize allowModalDismiss=_allowModalDismiss - In the implementation block
 -(id)analyticsModule;
--(void)passLoader:(id)arg1 didReceiveUnsupportedMIMEType:(id)arg2 ;
--(void)passLoader:(id)arg1 didFinishLoadingPass:(id)arg2 error:(id)arg3 ;
--(void)webView:(id)arg1 progressChanged:(double)arg2 ;
--(char)webView:(id)arg1 shouldStartNavigationRequest:(id)arg2 navigationType:(int)arg3 sourceFrame:(id)arg4 targetFrame:(id)arg5 ;
--(void)webView:(id)arg1 didStartNavigationRequest:(id)arg2 ;
--(void)webView:(id)arg1 didFinishNavigationRequest:(id)arg2 ;
--(void)webView:(id)arg1 didFailNavigationRequest:(id)arg2 withError:(id)arg3 ;
 -(void)onCancelModal;
 -(IGWebViewControllerAppearanceHandler *)appearanceHandler;
 -(id<IGWebViewControllerBrowsingDelegate>)browsingDelegate;
@@ -93,6 +86,13 @@
 -(unsigned)titleViewType;
 -(void)webViewToolbarBackButtonTapped:(id)arg1 ;
 -(void)webViewToolbarForwardButtonTapped:(id)arg1 ;
+-(void)passLoader:(id)arg1 didReceiveUnsupportedMIMEType:(id)arg2 ;
+-(void)passLoader:(id)arg1 didFinishLoadingPass:(id)arg2 error:(id)arg3 ;
+-(char)webView:(id)arg1 shouldStartNavigationRequest:(id)arg2 navigationType:(int)arg3 sourceFrame:(id)arg4 targetFrame:(id)arg5 ;
+-(void)webView:(id)arg1 didStartNavigationRequest:(id)arg2 ;
+-(void)webView:(id)arg1 didFailNavigationRequest:(id)arg2 withError:(id)arg3 ;
+-(void)webView:(id)arg1 didFinishNavigationRequest:(id)arg2 ;
+-(void)webView:(id)arg1 progressChanged:(double)arg2 ;
 -(char)allowModalDismiss;
 -(id)initWithURLRequest:(id)arg1 titleViewType:(unsigned)arg2 titleTextType:(unsigned)arg3 shareButtonVisible:(char)arg4 navigationToolBarEnabled:(char)arg5 ;
 -(void)setShareDelegate:(id<IGUnifiedWebViewControllerShareDelegate>)arg1 ;

@@ -3,7 +3,7 @@
 #import <Instagram/RCTInvalidating.h>
 
 @protocol RCTBridgeDelegate;
-@class NSURL, NSDictionary, NSLock, RCTRedBox, RCTAccessibilityManager, RCTUIManager, RCTDevMenu, RCTImageLoader, RCTImageStoreManager, RCTNetworking, NSArray, NSString;
+@class NSURL, NSDictionary, NSLock, RCTNetworking, RCTImageLoader, RCTImageStoreManager, RCTRedBox, RCTAccessibilityManager, RCTUIManager, RCTDevMenu, NSArray, NSString;
 
 @interface RCTBridge : NSObject <RCTInvalidating> {
 
@@ -20,13 +20,13 @@
 
 }
 
+@property (nonatomic,readonly) RCTNetworking * networking; 
+@property (nonatomic,readonly) RCTImageLoader * imageLoader; 
+@property (nonatomic,readonly) RCTImageStoreManager * imageStoreManager; 
 @property (nonatomic,readonly) RCTRedBox * redBox; 
 @property (nonatomic,readonly) RCTAccessibilityManager * accessibilityManager; 
 @property (nonatomic,readonly) RCTUIManager * uiManager; 
 @property (nonatomic,readonly) RCTDevMenu * devMenu; 
-@property (nonatomic,readonly) RCTImageLoader * imageLoader; 
-@property (nonatomic,readonly) RCTImageStoreManager * imageStoreManager; 
-@property (nonatomic,readonly) RCTNetworking * networking; 
 @property (assign,nonatomic) long long flowID;                                              //@synthesize flowID=_flowID - In the implementation block
 @property (assign,nonatomic) CFDictionaryRef flowIDMap;                                     //@synthesize flowIDMap=_flowIDMap - In the implementation block
 @property (nonatomic,retain) NSLock * flowIDMapLock;                                        //@synthesize flowIDMapLock=_flowIDMapLock - In the implementation block
@@ -46,14 +46,20 @@
 +(id)currentBridge;
 +(void)setCurrentBridge:(id)arg1 ;
 +(void)initialize;
+-(id)initWithDelegate:(id)arg1 launchOptions:(id)arg2 ;
 -(RCTUIManager *)uiManager;
+-(RCTImageStoreManager *)imageStoreManager;
+-(id)eventDispatcher;
+-(RCTAccessibilityManager *)accessibilityManager;
+-(id)modulesConformingToProtocol:(id)arg1 ;
+-(id)moduleForClass:(Class)arg1 ;
+-(RCTNetworking *)networking;
+-(RCTImageLoader *)imageLoader;
 -(void)bindKeys;
 -(id)moduleForName:(id)arg1 ;
 -(char)moduleIsInitialized:(Class)arg1 ;
 -(void)createBatchedBridge;
 -(void)setBatchedBridge:(RCTBridge *)arg1 ;
--(id)initWithDelegate:(id)arg1 launchOptions:(id)arg2 ;
--(id)modulesConformingToProtocol:(id)arg1 ;
 -(Class)executorClass;
 -(void)setExecutorClass:(Class)arg1 ;
 -(long long)flowID;
@@ -64,19 +70,13 @@
 -(void)setFlowIDMapLock:(NSLock *)arg1 ;
 -(id)moduleProvider;
 -(void)enqueueJSCall:(id)arg1 args:(id)arg2 ;
--(id)moduleForClass:(Class)arg1 ;
--(id)eventDispatcher;
 -(void)enqueueCallback:(id)arg1 args:(id)arg2 ;
 -(RCTBridge *)batchedBridge;
 -(id)initWithBundleURL:(id)arg1 moduleProvider:(/*^block*/id)arg2 launchOptions:(id)arg3 ;
--(RCTAccessibilityManager *)accessibilityManager;
 -(RCTDevMenu *)devMenu;
 -(RCTRedBox *)redBox;
 -(NSArray *)moduleClasses;
 -(char)isBatchActive;
--(RCTImageLoader *)imageLoader;
--(RCTImageStoreManager *)imageStoreManager;
--(RCTNetworking *)networking;
 -(NSDictionary *)launchOptions;
 -(void)dealloc;
 -(id)init;

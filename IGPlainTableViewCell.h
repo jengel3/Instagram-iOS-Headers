@@ -16,8 +16,8 @@
 @property (nonatomic,readonly) char canSelect;                                  //@synthesize canSelect=_canSelect - In the implementation block
 -(UIColor *)highlightedBackgroundColor;
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
--(char)canSelect;
 -(void)setHighlightedBackgroundColor:(UIColor *)arg1 ;
+-(char)canSelect;
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;
 -(void)setSelected:(char)arg1 animated:(char)arg2 ;
 -(void)setHighlighted:(char)arg1 animated:(char)arg2 ;

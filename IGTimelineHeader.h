@@ -14,7 +14,6 @@
 @property (nonatomic,retain) UIButton * accessibilityButton;                  //@synthesize accessibilityButton=_accessibilityButton - In the implementation block
 @property (nonatomic,retain) UIView * bottomBorderLine;                       //@synthesize bottomBorderLine=_bottomBorderLine - In the implementation block
 @property (nonatomic,readonly) UIColor * contentBackgroundColor; 
-+(char)usePureWhite;
 +(int)height;
 -(void)voiceOverStatusChangedNotification:(id)arg1 ;
 -(UIView *)bottomBorderLine;

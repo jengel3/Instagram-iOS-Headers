@@ -31,7 +31,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)loggingExtras;
 -(IGDirectedNUXView *)NUXView;
 -(void)setNUXView:(IGDirectedNUXView *)arg1 ;
 -(char)isMediaReadyAndAvailable;
@@ -43,15 +42,16 @@
 -(void)updateViewFrame;
 -(char)isDataSourceInitialized;
 -(void)setIsDataSourceInitialized:(char)arg1 ;
+-(id)loggingExtras;
 -(void)openLibraryToAllMedia;
 -(char)isSeeAllCell:(id)arg1 ;
 -(void)inlineGalleryDataSourceDidChange:(id)arg1 ;
+-(void)didTapOutsideInlineGalleryView:(id)arg1 ;
+-(void)didTapCancelForInlineGalleryView:(id)arg1 ;
+-(void)didTapCameraForInlineGalleryView:(id)arg1 ;
 -(void)dismissButtonTappedForInlineGalleryView:(id)arg1 ;
 -(void)titleBarTappedForInlineGalleryView:(id)arg1 ;
 -(void)seeAllTappedForInlineGalleryView:(id)arg1 ;
--(void)didTapCameraForInlineGalleryView:(id)arg1 ;
--(void)didTapCancelForInlineGalleryView:(id)arg1 ;
--(void)didTapOutsideInlineGalleryView:(id)arg1 ;
 -(id<IGInlineGalleryDataSource>)libraryManager;
 -(void)setLibraryManager:(id<IGInlineGalleryDataSource>)arg1 ;
 -(void)setDelegate:(id<IGInlineGalleryPresenter>)arg1 ;

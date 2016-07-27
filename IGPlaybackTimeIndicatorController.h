@@ -21,6 +21,13 @@
 @property (assign,nonatomic) char playerDidStartPlayback;                                        //@synthesize playerDidStartPlayback=_playerDidStartPlayback - In the implementation block
 @property (assign,nonatomic) char disabled;                                                      //@synthesize disabled=_disabled - In the implementation block
 -(id)initWithIndicatorView:(id)arg1 ;
+-(void)layoutViewsInRect:(CGRect)arg1 ;
+-(void)didStartLoadingVideoForPlayer:(id)arg1 ;
+-(void)didStopPlaybackForPlayer:(id)arg1 ;
+-(void)didEmptyPlaybackBufferForPlayer:(id)arg1 ;
+-(void)didStartPlaybackForPlayer:(id)arg1 ;
+-(void)didUpdatePlaybackProgressForPlayer:(id)arg1 progress:(float)arg2 ;
+-(void)didFinishSeeking:(id)arg1 ;
 -(void)setPlayerDidStartPlayback:(char)arg1 ;
 -(void)trySetupIndicatorForPlayer:(id)arg1 ;
 -(char)playerDidStartPlayback;
@@ -31,13 +38,6 @@
 -(void)setDidStartHiding:(char)arg1 ;
 -(float)playbackStartTime;
 -(char)didStartHiding;
--(void)layoutViewsInRect:(CGRect)arg1 ;
--(void)didStartLoadingVideoForPlayer:(id)arg1 ;
--(void)didStopPlaybackForPlayer:(id)arg1 ;
--(void)didEmptyPlaybackBufferForPlayer:(id)arg1 ;
--(void)didStartPlaybackForPlayer:(id)arg1 ;
--(void)didUpdatePlaybackProgressForPlayer:(id)arg1 progress:(float)arg2 ;
--(void)didFinishSeeking:(id)arg1 ;
 -(void)reset;
 -(char)disabled;
 -(void)setDisabled:(char)arg1 ;

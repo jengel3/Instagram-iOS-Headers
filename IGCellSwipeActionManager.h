@@ -55,14 +55,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(UIView *)hostingView;
--(void)setHostingView:(UIView *)arg1 ;
 -(void)setDragging:(char)arg1 ;
 -(void)removeSwipingView;
 -(void)handlePanGestureRecognizer:(id)arg1 ;
 -(float)actionsViewButtonsTotalWidth;
 -(float)calculateSwipeCompletionThresholdForHostingViewFrame:(CGRect)arg1 totalButtonWidth:(float)arg2 buttonWidth:(float)arg3 ;
--(id<IGCellSwipeActionManagerSwipingDelegate>)swipingDelegate;
 -(void)showActionView:(char)arg1 duration:(double)arg2 ;
 -(void)setupSwipingView;
 -(UIView *)contentScreenshotView;
@@ -116,7 +113,10 @@
 -(void)hideActionView:(char)arg1 ;
 -(void)peekActionView;
 -(NSArray *)accessibleElements;
+-(id<IGCellSwipeActionManagerSwipingDelegate>)swipingDelegate;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
+-(UIView *)hostingView;
+-(void)setHostingView:(UIView *)arg1 ;
 -(id<IGCellSwipeActionManagerActionDelegate>)actionDelegate;
 -(void)setActionDelegate:(id<IGCellSwipeActionManagerActionDelegate>)arg1 ;
 -(void)dealloc;

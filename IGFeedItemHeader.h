@@ -53,12 +53,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)configureWithViewModel:(id)arg1 ;
+-(void)showTimestamp;
 -(UIButton *)customizableButton;
 -(void)configureWithViewModel:(id)arg1 analyticsDelegate:(id)arg2 loggingDelegate:(id)arg3 delegate:(id)arg4 ;
 -(void)layoutAccessoryView;
 -(UILabel *)timestampLabel;
 -(NSArray *)accessibleElements;
+-(void)configureWithViewModel:(id)arg1 ;
 -(void)setTimestampLabel:(UILabel *)arg1 ;
 -(UIButton*<IGSponsorableButton>)sponsoredPostButton;
 -(IGStringStyle *)boldGrayStyle;
@@ -76,6 +77,7 @@
 -(void)layoutTitleAndImageForLocation;
 -(void)onPostUpdated;
 -(void)onUserInfoChanged;
+-(void)updateAppearance;
 -(void)configureProfilePic;
 -(void)configureUserBadge;
 -(void)configureUserNameButton;
@@ -95,7 +97,6 @@
 -(void)setGrayStyle:(IGStringStyle *)arg1 ;
 -(void)setBoldGray7Style:(IGStringStyle *)arg1 ;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
--(void)updateAppearance;
 -(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(void)setCustomizableButton:(UIButton *)arg1 ;
 -(void)onCustomizableButtonPressed:(id)arg1 ;
@@ -103,8 +104,8 @@
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(IGProfilePictureImageView *)profilePic;
--(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(void)profilePictureTapped:(id)arg1 ;
+-(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(UIButton *)moreButton;
 -(IGFeedItemHeaderViewModel *)viewModel;
 -(id)initWithFrame:(CGRect)arg1 ;

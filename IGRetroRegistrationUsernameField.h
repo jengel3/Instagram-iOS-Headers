@@ -25,9 +25,6 @@
 @property (assign,nonatomic) int usernameState;                        //@synthesize usernameState=_usernameState - In the implementation block
 +(int)usernameFieldStateWithUsernameState:(int)arg1 usernameRefreshable:(char)arg2 ;
 -(UIView *)lineSeparatorView;
--(void)setUsernameState:(int)arg1 ;
--(int)usernameState;
--(void)setUsernameIsRefreshable:(char)arg1 ;
 -(id)createValidationButton;
 -(id)createRefreshButton;
 -(id)createLineSeparatorView;
@@ -40,6 +37,9 @@
 -(void)updateActionViewSubviews;
 -(void)setValidationButton:(UIButton *)arg1 ;
 -(void)setLineSeparatorView:(UIView *)arg1 ;
+-(void)setUsernameIsRefreshable:(char)arg1 ;
+-(void)setUsernameState:(int)arg1 ;
+-(int)usernameState;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

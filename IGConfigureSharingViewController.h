@@ -18,9 +18,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(id)initWithUserSession:(id)arg1 ;
--(id)viewControllerForShareConfiguration;
 -(id)shareServiceAtRow:(int)arg1 ;
 -(void)configureCell:(id)arg1 forShareService:(id)arg2 ;
+-(id)viewControllerForShareConfiguration;
 -(void)dealloc;
 -(void)reloadData;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

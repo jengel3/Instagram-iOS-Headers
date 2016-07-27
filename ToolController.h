@@ -1,5 +1,4 @@
 
-#import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
 #import <UIKit/UICollectionViewDataSource.h>
 #import <UIKit/UICollectionViewDelegate.h>

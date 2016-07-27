@@ -30,12 +30,12 @@
 @property (nonatomic,copy) NSString * placeID;                         //@synthesize placeID=_placeID - In the implementation block
 @property (nonatomic,copy) NSString * ref;                             //@synthesize ref=_ref - In the implementation block
 +(char)supportsSecureCoding;
+-(char)isEqualToShareLinkContent:(id)arg1 ;
 -(NSDictionary *)feedParameters;
 -(NSArray *)peopleIDs;
--(char)isEqualToShareLinkContent:(id)arg1 ;
+-(void)setPeopleIDs:(NSArray *)arg1 ;
 -(void)setFeedParameters:(NSDictionary *)arg1 ;
 -(void)setContentTitle:(NSString *)arg1 ;
--(void)setPeopleIDs:(NSArray *)arg1 ;
 -(void)setContentURL:(NSURL *)arg1 ;
 -(NSURL *)contentURL;
 -(NSString *)contentTitle;
