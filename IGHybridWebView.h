@@ -28,8 +28,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithFrame:(CGRect)arg1 config:(id)arg2 ;
 -(void)setUpViewHierarchy;
+-(id)initWithFrame:(CGRect)arg1 config:(id)arg2 ;
 -(void)setUpHeaderBar;
 -(void)clearTemporaryAuthCookies;
 -(void)updateHeaderToLoadingView:(char)arg1 withGreyOverlay:(char)arg2 leftButtonEnabled:(char)arg3 ;

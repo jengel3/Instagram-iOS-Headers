@@ -53,7 +53,6 @@
 -(id)ig_keyViewControllers;
 -(UIImageView *)arrowView;
 -(void)setArrowView:(UIImageView *)arg1 ;
--(void)didTap:(id)arg1 ;
 -(void)setMovableView:(UIView *)arg1 ;
 -(UIView *)movableView;
 -(UIViewController *)contentViewControler;
@@ -89,6 +88,7 @@
 -(void)didPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didEndPanFromExternalGestureRecognizer:(id)arg1 ;
 -(void)didCancelPanFromExternalGestureRecognizer:(id)arg1 ;
+-(void)didTap:(id)arg1 ;
 -(void)didPan:(id)arg1 ;
 -(NSArray *)actionItems;
 -(CGRect)sourceRect;

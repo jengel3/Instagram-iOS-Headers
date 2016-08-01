@@ -21,8 +21,6 @@
 @property (assign,nonatomic) int bannerIndicatorType;                         //@synthesize bannerIndicatorType=_bannerIndicatorType - In the implementation block
 @property (assign,nonatomic) UIEdgeInsets contentInsets;                      //@synthesize contentInsets=_contentInsets - In the implementation block
 @property (assign,nonatomic) UIEdgeInsets disclosureLabelInsets;              //@synthesize disclosureLabelInsets=_disclosureLabelInsets - In the implementation block
--(UILabel *)disclosureLabel;
--(void)setBannerIndicatorType:(int)arg1 ;
 -(UIImageView *)disclosureIndicator;
 -(UIEdgeInsets)disclosureLabelInsets;
 -(id)initWithFrame:(CGRect)arg1 bannerIndicatorType:(int)arg2 ;
@@ -30,6 +28,8 @@
 -(void)setDisclosureIndicator:(UIImageView *)arg1 ;
 -(void)setDisclosureLabel:(UILabel *)arg1 ;
 -(int)bannerIndicatorType;
+-(UILabel *)disclosureLabel;
+-(void)setBannerIndicatorType:(int)arg1 ;
 -(void)layoutSubviews;
 -(UIEdgeInsets)contentInsets;
 -(void)setContentInsets:(UIEdgeInsets)arg1 ;

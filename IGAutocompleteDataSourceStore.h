@@ -13,6 +13,7 @@
 @property (nonatomic,retain) NSArray * currentResults;                       //@synthesize currentResults=_currentResults - In the implementation block
 @property (nonatomic,copy) NSString * lastQuery;                             //@synthesize lastQuery=_lastQuery - In the implementation block
 @property (nonatomic,retain) NSMutableDictionary * pastResults;              //@synthesize pastResults=_pastResults - In the implementation block
++(char)prefixMatchesQuery:(id)arg1 forSearchableItem:(id)arg2 ;
 -(void)setCurrentResults:(NSArray *)arg1 ;
 -(NSMutableDictionary *)pastResults;
 -(void)currentResults:(id)arg1 forQuery:(id)arg2 ;

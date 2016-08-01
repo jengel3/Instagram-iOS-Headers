@@ -84,8 +84,6 @@
 -(id)analyticsModule;
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
 -(IGAutocompleteController *)autocompleteController;
 -(void)autocompleteController:(id)arg1 willShowTableView:(id)arg2 ;
 -(void)autocompleteController:(id)arg1 willHideTableView:(id)arg2 ;
@@ -94,6 +92,12 @@
 -(void)feedPhotoViewDidLoadImage:(id)arg1 ;
 -(void)feedPhotoDidDoubleTapToLike:(id)arg1 ;
 -(void)feedPhotoViewDidTap:(id)arg1 ;
+-(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapUser:(id)arg1 ;
+-(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
+-(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
+-(void)feedItemHeaderDidTapLocation:(id)arg1 ;
 -(void)textViewController:(id)arg1 didChangeContentHeightToHeight:(float)arg2 ;
 -(void)textViewController:(id)arg1 textViewDidChange:(id)arg2 ;
 -(void)textViewController:(id)arg1 textViewDidChangeSelection:(id)arg2 ;
@@ -133,12 +137,6 @@
 -(char)autocompleteShown;
 -(void)setAutocompleteShown:(char)arg1 ;
 -(float)contentOffsetYAtCaret;
--(void)feedItemHeaderDidTapUser:(id)arg1 ;
--(void)feedItemHeaderDidTapLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapAddLocation:(id)arg1 ;
--(void)feedItemHeaderDidTapCustomizableButton:(id)arg1 ;
--(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
--(void)feedItemHeaderDidTapOnMoreButton:(id)arg1 ;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
 -(void)setAlphaOnNavBarItems:(float)arg1 ;
@@ -154,6 +152,8 @@
 -(void)setAboveHeaderView:(UIView *)arg1 ;
 -(float)navBarHeight;
 -(void)feedItemVideoViewDidLoadImage:(id)arg1 ;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(double)keyboardAnimationDuration;
 -(int)keyboardAnimationCurve;
 -(void)setAutocompleteController:(IGAutocompleteController *)arg1 ;

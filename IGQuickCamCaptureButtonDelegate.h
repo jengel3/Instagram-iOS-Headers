@@ -2,9 +2,9 @@
 
 @protocol IGQuickCamCaptureButtonDelegate <NSObject>
 @required
+-(void)captureButtonDidEndRecording;
 -(void)captureButtonDidTakePicture;
 -(void)captureButtonDidBeginRecording;
--(void)captureButtonDidEndRecording;
 -(void)captureButtonDidConfirm;
 
 @end

@@ -18,9 +18,9 @@
 -(id)localSuggestionsForQueryString:(id)arg1 numRequested:(int)arg2 ;
 -(id)requestForQueryString:(id)arg1 rankToken:(id)arg2 additionalParams:(id)arg3 ;
 -(id)parseServerResponse:(id)arg1 ;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(int)searchSet;
 -(void)setSearchSet:(int)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setSearchScope:(int)arg1 ;
 -(int)searchScope;
 @end

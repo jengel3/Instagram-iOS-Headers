@@ -48,7 +48,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)onLocationAuthorzied;
 -(IGLabel *)nuxLabel;
 -(void)setLocationMetadata:(IGLocationMetadata *)arg1 ;
 -(IGLocationMetadata *)locationMetadata;
@@ -57,6 +56,7 @@
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(void)locationDataSourceDidFailToLocate;
 -(void)locationDataSourceWasDeniedAccess;
+-(void)onLocationAuthorzied;
 -(void)onLocationDenied;
 -(int)suggestionState;
 -(UIView *)suggestionView;

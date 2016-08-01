@@ -33,27 +33,27 @@
 @property (nonatomic,readonly) id<IGFeedItemConfigurationType> itemConfiguration;                  //@synthesize itemConfiguration=_itemConfiguration - In the implementation block
 @property (nonatomic,readonly) IGListAdapterScrollingContext * scrollingContext;                   //@synthesize scrollingContext=_scrollingContext - In the implementation block
 -(id<IGAnalyticsModule>)analyticsModule;
--(id<IGFeedConfigurationType>)feedConfiguration;
 -(IGListAdapter *)listAdapter;
 -(IGFeedVideoCellManager *)videoCellManager;
+-(IGFeedViewControllerTracker *)impressionTracker;
 -(IGCollectionViewVisibility *)collectionViewVisibility;
 -(IGFeedHeartAnimator *)heartAnimator;
 -(IGListAdapterScrollingContext *)scrollingContext;
+-(IGFeedItemLogger *)feedItemLogger;
 -(void)enableImpressionTrackers;
 -(void)disableImpressionTrackers;
 -(void)updateImpressionTrackers;
 -(void)updatePageCells;
 -(void)updateFullViewImpressionTracker;
 -(char)trackersDisabled;
--(IGFeedViewControllerTracker *)impressionTracker;
 -(void)setTrackersDisabled:(char)arg1 ;
 -(id<IGFeedItemConfigurationType>)itemConfiguration;
+-(id<IGFeedConfigurationType>)feedConfiguration;
 -(id)initWithFeedConfiguration:(id)arg1 itemConfiguration:(id)arg2 collectionView:(id)arg3 listAdapter:(id)arg4 currentUser:(id)arg5 navigationBar:(id)arg6 tabBar:(id)arg7 analyticsModule:(id)arg8 isMainFeed:(char)arg9 feedNetworkSource:(id)arg10 ;
 -(void)adapterDidCompleteUpdate;
 -(id)newFeedItemController;
 -(void)scrollViewDidScroll;
 -(void)scrollViewDidEndScrolling;
--(IGFeedItemLogger *)feedItemLogger;
 -(void)dealloc;
 -(IGUser *)currentUser;
 -(void)viewDidAppear;

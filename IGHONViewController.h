@@ -1,17 +1,18 @@
 
 #import <Instagram/IGViewController.h>
-#import <Instagram/IGHONSelectionViewDelegate.h>
-#import <Instagram/IGListAdapterDataSource.h>
+#import <Instagram/IGHONFeedNetworkSourceDelegate.h>
 #import <Instagram/IGHONFullSizeMessageViewDelegate.h>
 #import <Instagram/IGHONHeaderDismissViewDelegate.h>
+#import <Instagram/IGHONSelectionViewDelegate.h>
+#import <Instagram/IGListAdapterDataSource.h>
 
-@class IGListCollectionView, IGListAdapter, NSString, NSArray, IGHONHeaderDismissView, IGHONSelectionPromptView, UISegmentedControl, IGHONFullSizeMessageView, IGAlertBar;
+@class IGHONFeedNetworkSource, IGListCollectionView, IGListAdapter, NSArray, IGHONHeaderDismissView, IGHONSelectionPromptView, UISegmentedControl, IGHONFullSizeMessageView, IGAlertBar, NSString;
 
-@interface IGHONViewController : IGViewController <IGHONSelectionViewDelegate, IGListAdapterDataSource, IGHONFullSizeMessageViewDelegate, IGHONHeaderDismissViewDelegate> {
+@interface IGHONViewController : IGViewController <IGHONFeedNetworkSourceDelegate, IGHONFullSizeMessageViewDelegate, IGHONHeaderDismissViewDelegate, IGHONSelectionViewDelegate, IGListAdapterDataSource> {
 
+	IGHONFeedNetworkSource* _networkSource;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
-	NSString* _honSetID;
 	NSArray* _items;
 	IGHONHeaderDismissView* _headerDismissView;
 	IGHONSelectionPromptView* _selectionPromptView;
@@ -22,9 +23,9 @@
 
 }
 
+@property (nonatomic,readonly) IGHONFeedNetworkSource * networkSource;                      //@synthesize networkSource=_networkSource - In the implementation block
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                       //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                 //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,copy) NSString * honSetID;                                             //@synthesize honSetID=_honSetID - In the implementation block
 @property (nonatomic,retain) NSArray * items;                                               //@synthesize items=_items - In the implementation block
 @property (nonatomic,readonly) IGHONHeaderDismissView * headerDismissView;                  //@synthesize headerDismissView=_headerDismissView - In the implementation block
 @property (nonatomic,readonly) IGHONSelectionPromptView * selectionPromptView;              //@synthesize selectionPromptView=_selectionPromptView - In the implementation block
@@ -43,6 +44,7 @@
 -(id)emptyViewForListAdapter:(id)arg1 ;
 -(void)setupCollectionViewAndAdapter;
 -(id)extraDictionaryForFeedItem:(id)arg1 ;
+-(IGHONFeedNetworkSource *)networkSource;
 -(void)headerDismissViewDidDismiss:(id)arg1 ;
 -(void)selectionView:(id)arg1 didSelectIndex:(int)arg2 ;
 -(void)selectionViewDidSelectSkip:(id)arg1 ;
@@ -50,18 +52,17 @@
 -(void)setupSelectionPromptView;
 -(void)setupSegmentedControl;
 -(void)configureTitleTextAttributes;
--(void)requestHONFeed;
--(void)presentFullSizeMessageView:(id)arg1 ;
--(void)setHonSetID:(NSString *)arg1 ;
--(NSString *)honSetID;
--(IGHONSelectionPromptView *)selectionPromptView;
--(void)updatePromptForCurrentItem:(int)arg1 ;
 -(void)segmentedControlChangedValue:(id)arg1 ;
+-(IGHONSelectionPromptView *)selectionPromptView;
 -(char)progressToNextItem;
 -(id)currentItemController;
 -(void)presentFailedToProgressError;
+-(void)updatePromptForCurrentItem:(int)arg1 ;
 -(IGHONFullSizeMessageView *)completedView;
+-(void)presentFullSizeMessageView:(id)arg1 ;
 -(IGAlertBar *)alertBar;
+-(void)networkSource:(id)arg1 bundles:(id)arg2 ;
+-(void)networkSource:(id)arg1 failedWithError:(id)arg2 ;
 -(void)fullSizeViewDidTapButton:(id)arg1 ;
 -(IGHONHeaderDismissView *)headerDismissView;
 -(id)init;

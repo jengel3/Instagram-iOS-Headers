@@ -19,8 +19,8 @@
 @property (nonatomic,retain) UILabel * subtitleLabel;                       //@synthesize subtitleLabel=_subtitleLabel - In the implementation block
 @property (nonatomic,retain) IGSurveyQuestion * question;                   //@synthesize question=_question - In the implementation block
 @property (nonatomic,retain) IGSurveyAnswer * answer;                       //@synthesize answer=_answer - In the implementation block
--(void)setQuestion:(IGSurveyQuestion *)arg1 ;
 -(IGSurveyQuestion *)question;
+-(void)setQuestion:(IGSurveyQuestion *)arg1 ;
 -(void)updateCheckmark;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

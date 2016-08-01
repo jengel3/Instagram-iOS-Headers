@@ -50,13 +50,14 @@
 -(void)setPreviewMediaView:(IGPreviewMediaView *)arg1 ;
 -(IGPreviewMediaView *)previewMediaView;
 -(char)showUnseen;
+-(CGRect)unSeenToastViewContainedInBounds:(CGRect)arg1 ;
 -(UIImageView *)unseenToastView;
--(char)shouldShowPreviewMediaView;
--(CGRect)iconFrameContainedInBounds:(CGRect)arg1 unseenPadding:(float)arg2 shouldShowPreviewMediaView:(char)arg3 ;
+-(CGRect)iconFrameContainedInBounds:(CGRect)arg1 ;
 -(float)labelMinXForIconFrame:(CGRect)arg1 ;
 -(void)layoutLabels:(float)arg1 bounds:(CGRect)arg2 ;
 -(CALayer *)separatorLayer;
--(CGRect)labelFrameContainedInBounds:(CGRect)arg1 labelFrame:(CGRect)arg2 shouldShowPreviewMediaView:(char)arg3 ;
+-(char)shouldShowPreviewMediaView;
+-(CGRect)labelFrameContainedInBounds:(CGRect)arg1 labelFrame:(CGRect)arg2 ;
 -(void)setShouldShowPreviewMediaView:(char)arg1 ;
 -(void)setUnseenToastView:(UIImageView *)arg1 ;
 -(void)setMediaBundlesForCell:(id)arg1 ;

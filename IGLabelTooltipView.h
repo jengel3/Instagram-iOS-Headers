@@ -30,15 +30,15 @@
 @property (assign,nonatomic) char shouldExtendToFullWidth;                                //@synthesize shouldExtendToFullWidth=_shouldExtendToFullWidth - In the implementation block
 @property (nonatomic,readonly) UILabel * label;                                           //@synthesize label=_label - In the implementation block
 @property (nonatomic,readonly) UILabel * secondaryLabel;                                  //@synthesize secondaryLabel=_secondaryLabel - In the implementation block
--(void)setPinPoint:(CGPoint)arg1 ;
 -(void)pinToPoint:(CGPoint)arg1 minX:(float)arg2 maxX:(float)arg3 arrowDirection:(int)arg4 ;
--(void)didTap:(id)arg1 ;
--(void)setMinX:(float)arg1 ;
+-(void)setPinPoint:(CGPoint)arg1 ;
 -(UIImageView *)leftBackground;
+-(CGPoint)pinPoint;
 -(UIImageView *)rightBackground;
+-(void)setMinX:(float)arg1 ;
 -(float)minX;
 -(char)shouldExtendToFullWidth;
--(CGPoint)pinPoint;
+-(void)didTap:(id)arg1 ;
 -(void)setShouldExtendToFullWidth:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGLabelTooltipViewDelegate>)arg1 ;

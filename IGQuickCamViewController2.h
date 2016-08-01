@@ -126,7 +126,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGCaptureManager *)captureManager;
--(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
 -(void)focusTap:(id)arg1 ;
 -(void)setFocusRing:(UIImageView *)arg1 ;
 -(UIImageView *)focusRing;
@@ -134,11 +133,12 @@
 -(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
 -(char)hasStartedCapture;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
+-(IGVideoRecorder *)videoRecorder;
+-(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
 -(void)updateStabilizationSampler;
 -(void)setInputAsset:(id<IGQuickCamInputAsset>)arg1 ;
 -(void)confirmInputAsset:(id)arg1 ;
 -(void)stopRecordingOnCaptureQueue:(char)arg1 ;
--(IGVideoRecorder *)videoRecorder;
 -(void)updateVideoSize;
 -(id<IGQuickCamInputAsset>)inputAsset;
 -(void)setAssetProcessor:(IGQuickCamAssetProcessor *)arg1 ;
@@ -147,15 +147,15 @@
 -(char)cameraIsReady;
 -(IGStabilizationSampler *)stabilizer;
 -(void)setHasReceivedAudioFrames:(char)arg1 ;
+-(void)captureButtonDidEndRecording;
+-(void)captureButtonDidTakePicture;
+-(void)captureButtonDidBeginRecording;
 -(void)captureManagerDidDropAudioBuffer;
 -(void)captureManagerDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(void)captureManagerWillTakePhoto;
 -(void)captureManagerNeedsResume:(char)arg1 ;
 -(void)captureManagerDidDropVideoBuffer;
 -(void)captureManagerDidCaptureVideoBuffer:(opaqueCMSampleBufferRef)arg1 ;
--(void)captureButtonDidTakePicture;
--(void)captureButtonDidBeginRecording;
--(void)captureButtonDidEndRecording;
 -(void)captureButtonDidConfirm;
 -(void)quickCamAssetProcessor:(id)arg1 didGeneratePhotoAsset:(id)arg2 ;
 -(void)quickCamAssetProcessor:(id)arg1 didGenerateVideoAsset:(id)arg2 ;
@@ -167,8 +167,6 @@
 -(IGSampleBuffer *)imageBufferData;
 -(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
 -(char)hasReceivedAudioFrames;
--(char)hasShownAudioPermissionsDeniedAlertView;
--(void)setHasShownAudioPermissionsDeniedAlertView:(char)arg1 ;
 -(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
 -(UIView *)loadingOverlayView;
 -(void)captureManagerVideoSessionDidStartRunning:(id)arg1 ;
@@ -211,7 +209,7 @@
 -(void)setPreviewAsset:(id<IGQuickCamInputAsset>)arg1 ;
 -(void)assetPlayerViewAssetLoaded:(id)arg1 ;
 -(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
--(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG18)arg2 ;
+-(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG19)arg2 ;
 -(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
 -(void)setSwipeDismissManager:(IGSwipeDismissManager *)arg1 ;
 -(IGSwipeDismissManager *)swipeDismissManager;
@@ -226,6 +224,8 @@
 -(void)startLibrary;
 -(void)setHasCaptureButtonConfirmed:(char)arg1 ;
 -(char)hasCaptureButtonConfirmed;
+-(char)hasShownAudioPermissionsDeniedAlertView;
+-(void)setHasShownAudioPermissionsDeniedAlertView:(char)arg1 ;
 -(void)quickCamAssetProcessor:(id)arg1 didGeneratePreviewForPhoto:(id)arg2 ;
 -(void)quickCamAssetProcessor:(id)arg1 didGeneratePreviewForVideo:(id)arg2 ;
 -(void)quickCamControlBarDidTapSwitchCamerasButton;

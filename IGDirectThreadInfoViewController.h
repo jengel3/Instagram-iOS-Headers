@@ -5,7 +5,7 @@
 #import <Instagram/IGDirectToggleTableViewCellDelegate.h>
 
 @protocol IGDirectThreadInfoDelegate;
-@class IGDirectThread, IGUserSession, IGTextField, NSArray, NSString;
+@class IGDirectThread, IGUserSession, IGTextField, NSArray, IGDirectThreadService, IGDirectInboxService, NSString;
 
 @interface IGDirectThreadInfoViewController : IGGroupedTableViewController <IGTextFieldDelegate, IGDirectToggleTableViewCellDelegate> {
 
@@ -15,6 +15,8 @@
 	IGUserSession* _userSession;
 	IGTextField* _nameField;
 	NSArray* _sections;
+	IGDirectThreadService* _threadService;
+	IGDirectInboxService* _inboxService;
 
 }
 
@@ -23,13 +25,17 @@
 @property (nonatomic,retain) IGTextField * nameField;                                     //@synthesize nameField=_nameField - In the implementation block
 @property (nonatomic,retain) NSArray * sections;                                          //@synthesize sections=_sections - In the implementation block
 @property (assign,nonatomic) char isLoading;                                              //@synthesize isLoading=_isLoading - In the implementation block
-@property (nonatomic,readonly) NSString * threadID; 
+@property (nonatomic,readonly) IGDirectThreadService * threadService;                     //@synthesize threadService=_threadService - In the implementation block
+@property (nonatomic,readonly) IGDirectInboxService * inboxService;                       //@synthesize inboxService=_inboxService - In the implementation block
+@property (nonatomic,copy,readonly) NSString * threadID; 
 @property (assign,nonatomic,__weak) id<IGDirectThreadInfoDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
+-(IGDirectThreadService *)threadService;
 -(void)threadUpdated;
 -(id)sectionsBasedOnThread:(id)arg1 ;
 -(int)itemTypeForIndexPath:(id)arg1 ;
@@ -47,8 +53,8 @@
 -(void)finishEditingName;
 -(char)nameIsTooLong;
 -(void)updateThreadNameToName:(id)arg1 ;
+-(IGDirectInboxService *)inboxService;
 -(void)cell:(id)arg1 didSwitchValueTo:(char)arg2 ;
--(char)prefersTabBarHidden;
 -(void)setDelegate:(id<IGDirectThreadInfoDelegate>)arg1 ;
 -(void)dealloc;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

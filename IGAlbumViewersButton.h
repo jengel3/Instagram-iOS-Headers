@@ -1,32 +1,29 @@
 
 #import <Instagram/Instagram-Structs.h>
-#import <UIKit/UIButton.h>
+#import <Instagram/IGTapButton.h>
 
-@class NSArray, UIImageView, IGFacepileView, UILabel;
+@class UIImageView, UILabel;
 
-@interface IGAlbumViewersButton : UIButton {
+@interface IGAlbumViewersButton : IGTapButton {
 
-	NSArray* _facepileUsers;
 	int _viewerCount;
+	UIImageView* _swipeUpImageView;
 	UIImageView* _eyeImageView;
-	IGFacepileView* _facepile;
 	UILabel* _label;
 
 }
 
-@property (nonatomic,readonly) UIImageView * eyeImageView;              //@synthesize eyeImageView=_eyeImageView - In the implementation block
-@property (nonatomic,readonly) IGFacepileView * facepile;               //@synthesize facepile=_facepile - In the implementation block
-@property (nonatomic,readonly) UILabel * label;                         //@synthesize label=_label - In the implementation block
-@property (nonatomic,retain) NSArray * facepileUsers;                   //@synthesize facepileUsers=_facepileUsers - In the implementation block
-@property (assign,nonatomic) int viewerCount;                           //@synthesize viewerCount=_viewerCount - In the implementation block
--(UIImageView *)eyeImageView;
+@property (nonatomic,readonly) UIImageView * swipeUpImageView;              //@synthesize swipeUpImageView=_swipeUpImageView - In the implementation block
+@property (nonatomic,readonly) UIImageView * eyeImageView;                  //@synthesize eyeImageView=_eyeImageView - In the implementation block
+@property (nonatomic,readonly) UILabel * label;                             //@synthesize label=_label - In the implementation block
+@property (assign,nonatomic) int viewerCount;                               //@synthesize viewerCount=_viewerCount - In the implementation block
 -(int)viewerCount;
+-(UIImageView *)eyeImageView;
 -(void)setViewerCount:(int)arg1 ;
--(void)setFacepileUsers:(NSArray *)arg1 ;
--(IGFacepileView *)facepile;
--(NSArray *)facepileUsers;
+-(UIImageView *)swipeUpImageView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
+-(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(void)setHighlighted:(char)arg1 ;
 -(UILabel *)label;
 -(void)updateLabelText;

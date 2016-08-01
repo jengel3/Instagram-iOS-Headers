@@ -10,6 +10,7 @@
 
 @property (assign,nonatomic) UIOffset tapPadding;              //@synthesize tapPadding=_tapPadding - In the implementation block
 -(void)setTapPadding:(UIOffset)arg1 ;
+-(void)addDropShadow;
 -(UIOffset)tapPadding;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(char)pointInside:(CGPoint)arg1 withEvent:(id)arg2 ;

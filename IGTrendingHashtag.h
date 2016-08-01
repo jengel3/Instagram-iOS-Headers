@@ -23,8 +23,8 @@
 @property (nonatomic,readonly) IGHashtagModel * model; 
 +(id)centralizedStore;
 -(NSString *)byline;
--(NSArray *)mediaBundles;
 -(unsigned)taggedNumber;
+-(NSArray *)mediaBundles;
 -(NSString *)name;
 -(NSString *)title;
 -(IGHashtagModel *)model;

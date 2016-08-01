@@ -57,18 +57,19 @@
 @property (assign,getter=isLooping,nonatomic) char looping;                                       //@synthesize looping=_looping - In the implementation block
 @property (getter=isPlaying,nonatomic,readonly) char playing; 
 @property (assign,nonatomic,__weak) id<IGFeedVideoPlayerDelegate> delegate;                       //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,readonly) CGSize videoSize; 
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(SCD_Struct_IG18)playbackEndTimeForAsset:(id)arg1 ;
++(SCD_Struct_IG19)playbackEndTimeForAsset:(id)arg1 ;
 -(void)loadVideoForURL:(id)arg1 ;
+-(char)assetHasAudio;
 -(void)frameForTime:(float)arg1 completion:(/*^block*/id)arg2 ;
 -(char)hasPaused;
+-(int)loopCount;
 -(void)prepareForReuseWithCompletion:(/*^block*/id)arg1 ;
 -(char)requiresResetPlayer;
--(char)assetHasAudio;
--(int)loopCount;
 -(void)removeStreamingPlayerItemObservers;
 -(void)dispatchSyncOnPlayerQueueOrCurrent:(/*^block*/id)arg1 ;
 -(NSObject*<OS_dispatch_queue>)playerQueue;
@@ -81,8 +82,8 @@
 -(void)setPlayerItemPlaybackLikelyToKeepUpObserver:(IGKVOHandle *)arg1 ;
 -(void)playbackBufferEmpty:(char)arg1 ;
 -(void)setPlayerItemPlaybackBufferEmptyObserver:(IGKVOHandle *)arg1 ;
--(void)setLoopCount:(int)arg1 ;
 -(AVPlayerItem *)streamingPlayerItem;
+-(void)setLoopCount:(int)arg1 ;
 -(void)setStreamingPlayerItem:(AVPlayerItem *)arg1 ;
 -(id)newPlayerItemForAsset:(id)arg1 ;
 -(void)setRequiresResetPlayer:(char)arg1 ;
@@ -97,10 +98,10 @@
 -(void)setHasPaused:(char)arg1 ;
 -(char)playedFirstFrame;
 -(char)readyToPlay;
--(void)onPlaybackTimeChanged:(SCD_Struct_IG18)arg1 ;
+-(void)onPlaybackTimeChanged:(SCD_Struct_IG19)arg1 ;
 -(void)videoPlayerViewIsReadyToDisplay:(id)arg1 ;
 -(void)videoPlayer:(id)arg1 didChangePlaybackRate:(float)arg2 ;
--(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG18)arg2 ;
+-(void)videoPlayer:(id)arg1 didChangePlaybackTime:(SCD_Struct_IG19)arg2 ;
 -(void)onTimeRangesUpdated:(id)arg1 ;
 -(IGKVOHandle *)playerItemStatusObserver;
 -(IGKVOHandle *)playerItemPlaybackLikelyToKeepUpObserver;
@@ -112,6 +113,7 @@
 -(void)setSeeking:(char)arg1 ;
 -(char)seeking;
 -(float)currentTime;
+-(CGSize)videoSize;
 -(float)rate;
 -(void)play;
 -(char)isAudioEnabled;

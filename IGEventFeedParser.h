@@ -19,8 +19,8 @@
 -(id)initWithEventId:(id)arg1 feedItemStore:(id)arg2 ;
 -(IGFeedItemStore *)feedItemStore;
 -(id)parseDataFromResponse:(id)arg1 ;
--(void)setFeedItemStore:(IGFeedItemStore *)arg1 ;
 -(id)initWithEventId:(id)arg1 ;
+-(void)setFeedItemStore:(IGFeedItemStore *)arg1 ;
 -(id)parsedObjectFromResponse:(id)arg1 ;
 -(NSString *)eventId;
 @end

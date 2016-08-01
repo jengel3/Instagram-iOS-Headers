@@ -33,6 +33,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)initWithUserSession:(id)arg1 ;
 -(void)dismissButtonTapped;
 -(void)setDiscardButton:(UIButton *)arg1 ;
 -(UIButton *)discardButton;
@@ -40,7 +41,6 @@
 -(void)updateDeleteSelectedButton;
 -(void)setIsEditing:(char)arg1 ;
 -(void)deleteConfirmed;
--(id)initWithUserSession:(id)arg1 ;
 -(NSMutableSet *)selectedDrafts;
 -(void)setSelectedDrafts:(NSMutableSet *)arg1 ;
 -(void)setDrafts:(NSMutableOrderedSet *)arg1 ;

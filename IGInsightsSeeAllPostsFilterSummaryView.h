@@ -19,6 +19,8 @@
 @property (nonatomic,copy) NSString * dataOrdering;              //@synthesize dataOrdering=_dataOrdering - In the implementation block
 @property (nonatomic,copy) NSString * skeleton;                  //@synthesize skeleton=_skeleton - In the implementation block
 @property (nonatomic,readonly) UILabel * label;                  //@synthesize label=_label - In the implementation block
++(id)attributedStringWithString:(id)arg1 ;
++(id)highlightedStringWithString:(id)arg1 ;
 -(NSString *)timeframe;
 -(NSString *)dataOrdering;
 -(void)setTimeframe:(NSString *)arg1 ;

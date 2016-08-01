@@ -16,13 +16,13 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)updateServerMegaphoneWithResponse:(id)arg1 ;
--(id)activeMegaphones;
 -(IGGenericMegaphone *)serverMegaphone;
 -(IGGenericMegaphone *)favoritesMegaphone;
 -(void)setServerMegaphone:(IGGenericMegaphone *)arg1 ;
 -(void)setFavoritesMegaphone:(IGGenericMegaphone *)arg1 ;
+-(id)activeMegaphones;
 -(unsigned)displaySource;
+-(void)updateServerMegaphoneWithResponse:(id)arg1 ;
 -(id)init;
 @end
 

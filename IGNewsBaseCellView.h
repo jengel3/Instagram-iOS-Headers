@@ -52,9 +52,9 @@
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(IGProfilePictureImageView *)profilePictureView;
 -(void)setProfilePictureView:(IGProfilePictureImageView *)arg1 ;
+-(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(IGFollowButton *)followButton;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;

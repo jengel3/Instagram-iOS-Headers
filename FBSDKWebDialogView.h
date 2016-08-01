@@ -15,7 +15,7 @@
 
 }
 
-@property (assign,nonatomic) id<FBSDKWebDialogViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic,__weak) id<FBSDKWebDialogViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 

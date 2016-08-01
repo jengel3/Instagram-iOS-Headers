@@ -26,14 +26,13 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)serializer;
 -(void)setStringEncoding:(unsigned)arg1 ;
--(id)requestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 ;
--(id)multipartFormRequestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 constructingBodyWithBlock:(/*^block*/id)arg4 ;
 -(void)setMutableHTTPRequestHeaders:(NSMutableDictionary *)arg1 ;
 -(void)setHTTPMethodsEncodingParametersInURI:(NSSet *)arg1 ;
 -(NSMutableDictionary *)mutableHTTPRequestHeaders;
 -(void)setQueryStringSerializationStyle:(unsigned)arg1 ;
 -(void)setQueryStringSerialization:(id)arg1 ;
 -(id)requestBySerializingRequest:(id)arg1 withParameters:(id)arg2 error:(id*)arg3 ;
+-(id)requestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 ;
 -(NSDictionary *)HTTPRequestHeaders;
 -(id)queryStringSerialization;
 -(unsigned)queryStringSerializationStyle;
@@ -43,6 +42,7 @@
 -(void)clearAuthorizationHeader;
 -(void)setQueryStringSerializationWithStyle:(unsigned)arg1 ;
 -(void)setQueryStringSerializationWithBlock:(/*^block*/id)arg1 ;
+-(id)multipartFormRequestWithMethod:(id)arg1 URLString:(id)arg2 parameters:(id)arg3 constructingBodyWithBlock:(/*^block*/id)arg4 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

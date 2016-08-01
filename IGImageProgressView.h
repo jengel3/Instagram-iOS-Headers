@@ -33,8 +33,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(int)loadStatus;
 -(void)setUseDarkBackgroundLoadingStyle:(char)arg1 ;
+-(int)loadStatus;
 -(void)doMediaFetch;
 -(void)setPreviewImageData:(NSData *)arg1 ;
 -(NSData *)previewImageData;

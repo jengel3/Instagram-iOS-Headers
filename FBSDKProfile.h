@@ -28,8 +28,10 @@
 +(id)fetchCachedProfile;
 +(void)cacheProfile:(id)arg1 ;
 +(void)observeChangeAccessTokenChange:(id)arg1 ;
++(void)loadProfileWithToken:(id)arg1 completion:(/*^block*/id)arg2 ;
 +(id)currentProfile;
 +(void)enableUpdatesOnAccessTokenChange:(char)arg1 ;
++(void)loadCurrentProfileWithCompletion:(/*^block*/id)arg1 ;
 +(char)supportsSecureCoding;
 -(char)isEqualToProfile:(id)arg1 ;
 -(id)imagePathForPictureMode:(unsigned)arg1 size:(CGSize)arg2 ;

@@ -15,10 +15,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)moduleName;
-+(id)__rct_export__520;
-+(id)__rct_export__691;
-+(id)__rct_export__742;
-+(id)__rct_export__803;
++(id)__rct_export__540;
++(id)__rct_export__711;
++(id)__rct_export__762;
++(id)__rct_export__823;
++(id)__rct_export__874;
 +(void)load;
 -(void)webSocket:(id)arg1 didReceiveMessage:(id)arg2 ;
 -(void)webSocketDidOpen:(id)arg1 ;
@@ -29,6 +30,7 @@
 -(void)send:(id)arg1 socketID:(id)arg2 ;
 -(void)sendBinary:(id)arg1 socketID:(id)arg2 ;
 -(void)dealloc;
+-(void)ping:(id)arg1 ;
 -(void)close:(id)arg1 ;
 @end
 

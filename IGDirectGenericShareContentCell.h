@@ -20,8 +20,6 @@
 +(float)thumbnailWidthForFrameWidth:(float)arg1 ;
 +(float)heightForShare:(id)arg1 width:(float)arg2 layout:(id)arg3 ;
 +(float)cellWidthForFrameWidth:(float)arg1 ;
--(id)defaultBackgroundImage;
--(id)highlightedBackgroundImage;
 -(id)createShareContainerView;
 -(float)cellOffsetX:(float)arg1 ;
 -(UIView *)shareContainerView;
@@ -30,10 +28,6 @@
 -(NSArray *)previewMediaPhotos;
 -(IGShareThumbnailView *)thumbnailViews;
 -(void)setPreviewMediaPhotos:(NSArray *)arg1 ;
--(id)defaultBackgoundImageForSameUser;
--(id)defaultBackgoundImageNotForSameUser;
--(id)highlightedBackgoundImageForSameUser;
--(id)highlightedBackgoundImageNotForSameUser;
 -(void)setHeaderLayout:(id)arg1 ;
 -(void)setShareContainerView:(UIView *)arg1 ;
 -(void)setThumbnailViews:(IGShareThumbnailView *)arg1 ;

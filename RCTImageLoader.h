@@ -4,15 +4,14 @@
 #import <Instagram/RCTURLRequestHandler.h>
 
 @protocol OS_dispatch_queue;
-@class NSArray, NSOperationQueue, NSObject, NSURLCache, NSCache, NSMutableArray, RCTBridge, NSString;
+@class NSArray, NSOperationQueue, NSObject, NSCache, NSMutableArray, RCTBridge, NSString;
 
 @interface RCTImageLoader : NSObject <RCTBridgeModule, RCTURLRequestHandler> {
 
 	NSArray* _loaders;
 	NSArray* _decoders;
 	NSOperationQueue* _imageDecodeQueue;
-	NSObject*<OS_dispatch_queue> _URLCacheQueue;
-	NSURLCache* _URLCache;
+	NSObject*<OS_dispatch_queue> _URLRequestQueue;
 	NSCache* _decodedImageCache;
 	NSMutableArray* _pendingTasks;
 	int _activeTasks;
@@ -41,9 +40,10 @@
 -(/*^block*/id)loadImageWithURLRequest:(id)arg1 callback:(/*^block*/id)arg2 ;
 -(/*^block*/id)loadImageWithURLRequest:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 clipped:(char)arg4 resizeMode:(int)arg5 progressBlock:(/*^block*/id)arg6 completionBlock:(/*^block*/id)arg7 ;
 -(id)imageURLLoaderForURL:(id)arg1 ;
+-(/*^block*/id)_loadURLRequest:(id)arg1 progressBlock:(/*^block*/id)arg2 completionBlock:(/*^block*/id)arg3 ;
 -(void)dequeueTasks;
 -(/*^block*/id)decodeImageData:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 clipped:(char)arg4 resizeMode:(int)arg5 completionBlock:(/*^block*/id)arg6 ;
--(/*^block*/id)loadImageOrDataWithURLRequest:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 progressBlock:(/*^block*/id)arg5 completionBlock:(/*^block*/id)arg6 ;
+-(/*^block*/id)_loadImageOrDataWithURLRequest:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 progressBlock:(/*^block*/id)arg5 completionBlock:(/*^block*/id)arg6 ;
 -(id)imageDataDecoderForData:(id)arg1 ;
 -(/*^block*/id)getImageSizeForURLRequest:(id)arg1 block:(/*^block*/id)arg2 ;
 -(unsigned)maxConcurrentLoadingTasks;
@@ -52,12 +52,6 @@
 -(void)setMaxConcurrentDecodingTasks:(unsigned)arg1 ;
 -(unsigned)maxConcurrentDecodingBytes;
 -(void)setMaxConcurrentDecodingBytes:(unsigned)arg1 ;
--(/*^block*/id)loadImageWithTag:(id)arg1 callback:(/*^block*/id)arg2 ;
--(/*^block*/id)loadImageWithTag:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 progressBlock:(/*^block*/id)arg5 completionBlock:(/*^block*/id)arg6 ;
--(/*^block*/id)loadImageWithoutClipping:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 progressBlock:(/*^block*/id)arg5 completionBlock:(/*^block*/id)arg6 ;
--(/*^block*/id)decodeImageData:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 completionBlock:(/*^block*/id)arg5 ;
--(/*^block*/id)decodeImageDataWithoutClipping:(id)arg1 size:(CGSize)arg2 scale:(float)arg3 resizeMode:(int)arg4 completionBlock:(/*^block*/id)arg5 ;
--(/*^block*/id)getImageSize:(id)arg1 block:(/*^block*/id)arg2 ;
 -(void)dealloc;
 -(void)setUp;
 -(void)cancelRequest:(id)arg1 ;

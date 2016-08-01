@@ -2,34 +2,40 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 #import <Instagram/IGFeedPhotoViewDelegate.h>
-#import <Instagram/IGDirectResponseOverlayViewDelegate.h>
-#import <Instagram/IGOverlayable.h>
+#import <Instagram/IGFeedItemZoomControllerLoadingDelegate.h>
 
-@protocol IGPhotoCellDelegate, IGDirectResponseOverlayable;
-@class IGFeedPhotoView, UIView, NSString;
+@protocol IGPhotoCellDelegate, IGFeedItemZoomControllerZoomingDelegate;
+@class IGFeedPhotoView, IGPostItem, IGFeedItemZoomController, NSString;
 
-@interface IGPhotoCell : UICollectionViewCell <IGFeedPhotoViewDelegate, IGDirectResponseOverlayViewDelegate, IGOverlayable> {
+@interface IGPhotoCell : UICollectionViewCell <IGFeedPhotoViewDelegate, IGFeedItemZoomControllerLoadingDelegate> {
 
 	IGFeedPhotoView* _photoView;
+	IGPostItem* _post;
 	id<IGPhotoCellDelegate> _delegate;
-	UIView*<IGDirectResponseOverlayable> _overlayView;
+	id<IGFeedItemZoomControllerZoomingDelegate> _zoomingDelegate;
+	IGFeedItemZoomController* _zoomController;
 
 }
 
-@property (nonatomic,retain) UIView*<IGDirectResponseOverlayable> overlayView;              //@synthesize overlayView=_overlayView - In the implementation block
-@property (nonatomic,retain) IGFeedPhotoView * photoView;                                   //@synthesize photoView=_photoView - In the implementation block
-@property (assign,nonatomic,__weak) id<IGPhotoCellDelegate> delegate;                       //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) IGFeedItemZoomController * zoomController;                                       //@synthesize zoomController=_zoomController - In the implementation block
+@property (nonatomic,retain) IGFeedPhotoView * photoView;                                                     //@synthesize photoView=_photoView - In the implementation block
+@property (assign,nonatomic,__weak) IGPostItem * post;                                                        //@synthesize post=_post - In the implementation block
+@property (assign,nonatomic,__weak) id<IGPhotoCellDelegate> delegate;                                         //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic,__weak) id<IGFeedItemZoomControllerZoomingDelegate> zoomingDelegate;              //@synthesize zoomingDelegate=_zoomingDelegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setPost:(IGPostItem *)arg1 ;
+-(IGPostItem *)post;
 -(void)feedPhotoViewDidLoadImage:(id)arg1 ;
 -(void)feedPhotoDidDoubleTapToLike:(id)arg1 ;
 -(void)feedPhotoViewDidTap:(id)arg1 ;
--(void)showOverlayForDirectResponseInfo:(id)arg1 animated:(char)arg2 ;
--(void)dismissOverlayAnimated:(char)arg1 ;
--(void)overlayViewDidTap:(id)arg1 ;
--(void)overlayViewDidTapOnButton:(id)arg1 ;
+-(char)isMediaViewLoaded;
+-(IGFeedItemZoomController *)zoomController;
+-(void)setZoomController:(IGFeedItemZoomController *)arg1 ;
+-(void)setZoomingDelegate:(id<IGFeedItemZoomControllerZoomingDelegate>)arg1 ;
+-(id<IGFeedItemZoomControllerZoomingDelegate>)zoomingDelegate;
 -(IGFeedPhotoView *)photoView;
 -(void)setPhotoView:(IGFeedPhotoView *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
@@ -37,7 +43,5 @@
 -(void)layoutSubviews;
 -(id<IGPhotoCellDelegate>)delegate;
 -(void)prepareForReuse;
--(void)setOverlayView:(UIView*<IGDirectResponseOverlayable>)arg1 ;
--(UIView*<IGDirectResponseOverlayable>)overlayView;
 @end
 

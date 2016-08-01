@@ -20,8 +20,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)subtitleDateString;
 -(id)analyticsModule;
--(char)canHostInlineGallery:(char)arg1 ;
 -(id)initWithEntryPoint:(id)arg1 ;
+-(char)canHostInlineGallery:(char)arg1 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(void)didAcceptTermsAndConditionsWithWelcomeNUXVIewController:(id)arg1 ;
 -(id)initWithLoggingHelper:(id)arg1 ;

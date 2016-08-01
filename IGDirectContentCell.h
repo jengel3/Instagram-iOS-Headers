@@ -56,6 +56,7 @@
 -(UILabel *)timestampLabel;
 -(id)timestampText;
 -(UIImageView *)backgroundBubbleView;
+-(IGProfilePictureImageView *)profilePictureImageView;
 -(UILabel *)senderUsernameLabel;
 -(void)onContentMenuPress:(id)arg1 ;
 -(void)setContentMenuLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;
@@ -68,7 +69,6 @@
 -(float)profilePictureYOffset;
 -(float)maxSlideAmount;
 -(float)usernameXOffset;
--(id)backgroundImageIsForCurrentUser:(char)arg1 ;
 -(void)setProfilePictureAlpha:(float)arg1 ;
 -(void)setHideProfilePicture:(char)arg1 ;
 -(void)setCellDecorator:(id<IGDirectContentCellDecorator>)arg1 ;
@@ -78,15 +78,14 @@
 -(char)hideProfilePicture;
 -(char)pendingDeleteAction;
 -(void)setBackgroundBubbleView:(UIImageView *)arg1 ;
+-(void)setProfilePictureImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)setTimestampLabel:(UILabel *)arg1 ;
 -(void)setSenderUsernameLabel:(UILabel *)arg1 ;
 -(CGRect)bubbleFrame;
 -(char)isSameUserContent;
 -(float)cellContentYOffset;
--(void)setBackgroundBubbleWithFrame:(CGRect)arg1 forCurrentUser:(char)arg2 ;
+-(void)setBackgroundBubbleWithFrame:(CGRect)arg1 ;
 -(CGRect)tapTargetFrame;
--(IGProfilePictureImageView *)profilePictureImageView;
--(void)setProfilePictureImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)profilePictureTapped:(id)arg1 ;
 -(void)setTextDelegate:(id<IGDirectContentCellTextLinkDelegate>)arg1 ;
 -(id<IGDirectContentCellTextLinkDelegate>)textDelegate;

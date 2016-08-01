@@ -23,9 +23,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
 +(void)clearForUserDefaults:(id)arg1 key:(id)arg2 ;
--(NSString *)userSessionPK;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(NSString *)userSessionPK;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(NSString *)defaultsKey;

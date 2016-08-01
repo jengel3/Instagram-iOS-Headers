@@ -5,19 +5,19 @@
 @protocol IGDrawBrush <NSObject>
 @property (assign,nonatomic) float size; 
 @property (nonatomic,retain) UIColor * color; 
-@property (nonatomic,copy) NSString * name; 
+@property (nonatomic,readonly) NSString * name; 
 @required
+-(void)drawPoint:(id)arg1 forLayerContext:(CGContextRef)arg2;
 -(void)setLayerContextSize:(CGSize)arg1;
--(void)setupLayerContext:(CGContextRef)arg1 atIndex:(unsigned)arg2;
--(int)drawingModeForLayerAtIndex:(unsigned)arg1;
--(void)drawPoint:(id)arg1 forLayerContext:(CGContextRef)arg2 atIndex:(unsigned)arg3;
+-(void)setupLayerContext:(CGContextRef)arg1;
+-(int)pathDrawingMode;
+-(void)applyShadowOnLayerIfNeeded:(CGContextRef)arg1;
+-(void)onDrawingStopped:(CGContextRef)arg1;
 -(float)size;
--(void)setName:(id)arg1;
 -(NSString *)name;
 -(void)setSize:(float)arg1;
 -(UIColor *)color;
 -(void)setColor:(id)arg1;
--(unsigned)layerCount;
 
 @end
 

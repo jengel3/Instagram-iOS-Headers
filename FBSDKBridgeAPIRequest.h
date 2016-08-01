@@ -33,10 +33,10 @@
 +(id)bridgeAPIRequestWithProtocolType:(unsigned)arg1 scheme:(id)arg2 methodName:(id)arg3 methodVersion:(id)arg4 parameters:(id)arg5 userInfo:(id)arg6 ;
 +(id)_protocolForType:(unsigned)arg1 scheme:(id)arg2 ;
 +(id)protocolMap;
+-(id)requestURL:(id*)arg1 ;
 -(NSString *)methodName;
 -(id)initWithProtocol:(id)arg1 protocolType:(unsigned)arg2 scheme:(id)arg3 methodName:(id)arg4 methodVersion:(id)arg5 parameters:(id)arg6 userInfo:(id)arg7 ;
 -(NSString *)methodVersion;
--(id)requestURL:(id*)arg1 ;
 -(unsigned)protocolType;
 -(id)init;
 -(NSString *)scheme;

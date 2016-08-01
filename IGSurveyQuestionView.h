@@ -19,12 +19,12 @@
 @property (nonatomic,retain) id<IGSurveyQuestionController> questionController;              //@synthesize questionController=_questionController - In the implementation block
 @property (nonatomic,retain) IGSurveyQuestion * question;                                    //@synthesize question=_question - In the implementation block
 @property (assign,nonatomic,__weak) id<IGSurveyQuestionViewDelegate> delegate;               //@synthesize delegate=_delegate - In the implementation block
--(id<IGSurveyQuestionController>)questionController;
+-(IGSurveyQuestion *)question;
 -(void)setQuestion:(IGSurveyQuestion *)arg1 ;
+-(id<IGSurveyQuestionController>)questionController;
 -(void)surveyAnswerWasSelectedWith:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 question:(id)arg2 ;
 -(void)setQuestionController:(id<IGSurveyQuestionController>)arg1 ;
--(IGSurveyQuestion *)question;
 -(void)setDelegate:(id<IGSurveyQuestionViewDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGSurveyQuestionViewDelegate>)delegate;

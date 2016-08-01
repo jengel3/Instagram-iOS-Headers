@@ -16,6 +16,7 @@
 
 @property (nonatomic,readonly) IGDrawPoint * start;              //@synthesize start=_start - In the implementation block
 @property (nonatomic,readonly) IGDrawPoint * end;                //@synthesize end=_end - In the implementation block
+-(void)dealloc;
 -(IGDrawPoint *)start;
 -(IGDrawPoint *)end;
 -(void)addPoint:(id)arg1 ;

@@ -24,10 +24,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(char)shouldShowFavoritesMegaphone;
 +(id)newFavoritesMegaphone;
--(IGGenericMegaphoneView *)megaphoneView;
--(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
--(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
--(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(id)viewForMegaphone;
 -(void)logMegaphoneSeen;
 -(unsigned)displaySource;
@@ -36,6 +32,10 @@
 -(void)setMegaphoneSeen:(char)arg1 ;
 -(void)logDismissed;
 -(id)initWithMegaphone:(id)arg1 displaySource:(unsigned)arg2 delegate:(id)arg3 ;
+-(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
+-(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
+-(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
+-(IGGenericMegaphoneView *)megaphoneView;
 -(id<IGMegaphonePresenterDelegate>)delegate;
 -(void)logEvent:(id)arg1 ;
 @end

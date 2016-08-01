@@ -46,8 +46,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(IGSoundStateListener *)soundStateListener;
--(void)soundListenerDidUpdate:(id)arg1 ;
+-(char)prefersTabBarHidden;
+-(IGMediaPreloader *)mediaPreloader;
 -(void)didFireTimer:(id)arg1 ;
 -(id)initWithEventService:(id)arg1 soundStateListener:(id)arg2 logger:(id)arg3 focusCoordinator:(id)arg4 ;
 -(void)didReceiveStatusBarWillChangeFrameNotification:(id)arg1 ;
@@ -56,6 +56,7 @@
 -(void)setupSoundBadge;
 -(IGEventViewerSoundBadge *)soundBadge;
 -(void)didReceiveTapGestureRecognizer:(id)arg1 ;
+-(IGSoundStateListener *)soundStateListener;
 -(void)requestInitialPosts;
 -(char)shouldHideStatusBar;
 -(UIView *)fromViewSnapshot;
@@ -64,7 +65,6 @@
 -(IGEventService *)eventService;
 -(void)setInitialPosts:(NSArray *)arg1 ;
 -(NSArray *)initialPosts;
--(IGMediaPreloader *)mediaPreloader;
 -(void)setTimerProxy:(IGTimerProxy *)arg1 ;
 -(IGTimerProxy *)timerProxy;
 -(void)presentEventViewer;
@@ -81,10 +81,10 @@
 -(void)eventService:(id)arg1 didLoadInitialPosts:(id)arg2 ;
 -(void)eventService:(id)arg1 didFetchMorePosts:(id)arg2 ;
 -(void)mediaPreloaderDidFinishLoading:(id)arg1 ;
+-(void)soundListenerDidUpdate:(id)arg1 ;
 -(id)initWithConfiguration:(id)arg1 focusCoordinator:(id)arg2 ;
 -(void)setFocusCoordinator:(IGChannelFocusCoordinator *)arg1 ;
 -(char)enableNavState;
--(char)prefersTabBarHidden;
 -(IGEventViewerAnalyticsLogger *)logger;
 -(void)stopTimer;
 -(void)dealloc;

@@ -7,12 +7,17 @@
 @interface IGImageOverlayFilter : IGImageFilter {
 
 	IGSurface* _overlay;
+	char _ignoreTextureTransform;
 
 }
 
 @property (assign,nonatomic) CVBufferRef overlay; 
+@property (assign,nonatomic) char ignoreTextureTransform;              //@synthesize ignoreTextureTransform=_ignoreTextureTransform - In the implementation block
 -(id)initWithPixelBuffer:(CVBufferRef)arg1 ;
+-(void)setTextureTransform:(_GLKMatrix4)arg1 ;
+-(void)setIgnoreTextureTransform:(char)arg1 ;
 -(void)configureProgram:(id)arg1 ;
+-(char)ignoreTextureTransform;
 -(id)fragmentShader;
 -(id)initWithImage:(id)arg1 ;
 -(id)copyWithZone:(NSZone*)arg1 ;

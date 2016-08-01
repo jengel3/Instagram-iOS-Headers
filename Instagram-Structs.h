@@ -24,17 +24,21 @@ typedef struct IGCaptionLocationInfo {
 
 typedef struct opaqueCMSampleBuffer* opaqueCMSampleBufferRef;
 
-typedef struct UIEdgeInsets {
-	float top;
-	float left;
-	float bottom;
-	float right;
-} UIEdgeInsets;
-
 typedef struct CGRect {
 	CGPoint origin;
 	CGSize size;
 } CGRect;
+
+typedef struct {
+	unsigned long long nbytesWifiSnd;
+	unsigned long long nbytesWifiRcv;
+	unsigned long long nbytesCellSnd;
+	unsigned long long nbytesCellRcv;
+	unsigned npcktsWifiSnd;
+	unsigned npcktsWifiRcv;
+	unsigned npcktsCellSnd;
+	unsigned npcktsCellRcv;
+} SCD_Struct_IG6;
 
 typedef struct {
 	_ftsent field1;
@@ -72,6 +76,13 @@ typedef struct NSRange {
 	unsigned length;
 } NSRange;
 
+typedef struct UIEdgeInsets {
+	float top;
+	float left;
+	float bottom;
+	float right;
+} UIEdgeInsets;
+
 typedef struct UIOffset {
 	float horizontal;
 	float vertical;
@@ -81,7 +92,7 @@ typedef struct {
 	double x;
 	double y;
 	double z;
-} SCD_Struct_IG13;
+} SCD_Struct_IG14;
 
 typedef struct {
 	float m00;
@@ -100,10 +111,10 @@ typedef struct {
 	float m31;
 	float m32;
 	float m33;
-} SCD_Struct_IG14;
+} SCD_Struct_IG15;
 
 typedef union GLKMatrix4 {
-	SCD_Struct_IG14 field1;
+	SCD_Struct_IG15 field1;
 	float m[16];
 } GLKMatrix4;
 
@@ -119,7 +130,9 @@ typedef struct {
 	int field2;
 	unsigned field3;
 	long long field4;
-} SCD_Struct_IG18;
+} SCD_Struct_IG19;
+
+typedef struct sqlite3* sqlite3Ref;
 
 typedef struct IGCarouselMetrics {
 	float sectionHeaderHeight;
@@ -136,7 +149,7 @@ typedef struct {
 	/*function pointer*/void* field3;
 	/*function pointer*/void* field4;
 	/*function pointer*/void* field5;
-} SCD_Struct_IG21;
+} SCD_Struct_IG23;
 
 typedef struct __CFRunLoop* CFRunLoopRef;
 
@@ -153,6 +166,7 @@ typedef struct mutex {
 
 typedef struct IGPagingFocusOffsets {
 	int before;
+	int focused;
 	int after;
 } IGPagingFocusOffsets;
 
@@ -189,23 +203,17 @@ typedef struct vector<float, std::__1::allocator<float> > {
 typedef struct {
 	double field1;
 	double field2;
-} SCD_Struct_IG33;
+} SCD_Struct_IG35;
 
 typedef struct {
 	double latitude;
 	double longitude;
-} SCD_Struct_IG34;
-
-typedef struct {
-	int numRows;
-	int numSquaresPerRow;
-	int squareDimension;
-} SCD_Struct_IG35;
-
-typedef struct {
-	SCD_Struct_IG34 center;
-	SCD_Struct_IG34 span;
 } SCD_Struct_IG36;
+
+typedef struct {
+	SCD_Struct_IG36 center;
+	SCD_Struct_IG36 span;
+} SCD_Struct_IG37;
 
 typedef struct _compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, double>, void *> *> > {
 	unsigned long __first_;
@@ -278,7 +286,7 @@ typedef struct {
 	int timescale;
 	unsigned flags;
 	long long epoch;
-} SCD_Struct_IG52;
+} SCD_Struct_IG53;
 
 typedef struct _compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Class<IGUserSessionObject>, std::__1::shared_future<Value> >, void *> *> > {
 	unsigned long __first_;
@@ -342,9 +350,9 @@ typedef struct CGAffineTransform {
 typedef struct __CFArray* CFArrayRef;
 
 typedef struct {
-	SCD_Struct_IG52 start;
-	SCD_Struct_IG52 duration;
-} SCD_Struct_IG67;
+	SCD_Struct_IG53 start;
+	SCD_Struct_IG53 duration;
+} SCD_Struct_IG68;
 
 typedef struct __CFHTTPMessage* CFHTTPMessageRef;
 
@@ -353,25 +361,22 @@ typedef struct {
 	unsigned char field2;
 	char field3;
 	unsigned long long field4;
-} SCD_Struct_SR69;
+} SCD_Struct_SR70;
 
 typedef struct CGImage* CGImageRef;
 
-typedef struct CGGradient* CGGradientRef;
+typedef struct type {
+	unsigned char __lx[12];
+} type;
+
+typedef struct function<void (AFNetworkReachabilityStatus, AFNetworkReachabilityStatus)> {
+	type __buf_;
+	__base<void (AFNetworkReachabilityStatus, AFNetworkReachabilityStatus)> __f_;
+} function<void (AFNetworkReachabilityStatus, AFNetworkReachabilityStatus)>;
 
 typedef struct __SCNetworkReachability* SCNetworkReachabilityRef;
 
 typedef struct __SecTrust* SecTrustRef;
-
-typedef struct __CFRunLoopObserver* CFRunLoopObserverRef;
-
-typedef struct atomic<double> {
-	Ad __a_;
-} atomic<double>;
-
-typedef struct atomic<signed char> {
-	Ac __a_;
-} atomic<signed char>;
 
 typedef struct _compressed_pair<IGSectionEntry *, std::__1::allocator<IGSectionEntry> > {
 	IGSectionEntry __first_;
@@ -383,13 +388,23 @@ typedef struct vector<IGSectionEntry, std::__1::allocator<IGSectionEntry> > {
 	compressed_pair<IGSectionEntry *, std::__1::allocator<IGSectionEntry> > __end_cap_;
 } vector<IGSectionEntry, std::__1::allocator<IGSectionEntry> >;
 
+typedef struct __CFRunLoopObserver* CFRunLoopObserverRef;
+
+typedef struct atomic<double> {
+	Ad __a_;
+} atomic<double>;
+
+typedef struct atomic<signed char> {
+	Ac __a_;
+} atomic<signed char>;
+
 typedef struct {
 	double fieldOfView;
 	double aspectRatio;
 	double gyroDelay;
 	double shutterSpeed;
 	char gyroOrientation[3];
-} SCD_Struct_IG79;
+} SCD_Struct_IG81;
 
 typedef struct OpaqueCMClock* OpaqueCMClockRef;
 
@@ -446,12 +461,12 @@ typedef struct {
 	float x;
 	float y;
 	float z;
-} SCD_Struct_IG90;
+} SCD_Struct_IG92;
 
 typedef union GLKVector3 {
-	SCD_Struct_IG90 field1;
-	SCD_Struct_IG90 field2;
-	SCD_Struct_IG90 field3;
+	SCD_Struct_IG92 field1;
+	SCD_Struct_IG92 field2;
+	SCD_Struct_IG92 field3;
 	float v[3];
 } GLKVector3;
 
@@ -564,7 +579,51 @@ typedef struct unordered_set<_IGListWorkingRangeHandlerItemControllerWrapper, _I
 
 typedef struct __CVOpenGLESTextureCache* CVOpenGLESTextureCacheRef;
 
+typedef struct CSSNode* CSSNodeRef;
+
 typedef struct __SecRandom* SecRandomRef;
+
+typedef struct {
+	double timeout;
+	double maximumAge;
+	double accuracy;
+	double distanceFilter;
+} SCD_Struct_RC122;
+
+typedef struct __CFDictionary* CFDictionaryRef;
+
+typedef struct _compressed_pair<ModuleData *, std::__1::default_delete<ModuleData []> > {
+	ModuleData __first_;
+} compressed_pair<ModuleData *, std::__1::default_delete<ModuleData []> >;
+
+typedef struct unique_ptr<ModuleData [], std::__1::default_delete<ModuleData []> > {
+	compressed_pair<ModuleData *, std::__1::default_delete<ModuleData []> > __ptr_;
+} unique_ptr<ModuleData [], std::__1::default_delete<ModuleData []> >;
+
+typedef struct _compressed_pair<__sFILE *, int (*)(__sFILE *)> {
+	__sFILE __first_;
+	/*function pointer*/void* __second_;
+} compressed_pair<__sFILE *, int (*)(__sFILE *)>;
+
+typedef struct unique_ptr<__sFILE, int (*)(__sFILE *)> {
+	compressed_pair<__sFILE *, int (*)(__sFILE *)> __ptr_;
+} unique_ptr<__sFILE, int (*)(__sFILE *)>;
+
+typedef struct RandomAccessBundleData {
+	unique_ptr<__sFILE, int (*)(__sFILE *)> bundle;
+	unsigned baseOffset;
+	unsigned numTableEntries;
+	unique_ptr<ModuleData [], std::__1::default_delete<ModuleData []> > table;
+} RandomAccessBundleData;
+
+typedef struct OpaqueJSValue* OpaqueJSValueRef;
+
+typedef struct {
+	CGColor field1;
+	CGColor field2;
+	CGColor field3;
+	CGColor field4;
+} SCD_Struct_RC130;
 
 typedef struct shared_ptr<const std::__1::vector<__weak id, std::__1::allocator<__weak id> > > {
 	vector<__weak id, std::__1::allocator<__weak id> > __ptr_;
@@ -578,7 +637,7 @@ typedef struct {
 	id field4;
 	/*function pointer*/void* field5;
 	float field6;
-} SCD_Struct_PO120;
+} SCD_Struct_PO132;
 
 typedef struct SpringSolver<POP::Vector4<double> >* SpringSolver<POP::Vector4<double> >Ref;
 
@@ -596,8 +655,6 @@ typedef struct list<std::__1::shared_ptr<POPAnimatorItem>, std::__1::allocator<s
 	compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<std::__1::shared_ptr<POPAnimatorItem>, void *> > > __size_alloc_;
 } list<std::__1::shared_ptr<POPAnimatorItem>, std::__1::allocator<std::__1::shared_ptr<POPAnimatorItem> > >;
 
-typedef struct __CFDictionary* CFDictionaryRef;
-
 typedef struct {
 	unsigned _exponent : 8;
 	unsigned _length : 4;
@@ -605,7 +662,7 @@ typedef struct {
 	unsigned _isCompact : 1;
 	unsigned _reserved : 18;
 	unsigned short _mantissa[8];
-} SCD_Struct_CP126;
+} SCD_Struct_CP137;
 
 typedef struct CGColorSpace* CGColorSpaceRef;
 
@@ -641,49 +698,7 @@ typedef struct IGDKStats {
 } IGDKStats;
 
 typedef struct {
-	double timeout;
-	double maximumAge;
-	double accuracy;
-	double distanceFilter;
-} SCD_Struct_RC136;
-
-typedef struct OpaqueJSContext* OpaqueJSContextRef;
-
-typedef struct _compressed_pair<ModuleData *, std::__1::default_delete<ModuleData []> > {
-	ModuleData __first_;
-} compressed_pair<ModuleData *, std::__1::default_delete<ModuleData []> >;
-
-typedef struct unique_ptr<ModuleData [], std::__1::default_delete<ModuleData []> > {
-	compressed_pair<ModuleData *, std::__1::default_delete<ModuleData []> > __ptr_;
-} unique_ptr<ModuleData [], std::__1::default_delete<ModuleData []> >;
-
-typedef struct _compressed_pair<__sFILE *, int (*)(__sFILE *)> {
-	__sFILE __first_;
-	/*function pointer*/void* __second_;
-} compressed_pair<__sFILE *, int (*)(__sFILE *)>;
-
-typedef struct unique_ptr<__sFILE, int (*)(__sFILE *)> {
-	compressed_pair<__sFILE *, int (*)(__sFILE *)> __ptr_;
-} unique_ptr<__sFILE, int (*)(__sFILE *)>;
-
-typedef struct RandomAccessBundleData {
-	unique_ptr<__sFILE, int (*)(__sFILE *)> bundle;
-	unsigned baseOffset;
-	unsigned numTableEntries;
-	unique_ptr<ModuleData [], std::__1::default_delete<ModuleData []> > table;
-} RandomAccessBundleData;
-
-typedef struct OpaqueJSValue* OpaqueJSValueRef;
-
-typedef struct {
-	CGColor field1;
-	CGColor field2;
-	CGColor field3;
-	CGColor field4;
-} SCD_Struct_RC144;
-
-typedef struct {
 	unsigned long long field1;
 	unsigned long long field2;
-} SCD_Struct_FB145;
+} SCD_Struct_FB147;
 

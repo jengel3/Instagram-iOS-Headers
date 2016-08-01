@@ -46,8 +46,8 @@
 -(void)setPhoneNumberTextField:(IGPhoneNumberTextField *)arg1 ;
 -(IGPhoneNumberTextField *)phoneNumberTextField;
 -(void)textFieldDidTapCountryButton:(id)arg1 ;
--(IGFacebookPageInfo *)pageInfo;
 -(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
+-(IGFacebookPageInfo *)pageInfo;
 -(id)newHeaderView;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;
 -(float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2 ;

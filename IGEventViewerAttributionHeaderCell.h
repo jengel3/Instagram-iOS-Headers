@@ -22,13 +22,12 @@
 @property (assign,nonatomic,__weak) id<IGEventViewerAttributionHeaderCellDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(id)cellIdentifier;
 -(IGProfilePictureImageView *)profileImageView;
+-(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
 -(void)configureView;
 -(void)didTapMoreButton:(id)arg1 ;
 -(void)layoutMoreButton;
--(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
--(void)setMoreButtonHidden:(char)arg1 ;
 -(void)didReceiveTapGesture:(id)arg1 ;
 -(void)configureWithImageURL:(id)arg1 username:(id)arg2 isVerified:(char)arg3 ;
 -(UIImageView *)verifiedBadgeImageView;

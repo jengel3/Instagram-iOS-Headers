@@ -39,6 +39,7 @@
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                                  //@synthesize spinner=_spinner - In the implementation block
 @property (nonatomic,retain) IGInsightsContentRowListView * educationView;                                       //@synthesize educationView=_educationView - In the implementation block
 -(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)initializeUnitViews;
 -(void)initializeEducationView;
 -(void)hideUnitsAndEducation;
@@ -73,7 +74,6 @@
 -(void)querySuccessApplyInsights:(id)arg1 ;
 -(void)queryFailureHandleError:(id)arg1 ;
 -(IGInsightsContentRowListView *)educationView;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(IGInsightsCenteredHeaderView *)headerView;

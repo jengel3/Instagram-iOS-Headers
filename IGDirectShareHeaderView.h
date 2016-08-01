@@ -21,8 +21,8 @@
 @property (nonatomic,retain) UIImageView * sideImageView;                                       //@synthesize sideImageView=_sideImageView - In the implementation block
 @property (nonatomic,retain) IGProfilePictureImageView * sharedUserProfilePicture;              //@synthesize sharedUserProfilePicture=_sharedUserProfilePicture - In the implementation block
 @property (nonatomic,retain) IGDirectShareHeaderViewLayout * layout;                            //@synthesize layout=_layout - In the implementation block
--(id)createSubtitleLabel;
 -(id)createTitleLabel;
+-(id)createSubtitleLabel;
 -(float)heightWithWidth:(float)arg1 ;
 -(void)setUserForProfileView:(id)arg1 ;
 -(id)createChevronView;

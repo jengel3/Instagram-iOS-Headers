@@ -40,9 +40,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
--(id)supplementaryViewSource;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
 -(void)didTapReplyForCommentCell:(id)arg1 ;
 -(void)didTapReportForCommentCell:(id)arg1 ;
 -(void)didTapDeleteForCommentCell:(id)arg1 ;
@@ -64,6 +61,9 @@
 -(IGBulkCommentDeleteManager *)bulkDeleteManager;
 -(IGCommentCellRevealManager *)cellRevealManager;
 -(id)initWithBulkDeleteManager:(id)arg1 cellRevealManager:(id)arg2 isCurrentUser:(char)arg3 ;
+-(id)supplementaryViewSource;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(char)isCurrentUser;
 -(void)setDelegate:(id<IGCommentItemDelegate>)arg1 ;
 -(void)dealloc;

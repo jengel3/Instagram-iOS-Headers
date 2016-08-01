@@ -14,6 +14,7 @@
 @property (assign,nonatomic) char enabled; 
 @property (nonatomic,retain) UIButton * mainButton;                    //@synthesize mainButton=_mainButton - In the implementation block
 @property (assign,nonatomic) CGSize touchTargetInflation;              //@synthesize touchTargetInflation=_touchTargetInflation - In the implementation block
++(id)doneItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)closeButtonWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)barButtonItemWithImage:(id)arg1 accessibilityLabel:(id)arg2 target:(id)arg3 action:(SEL)arg4 ;
 +(id)emphasizedbarButtonItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 ;
@@ -27,7 +28,6 @@
 +(id)cancelItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)emphasizedNextItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)dismissItemWithTarget:(id)arg1 action:(SEL)arg2 ;
-+(id)doneItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)editItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)refreshBarButtonItemWithTarget:(id)arg1 action:(SEL)arg2 ;
 +(id)emphasizedSendItemWithTarget:(id)arg1 action:(SEL)arg2 ;

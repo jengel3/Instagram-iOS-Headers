@@ -28,7 +28,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(void)setEntryPoint:(int)arg1 ;
--(char)enableNavState;
 -(void)feedItemHeaderDidTapFollowButton:(id)arg1 ;
 -(void)reloadWithNewObjects:(id)arg1 ;
 -(void)handleLoadedContentDidChange;
@@ -46,6 +45,7 @@
 -(void)setPreviewSplashView:(UIView *)arg1 ;
 -(IGFeedItem *)originalMediaPost;
 -(void)setOriginalMediaPost:(IGFeedItem *)arg1 ;
+-(char)enableNavState;
 -(void)dealloc;
 -(void)viewDidLoad;
 -(IGContextualFeedItemConfiguration *)configuration;

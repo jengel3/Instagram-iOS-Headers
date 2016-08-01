@@ -29,6 +29,10 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(void)willStartFetchingWithAdsManagerListDataProvider:(id)arg1 ;
+-(void)adsManagerListDataProvider:(id)arg1 didReceiveAdsList:(id)arg2 ;
+-(void)didFinishFetchingWithAdsManagerListDataProvider:(id)arg1 ;
+-(void)adsManagerListDataProvider:(id)arg1 didFailWithError:(id)arg2 ;
 -(char)canHostInlineGallery:(char)arg1 ;
 -(void)setEmptyListView:(IGAdManagerEmptyListView *)arg1 ;
 -(IGAdManagerEmptyListView *)emptyListView;
@@ -38,10 +42,6 @@
 -(void)setAdsList:(IGAdsListViewModel *)arg1 ;
 -(char)isFirstLoad;
 -(void)setIsFirstLoad:(char)arg1 ;
--(void)adsManagerListDataProvider:(id)arg1 didReceiveAdsList:(id)arg2 ;
--(void)adsManagerListDataProvider:(id)arg1 didFailWithError:(id)arg2 ;
--(void)willStartFetchingWithAdsManagerListDataProvider:(id)arg1 ;
--(void)didFinishFetchingWithAdsManagerListDataProvider:(id)arg1 ;
 -(char)isVerifyingFacebookToken;
 -(void)setIsVerifyingFacebookToken:(char)arg1 ;
 -(id)initWithLogger:(id)arg1 ;

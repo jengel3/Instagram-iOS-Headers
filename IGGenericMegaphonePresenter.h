@@ -25,11 +25,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(IGGenericMegaphoneView *)megaphoneView;
 -(IGGenericMegaphone *)megaphone;
--(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
--(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
--(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)megaphoneViewNeedsResize:(id)arg1 ;
@@ -37,6 +33,10 @@
 -(void)logMegaphoneSeen;
 -(IGGenericMegaphoneViewV2 *)megaphoneView2;
 -(id)initWithMegaphone:(id)arg1 logger:(id)arg2 ;
+-(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
+-(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
+-(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
+-(IGGenericMegaphoneView *)megaphoneView;
 -(id<IGGenericMegaphoneLogger>)logger;
 -(void)setDelegate:(id<IGMegaphonePresenterDelegate>)arg1 ;
 -(id<IGMegaphonePresenterDelegate>)delegate;

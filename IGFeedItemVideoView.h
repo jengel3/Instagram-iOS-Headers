@@ -5,7 +5,7 @@
 #import <Instagram/IGImageProgressViewDelegate.h>
 
 @protocol IGFeedItemVideoViewDelegate, IGFeedItemVideoViewAudioDelegate, IGFeedItemVideoViewSingleTapDelegate, IGFeedItemVideoViewDoubleTapDelegate, IGVideoCaptionViewType, IGVideoViewLogging;
-@class IGImageProgressView, IGVideoLoadProgressView, UIView, IGVideo, UITapGestureRecognizer, UILongPressGestureRecognizer, IGVideoIndicatorView, IGPlaybackTimeIndicatorController, IGPhoto, IGFeedVideoTimeIndicatorView, NSString;
+@class IGImageProgressView, IGVideoLoadProgressView, UIView, IGVideo, UITapGestureRecognizer, UILongPressGestureRecognizer, IGVideoIndicatorView, IGFeedVideoTimeIndicatorView, IGPlaybackTimeIndicatorController, IGPhoto, NSString;
 
 @interface IGFeedItemVideoView : IGFeedMediaView <UIGestureRecognizerDelegate, IGImageProgressViewDelegate> {
 
@@ -22,11 +22,11 @@
 	UITapGestureRecognizer* _singleTapRecognizer;
 	UILongPressGestureRecognizer* _longPressRecognizer;
 	IGVideoIndicatorView* _indicatorView;
+	IGFeedVideoTimeIndicatorView* _timeIndicatorView;
 	IGPlaybackTimeIndicatorController* _timeIndicatorController;
+	UIView* _videoView;
 	float _startTime;
 	IGPhoto* _photo;
-	UIView* _videoView;
-	IGFeedVideoTimeIndicatorView* _timeIndicatorView;
 	double _videoShouldStartTime;
 
 }
@@ -36,7 +36,6 @@
 @property (nonatomic,readonly) IGPhoto * photo;                                                              //@synthesize photo=_photo - In the implementation block
 @property (nonatomic,retain) UIView * videoView;                                                             //@synthesize videoView=_videoView - In the implementation block
 @property (assign,nonatomic) double videoShouldStartTime;                                                    //@synthesize videoShouldStartTime=_videoShouldStartTime - In the implementation block
-@property (nonatomic,readonly) IGFeedVideoTimeIndicatorView * timeIndicatorView;                             //@synthesize timeIndicatorView=_timeIndicatorView - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemVideoViewDelegate> delegate;                                //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemVideoViewAudioDelegate> audioDelegate;                      //@synthesize audioDelegate=_audioDelegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFeedItemVideoViewSingleTapDelegate> singleTapDelegate;              //@synthesize singleTapDelegate=_singleTapDelegate - In the implementation block
@@ -49,20 +48,26 @@
 @property (nonatomic,readonly) UITapGestureRecognizer * doubleTapRecognizer;                                 //@synthesize doubleTapRecognizer=_doubleTapRecognizer - In the implementation block
 @property (nonatomic,readonly) UITapGestureRecognizer * singleTapRecognizer;                                 //@synthesize singleTapRecognizer=_singleTapRecognizer - In the implementation block
 @property (nonatomic,readonly) UILongPressGestureRecognizer * longPressRecognizer;                           //@synthesize longPressRecognizer=_longPressRecognizer - In the implementation block
+@property (nonatomic,readonly) IGFeedVideoTimeIndicatorView * timeIndicatorView;                             //@synthesize timeIndicatorView=_timeIndicatorView - In the implementation block
 @property (nonatomic,readonly) IGPlaybackTimeIndicatorController * timeIndicatorController;                  //@synthesize timeIndicatorController=_timeIndicatorController - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)heightForWidth:(float)arg1 ;
+-(UILongPressGestureRecognizer *)longPressRecognizer;
 -(void)progressImageView:(id)arg1 didLoadImage:(id)arg2 withDataLength:(unsigned)arg3 ;
 -(void)progressImageView:(id)arg1 didFailLoadWithError:(id)arg2 ;
+-(void)setVideoShouldStartTime:(double)arg1 ;
+-(double)videoShouldStartTime;
 -(void)onTap:(id)arg1 ;
+-(UIView*<IGVideoCaptionViewType>)captionView;
 -(char)posterFrameLoaded;
 -(void)showVideoIndication:(char)arg1 animated:(char)arg2 ;
 -(void)cleanUpVideoView:(/*^block*/id)arg1 ;
 -(void)disableIndicator:(char)arg1 ;
 -(void)setAudioDelegate:(id<IGFeedItemVideoViewAudioDelegate>)arg1 ;
+-(void)setSingleTapDelegate:(id<IGFeedItemVideoViewSingleTapDelegate>)arg1 ;
 -(void)setDoubleTapDelegate:(id<IGFeedItemVideoViewDoubleTapDelegate>)arg1 ;
 -(void)setVideo:(id)arg1 coverPhoto:(id)arg2 logger:(id)arg3 ;
 -(void)layoutCaptionView;
@@ -72,17 +77,12 @@
 -(void)disableImageProgressView;
 -(IGFeedVideoTimeIndicatorView *)timeIndicatorView;
 -(void)onDoubleTap:(id)arg1 ;
--(void)setSingleTapDelegate:(id<IGFeedItemVideoViewSingleTapDelegate>)arg1 ;
--(void)setVideoShouldStartTime:(double)arg1 ;
 -(IGPlaybackTimeIndicatorController *)timeIndicatorController;
 -(void)updateVideoViewToView:(id)arg1 ;
 -(void)updateVideoViewToLoadingState;
 -(void)showIndicatorStyle:(int)arg1 animated:(char)arg2 ;
 -(void)updateVideoViewToPlayingState;
--(double)videoShouldStartTime;
 -(id<IGFeedItemVideoViewAudioDelegate>)audioDelegate;
--(UIView*<IGVideoCaptionViewType>)captionView;
--(UILongPressGestureRecognizer *)longPressRecognizer;
 -(id<IGVideoViewLogging>)logger;
 -(void)setVideoView:(UIView *)arg1 ;
 -(IGPhoto *)photo;

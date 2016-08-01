@@ -4,10 +4,12 @@
 #import <libobjc.A.dylib/NSCoding.h>
 
 @protocol IGImageURLProvider;
-@class NSString, NSArray, NSOrderedSet, IGDate, IGUser, NSDictionary;
+@class NSOrderedSet, IGDate, NSString, NSArray, IGUser, NSDictionary;
 
 @interface IGDirectThread : NSObject <NSCopying, NSCoding> {
 
+	NSOrderedSet* _allMessages;
+	IGDate* _mostRecentActivityDate;
 	char _hasOlder;
 	char _isPending;
 	char _isMuted;
@@ -17,6 +19,7 @@
 	NSString* _name;
 	NSArray* _users;
 	NSOrderedSet* _publishedMessages;
+	NSString* _unfinishedMessage;
 	NSOrderedSet* _pendingMessages;
 	NSArray* _leftUsers;
 	NSString* _newestCursor;
@@ -33,6 +36,7 @@
 @property (nonatomic,copy,readonly) NSString * name;                                          //@synthesize name=_name - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * users;                                          //@synthesize users=_users - In the implementation block
 @property (nonatomic,copy,readonly) NSOrderedSet * publishedMessages;                         //@synthesize publishedMessages=_publishedMessages - In the implementation block
+@property (nonatomic,copy,readonly) NSString * unfinishedMessage;                             //@synthesize unfinishedMessage=_unfinishedMessage - In the implementation block
 @property (nonatomic,copy,readonly) NSOrderedSet * pendingMessages;                           //@synthesize pendingMessages=_pendingMessages - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * leftUsers;                                      //@synthesize leftUsers=_leftUsers - In the implementation block
 @property (nonatomic,copy,readonly) NSString * newestCursor;                                  //@synthesize newestCursor=_newestCursor - In the implementation block
@@ -50,14 +54,15 @@
 +(id)usernameStringForUsernames:(id)arg1 maxUsers:(int)arg2 ;
 +(id)usernameStringForUsers:(id)arg1 ;
 +(id)usernameStringForUsers:(id)arg1 maxUsers:(int)arg2 ;
+-(id)mostRecentActivityDate;
 -(id)initLocalThreadWithUsers:(id)arg1 lastActivityDate:(id)arg2 ;
 -(id)lastSeenAtForUserWithId:(id)arg1 ;
 -(id<IGImageURLProvider>)lastMediaImageURLProvider;
 -(NSOrderedSet *)publishedMessages;
--(NSString *)oldestCursor;
 -(id)orderedArrayOfRecentlyActiveUsersHideCurrentUser:(char)arg1 ;
+-(NSString *)oldestCursor;
 -(id)defaultNameWithUsers:(id)arg1 ;
--(id)initWithThreadId:(id)arg1 hasOlder:(char)arg2 lastActivityDate:(id)arg3 users:(id)arg4 oldestCursor:(id)arg5 newestCursor:(id)arg6 inviter:(id)arg7 publishedMessages:(id)arg8 pendingMessages:(id)arg9 name:(id)arg10 isPending:(char)arg11 isMuted:(char)arg12 isCanonical:(char)arg13 lastMediaImageURLProvider:(id)arg14 isLocal:(char)arg15 lastSeenAtForUserIds:(id)arg16 lastSeenAtForItemIds:(id)arg17 leftUsers:(id)arg18 ;
+-(id)initWithThreadId:(id)arg1 hasOlder:(char)arg2 lastActivityDate:(id)arg3 users:(id)arg4 oldestCursor:(id)arg5 newestCursor:(id)arg6 inviter:(id)arg7 publishedMessages:(id)arg8 pendingMessages:(id)arg9 name:(id)arg10 isPending:(char)arg11 isMuted:(char)arg12 isCanonical:(char)arg13 lastMediaImageURLProvider:(id)arg14 isLocal:(char)arg15 lastSeenAtForUserIds:(id)arg16 lastSeenAtForItemIds:(id)arg17 leftUsers:(id)arg18 unfinishedMessage:(id)arg19 ;
 -(id)defaultName;
 -(NSDictionary *)lastSeenAtForUserIds;
 -(NSDictionary *)lastSeenAtForItemIds;
@@ -65,7 +70,9 @@
 -(char)hasOlder;
 -(NSArray *)leftUsers;
 -(NSString *)newestCursor;
+-(NSString *)unfinishedMessage;
 -(char)hasDefaultName;
+-(char)isUnreadForUserWithId:(id)arg1 ;
 -(id)seenAtForItemsWithId:(id)arg1 ;
 -(char)allowsNameChanges;
 -(IGDate *)lastActivityDate;

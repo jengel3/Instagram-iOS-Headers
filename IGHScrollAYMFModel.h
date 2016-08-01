@@ -28,9 +28,9 @@
 -(id)diffIdentifier;
 -(NSString *)actionText;
 -(id)initWithAYMFDict:(id)arg1 ;
+-(char)autoAdvance;
 -(unsigned)feedItemType;
 -(int)fbUpsellPosition;
--(char)autoAdvance;
 -(id)itemId;
 -(NSString *)title;
 -(NSArray *)items;

@@ -22,6 +22,7 @@
 @property (nonatomic,readonly) UICollectionView * collectionView;                          //@synthesize collectionView=_collectionView - In the implementation block
 @property (assign,nonatomic) int state;                                                    //@synthesize state=_state - In the implementation block
 @property (assign,nonatomic) int style;                                                    //@synthesize style=_style - In the implementation block
+-(id)initWithWidth:(float)arg1 delegate:(id)arg2 photoThumbnailSize:(float)arg3 style:(int)arg4 ;
 -(void)didTapTitleBar;
 -(void)didTapDismiss;
 -(void)didTapCamera;
@@ -29,7 +30,6 @@
 -(id)createNewTitleBarForStyle:(int)arg1 ;
 -(char)hasVerticalPaddingAroundScrollView;
 -(char)hasCancelButton;
--(id)initWithWidth:(float)arg1 delegate:(id)arg2 photoThumbnailSize:(float)arg3 style:(int)arg4 ;
 -(void)didTapCancel;
 -(void)setDelegate:(id<IGInlineGalleryViewDelegate>)arg1 ;
 -(void)layoutSubviews;

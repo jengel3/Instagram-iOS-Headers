@@ -30,8 +30,8 @@
 -(CGPoint)_brushLayerPositionForLocation:(CGPoint)arg1 ;
 -(id)_brushColorForLocation:(CGPoint)arg1 ;
 -(float)_brushWidthForLocation:(CGPoint)arg1 ;
--(float)brushWidth;
 -(void)setBrushWidth:(float)arg1 ;
+-(float)brushWidth;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGDrawBrushPickerDelegate>)arg1 ;
 -(void)dealloc;

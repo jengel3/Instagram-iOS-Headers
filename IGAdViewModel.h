@@ -45,22 +45,22 @@
 @property (nonatomic,copy,readonly) NSString * pendingStatus;               //@synthesize pendingStatus=_pendingStatus - In the implementation block
 @property (nonatomic,copy,readonly) NSString * endDate;                     //@synthesize endDate=_endDate - In the implementation block
 @property (nonatomic,readonly) IGAdPaymentInfo * paymentInfo;               //@synthesize paymentInfo=_paymentInfo - In the implementation block
+-(id)initActiveAdWithType:(unsigned)arg1 facebookID:(id)arg2 organicMediaId:(id)arg3 thumbnailURL:(id)arg4 mediaId:(id)arg5 callToAction:(id)arg6 callToActionURL:(id)arg7 audienceName:(id)arg8 totalBudget:(id)arg9 totalDuration:(id)arg10 timeLeft:(id)arg11 numberOfClicks:(id)arg12 pendingStatus:(id)arg13 endDate:(id)arg14 paymentsInfo:(id)arg15 ;
+-(NSString *)mediaId;
+-(NSString *)facebookID;
+-(NSString *)organicMediaId;
 -(NSString *)headerSubtitle;
 -(NSString *)deleteString;
--(NSString *)callToAction;
--(NSString *)audienceName;
 -(NSString *)adsManagerCellTitle;
 -(NSString *)adsManagerCellSubtitle;
 -(UIColor *)adsManagerCellColorForSubtitle;
 -(NSString *)loggingStatus;
--(id)initActiveAdWithType:(unsigned)arg1 facebookID:(id)arg2 organicMediaId:(id)arg3 thumbnailURL:(id)arg4 mediaId:(id)arg5 callToAction:(id)arg6 callToActionURL:(id)arg7 audienceName:(id)arg8 totalBudget:(id)arg9 totalDuration:(id)arg10 timeLeft:(id)arg11 numberOfClicks:(id)arg12 pendingStatus:(id)arg13 endDate:(id)arg14 paymentsInfo:(id)arg15 ;
--(NSString *)organicMediaId;
--(NSString *)facebookID;
+-(NSString *)callToAction;
 -(NSURL *)callToActionURL;
+-(NSString *)audienceName;
 -(NSString *)timeLeft;
 -(NSString *)numberOfClicks;
 -(IGAdPaymentInfo *)paymentInfo;
--(NSString *)mediaId;
 -(NSString *)pendingStatus;
 -(NSString *)endDate;
 -(unsigned)type;

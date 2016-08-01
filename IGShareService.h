@@ -18,7 +18,6 @@
 @property (assign,nonatomic) char wantsToShare;                               //@synthesize wantsToShare=_wantsToShare - In the implementation block
 @property (nonatomic,readonly) char willShare; 
 +(id)serviceWithType:(int)arg1 ;
--(char)hasAdvancedOptions;
 -(void)setIsAvailableForSharing:(char)arg1 ;
 -(char)willShare;
 -(void)setWantsToShare:(char)arg1 ;
@@ -26,6 +25,7 @@
 -(char)isAdequatelyConfigured;
 -(char)wantsToShare;
 -(NSString *)serviceNameForService;
+-(char)hasAdvancedOptions;
 -(id)initWithServiceType:(int)arg1 ;
 -(int)serviceType;
 @end

@@ -37,6 +37,9 @@
 -(IGFeedItem *)feedItem;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(void)onOverlayTapped;
+-(id)initWithInlineInsightsType:(int)arg1 feedItem:(id)arg2 ;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id)loggingStringForPromoteState:(int)arg1 ;
 -(int)inlineInsightsType;
 -(void)setOrganicInlineInsightsView:(IGInlineInsightsView *)arg1 ;
@@ -50,10 +53,7 @@
 -(NSString *)feedItemPromoteStateLoggingString;
 -(void)dismissContentView;
 -(void)needAnimateContentRowListView:(id)arg1 upForDistance:(float)arg2 ;
--(id)initWithInlineInsightsType:(int)arg1 feedItem:(id)arg2 ;
 -(void)setInlineInsightsType:(int)arg1 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)setFeedItemPromoteStateLoggingString:(NSString *)arg1 ;
 -(id)contentContainerView;
 -(void)loadView;

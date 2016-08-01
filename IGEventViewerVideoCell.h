@@ -39,7 +39,7 @@
 -(void)didReceiveDoubleTap:(id)arg1 ;
 -(UITapGestureRecognizer *)singleTap;
 -(void)setShadowHidden:(char)arg1 ;
--(void)configureWithPost:(id)arg1 coverImageURL:(id)arg2 ;
+-(void)configureWithPost:(id)arg1 coverImageURL:(id)arg2 logger:(id)arg3 ;
 -(void)setAspectFitVideoViewEnabled:(char)arg1 ;
 -(void)setIndicatorMode:(int)arg1 ;
 -(void)setupSubviewsWithFrame:(CGRect)arg1 ;

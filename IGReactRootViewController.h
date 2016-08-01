@@ -17,6 +17,7 @@
 @property (nonatomic,readonly) IGReactPerformanceLoggerSession * perfLoggerSession;              //@synthesize perfLoggerSession=_perfLoggerSession - In the implementation block
 @property (nonatomic,retain) RCTRootView * rootView;                                             //@synthesize rootView=_rootView - In the implementation block
 -(NSString *)analyticsModule;
+-(char)prefersTabBarHidden;
 -(void)onCancelModal;
 -(id)initWithRootView:(id)arg1 perfLoggerSession:(id)arg2 title:(id)arg3 analyticsModule:(id)arg4 ;
 -(void)setRightAction:(id)arg1 enabled:(char)arg2 ;
@@ -30,7 +31,6 @@
 -(void)setAppKey:(NSString *)arg1 ;
 -(IGReactPerformanceLoggerSession *)perfLoggerSession;
 -(void)setAnalyticsModule:(NSString *)arg1 ;
--(char)prefersTabBarHidden;
 -(void)viewWillLayoutSubviews;
 -(void)viewDidLoad;
 -(RCTRootView *)rootView;

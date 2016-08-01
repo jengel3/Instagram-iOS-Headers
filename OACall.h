@@ -22,13 +22,13 @@
 @property (readonly) NSArray * parameters; 
 @property (readonly) NSDictionary * files; 
 @property (nonatomic,retain) OAServiceTicket * ticket; 
--(id)initWithURL:(id)arg1 method:(id)arg2 parameters:(id)arg3 files:(id)arg4 ;
 -(id)initWithURL:(id)arg1 method:(id)arg2 parameters:(id)arg3 ;
 -(void)callFailed:(id)arg1 withError:(id)arg2 ;
 -(void)callFinished:(id)arg1 withData:(id)arg2 ;
 -(id)initWithURL:(id)arg1 parameters:(id)arg2 ;
 -(id)initWithURL:(id)arg1 parameters:(id)arg2 files:(id)arg3 ;
 -(void)perform:(id)arg1 token:(id)arg2 realm:(id)arg3 delegate:(id)arg4 didFinish:(SEL)arg5 ;
+-(id)initWithURL:(id)arg1 method:(id)arg2 parameters:(id)arg3 files:(id)arg4 ;
 -(void)dealloc;
 -(id)init;
 -(NSURL *)url;

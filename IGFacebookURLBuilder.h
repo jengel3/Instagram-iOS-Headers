@@ -12,8 +12,10 @@
 @property (nonatomic,readonly) NSUserDefaults * userDefaults;              //@synthesize userDefaults=_userDefaults - In the implementation block
 @property (nonatomic,retain) NSString * host;                              //@synthesize host=_host - In the implementation block
 @property (nonatomic,readonly) NSURL * graphQLBaseURL; 
+@property (nonatomic,readonly) NSURL * graphQLBatchBaseURL; 
 @property (nonatomic,readonly) NSURL * mSiteBaseURL; 
 +(id)sharedInstance;
+-(NSURL *)graphQLBatchBaseURL;
 -(NSURL *)graphQLBaseURL;
 -(NSURL *)mSiteBaseURL;
 -(id)init;

@@ -21,8 +21,8 @@
 -(NSString *)userSessionPK;
 -(void)setBlendedSearchRecentItemsOrderStore:(IGBlendedSearchRecentItemsOrderStore *)arg1 ;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
--(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(IGBlendedSearchRecentItemsOrderStore *)blendedSearchRecentItemsOrderStore;
+-(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(id)regexPattern;
 -(void)setUserSessionPK:(NSString *)arg1 ;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;

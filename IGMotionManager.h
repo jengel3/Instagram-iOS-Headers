@@ -8,17 +8,17 @@
 	CMMotionManager* _motionManager;
 	NSOperationQueue* _gravityQueue;
 	char _gravityActive;
-	SCD_Struct_IG13 _gravity;
+	SCD_Struct_IG14 _gravity;
 
 }
 
-@property (assign,nonatomic) SCD_Struct_IG13 gravity;                                  //@synthesize gravity=_gravity - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG14 gravity;                                  //@synthesize gravity=_gravity - In the implementation block
 @property (getter=isGravityActive,nonatomic,readonly) char gravityActive;              //@synthesize gravityActive=_gravityActive - In the implementation block
 -(void)startGravityUpdatesToQueue:(id)arg1 withHandler:(/*^block*/id)arg2 ;
 -(void)stopGravityUpdates;
 -(char)isGravityActive;
 -(id)init;
--(SCD_Struct_IG13)gravity;
--(void)setGravity:(SCD_Struct_IG13)arg1 ;
+-(SCD_Struct_IG14)gravity;
+-(void)setGravity:(SCD_Struct_IG14)arg1 ;
 @end
 

@@ -16,10 +16,10 @@
 
 }
 
-@property (assign,nonatomic) char deferVisibility;                             //@synthesize deferVisibility=_deferVisibility - In the implementation block
-@property (assign,nonatomic) id<FBSDKWebDialogDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
-@property (nonatomic,copy) NSString * name;                                    //@synthesize name=_name - In the implementation block
-@property (nonatomic,copy) NSDictionary * parameters;                          //@synthesize parameters=_parameters - In the implementation block
+@property (assign,nonatomic) char deferVisibility;                                    //@synthesize deferVisibility=_deferVisibility - In the implementation block
+@property (assign,nonatomic,__weak) id<FBSDKWebDialogDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,copy) NSString * name;                                           //@synthesize name=_name - In the implementation block
+@property (nonatomic,copy) NSDictionary * parameters;                                 //@synthesize parameters=_parameters - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 

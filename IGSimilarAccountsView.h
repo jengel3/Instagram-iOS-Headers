@@ -8,7 +8,6 @@
 @interface IGSimilarAccountsView : UITableView {
 
 	char _isChainingSeeAllButtonEnabled;
-	char _isHScrollUnitEnabled;
 	NSObject*<IGSimilarAccountsViewDelegate> _similarAccountsViewDelegate;
 	UIView* _topHeaderInnerView;
 	UIView* _topHeaderView;
@@ -26,7 +25,6 @@
 @property (nonatomic,retain) UIView * triangleView;                                                                    //@synthesize triangleView=_triangleView - In the implementation block
 @property (nonatomic,retain) UIButton * seeAllButton;                                                                  //@synthesize seeAllButton=_seeAllButton - In the implementation block
 @property (nonatomic,readonly) char isChainingSeeAllButtonEnabled;                                                     //@synthesize isChainingSeeAllButtonEnabled=_isChainingSeeAllButtonEnabled - In the implementation block
-@property (nonatomic,readonly) char isHScrollUnitEnabled;                                                              //@synthesize isHScrollUnitEnabled=_isHScrollUnitEnabled - In the implementation block
 @property (assign,nonatomic,__weak) NSObject*<IGSimilarAccountsViewDelegate> similarAccountsViewDelegate;              //@synthesize similarAccountsViewDelegate=_similarAccountsViewDelegate - In the implementation block
 +(CGSize)sizeForWidth:(float)arg1 ;
 +(float)defaultHeight;
@@ -44,7 +42,6 @@
 -(void)setTopHeaderView:(UIView *)arg1 ;
 -(void)setTriangleView:(UIView *)arg1 ;
 -(void)setSeeAllButton:(UIButton *)arg1 ;
--(char)isHScrollUnitEnabled;
 -(void)setCloseButton:(UIButton *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)init;

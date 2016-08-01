@@ -8,20 +8,22 @@
 
 	int _devicePosition;
 	UIImage* _image;
+	int _flashMode;
 
 }
 
-@property (nonatomic,retain) UIImage * image;                       //@synthesize image=_image - In the implementation block
+@property (nonatomic,readonly) UIImage * image;                     //@synthesize image=_image - In the implementation block
+@property (nonatomic,readonly) int flashMode;                       //@synthesize flashMode=_flashMode - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) char isFromLibrary; 
-@property (assign,nonatomic) int devicePosition;                    //@synthesize devicePosition=_devicePosition - In the implementation block
--(void)setDevicePosition:(int)arg1 ;
--(int)devicePosition;
+@property (nonatomic,readonly) int devicePosition;                  //@synthesize devicePosition=_devicePosition - In the implementation block
+-(id)initWithImage:(id)arg1 devicePosition:(int)arg2 flashMode:(int)arg3 ;
 -(char)isFromLibrary;
--(void)setImage:(UIImage *)arg1 ;
+-(int)devicePosition;
 -(UIImage *)image;
+-(int)flashMode;
 @end
 

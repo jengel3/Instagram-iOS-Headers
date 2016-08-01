@@ -12,7 +12,7 @@
 }
 
 @property (nonatomic,readonly) IGDrawCanvas * canvas;              //@synthesize canvas=_canvas - In the implementation block
--(void)didDrawOnCanvas:(id)arg1 ;
+-(void)didDrawOnCanvas:(id)arg1 withinRect:(CGRect)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)drawRect:(CGRect)arg1 ;
 -(IGDrawCanvas *)canvas;

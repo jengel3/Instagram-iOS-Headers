@@ -35,6 +35,8 @@
 -(IGFeedItem *)feedItem;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(NSNumberFormatter *)commaNumberFormatter;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)initializeStrings;
 -(void)hideContentViews;
 -(void)initializeCommaNumberFormatter;
@@ -55,8 +57,6 @@
 -(void)queryFailureHandleError:(id)arg1 ;
 -(void)updateWithAdsInlineInsightsModel:(id)arg1 ;
 -(IGInsightsContentRowListView *)educationView;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(IGInsightsCenteredHeaderView *)headerView;

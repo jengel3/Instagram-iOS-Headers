@@ -4,7 +4,7 @@
 #import <Instagram/IGFullWidthCTAButtonType.h>
 #import <Instagram/IGPageCellPageControlDisplayable.h>
 
-@class IGPageCellPageControl, NSString, UIImageView, UIView;
+@class NSString, IGPageCellPageControl, UIImageView, UIView;
 
 @interface IGLeftAlignedFullWidthCTAButton : UIButton <IGFullWidthCTAButtonType, IGPageCellPageControlDisplayable> {
 
@@ -30,11 +30,11 @@
 -(void)setButtonState:(int)arg1 ;
 -(void)configureVisualsForDefaultState;
 -(void)configureTextVisualsForDefaultState;
+-(UIImageView *)chevronImageView;
 -(int)buttonState;
 -(void)animateToButtonState:(int)arg1 ;
 -(void)configureTextVisualsForFilledInState;
 -(void)configureVisualsForFilledInState;
--(UIImageView *)chevronImageView;
 -(void)setPageControl:(IGPageCellPageControl *)arg1 ;
 -(void)setSecondaryText:(NSString *)arg1 ;
 -(void)setPrimaryText:(NSString *)arg1 ;

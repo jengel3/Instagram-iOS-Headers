@@ -22,9 +22,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
--(NSArray *)mediaBundles;
 -(NSNumberFormatter *)commaNumberFormatter;
 -(void)setMediaBundles:(NSArray *)arg1 ;
+-(NSArray *)mediaBundles;
 -(void)initializeCommaNumberFormatter;
 -(void)setCommaNumberFormatter:(NSNumberFormatter *)arg1 ;
 -(CGSize)cellSizeForWidth:(float)arg1 ;

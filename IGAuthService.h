@@ -13,8 +13,8 @@
 @property (nonatomic,retain) IGAuthenticatedUser * currentUser;              //@synthesize currentUser=_currentUser - In the implementation block
 @property (assign,nonatomic) unsigned numLoginAttempts;                      //@synthesize numLoginAttempts=_numLoginAttempts - In the implementation block
 @property (nonatomic,readonly) NSString * uniqueID;                          //@synthesize uniqueID=_uniqueID - In the implementation block
-+(char)cookieIsMIDCookie:(id)arg1 ;
 +(id)sharedAuthService;
++(char)cookieIsMIDCookie:(id)arg1 ;
 -(id)cookieWithName:(id)arg1 value:(id)arg2 ;
 -(id)cookieWithName:(id)arg1 ;
 -(void)restoreCurrentUser;

@@ -1,7 +1,6 @@
 
 
 @interface IGLocaleHelper : NSObject
-+(char)localeIsRussian;
 +(void)onLocaleChanged:(id)arg1 ;
 +(void)onInputModeChanged:(id)arg1 ;
 +(id)localeForCurrentLanguage;
@@ -12,6 +11,7 @@
 +(char)keyboardLocaleIsFarEast;
 +(char)localeHasSpecialCharacters;
 +(char)localeIsThai;
++(char)localeIsRussian;
 +(void)initialize;
 @end
 

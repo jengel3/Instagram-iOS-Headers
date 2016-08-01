@@ -9,12 +9,12 @@
 #import <Instagram/IGFindUsersViewDataSourceDelegate.h>
 #import <Instagram/IGListItemType.h>
 
-@class IGListAdapter, IGListAdapterPerfLogger, IGHScrollAYMFModel, NSMutableArray, IGSuggestedFindUsersViewDataSource, NSString;
+@class IGListAdapter, IGListAdapterUpdaterLogger, IGHScrollAYMFModel, NSMutableArray, IGSuggestedFindUsersViewDataSource, NSString;
 
 @interface IGHScrollAYMFItemController : IGListItemController <IGListAdapterDataSource, IGListAdapterDelegate, IGHScrollAYMFCellItemControllerDelegate, UICollectionViewDelegate, IGHScrollAYMFBannerCellDelegate, IGFindUsersViewDataSourceDelegate, IGListItemType> {
 
 	IGListAdapter* _listAdapter;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 	IGHScrollAYMFModel* _hScrollAYMFModel;
 	NSMutableArray* _items;
 	unsigned* _feedPostion;
@@ -23,7 +23,7 @@
 }
 
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                               //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                               //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                            //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGHScrollAYMFModel * hScrollAYMFModel;                                     //@synthesize hScrollAYMFModel=_hScrollAYMFModel - In the implementation block
 @property (nonatomic,retain) NSMutableArray * items;                                                      //@synthesize items=_items - In the implementation block
 @property (nonatomic,readonly) unsigned* feedPostion;                                                     //@synthesize feedPostion=_feedPostion - In the implementation block
@@ -32,17 +32,14 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)cellForItemAtIndex:(int)arg1 ;
--(void)didUpdateToItem:(id)arg1 ;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(void)findUsersViewDataSource:(id)arg1 didLoadUserList:(id)arg2 ;
--(void)findUsersViewDataSource:(id)arg1 didLoadThumbnailsForUsers:(id)arg2 ;
--(void)findUsersViewDataSource:(id)arg1 didFailWithError:(id)arg2 ;
--(void)findUsersViewDataSource:(id)arg1 didLoadMoreUsers:(id)arg2 allUsers:(id)arg3 ;
--(void)findUsersViewDataSource:(id)arg1 didLoadAllUserIDs:(id)arg2 ;
+-(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
+-(id)cellForItemAtIndex:(int)arg1 ;
+-(void)didUpdateToItem:(id)arg1 ;
 -(void)logFeaturedUserInfoDismissed:(id)arg1 atIndex:(unsigned)arg2 wasLastUser:(char)arg3 ;
 -(void)pushControllerForUser:(id)arg1 ;
 -(void)didDismissAYMFCell:(id)arg1 ;
@@ -56,9 +53,12 @@
 -(IGSuggestedFindUsersViewDataSource *)suggestedUserDataSource;
 -(void)pushPeopleFeedController;
 -(void)didTapActionButton:(id)arg1 ;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
--(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
--(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
+-(void)findUsersViewDataSource:(id)arg1 didLoadUserList:(id)arg2 ;
+-(void)findUsersViewDataSource:(id)arg1 didLoadThumbnailsForUsers:(id)arg2 ;
+-(void)findUsersViewDataSource:(id)arg1 didFailWithError:(id)arg2 ;
+-(void)findUsersViewDataSource:(id)arg1 didLoadMoreUsers:(id)arg2 allUsers:(id)arg3 ;
+-(void)findUsersViewDataSource:(id)arg1 didLoadAllUserIDs:(id)arg2 ;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
 -(NSMutableArray *)items;
 -(void)setItems:(NSMutableArray *)arg1 ;
 -(unsigned)numberOfItems;

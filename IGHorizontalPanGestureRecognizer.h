@@ -22,11 +22,11 @@
 @property (nonatomic,retain) UITouch * touch;                          //@synthesize touch=_touch - In the implementation block
 @property (assign,nonatomic) char rightToLeftPanDisabled;              //@synthesize rightToLeftPanDisabled=_rightToLeftPanDisabled - In the implementation block
 @property (assign,nonatomic) char leftToRightPanDisabled;              //@synthesize leftToRightPanDisabled=_leftToRightPanDisabled - In the implementation block
--(void)setRightToLeftPanDisabled:(char)arg1 ;
--(void)setLeftToRightPanDisabled:(char)arg1 ;
 -(char)rightToLeftPanDisabled;
 -(char)leftToRightPanDisabled;
 -(CGPoint)startPointInView:(id)arg1 ;
+-(void)setRightToLeftPanDisabled:(char)arg1 ;
+-(void)setLeftToRightPanDisabled:(char)arg1 ;
 -(id)initWithTarget:(id)arg1 action:(SEL)arg2 ;
 -(CGPoint)locationInView:(id)arg1 ;
 -(void)touchesBegan:(id)arg1 withEvent:(id)arg2 ;

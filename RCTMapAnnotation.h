@@ -14,45 +14,45 @@
 	NSString* _identifier;
 	UIColor* _tintColor;
 	UIImage* _image;
-	int _viewIndex;
-	int _leftCalloutViewIndex;
-	int _rightCalloutViewIndex;
-	int _detailCalloutViewIndex;
+	unsigned _viewIndex;
+	unsigned _leftCalloutViewIndex;
+	unsigned _rightCalloutViewIndex;
+	unsigned _detailCalloutViewIndex;
 
 }
 
-@property (nonatomic,copy) NSString * identifier;                       //@synthesize identifier=_identifier - In the implementation block
-@property (assign,nonatomic) char hasLeftCallout;                       //@synthesize hasLeftCallout=_hasLeftCallout - In the implementation block
-@property (assign,nonatomic) char hasRightCallout;                      //@synthesize hasRightCallout=_hasRightCallout - In the implementation block
-@property (assign,nonatomic) char animateDrop;                          //@synthesize animateDrop=_animateDrop - In the implementation block
-@property (nonatomic,retain) UIColor * tintColor;                       //@synthesize tintColor=_tintColor - In the implementation block
-@property (nonatomic,retain) UIImage * image;                           //@synthesize image=_image - In the implementation block
-@property (assign,nonatomic) int viewIndex;                             //@synthesize viewIndex=_viewIndex - In the implementation block
-@property (assign,nonatomic) int leftCalloutViewIndex;                  //@synthesize leftCalloutViewIndex=_leftCalloutViewIndex - In the implementation block
-@property (assign,nonatomic) int rightCalloutViewIndex;                 //@synthesize rightCalloutViewIndex=_rightCalloutViewIndex - In the implementation block
-@property (assign,nonatomic) int detailCalloutViewIndex;                //@synthesize detailCalloutViewIndex=_detailCalloutViewIndex - In the implementation block
-@property (assign,nonatomic) char draggable;                            //@synthesize draggable=_draggable - In the implementation block
+@property (nonatomic,copy) NSString * identifier;                          //@synthesize identifier=_identifier - In the implementation block
+@property (assign,nonatomic) char hasLeftCallout;                          //@synthesize hasLeftCallout=_hasLeftCallout - In the implementation block
+@property (assign,nonatomic) char hasRightCallout;                         //@synthesize hasRightCallout=_hasRightCallout - In the implementation block
+@property (assign,nonatomic) char animateDrop;                             //@synthesize animateDrop=_animateDrop - In the implementation block
+@property (nonatomic,retain) UIColor * tintColor;                          //@synthesize tintColor=_tintColor - In the implementation block
+@property (nonatomic,retain) UIImage * image;                              //@synthesize image=_image - In the implementation block
+@property (assign,nonatomic) unsigned viewIndex;                           //@synthesize viewIndex=_viewIndex - In the implementation block
+@property (assign,nonatomic) unsigned leftCalloutViewIndex;                //@synthesize leftCalloutViewIndex=_leftCalloutViewIndex - In the implementation block
+@property (assign,nonatomic) unsigned rightCalloutViewIndex;               //@synthesize rightCalloutViewIndex=_rightCalloutViewIndex - In the implementation block
+@property (assign,nonatomic) unsigned detailCalloutViewIndex;              //@synthesize detailCalloutViewIndex=_detailCalloutViewIndex - In the implementation block
+@property (assign,nonatomic) char draggable;                               //@synthesize draggable=_draggable - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,readonly) SCD_Struct_IG34 coordinate; 
+@property (nonatomic,readonly) SCD_Struct_IG36 coordinate; 
 @property (nonatomic,copy,readonly) NSString * title; 
 @property (nonatomic,copy,readonly) NSString * subtitle; 
--(int)viewIndex;
--(void)setViewIndex:(int)arg1 ;
 -(char)hasLeftCallout;
 -(void)setHasLeftCallout:(char)arg1 ;
 -(char)hasRightCallout;
 -(void)setHasRightCallout:(char)arg1 ;
 -(char)animateDrop;
 -(void)setAnimateDrop:(char)arg1 ;
--(int)leftCalloutViewIndex;
--(void)setLeftCalloutViewIndex:(int)arg1 ;
--(int)rightCalloutViewIndex;
--(void)setRightCalloutViewIndex:(int)arg1 ;
--(int)detailCalloutViewIndex;
--(void)setDetailCalloutViewIndex:(int)arg1 ;
+-(unsigned)viewIndex;
+-(void)setViewIndex:(unsigned)arg1 ;
+-(unsigned)leftCalloutViewIndex;
+-(void)setLeftCalloutViewIndex:(unsigned)arg1 ;
+-(unsigned)rightCalloutViewIndex;
+-(void)setRightCalloutViewIndex:(unsigned)arg1 ;
+-(unsigned)detailCalloutViewIndex;
+-(void)setDetailCalloutViewIndex:(unsigned)arg1 ;
 -(void)setDraggable:(char)arg1 ;
 -(void)setImage:(UIImage *)arg1 ;
 -(NSString *)identifier;

@@ -15,8 +15,8 @@
 @property (nonatomic,readonly) IGHONPromptTextView * promptTextView;              //@synthesize promptTextView=_promptTextView - In the implementation block
 -(void)setupSelectionViewWithDelegate:(id)arg1 ;
 -(void)setupPromptTextView;
--(IGHONPromptTextView *)promptTextView;
 -(id)initWithSelectionViewDelegate:(id)arg1 ;
+-(IGHONPromptTextView *)promptTextView;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;
 -(IGHONSelectionView *)selectionView;

@@ -45,12 +45,12 @@
 -(void)cancelImageLoad;
 -(char)delegateNeedsImageNow;
 -(void)notifyDelegateOfSuccess;
--(void)setDelegateNeedsImageNow:(char)arg1 ;
 -(void)setShouldDecodeAsynchronously:(char)arg1 ;
 -(void)setShouldAnimatePlaceholderTransition:(char)arg1 ;
 -(void)setPreviewImageData:(NSData *)arg1 ;
 -(NSData *)previewImageData;
 -(unsigned)dataLengthForDebug;
+-(void)setDelegateNeedsImageNow:(char)arg1 ;
 -(char)shouldDecodeAsynchronously;
 -(id)processedImageForImage:(id)arg1 ;
 -(void)setImage:(id)arg1 needsProcessing:(char)arg2 ;

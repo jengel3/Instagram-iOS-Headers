@@ -31,7 +31,6 @@
 +(id)titleLabelAttributes;
 +(id)subtitleLabelAttributes;
 +(float)cellHeightForModel:(id)arg1 width:(float)arg2 ;
--(void)exploreInterestButtonsView:(id)arg1 didTapButton:(id)arg2 withIndex:(int)arg3 ;
 -(void)setupTitles;
 -(void)setupSeeMoreButton;
 -(void)setupDoneButton;
@@ -42,6 +41,7 @@
 -(void)layoutTopicButtonViewWithConstrainedRectSize:(CGSize)arg1 ;
 -(void)layoutSeeMoreAndDoneButton;
 -(IGExploreInterestButtonsView *)topicsButtonView;
+-(void)exploreInterestButtonsView:(id)arg1 didTapButton:(id)arg2 withIndex:(int)arg3 ;
 -(void)configureCellWithModel:(id)arg1 ;
 -(void)setTopicsButtonView:(IGExploreInterestButtonsView *)arg1 ;
 -(UIButton *)seeMoreButton;

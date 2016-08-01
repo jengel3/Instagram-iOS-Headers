@@ -4,7 +4,7 @@
 #import <Instagram/IGInlineGalleryDataSource.h>
 
 @protocol IGInlineGalleryDataSourceDelegate, OS_dispatch_queue;
-@class NSObject, PHFetchResult, PHAssetCollection, PHCachingImageManager, PHImageRequestOptions, NSString;
+@class NSObject, PHFetchResult, PHAssetCollection, PHCachingImageManager, PHImageRequestOptions, PHFetchOptions, NSString;
 
 @interface IGInlineGalleryPHDataSource : NSObject <PHPhotoLibraryChangeObserver, IGInlineGalleryDataSource> {
 
@@ -16,6 +16,7 @@
 	PHFetchResult* _assetsInCollectionResult;
 	PHCachingImageManager* _imageManager;
 	PHImageRequestOptions* _imageRequestOptions;
+	PHFetchOptions* _fetchOptions;
 	CGSize _thumbnailSize;
 
 }
@@ -28,24 +29,27 @@
 @property (nonatomic,retain) PHFetchResult * assetsInCollectionResult;                           //@synthesize assetsInCollectionResult=_assetsInCollectionResult - In the implementation block
 @property (nonatomic,retain) PHCachingImageManager * imageManager;                               //@synthesize imageManager=_imageManager - In the implementation block
 @property (nonatomic,retain) PHImageRequestOptions * imageRequestOptions;                        //@synthesize imageRequestOptions=_imageRequestOptions - In the implementation block
+@property (nonatomic,readonly) PHFetchOptions * fetchOptions;                                    //@synthesize fetchOptions=_fetchOptions - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGInlineGalleryDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
--(PHImageRequestOptions *)imageRequestOptions;
--(id)initWithMaxItems:(int)arg1 ;
--(char)hasCameraRollAccess;
--(void)pauseDataFetch;
++(id)dataSourceWithItemsSinceDate:(id)arg1 ;
++(id)dataSourceWithMaxItems:(int)arg1 ;
 -(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
 -(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
+-(id)assetForIndexPath:(id)arg1 ;
+-(void)setImageRequestOptions:(PHImageRequestOptions *)arg1 ;
+-(PHImageRequestOptions *)imageRequestOptions;
+-(char)hasCameraRollAccess;
+-(void)pauseDataFetch;
 -(id)errorMessageIfInvalidAssetAtIndexPath:(id)arg1 ;
 -(id)metadataForAssetAtIndexPath:(id)arg1 ;
 -(int)maxItems;
--(id)assetForIndexPath:(id)arg1 ;
 -(int)numMediaSince:(double)arg1 ;
 -(void)setMaxItems:(int)arg1 ;
+-(id)initWithFetchOptions:(id)arg1 ;
 -(void)assignDefaultAlbum:(/*^block*/id)arg1 ;
 -(PHFetchResult *)fetchCollectionsResult;
 -(void)setFetchCollectionsResult:(PHFetchResult *)arg1 ;
@@ -53,7 +57,7 @@
 -(PHFetchResult *)assetsInCollectionResult;
 -(void)setAssetsInCollectionResult:(PHFetchResult *)arg1 ;
 -(void)setChosenCollection:(PHAssetCollection *)arg1 ;
--(id)fetchOptions;
+-(PHFetchOptions *)fetchOptions;
 -(void)setThumbnailSize:(CGSize)arg1 ;
 -(void)photoLibraryDidChange:(id)arg1 ;
 -(NSObject*<OS_dispatch_queue>)queue;

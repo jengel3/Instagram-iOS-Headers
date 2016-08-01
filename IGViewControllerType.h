@@ -2,9 +2,9 @@
 
 @protocol IGViewControllerType <NSObject>
 @required
--(char)disableNavigationGesture;
--(char)disableNonEdgeNavigationGesture;
 -(char)prefersTabBarHidden;
+-(char)disableNonEdgeNavigationGesture;
+-(char)disableNavigationGesture;
 -(char)prefersNavigationBarHidden;
 
 @end

@@ -36,6 +36,7 @@
 @property (assign,nonatomic) char checkboxChecked;                                                         //@synthesize checkboxChecked=_checkboxChecked - In the implementation block
 @property (nonatomic,retain) UITapGestureRecognizer * tapGestureRecognizerForConfirmingModal;              //@synthesize tapGestureRecognizerForConfirmingModal=_tapGestureRecognizerForConfirmingModal - In the implementation block
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
 -(CGSize)titleLabelSize;
 -(UITapGestureRecognizer *)tapGestureRecognizerForConfirmingModal;
 -(void)onCancelModal;
@@ -43,6 +44,7 @@
 -(void)onConfirmModal;
 -(void)setConfirmButton:(IGButton *)arg1 ;
 -(void)setConfirmButtonText:(NSString *)arg1 ;
+-(id)createTitleLabel;
 -(id)createCheckboxMessageLabel;
 -(void)onToggleEnrollmentStatus;
 -(id)createCancelButton;
@@ -63,8 +65,6 @@
 -(void)setConfirmBlock:(id)arg1 ;
 -(void)setCheckboxChecked:(char)arg1 ;
 -(void)setTapGestureRecognizerForConfirmingModal:(UITapGestureRecognizer *)arg1 ;
--(id)createTitleLabel;
--(char)prefersTabBarHidden;
 -(void)viewDidLayoutSubviews;
 -(UILabel *)titleLabel;
 -(IGButton *)cancelButton;

@@ -23,6 +23,7 @@
 @property (nonatomic,retain) IGStatButton * postsButton;                        //@synthesize postsButton=_postsButton - In the implementation block
 @property (nonatomic,retain) IGExploreEmptyView * emptyView;                    //@synthesize emptyView=_emptyView - In the implementation block
 @property (assign,nonatomic) char showAsPrivate;                                //@synthesize showAsPrivate=_showAsPrivate - In the implementation block
+-(void)updateFeedItems:(id)arg1 ;
 -(void)updateUser:(id)arg1 ;
 -(void)setFollowingButton:(IGStatButton *)arg1 ;
 -(IGStatButton *)followingButton;
@@ -30,7 +31,6 @@
 -(void)setEmptyView:(IGExploreEmptyView *)arg1 ;
 -(IGStatButton *)postsButton;
 -(IGStatButton *)followersButton;
--(void)updateFeedItems:(id)arg1 ;
 -(void)updatePosts:(id)arg1 followers:(id)arg2 following:(id)arg3 verified:(char)arg4 ;
 -(void)setFollowersButton:(IGStatButton *)arg1 ;
 -(void)setPostsButton:(IGStatButton *)arg1 ;

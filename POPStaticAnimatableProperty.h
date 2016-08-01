@@ -4,7 +4,7 @@
 
 @interface POPStaticAnimatableProperty : POPAnimatableProperty {
 
-	SCD_Struct_PO120* _state;
+	SCD_Struct_PO132* _state;
 
 }
 -(/*^block*/id)readBlock;

@@ -18,8 +18,8 @@
 @property (nonatomic,readonly) long long videoLoadLength;              //@synthesize videoLoadLength=_videoLoadLength - In the implementation block
 @property (nonatomic,readonly) char loadProfilePictures;               //@synthesize loadProfilePictures=_loadProfilePictures - In the implementation block
 @property (nonatomic,readonly) char fetchThumbnails;                   //@synthesize fetchThumbnails=_fetchThumbnails - In the implementation block
-+(id)feedConfiguration;
 +(id)gridConfiguration;
++(id)feedConfiguration;
 -(id)primaryImageURLsFromPost:(id)arg1 ;
 -(id)secondaryImageURLsFromPost:(id)arg1 ;
 -(id)videoURLsFromPost:(id)arg1 ;

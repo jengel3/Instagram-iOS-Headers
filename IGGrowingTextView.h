@@ -14,9 +14,6 @@
 	CGPoint _contentOffset;
 	char _allowScroll;
 	char _needsToUpdateConstraints;
-	char _animateHeightChange;
-	unsigned _animationCurve;
-	float _animationDuration;
 	id<IGGrowingTextViewDelegate> _delegate;
 	UIImageView* _imageView;
 	UITextView* _internalTextView;
@@ -27,13 +24,10 @@
 }
 
 @property (nonatomic,retain) UILabel * placeholder;                                      //@synthesize placeholder=_placeholder - In the implementation block
-@property (nonatomic,readonly) unsigned animationCurve;                                  //@synthesize animationCurve=_animationCurve - In the implementation block
-@property (nonatomic,readonly) float animationDuration;                                  //@synthesize animationDuration=_animationDuration - In the implementation block
 @property (assign,nonatomic,__weak) id<IGGrowingTextViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (nonatomic,retain) UIFont * font; 
 @property (nonatomic,retain) UIColor * textColor; 
 @property (nonatomic,copy) NSString * text; 
-@property (assign,nonatomic) char animateHeightChange;                                   //@synthesize animateHeightChange=_animateHeightChange - In the implementation block
 @property (nonatomic,retain) UIImageView * imageView;                                    //@synthesize imageView=_imageView - In the implementation block
 @property (nonatomic,retain) UITextView * internalTextView;                              //@synthesize internalTextView=_internalTextView - In the implementation block
 @property (assign,nonatomic) int maxNumberOfLines;                                       //@synthesize maxNumberOfLines=_maxNumberOfLines - In the implementation block
@@ -52,14 +46,9 @@
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 -(UITextView *)internalTextView;
 -(void)setMaxNumberOfLines:(int)arg1 ;
--(void)setAnimateHeightChange:(char)arg1 ;
 -(float)heightForText:(id)arg1 inWidth:(float)arg2 ;
 -(float)heightForText:(id)arg1 ;
 -(void)updateSizeConstraints;
--(char)animateHeightChange;
--(float)expandAnimationDuration;
--(unsigned)expandAnimationCurve;
--(unsigned)animationCurve;
 -(void)setInternalTextView:(UITextView *)arg1 ;
 -(int)maxNumberOfLines;
 -(NSString *)placeholderText;
@@ -95,7 +84,6 @@
 -(void)setKeyboardType:(int)arg1 ;
 -(void)setPlaceholder:(UILabel *)arg1 ;
 -(UIImageView *)imageView;
--(float)animationDuration;
 -(void)textViewDidBeginEditing:(id)arg1 ;
 -(void)textViewDidEndEditing:(id)arg1 ;
 -(char)textView:(id)arg1 shouldChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;

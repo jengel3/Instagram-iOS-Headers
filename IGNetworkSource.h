@@ -23,16 +23,16 @@
 @property (nonatomic,readonly) NSObject*<OS_dispatch_queue> delegateQueue;               //@synthesize delegateQueue=_delegateQueue - In the implementation block
 @property (nonatomic,readonly) char cancelsPreviousRequest;                              //@synthesize cancelsPreviousRequest=_cancelsPreviousRequest - In the implementation block
 -(NSString *)maxId;
+-(id)initWithDelegate:(id)arg1 parser:(id)arg2 cancelsPreviousRequest:(char)arg3 ;
+-(char)isMoreAvailable;
 -(void)fetchMore;
 -(void)fetchWithLoadMore:(char)arg1 ;
 -(char)cancelsPreviousRequest;
 -(IGRequest *)previousRequest;
--(char)isMoreAvailable;
 -(void)setPreviousRequest:(IGRequest *)arg1 ;
 -(void)handleSuccessResponse:(id)arg1 isLoadMore:(char)arg2 ;
 -(void)handleFailure:(id)arg1 ;
 -(void)setMaxId:(NSString *)arg1 ;
--(id)initWithDelegate:(id)arg1 parser:(id)arg2 cancelsPreviousRequest:(char)arg3 ;
 -(NSObject*<OS_dispatch_queue>)delegateQueue;
 -(id<IGNetworkParser>)parser;
 -(void)cancel;

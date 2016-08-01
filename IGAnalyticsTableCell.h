@@ -21,6 +21,7 @@
 @property (nonatomic,retain) IGFeedItem * feedItem;                       //@synthesize feedItem=_feedItem - In the implementation block
 @property (nonatomic,retain) IGHashtagModel * hashtag;                    //@synthesize hashtag=_hashtag - In the implementation block
 -(IGFeedItem *)feedItem;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(NSDictionary *)logEntryDict;
 -(void)setLogEntryDict:(NSDictionary *)arg1 ;
 -(NSDictionary *)specificEventDict;
@@ -29,7 +30,6 @@
 -(void)setThumbURL:(NSURL *)arg1 ;
 -(IGHashtagModel *)hashtag;
 -(void)setHashtag:(IGHashtagModel *)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(id)init;

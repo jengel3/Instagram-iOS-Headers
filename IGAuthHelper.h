@@ -67,6 +67,7 @@
 -(void)disableTwoFactorWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(void)switchToLastAccessedUserWithForceDueToCurrentUserLogoutWithEntryPoint:(unsigned)arg1 ;
 -(void)logOutAllUsersWithCompletionHandler:(/*^block*/id)arg1 ssoEnabledUsers:(id)arg2 ;
+-(void)changePrivacySetting:(char)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)renewBackupCodesWithSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(void)getProfanityFilterSetting:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(void)changeProfanityFilterSetting:(char)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
@@ -79,7 +80,6 @@
 -(void)logInWithAuthenticatedUser:(id)arg1 facebookAccessToken:(id)arg2 authLogInType:(int)arg3 ;
 -(void)verifySignUpSMSCodeWithPhoneNumber:(id)arg1 validationCode:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)requestSignUpSMSCodeWithPhoneNumber:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
--(void)changePrivacySetting:(char)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(void)requestSupportForSupportType:(unsigned)arg1 user:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)resendTwoFactorLoginSMSForUsername:(id)arg1 twoFactorIdentifier:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)robocallTwoFactorLoginForUsername:(id)arg1 twoFactorIdentifier:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;

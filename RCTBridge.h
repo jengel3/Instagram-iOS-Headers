@@ -3,10 +3,11 @@
 #import <Instagram/RCTInvalidating.h>
 
 @protocol RCTBridgeDelegate;
-@class NSURL, NSDictionary, NSLock, RCTNetworking, RCTImageLoader, RCTImageStoreManager, RCTRedBox, RCTAccessibilityManager, RCTUIManager, RCTDevMenu, NSArray, NSString;
+@class RCTPerformanceLogger, NSURL, NSDictionary, NSLock, RCTNetworking, RCTImageLoader, RCTImageStoreManager, RCTRedBox, RCTAccessibilityManager, RCTUIManager, RCTDevMenu, NSArray, NSString;
 
 @interface RCTBridge : NSObject <RCTInvalidating> {
 
+	RCTPerformanceLogger* _performanceLogger;
 	NSURL* _delegateBundleURL;
 	NSURL* _bundleURL;
 	Class _executorClass;
@@ -39,6 +40,7 @@
 @property (nonatomic,copy,readonly) NSDictionary * launchOptions;                           //@synthesize launchOptions=_launchOptions - In the implementation block
 @property (getter=isLoading,nonatomic,readonly) char loading; 
 @property (getter=isValid,nonatomic,readonly) char valid; 
+@property (nonatomic,readonly) RCTPerformanceLogger * performanceLogger;                    //@synthesize performanceLogger=_performanceLogger - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -48,18 +50,21 @@
 +(void)initialize;
 -(id)initWithDelegate:(id)arg1 launchOptions:(id)arg2 ;
 -(RCTUIManager *)uiManager;
--(RCTImageStoreManager *)imageStoreManager;
 -(id)eventDispatcher;
+-(RCTPerformanceLogger *)performanceLogger;
+-(RCTImageStoreManager *)imageStoreManager;
 -(RCTAccessibilityManager *)accessibilityManager;
 -(id)modulesConformingToProtocol:(id)arg1 ;
 -(id)moduleForClass:(Class)arg1 ;
 -(RCTNetworking *)networking;
 -(RCTImageLoader *)imageLoader;
+-(id)initWithDelegate:(id)arg1 bundleURL:(id)arg2 moduleProvider:(/*^block*/id)arg3 launchOptions:(id)arg4 ;
 -(void)bindKeys;
 -(id)moduleForName:(id)arg1 ;
 -(char)moduleIsInitialized:(Class)arg1 ;
 -(void)createBatchedBridge;
 -(void)setBatchedBridge:(RCTBridge *)arg1 ;
+-(void)enqueueJSCall:(id)arg1 method:(id)arg2 args:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(Class)executorClass;
 -(void)setExecutorClass:(Class)arg1 ;
 -(long long)flowID;
@@ -69,12 +74,12 @@
 -(NSLock *)flowIDMapLock;
 -(void)setFlowIDMapLock:(NSLock *)arg1 ;
 -(id)moduleProvider;
--(void)enqueueJSCall:(id)arg1 args:(id)arg2 ;
 -(void)enqueueCallback:(id)arg1 args:(id)arg2 ;
 -(RCTBridge *)batchedBridge;
 -(id)initWithBundleURL:(id)arg1 moduleProvider:(/*^block*/id)arg2 launchOptions:(id)arg3 ;
 -(RCTDevMenu *)devMenu;
 -(RCTRedBox *)redBox;
+-(void)enqueueJSCall:(id)arg1 args:(id)arg2 ;
 -(NSArray *)moduleClasses;
 -(char)isBatchActive;
 -(NSDictionary *)launchOptions;

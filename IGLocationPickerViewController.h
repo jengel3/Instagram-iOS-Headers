@@ -40,17 +40,17 @@
 -(void)setTempLocation:(id)arg1 ;
 -(id)tempLocation;
 -(void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2 ;
--(void)didSelectLocation:(SCD_Struct_IG33)arg1 ;
+-(void)didSelectLocation:(SCD_Struct_IG35)arg1 ;
 -(void)selectCustom;
 -(id)analyticsModule;
 -(void)onCancelModal;
 -(NSString *)rankToken;
--(char)enableNavState;
 -(void)setLocationDataSource:(IGLocationDataSource *)arg1 ;
 -(IGLocationDataSource *)locationDataSource;
 -(void)setIsInteractive:(char)arg1 ;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(id)initWithSearchSessionId:(id)arg1 ;
+-(void)makeSearchBar;
 -(void)makeRefreshButton;
 -(void)makeCancelButton;
 -(void)onLocateButtonTapped;
@@ -72,7 +72,7 @@
 -(void)searchController:(id)arg1 searchTextDidChange:(id)arg2 ;
 -(void)searchControllerSearchButtonTapped:(id)arg1 ;
 -(void)setContentOffsetObserver:(IGKVOHandle *)arg1 ;
--(void)makeSearchBar;
+-(char)enableNavState;
 -(void)setDelegate:(id<IGLocationPickerDelegate>)arg1 ;
 -(void)dealloc;
 -(id)init;

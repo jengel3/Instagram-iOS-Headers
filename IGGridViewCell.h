@@ -2,7 +2,7 @@
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UICollectionViewCell.h>
 
-@class UIColor, PHImageManager, PHImageRequestOptions, UIImageView, UIView, IGGradientView, UILabel, LMBoomerangLibraryVideoCell, NSNumber, NSString;
+@class UIColor, PHImageManager, PHImageRequestOptions, UIImageView, UIView, IGGradientView, UILabel, LMBoomerangLibraryVideoCell, NSNumber, NSString, UIImage;
 
 @interface IGGridViewCell : UICollectionViewCell {
 
@@ -55,6 +55,8 @@
 @property (assign,nonatomic) char canShowSelectedOverlay;                              //@synthesize canShowSelectedOverlay=_canShowSelectedOverlay - In the implementation block
 @property (assign,nonatomic) char showAssetNumber;                                     //@synthesize showAssetNumber=_showAssetNumber - In the implementation block
 @property (assign,nonatomic) unsigned assetNumber;                                     //@synthesize assetNumber=_assetNumber - In the implementation block
+@property (nonatomic,readonly) UIImage * displayedImage; 
+-(UIImage *)displayedImage;
 -(void)setPlayerView:(LMBoomerangLibraryVideoCell *)arg1 ;
 -(void)setDefaultBackgroundColor:(UIColor *)arg1 ;
 -(void)setOverlayTextLabel:(UILabel *)arg1 ;

@@ -25,13 +25,13 @@
 @property (assign,nonatomic,__weak) id<IGListSupplementaryViewSource> supplementaryViewSource;              //@synthesize supplementaryViewSource=_supplementaryViewSource - In the implementation block
 @property (assign,nonatomic,__weak) id<IGListDisplayDelegate> displayDelegate;                              //@synthesize displayDelegate=_displayDelegate - In the implementation block
 @property (assign,nonatomic,__weak) id<IGListWorkingRangeDelegate> workingRangeDelegate;                    //@synthesize workingRangeDelegate=_workingRangeDelegate - In the implementation block
--(void)setDisplayDelegate:(id<IGListDisplayDelegate>)arg1 ;
 -(id<IGListCollectionContext>)collectionContext;
+-(void)setSupplementaryViewSource:(id<IGListSupplementaryViewSource>)arg1 ;
 -(id<IGListSupplementaryViewSource>)supplementaryViewSource;
 -(id<IGListDisplayDelegate>)displayDelegate;
 -(id<IGListWorkingRangeDelegate>)workingRangeDelegate;
--(void)setSupplementaryViewSource:(id<IGListSupplementaryViewSource>)arg1 ;
 -(void)setWorkingRangeDelegate:(id<IGListWorkingRangeDelegate>)arg1 ;
+-(void)setDisplayDelegate:(id<IGListDisplayDelegate>)arg1 ;
 -(void)setCollectionContext:(id<IGListCollectionContext>)arg1 ;
 -(void)setInset:(UIEdgeInsets)arg1 ;
 -(id)init;

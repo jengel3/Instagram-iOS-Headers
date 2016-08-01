@@ -32,13 +32,13 @@
 @property (assign,nonatomic) float supplementaryFooterViewHeight;              //@synthesize supplementaryFooterViewHeight=_supplementaryFooterViewHeight - In the implementation block
 @property (assign,nonatomic) float headerAdjustmentAmount;                     //@synthesize headerAdjustmentAmount=_headerAdjustmentAmount - In the implementation block
 -(float)headerAdjustmentAmount;
+-(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
+-(void)setSupplementaryFooterViewHeight:(float)arg1 ;
 -(id)initWithNumberOfColumns:(int)arg1 spacing:(float)arg2 ;
 -(float)itemSideLength;
--(float)supplementaryHeaderViewHeight;
--(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
--(float)supplementaryFooterViewHeight;
--(void)setSupplementaryFooterViewHeight:(float)arg1 ;
 -(void)setHeaderAdjustmentAmount:(float)arg1 ;
+-(float)supplementaryHeaderViewHeight;
+-(float)supplementaryFooterViewHeight;
 -(id)init;
 -(int)numberOfColumns;
 -(id)layoutAttributesForElementsInRect:(CGRect)arg1 ;

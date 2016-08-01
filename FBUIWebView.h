@@ -51,6 +51,7 @@
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                          //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
 +(char)automaticallyNotifiesObserversForKey:(id)arg1 ;
+-(int)webViewImplementation;
 -(NSURL *)currentLocationURL;
 -(void)webViewProgress:(id)arg1 didUpdateProgress:(float)arg2 ;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
@@ -62,7 +63,6 @@
 -(void)setIsBannerAtTop:(char)arg1 ;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1 ;
--(int)webViewImplementation;
 -(id)initWithFrame:(CGRect)arg1 analytics:(id)arg2 ;
 -(void)_layoutBannerView;
 -(id)_webBrowserView;

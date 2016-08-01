@@ -5,12 +5,11 @@
 #import <UIKit/UICollectionViewDelegate.h>
 #import <Instagram/IGMegaphoneItemControllerDelegate.h>
 #import <Instagram/IGDirectMainInboxThreadItemControllerDelegate.h>
-#import <Instagram/IGDirectInboxControllerType.h>
 #import <Instagram/IGUIPerfLoggable.h>
 
-@class IGUserSession, IGDirectInboxService, IGDirectCache, IGGenericMegaphone, IGListCollectionView, IGListAdapter, IGListAdapterPerfLogger, IGRefreshControl, IGDirectEmptyInboxView, IGDirectInboxUpdateObserver, IGDirectMainInboxAnalyticsLogger, IGDirectUIPerfLogProxy, IGDirectNewMessageCoordinator, IGDirectInboxCellSwipeCoordinator, NSString;
+@class IGUserSession, IGDirectInboxService, IGDirectCache, IGGenericMegaphone, IGListCollectionView, IGListAdapter, IGListAdapterUpdaterLogger, IGRefreshControl, IGDirectEmptyInboxView, IGDirectInboxUpdateObserver, IGDirectMainInboxAnalyticsLogger, IGDirectUIPerfLogProxy, IGDirectNewMessageCoordinator, IGDirectInboxCellSwipeCoordinator, NSString;
 
-@interface IGDirectMainInboxViewController2 : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGMegaphoneItemControllerDelegate, IGDirectMainInboxThreadItemControllerDelegate, IGDirectInboxControllerType, IGUIPerfLoggable> {
+@interface IGDirectMainInboxViewController2 : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGMegaphoneItemControllerDelegate, IGDirectMainInboxThreadItemControllerDelegate, IGUIPerfLoggable> {
 
 	IGUserSession* _userSession;
 	IGDirectInboxService* _service;
@@ -18,7 +17,7 @@
 	IGGenericMegaphone* _megaphone;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 	IGRefreshControl* _refreshControl;
 	IGDirectEmptyInboxView* _emptyInboxView;
 	IGDirectInboxUpdateObserver* _inboxObserver;
@@ -35,7 +34,7 @@
 @property (nonatomic,retain) IGGenericMegaphone * megaphone;                                      //@synthesize megaphone=_megaphone - In the implementation block
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                             //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                       //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                       //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                    //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGRefreshControl * refreshControl;                                 //@synthesize refreshControl=_refreshControl - In the implementation block
 @property (nonatomic,retain) IGDirectEmptyInboxView * emptyInboxView;                             //@synthesize emptyInboxView=_emptyInboxView - In the implementation block
 @property (nonatomic,retain) IGDirectInboxUpdateObserver * inboxObserver;                         //@synthesize inboxObserver=_inboxObserver - In the implementation block
@@ -48,23 +47,16 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)initWithUserSession:(id)arg1 ;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(id)initWithUserSession:(id)arg1 ;
--(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
--(IGGenericMegaphone *)megaphone;
--(IGDirectNewMessageCoordinator *)messageCoordinator;
--(IGDirectEmptyInboxView *)emptyInboxView;
--(void)setEmptyInboxView:(IGDirectEmptyInboxView *)arg1 ;
--(void)pushToPendingInboxAnimated:(char)arg1 ;
--(void)pushToThreadWithThreadId:(id)arg1 animated:(char)arg2 logResult:(id)arg3 ;
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
--(void)reloadInbox;
 -(IGDirectMainInboxAnalyticsLogger *)analyticsLogger;
+-(IGGenericMegaphone *)megaphone;
 -(void)inboxThreadItemController:(id)arg1 didSetThreadMuted:(char)arg2 threadId:(id)arg3 ;
 -(void)inboxThreadItemController:(id)arg1 didDeleteThreadWithId:(id)arg2 ;
 -(id)initWithUserSession:(id)arg1 service:(id)arg2 cache:(id)arg3 analyticsLogger:(id)arg4 uiPerfLogger:(id)arg5 ;
@@ -75,13 +67,19 @@
 -(void)updateInboxUIStateAnimated:(char)arg1 ;
 -(void)setInboxObserver:(IGDirectInboxUpdateObserver *)arg1 ;
 -(IGDirectInboxCellSwipeCoordinator *)swipeCoordinator;
+-(IGDirectNewMessageCoordinator *)messageCoordinator;
 -(void)fetchInboxDataFromFirstPage:(char)arg1 ;
+-(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
 -(void)fetchNextPage;
 -(IGDirectUIPerfLogProxy *)uiPerfLogger;
+-(IGDirectEmptyInboxView *)emptyInboxView;
+-(void)setEmptyInboxView:(IGDirectEmptyInboxView *)arg1 ;
 -(void)didDismissMegaphoneItemController:(id)arg1 ;
 -(void)megaphoneItemController:(id)arg1 didSelectButton:(id)arg2 ;
+-(void)pushToThreadWithThreadId:(id)arg1 animated:(char)arg2 logResult:(id)arg3 ;
+-(void)pushToPendingInboxAnimated:(char)arg1 ;
 -(IGDirectInboxUpdateObserver *)inboxObserver;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
 -(void)scrollToTopAnimated:(char)arg1 ;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)scrollViewWillEndDragging:(id)arg1 withVelocity:(CGPoint)arg2 targetContentOffset:(inout CGPoint*)arg3 ;

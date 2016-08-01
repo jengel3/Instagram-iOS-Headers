@@ -83,7 +83,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)cellSpacingForWidth:(float)arg1 ;
--(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
 -(void)setCanShowSelectedOverlay:(char)arg1 ;
 -(void)setSelectedAssets:(NSMutableArray *)arg1 ;
 -(void)setNeedsSetPhotoLibraryOptions:(char)arg1 ;
@@ -148,6 +147,7 @@
 -(void)setShowsCameraItem:(char)arg1 ;
 -(id<IGGridViewControllerCameraItemDelegate>)cameraItemDelegate;
 -(void)setCameraItemDelegate:(id<IGGridViewControllerCameraItemDelegate>)arg1 ;
+-(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
 -(id)firstAssetProperty;
 -(void)setFirstAssetProperty:(id)arg1 ;
 -(char)draftsEnabled;

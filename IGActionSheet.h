@@ -27,12 +27,12 @@
 @property (assign,nonatomic,__weak) id<IGActionSheetDelegate> actionDelegate;              //@synthesize actionDelegate=_actionDelegate - In the implementation block
 +(id)sharedIGActionSheet;
 -(void)addButtonWithTitle:(id)arg1 style:(int)arg2 ;
--(void)showWithDelegate:(id)arg1 ;
 -(void)showWithCallback:(/*^block*/id)arg1 ;
 -(void)onOverlayTapped;
 -(void)configureWithConfiguration:(id)arg1 ;
 -(void)addButtonWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 -(void)setActionSheetTitle:(NSString *)arg1 ;
+-(void)showWithDelegate:(id)arg1 ;
 -(id)alertActionWithTitle:(id)arg1 style:(int)arg2 image:(id)arg3 accessibilityIdentifier:(id)arg4 ;
 -(void)onAppDidBackground;
 -(IGActionGroupView *)actionGroupView;

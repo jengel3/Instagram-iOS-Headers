@@ -20,10 +20,10 @@
 @property (nonatomic,retain) NSMutableSet * updatedObjects;                                       //@synthesize updatedObjects=_updatedObjects - In the implementation block
 @property (assign) char blockUpdatedNotifications;                                                //@synthesize blockUpdatedNotifications=_blockUpdatedNotifications - In the implementation block
 @property (assign,nonatomic,__weak) id<IGFetchedResultsControllerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
--(id)initWithFeedSource:(id)arg1 ;
--(void)didUpdateToObjects:(id)arg1 ;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGFeedNetworkSource *)feedSource;
+-(id)initWithFeedSource:(id)arg1 ;
+-(void)didUpdateToObjects:(id)arg1 ;
 -(NSArray *)currentObjects;
 -(char)blockUpdatedNotifications;
 -(void)setBlockUpdatedNotifications:(char)arg1 ;

@@ -22,15 +22,15 @@
 @property (nonatomic,readonly) NSSet * insertIndexPaths;                 //@synthesize insertIndexPaths=_insertIndexPaths - In the implementation block
 @property (nonatomic,readonly) NSSet * deleteIndexPaths;                 //@synthesize deleteIndexPaths=_deleteIndexPaths - In the implementation block
 @property (nonatomic,readonly) NSSet * reloadIndexPaths;                 //@synthesize reloadIndexPaths=_reloadIndexPaths - In the implementation block
-+(void)cleanIndexSetWithMap:(unordered_map<unsigned int, IGDKMoveIndex *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, IGDKMoveIndex *> > >*)arg1 moves:(id)arg2 sections:(id)arg3 deletes:(id)arg4 inserts:(id)arg5 ;
-+(void)cleanIndexPathsWithMap:(unordered_map<unsigned int, IGDKMoveIndex *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, IGDKMoveIndex *> > >*)arg1 moves:(id)arg2 indexPaths:(id)arg3 deletes:(id)arg4 inserts:(id)arg5 ;
--(NSSet *)deleteIndexPaths;
--(NSSet *)insertIndexPaths;
--(NSSet *)reloadIndexPaths;
--(id)initWithInsertSections:(id)arg1 deleteSections:(id)arg2 reloadSections:(id)arg3 moveSections:(id)arg4 insertIndexPaths:(id)arg5 deleteIndexPaths:(id)arg6 reloadIndexPaths:(id)arg7 ;
++(void)cleanIndexSetWithMap:(const unordered_map<unsigned int, IGDKMoveIndex *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, IGDKMoveIndex *> > >*)arg1 moves:(id)arg2 sections:(id)arg3 deletes:(id)arg4 inserts:(id)arg5 ;
++(void)cleanIndexPathsWithMap:(const unordered_map<unsigned int, IGDKMoveIndex *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, IGDKMoveIndex *> > >*)arg1 moves:(id)arg2 indexPaths:(id)arg3 deletes:(id)arg4 inserts:(id)arg5 ;
 -(NSIndexSet *)insertSections;
 -(NSIndexSet *)deleteSections;
 -(NSSet *)moveSections;
+-(NSSet *)insertIndexPaths;
+-(NSSet *)deleteIndexPaths;
+-(NSSet *)reloadIndexPaths;
+-(id)initWithInsertSections:(id)arg1 deleteSections:(id)arg2 reloadSections:(id)arg3 moveSections:(id)arg4 insertIndexPaths:(id)arg5 deleteIndexPaths:(id)arg6 reloadIndexPaths:(id)arg7 ;
 -(id)description;
 -(NSIndexSet *)reloadSections;
 @end

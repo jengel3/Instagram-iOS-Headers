@@ -38,11 +38,11 @@
 -(id)initWithConfiguration:(id)arg1 feedDataCache:(id)arg2 ;
 -(void)setNetworkDelegate:(id<IGEventServiceNetworkDelegate>)arg1 ;
 -(void)fetchPosts;
--(IGEventFeedDataCache *)feedDataCache;
 -(id)requestWithMaxID:(id)arg1 ;
--(void)networkSource:(id)arg1 didFetchMoreWithObject:(id)arg2 ;
 -(void)networkSource:(id)arg1 didFetchObject:(id)arg2 ;
+-(void)networkSource:(id)arg1 didFetchMoreWithObject:(id)arg2 ;
 -(void)networkSource:(id)arg1 didFailWithError:(id)arg2 ;
+-(IGEventFeedDataCache *)feedDataCache;
 -(NSString *)currentUserPK;
 -(IGEventServiceConfiguration *)configuration;
 -(char)isLoading;

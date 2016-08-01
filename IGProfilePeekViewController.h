@@ -34,7 +34,6 @@
 +(id)grayCircleWithSize:(CGSize)arg1 ;
 -(id)analyticsModule;
 -(void)dismissButtonTapped;
--(char)enableNavState;
 -(void)menuButtonTapped;
 -(CGSize)fullSizeForProfilePic;
 -(void)logProfilePeekEvent:(id)arg1 ;
@@ -44,6 +43,7 @@
 -(void)imageViewLoadedImage:(id)arg1 ;
 -(void)imageViewDidChangeImageProgress:(float)arg1 ;
 -(char)shouldShowMenuButton;
+-(char)enableNavState;
 -(void)setProfilePic:(IGProfilePictureImageView *)arg1 ;
 -(void)editButtonTapped;
 -(id)initWithUser:(id)arg1 ;

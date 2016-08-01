@@ -39,11 +39,11 @@
 -(IGVideoInfo *)videoInfo;
 -(float)runningTime;
 -(void)addClip:(id)arg1 ;
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)setMaxVideoDuration:(float)arg1 ;
 -(void)setIsLive:(char)arg1 ;
 -(void)setVideoRecordingEnabled:(char)arg1 ;
+-(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(char)lastClipIsSelected;
 -(void)removeLastClip;
 -(void)setLastClipIsSelected:(char)arg1 ;

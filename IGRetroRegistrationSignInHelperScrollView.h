@@ -36,19 +36,19 @@
 @property (assign,nonatomic) char isTabEnabled;                                                                 //@synthesize isTabEnabled=_isTabEnabled - In the implementation block
 @property (nonatomic,retain) IGRetroRegistrationTextField * emailField;                                         //@synthesize emailField=_emailField - In the implementation block
 +(id)createTitleLabel;
++(id)createPhoneNumberField;
++(id)createEmailField;
 +(id)createIconView;
 +(id)createDescriptionLabel;
 +(id)createToggleView;
 +(id)createSwitchButton;
-+(id)createEmailField;
-+(id)createPhoneNumberField;
 +(id)createSendButton;
 +(id)createLoginHelperButton;
 +(id)createFacebookButton;
 -(IGRetroRegistrationTextField *)emailField;
+-(void)setPhoneNumberField:(IGRetroRegistrationPhoneNumberField *)arg1 ;
 -(void)setEmailField:(IGRetroRegistrationTextField *)arg1 ;
 -(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
--(IGFacebookButton *)facebookButton;
 -(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
 -(IGRetroRegistrationPhoneNumberField *)phoneNumberField;
@@ -60,9 +60,9 @@
 -(void)switchToPhoneNumberView;
 -(void)setSwitchButton:(UIButton *)arg1 ;
 -(void)setToggleView:(IGRetroRegistrationSignInHelperToggleView *)arg1 ;
--(void)setPhoneNumberField:(IGRetroRegistrationPhoneNumberField *)arg1 ;
 -(void)setLoginHelperButton:(UIButton *)arg1 ;
 -(void)setIsTabEnabled:(char)arg1 ;
+-(IGFacebookButton *)facebookButton;
 -(UILabel *)descriptionLabel;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;

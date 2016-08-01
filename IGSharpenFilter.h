@@ -14,9 +14,9 @@
 @property (nonatomic,retain) IGGaussianBlurFilter * blurFilter;              //@synthesize blurFilter=_blurFilter - In the implementation block
 @property (assign,nonatomic) float sigma; 
 @property (assign,nonatomic) unsigned kernelSize; 
+-(void)render:(id)arg1 to:(id)arg2 ;
 -(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(void)setTextureTransform:(_GLKMatrix4)arg1 ;
--(void)render:(id)arg1 to:(id)arg2 ;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
 -(unsigned)kernelSize;
 -(id)strengthShaderCode;

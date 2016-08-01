@@ -29,8 +29,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(id)delegateForManager:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
--(NSProgress *)uploadProgress;
 -(void)setUploadProgress:(NSProgress *)arg1 ;
+-(NSProgress *)uploadProgress;
 -(id)downloadTaskDidFinishDownloading;
 -(void)setDownloadTaskDidFinishDownloading:(id)arg1 ;
 -(void)setDownloadFileURL:(NSURL *)arg1 ;

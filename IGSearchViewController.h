@@ -59,15 +59,17 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(id)analyticsExtras;
+-(char)disableNonEdgeNavigationGesture;
 -(void)animatePushTransition:(id)arg1 duration:(double)arg2 complete:(/*^block*/id)arg3 ;
 -(void)performPopTransition:(id)arg1 toVC:(id)arg2 duration:(double)arg3 complete:(/*^block*/id)arg4 ;
--(char)enableNavState;
--(char)disableNavigationGesture;
--(char)disableNonEdgeNavigationGesture;
+-(void)fetchFrequentItemsIfNeeded;
 -(CGRect)searchBarFrame;
 -(void)resetSearchViewForRootVC:(id)arg1 ;
+-(void)pageViewController:(id)arg1 didPageToViewController:(id)arg2 ;
+-(char)disableNavigationGesture;
 -(void)searchBarButtonTapped:(id)arg1 ;
 -(void)searchBarCancelButtonTapped:(id)arg1 ;
+-(void)searchBarChannelHomeTapped:(id)arg1 ;
 -(void)searchBarPeopleIconTapped:(id)arg1 ;
 -(void)searchBarDirectIconTapped:(id)arg1 ;
 -(void)searchBarWillBeginEditing:(id)arg1 ;
@@ -96,7 +98,6 @@
 -(UIView *)navLineView;
 -(void)onSearchWillBecomeActive;
 -(void)onSearchWillBecomeInactive;
--(void)pageViewController:(id)arg1 didPageToViewController:(id)arg2 ;
 -(void)searchTableViewController:(id)arg1 didChangeSearchText:(id)arg2 ;
 -(void)setTopSearchViewController:(IGSearchResultsViewController *)arg1 ;
 -(void)setUserSearchViewController:(IGSearchResultsViewController *)arg1 ;
@@ -112,6 +113,7 @@
 -(CGRect)originalHostingTabControlFrame;
 -(void)setOriginalHostingTabControlFrame:(CGRect)arg1 ;
 -(void)onSearchTextDidChange:(id)arg1 ;
+-(char)enableNavState;
 -(void)dealloc;
 -(id)init;
 -(char)isActive;

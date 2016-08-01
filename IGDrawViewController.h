@@ -24,10 +24,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)undoLastStroke;
 -(void)clearDrawing;
--(void)setDrawBrush:(id<IGDrawBrush>)arg1 ;
 -(id<IGDrawBrush>)drawBrush;
--(char)hasDrawing;
+-(void)setDrawBrush:(id<IGDrawBrush>)arg1 ;
 -(id)createDrawingImage;
+-(char)hasDrawing;
 -(void)handlePanGestureRecognizer:(id)arg1 ;
 -(void)setDelegate:(id<IGDrawControllerDelegate>)arg1 ;
 -(void)dealloc;

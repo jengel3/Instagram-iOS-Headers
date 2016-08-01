@@ -2,7 +2,7 @@
 
 @protocol IGAlbumMessageComposeDelegate <NSObject>
 @required
--(void)albumMessageComposeDidFinish:(id)arg1;
+-(void)albumMessageComposeViewController:(id)arg1 didFinishComposeWithMessage:(id)arg2;
 
 @end
 

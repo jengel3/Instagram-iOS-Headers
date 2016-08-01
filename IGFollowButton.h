@@ -49,10 +49,10 @@
 -(int)buttonStateForFollowStatus:(int)arg1 ;
 -(IGUnfollowHeaderView *)unfollowHeaderView;
 -(float)findWidthOfFollowAndUnfollowButtons;
--(void)setShowAccessoryView:(char)arg1 ;
 -(void)setUnfollowHeaderView:(IGUnfollowHeaderView *)arg1 ;
 -(void)setPendingRequestView:(IGPendingRequestView *)arg1 ;
 -(char)shouldShowTitle;
+-(void)setShowAccessoryView:(char)arg1 ;
 -(void)setContextString:(NSString *)arg1 ;
 -(void)setCanShowFollowRequest:(char)arg1 ;
 -(void)setUsesTransparentBackground:(char)arg1 ;

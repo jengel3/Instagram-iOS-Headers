@@ -23,7 +23,7 @@
 +(int)NSInteger:(id)arg1 ;
 +(id)NSNumber:(id)arg1 ;
 +(double)double:(id)arg1 ;
-+(SCD_Struct_RC136)RCTLocationOptions:(id)arg1 ;
++(SCD_Struct_RC122)RCTLocationOptions:(id)arg1 ;
 +(id)UILocalNotification:(id)arg1 ;
 +(id)NSNumberArray:(id)arg1 ;
 +(float)CGFloat:(id)arg1 ;
@@ -51,6 +51,7 @@
 +(int)UITextAutocapitalizationType:(id)arg1 ;
 +(int)UITextFieldViewMode:(id)arg1 ;
 +(int)UIKeyboardType:(id)arg1 ;
++(unsigned)UIDataDetectorTypes:(id)arg1 ;
 +(int)UIKeyboardAppearance:(id)arg1 ;
 +(int)UIReturnKeyType:(id)arg1 ;
 +(int)UIViewContentMode:(id)arg1 ;
@@ -71,11 +72,11 @@
 +(id)NSPropertyList:(id)arg1 ;
 +(char)css_backface_visibility_t:(id)arg1 ;
 +(char)css_clip_t:(id)arg1 ;
-+(int)css_flex_direction_t:(id)arg1 ;
-+(int)css_justify_t:(id)arg1 ;
-+(int)css_align_t:(id)arg1 ;
-+(int)css_position_type_t:(id)arg1 ;
-+(int)css_wrap_type_t:(id)arg1 ;
++(int)CSSFlexDirection:(id)arg1 ;
++(int)CSSJustify:(id)arg1 ;
++(int)CSSAlign:(id)arg1 ;
++(int)CSSPositionType:(id)arg1 ;
++(int)CSSWrapType:(id)arg1 ;
 +(int)RCTPointerEvents:(id)arg1 ;
 +(int)RCTAnimationType:(id)arg1 ;
 +(id)RCTImageSource:(id)arg1 ;
@@ -87,8 +88,8 @@
 +(int)UIActivityIndicatorViewStyle:(id)arg1 ;
 +(double)CLLocationDegrees:(id)arg1 ;
 +(double)CLLocationDistance:(id)arg1 ;
-+(SCD_Struct_IG34)CLLocationCoordinate2D:(id)arg1 ;
-+(SCD_Struct_IG34)MKCoordinateSpan:(id)arg1 ;
++(SCD_Struct_IG36)CLLocationCoordinate2D:(id)arg1 ;
++(SCD_Struct_IG36)MKCoordinateSpan:(id)arg1 ;
 +(id)RCTMapAnnotation:(id)arg1 ;
 +(id)RCTMapOverlay:(id)arg1 ;
 +(unsigned)MKMapType:(id)arg1 ;
@@ -96,7 +97,7 @@
 +(id)RCTMapOverlayArray:(id)arg1 ;
 +(int)UIDatePickerMode:(id)arg1 ;
 +(unsigned)MKPinAnnotationColor:(id)arg1 ;
-+(SCD_Struct_IG36)MKCoordinateRegion:(id)arg1 ;
++(SCD_Struct_IG37)MKCoordinateRegion:(id)arg1 ;
 +(int)UIProgressViewStyle:(id)arg1 ;
 +(int)UIScrollViewKeyboardDismissMode:(id)arg1 ;
 +(int)UIScrollViewIndicatorStyle:(id)arg1 ;

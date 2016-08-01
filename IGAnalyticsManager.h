@@ -24,7 +24,8 @@
 -(void)privatePostsSettingChanged:(id)arg1 ;
 -(void)autoplayVideoSettingChanged:(id)arg1 ;
 -(void)preloadVideoSettingChanged:(id)arg1 ;
--(void)logDeviceInformation;
+-(void)logDeviceInfoAndDeviceDataUsage;
+-(void)logAppDataUsage;
 -(void)onCameraRollInitialized;
 -(void)onPhotoPermissionsPrompted:(id)arg1 ;
 -(void)onPushPermissionPrompted:(id)arg1 ;
@@ -61,9 +62,10 @@
 -(id)cdnSuffixFromPath:(id)arg1 ;
 -(char)isInstagramURL:(id)arg1 ;
 -(NSRegularExpression *)cdnSuffixRegex;
+-(void)logDeviceInformation;
 -(void)setCdnSuffixRegex:(NSRegularExpression *)arg1 ;
--(void)onLocationUpdated:(id)arg1 ;
 -(void)onLocationDenied:(id)arg1 ;
+-(void)onLocationUpdated:(id)arg1 ;
 -(void)dealloc;
 -(id)init;
 @end

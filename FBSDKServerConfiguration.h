@@ -22,6 +22,7 @@
 	FBSDKErrorConfiguration* _errorConfiguration;
 	NSString* _loginTooltipText;
 	NSDate* _timestamp;
+	double _sessionTimoutInterval;
 
 }
 
@@ -38,6 +39,7 @@
 @property (getter=isSystemAuthenticationEnabled,nonatomic,readonly) char systemAuthenticationEnabled;                      //@synthesize systemAuthenticationEnabled=_systemAuthenticationEnabled - In the implementation block
 @property (nonatomic,copy,readonly) NSString * loginTooltipText;                                                           //@synthesize loginTooltipText=_loginTooltipText - In the implementation block
 @property (nonatomic,copy,readonly) NSDate * timestamp;                                                                    //@synthesize timestamp=_timestamp - In the implementation block
+@property (assign,nonatomic) double sessionTimoutInterval;                                                                 //@synthesize sessionTimoutInterval=_sessionTimoutInterval - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -53,11 +55,13 @@
 -(char)isImplicitPurchaseLoggingSupported;
 -(char)isImplicitLoggingSupported;
 -(FBSDKErrorConfiguration *)errorConfiguration;
+-(double)sessionTimoutInterval;
 -(id)dialogConfigurationForDialogName:(id)arg1 ;
--(char)_useFeatureWithKey:(id)arg1 dialogName:(id)arg2 ;
--(id)initWithAppID:(id)arg1 appName:(id)arg2 loginTooltipEnabled:(char)arg3 loginTooltipText:(id)arg4 defaultShareMode:(id)arg5 advertisingIDEnabled:(char)arg6 implicitLoggingEnabled:(char)arg7 implicitPurchaseLoggingEnabled:(char)arg8 systemAuthenticationEnabled:(char)arg9 nativeAuthFlowEnabled:(char)arg10 dialogConfigurations:(id)arg11 dialogFlows:(id)arg12 timestamp:(id)arg13 errorConfiguration:(id)arg14 defaults:(char)arg15 ;
 -(char)isDefaults;
+-(char)_useFeatureWithKey:(id)arg1 dialogName:(id)arg2 ;
 -(char)isNativeAuthFlowEnabled;
+-(void)setSessionTimoutInterval:(double)arg1 ;
+-(id)initWithAppID:(id)arg1 appName:(id)arg2 loginTooltipEnabled:(char)arg3 loginTooltipText:(id)arg4 defaultShareMode:(id)arg5 advertisingIDEnabled:(char)arg6 implicitLoggingEnabled:(char)arg7 implicitPurchaseLoggingEnabled:(char)arg8 systemAuthenticationEnabled:(char)arg9 nativeAuthFlowEnabled:(char)arg10 dialogConfigurations:(id)arg11 dialogFlows:(id)arg12 timestamp:(id)arg13 errorConfiguration:(id)arg14 sessionTimeoutInterval:(double)arg15 defaults:(char)arg16 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

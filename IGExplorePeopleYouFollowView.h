@@ -18,13 +18,13 @@
 @property (assign,nonatomic,__weak) UILabel * timestampLabel;                                  //@synthesize timestampLabel=_timestampLabel - In the implementation block
 @property (assign,nonatomic,__weak) IGImageView * postImageView;                               //@synthesize postImageView=_postImageView - In the implementation block
 -(IGProfilePictureImageView *)profileImageView;
+-(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
 -(UILabel *)timestampLabel;
 -(void)setTimestampLabel:(UILabel *)arg1 ;
 -(IGImageView *)postImageView;
 -(void)setPostImageView:(IGImageView *)arg1 ;
--(void)setProfileImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)configureSubviewsLayout;
 -(void)addAllSubviews;
 -(id)initWithFrame:(CGRect)arg1 ;

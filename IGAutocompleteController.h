@@ -104,12 +104,12 @@
 -(void)textInputDidChange;
 -(char)isCommittingText;
 -(void)setCommittingText:(char)arg1 ;
+-(void)setFeedItem:(id)arg1 ;
 -(void)setUseRemoteDataSources:(char)arg1 ;
 -(void)setAnalyticsModule:(NSString *)arg1 ;
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFinishLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFailLoad:(id)arg1 ;
--(void)setFeedItem:(id)arg1 ;
 -(void)setSearchText:(NSString *)arg1 ;
 -(void)setDelegate:(id<IGAutocompleteControllerDelegate>)arg1 ;
 -(void)dealloc;

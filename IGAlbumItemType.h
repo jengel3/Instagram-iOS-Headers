@@ -2,16 +2,18 @@
 
 @protocol IGAlbumItemType <NSObject>
 @required
--(id)albumChannelPK;
+-(id)mediaID;
 -(id)takenAtDate;
--(int)viewerCount;
--(id)viewers;
 -(id)feedItem;
 -(id)pendingUpload;
+-(int)viewerCount;
+-(id)albumChannelPK;
+-(id)viewers;
 -(id)user;
 -(int)mediaType;
 -(id)photo;
 -(char)shouldLoop;
+-(double)totalDuration;
 -(id)video;
 
 @end

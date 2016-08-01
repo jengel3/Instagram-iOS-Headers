@@ -59,8 +59,8 @@
 -(void)getAccessTokenAndPushBusinessSelectorIfPossible;
 -(void)updateCurrentPage;
 -(char)didDeclineFacebookAuth;
--(id)initWithEntrypoint:(id)arg1 ;
 -(void)setLoggingHelper:(IGBusinessConversionLoggingHelper *)arg1 ;
+-(id)initWithEntrypoint:(id)arg1 ;
 -(void)pageControlValueChanged:(id)arg1 ;
 -(void)setPageControl:(IGPageCellPageControl *)arg1 ;
 -(void)setDelegate:(id<IGBusinessConversionViewControllerDelegate>)arg1 ;

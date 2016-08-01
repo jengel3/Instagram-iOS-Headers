@@ -17,8 +17,8 @@
 @property (nonatomic,readonly) char shouldSplitUsername;                                          //@synthesize shouldSplitUsername=_shouldSplitUsername - In the implementation block
 -(id)initWithFrame:(CGRect)arg1 shouldSplitUsername:(char)arg2 ;
 -(char)shouldSplitUsername;
--(void)setSignUpScrollView:(IGRetroRegistrationSignUpScrollView *)arg1 ;
 -(IGRetroRegistrationSignUpScrollView *)signUpScrollView;
+-(void)setSignUpScrollView:(IGRetroRegistrationSignUpScrollView *)arg1 ;
 -(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 ;
 -(void)setBackgroundView:(IGRetroRegistrationBackgroundView *)arg1 ;
 -(IGRetroRegistrationBackgroundView *)backgroundView;

@@ -20,6 +20,7 @@
 	UIProgressView* _progressView;
 	unsigned _uploadPhase;
 	NSMutableArray* _uploadPhaseProgress;
+	int _mode;
 
 }
 
@@ -32,6 +33,7 @@
 @property (nonatomic,retain) UIProgressView * progressView;                                            //@synthesize progressView=_progressView - In the implementation block
 @property (assign,nonatomic) unsigned uploadPhase;                                                     //@synthesize uploadPhase=_uploadPhase - In the implementation block
 @property (nonatomic,retain) NSMutableArray * uploadPhaseProgress;                                     //@synthesize uploadPhaseProgress=_uploadPhaseProgress - In the implementation block
+@property (assign,nonatomic) int mode;                                                                 //@synthesize mode=_mode - In the implementation block
 @property (nonatomic,retain) IGUploadModel * activePost;                                               //@synthesize activePost=_activePost - In the implementation block
 @property (assign,nonatomic,__weak) id<IGMainFeedUploadCellContentViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
@@ -39,10 +41,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(UIButton *)retryButton;
--(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
--(void)actionSheetFinishedHiding;
+-(id)initWithFrame:(CGRect)arg1 inViewMode:(int)arg2 ;
 -(void)setActivePost:(IGUploadModel *)arg1 ;
 -(IGUploadModel *)activePost;
+-(void)actionSheetDismissedWithButtonTitled:(id)arg1 ;
+-(void)actionSheetFinishedHiding;
 -(void)removeKeyValueObservationFromActivePost;
 -(void)removeUpload:(id)arg1 ;
 -(void)retryUpload:(id)arg1 ;
@@ -59,11 +62,12 @@
 -(void)setUploadPhase:(unsigned)arg1 ;
 -(NSMutableArray *)uploadPhaseProgress;
 -(void)setUploadPhaseProgress:(NSMutableArray *)arg1 ;
--(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGMainFeedUploadCellContentViewDelegate>)arg1 ;
 -(void)dealloc;
 -(id<IGMainFeedUploadCellContentViewDelegate>)delegate;
 -(UIImageView *)imageView;
+-(void)setMode:(int)arg1 ;
+-(int)mode;
 -(void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4 ;
 -(void)setProgressView:(UIProgressView *)arg1 ;
 -(UIProgressView *)progressView;

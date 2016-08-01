@@ -44,16 +44,14 @@
 -(UILabel *)usernameLabel;
 -(UILabel *)userDetailLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
+-(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
 -(void)setIsUserVerified:(char)arg1 ;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(UIImageView *)verifiedUserBadgeView;
--(void)setVerifiedUserBadgeView:(UIImageView *)arg1 ;
 -(char)isUserVerified;
 -(void)setProfilePicImageView:(IGProfilePictureImageView *)arg1 ;
 -(void)setUserDetailLabel:(UILabel *)arg1 ;
--(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(void)setSwipableContentScrollView:(UIScrollView *)arg1 ;
 -(void)setSwipableContentView:(UIView *)arg1 ;
 -(UIScrollView *)swipableContentScrollView;
@@ -62,6 +60,8 @@
 -(IGFollowButton *)followButton;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
+-(UIImageView *)verifiedUserBadgeView;
+-(void)setVerifiedUserBadgeView:(UIImageView *)arg1 ;
 -(void)cellTapped:(id)arg1 ;
 -(void)setSeparatorHidden:(char)arg1 ;
 -(char)separatorHidden;

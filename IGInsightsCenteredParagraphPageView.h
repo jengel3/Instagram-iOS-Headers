@@ -35,9 +35,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(IGInsightsLoggingHelper *)loggingHelper;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id)initWithParagraphComponent:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
 -(void)setSurface:(unsigned)arg1 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id)getCollectionViewFlowLayout;
 -(void)initializePageControl;
 -(void)logPageDisplayedAtIndex:(unsigned)arg1 ;

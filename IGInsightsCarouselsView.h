@@ -26,7 +26,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSArray *)mediaBundles;
 -(unsigned)numberOfCarouselsInCarouselsView:(id)arg1 ;
 -(id)carouselsView:(id)arg1 titleForCarouselAtSection:(unsigned)arg2 ;
 -(char)carouselsView:(id)arg1 shouldShowButtonForCarouselAtSection:(unsigned)arg2 ;
@@ -37,6 +36,7 @@
 -(id)carouselsView:(id)arg1 viewModelForCarouselItemAtIndexPath:(id)arg2 ;
 -(void)carouselsView:(id)arg1 didSelectCarouselItemAtIndexPath:(id)arg2 ;
 -(void)setMediaBundles:(NSArray *)arg1 ;
+-(NSArray *)mediaBundles;
 -(void)updateMediaBundle:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 header:(id)arg2 buttonText:(id)arg3 ;
 -(IGExploreCarouselsView *)carouselsView;

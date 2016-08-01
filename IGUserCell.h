@@ -4,7 +4,7 @@
 #import <Instagram/IGFollowButtonDelegate.h>
 
 @protocol IGUserCellDelegate, IGRaindropAnalyticsDelegate;
-@class IGUser, IGProfilePictureImageView, IGFollowButton, UIButton, IGKVOHandle, UILabel, UIView, UIImageView, IGFollowerListChainingButtonController, NSString;
+@class IGUser, IGProfilePictureImageView, IGFollowButton, UIImageView, UIImage, UIButton, IGKVOHandle, UILabel, UIView, IGFollowerListChainingButtonController, NSString;
 
 @interface IGUserCell : IGPlainTableViewCell <IGFollowButtonDelegate> {
 
@@ -20,6 +20,9 @@
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
 	IGProfilePictureImageView* _profilePicture;
 	IGFollowButton* _followButton;
+	UIImageView* _checkmarkImageView;
+	UIImage* _checkMark;
+	UIImage* _emptyCheckBox;
 	UIButton* _dismissButton;
 	IGKVOHandle* _favoriteButtonWidthListener;
 	UILabel* _bylineLabel;
@@ -32,6 +35,9 @@
 
 @property (nonatomic,retain) IGProfilePictureImageView * profilePicture;                                           //@synthesize profilePicture=_profilePicture - In the implementation block
 @property (nonatomic,retain) IGFollowButton * followButton;                                                        //@synthesize followButton=_followButton - In the implementation block
+@property (nonatomic,retain) UIImageView * checkmarkImageView;                                                     //@synthesize checkmarkImageView=_checkmarkImageView - In the implementation block
+@property (nonatomic,retain) UIImage * checkMark;                                                                  //@synthesize checkMark=_checkMark - In the implementation block
+@property (nonatomic,retain) UIImage * emptyCheckBox;                                                              //@synthesize emptyCheckBox=_emptyCheckBox - In the implementation block
 @property (nonatomic,retain) UIButton * dismissButton;                                                             //@synthesize dismissButton=_dismissButton - In the implementation block
 @property (nonatomic,retain) IGKVOHandle * favoriteButtonWidthListener;                                            //@synthesize favoriteButtonWidthListener=_favoriteButtonWidthListener - In the implementation block
 @property (nonatomic,retain) UILabel * bylineLabel;                                                                //@synthesize bylineLabel=_bylineLabel - In the implementation block
@@ -57,21 +63,22 @@
 +(float)defaultCellHeightWithByline;
 +(UIEdgeInsets)defaultCellSeparatorInsets;
 +(float)defaultCellHeight;
--(UILabel *)bylineLabel;
--(void)setBylineLabel:(UILabel *)arg1 ;
 -(char)showVerifiedBadge;
+-(UIImage *)emptyCheckBox;
+-(void)setCheckMark:(UIImage *)arg1 ;
+-(void)setEmptyCheckBox:(UIImage *)arg1 ;
+-(void)setBylineLabel:(UILabel *)arg1 ;
+-(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(void)onDismissButtonTapped:(id)arg1 ;
 -(void)setShowDismissButton:(char)arg1 ;
 -(IGFollowButton *)followButton;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
 -(void)setLayoutOption:(int)arg1 ;
--(void)setUserCellAccessoryType:(int)arg1 ;
--(void)setFollowActionBlock:(id)arg1 ;
+-(UILabel *)bylineLabel;
 -(void)setUpFollowButton;
 -(UIImageView *)verifiedBadgeImageView;
 -(void)setVerifiedBadgeImageView:(UIImageView *)arg1 ;
@@ -84,6 +91,7 @@
 -(IGFollowerListChainingButtonController *)chainingFollowButtonController;
 -(void)setChainingFollowButtonController:(IGFollowerListChainingButtonController *)arg1 ;
 -(void)createChainingFollowButton;
+-(int)userCellAccessoryType;
 -(char)showByline;
 -(char)showShortByline;
 -(void)setupBylineLabel;
@@ -91,11 +99,12 @@
 -(int)layoutOption;
 -(float)textLabelSpacing;
 -(void)setShowTopSeperator:(char)arg1 withEdgeInsets:(UIEdgeInsets)arg2 ;
--(int)userCellAccessoryType;
+-(void)setFollowActionBlock:(id)arg1 ;
 -(void)setShowByline:(char)arg1 ;
 -(void)setShowShortByline:(char)arg1 ;
 -(void)setShowVerifiedBadge:(char)arg1 ;
 -(void)setFavoriteButtonWidthListener:(IGKVOHandle *)arg1 ;
+-(void)setUserCellAccessoryType:(int)arg1 ;
 -(IGProfilePictureImageView *)profilePicture;
 -(void)setProfilePicture:(IGProfilePictureImageView *)arg1 ;
 -(IGUser *)user;
@@ -105,10 +114,14 @@
 -(void)layoutSubviews;
 -(id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 ;
 -(id<IGUserCellDelegate>)delegate;
+-(void)setSelected:(char)arg1 animated:(char)arg2 ;
 -(id)initWithReuseIdentifier:(id)arg1 ;
 -(UIEdgeInsets)insets;
 -(void)setInsets:(UIEdgeInsets)arg1 ;
+-(void)setCheckmarkImageView:(UIImageView *)arg1 ;
+-(UIImageView *)checkmarkImageView;
 -(UIButton *)dismissButton;
+-(UIImage *)checkMark;
 -(void)setDismissButton:(UIButton *)arg1 ;
 @end
 

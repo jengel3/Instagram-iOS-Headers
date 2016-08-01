@@ -10,6 +10,7 @@
 	NSMutableDictionary* _attributesCache;
 	char _cachedLayoutInvalid;
 	NSMutableDictionary* _headerAttributesCache;
+	NSMutableDictionary* _borderAttributesCache;
 	char _stickyHeaders;
 	float _stickyHeaderOriginYAdjustment;
 	float _topContentInset;
@@ -30,6 +31,7 @@
 -(id)layoutAttributesForItemAtIndexPath:(id)arg1 ;
 -(CGSize)collectionViewContentSize;
 -(id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2 ;
+-(id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2 ;
 -(void)prepareLayout;
 -(void)invalidateLayoutWithContext:(id)arg1 ;
 -(id)invalidationContextForBoundsChange:(CGRect)arg1 ;

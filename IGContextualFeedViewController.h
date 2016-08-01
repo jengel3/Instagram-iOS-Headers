@@ -9,7 +9,7 @@
 #import <Instagram/IGPagingListAdapterControllerDelegate.h>
 #import <Instagram/IGBugReportingProtocol.h>
 
-@class IGListCollectionView, IGFeedNetworkSource, IGListAdapter, IGContextualFeedItemConfiguration, IGUser, IGFeedStatusView, IGRefreshControl, IGFeedPreviewingHandler, IGListAdapterPerfLogger, IGFeedScrollViewAnnouncer, IGFeedItemControllerComponents, IGPagingListAdapterController, IGFeedFocusCoordinator, NSString;
+@class IGListCollectionView, IGFeedNetworkSource, IGListAdapter, IGContextualFeedItemConfiguration, IGUser, IGFeedStatusView, IGRefreshControl, IGFeedPreviewingHandler, IGListAdapterUpdaterLogger, IGFeedScrollViewAnnouncer, IGFeedItemControllerComponents, IGPagingListAdapterController, IGFeedFocusCoordinator, NSString;
 
 @interface IGContextualFeedViewController : IGViewController <IGFeedNetworkSourceDelegate, IGListAdapterDataSource, IGListAdapterDelegate, IGFeedStatusViewDelegate, IGFeedScrollViewListener, IGFeedPreviewingType, IGPagingListAdapterControllerDelegate, IGBugReportingProtocol> {
 
@@ -22,7 +22,7 @@
 	IGFeedStatusView* _feedStatusView;
 	IGRefreshControl* _refreshControl;
 	IGFeedPreviewingHandler* _previewingHandler;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 	IGFeedScrollViewAnnouncer* _feedScrollAnnouncer;
 	IGFeedItemControllerComponents* _feedItemControllerComponents;
 	IGPagingListAdapterController* _pagingListAdapterController;
@@ -36,7 +36,7 @@
 @property (nonatomic,readonly) IGFeedStatusView * feedStatusView;                                          //@synthesize feedStatusView=_feedStatusView - In the implementation block
 @property (nonatomic,readonly) IGRefreshControl * refreshControl;                                          //@synthesize refreshControl=_refreshControl - In the implementation block
 @property (nonatomic,readonly) IGFeedPreviewingHandler * previewingHandler;                                //@synthesize previewingHandler=_previewingHandler - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                                //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                             //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGFeedScrollViewAnnouncer * feedScrollAnnouncer;                            //@synthesize feedScrollAnnouncer=_feedScrollAnnouncer - In the implementation block
 @property (nonatomic,readonly) IGFeedItemControllerComponents * feedItemControllerComponents;              //@synthesize feedItemControllerComponents=_feedItemControllerComponents - In the implementation block
 @property (nonatomic,readonly) IGPagingListAdapterController * pagingListAdapterController;                //@synthesize pagingListAdapterController=_pagingListAdapterController - In the implementation block
@@ -53,25 +53,26 @@
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
+-(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
 -(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
+-(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
+-(void)feedNetworkSource:(id)arg1 didChangeToObjects:(id)arg2 ;
+-(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
 -(void)scrollViewDidEndDragging:(id)arg1 ;
 -(void)setupCollectionViewAndAdapter;
 -(void)fetchNextPage;
 -(IGFeedFocusCoordinator *)focusCoordinator;
--(char)enableNavState;
--(void)setupFeedStatusView;
--(void)feedNetworkSource:(id)arg1 didChangeToObjects:(id)arg2 ;
--(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
--(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
--(id)bugReportDescription;
 -(void)refreshDataIfNotFullyLoaded;
+-(id)bugReportDescription;
 -(void)scrollToFocusedItem;
 -(IGPagingListAdapterController *)pagingListAdapterController;
 -(char)hasScrolledToFocusedItem;
 -(void)setHasScrolledToFocusedItem:(char)arg1 ;
 -(void)fetchPreviousPage;
--(IGFeedNetworkSource *)feedNetworkSource;
+-(void)setupFeedStatusView;
 -(IGContextualFeedItemConfiguration *)itemConfiguration;
+-(IGFeedNetworkSource *)feedNetworkSource;
 -(IGFeedScrollViewAnnouncer *)feedScrollAnnouncer;
 -(IGFeedPreviewingHandler *)previewingHandler;
 -(IGFeedItemControllerComponents *)feedItemControllerComponents;
@@ -81,10 +82,9 @@
 -(void)scrollViewWillScrollNearBottom:(id)arg1 ;
 -(void)scrollViewWillScrollNearTop:(id)arg1 ;
 -(void)feedStatusViewDidTapOnInfoView:(id)arg1 ;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
--(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
--(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
 -(id)initWithFeedNetworkSource:(id)arg1 currentUser:(id)arg2 itemConfiguration:(id)arg3 focusCoordinator:(id)arg4 ;
+-(char)enableNavState;
 -(void)dealloc;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)scrollViewWillBeginDragging:(id)arg1 ;

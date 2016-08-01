@@ -15,23 +15,23 @@
 	int _mode;
 	float _zoom;
 	NSData* _frameWarp;
-	SCD_Struct_IG79 _cameraParameters;
+	SCD_Struct_IG81 _cameraParameters;
 
 }
 
-@property (assign,nonatomic) SCD_Struct_IG79 cameraParameters;              //@synthesize cameraParameters=_cameraParameters - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG81 cameraParameters;              //@synthesize cameraParameters=_cameraParameters - In the implementation block
 @property (assign,nonatomic) int mode;                                      //@synthesize mode=_mode - In the implementation block
 @property (assign,nonatomic) float zoom;                                    //@synthesize zoom=_zoom - In the implementation block
 @property (nonatomic,retain) NSData * frameWarp;                            //@synthesize frameWarp=_frameWarp - In the implementation block
 -(void)setFrameWarp:(NSData *)arg1 ;
--(void)setCameraParameters:(SCD_Struct_IG79)arg1 ;
+-(void)setCameraParameters:(SCD_Struct_IG81)arg1 ;
 -(void)bindVertexBufferWithProgram:(id)arg1 ;
 -(void)bindIndexBufferWithProgram:(id)arg1 ;
 -(void)bindAttributeArrays:(id)arg1 ;
 -(id)fullVertexShader;
 -(id)fullFragmentShader;
 -(void)render:(id)arg1 to:(id)arg2 program:(id)arg3 ;
--(SCD_Struct_IG79)cameraParameters;
+-(SCD_Struct_IG81)cameraParameters;
 -(NSData *)frameWarp;
 -(id)init;
 -(void)setMode:(int)arg1 ;

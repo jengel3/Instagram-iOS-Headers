@@ -7,13 +7,13 @@
 #import <Instagram/IGInsightsSeeAllPostsFilterSelectorViewDelegate.h>
 #import <Instagram/IGInsightsContentRowListViewDelegate.h>
 
-@class IGListAdapter, IGListAdapterPerfLogger, NSMutableArray, IGListCollectionView, IGInsightsMediaFeedListItemController, UIActivityIndicatorView, IGRefreshControl, IGInsightsSeeAllPostsTabContentViewDataSource, IGInsightsSeeAllPostsFilterSummaryView, IGInsightsSeeAllPostsFilterSelectorView, NSArray, IGInsightsFilterUnit, UIView, IGInsightsLoggingHelper, IGInsightsQuery, NSString;
+@class IGListAdapter, IGListAdapterUpdaterLogger, NSMutableArray, IGListCollectionView, IGInsightsMediaFeedListItemController, UIActivityIndicatorView, IGRefreshControl, IGInsightsSeeAllPostsTabContentViewDataSource, IGInsightsSeeAllPostsFilterSummaryView, IGInsightsSeeAllPostsFilterSelectorView, NSArray, IGInsightsFilterUnit, UIView, IGInsightsLoggingHelper, IGInsightsQuery, NSString;
 
 @interface IGInsightsSeeAllPostsViewController : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGInsightsSeeAllPostsTabContentViewDataSourceDelegate, IGInsightsSeeAllPostsFilterSelectorViewDelegate, IGInsightsContentRowListViewDelegate> {
 
 	char _showSelectorView;
 	IGListAdapter* _listAdapter;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 	NSMutableArray* _objects;
 	IGListCollectionView* _collectionView;
 	IGInsightsMediaFeedListItemController* _feedListItemController;
@@ -44,7 +44,7 @@
 }
 
 @property (nonatomic,retain) IGListAdapter * listAdapter;                                                 //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                               //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                            //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,retain) NSMutableArray * objects;                                                    //@synthesize objects=_objects - In the implementation block
 @property (nonatomic,retain) IGListCollectionView * collectionView;                                       //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,retain) IGInsightsMediaFeedListItemController * feedListItemController;              //@synthesize feedListItemController=_feedListItemController - In the implementation block
@@ -77,24 +77,24 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
 -(IGListAdapter *)listAdapter;
--(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
 -(char)canHostInlineGallery:(char)arg1 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(void)reloadDataFromPullToRefresh;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
--(char)prefersTabBarHidden;
+-(void)setListAdapter:(IGListAdapter *)arg1 ;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
 -(void)overlayViewTapped:(id)arg1 ;
 -(UIView *)overlayForMainView;
 -(void)setOverlayForMainView:(UIView *)arg1 ;
 -(IGInsightsQuery *)buttonQuery;
 -(void)setButtonQuery:(IGInsightsQuery *)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)initializeSpinner;
 -(void)needAnimateContentRowListView:(id)arg1 upForDistance:(float)arg2 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)setFilterUnit:(IGInsightsFilterUnit *)arg1 ;
 -(NSArray *)educationUnits;
 -(void)mediaBundleRequestFailureForInsightsSeeAllPostsTabContentViewDataSource:(id)arg1 errorMessage:(id)arg2 ;

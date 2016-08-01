@@ -3,7 +3,7 @@
 #import <Instagram/IGVideoWriterDelegate.h>
 
 @protocol IGVideoRendererDelegate, IGVideoRendererProgressDelegate;
-@class IGVideoComposition, NSProgress, IGVideoReader, IGVideoWriter, IGRenderer, IGSurface, IGStabilizationFilter, NSString;
+@class IGVideoComposition, NSProgress, IGVideoReader, IGVideoWriter, IGRenderer, IGSurface, IGFilter, IGStabilizationFilter, NSString;
 
 @interface IGVideoRenderer : NSObject <IGVideoWriterDelegate> {
 
@@ -20,6 +20,7 @@
 	IGVideoWriter* _videoWriter;
 	IGRenderer* _renderer;
 	IGSurface* _stabilizedFrame;
+	IGFilter* _filter;
 	IGStabilizationFilter* _stabilizationFilter;
 
 }
@@ -28,6 +29,7 @@
 @property (nonatomic,retain) IGVideoWriter * videoWriter;                                              //@synthesize videoWriter=_videoWriter - In the implementation block
 @property (nonatomic,retain) IGRenderer * renderer;                                                    //@synthesize renderer=_renderer - In the implementation block
 @property (nonatomic,retain) IGSurface * stabilizedFrame;                                              //@synthesize stabilizedFrame=_stabilizedFrame - In the implementation block
+@property (nonatomic,retain) IGFilter * filter;                                                        //@synthesize filter=_filter - In the implementation block
 @property (nonatomic,readonly) IGStabilizationFilter * stabilizationFilter;                            //@synthesize stabilizationFilter=_stabilizationFilter - In the implementation block
 @property (assign,nonatomic) int status;                                                               //@synthesize status=_status - In the implementation block
 @property (nonatomic,readonly) IGVideoComposition * video;                                             //@synthesize video=_video - In the implementation block
@@ -59,12 +61,14 @@
 -(opaqueCMSampleBufferRef)nextAudioSampleBufferForVideoWriter:(id)arg1 ;
 -(void)videoWriter:(id)arg1 didFinishWritingVideoToURL:(id)arg2 ;
 -(void)videoWriter:(id)arg1 didFailWithError:(id)arg2 ;
--(CVBufferRef)nextRenderedPixelBufferForVideoWriter:(id)arg1 withAdaptor:(id)arg2 getPresentationTime:(SCD_Struct_IG52*)arg3 ;
+-(CVBufferRef)nextRenderedPixelBufferForVideoWriter:(id)arg1 withAdaptor:(id)arg2 getPresentationTime:(SCD_Struct_IG53*)arg3 ;
 -(void)setRenderer:(IGRenderer *)arg1 ;
+-(IGFilter *)filter;
 -(void)cancel;
 -(void)setDelegate:(id<IGVideoRendererDelegate>)arg1 ;
 -(id<IGVideoRendererDelegate>)delegate;
 -(void)suspend;
+-(void)setFilter:(IGFilter *)arg1 ;
 -(void)setProgress:(NSProgress *)arg1 ;
 -(NSProgress *)progress;
 -(int)status;

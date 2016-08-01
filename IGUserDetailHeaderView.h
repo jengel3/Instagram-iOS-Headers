@@ -1,23 +1,20 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIView.h>
-#import <Instagram/IGAlbumNetworkSourceViewControllerDelegate.h>
 #import <Instagram/IGCoreTextLinkHandler.h>
+#import <Instagram/IGEditProfileViewControllerDelegate.h>
 #import <Instagram/IGFollowButtonDelegate.h>
 #import <Instagram/IGFriendRequestHeaderViewDelegate.h>
 #import <Instagram/IGLabelTooltipViewDelegate.h>
-#import <Instagram/IGSimilarAccountsControlDelegate.h>
 #import <Instagram/IGSimilarAccountsViewDelegate.h>
-#import <Instagram/IGEditProfileViewControllerDelegate.h>
 #import <UIKit/UIGestureRecognizerDelegate.h>
-#import <Instagram/IGProfilePictureImageViewDelegate.h>
 #import <Instagram/IGFeedToggleViewDelegate.h>
 #import <Instagram/IGProfilePictureHelperDelegate.h>
 
 @protocol IGUserDetailHeaderViewDelegate, IGRaindropAnalyticsDelegate;
-@class IGFeedViewController_DEPRECATED, IGUser, UIView, IGProfilePictureImageView, IGStatButton, IGButton, UIImageView, IGFollowButton, IGTapButton, IGFriendRequestHeaderView, IGCoreTextView, IGLabelTooltipView, IGFeedToggleView, IGSimilarAccountsControl, IGHScrollSimilarAccountsControl, IGSimilarAccountsView, UIActivityIndicatorView, UITapGestureRecognizer, IGProfileContactButton, NSArray, NSString;
+@class IGFeedViewController_DEPRECATED, IGUser, UIView, IGProfilePictureImageView, IGAlbumGradientRingView, IGStatButton, IGButton, UIImageView, IGFollowButton, IGTapButton, IGFriendRequestHeaderView, IGCoreTextView, IGLabelTooltipView, IGFeedToggleView, IGSimilarAccountsControl, IGHScrollSimilarAccountsControl, IGSimilarAccountsView, UIActivityIndicatorView, UITapGestureRecognizer, UILongPressGestureRecognizer, IGProfileContactButton, NSArray, NSString;
 
-@interface IGUserDetailHeaderView : UIView <IGAlbumNetworkSourceViewControllerDelegate, IGCoreTextLinkHandler, IGFollowButtonDelegate, IGFriendRequestHeaderViewDelegate, IGLabelTooltipViewDelegate, IGSimilarAccountsControlDelegate, IGSimilarAccountsViewDelegate, IGEditProfileViewControllerDelegate, UIGestureRecognizerDelegate, IGProfilePictureImageViewDelegate, IGFeedToggleViewDelegate, IGProfilePictureHelperDelegate> {
+@interface IGUserDetailHeaderView : UIView <IGCoreTextLinkHandler, IGEditProfileViewControllerDelegate, IGFollowButtonDelegate, IGFriendRequestHeaderViewDelegate, IGLabelTooltipViewDelegate, IGSimilarAccountsViewDelegate, UIGestureRecognizerDelegate, IGFeedToggleViewDelegate, IGProfilePictureHelperDelegate> {
 
 	char _showingProfileMegaphone;
 	char _feedRestricted;
@@ -29,6 +26,7 @@
 	IGUser* _user;
 	UIView* _megaphoneView;
 	IGProfilePictureImageView* _profilePic;
+	IGAlbumGradientRingView* _profilePicRingView;
 	IGStatButton* _followersButton;
 	IGStatButton* _followingButton;
 	IGStatButton* _mediaButton;
@@ -48,7 +46,8 @@
 	IGSimilarAccountsView* _similarAccountsView;
 	UIActivityIndicatorView* _spinner;
 	id<IGRaindropAnalyticsDelegate> _analyticsDelegate;
-	UITapGestureRecognizer* _tapGuesture;
+	UITapGestureRecognizer* _profilePicTapGesture;
+	UILongPressGestureRecognizer* _profilePicLongPressGesture;
 	IGProfileContactButton* _contactButton;
 	IGButton* _translateBiographyButton;
 	NSArray* _accessibleElements;
@@ -56,6 +55,7 @@
 }
 
 @property (nonatomic,retain) IGProfilePictureImageView * profilePic;                                                        //@synthesize profilePic=_profilePic - In the implementation block
+@property (nonatomic,retain) IGAlbumGradientRingView * profilePicRingView;                                                  //@synthesize profilePicRingView=_profilePicRingView - In the implementation block
 @property (nonatomic,retain) IGStatButton * followersButton;                                                                //@synthesize followersButton=_followersButton - In the implementation block
 @property (nonatomic,retain) IGStatButton * followingButton;                                                                //@synthesize followingButton=_followingButton - In the implementation block
 @property (nonatomic,retain) IGStatButton * mediaButton;                                                                    //@synthesize mediaButton=_mediaButton - In the implementation block
@@ -76,7 +76,8 @@
 @property (nonatomic,retain) IGSimilarAccountsView * similarAccountsView;                                                   //@synthesize similarAccountsView=_similarAccountsView - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * spinner;                                                             //@synthesize spinner=_spinner - In the implementation block
 @property (assign,nonatomic,__weak) id<IGRaindropAnalyticsDelegate> analyticsDelegate;                                      //@synthesize analyticsDelegate=_analyticsDelegate - In the implementation block
-@property (nonatomic,retain) UITapGestureRecognizer * tapGuesture;                                                          //@synthesize tapGuesture=_tapGuesture - In the implementation block
+@property (nonatomic,retain) UITapGestureRecognizer * profilePicTapGesture;                                                 //@synthesize profilePicTapGesture=_profilePicTapGesture - In the implementation block
+@property (nonatomic,retain) UILongPressGestureRecognizer * profilePicLongPressGesture;                                     //@synthesize profilePicLongPressGesture=_profilePicLongPressGesture - In the implementation block
 @property (nonatomic,retain) IGProfileContactButton * contactButton;                                                        //@synthesize contactButton=_contactButton - In the implementation block
 @property (assign,nonatomic) char isCurrentUser;                                                                            //@synthesize isCurrentUser=_isCurrentUser - In the implementation block
 @property (assign,nonatomic) char isBioExpanded;                                                                            //@synthesize isBioExpanded=_isBioExpanded - In the implementation block
@@ -97,24 +98,24 @@
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)setFollowingButton:(IGStatButton *)arg1 ;
--(void)setMegaphoneView:(UIView *)arg1 ;
--(UIView *)megaphoneView;
 -(NSArray *)accessibleElements;
 -(IGStatButton *)followingButton;
 -(void)setFeedRestricted:(char)arg1 ;
 -(char)feedRestricted;
+-(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(void)setFollowButton:(IGFollowButton *)arg1 ;
 -(void)didTapTooltipView:(id)arg1 ;
 -(void)feedToggle:(id)arg1 selectedButton:(int)arg2 ;
+-(void)setMegaphoneView:(UIView *)arg1 ;
 -(IGFollowButton *)followButton;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;
--(void)similarAccountsControl:(id)arg1 didReplenishUserAtIndexPath:(id)arg2 ;
 -(void)similarAccountsViewDidTapOnSeeAllAccounts:(id)arg1 ;
+-(void)onFollowButtonTapped:(id)arg1 ;
 -(void)onFriendStatusChanged:(id)arg1 ;
+-(UIView *)megaphoneView;
 -(IGStatButton *)followersButton;
 -(void)setFollowersButton:(IGStatButton *)arg1 ;
 -(IGProfilePictureImageView *)profilePic;
@@ -124,7 +125,6 @@
 -(UIView *)infoLabelContainerView;
 -(void)createTranslationButton;
 -(IGHScrollSimilarAccountsControl *)hscrollSimilarAccountsControl;
--(IGSimilarAccountsControl *)similarAccountsControl;
 -(void)mediaButtonTapped:(id)arg1 ;
 -(void)followersButtonTapped:(id)arg1 ;
 -(void)followingButtonTapped:(id)arg1 ;
@@ -138,7 +138,6 @@
 -(IGButton *)translateBiographyButton;
 -(void)onTranslateBiographyButtonTapped;
 -(void)userChanged:(id)arg1 ;
--(void)onFollowButtonTapped:(id)arg1 ;
 -(void)onOwnMediaAdded:(id)arg1 ;
 -(void)onOwnMediaDeleted:(id)arg1 ;
 -(void)updateFollowButton;
@@ -193,11 +192,13 @@
 -(void)onWebsiteExternalLinkTapped;
 -(void)logWebsiteTap;
 -(void)logWebsiteOpen;
+-(id)webViewControllerForURL:(id)arg1 ;
 -(void)logWebsiteCancel;
 -(void)logEvent:(id)arg1 requireURL:(char)arg2 ;
--(void)albumChannelViewControllerShouldDismiss:(id)arg1 ;
--(void)requestHeaderIsShowing:(char)arg1 ;
 -(void)editProfileViewControllerWantsToBeDismissed;
+-(void)requestHeaderIsShowing:(char)arg1 ;
+-(void)similarAccountsControl:(id)arg1 didReplenishUserAtIndexPath:(id)arg2 ;
+-(void)setProfilePicRingView:(IGAlbumGradientRingView *)arg1 ;
 -(void)setMediaButton:(IGStatButton *)arg1 ;
 -(void)setEditProfileButton:(IGButton *)arg1 ;
 -(void)setEditProfileExclamationMark:(UIImageView *)arg1 ;
@@ -205,16 +206,21 @@
 -(void)setRequestHeader:(IGFriendRequestHeaderView *)arg1 ;
 -(void)setInfoLabelView:(IGCoreTextView *)arg1 ;
 -(void)setInfoLabelContainerView:(UIView *)arg1 ;
+-(IGSimilarAccountsControl *)similarAccountsControl;
 -(void)setSimilarAccountsControl:(IGSimilarAccountsControl *)arg1 ;
 -(void)setHscrollSimilarAccountsControl:(IGHScrollSimilarAccountsControl *)arg1 ;
--(UITapGestureRecognizer *)tapGuesture;
--(void)setTapGuesture:(UITapGestureRecognizer *)arg1 ;
+-(UITapGestureRecognizer *)profilePicTapGesture;
+-(void)setProfilePicTapGesture:(UITapGestureRecognizer *)arg1 ;
+-(UILongPressGestureRecognizer *)profilePicLongPressGesture;
+-(void)setProfilePicLongPressGesture:(UILongPressGestureRecognizer *)arg1 ;
 -(void)updateToggleButtons;
 -(void)setShowingProfileMegaphone:(char)arg1 ;
+-(IGAlbumGradientRingView *)profilePicRingView;
 -(char)showingProfileMegaphone;
 -(void)showProfileCompletionNuxView;
 -(void)hideProfileCompletionNuxView;
 -(void)updateTranslateBiography:(char)arg1 ;
+-(void)profilePictureLongPressed:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 analyticsDelegate:(id)arg2 ;
 -(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(char)profilePictureHelperShouldShowRemovePicture:(id)arg1 ;
@@ -231,6 +237,7 @@
 -(void)dealloc;
 -(void)layoutSubviews;
 -(IGFeedViewController_DEPRECATED*<IGUserDetailHeaderViewDelegate>)delegate;
+-(char)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2 ;
 -(id)accessibilityIdentifier;
 -(void)updateLayout;
 -(int)accessibilityElementCount;

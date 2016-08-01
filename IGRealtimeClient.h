@@ -55,7 +55,6 @@
 +(id)cachePathForUserPK:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(NSString *)userPK;
 -(char)authInfoSent;
 -(void)unregisterServerPayloadHandler:(id)arg1 ;
 -(void)registerServerPayloadHandler:(id)arg1 forEvents:(id)arg2 actions:(id)arg3 ;
@@ -65,6 +64,7 @@
 -(void)removeSubscriptionForTopic:(id)arg1 ;
 -(char)hasSubscriptionForTopic:(id)arg1 ;
 -(void)addSubscription:(id)arg1 ;
+-(NSString *)userPK;
 -(void)setUserPK:(NSString *)arg1 ;
 -(unsigned)backgroundTask;
 -(id)initWithUserPK:(id)arg1 shouldConnectToIRIS:(char)arg2 ;

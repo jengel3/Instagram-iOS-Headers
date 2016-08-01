@@ -20,9 +20,9 @@
 @property (nonatomic,readonly) unsigned squareVertexBuffer; 
 @property (nonatomic,readonly) CGSize maxTextureSize;                               //@synthesize maxTextureSize=_maxTextureSize - In the implementation block
 +(id)currentContext;
+-(void)makeCurrent;
 -(CGSize)maxTextureSize;
 -(void)removeAllReusableSurfaces;
--(void)makeCurrent;
 -(id)popReusableSurfaceWithSize:(CGSize)arg1 ;
 -(void)pushReusableSurface:(id)arg1 ;
 -(CVOpenGLESTextureCacheRef)textureCache;

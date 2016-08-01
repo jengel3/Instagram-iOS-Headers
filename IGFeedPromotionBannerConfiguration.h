@@ -41,9 +41,9 @@
 @property (nonatomic,copy) id cellImpressionActionBlock;                                     //@synthesize cellImpressionActionBlock=_cellImpressionActionBlock - In the implementation block
 @property (nonatomic,copy) id cellDismssActionBlock;                                         //@synthesize cellDismssActionBlock=_cellDismssActionBlock - In the implementation block
 @property (nonatomic,copy) id cellPromotionButtonTappedActionBlock;                          //@synthesize cellPromotionButtonTappedActionBlock=_cellPromotionButtonTappedActionBlock - In the implementation block
-+(void)logForAction:(id)arg1 reason:(id)arg2 type:(id)arg3 uuid:(id)arg4 ;
 +(id)stringForPromotionType:(int)arg1 ;
 +(id)iconImageForPromotionType:(int)arg1 ;
++(void)logForAction:(id)arg1 reason:(id)arg2 type:(id)arg3 uuid:(id)arg4 ;
 -(void)setAppInstallationsHelper:(IGAppInstallationsHelper *)arg1 ;
 -(IGAppInstallationsHelper *)appInstallationsHelper;
 -(void)setFeedPromotionBannerType:(int)arg1 ;

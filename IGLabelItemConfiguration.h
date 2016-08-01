@@ -7,6 +7,7 @@
 
 	char _hideTopSeparator;
 	char _hideBottomSeparator;
+	char _enableUppercase;
 	UIColor* _cellBackgroundColor;
 	UIColor* _textLabelColor;
 	UIFont* _textLabelFont;
@@ -22,14 +23,16 @@
 @property (nonatomic,readonly) UIEdgeInsets labelViewInsets;               //@synthesize labelViewInsets=_labelViewInsets - In the implementation block
 @property (nonatomic,readonly) char hideTopSeparator;                      //@synthesize hideTopSeparator=_hideTopSeparator - In the implementation block
 @property (nonatomic,readonly) char hideBottomSeparator;                   //@synthesize hideBottomSeparator=_hideBottomSeparator - In the implementation block
+@property (nonatomic,readonly) char enableUppercase;                       //@synthesize enableUppercase=_enableUppercase - In the implementation block
 +(id)commentHeaderConfig;
 +(id)activityItemHeaderConfig;
--(id)initWithCellBackgroundColor:(id)arg1 textLabelColor:(id)arg2 textLabelFont:(id)arg3 separatorColor:(id)arg4 labelViewInsets:(UIEdgeInsets)arg5 hideTopSeparator:(char)arg6 hideBottomSeparator:(char)arg7 ;
+-(id)initWithCellBackgroundColor:(id)arg1 textLabelColor:(id)arg2 textLabelFont:(id)arg3 separatorColor:(id)arg4 labelViewInsets:(UIEdgeInsets)arg5 hideTopSeparator:(char)arg6 hideBottomSeparator:(char)arg7 enableUppercase:(char)arg8 ;
 -(char)hideTopSeparator;
 -(UIFont *)textLabelFont;
 -(UIColor *)separaterColor;
 -(UIEdgeInsets)labelViewInsets;
 -(char)hideBottomSeparator;
+-(char)enableUppercase;
 -(UIColor *)cellBackgroundColor;
 -(UIColor *)textLabelColor;
 @end

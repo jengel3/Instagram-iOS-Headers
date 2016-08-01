@@ -29,8 +29,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(NSArray *)mediaBundles;
 -(void)setMediaBundles:(NSArray *)arg1 ;
+-(NSArray *)mediaBundles;
 -(void)updateMediaBundle:(id)arg1 ;
 -(id)_feedItemAtIndex:(int)arg1 ;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 mediaItemCount:(int)arg3 ;

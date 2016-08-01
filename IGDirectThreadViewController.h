@@ -24,7 +24,7 @@
 #import <Instagram/IGDirectViewControllerProtocol.h>
 
 @protocol IGDirectPendingThreadViewDelegate;
-@class UICollectionView, IGDirectThread, NSString, NSNumber, IGUserSession, IGDirectMenuController, NSArray, NSMutableArray, IGUser, IGDirectThreadCellFactory, IGDirectThreadCellExpansionAnimator, IGDirectThreadLayout, UIBarButtonItem, IGDirectContent, IGDirectPendingRequestButtons, IGDirectGroupNamingViewController, IGDirectDebuggingViewController, UIView, IGProfilePictureImageView, UIButton, IGQuickCamViewController, IGQuickCamViewController2, IGDirectShareManager, IGTokenField, FBKeyboardObserver, IGDirectKeyboardTextViewController, UIPanGestureRecognizer, IGAlertBar, IGDirectMediaViewerTransitionManager, NSNotification, IGDirectUIPerfLogProxy, IGDirectThreadAnalyticsLogger, IGDirectThreadDataTransformer, IGDirectPendingInboxService;
+@class UICollectionView, IGDirectThread, NSString, NSNumber, IGUserSession, IGDirectMenuController, NSArray, NSMutableArray, IGUser, IGDirectThreadCellFactory, IGDirectThreadLayout, UIBarButtonItem, IGDirectContent, IGDirectPendingRequestButtons, IGDirectGroupNamingViewController, IGDirectDebuggingViewController, UIView, IGProfilePictureImageView, UIButton, IGQuickCamViewController, IGQuickCamViewController2, IGDirectShareManager, IGTokenField, FBKeyboardObserver, IGDirectKeyboardTextViewController, UIPanGestureRecognizer, IGAlertBar, IGDirectMediaViewerTransitionManager, IGDirectUIPerfLogProxy, IGDirectThreadAnalyticsLogger, IGDirectThreadDataTransformer, IGDirectPendingInboxService, IGDirectThreadService;
 
 @interface IGDirectThreadViewController : IGViewController <UICollectionViewDelegate, UICollectionViewDataSource, IGDirectContentUpoadCellDelegate, IGDirectContentCellTextLinkDelegate, FBKeyboardObserverDelegate, IGDirectPendingRequestButtonDelegate, IGDirectKeyboardTextViewControllerDelegate, IGSeenStampFooterDelegate, UIGestureRecognizerDelegate, IGDirectThreadInfoDelegate, IGQuickCamViewControllerDelegate, IGDirectShareManagerDataSource, IGTokenFieldDelegate, IGImageViewDelegate, IGDirectGroupNamingViewControllerDelegate, IGSelectAlbumDelegate, IGDirectReactionDecoratorDelegate, IGDirectMediaViewerTransitionManagerDelegate, IGDirectContentCellDelegate, IGUIPerfLoggable, IGDirectViewControllerProtocol> {
 
@@ -48,7 +48,6 @@
 	IGUser* _threadViewer;
 	NSArray* _allContent;
 	IGDirectThreadCellFactory* _cellFactory;
-	IGDirectThreadCellExpansionAnimator* _expansionAnimator;
 	IGDirectThreadLayout* _layout;
 	float _bottomInsetY;
 	UIBarButtonItem* _infoIcon;
@@ -79,11 +78,11 @@
 	IGAlertBar* _loadingAlertBar;
 	IGDirectMediaViewerTransitionManager* _mediaViewerTransitionManager;
 	NSNumber* _distanceToBottomToKeep;
-	NSNotification* _deferredThreadUpdatedNotification;
 	IGDirectUIPerfLogProxy* _perfLogProxy;
 	IGDirectThreadAnalyticsLogger* _analyticsLogger;
 	IGDirectThreadDataTransformer* _threadTransformer;
 	IGDirectPendingInboxService* _pendingInboxService;
+	IGDirectThreadService* _threadService;
 
 }
 
@@ -94,7 +93,6 @@
 @property (nonatomic,retain) IGUser * threadViewer;                                                            //@synthesize threadViewer=_threadViewer - In the implementation block
 @property (nonatomic,retain) NSArray * allContent;                                                             //@synthesize allContent=_allContent - In the implementation block
 @property (nonatomic,retain) IGDirectThreadCellFactory * cellFactory;                                          //@synthesize cellFactory=_cellFactory - In the implementation block
-@property (nonatomic,retain) IGDirectThreadCellExpansionAnimator * expansionAnimator;                          //@synthesize expansionAnimator=_expansionAnimator - In the implementation block
 @property (nonatomic,retain) IGDirectThreadLayout * layout;                                                    //@synthesize layout=_layout - In the implementation block
 @property (assign,nonatomic) float bottomInsetY;                                                               //@synthesize bottomInsetY=_bottomInsetY - In the implementation block
 @property (nonatomic,retain) UIBarButtonItem * infoIcon;                                                       //@synthesize infoIcon=_infoIcon - In the implementation block
@@ -130,11 +128,11 @@
 @property (nonatomic,retain) NSNumber * distanceToBottomToKeep;                                                //@synthesize distanceToBottomToKeep=_distanceToBottomToKeep - In the implementation block
 @property (assign,nonatomic) char shouldScrollToBottomAfterContentSizeChange;                                  //@synthesize shouldScrollToBottomAfterContentSizeChange=_shouldScrollToBottomAfterContentSizeChange - In the implementation block
 @property (assign,nonatomic) char shouldAnimateScrollingToBottom;                                              //@synthesize shouldAnimateScrollingToBottom=_shouldAnimateScrollingToBottom - In the implementation block
-@property (nonatomic,retain) NSNotification * deferredThreadUpdatedNotification;                               //@synthesize deferredThreadUpdatedNotification=_deferredThreadUpdatedNotification - In the implementation block
 @property (nonatomic,retain) IGDirectUIPerfLogProxy * perfLogProxy;                                            //@synthesize perfLogProxy=_perfLogProxy - In the implementation block
 @property (nonatomic,readonly) IGDirectThreadAnalyticsLogger * analyticsLogger;                                //@synthesize analyticsLogger=_analyticsLogger - In the implementation block
 @property (nonatomic,retain) IGDirectThreadDataTransformer * threadTransformer;                                //@synthesize threadTransformer=_threadTransformer - In the implementation block
 @property (nonatomic,retain) IGDirectPendingInboxService * pendingInboxService;                                //@synthesize pendingInboxService=_pendingInboxService - In the implementation block
+@property (nonatomic,retain) IGDirectThreadService * threadService;                                            //@synthesize threadService=_threadService - In the implementation block
 @property (assign,nonatomic) int state;                                                                        //@synthesize state=_state - In the implementation block
 @property (assign,nonatomic,__weak) id<IGDirectPendingThreadViewDelegate> pendingDelegate;                     //@synthesize pendingDelegate=_pendingDelegate - In the implementation block
 @property (nonatomic,retain) NSNumber * position;                                                              //@synthesize position=_position - In the implementation block
@@ -148,8 +146,10 @@
 @property (nonatomic,retain) IGDirectThread * thread;                                                          //@synthesize thread=_thread - In the implementation block
 @property (nonatomic,copy,readonly) NSString * threadID;                                                       //@synthesize threadID=_threadID - In the implementation block
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
 -(void)setKeyboardObserver:(FBKeyboardObserver *)arg1 ;
 -(FBKeyboardObserver *)keyboardObserver;
+-(void)updateTextViewFrame;
 -(void)keyboardObserver:(id)arg1 keyboardWillShowWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)keyboardObserverKeyboardDidShow:(id)arg1 ;
 -(void)keyboardObserver:(id)arg1 keyboardWillHideWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
@@ -158,16 +158,17 @@
 -(void)keyboardObserver:(id)arg1 keyboardFrameDidChangeWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
 -(void)scrollToBottomAnimated:(char)arg1 ;
+-(IGDirectThreadService *)threadService;
 -(id)initWithThreadID:(id)arg1 userSession:(id)arg2 ;
 -(void)directContentUploadCell:(id)arg1 wantsRetryForContent:(id)arg2 ;
 -(void)directContentUploadCell:(id)arg1 wantsDeleteForContent:(id)arg2 ;
+-(void)setPendingDelegate:(id<IGDirectPendingThreadViewDelegate>)arg1 ;
 -(IGDirectUIPerfLogProxy *)perfLogProxy;
--(void)threadUpdated:(id)arg1 ;
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
+-(char)disableNonEdgeNavigationGesture;
 -(void)setPerfLogProxy:(IGDirectUIPerfLogProxy *)arg1 ;
--(void)setPendingDelegate:(id<IGDirectPendingThreadViewDelegate>)arg1 ;
 -(void)pendingRequestButtonDidDenyThread:(id)arg1 ;
 -(void)pendingRequestButtonDidAllowThread:(id)arg1 ;
 -(UIEdgeInsets)contentInsetsForManager:(id)arg1 ;
@@ -217,25 +218,26 @@
 -(NSMutableArray *)directSaveMediaObservers;
 -(void)setThreadViewer:(IGUser *)arg1 ;
 -(void)setDirectSaveMediaObservers:(NSMutableArray *)arg1 ;
+-(void)setThreadService:(IGDirectThreadService *)arg1 ;
 -(void)didReceiveDoubleTapForContent:(id)arg1 ;
 -(void)threadInfoViewController:(id)arg1 didHideThread:(id)arg2 ;
 -(void)threadInfoViewController:(id)arg1 didRenameThreadWithID:(id)arg2 toName:(id)arg3 ;
+-(void)threadInfoViewController:(id)arg1 didMuteThreadWithId:(id)arg2 muted:(char)arg3 ;
 -(NSArray *)allContent;
 -(void)setAllContent:(NSArray *)arg1 ;
--(char)useFullSizePhotos;
 -(void)onCollectionViewScroll:(id)arg1 ;
 -(void)setThreadTransformer:(IGDirectThreadDataTransformer *)arg1 ;
 -(void)initializeThreadComponents;
 -(void)quickCamLibraryAlbumUpdated;
 -(IGQuickCamViewController *)quickCamViewController;
 -(char)updateLastSeenContent;
+-(void)layoutUnseenMessageButton;
 -(void)setCellFactory:(IGDirectThreadCellFactory *)arg1 ;
 -(void)openThreadInfoView;
 -(void)setInfoIcon:(UIBarButtonItem *)arg1 ;
 -(void)composerNextButtonTapped;
 -(void)createAndAddShareManager;
 -(void)createAndAddTokenField;
--(void)layoutUnseenMessageButton;
 -(void)setLoadingAlertBar:(IGAlertBar *)arg1 ;
 -(IGAlertBar *)loadingAlertBar;
 -(UIPanGestureRecognizer *)timestampPanRecognizer;
@@ -252,6 +254,7 @@
 -(void)showGroupNamingBar;
 -(void)hideGroupNamingBar;
 -(void)onDirectPosted:(id)arg1 ;
+-(void)threadUpdated:(id)arg1 ;
 -(int)decodedImageCacheCostLimit;
 -(char)isLoadingForFirstTime;
 -(void)updateTopInsets;
@@ -278,26 +281,22 @@
 -(void)updateQuickCamViewFrameForBottimInsetY:(float)arg1 ;
 -(void)updateCollectionViewInsets:(UIEdgeInsets)arg1 ;
 -(IGDirectGroupNamingViewController *)groupNamingVC;
+-(UIView *)threadInputView;
 -(void)handleSendWithSuccess:(char)arg1 ack:(id)arg2 ;
 -(void)updateFromSend;
 -(char)currentThreadUsersMatchTokenField;
 -(IGDirectContent *)playingContent;
 -(id)indexPathForPlayingContent:(id)arg1 ;
 -(void)setPlayingContent:(IGDirectContent *)arg1 ;
--(IGDirectThreadCellExpansionAnimator *)expansionAnimator;
--(char)mediaExpandsFullscreen;
 -(void)browseMessageInMediaViewer:(id)arg1 ;
--(char)shouldScrollToBottomAfterContentSizeChange;
--(NSNotification *)deferredThreadUpdatedNotification;
--(void)setDeferredThreadUpdatedNotification:(NSNotification *)arg1 ;
 -(void)configureSeenStamp:(id)arg1 ;
--(void)setMediaViewerTransitionManager:(IGDirectMediaViewerTransitionManager *)arg1 ;
 -(IGDirectMediaViewerTransitionManager *)mediaViewerTransitionManager;
+-(void)setMediaViewerTransitionManager:(IGDirectMediaViewerTransitionManager *)arg1 ;
 -(UIButton *)unseenMessageButton;
 -(void)setUnseenMessageHeight:(float)arg1 ;
 -(void)setUnseenMessageWidth:(float)arg1 ;
--(IGProfilePictureImageView *)unseenMessageProfilePicture;
 -(float)unseenMessageWidth;
+-(IGProfilePictureImageView *)unseenMessageProfilePicture;
 -(IGDirectContent *)lastSeenContent;
 -(char)canSeeLatestContent;
 -(void)animateOutProfileBubble;
@@ -321,7 +320,6 @@
 -(char)users:(id)arg1 matchUsersInThread:(id)arg2 ;
 -(void)enumerateVisibleViewsWithClass:(Class)arg1 usingBlock:(/*^block*/id)arg2 ;
 -(void)onInteractivePanGesture:(id)arg1 suggestedTextViewControllerTopY:(float)arg2 shouldCompensateScroll:(char)arg3 ;
--(UIView *)threadInputView;
 -(void)finishShowingThreadInputViewIfNeeded:(char)arg1 ;
 -(void)finishHidingThreadInputViewIfNeeded:(char)arg1 ;
 -(CGRect)adjustedThreadInputViewFrameForRawFrame:(CGRect)arg1 ;
@@ -334,6 +332,7 @@
 -(id)currentThreadTitle;
 -(void)collectionViewDidScrollFromYPosition:(float)arg1 toYPosition:(float)arg2 ;
 -(NSNumber *)distanceToBottomToKeep;
+-(char)shouldScrollToBottomAfterContentSizeChange;
 -(char)shouldAnimateScrollingToBottom;
 -(void)loadPreviousMessages;
 -(void)setLastSeenContent:(IGDirectContent *)arg1 ;
@@ -343,7 +342,6 @@
 -(void)setGroupNamingVC:(IGDirectGroupNamingViewController *)arg1 ;
 -(void)onTimestampPan:(id)arg1 ;
 -(void)setMenuController:(IGDirectMenuController *)arg1 ;
--(void)setExpansionAnimator:(IGDirectThreadCellExpansionAnimator *)arg1 ;
 -(IGDirectContent *)menuControllerItem;
 -(void)setMenuControllerItem:(IGDirectContent *)arg1 ;
 -(IGDirectDebuggingViewController *)debuggingVC;
@@ -353,7 +351,6 @@
 -(IGDirectContent *)lastUnseenContent;
 -(void)setTimestampPanRecognizer:(UIPanGestureRecognizer *)arg1 ;
 -(void)setPendingInboxService:(IGDirectPendingInboxService *)arg1 ;
--(char)disableNonEdgeNavigationGesture;
 -(IGDirectKeyboardTextViewController *)textViewController;
 -(void)setTextViewController:(IGDirectKeyboardTextViewController *)arg1 ;
 -(void)setDidComeFromPushNotif:(char)arg1 ;
@@ -368,7 +365,6 @@
 -(void)postUpdated:(id)arg1 ;
 -(id)initWithUsers:(id)arg1 userSession:(id)arg2 ;
 -(void)setShouldShowKeyboardOnAppearance:(char)arg1 ;
--(char)prefersTabBarHidden;
 -(IGDirectThreadCellFactory *)cellFactory;
 -(id)visibleMediaCellForMediaMessage:(id)arg1 ;
 -(void)didCalculateSourceRectForPresentation;

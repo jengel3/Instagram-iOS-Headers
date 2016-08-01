@@ -65,7 +65,7 @@
 -(void)setHasStartedRendering:(char)arg1 ;
 -(float)maxDelta;
 -(float)minDelta;
--(void)setRegion:(SCD_Struct_IG36)arg1 animated:(char)arg2 ;
+-(void)setRegion:(SCD_Struct_IG37)arg1 animated:(char)arg2 ;
 -(void)setShowsCompass:(char)arg1 ;
 -(char)showsCompass;
 -(void)setShowsUserLocation:(char)arg1 ;

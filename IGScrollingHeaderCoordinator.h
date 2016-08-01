@@ -32,9 +32,9 @@
 +(id)headerSnapshotForViewController:(id)arg1 navigationBar:(id)arg2 ;
 +(id)scrollingHeaderViewControllerForViewController:(id)arg1 ;
 -(float)headerAdjustmentAmount;
+-(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)setHeaderScrolledAway:(char)arg1 forViewController:(id)arg2 animated:(char)arg3 ;
 -(void)synchronizeViewControllerHeaderState:(id)arg1 ;
--(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(id)initWithNavigationBar:(id)arg1 ;
 -(void)releaseActiveViewController:(id)arg1 ;
 -(void)layoutHeaderForViewController:(id)arg1 animated:(char)arg2 ;

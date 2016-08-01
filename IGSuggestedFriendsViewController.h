@@ -11,11 +11,11 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(char)enableNavState;
--(id)newFindUsersViewDataSource;
 -(void)authorizeAndFetchUsers;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(id)newFindUsersView;
+-(id)newFindUsersViewDataSource;
+-(char)enableNavState;
 -(id)init;
 @end
 

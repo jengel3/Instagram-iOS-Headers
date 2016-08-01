@@ -35,22 +35,23 @@
 @property (assign,nonatomic) char reactionsNeedsReRender;                               //@synthesize reactionsNeedsReRender=_reactionsNeedsReRender - In the implementation block
 @property (assign,nonatomic) unsigned lastReactionType;                                 //@synthesize lastReactionType=_lastReactionType - In the implementation block
 -(IGDirectContentUploadInfo *)uploadInfo;
--(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
--(char)canConvertToFullMessageByAddingItemID;
--(NSArray *)reactions;
--(id)copyOfContentWithReactionFilter:(id)arg1 ;
--(void)setReactions:(NSArray *)arg1 ;
--(char)reactionsNeedsReRender;
--(void)setReactionsNeedsReRender:(char)arg1 ;
--(unsigned)lastReactionType;
--(void)setLastReactionType:(unsigned)arg1 ;
 -(NSArray *)previewMedia;
--(NSString *)uploadComment;
--(void)setUploadComment:(NSString *)arg1 ;
 -(void)setPreviewMedia:(NSArray *)arg1 ;
--(id)contentTypeString;
--(id)dictionaryForRealtimeUpload;
 -(id)initAsUploadWithComment:(id)arg1 location:(id)arg2 recipient:(id)arg3 ;
+-(NSString *)uploadComment;
+-(NSArray *)reactions;
+-(void)setReactions:(NSArray *)arg1 ;
+-(void)setReactionsNeedsReRender:(char)arg1 ;
+-(void)setLastReactionType:(unsigned)arg1 ;
+-(id)contentTypeString;
+-(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
+-(void)setUploadComment:(NSString *)arg1 ;
+-(id)copyOfContentWithReactionFilter:(id)arg1 ;
+-(char)reactionsNeedsReRender;
+-(unsigned)lastReactionType;
+-(id)dictionaryForRealtimeUpload;
+-(char)canConvertToFullMessageByAddingItemID;
+-(id)reactionItemKey;
 -(char)isUploading;
 -(unsigned)likeCount;
 -(id)initWithCoder:(id)arg1 ;

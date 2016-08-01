@@ -5,7 +5,6 @@
 
 @interface IGAutocompleteNetworkDataSource : NSObject {
 
-	char _shouldReverseSort;
 	id<IGAutocompleteNetworkDataSourceDelegate> _delegate;
 	unsigned _maxLocalSuggestionCount;
 	unsigned _maxTotalSuggestionCount;
@@ -27,9 +26,6 @@
 @property (assign,nonatomic) unsigned maxLocalSuggestionCount;                                         //@synthesize maxLocalSuggestionCount=_maxLocalSuggestionCount - In the implementation block
 @property (assign,nonatomic) unsigned maxTotalSuggestionCount;                                         //@synthesize maxTotalSuggestionCount=_maxTotalSuggestionCount - In the implementation block
 @property (assign,nonatomic) unsigned maxServerResultCount;                                            //@synthesize maxServerResultCount=_maxServerResultCount - In the implementation block
-@property (assign,nonatomic) char shouldReverseSort;                                                   //@synthesize shouldReverseSort=_shouldReverseSort - In the implementation block
--(char)shouldReverseSort;
--(void)setShouldReverseSort:(char)arg1 ;
 -(id)canonicalQueryString:(id)arg1 ;
 -(IGSearchCacheEntry *)currentEntry;
 -(IGSearchCache *)queryCache;

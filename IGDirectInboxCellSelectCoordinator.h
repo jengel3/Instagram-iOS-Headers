@@ -1,7 +1,7 @@
 
 #import <Instagram/IGDirectInboxThreadItemControllerSelectDelegate.h>
 
-@class UIView, IGViewController, IGListAdapter, IGDirectPendingInboxAnalyticsLogger, UIBarButtonItem, UIButton, NSSet, IGDirectPendingInboxService, NSString;
+@class UIView, IGViewController, IGListAdapter, IGDirectPendingInboxAnalyticsLogger, UIBarButtonItem, UIButton, NSMutableSet, IGDirectPendingInboxService, NSString;
 
 @interface IGDirectInboxCellSelectCoordinator : NSObject <IGDirectInboxThreadItemControllerSelectDelegate> {
 
@@ -15,7 +15,7 @@
 	UIButton* _declineButton;
 	UIButton* _allowButton;
 	UIView* _buttonSeparator;
-	NSSet* _selectedItems;
+	NSMutableSet* _selectedItems;
 	IGDirectPendingInboxService* _service;
 	int _state;
 
@@ -30,7 +30,7 @@
 @property (nonatomic,readonly) UIButton * declineButton;                                                  //@synthesize declineButton=_declineButton - In the implementation block
 @property (nonatomic,readonly) UIButton * allowButton;                                                    //@synthesize allowButton=_allowButton - In the implementation block
 @property (nonatomic,readonly) UIView * buttonSeparator;                                                  //@synthesize buttonSeparator=_buttonSeparator - In the implementation block
-@property (nonatomic,retain) NSSet * selectedItems;                                                       //@synthesize selectedItems=_selectedItems - In the implementation block
+@property (nonatomic,retain) NSMutableSet * selectedItems;                                                //@synthesize selectedItems=_selectedItems - In the implementation block
 @property (nonatomic,readonly) IGDirectPendingInboxService * service;                                     //@synthesize service=_service - In the implementation block
 @property (assign,nonatomic) int state;                                                                   //@synthesize state=_state - In the implementation block
 @property (nonatomic,readonly) UIView * actionBar;                                                        //@synthesize actionBar=_actionBar - In the implementation block
@@ -55,6 +55,7 @@
 -(void)inboxThreadItemController:(id)arg1 didDeselectViewModel:(id)arg2 ;
 -(id)initWithViewController:(id)arg1 listAdapter:(id)arg2 analyticsLogger:(id)arg3 ;
 -(void)layoutActionBar;
+-(char)hasSelected:(id)arg1 ;
 -(UIView *)actionBar;
 -(UIBarButtonItem *)spinnerButton;
 -(int)state;
@@ -62,8 +63,8 @@
 -(char)isEditing;
 -(UIBarButtonItem *)cancelButton;
 -(IGViewController *)viewController;
--(NSSet *)selectedItems;
--(void)setSelectedItems:(NSSet *)arg1 ;
+-(NSMutableSet *)selectedItems;
+-(void)setSelectedItems:(NSMutableSet *)arg1 ;
 -(IGDirectPendingInboxService *)service;
 -(UIView *)buttonSeparator;
 -(UIBarButtonItem *)editButton;

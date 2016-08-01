@@ -29,6 +29,7 @@
 	float _currentSwipeDistance;
 	UIPanGestureRecognizer* _panGestureRecognizer;
 	UILabel* _timeLabel;
+	UIView* _swipeMaskView;
 	float _startSwipeGestureX;
 	UIImageView* _checkBox;
 	UIImage* _checkMark;
@@ -45,6 +46,7 @@
 @property (assign,nonatomic) float currentSwipeDistance;                                 //@synthesize currentSwipeDistance=_currentSwipeDistance - In the implementation block
 @property (nonatomic,retain) UIPanGestureRecognizer * panGestureRecognizer;              //@synthesize panGestureRecognizer=_panGestureRecognizer - In the implementation block
 @property (nonatomic,retain) UILabel * timeLabel;                                        //@synthesize timeLabel=_timeLabel - In the implementation block
+@property (nonatomic,retain) UIView * swipeMaskView;                                     //@synthesize swipeMaskView=_swipeMaskView - In the implementation block
 @property (assign,nonatomic) float startSwipeGestureX;                                   //@synthesize startSwipeGestureX=_startSwipeGestureX - In the implementation block
 @property (assign,nonatomic) char disableSwiping;                                        //@synthesize disableSwiping=_disableSwiping - In the implementation block
 @property (nonatomic,retain) UIImageView * checkBox;                                     //@synthesize checkBox=_checkBox - In the implementation block
@@ -66,6 +68,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(float)heightForCellWithPadding:(float)arg1 ;
+-(void)setInboxActions:(id)arg1 ;
 -(void)setSwipeableView:(UIView *)arg1 ;
 -(UIView *)swipeableView;
 -(void)onSwipePan:(id)arg1 ;
@@ -75,18 +78,23 @@
 -(void)setCheckBox:(UIImageView *)arg1 ;
 -(UIImageView *)checkBox;
 -(UIImage *)emptyCheckBox;
+-(void)setSwipeMaskView:(UIView *)arg1 ;
+-(UIView *)swipeMaskView;
+-(float)swipeableViewHorizontalInset;
 -(char)useEditingMode;
 -(CGRect)editingFrame;
 -(float)currentSwipeDistance;
 -(void)updateActionViewBasedOnSwipeDistance:(float)arg1 ;
 -(float)profilePictureVerticalPadding;
 -(char)showsMuteIcon;
+-(UIEdgeInsets)editingSeparatorInset;
 -(char)disableSwiping;
 -(float)startSwipeGestureX;
 -(void)setCurrentSwipeDistance:(float)arg1 ;
 -(void)openActionMenu;
+-(void)closeActionMenu;
 -(void)setStartSwipeGestureX:(float)arg1 ;
--(UIEdgeInsets)editingSeparatorInset;
+-(char)hasActionMenuOpen;
 -(char)isSelectedForEditing;
 -(void)setNewContentDot:(UIImageView *)arg1 ;
 -(void)setMuteImageView:(UIImageView *)arg1 ;
@@ -95,12 +103,9 @@
 -(void)setCheckMark:(UIImage *)arg1 ;
 -(void)setEmptyCheckBox:(UIImage *)arg1 ;
 -(void)setProfilePictureVerticalPadding:(float)arg1 ;
--(void)setInboxActions:(id)arg1 ;
+-(void)setPendingDeleteAction:(char)arg1 ;
 -(void)setShowsMuteIcon:(char)arg1 ;
 -(void)setNewContent:(char)arg1 ;
--(char)hasActionMenuOpen;
--(void)closeActionMenu;
--(void)setPendingDeleteAction:(char)arg1 ;
 -(void)setUseEditingMode:(char)arg1 ;
 -(void)setIsSelectedForEditing:(char)arg1 ;
 -(char)pendingDeleteAction;

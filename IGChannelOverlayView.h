@@ -8,6 +8,7 @@
 
 	char _shouldShowPlayIcon;
 	IGVideoGlyphView* _playIcon;
+	int _fontStyle;
 	UILabel* _headerLabel;
 	UILabel* _titleLabel;
 	UILabel* _contextLabel;
@@ -21,10 +22,10 @@
 @property (nonatomic,readonly) UIImageView * backgroundView;              //@synthesize backgroundView=_backgroundView - In the implementation block
 @property (nonatomic,readonly) IGVideoGlyphView * playIcon;               //@synthesize playIcon=_playIcon - In the implementation block
 @property (assign,nonatomic) char shouldShowPlayIcon;                     //@synthesize shouldShowPlayIcon=_shouldShowPlayIcon - In the implementation block
+@property (assign,nonatomic) int fontStyle;                               //@synthesize fontStyle=_fontStyle - In the implementation block
 -(void)setupBackgroundView;
 -(void)setupTitleLabel;
 -(void)setupHeaderLabel;
--(id)titleAttributesUseSmallFont:(char)arg1 ;
 -(IGVideoGlyphView *)playIcon;
 -(void)layoutPlayIcon;
 -(void)layoutHeader;
@@ -34,6 +35,8 @@
 -(float)maxWidthForLabels;
 -(UILabel *)contextLabel;
 -(id)secondaryTextAttributes;
+-(float)preferredFontSizeWithTitle:(id)arg1 ;
+-(id)titleAttributesWithFontSize:(float)arg1 ;
 -(id)textKerning;
 -(void)setHeader:(id)arg1 title:(id)arg2 context:(id)arg3 ;
 -(void)setShouldShowPlayIcon:(char)arg1 ;
@@ -49,5 +52,7 @@
 -(void)setHeader:(id)arg1 ;
 -(char)shouldShowPlayIcon;
 -(void)layoutContext;
+-(int)fontStyle;
+-(void)setFontStyle:(int)arg1 ;
 @end
 

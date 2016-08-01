@@ -61,10 +61,9 @@
 -(void)didUpdateReactSubviews;
 -(void)updateClippedSubviews;
 -(void)react_updateClippedSubviewsWithClipRect:(CGRect)arg1 relativeToView:(id)arg2 ;
--(void)setRemoveClippedSubviews:(char)arg1 ;
 -(void)react_remountAllSubviews;
 -(UIEdgeInsets)bordersAsInsets;
--(SCD_Struct_RC144*)borderColors;
+-(SCD_Struct_RC130*)borderColors;
 -(void)updateClippingForLayer:(id)arg1 ;
 -(int)reactZIndex;
 -(void)setReactZIndex:(int)arg1 ;
@@ -74,6 +73,7 @@
 -(void)setOnMagicTap:(id)arg1 ;
 -(void)setPointerEvents:(int)arg1 ;
 -(int)pointerEvents;
+-(void)setRemoveClippedSubviews:(char)arg1 ;
 -(char)removeClippedSubviews;
 -(void)setBorderRadius:(float)arg1 ;
 -(void)setBorderTopLeftRadius:(float)arg1 ;

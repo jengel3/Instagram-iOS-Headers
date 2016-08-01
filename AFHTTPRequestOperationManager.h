@@ -28,13 +28,9 @@
 @property (nonatomic,retain) NSURLCredential * credential;                                                          //@synthesize credential=_credential - In the implementation block
 @property (nonatomic,retain) AFSecurityPolicy * securityPolicy;                                                     //@synthesize securityPolicy=_securityPolicy - In the implementation block
 +(id)manager;
--(AFHTTPResponseSerializer*<AFURLResponseSerialization>)responseSerializer;
 -(void)setRequestSerializer:(AFHTTPRequestSerializer*<AFURLRequestSerialization>)arg1 ;
--(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
--(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
 -(char)shouldUseCredentialStorage;
 -(void)setShouldUseCredentialStorage:(char)arg1 ;
--(AFSecurityPolicy *)securityPolicy;
 -(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(id)HTTPRequestOperationWithRequest:(id)arg1 success:(/*^block*/id)arg2 failure:(/*^block*/id)arg3 ;
 -(id)GET:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
@@ -44,6 +40,10 @@
 -(id)PUT:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)PATCH:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)DELETE:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
+-(AFHTTPResponseSerializer*<AFURLResponseSerialization>)responseSerializer;
+-(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
+-(AFSecurityPolicy *)securityPolicy;
+-(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
 -(void)setCredential:(NSURLCredential *)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

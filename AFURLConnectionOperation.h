@@ -72,16 +72,12 @@
 +(void)networkRequestThreadEntryPoint:(id)arg1 ;
 +(id)networkRequestThread;
 +(id)batchOfRequestOperations:(id)arg1 progressBlock:(/*^block*/id)arg2 completionBlock:(/*^block*/id)arg3 ;
+-(void)setUploadProgress:(id)arg1 ;
 -(id)uploadProgress;
 -(void)setCacheResponseBlock:(/*^block*/id)arg1 ;
 -(void)setShouldExecuteAsBackgroundTaskWithExpirationHandler:(/*^block*/id)arg1 ;
--(void)setUploadProgress:(id)arg1 ;
--(NSObject*<OS_dispatch_group>)completionGroup;
--(void)setCompletionGroup:(NSObject*<OS_dispatch_group>)arg1 ;
--(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
 -(char)shouldUseCredentialStorage;
 -(void)setShouldUseCredentialStorage:(char)arg1 ;
--(AFSecurityPolicy *)securityPolicy;
 -(void)setAuthenticationChallenge:(id)arg1 ;
 -(void)setCacheResponse:(id)arg1 ;
 -(unsigned)responseStringEncoding;
@@ -94,6 +90,10 @@
 -(void)setWillSendRequestForAuthenticationChallengeBlock:(/*^block*/id)arg1 ;
 -(void)setRedirectResponseBlock:(/*^block*/id)arg1 ;
 -(NSString *)responseString;
+-(NSObject*<OS_dispatch_group>)completionGroup;
+-(AFSecurityPolicy *)securityPolicy;
+-(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
+-(void)setCompletionGroup:(NSObject*<OS_dispatch_group>)arg1 ;
 -(char)isReady;
 -(char)isConcurrent;
 -(NSSet *)runLoopModes;

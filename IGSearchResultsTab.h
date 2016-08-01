@@ -16,7 +16,6 @@
 @property (nonatomic,copy,readonly) NSString * tapCancelEventName; 
 @property (assign,nonatomic) char enableFrequentItems; 
 @required
--(char)enableNavState;
 -(NSString *)moduleName;
 -(unsigned)numberOfLocalResults;
 -(char)canShowLocationCell;
@@ -41,6 +40,7 @@
 -(NSString *)tapCancelEventName;
 -(char)enableFrequentItems;
 -(void)setEnableFrequentItems:(char)arg1;
+-(char)enableNavState;
 -(NSString *)noResultsMessage;
 -(NSString *)searchType;
 

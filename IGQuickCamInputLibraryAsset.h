@@ -3,13 +3,14 @@
 
 
 @protocol IGQuickCamInputLibraryAsset <IGQuickCamInputAsset>
-@property (nonatomic,retain) PHAsset * phAsset; 
-@property (nonatomic,retain) ALAsset * alAsset; 
+@property (nonatomic,readonly) PHAsset * phAsset; 
+@property (nonatomic,readonly) ALAsset * alAsset; 
 @required
--(void)setPhAsset:(id)arg1;
--(void)setAlAsset:(id)arg1;
++(id)new;
+-(id)initWithPHAsset:(id)arg1 ALAsset:(id)arg2 devicePosition:(int)arg3 flashMode:(int)arg4;
 -(PHAsset *)phAsset;
 -(ALAsset *)alAsset;
+-(id)init;
 
 @end
 

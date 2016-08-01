@@ -73,13 +73,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id<AFURLResponseSerialization>)responseSerializer;
 -(NSObject*<OS_dispatch_group>)completionGroup;
--(void)setCompletionGroup:(NSObject*<OS_dispatch_group>)arg1 ;
--(void)setResponseSerializer:(id<AFURLResponseSerialization>)arg1 ;
--(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
--(AFSecurityPolicy *)securityPolicy;
 -(id)downloadTaskDidFinishDownloading;
 -(void)setDownloadTaskDidFinishDownloading:(id)arg1 ;
 -(id)initWithSessionConfiguration:(id)arg1 ;
+-(void)setResponseSerializer:(id<AFURLResponseSerialization>)arg1 ;
 -(void)setMutableTaskDelegatesKeyedByTaskIdentifier:(NSMutableDictionary *)arg1 ;
 -(NSArray *)dataTasks;
 -(NSArray *)uploadTasks;
@@ -103,6 +100,7 @@
 -(void)setDownloadTaskDidResume:(id)arg1 ;
 -(id)sessionDidBecomeInvalid;
 -(id)sessionDidReceiveAuthenticationChallenge;
+-(AFSecurityPolicy *)securityPolicy;
 -(id)taskWillPerformHTTPRedirection;
 -(id)taskDidReceiveAuthenticationChallenge;
 -(id)taskNeedNewBodyStream;
@@ -135,6 +133,8 @@
 -(void)setDownloadTaskDidFinishDownloadingBlock:(/*^block*/id)arg1 ;
 -(void)setDownloadTaskDidWriteDataBlock:(/*^block*/id)arg1 ;
 -(void)setDownloadTaskDidResumeBlock:(/*^block*/id)arg1 ;
+-(void)setSecurityPolicy:(AFSecurityPolicy *)arg1 ;
+-(void)setCompletionGroup:(NSObject*<OS_dispatch_group>)arg1 ;
 -(void)setTaskNeedNewBodyStream:(id)arg1 ;
 -(void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(/*^block*/id)arg4 ;
 -(void)URLSession:(id)arg1 dataTask:(id)arg2 didBecomeDownloadTask:(id)arg3 ;

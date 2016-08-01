@@ -12,6 +12,7 @@
 @property (nonatomic,retain) NSArray * accessibleElements;              //@synthesize accessibleElements=_accessibleElements - In the implementation block
 -(NSArray *)accessibleElements;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
+-(void)addSubview:(id)arg1 ;
 -(int)accessibilityElementCount;
 -(id)accessibilityElementAtIndex:(int)arg1 ;
 -(int)indexOfAccessibilityElement:(id)arg1 ;

@@ -2,10 +2,11 @@
 #import <Instagram/Instagram-Structs.h>
 #import <libobjc.A.dylib/NSCoding.h>
 #import <libobjc.A.dylib/NSCopying.h>
+#import <Instagram/IGDirectReactionItemKeyProducer.h>
 
 @class NSString, IGUser, IGDate;
 
-@interface IGDirectContent : NSObject <NSCoding, NSCopying> {
+@interface IGDirectContent : NSObject <NSCoding, NSCopying, IGDirectReactionItemKeyProducer> {
 
 	NSString* _clientContextId;
 	char _isUploading;
@@ -27,20 +28,25 @@
 @property (nonatomic,readonly) char senderIsCurrentUser; 
 @property (nonatomic,readonly) char isUploading;                               //@synthesize isUploading=_isUploading - In the implementation block
 @property (nonatomic,readonly) NSString * contentTypeString; 
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 -(id)copyBySettingItemID:(id)arg1 ;
--(char)senderIsCurrentUser;
--(id)initWithUser:(id)arg1 sentAt:(id)arg2 itemID:(id)arg3 clientContextId:(id)arg4 viewCount:(unsigned)arg5 expireAt:(id)arg6 ;
 -(void)setExpireAt:(IGDate *)arg1 ;
 -(id)copyBySettingExpireAt:(id)arg1 ;
 -(id)copyBySettingViewCount:(unsigned)arg1 ;
+-(char)contentHasReactions;
 -(void)setSentAt:(IGDate *)arg1 ;
 -(void)setClientContextId:(NSString *)arg1 ;
 -(id)initWithUser:(id)arg1 sentAt:(id)arg2 itemID:(id)arg3 ;
+-(char)senderIsCurrentUser;
 -(NSString *)clientContextId;
 -(NSString *)contentTypeString;
+-(id)reactionItemKey;
+-(id)initWithUser:(id)arg1 sentAt:(id)arg2 itemID:(id)arg3 clientContextId:(id)arg4 viewCount:(unsigned)arg5 expireAt:(id)arg6 ;
 -(IGDate *)expireAt;
 -(void)setViewCount:(unsigned)arg1 ;
--(char)contentHasReactions;
 -(char)isUploading;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
@@ -50,7 +56,7 @@
 -(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
--(id)description;
+-(NSString *)description;
 -(id)initWithDictionary:(id)arg1 ;
 -(id)copyWithZone:(NSZone*)arg1 ;
 -(NSString *)digestDescription;

@@ -42,7 +42,7 @@
 -(id)moduleConfig;
 -(void)injectJSONConfiguration:(id)arg1 onComplete:(/*^block*/id)arg2 ;
 -(void)executeSourceCode:(id)arg1 ;
--(void)didFinishLoading;
+-(void)_flushPendingCalls;
 -(void)enqueueApplicationScript:(id)arg1 url:(id)arg2 onComplete:(/*^block*/id)arg3 ;
 -(void)_actuallyInvokeAndProcessModule:(id)arg1 method:(id)arg2 arguments:(id)arg3 ;
 -(void)_actuallyInvokeCallback:(id)arg1 arguments:(id)arg2 ;
@@ -56,10 +56,12 @@
 -(id<RCTJavaScriptExecutor>)javaScriptExecutor;
 -(void)setJavaScriptExecutor:(id<RCTJavaScriptExecutor>)arg1 ;
 -(void)setModuleSetupComplete:(char)arg1 ;
+-(id)initWithDelegate:(id)arg1 bundleURL:(id)arg2 moduleProvider:(/*^block*/id)arg3 launchOptions:(id)arg4 ;
 -(void)bindKeys;
 -(id)moduleForName:(id)arg1 ;
 -(char)moduleIsInitialized:(Class)arg1 ;
 -(id)initWithParentBridge:(id)arg1 ;
+-(void)enqueueJSCall:(id)arg1 method:(id)arg2 args:(id)arg3 completion:(/*^block*/id)arg4 ;
 -(Class)executorClass;
 -(void)setExecutorClass:(Class)arg1 ;
 -(long long)flowID;
@@ -69,7 +71,6 @@
 -(id)flowIDMapLock;
 -(void)setFlowIDMapLock:(id)arg1 ;
 -(void)registerModuleForFrameUpdates:(id)arg1 withModuleData:(id)arg2 ;
--(void)enqueueJSCall:(id)arg1 args:(id)arg2 ;
 -(void)dispatchBlock:(/*^block*/id)arg1 queue:(id)arg2 ;
 -(char)moduleSetupComplete;
 -(void)enqueueCallback:(id)arg1 args:(id)arg2 ;

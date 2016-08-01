@@ -28,14 +28,14 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic) float headerAdjustmentAmount;                                        //@synthesize headerAdjustmentAmount=_headerAdjustmentAmount - In the implementation block
 -(float)headerAdjustmentAmount;
--(float)supplementaryHeaderViewHeight;
 -(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
--(float)supplementaryFooterViewHeight;
 -(void)setSupplementaryFooterViewHeight:(float)arg1 ;
 -(void)setHeaderAdjustmentAmount:(float)arg1 ;
--(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 oldObjects:(id)arg3 oldContext:(id)arg4 synchronous:(char)arg5 completionBlock:(/*^block*/id)arg6 ;
 -(void)setRefreshHeight:(float)arg1 ;
 -(float)refreshHeight;
+-(float)supplementaryHeaderViewHeight;
+-(float)supplementaryFooterViewHeight;
+-(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 oldObjects:(id)arg3 oldContext:(id)arg4 synchronous:(char)arg5 completionBlock:(/*^block*/id)arg6 ;
 -(void)setDataSource:(id<IGCollectionViewLayoutDataSource>)arg1 ;
 -(id)init;
 -(id<IGCollectionViewLayoutDataSource>)dataSource;

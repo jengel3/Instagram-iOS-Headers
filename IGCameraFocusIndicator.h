@@ -15,10 +15,10 @@
 
 @property (nonatomic,retain) UIColor * indicatorColor;              //@synthesize indicatorColor=_indicatorColor - In the implementation block
 -(void)startAnimatingAtPoint:(CGPoint)arg1 ;
--(void)completeAnimation;
 -(void)stopRenderLoop;
 -(void)startRenderLoop;
 -(UIColor *)indicatorColor;
+-(void)completeAnimation;
 -(void)setIndicatorColor:(UIColor *)arg1 ;
 -(void)drawRect:(CGRect)arg1 ;
 -(void)dealloc;

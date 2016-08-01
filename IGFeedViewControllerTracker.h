@@ -13,10 +13,10 @@
 @property (nonatomic,readonly) NSArray * impressionTrackers;                                         //@synthesize impressionTrackers=_impressionTrackers - In the implementation block
 @property (nonatomic,readonly) IGFullViewImpressionTracker * fullViewImpressionTracker;              //@synthesize fullViewImpressionTracker=_fullViewImpressionTracker - In the implementation block
 +(id)trackingDataForCollectionView:(id)arg1 items:(id)arg2 visibleContentRect:(CGRect)arg3 ;
--(IGFullViewImpressionTracker *)fullViewImpressionTracker;
--(NSArray *)impressionTrackers;
 -(id)initWithLoggingProviderDelegate:(id)arg1 analyticsModule:(id)arg2 isMainFeed:(char)arg3 feedNetworkSource:(id)arg4 ;
 -(void)updateFullviewTrackerWithAllItems:(id)arg1 ;
 -(void)updateTrackersForContentChangeWithCollectionView:(id)arg1 allItems:(id)arg2 visibleContentRect:(CGRect)arg3 ;
+-(IGFullViewImpressionTracker *)fullViewImpressionTracker;
+-(NSArray *)impressionTrackers;
 @end
 

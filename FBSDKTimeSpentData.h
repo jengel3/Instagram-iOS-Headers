@@ -1,5 +1,7 @@
 
 
+@class NSString;
+
 @interface FBSDKTimeSpentData : NSObject {
 
 	char _isCurrentlyLoaded;
@@ -9,11 +11,10 @@
 	long _timeSinceLastSuspend;
 	int _numInterruptionsInCurrentSession;
 	long _lastRestoreTime;
-	int _numSecondsIdleToBeNewSession;
+	long _lastSuspendTime;
+	NSString* _sessionID;
 
 }
-
-@property (assign,nonatomic) int numSecondsIdleToBeNewSession;              //@synthesize numSecondsIdleToBeNewSession=_numSecondsIdleToBeNewSession - In the implementation block
 +(void)setSourceApplication:(id)arg1 openURL:(id)arg2 ;
 +(void)registerAutoResetSourceApplication;
 +(id)getSourceApplication;
@@ -24,8 +25,7 @@
 +(id)singleton;
 -(void)instanceSuspend;
 -(void)instanceRestore:(char)arg1 ;
--(int)numSecondsIdleToBeNewSession;
--(void)setNumSecondsIdleToBeNewSession:(int)arg1 ;
--(id)init;
+-(id)appEventsParametersForDeactivate;
+-(id)appEventsParametersForActivate;
 @end
 

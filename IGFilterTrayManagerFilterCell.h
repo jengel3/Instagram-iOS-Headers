@@ -29,6 +29,7 @@
 @property (nonatomic,retain) UIImage * filterIcon; 
 @property (assign,nonatomic) Class filterClass;                           //@synthesize filterClass=_filterClass - In the implementation block
 -(Class)filterClass;
+-(void)setFilterClass:(Class)arg1 ;
 -(id)LX_snapshotView;
 -(UIImageView *)visibleIndicator;
 -(UIButton *)rearrangeControl;
@@ -45,7 +46,6 @@
 -(void)setTopLine:(UIView *)arg1 ;
 -(UIView *)bottomLine;
 -(void)setBottomLine:(UIView *)arg1 ;
--(void)setFilterClass:(Class)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(void)setHighlighted:(char)arg1 animated:(char)arg2 ;

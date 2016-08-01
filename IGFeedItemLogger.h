@@ -19,9 +19,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(IGListAdapter *)listAdapter;
 -(id)extraDictionaryForFeedItem:(id)arg1 ;
+-(id)initWithListAdapter:(id)arg1 mediaCellIndex:(unsigned)arg2 ;
 -(id)extraDictionaryForFeedItem:(id)arg1 directResponseInfo:(id)arg2 ;
 -(unsigned)mediaCellIndex;
 -(unsigned)offsetSectionForFeedItem:(id)arg1 inList:(id)arg2 atSection:(unsigned)arg3 ;
--(id)initWithListAdapter:(id)arg1 mediaCellIndex:(unsigned)arg2 ;
 @end
 

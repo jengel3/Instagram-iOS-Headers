@@ -17,7 +17,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(id)moduleName;
 +(id)propConfig_source;
-+(id)__rct_export__520;
++(id)__rct_export__762;
 +(id)propConfig_bounces;
 +(id)propConfig_scrollEnabled;
 +(id)propConfig_decelerationRate;
@@ -31,8 +31,9 @@
 +(id)propConfig_onShouldStartLoadWithRequest;
 +(id)propConfig_allowsInlineMediaPlayback;
 +(id)propConfig_mediaPlaybackRequiresUserAction;
++(id)propConfig_dataDetectorTypes;
++(id)__rct_export__520;
 +(id)__rct_export__641;
-+(id)__rct_export__762;
 +(id)__rct_export__883;
 +(id)__rct_export__1234;
 +(void)load;

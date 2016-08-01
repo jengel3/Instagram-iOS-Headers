@@ -24,9 +24,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(UIView *)headerBackgroundView;
 -(UITableView *)actionsTableView;
 -(void)flashScrollIndicatorsIfNeeded;
--(UIView *)headerBackgroundView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setActions:(NSArray *)arg1 ;
 -(void)layoutSubviews;

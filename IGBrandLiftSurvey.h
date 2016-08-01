@@ -24,10 +24,10 @@
 -(NSString *)surveyID;
 -(void)setSurveyID:(NSString *)arg1 ;
 -(void)setQuestions:(NSArray *)arg1 ;
+-(NSArray *)questions;
 -(void)setShowResults:(char)arg1 ;
 -(void)setPrimerText:(NSString *)arg1 ;
--(NSArray *)questions;
--(char)showResults;
 -(NSString *)primerText;
+-(char)showResults;
 @end
 

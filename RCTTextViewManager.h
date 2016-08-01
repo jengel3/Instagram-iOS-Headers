@@ -15,6 +15,7 @@
 +(id)propConfig_keyboardAppearance;
 +(id)propConfig_maxLength;
 +(id)propConfig_onChange;
++(id)propConfig_onContentSizeChange;
 +(id)propConfig_onSelectionChange;
 +(id)propConfig_onTextInput;
 +(id)propConfig_placeholder;

@@ -15,10 +15,10 @@
 @property (nonatomic,copy,readonly) NSArray * activeAds;               //@synthesize activeAds=_activeAds - In the implementation block
 @property (nonatomic,copy,readonly) NSArray * endedAds;                //@synthesize endedAds=_endedAds - In the implementation block
 -(id)initWithPendingAds:(NSArray*)arg1 activeAds:(NSArray*)arg2 endedAds:(NSArray*)arg3 ;
--(char)isEmptyViewmodel;
+-(id)adForMediaID:(id)arg1 ;
 -(NSArray *)pendingAds;
 -(NSArray *)activeAds;
 -(NSArray *)endedAds;
--(id)adForMediaID:(id)arg1 ;
+-(char)isEmptyViewmodel;
 @end
 

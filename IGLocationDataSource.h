@@ -41,11 +41,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)setIsLocating:(char)arg1 ;
--(char)isLocating;
 -(void)setIsSearching:(char)arg1 ;
 -(IGRequest *)locationRequest;
 -(int)fetchStatus;
+-(char)isLocating;
 -(id)locationForIndexPath:(id)arg1 ;
 -(char)locationIsFromEXIF;
 -(id)tableView:(id)arg1 errorCellForRowAtIndexPath:(id)arg2 ;
@@ -68,6 +67,7 @@
 -(void)fetchLocationsNearCLLocation:(id)arg1 atMediaCreationTime:(id)arg2 locationIsFromEXIF:(char)arg3 withQuery:(id)arg4 ;
 -(void)fetchLocationsNearCLLocation:(id)arg1 locationIsFromEXIF:(char)arg2 withQuery:(id)arg3 rankToken:(id)arg4 ;
 -(char)hasLocations;
+-(void)setIsLocating:(char)arg1 ;
 -(NSString *)lastRequestID;
 -(NSString *)responseRankTokenID;
 -(void)setResponseQueryText:(NSString *)arg1 ;

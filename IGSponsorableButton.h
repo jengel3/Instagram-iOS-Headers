@@ -11,9 +11,9 @@
 -(IGFeedItem *)feedItem;
 -(void)setLoggingDelegate:(id)arg1;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
+-(void)setColor:(id)arg1 forState:(unsigned)arg2;
 -(IGActionSheetConfiguration *)actionSheetConfiguration;
 -(void)setActionSheetConfiguration:(id)arg1;
--(void)setColor:(id)arg1 forState:(unsigned)arg2;
 -(void)setFeedItem:(id)arg1;
 -(char)showIcon;
 -(void)setShowIcon:(char)arg1;

@@ -38,12 +38,12 @@
 -(char)isForRenewal;
 -(id)attributeString;
 -(char)isEqualToToken:(id)arg1 ;
--(id)initWithUserDefaultsUsingServiceProviderName:(id)arg1 prefix:(id)arg2 ;
--(int)storeInUserDefaultsWithServiceProviderName:(id)arg1 prefix:(id)arg2 ;
 -(void)setDurationWithString:(id)arg1 ;
--(char)isRenewable;
 -(id)attribute:(id)arg1 ;
 -(void)setAttributesWithString:(id)arg1 ;
+-(id)initWithUserDefaultsUsingServiceProviderName:(id)arg1 prefix:(id)arg2 ;
+-(int)storeInUserDefaultsWithServiceProviderName:(id)arg1 prefix:(id)arg2 ;
+-(char)isRenewable;
 -(void)setForRenewal:(char)arg1 ;
 -(char)hasAttributes;
 -(NSString *)session;

@@ -1,9 +1,11 @@
 
 
 @interface IGColors : NSObject
-+(id)darkButtonColor;
-+(id)errorColor;
 +(id)emphasizedActionColor;
++(id)errorColor;
++(id)darkButtonColor;
++(id)veryLightTextColor;
++(id)accessoryColor;
 +(id)navigationBarBackgroundColor;
 +(id)lightCreationBackgroundColor;
 +(id)creationNavigationBarBackgroundColor;
@@ -14,20 +16,18 @@
 +(id)creationToolContainerBackgroundColor;
 +(id)creationTextColor;
 +(id)creationBackgroundColor;
-+(id)heartColor;
-+(id)veryLightTextColor;
 +(id)lightBarBackgroundColor;
 +(id)lightButtonColor;
 +(id)boldLinkColor;
-+(id)selectedAccessoryColor;
++(id)searchButtonTextColor;
 +(id)linkHighlightedColor;
-+(id)searchButtonBackgroundColor;
 +(id)ufiActionIconColor;
-+(id)accessoryColor;
++(id)selectedAccessoryColor;
++(id)searchButtonBackgroundColor;
++(id)heartColor;
 +(id)validAccessoryColor;
 +(id)systemDestructiveColor;
 +(id)tabBarBackgroundColor;
-+(id)searchButtonTextColor;
 +(id)activeSearchNavigationBarBackgroundColor;
 +(id)boldLinkHighlightedColor;
 +(id)lightTranslucentOverlayColor;

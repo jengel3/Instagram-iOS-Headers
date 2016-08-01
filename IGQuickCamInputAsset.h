@@ -2,11 +2,12 @@
 
 @protocol IGQuickCamInputAsset <NSObject>
 @property (nonatomic,readonly) char isFromLibrary; 
-@property (assign,nonatomic) int devicePosition; 
+@property (nonatomic,readonly) int devicePosition; 
+@property (nonatomic,readonly) int flashMode; 
 @required
--(void)setDevicePosition:(int)arg1;
--(int)devicePosition;
 -(char)isFromLibrary;
+-(int)devicePosition;
+-(int)flashMode;
 
 @end
 

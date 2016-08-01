@@ -66,6 +66,7 @@
 -(UITapGestureRecognizer *)tapGesture;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
+-(IGProfilePictureHelper *)profilePictureHelper;
 -(void)backgroundTapped;
 -(void)nextButtonTapped;
 -(void)profilePictureTapped:(id)arg1 ;
@@ -75,7 +76,6 @@
 -(void)setSubmitting:(char)arg1 ;
 -(char)shouldSplitUsername;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
--(IGProfilePictureHelper *)profilePictureHelper;
 -(void)setSignUpView:(IGRetroRegistrationSignUpView *)arg1 ;
 -(IGRetroRegistrationSignUpView *)signUpView;
 -(void)loginButtonTapped;

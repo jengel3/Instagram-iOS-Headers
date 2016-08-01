@@ -33,9 +33,9 @@
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)nextButtonTapped;
 -(char)validateField:(id)arg1 withAlert:(char)arg2 ;
+-(void)validateEmail:(id)arg1 ;
 -(IGRetroRegistrationAddEmailView *)addEmailView;
 -(void)phoneRegistrationButtonTapped;
--(void)validateEmail:(id)arg1 ;
 -(void)setAddEmailView:(IGRetroRegistrationAddEmailView *)arg1 ;
 -(char)submitting;
 -(void)setSubmitting:(char)arg1 ;

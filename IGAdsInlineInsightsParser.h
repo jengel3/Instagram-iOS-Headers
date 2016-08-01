@@ -14,8 +14,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)parseGraphQLResponseWithResult:(id)arg1 error:(id*)arg2 ;
 -(NSString *)mediaID;
+-(id)parseGraphQLResponseWithResult:(id)arg1 error:(id*)arg2 ;
 -(id)initWithMediaID:(id)arg1 ;
 @end
 

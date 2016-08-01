@@ -16,8 +16,8 @@
 @property (nonatomic,readonly) unsigned loggerSerialNumber;                     //@synthesize loggerSerialNumber=_loggerSerialNumber - In the implementation block
 @property (nonatomic,copy,readonly) NSString * loggingBehavior;                 //@synthesize loggingBehavior=_loggingBehavior - In the implementation block
 @property (nonatomic,readonly) char isActive;                                   //@synthesize isActive=_isActive - In the implementation block
-+(void)singleShotLogEntry:(id)arg1 logEntry:(id)arg2 ;
 +(void)singleShotLogEntry:(id)arg1 formatString:(id)arg2 ;
++(void)singleShotLogEntry:(id)arg1 logEntry:(id)arg2 ;
 +(void)registerStringToReplace:(id)arg1 replaceWith:(id)arg2 ;
 +(void)singleShotLogEntry:(id)arg1 timestampTag:(id)arg2 formatString:(id)arg3 ;
 +(void)registerCurrentTime:(id)arg1 withTag:(id)arg2 ;

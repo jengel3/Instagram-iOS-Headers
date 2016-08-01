@@ -8,13 +8,13 @@
 	char _adjustOrigin;
 	int _numTiles;
 	char _hasShowMoreButton;
-	SCD_Struct_IG35 _largeRows;
-	SCD_Struct_IG35 _smallRows;
+	IGPagingFocusOffsets _largeRows;
+	IGPagingFocusOffsets _smallRows;
 
 }
 
-@property (assign,nonatomic) SCD_Struct_IG35 largeRows;              //@synthesize largeRows=_largeRows - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG35 smallRows;              //@synthesize smallRows=_smallRows - In the implementation block
+@property (assign,nonatomic) IGPagingFocusOffsets largeRows;              //@synthesize largeRows=_largeRows - In the implementation block
+@property (assign,nonatomic) IGPagingFocusOffsets smallRows;              //@synthesize smallRows=_smallRows - In the implementation block
 +(id)forNumberOfTiles:(int)arg1 withShowMoreButton:(char)arg2 adjustOrigin:(char)arg3 ;
 -(id)initWithNumberOfTiles:(int)arg1 withShowMoreButton:(char)arg2 adjustOrigin:(char)arg3 ;
 -(CGRect)frameForInfoButton:(char)arg1 ;
@@ -27,10 +27,10 @@
 -(CGRect)frameForExplodedTile:(int)arg1 ;
 -(CGRect)frameForShowMoreButton:(id)arg1 forFullScreen:(char)arg2 ;
 -(char)shouldFadeOutOtherTilesInFullScreen;
--(SCD_Struct_IG35)largeRows;
--(void)setLargeRows:(SCD_Struct_IG35)arg1 ;
--(SCD_Struct_IG35)smallRows;
--(void)setSmallRows:(SCD_Struct_IG35)arg1 ;
+-(IGPagingFocusOffsets)largeRows;
+-(void)setLargeRows:(IGPagingFocusOffsets)arg1 ;
+-(IGPagingFocusOffsets)smallRows;
+-(void)setSmallRows:(IGPagingFocusOffsets)arg1 ;
 -(float)totalWidth;
 -(float)totalHeightIncludingInfoButton;
 -(CGPoint)centerOfExplodedClusterInView:(id)arg1 ;

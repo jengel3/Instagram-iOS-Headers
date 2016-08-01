@@ -3,15 +3,15 @@
 #import <Instagram/FBSDKGraphErrorRecoveryProcessorDelegate.h>
 
 @protocol FBSDKGraphRequestConnectionDelegate;
-@class NSString, FBSDKGraphRequestMetadata, FBSDKGraphErrorRecoveryProcessor, NSOperationQueue, NSHTTPURLResponse, FBSDKURLConnection, NSMutableArray, FBSDKLogger;
+@class NSString, NSOperationQueue, FBSDKGraphRequestMetadata, FBSDKGraphErrorRecoveryProcessor, NSHTTPURLResponse, FBSDKURLConnection, NSMutableArray, FBSDKLogger;
 
 @interface FBSDKGraphRequestConnection : NSObject <FBSDKURLConnectionDelegate, FBSDKGraphErrorRecoveryProcessorDelegate> {
 
 	NSString* _overrideVersionPart;
-	FBSDKGraphRequestMetadata* _recoveringRequestMetadata;
-	FBSDKGraphErrorRecoveryProcessor* _errorRecoveryProcessor;
 	unsigned _expectingResults;
 	NSOperationQueue* _delegateQueue;
+	FBSDKGraphRequestMetadata* _recoveringRequestMetadata;
+	FBSDKGraphErrorRecoveryProcessor* _errorRecoveryProcessor;
 	id<FBSDKGraphRequestConnectionDelegate> _delegate;
 	NSHTTPURLResponse* _URLResponse;
 	FBSDKURLConnection* _connection;
@@ -23,14 +23,14 @@
 
 }
 
-@property (nonatomic,retain) FBSDKURLConnection * connection;                               //@synthesize connection=_connection - In the implementation block
-@property (nonatomic,retain) NSMutableArray * requests;                                     //@synthesize requests=_requests - In the implementation block
-@property (assign,nonatomic) unsigned state;                                                //@synthesize state=_state - In the implementation block
-@property (nonatomic,retain) FBSDKLogger * logger;                                          //@synthesize logger=_logger - In the implementation block
-@property (assign,nonatomic) unsigned long requestStartTime;                                //@synthesize requestStartTime=_requestStartTime - In the implementation block
-@property (assign,nonatomic) id<FBSDKGraphRequestConnectionDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic) double timeout;                                                //@synthesize timeout=_timeout - In the implementation block
-@property (nonatomic,retain,readonly) NSHTTPURLResponse * URLResponse;                      //@synthesize URLResponse=_URLResponse - In the implementation block
+@property (nonatomic,retain) FBSDKURLConnection * connection;                                      //@synthesize connection=_connection - In the implementation block
+@property (nonatomic,retain) NSMutableArray * requests;                                            //@synthesize requests=_requests - In the implementation block
+@property (assign,nonatomic) unsigned state;                                                       //@synthesize state=_state - In the implementation block
+@property (nonatomic,retain) FBSDKLogger * logger;                                                 //@synthesize logger=_logger - In the implementation block
+@property (assign,nonatomic) unsigned long requestStartTime;                                       //@synthesize requestStartTime=_requestStartTime - In the implementation block
+@property (assign,nonatomic,__weak) id<FBSDKGraphRequestConnectionDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic) double timeout;                                                       //@synthesize timeout=_timeout - In the implementation block
+@property (nonatomic,retain,readonly) NSHTTPURLResponse * URLResponse;                             //@synthesize URLResponse=_URLResponse - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 

@@ -17,6 +17,7 @@
 @property (nonatomic,readonly) float runningTime; 
 @property (assign,nonatomic) CGSize videoSize;                                //@synthesize videoSize=_videoSize - In the implementation block
 @property (assign) int position;                                              //@synthesize position=_position - In the implementation block
+-(id)initWithCameraPosition:(int)arg1 ;
 -(char)handleVideoSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;
 -(float)runningTime;
 -(void)handleAudioSampleBuffer:(opaqueCMSampleBufferRef)arg1 ;

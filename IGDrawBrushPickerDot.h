@@ -15,8 +15,8 @@
 @property (assign,nonatomic) float brushWidth;                  //@synthesize brushWidth=_brushWidth - In the implementation block
 -(void)setBrushColor:(UIColor *)arg1 ;
 -(UIColor *)brushColor;
--(float)brushWidth;
 -(void)setBrushWidth:(float)arg1 ;
+-(float)brushWidth;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)drawRect:(CGRect)arg1 ;
 @end

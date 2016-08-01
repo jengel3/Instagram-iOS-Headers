@@ -31,10 +31,10 @@
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(NSString *)surveyID;
 -(void)setSurveyID:(NSString *)arg1 ;
+-(NSArray *)possibleAnswers;
 -(char)showPrimerView;
 -(void)setShowPrimerView:(char)arg1 ;
 -(int)answerStyle;
--(NSArray *)possibleAnswers;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(NSString *)subtitle;

@@ -62,13 +62,13 @@
 -(void)dirtyText;
 -(id)processUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
 -(id)buildTextStorageForWidth:(float)arg1 widthMode:(int)arg2 ;
--(void)applyLayoutNode:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
+-(void)applyLayoutNode:(CSSNodeRef)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
 -(id)_attributedStringWithFontFamily:(id)arg1 fontSize:(id)arg2 fontWeight:(id)arg3 fontStyle:(id)arg4 letterSpacing:(id)arg5 useBackgroundColor:(char)arg6 foregroundColor:(id)arg7 backgroundColor:(id)arg8 opacity:(float)arg9 ;
 -(void)_addAttribute:(id)arg1 withValue:(id)arg2 toAttributedString:(id)arg3 ;
 -(void)_setParagraphStyleOnAttributedString:(id)arg1 heightOfTallestSubview:(float)arg2 ;
--(void)fillCSSNode:(css_node*)arg1 ;
 -(void)setAllowFontScaling:(char)arg1 ;
--(void)applyLayoutToChildren:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
+-(char)isCSSLeafNode;
+-(void)applyLayoutToChildren:(CSSNodeRef)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
 -(void)setIsHighlighted:(char)arg1 ;
 -(void)setTextDecorationColor:(UIColor *)arg1 ;
 -(void)setTextDecorationLine:(int)arg1 ;
@@ -82,8 +82,6 @@
 -(CGSize)textShadowOffset;
 -(float)textShadowRadius;
 -(void)recomputeText;
--(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
--(void)removeReactSubview:(id)arg1 ;
 -(void)setTextAlign:(int)arg1 ;
 -(void)setBackgroundColor:(id)arg1 ;
 -(void)dealloc;

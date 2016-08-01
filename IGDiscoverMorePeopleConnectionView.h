@@ -16,13 +16,13 @@
 @property (nonatomic,copy) id tapAction;                                                                     //@synthesize tapAction=_tapAction - In the implementation block
 +(id)imageNameForViewType:(int)arg1 ;
 +(float)defaultHeight;
--(void)configureWithConnectionViewType:(int)arg1 ;
--(void)setTapAction:(id)arg1 ;
--(void)updateConnectionView;
 -(void)onCellTapped;
 -(id)tapAction;
+-(void)updateConnectionView;
 -(IGDiscoverMorePeopleServiceConfiguration *)serviceConfiguration;
 -(void)setServiceConnected:(char)arg1 withConnectionCount:(unsigned)arg2 ;
+-(void)setTapAction:(id)arg1 ;
+-(void)configureWithConnectionViewType:(int)arg1 ;
 -(UITapGestureRecognizer *)tapGestureRecognizer;
 -(void)layoutSubviews;
 -(id)initWithReuseIdentifier:(id)arg1 ;

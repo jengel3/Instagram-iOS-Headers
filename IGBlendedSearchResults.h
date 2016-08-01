@@ -45,13 +45,12 @@
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(char)enableNavState;
 -(NSString *)moduleName;
 -(unsigned)numberOfLocalResults;
 -(IGUserListLocalDataSource *)localUserDataSource;
 -(void)_filterLocalResultsBySearchString:(id)arg1 ;
--(NSArray *)frequentItems;
 -(void)setFrequentItems:(NSArray *)arg1 ;
+-(NSArray *)frequentItems;
 -(char)canShowLocationCell;
 -(id)allSearchResults;
 -(void)filterBySearchString:(id)arg1 searchInfo:(id)arg2 ;
@@ -77,6 +76,7 @@
 -(id)searchBarPlaceholder;
 -(void)onSearchTextDidChange:(id)arg1 ;
 -(id)fallbackIcon;
+-(char)enableNavState;
 -(IGBlendedSearchDataSource *)dataSource;
 -(id)title;
 -(id)accessibilityIdentifier;

@@ -16,13 +16,13 @@
 
 }
 
-@property (nonatomic,retain) NSURLConnection * connection;                         //@synthesize connection=_connection - In the implementation block
-@property (nonatomic,retain) NSMutableData * data;                                 //@synthesize data=_data - In the implementation block
-@property (nonatomic,copy) id handler;                                             //@synthesize handler=_handler - In the implementation block
-@property (nonatomic,retain) NSURLResponse * response;                             //@synthesize response=_response - In the implementation block
-@property (assign,nonatomic) unsigned long requestStartTime;                       //@synthesize requestStartTime=_requestStartTime - In the implementation block
-@property (nonatomic,readonly) unsigned loggerSerialNumber;                        //@synthesize loggerSerialNumber=_loggerSerialNumber - In the implementation block
-@property (assign,nonatomic) id<FBSDKURLConnectionDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (nonatomic,retain) NSURLConnection * connection;                                //@synthesize connection=_connection - In the implementation block
+@property (nonatomic,retain) NSMutableData * data;                                        //@synthesize data=_data - In the implementation block
+@property (nonatomic,copy) id handler;                                                    //@synthesize handler=_handler - In the implementation block
+@property (nonatomic,retain) NSURLResponse * response;                                    //@synthesize response=_response - In the implementation block
+@property (assign,nonatomic) unsigned long requestStartTime;                              //@synthesize requestStartTime=_requestStartTime - In the implementation block
+@property (nonatomic,readonly) unsigned loggerSerialNumber;                               //@synthesize loggerSerialNumber=_loggerSerialNumber - In the implementation block
+@property (assign,nonatomic,__weak) id<FBSDKURLConnectionDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 

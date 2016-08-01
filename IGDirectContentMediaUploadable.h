@@ -9,9 +9,9 @@
 @property (nonatomic,retain) IGUploadModel * uploadModel; 
 @property (assign,nonatomic) CGSize aspectRatio; 
 @required
--(IGUploadModel *)uploadModel;
 -(NSURL *)cacheKeyURL;
 -(char)useMainCameraUploadFlow;
+-(IGUploadModel *)uploadModel;
 -(void)setUploadModel:(id)arg1;
 -(NSData *)imageData;
 -(CGSize)aspectRatio;

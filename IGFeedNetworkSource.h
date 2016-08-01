@@ -26,7 +26,6 @@
 	NSArray* _rankedPosts;
 	NSArray* _socialPosts;
 	int _truncationPolicy;
-	NSArray* _forcedMediaIDs;
 	IGPrefetchPostsConfiguration* _prefetchConfiguration;
 	int _status;
 	NSString* _emptyMessage;
@@ -62,7 +61,6 @@
 @property (assign,nonatomic,__weak) id<IGFeedNetworkSourceHideDelegate> hideDelegate;              //@synthesize hideDelegate=_hideDelegate - In the implementation block
 @property (readonly) NSArray * downloadedPosts;                                                    //@synthesize downloadedPosts=_downloadedPosts - In the implementation block
 @property (assign,nonatomic) int truncationPolicy;                                                 //@synthesize truncationPolicy=_truncationPolicy - In the implementation block
-@property (nonatomic,copy) NSArray * forcedMediaIDs;                                               //@synthesize forcedMediaIDs=_forcedMediaIDs - In the implementation block
 @property (assign,nonatomic) char shouldEagerLoadImages;                                           //@synthesize shouldEagerLoadImages=_shouldEagerLoadImages - In the implementation block
 @property (nonatomic,retain) IGPrefetchPostsConfiguration * prefetchConfiguration;                 //@synthesize prefetchConfiguration=_prefetchConfiguration - In the implementation block
 @property (assign) char loadedOnce;                                                                //@synthesize loadedOnce=_loadedOnce - In the implementation block
@@ -85,15 +83,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(id)feedForAlbumFullscreenViewerWithChannelPK:(id)arg1 userSession:(id)arg2 ;
-+(id)feedForReelPrivateArchiveUserSession:(id)arg1 ;
 +(id)feedWithFeedItem:(id)arg1 userSession:(id)arg2 ;
 +(id)feedWithItems:(id)arg1 userSession:(id)arg2 ;
 +(id)fetchPathForMediaID:(id)arg1 ;
 +(id)feedWithPopularUserSession:(id)arg1 ;
-+(id)feedWithReelsTimelineUserSession:(id)arg1 ;
-+(id)feedWithTag:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
 +(id)mainFeedNetworkSourceUserSession:(id)arg1 ;
++(id)feedWithTag:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
 +(id)feedWithLocation:(id)arg1 loadedPosts:(id)arg2 userSession:(id)arg3 ;
 +(id)feedWithMediaID:(id)arg1 userSession:(id)arg2 ;
 +(id)feedWithLikedUserSession:(id)arg1 ;
@@ -101,12 +96,8 @@
 +(id)feedWithPhotosOfUser:(id)arg1 userSession:(id)arg2 ;
 -(id)initWithPostClass:(Class)arg1 fetchPath:(id)arg2 userSession:(id)arg3 ;
 -(void)setTruncationPolicy:(int)arg1 ;
--(void)setPrefetchConfiguration:(IGPrefetchPostsConfiguration *)arg1 ;
--(void)setShouldEagerLoadImages:(char)arg1 ;
--(id)regularPostsFromResponse:(id)arg1 clearOut:(char)arg2 usingStore:(id)arg3 ;
--(void)loadEntriesFromResponse:(id)arg1 clearOut:(char)arg2 ;
 -(NSArray *)posts;
--(void)setPosts:(NSArray *)arg1 ;
+-(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
 -(id)hyperlapseBannerConfigurationForHashtag:(id)arg1 ;
 -(id)boomerangBannerConfigurationForHashtag:(id)arg1 ;
 -(id)layoutBannerConfigurationForHashtag:(id)arg1 ;
@@ -115,6 +106,7 @@
 -(id)initWithLocation:(id)arg1 userSession:(id)arg2 ;
 -(id)initWithPosts:(id)arg1 postClass:(Class)arg2 fetchPath:(id)arg3 userSession:(id)arg4 ;
 -(void)setPostClass:(Class)arg1 ;
+-(void)setPosts:(NSArray *)arg1 ;
 -(void)setEmptyMessage:(NSString *)arg1 ;
 -(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(void)onPostDeleted:(id)arg1 ;
@@ -130,13 +122,13 @@
 -(NSString *)fetchPath;
 -(char)fetchDataWithParameters:(id)arg1 ;
 -(char)fetchDataWithParameters:(id)arg1 priority:(int)arg2 ;
--(NSArray *)forcedMediaIDs;
 -(char)fetchDataWithConfig:(id)arg1 ;
 -(void)setLastFetchTime:(NSDate *)arg1 ;
 -(char)failedWithAuthorizationError;
 -(NSString *)nextMaxID;
 -(id)buildRequestWithParameters:(id)arg1 maxID:(id)arg2 ;
 -(id)injectedCompleteFeedResponse:(id)arg1 ;
+-(void)loadEntriesFromResponse:(id)arg1 clearOut:(char)arg2 ;
 -(void)handleSuccessBlockWithResponse:(id)arg1 requestConfig:(id)arg2 ;
 -(void)handleFailureResponse:(id)arg1 ;
 -(void)handleAuthorizationError:(id)arg1 ;
@@ -147,6 +139,7 @@
 -(Class)postClass;
 -(id)rankedPostsFromResponse:(id)arg1 usingStore:(id)arg2 ;
 -(id)socialPostsFromResponse:(id)arg1 usingStore:(id)arg2 ;
+-(id)regularPostsFromResponse:(id)arg1 clearOut:(char)arg2 usingStore:(id)arg3 ;
 -(void)setRankedPosts:(NSArray *)arg1 ;
 -(void)setSocialPosts:(NSArray *)arg1 ;
 -(NSArray *)rankedPosts;
@@ -161,7 +154,6 @@
 -(IGPrefetchPostsConfiguration *)prefetchConfiguration;
 -(IGBulkMediaRequestManager *)requestManager;
 -(char)feedRestricted;
--(id)rankTokenForFeedNetworkSource:(id)arg1 isTail:(char)arg2 ;
 -(NSString *)emptyMessage;
 -(char)hasRestrictedFeed;
 -(char)shouldHideIndicatorImage;
@@ -172,9 +164,10 @@
 -(void)hideFeedItem:(id)arg1 ;
 -(void)truncateItemsWithMaxCount:(unsigned)arg1 ;
 -(char)fetchMoreItems;
+-(void)setPrefetchConfiguration:(IGPrefetchPostsConfiguration *)arg1 ;
 -(void)setHideDelegate:(id<IGFeedNetworkSourceHideDelegate>)arg1 ;
 -(NSArray *)downloadedPosts;
--(void)setForcedMediaIDs:(NSArray *)arg1 ;
+-(void)setShouldEagerLoadImages:(char)arg1 ;
 -(void)setShouldHideIndicatorImage:(char)arg1 ;
 -(char)isUpdatingPosts;
 -(char)sendAdsHeader;

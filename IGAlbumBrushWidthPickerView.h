@@ -21,6 +21,7 @@
 @property (assign,nonatomic,__weak) id<IGAlbumBrushWidthPickerDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 @property (assign,nonatomic) float selectedBrushWidth;                                         //@synthesize selectedBrushWidth=_selectedBrushWidth - In the implementation block
 @property (nonatomic,retain) UIColor * brushColor;                                             //@synthesize brushColor=_brushColor - In the implementation block
+@property (assign,nonatomic) IGRange brushWidthRange;                                          //@synthesize brushWidthRange=_brushWidthRange - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -29,6 +30,7 @@
 -(void)sliderWillChange;
 -(void)sliderDidChange;
 -(void)sliderDidFinish;
+-(void)updateSliderValue;
 -(void)hideWidthSlider;
 -(void)setBrushButtonSelected:(char)arg1 ;
 -(void)showWidthSlider;
@@ -36,9 +38,11 @@
 -(id)initWithFrame:(CGRect)arg1 brushWidthRange:(IGRange)arg2 ;
 -(void)setSelectedBrushWidth:(float)arg1 ;
 -(void)setBrushColor:(UIColor *)arg1 ;
+-(void)setBrushWidthRange:(IGRange)arg1 ;
 -(void)hideBrushOptions;
 -(float)selectedBrushWidth;
 -(UIColor *)brushColor;
+-(IGRange)brushWidthRange;
 -(void)setDelegate:(id<IGAlbumBrushWidthPickerDelegate>)arg1 ;
 -(id)hitTest:(CGPoint)arg1 withEvent:(id)arg2 ;
 -(char)pointInside:(CGPoint)arg1 withEvent:(id)arg2 ;

@@ -13,7 +13,7 @@
 #import <Instagram/IGCommentReshareUIManagerDelegate.h>
 
 @protocol IGCommentTextViewProtocol, IGFeedItemLoggingProviderDelegate;
-@class IGListCollectionView, IGListAdapter, IGListAdapterPerfLogger, IGCommentThreadManager, IGBulkCommentDeleteManager, UIView, IGKeyboardInputManager, IGCommentCellRevealManager, IGAutocompleteController, IGCommentReshareHelper, IGCommentReshareUIManager, IGCommentReshareRecord, NSString, IGUser, IGFeedItem;
+@class IGListCollectionView, IGListAdapter, IGListAdapterUpdaterLogger, IGCommentThreadManager, IGBulkCommentDeleteManager, UIView, IGKeyboardInputManager, IGCommentCellRevealManager, IGAutocompleteController, IGCommentReshareHelper, IGCommentReshareUIManager, IGCommentReshareRecord, NSString, IGUser, IGFeedItem;
 
 @interface IGCommentThreadViewController : IGViewController <IGListAdapterDataSource, UICollectionViewDelegate, IGCommentThreadManagerDelegate, IGCommentLoadItemDelegate, IGBulkCommentDeleteManagerDelegate, IGGrowingTextViewDelegate, IGAutocompleteControllerDelegate, IGCommentItemDelegate, IGCommentReshareHelperDelegate, IGCommentReshareUIManagerDelegate> {
 
@@ -26,7 +26,7 @@
 	char _showRefreshButton;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 	IGCommentThreadManager* _threadManager;
 	IGBulkCommentDeleteManager* _bulkDeleteManager;
 	UIView*<IGCommentTextViewProtocol> _commentTextView;
@@ -47,7 +47,7 @@
 
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                                                 //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                                           //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                                           //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                                        //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGCommentThreadManager * threadManager;                                                //@synthesize threadManager=_threadManager - In the implementation block
 @property (nonatomic,readonly) IGBulkCommentDeleteManager * bulkDeleteManager;                                        //@synthesize bulkDeleteManager=_bulkDeleteManager - In the implementation block
 @property (nonatomic,readonly) UIView*<IGCommentTextViewProtocol> commentTextView;                                    //@synthesize commentTextView=_commentTextView - In the implementation block
@@ -76,11 +76,12 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
+-(IGFeedItem *)feedItem;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(IGFeedItem *)feedItem;
 -(void)growingTextViewDidBeginEditing:(id)arg1 ;
 -(void)growingTextViewDidEndEditing:(id)arg1 ;
 -(void)growingTextViewDidChange:(id)arg1 ;
@@ -88,7 +89,6 @@
 -(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
 -(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
 -(char)growingTextViewShouldReturn:(id)arg1 ;
--(void)postComment;
 -(void)reshareHelper:(id)arg1 didChangeStatusFrom:(int)arg2 to:(int)arg3 ;
 -(void)didDismissReshareUI;
 -(void)setupCollectionViewAndAdapter;
@@ -117,12 +117,14 @@
 -(IGCommentReshareHelper *)commentReshareHelper;
 -(void)updateText:(id)arg1 ;
 -(void)resharePost;
+-(void)postComment;
 -(id<IGFeedItemLoggingProviderDelegate>)loggingDelegate;
 -(void)setCommentReshareRecord:(IGCommentReshareRecord *)arg1 ;
 -(void)commitAutoCorrectSuggestionsAndUpdateTextForReshare;
 -(void)setAutoScrollPaused:(char)arg1 ;
 -(IGCommentCellRevealManager *)cellRevealManager;
 -(IGCommentReshareRecord *)commentReshareRecord;
+-(void)logFailedToEnterThreadView;
 -(char)shouldAutoScrollToBottom;
 -(void)scrollToBottomOnceAnimated:(char)arg1 ;
 -(id)commentDeleteUndoMessageForNumberOfComments:(int)arg1 ;
@@ -145,10 +147,9 @@
 -(id)analyticsExtras;
 -(void)setDisableAutoScroll:(char)arg1 ;
 -(void)setShowRefreshButton:(char)arg1 ;
--(char)enableNavState;
 -(void)onRefreshButton:(id)arg1 ;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
--(char)prefersTabBarHidden;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
+-(char)enableNavState;
 -(void)updateRefreshButton;
 -(void)setCurrentUser:(IGUser *)arg1 ;
 -(NSString *)placeholderText;

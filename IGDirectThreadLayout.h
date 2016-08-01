@@ -8,6 +8,7 @@
 @interface IGDirectThreadLayout : UICollectionViewLayout <NSCopying> {
 
 	char _isSeenStampExpanded;
+	char _onlyHasMessageFromOneOtherUser;
 	NSArray* _allContent;
 	NSIndexPath* _currentlyExpandedIndexPath;
 	NSArray* _seenUsers;
@@ -32,6 +33,7 @@
 @property (nonatomic,retain) NSCache * textHeightCache;                                                    //@synthesize textHeightCache=_textHeightCache - In the implementation block
 @property (assign,nonatomic) float collectionViewWidth;                                                    //@synthesize collectionViewWidth=_collectionViewWidth - In the implementation block
 @property (assign,nonatomic) char isSeenStampExpanded;                                                     //@synthesize isSeenStampExpanded=_isSeenStampExpanded - In the implementation block
+@property (assign,nonatomic) char onlyHasMessageFromOneOtherUser;                                          //@synthesize onlyHasMessageFromOneOtherUser=_onlyHasMessageFromOneOtherUser - In the implementation block
 @property (assign,nonatomic,__weak) NSArray * allContent;                                                  //@synthesize allContent=_allContent - In the implementation block
 @property (nonatomic,retain) NSIndexPath * currentlyExpandedIndexPath;                                     //@synthesize currentlyExpandedIndexPath=_currentlyExpandedIndexPath - In the implementation block
 +(Class)invalidationContextClass;
@@ -51,15 +53,16 @@
 -(float)collectionViewWidth;
 -(NSCache *)textHeightCache;
 -(void)setCollectionViewWidth:(float)arg1 ;
+-(char)onlyHasMessageFromOneOtherUser;
 -(CGSize)sizeForContent:(id)arg1 withViewWidth:(float)arg2 showsUsername:(char)arg3 isExpandedContent:(char)arg4 ;
 -(void)setItemAttributes:(NSDictionary *)arg1 ;
 -(void)calculateContentSizeAndAdjustAttributesIfNeeded;
 -(void)setCalculatedCollectionViewContentSize:(CGSize)arg1 ;
 -(float)calculateHeightForContent:(id)arg1 andViewWidth:(float)arg2 ;
--(char)useFullSizePhotos;
 -(IGDirectContent *)currentlyExpandedContent;
 -(void)setCurrentlyExpandedContent:(IGDirectContent *)arg1 ;
 -(char)updateSeenUsers:(id)arg1 ;
+-(void)setOnlyHasMessageFromOneOtherUser:(char)arg1 ;
 -(void)setTextHeightCache:(NSCache *)arg1 ;
 -(id)layoutAttributesForElementsInRect:(CGRect)arg1 ;
 -(id)layoutAttributesForItemAtIndexPath:(id)arg1 ;

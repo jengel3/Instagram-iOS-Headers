@@ -30,8 +30,8 @@
 @property (assign,nonatomic) float minimumWidth;                            //@synthesize minimumWidth=_minimumWidth - In the implementation block
 @property (assign,nonatomic) float maximumWidth;                            //@synthesize maximumWidth=_maximumWidth - In the implementation block
 @property (assign,nonatomic) int displayType;                               //@synthesize displayType=_displayType - In the implementation block
--(UIImageView *)accessoryImageView;
 -(UIImageView *)springContentView;
+-(UIImageView *)accessoryImageView;
 -(void)setCurrentScale:(float)arg1 ;
 -(void)scaleUp:(char)arg1 withVelocity:(char)arg2 ;
 -(float)currentScale;

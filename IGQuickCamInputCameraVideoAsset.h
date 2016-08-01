@@ -8,20 +8,22 @@
 
 	int _devicePosition;
 	IGVideoInfo* _videoInfo;
+	int _flashMode;
 
 }
 
-@property (nonatomic,retain) IGVideoInfo * videoInfo;               //@synthesize videoInfo=_videoInfo - In the implementation block
+@property (nonatomic,readonly) IGVideoInfo * videoInfo;              //@synthesize videoInfo=_videoInfo - In the implementation block
+@property (nonatomic,readonly) int flashMode;                        //@synthesize flashMode=_flashMode - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,readonly) char isFromLibrary; 
-@property (assign,nonatomic) int devicePosition;                    //@synthesize devicePosition=_devicePosition - In the implementation block
--(void)setDevicePosition:(int)arg1 ;
+@property (nonatomic,readonly) int devicePosition;                   //@synthesize devicePosition=_devicePosition - In the implementation block
 -(IGVideoInfo *)videoInfo;
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
--(int)devicePosition;
+-(id)initWithVideoInfo:(id)arg1 devicePosition:(int)arg2 flashMode:(int)arg3 ;
 -(char)isFromLibrary;
+-(int)devicePosition;
+-(int)flashMode;
 @end
 

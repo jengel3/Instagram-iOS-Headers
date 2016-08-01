@@ -30,9 +30,9 @@
 +(float)defaultHeight;
 -(IGVideoInfo *)videoInfo;
 -(void)addClip:(id)arg1 ;
--(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)setTimerEnabled:(char)arg1 ;
+-(void)setVideoInfo:(IGVideoInfo *)arg1 ;
 -(void)removeLastClip;
 -(void)updateBlinker;
 -(void)onClipAdded:(id)arg1 ;

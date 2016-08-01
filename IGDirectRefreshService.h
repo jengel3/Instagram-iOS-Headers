@@ -19,9 +19,10 @@
 +(void)clearForUserPK:(id)arg1 ;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(void)forceRefreshInboxData;
 -(IGDirectInboxNetworker *)inboxNetworker;
 -(void)appWillEnterForegroundNotification:(id)arg1 ;
+-(void)realtimeDidRefreshNotification:(id)arg1 ;
+-(void)forceRefreshInboxData;
 -(void)dealloc;
 -(id)init;
 -(IGDirectCache *)cache;

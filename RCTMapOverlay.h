@@ -20,7 +20,7 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (nonatomic,readonly) SCD_Struct_IG34 coordinate; 
+@property (nonatomic,readonly) SCD_Struct_IG36 coordinate; 
 @property (nonatomic,copy,readonly) NSString * title; 
 @property (nonatomic,copy,readonly) NSString * subtitle; 
 -(NSString *)identifier;

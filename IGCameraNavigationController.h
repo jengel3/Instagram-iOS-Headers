@@ -35,7 +35,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(id)initWithMetadata:(id)arg1 mode:(int)arg2 userSession:(id)arg3 ;
+-(id)ig_keyViewControllers;
 -(UIView *)navigationBarShadow;
 -(void)setNavigationBarShadow:(UIView *)arg1 ;
 -(float)verticalOffset;
@@ -45,7 +45,7 @@
 -(void)reloadNavigationItem:(id)arg1 animated:(char)arg2 ;
 -(void)mediaCaptureViewController:(id)arg1 didProducePhoto:(id)arg2 fromOrigin:(int)arg3 ;
 -(void)mediaCaptureViewController:(id)arg1 didProduceVideoComposition:(id)arg2 ;
--(id)ig_keyViewControllers;
+-(id)initWithMetadata:(id)arg1 mode:(int)arg2 userSession:(id)arg3 ;
 -(void)setVerticalOffset:(float)arg1 ;
 -(void)reloadNavigationItem:(id)arg1 ;
 -(void)pushViewControllersForDraft:(id)arg1 ;

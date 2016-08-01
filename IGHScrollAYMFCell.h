@@ -44,6 +44,7 @@
 +(float)suggestedCellWidth;
 -(void)dismissButtonTapped;
 -(void)setUpSubViews;
+-(void)prepareFBButtonReuse;
 -(UILabel *)primaryLabel;
 -(IGSpringButton *)fbConnectButton;
 -(UIImageView *)actionCardImageView;

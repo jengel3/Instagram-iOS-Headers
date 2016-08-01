@@ -27,11 +27,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(char)seen;
--(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 ;
--(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
--(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
--(void)listAdapter:(id)arg1 didScrollListItemController:(id)arg2 ;
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
 -(void)onStatusChangeNotification:(id)arg1 ;
@@ -61,6 +56,11 @@
 -(void)didDismissAYMFUserCell:(id)arg1 ;
 -(void)didFollowAYMFUserCell:(id)arg1 ;
 -(void)didTapAYMFUserCell:(id)arg1 ;
+-(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 ;
+-(void)listAdapter:(id)arg1 willDisplayListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingListItemController:(id)arg2 cell:(id)arg3 atIndex:(int)arg4 ;
+-(void)listAdapter:(id)arg1 didScrollListItemController:(id)arg2 ;
 -(id)initWithFollowAccountListModel:(id)arg1 ;
 -(void)dealloc;
 -(unsigned)numberOfItems;

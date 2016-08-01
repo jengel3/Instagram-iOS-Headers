@@ -60,15 +60,15 @@
 -(void)reloadBarLineStylesInIndexRange:(NSRange)arg1 ;
 -(void)setBarBases:(NSArray *)arg1 ;
 -(void)setBarTips:(NSArray *)arg1 ;
--(SCD_Struct_CP126)lengthInPlotCoordinates:(SCD_Struct_CP126)arg1 ;
+-(SCD_Struct_CP137)lengthInPlotCoordinates:(SCD_Struct_CP137)arg1 ;
 -(void)drawBarInContext:(CGContextRef)arg1 recordIndex:(unsigned)arg2 ;
--(float)lengthInView:(SCD_Struct_CP126)arg1 ;
+-(float)lengthInView:(SCD_Struct_CP137)arg1 ;
 -(char)barAtRecordIndex:(unsigned)arg1 basePoint:(CGPoint*)arg2 tipPoint:(CGPoint*)arg3 ;
 -(CGPathRef)newBarPathWithContext:(CGContextRef)arg1 basePoint:(CGPoint)arg2 tipPoint:(CGPoint)arg3 ;
 -(char)barIsVisibleWithBasePoint:(CGPoint)arg1 ;
 -(id)barFillForIndex:(unsigned)arg1 ;
 -(id)barLineStyleForIndex:(unsigned)arg1 ;
--(double)doubleLengthInPlotCoordinates:(SCD_Struct_CP126)arg1 ;
+-(double)doubleLengthInPlotCoordinates:(SCD_Struct_CP137)arg1 ;
 -(CGPathRef)newBarPathWithContext:(CGContextRef)arg1 recordIndex:(unsigned)arg2 ;
 -(void)reloadBarFills;
 -(void)reloadBarLineStyles;

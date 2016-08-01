@@ -51,7 +51,6 @@
 -(NSSet *)usersToFilter;
 -(id)filterOutUsers:(id)arg1 fromRecipients:(id)arg2 ;
 -(void)setSuggestedRecipients:(NSArray *)arg1 ;
--(id)newHeaderViewWithTitle:(id)arg1 bottomLine:(char)arg2 ;
 -(IGDirectRecipientDataSource *)recipientDataSource;
 -(void)reloadFullUserList;
 -(char)useNewDirectSearch;

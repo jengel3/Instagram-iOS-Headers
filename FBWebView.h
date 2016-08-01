@@ -20,12 +20,13 @@
 @property (assign,nonatomic) char youtubeNavigationFix; 
 @optional
 -(char)currentlyCrashed;
--(char)recoveredFromOOMCrash;
 -(void)addScriptMessageHandlerForName:(id)arg1;
+-(char)recoveredFromOOMCrash;
 -(id)backForwardList;
 -(void)removeScriptMessageHandlerForName:(id)arg1;
 
 @required
+-(int)webViewImplementation;
 -(NSURL *)currentLocationURL;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2;
 -(void)setGestureRecognizersEnabled:(char)arg1;
@@ -36,7 +37,6 @@
 -(void)setIsBannerAtTop:(char)arg1;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1;
--(int)webViewImplementation;
 -(UIView *)bannerView;
 -(void)setDelegate:(id)arg1;
 -(void)reload;

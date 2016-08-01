@@ -2,8 +2,8 @@
 
 @interface IGEventViewerQE : NSObject
 +(char)allowGestureControlSwipeRight;
-+(char)enableFeedHeader;
-+(char)enableUFIBelowMedia;
++(char)allowGestureControlScrollDown;
++(char)allowGestureControlScrollUp;
 +(char)supportPhoto;
 @end
 

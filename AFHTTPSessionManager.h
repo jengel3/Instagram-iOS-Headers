@@ -20,7 +20,6 @@
 @property (nonatomic,retain) AFHTTPResponseSerializer*<AFURLResponseSerialization> responseSerializer; 
 +(id)manager;
 -(void)setRequestSerializer:(AFHTTPRequestSerializer*<AFURLRequestSerialization>)arg1 ;
--(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
 -(AFHTTPRequestSerializer*<AFURLRequestSerialization>)requestSerializer;
 -(id)GET:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)HEAD:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
@@ -30,6 +29,7 @@
 -(id)PATCH:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)DELETE:(id)arg1 parameters:(id)arg2 success:(/*^block*/id)arg3 failure:(/*^block*/id)arg4 ;
 -(id)initWithBaseURL:(id)arg1 sessionConfiguration:(id)arg2 ;
+-(void)setResponseSerializer:(AFHTTPResponseSerializer*<AFURLResponseSerialization>)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)description;

@@ -30,13 +30,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(id)initWithPhotoWidth:(float)arg1 videoAssetKeys:(id)arg2 ;
+-(void)cancelAllRequestsExcludingItems:(id)arg1 ;
 -(void)preloadMediaForItems:(id)arg1 ;
+-(id)initWithPhotoWidth:(float)arg1 videoAssetKeys:(id)arg2 ;
+-(void)setPhotoProgressDelegate:(id<IGMediaPreloaderPhotoProgressDelegate>)arg1 ;
+-(void)preloadMediaForItems:(id)arg1 priority:(int)arg2 ;
 -(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(void)mediaRequest:(id)arg1 didFailWithError:(id)arg2 forURL:(id)arg3 ;
 -(void)preloadBlurredCoverImageForItems:(id)arg1 ;
 -(void)setVideoProgressDelegate:(id<IGMediaPreloaderVideoProgressDelegate>)arg1 ;
--(void)cancelAllRequestsExcludingItems:(id)arg1 ;
 -(void)videoProxyDidEndRequestForURL:(id)arg1 error:(id)arg2 ;
 -(id)initWithPhotoWidth:(float)arg1 mediaLoader:(id)arg2 videoProxy:(id)arg3 videoAssetKeys:(id)arg4 ;
 -(NSMutableDictionary *)urlsToItems;
@@ -46,7 +48,6 @@
 -(void)notifyCompletionDelegateIfNeeded;
 -(id<IGMediaPreloaderVideoProgressDelegate>)videoProgressDelegate;
 -(void)loadKeysForVideoURL:(id)arg1 ;
--(void)setPhotoProgressDelegate:(id<IGMediaPreloaderPhotoProgressDelegate>)arg1 ;
 -(NSArray *)videoAssetKeys;
 -(id<IGVideoProxyProtocol>)videoProxy;
 -(float)photoWidth;

@@ -9,8 +9,9 @@
 
 }
 +(id)moduleName;
-+(id)__rct_export__1130;
++(id)__rct_export__1180;
 +(void)load;
+-(id)constantsToExport;
 -(id)methodQueue;
 -(id)supportedEvents;
 -(void)handleAppStateDidChange:(id)arg1 ;

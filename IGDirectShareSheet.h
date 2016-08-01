@@ -74,7 +74,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(UIView *)topLine;
+-(id)module;
 -(void)updateAllSections;
 -(void)layoutViewsFirstTime;
 -(void)updateViewsFromShareState:(unsigned)arg1 toShareState:(unsigned)arg2 animated:(char)arg3 ;
@@ -86,6 +86,7 @@
 -(UIView *)warningLine;
 -(UIButton *)searchButton;
 -(UIButton *)searchBarClearButton;
+-(UIView *)topLine;
 -(UIButton *)bottomButton;
 -(void)searchBarClearButtonTapped;
 -(void)handleNewQueryString:(id)arg1 ;
@@ -99,7 +100,6 @@
 -(void)updateTitleStrings;
 -(id)sendToTitleString;
 -(id)subtitleStringForCurrentRecipients;
--(id)module;
 -(void)uploadCurrentContentToRecipient:(id)arg1 withCompletion:(/*^block*/id)arg2 ;
 -(float)bottomOfFrame;
 -(void)updateMessageViewToHeight:(float)arg1 toVisible:(char)arg2 animated:(char)arg3 ;

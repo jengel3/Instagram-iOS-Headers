@@ -34,8 +34,6 @@
 -(id)analyticsModule;
 -(IGFeedItem *)feedItem;
 -(IGAdsManagerDeleteAdHandler *)deleteHandler;
--(void)onAuthorizationDeniedFromLocationHelper:(id)arg1 ;
--(void)onLocationUpdatedFromLocationHelper:(id)arg1 CLLocation:(id)arg2 ;
 -(IGHybridWebView *)boostPostView;
 -(void)startFlow;
 -(char)hasStartedRequest;
@@ -45,6 +43,8 @@
 -(void)loadRequestAfterDeletingIfNecessaryWithAccessToken:(id)arg1 ;
 -(IGBoostPostLocationHelper *)locationHelper;
 -(void)showSuccessNotification;
+-(void)onLocationUpdatedFromLocationHelper:(id)arg1 CLLocation:(id)arg2 ;
+-(void)onAuthorizationDeniedFromLocationHelper:(id)arg1 ;
 -(void)setLocationHelper:(IGBoostPostLocationHelper *)arg1 ;
 -(void)containedWebDidFinishFlowWithWebView:(id)arg1 ;
 -(void)didRequestClientLocation;

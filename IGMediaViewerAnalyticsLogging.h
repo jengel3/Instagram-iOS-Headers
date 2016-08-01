@@ -7,6 +7,7 @@
 @required
 -(NSString *)analyticsModule;
 -(void)logTapped;
+-(void)logSwipedDown;
 -(void)logDragged;
 
 @end

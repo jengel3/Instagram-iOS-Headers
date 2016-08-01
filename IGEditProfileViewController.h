@@ -61,6 +61,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
+-(id)initWithUserSession:(id)arg1 ;
 -(void)growingTextViewDidBeginEditing:(id)arg1 ;
 -(void)growingTextViewDidEndEditing:(id)arg1 ;
 -(void)growingTextViewDidChange:(id)arg1 ;
@@ -69,7 +71,6 @@
 -(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
 -(char)growingTextViewShouldReturn:(id)arg1 ;
 -(void)onCancelModal;
--(id)initWithUserSession:(id)arg1 ;
 -(void)fetchUserData;
 -(void)confirmEmailDismissedWithSuccess:(char)arg1 forEmail:(id)arg2 ;
 -(void)validateAndSubmit;
@@ -113,7 +114,6 @@
 -(void)setProfilePictureOption:(int)arg1 ;
 -(UIImage *)profilePicture;
 -(void)setProfilePicture:(UIImage *)arg1 ;
--(char)prefersTabBarHidden;
 -(id)initWithUserSession:(id)arg1 startTime:(id)arg2 ;
 -(char)submitting;
 -(void)setSubmitting:(char)arg1 ;
@@ -139,6 +139,7 @@
 -(char)textFieldShouldReturn:(id)arg1 ;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
+-(void)viewDidDisappear:(char)arg1 ;
 -(void)keyboardDidShow:(id)arg1 ;
 -(void)dismiss;
 -(NSString *)phoneNumber;

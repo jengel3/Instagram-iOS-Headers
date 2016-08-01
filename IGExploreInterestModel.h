@@ -4,6 +4,7 @@
 
 @interface IGExploreInterestModel : NSObject {
 
+	char _moreAvailable;
 	char _isCollapsed;
 	NSString* _title;
 	NSString* _subtitle;
@@ -20,6 +21,7 @@
 @property (nonatomic,readonly) NSString * title;                            //@synthesize title=_title - In the implementation block
 @property (nonatomic,readonly) NSString * subtitle;                         //@synthesize subtitle=_subtitle - In the implementation block
 @property (nonatomic,readonly) NSMutableSet * selectedIndices;              //@synthesize selectedIndices=_selectedIndices - In the implementation block
+@property (nonatomic,readonly) char moreAvailable;                          //@synthesize moreAvailable=_moreAvailable - In the implementation block
 @property (assign,nonatomic) char isCollapsed;                              //@synthesize isCollapsed=_isCollapsed - In the implementation block
 @property (nonatomic,readonly) NSArray * visibleTopicNames; 
 @property (nonatomic,readonly) NSArray * selectedTopicIDs; 
@@ -36,6 +38,7 @@
 -(NSString *)title;
 -(NSString *)subtitle;
 -(char)isCollapsed;
+-(char)moreAvailable;
 -(NSArray *)topics;
 @end
 

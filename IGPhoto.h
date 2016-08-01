@@ -26,6 +26,7 @@
 +(id)arrayForImageVersions:(id)arg1 ;
 +(CGSize)aspectRatioForImageVersions:(id)arg1 ;
 +(CGSize)imageSizeForImageVersion:(id)arg1 ;
+-(NSString *)mediaID;
 -(id)imageURLForWidth:(float)arg1 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
@@ -44,7 +45,6 @@
 -(id)imageURLForHeight:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
 -(int)originalAspectRatioImageIndexNearestToRequestedDimension:(float)arg1 imageInfoKey:(id)arg2 ;
 -(void)setImageVersions:(NSArray *)arg1 ;
--(NSString *)mediaID;
 -(CGSize)aspectRatio;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

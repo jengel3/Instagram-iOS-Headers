@@ -36,7 +36,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGInsightsComponentNavigationDelegate> navigationDelegate; 
 -(IGInsightsLoggingHelper *)loggingHelper;
--(NSArray *)mediaBundles;
 -(IGInsightsQuery *)buttonQuery;
 -(id)getMediaIDsFromMedias:(id)arg1 ;
 -(void)fetchFeedItemsFromMediaIDs:(id)arg1 ;
@@ -45,6 +44,7 @@
 -(IGInsightsCarouselsViewController *)insightsCarouselsViewController;
 -(void)setMediaBundles:(NSArray *)arg1 ;
 -(IGInsightsCarouselsView *)componentView;
+-(NSArray *)mediaBundles;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
 -(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(void)didSelectNavigateInComponentViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;

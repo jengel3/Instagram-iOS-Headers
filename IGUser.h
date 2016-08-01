@@ -12,6 +12,7 @@
 	NSArray* _searchTerms;
 	char _staff;
 	char _blocking;
+	char _blockingReel;
 	char _directShareBlocked;
 	char _onDirectBlacklist;
 	char _favorited;
@@ -83,6 +84,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign) int lastFollowStatus;                                  //@synthesize lastFollowStatus=_lastFollowStatus - In the implementation block
 @property (assign) char blocking;                                         //@synthesize blocking=_blocking - In the implementation block
+@property (assign) char blockingReel;                                     //@synthesize blockingReel=_blockingReel - In the implementation block
 @property (assign) char directShareBlocked;                               //@synthesize directShareBlocked=_directShareBlocked - In the implementation block
 @property (assign) char onDirectBlacklist;                                //@synthesize onDirectBlacklist=_onDirectBlacklist - In the implementation block
 @property (assign) char favorited;                                        //@synthesize favorited=_favorited - In the implementation block
@@ -148,16 +150,19 @@
 @property (assign) char hasBiographyTranslation;                          //@synthesize hasBiographyTranslation=_hasBiographyTranslation - In the implementation block
 @property (retain) NSString * biographyTranslation;                       //@synthesize biographyTranslation=_biographyTranslation - In the implementation block
 +(id)centralizedStore;
++(id)stringForfollowStatus:(int)arg1 ;
++(void)fetchFollowStatusInBulk:(id)arg1 includeReelStatus:(char)arg2 ;
 +(id)unmanagedUserWithUsername:(id)arg1 ;
 +(void)makeManyFriendRequests:(id)arg1 successBlock:(/*^block*/id)arg2 failureBlock:(/*^block*/id)arg3 ;
 +(id)unmanagedUserWithPk:(id)arg1 ;
-+(id)stringForfollowStatus:(int)arg1 ;
 +(id)cleanedBiography:(id)arg1 ;
 +(void)fetchFollowStatusInBulk:(id)arg1 ;
 +(void)onFriendStatusesReceived:(id)arg1 fromRequest:(id)arg2 ;
 +(void)onFriendStatusesFailed:(id)arg1 fromRequest:(id)arg2 ;
--(char)staff;
 -(int)followStatus;
+-(char)blockingReel;
+-(void)updateReelBlockStatus:(char)arg1 source:(int)arg2 completion:(/*^block*/id)arg3 ;
+-(char)staff;
 -(id)toDict;
 -(char)canBoostPost;
 -(void)setPageName:(NSString *)arg1 ;
@@ -169,9 +174,9 @@
 -(id)uploadableModelWithParameter:(id)arg1 ;
 -(NSNumber *)mediaCount;
 -(void)setMediaCount:(NSNumber *)arg1 ;
--(NSString *)byline;
--(NSArray *)mediaBundles;
+-(char)isUnpublished;
 -(void)changeFriendshipStatusWithAction:(int)arg1 ;
+-(NSString *)byline;
 -(void)setByline:(NSString *)arg1 ;
 -(void)setFollowStatus:(int)arg1 ;
 -(int)privacyStatus;
@@ -188,7 +193,6 @@
 -(void)setProfilePicURL:(NSURL *)arg1 ;
 -(NSNumber *)followerCount;
 -(NSNumber *)followingCount;
--(char)isUnpublished;
 -(void)fetchFollowStatus;
 -(NSString *)searchSocialContext;
 -(NSNumber *)unseenCount;
@@ -266,6 +270,7 @@
 -(NSDictionary *)HDProfilePicURLInfo;
 -(id)fullOrDisplayName;
 -(void)setDirectShareBlocked:(char)arg1 ;
+-(void)setBlockingReel:(char)arg1 ;
 -(char)rejects_staff_privileges;
 -(char)friendshipStatusPending;
 -(void)updateFollowerCount:(int)arg1 ;
@@ -278,6 +283,9 @@
 -(void)setLastFollowStatus:(int)arg1 ;
 -(char)canConvertToBusiness;
 -(char)isAdRater;
+-(void)fetchReelSettingsWithResponseHandler:(/*^block*/id)arg1 ;
+-(void)updateReelMessagePreference:(id)arg1 completion:(/*^block*/id)arg2 ;
+-(void)updateReelBlockStatusesWithBlockedReelUserPKs:(id)arg1 unblockedReelUserPKs:(id)arg2 source:(int)arg3 completion:(/*^block*/id)arg4 ;
 -(void)convertBusinessBackToUser;
 -(void)removeBusinessFunctionality;
 -(CGSize)HDProfilePicSize;
@@ -302,10 +310,11 @@
 -(void)setOnDirectBlacklist:(char)arg1 ;
 -(void)setBiographyTranslation:(NSString *)arg1 ;
 -(void)setMediaBundles:(NSArray *)arg1 ;
+-(NSArray *)mediaBundles;
 -(char)canSeeOrganicInsights;
 -(id)HDProfilePicURL;
 -(NSURL *)profilePicURL;
--(void)fetchAdditionalUserDataWithCompletion:(/*^block*/id)arg1 ;
+-(void)fetchAdditionalUserDataWithCompletion:(/*^block*/id)arg1 previousAnalyticsModule:(id)arg2 ;
 -(NSURL *)externalURL;
 -(id)primaryName;
 -(id)initWithCoder:(id)arg1 ;

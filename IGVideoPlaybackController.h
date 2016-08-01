@@ -1,12 +1,11 @@
 
 #import <Instagram/IGFeedVideoPlayerDelegate.h>
 #import <Instagram/IGAudioNUXControllerDelegate.h>
-#import <Instagram/IGFeedItemVideoViewSingleTapDelegate.h>
 
 @protocol IGVideoPlaybackControllerDelegate, IGVideoPlaybackControllerProgressDelegate;
 @class IGFeedVideoPlayer, IGAudioNUXController, IGVideoPlaybackItem, IGVideoCaptionController, IGVideoLoadProgressView, IGPlaybackTimeIndicatorController, IGVideoViewLogger, NSString;
 
-@interface IGVideoPlaybackController : NSObject <IGFeedVideoPlayerDelegate, IGAudioNUXControllerDelegate, IGFeedItemVideoViewSingleTapDelegate> {
+@interface IGVideoPlaybackController : NSObject <IGFeedVideoPlayerDelegate, IGAudioNUXControllerDelegate> {
 
 	char _hasStartedPlayback;
 	char _loading;
@@ -40,6 +39,12 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)setVideoShouldStartTime:(double)arg1 ;
+-(char)videoHasSound;
+-(void)logVideoStoppedForReason:(int)arg1 ;
+-(char)hasStartedPlayback;
+-(void)setHasStartedPlayback:(char)arg1 ;
+-(double)videoShouldStartTime;
 -(void)videoPlayer:(id)arg1 didLoadVideoInView:(id)arg2 ;
 -(void)videoPlayerLoadedFirstFrame:(id)arg1 ;
 -(void)videoPlayerDidPlayToEnd:(id)arg1 ;
@@ -55,25 +60,19 @@
 -(IGVideoPlaybackItem *)playbackItem;
 -(void)setPlaybackItem:(IGVideoPlaybackItem *)arg1 ;
 -(void)playVideoItem:(id)arg1 player:(id)arg2 startTime:(float)arg3 ;
--(void)logVideoStoppedForReason:(int)arg1 extraInfo:(id)arg2 ;
 -(id)relinquishPlayer;
 -(void)applyPlaybackItemSettings;
--(void)setVideoShouldStartTime:(double)arg1 ;
 -(IGPlaybackTimeIndicatorController *)timeIndicatorController;
 -(void)setUpAudioNUXController;
 -(char)isEligibleForCaptionExperiment;
 -(void)setUpCaptionControllerWithPlaybackItem:(id)arg1 ;
--(void)setHasStartedPlayback:(char)arg1 ;
 -(void)setUserDidTap:(char)arg1 ;
 -(void)stopObservingEvents;
 -(IGVideoCaptionController *)captionController;
 -(void)setCaptionController:(IGVideoCaptionController *)arg1 ;
--(char)hasStartedPlayback;
+-(IGAudioNUXController *)audioNUXController;
 -(char)userDidTap;
 -(void)startObservingEvents;
--(double)videoShouldStartTime;
--(IGAudioNUXController *)audioNUXController;
--(char)videoHasSound;
 -(void)observeHeadphoneEvent:(char)arg1 ;
 -(void)observeHardwareControlEvents:(char)arg1 ;
 -(void)muteSwitchStateChangedNotification:(id)arg1 ;
@@ -85,8 +84,8 @@
 -(char)audioNUXControllerVideoHasSound:(id)arg1 ;
 -(char)audioNUXControllerIsPlayingSound:(id)arg1 ;
 -(char)audioNUXControllerIsVideoPlaying:(id)arg1 ;
--(void)didSingleTapFeedItemVideoView:(id)arg1 ;
 -(void)resumeWithVideoItem:(id)arg1 player:(id)arg2 ;
+-(void)didSingleTapOnVideo;
 -(IGVideoViewLogger *)logger;
 -(void)setPlayer:(IGFeedVideoPlayer *)arg1 ;
 -(void)setAudioEnabled:(char)arg1 ;

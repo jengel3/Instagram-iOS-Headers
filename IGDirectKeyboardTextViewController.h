@@ -6,7 +6,7 @@
 #import <Instagram/IGAutocompleteControllerTextInput.h>
 
 @protocol IGDirectKeyboardTextViewControllerDelegate;
-@class IGChevronTitleButton, IGDirectLinkPreviewManager, IGDirectKeyboardTextView, IGButton, IGTapButton, UIControl, IGGradientView, UILabel, UIFont, IGDirectLinkPreview, NSString;
+@class IGChevronTitleButton, NSString, IGDirectLinkPreviewManager, IGDirectKeyboardTextView, IGButton, IGTapButton, UIControl, IGGradientView, UILabel, UIFont, IGDirectLinkPreview;
 
 @interface IGDirectKeyboardTextViewController : UIViewController <UITextViewDelegate, IGDirectLinkPreviewDelegate, IGAutocompleteControllerTextInput> {
 
@@ -17,6 +17,7 @@
 	IGChevronTitleButton* _chevronTitleButton;
 	id<IGDirectKeyboardTextViewControllerDelegate> _delegate;
 	int _state;
+	NSString* _unfinishedMessage;
 	IGDirectLinkPreviewManager* _linkPreviewManager;
 	IGDirectKeyboardTextView* _textView;
 	IGButton* _sendButton;
@@ -55,6 +56,7 @@
 @property (assign,nonatomic) int state;                                                                   //@synthesize state=_state - In the implementation block
 @property (assign,nonatomic) char shouldHoldFirstResponder;                                               //@synthesize shouldHoldFirstResponder=_shouldHoldFirstResponder - In the implementation block
 @property (assign,nonatomic) char hideLikeButton;                                                         //@synthesize hideLikeButton=_hideLikeButton - In the implementation block
+@property (nonatomic,copy) NSString * unfinishedMessage;                                                  //@synthesize unfinishedMessage=_unfinishedMessage - In the implementation block
 @property (assign,nonatomic) char shouldPreviewLink;                                                      //@synthesize shouldPreviewLink=_shouldPreviewLink - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -69,12 +71,15 @@
 @property (assign,nonatomic) char enablesReturnKeyAutomatically; 
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 +(float)defaultHeight;
+-(IGTapButton *)cameraButton;
 -(char)deviceHasCamera;
+-(IGGradientView *)bottomGradientView;
 -(void)dismissButtonTapped;
 -(void)setChevronTitleButton:(IGChevronTitleButton *)arg1 ;
 -(IGChevronTitleButton *)chevronTitleButton;
 -(void)setLinkPreview:(IGDirectLinkPreview *)arg1 ;
 -(IGDirectLinkPreview *)linkPreview;
+-(NSString *)unfinishedMessage;
 -(char)hideLikeButton;
 -(id)createLikeButton;
 -(void)setLikeButton:(IGTapButton *)arg1 ;
@@ -86,6 +91,7 @@
 -(void)updateLikeButtonAndSendButton;
 -(float)maxTextHeight;
 -(float)getLinkPreviewHeight;
+-(void)setUnfinishedMessage:(NSString *)arg1 ;
 -(char)shouldPreviewLink;
 -(IGDirectLinkPreviewManager *)linkPreviewManager;
 -(void)createLinkPreview;
@@ -107,8 +113,6 @@
 -(float)textContentLayoutHeight;
 -(UIControl *)textViewContainer;
 -(void)setTextViewContainer:(UIControl *)arg1 ;
--(IGTapButton *)cameraButton;
--(IGGradientView *)bottomGradientView;
 -(void)setBottomGradientView:(IGGradientView *)arg1 ;
 -(void)onChevronTitleButtonTapped;
 -(void)setDelegate:(id<IGDirectKeyboardTextViewControllerDelegate>)arg1 ;
@@ -131,6 +135,7 @@
 -(int)offsetFromPosition:(id)arg1 toPosition:(id)arg2 ;
 -(id)closestPositionToPoint:(CGPoint)arg1 ;
 -(void)viewDidLoad;
+-(void)viewWillDisappear:(char)arg1 ;
 -(void)textViewDidBeginEditing:(id)arg1 ;
 -(void)textViewDidEndEditing:(id)arg1 ;
 -(char)textViewShouldBeginEditing:(id)arg1 ;

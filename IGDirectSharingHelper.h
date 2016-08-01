@@ -1,8 +1,6 @@
 
 
 @interface IGDirectSharingHelper : NSObject
-+(void)handleReshareSuccessWithThreadID:(id)arg1 recipient:(id)arg2 ;
-+(void)handleReshareFailureWithRecipient:(id)arg1 ;
 +(char)isThreadNameTooLong:(id)arg1 ;
 +(char)isBlankString:(id)arg1 ;
 +(char)showTimestampHeaderForIndexPath:(id)arg1 withContents:(id)arg2 ;
@@ -17,7 +15,7 @@
 +(id)getCachedThreadWithID:(id)arg1 ;
 +(id)seenUsersForContent:(id)arg1 thread:(id)arg2 pendingMode:(char)arg3 ;
 +(char)isThreadNameValid:(id)arg1 ;
-+(char)showUsernameForIndexPath:(id)arg1 withContents:(id)arg2 ;
++(char)showUsernameForIndexPath:(id)arg1 contents:(id)arg2 onlyHasMessageFromOneOtherUser:(char)arg3 ;
 +(id)shortTimestampTextFromThread:(id)arg1 ;
 +(id)timestampTextFromThread:(id)arg1 ;
 +(char)showSeenstampFooterForIndexPath:(id)arg1 withContents:(id)arg2 ;
@@ -33,8 +31,9 @@
 +(id)postsInContentArray:(id)arg1 ;
 +(id)suppressedContentAfterContent:(id)arg1 allContent:(id)arg2 ;
 +(id)previewImageURLProviderForThread:(id)arg1 ;
-+(void)getOrFetchThreadWithID:(id)arg1 completion:(/*^block*/id)arg2 ;
 +(void)shareContent:(id)arg1 fromThreadId:(id)arg2 ;
++(void)handleReshareSuccessWithThreadID:(id)arg1 recipient:(id)arg2 ;
++(void)handleReshareFailureWithRecipient:(id)arg1 ;
 +(id)keyboardWindow;
 @end
 

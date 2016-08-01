@@ -36,14 +36,12 @@
 -(void)setFrame:(CGRect)arg1 ;
 -(id)accessibleElements;
 -(void)adjustViewWithConstraintSize:(CGSize)arg1 ;
--(void)updateUFIButtonWithFeedItem:(id)arg1 animated:(char)arg2 ;
--(void)setSendButtonHidden:(char)arg1 ;
+-(void)updateUFIButtonWithFeedItem:(id)arg1 showCommentButton:(char)arg2 showSendButton:(char)arg3 animated:(char)arg4 ;
 -(id)initWithFrame:(CGRect)arg1 colorType:(int)arg2 ;
 -(UIButton *)commentButton;
 -(void)onLikeButtonPressed:(id)arg1 ;
 -(void)onCommentButtonPressed:(id)arg1 ;
 -(void)onSendButtonPressed:(id)arg1 ;
--(void)setCommentButtonHidden:(char)arg1 ;
 -(void)setDelegate:(id<IGUFIButtonBarViewDelegate>)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

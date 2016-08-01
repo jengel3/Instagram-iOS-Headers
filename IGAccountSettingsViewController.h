@@ -11,6 +11,7 @@
 @interface IGAccountSettingsViewController : IGGroupedTableViewController <UIAlertViewDelegate, IGRageShakeViewControllerDelegate, IGBusinessConversionViewControllerDelegate> {
 
 	NSArray* _followSectionRowTypes;
+	NSArray* _inviteSectionRowTypes;
 	NSArray* _accountSectionRowTypes;
 	NSArray* _aboutSectionRowTypes;
 	NSArray* _settingSectionRowTypes;
@@ -18,6 +19,7 @@
 	NSArray* _developerSectionRowTypes;
 	id _paymentsNotificationObserver;
 	char _isSwitchingAccount;
+	char _inviteSectionEnabled;
 	id<IGBusinessConversionDelegate> _delegate;
 	IGGroupedTableViewFooterView* _privacySettingsFooterView;
 	IGSwitch* _privateAccountSwitch;
@@ -30,6 +32,7 @@
 @property (assign,getter=isPrivateAccount,nonatomic) char privateAccount; 
 @property (assign,nonatomic) char isSwitchingAccount;                                               //@synthesize isSwitchingAccount=_isSwitchingAccount - In the implementation block
 @property (nonatomic,readonly) IGUserSession * userSession;                                         //@synthesize userSession=_userSession - In the implementation block
+@property (nonatomic,readonly) char inviteSectionEnabled;                                           //@synthesize inviteSectionEnabled=_inviteSectionEnabled - In the implementation block
 @property (assign,nonatomic,__weak) id<IGBusinessConversionDelegate> delegate;                      //@synthesize delegate=_delegate - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -46,16 +49,20 @@
 -(void)setPrivateAccount:(char)arg1 ;
 -(char)isPrivateAccount;
 -(char)shouldShowAboutSponsoredPost;
+-(char)inviteSectionEnabled;
 -(void)updateRows;
 -(id)aboutSectionRows;
 -(id)accountSectionRows;
 -(id)followSectionRows;
+-(id)inviteSectionRows;
 -(id)settingSectionRows;
 -(id)sessionSectionRows;
 -(id)developerSectionRows;
+-(int)sectionIndexForSection:(int)arg1 ;
 -(int)followRowTypeForRow:(int)arg1 ;
 -(void)logTapEventForServiceType:(int)arg1 ;
 -(void)inviteFBFriends;
+-(int)inviteRowForRow:(int)arg1 ;
 -(int)accountRowForRow:(int)arg1 ;
 -(void)sendChangePasswordRequest;
 -(void)setIsSwitchingAccount:(char)arg1 ;
@@ -72,6 +79,7 @@
 -(void)presentReportProblemAlert;
 -(id)appVersionString;
 -(void)tableView:(id)arg1 didSelectFollowRow:(int)arg2 ;
+-(void)tableView:(id)arg1 didSelectInviteRow:(int)arg2 ;
 -(void)tableView:(id)arg1 didSelectAccountRow:(int)arg2 ;
 -(void)tableView:(id)arg1 didSelectSettingsRow:(int)arg2 ;
 -(void)tableView:(id)arg1 didSelectSupportRow:(int)arg2 ;
@@ -82,7 +90,8 @@
 -(void)configureCell:(id)arg1 forServiceType:(int)arg2 ;
 -(char)isSwitchingAccount;
 -(IGGroupedTableViewFooterView *)privacySettingsFooterView;
--(id)configureFollowCell:(id)arg1 forRow:(int)arg2 ;
+-(void)configureFollowCell:(id)arg1 forRow:(int)arg2 ;
+-(void)configureInviteCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureAccountCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureSettingsCell:(id)arg1 forRow:(int)arg2 ;
 -(void)configureAboutCell:(id)arg1 forRow:(int)arg2 ;
@@ -107,5 +116,6 @@
 -(UIEdgeInsets)preferredContentInsets;
 -(IGUserSession *)userSession;
 -(void)dismissViewController;
+-(id)allSections;
 @end
 

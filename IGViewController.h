@@ -1,13 +1,14 @@
 
 #import <Instagram/Instagram-Structs.h>
 #import <UIKit/UIViewController.h>
+#import <Instagram/IGScrollingHeaderDelegate.h>
 #import <Instagram/IGAnalyticsModule.h>
 #import <Instagram/IGViewControllerType.h>
 #import <Instagram/IGInlineGalleryHost.h>
 
 @class UIBarButtonItem, IGAnalyticsMetadata, NSString, IGScreenshotObserver, IGKeyboardManager, UILongPressGestureRecognizer, NSMutableArray, IGNavigationController, IGTabBarController;
 
-@interface IGViewController : UIViewController <IGAnalyticsModule, IGViewControllerType, IGInlineGalleryHost> {
+@interface IGViewController : UIViewController <IGScrollingHeaderDelegate, IGAnalyticsModule, IGViewControllerType, IGInlineGalleryHost> {
 
 	UIBarButtonItem* _backItem;
 	IGAnalyticsMetadata* _analyticsMetadata;
@@ -25,6 +26,10 @@
 
 }
 
+@property (readonly) unsigned hash; 
+@property (readonly) Class superclass; 
+@property (copy,readonly) NSString * description; 
+@property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,retain) UIBarButtonItem * loadingBarButtonItem;                          //@synthesize loadingBarButtonItem=_loadingBarButtonItem - In the implementation block
 @property (assign,nonatomic) int cancelButtonSide;                                            //@synthesize cancelButtonSide=_cancelButtonSide - In the implementation block
 @property (nonatomic,__weak,readonly) IGKeyboardManager * keyboardManager;                    //@synthesize keyboardManager=_keyboardManager - In the implementation block
@@ -41,17 +46,12 @@
 @property (nonatomic,retain) NSString * clickPoint;                                           //@synthesize clickPoint=_clickPoint - In the implementation block
 @property (nonatomic,retain) NSString * entityId;                                             //@synthesize entityId=_entityId - In the implementation block
 @property (nonatomic,readonly) IGScreenshotObserver * screenshotObserver;                     //@synthesize screenshotObserver=_screenshotObserver - In the implementation block
-@property (readonly) unsigned hash; 
-@property (readonly) Class superclass; 
-@property (copy,readonly) NSString * description; 
-@property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
+-(UILongPressGestureRecognizer *)longPressRecognizer;
 -(void)onCancelModal;
 -(char)canHostInlineGallery:(char)arg1 ;
 -(UIBarButtonItem *)loadingBarButtonItem;
--(id)analyticsMetadata;
--(char)enableNavState;
--(char)disableNavigationGesture;
 -(char)disableNonEdgeNavigationGesture;
 -(IGScreenshotObserver *)screenshotObserver;
 -(void)setEntityId:(NSString *)arg1 ;
@@ -59,7 +59,9 @@
 -(id)collectionViewWithStickyHeaders:(char)arg1 accessibilityIdentifier:(id)arg2 ;
 -(void)adjustContentInsetsForCollectionView:(id)arg1 ;
 -(void)showErrorMessage:(id)arg1 ;
+-(id)analyticsMetadata;
 -(void)showModalDismissButtonWithTitle:(id)arg1 side:(int)arg2 ;
+-(void)didChangeHeaderAdjustmentAmount:(float)arg1 ;
 -(void)updateAnalyticsMetadata:(id)arg1 ;
 -(IGKeyboardManager *)keyboardManager;
 -(void)hideModalDismissButton;
@@ -70,10 +72,10 @@
 -(char)shouldContinueUserActivity;
 -(void)setLoadingBarButtonItem:(UIBarButtonItem *)arg1 ;
 -(void)setCancelButtonSide:(int)arg1 ;
+-(char)disableNavigationGesture;
 -(id)previewActionBarItems;
 -(void)setLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;
--(UILongPressGestureRecognizer *)longPressRecognizer;
--(char)prefersTabBarHidden;
+-(char)enableNavState;
 -(void)setIsInPopover:(char)arg1 ;
 -(void)setClickPoint:(NSString *)arg1 ;
 -(NSString *)clickPoint;

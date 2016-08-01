@@ -4,6 +4,7 @@
 @optional
 -(void)searchBarButtonTapped:(id)arg1;
 -(void)searchBarCancelButtonTapped:(id)arg1;
+-(void)searchBarChannelHomeTapped:(id)arg1;
 -(void)searchBarPeopleIconTapped:(id)arg1;
 -(void)searchBarDirectIconTapped:(id)arg1;
 -(void)searchBarWillBeginEditing:(id)arg1;

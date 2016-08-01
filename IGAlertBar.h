@@ -29,9 +29,9 @@
 @property (nonatomic,readonly) char usingOffset;                   //@synthesize usingOffset=_usingOffset - In the implementation block
 +(id)sharedAlertBar;
 +(float)alertBarDisplayInterval;
+-(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 ;
 -(void)onAppBackgrounded:(id)arg1 ;
 -(void)onAppResumed:(id)arg1 ;
--(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 ;
 -(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 anchoredEdge:(int)arg4 withOffsetFromTop:(float)arg5 barHeight:(float)arg6 textTopPadding:(float)arg7 ;
 -(void)showInView:(id)arg1 withText:(id)arg2 style:(int)arg3 anchoredEdge:(int)arg4 withOffsetFromTop:(float)arg5 barHeight:(float)arg6 textTopPadding:(float)arg7 ;
 -(void)showInViewController:(id)arg1 withText:(id)arg2 style:(int)arg3 anchoredEdge:(int)arg4 withOffsetFromTop:(float)arg5 ;

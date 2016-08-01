@@ -18,6 +18,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)displayAlertWithRecoverySuggestion:(id)arg1 recoveryOptionsTitles:(id)arg2 ;
+-(void)displayAlertWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 ;
 -(void)didPresentErrorWithRecovery:(char)arg1 contextInfo:(void*)arg2 ;
 -(char)processError:(id)arg1 request:(id)arg2 delegate:(id)arg3 ;
 -(void)setDelegate:(id<FBSDKGraphErrorRecoveryProcessorDelegate>)arg1 ;

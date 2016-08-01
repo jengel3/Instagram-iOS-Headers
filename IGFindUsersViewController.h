@@ -32,6 +32,11 @@
 -(void)feedStatusViewDidTapOnInfoView:(id)arg1 ;
 -(void)feedStatusView:(id)arg1 didChangeComputedHeight:(float)arg2 ;
 -(float)visibleContentHeight;
+-(void)authorizeAndFetchUsers;
+-(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
+-(void)didAuthorizeWithDataRequest:(id)arg1 ;
+-(void)didFailToAuthorizeWithReason:(id)arg1 ;
+-(id)newFindUsersView;
 -(void)updateNavigationRightBarButtonItem;
 -(char)allowEmptyStateAndEmptyFeedLoadingIndicator;
 -(void)findUsersView:(id)arg1 didTapOnUser:(id)arg2 atIndex:(unsigned)arg3 ;
@@ -42,11 +47,6 @@
 -(void)showErrorLoadMessageIfPossible:(id)arg1 ;
 -(void)setUsersView:(IGFindUsersView *)arg1 ;
 -(void)onCloseTapped:(id)arg1 ;
--(void)authorizeAndFetchUsers;
--(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
--(void)didAuthorizeWithDataRequest:(id)arg1 ;
--(void)didFailToAuthorizeWithReason:(id)arg1 ;
--(id)newFindUsersView;
 -(id)currentActiveScrollView;
 -(void)findUsersView:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)findUsersView:(id)arg1 didTapOnItemWithMediaID:(id)arg2 atIndex:(unsigned)arg3 ;

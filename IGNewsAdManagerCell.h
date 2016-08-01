@@ -27,10 +27,10 @@
 +(id)titleFont;
 +(id)subtitleFont;
 +(id)titleString;
+-(void)setUpViewHierarchy;
 -(void)setUpTitle;
 -(void)setUpSubtitle;
 -(void)setUpRightArrow;
--(void)setUpViewHierarchy;
 -(IGUnreadBubbleView *)unreadBubbleView;
 -(void)setPendingAdsCount:(unsigned)arg1 ;
 -(void)setUpIcon;

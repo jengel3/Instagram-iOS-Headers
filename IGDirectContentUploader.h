@@ -1,8 +1,18 @@
 
 
-@interface IGDirectContentUploader : NSObject
+@class IGDirectThreadService, IGDirectCache;
+
+@interface IGDirectContentUploader : NSObject {
+
+	IGDirectThreadService* _threadService;
+
+}
+
+@property (nonatomic,readonly) IGDirectThreadService * threadService;              //@synthesize threadService=_threadService - In the implementation block
+@property (nonatomic,readonly) IGDirectCache * cache; 
 +(id)sharedUploader;
 -(id)uploadContentWithProducer:(id)arg1 parameter:(id)arg2 completion:(/*^block*/id)arg3 ;
+-(IGDirectThreadService *)threadService;
 -(void)removeUploadFromMediaUploadManager:(id)arg1 ;
 -(id)attachCommonFieldsForParam:(id)arg1 upload:(id)arg2 ;
 -(void)saveUpload:(id)arg1 ;
@@ -33,6 +43,8 @@
 -(void)retryUpload:(id)arg1 isSilent:(char)arg2 progress:(/*^block*/id)arg3 withCompletion:(/*^block*/id)arg4 ;
 -(id)uploadContentWithUploadable:(id)arg1 completion:(/*^block*/id)arg2 ;
 -(void)sendLikeToContent:(id)arg1 inThread:(id)arg2 withFailureHandler:(/*^block*/id)arg3 like:(char)arg4 ;
+-(id)init;
+-(IGDirectCache *)cache;
 -(void)cancelUpload:(id)arg1 ;
 @end
 

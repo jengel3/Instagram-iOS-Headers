@@ -1,12 +1,11 @@
 
 #import <Instagram/IGUserCell.h>
-#import <Instagram/IGSimilarAccountsControlDelegate.h>
 #import <Instagram/IGSimilarAccountsViewDelegate.h>
 
 @protocol IGFollowListUserCellDelegate;
 @class UIView, UIImageView, NSString;
 
-@interface IGFollowListUserCell : IGUserCell <IGSimilarAccountsControlDelegate, IGSimilarAccountsViewDelegate> {
+@interface IGFollowListUserCell : IGUserCell <IGSimilarAccountsViewDelegate> {
 
 	id<IGFollowListUserCellDelegate> _followListUserCelldelegate;
 	/*^block*/id _dismissActionBlock;
@@ -24,9 +23,9 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)initWithReuseIdentifier:(id)arg1 analyticsDelegate:(id)arg2 ;
--(UIImageView *)verifiedUserBadgeView;
 -(UIView *)bottomLine;
 -(void)setBottomLine:(UIView *)arg1 ;
+-(UIImageView *)verifiedUserBadgeView;
 -(void)setDismissActionBlock:(id)arg1 ;
 -(id<IGFollowListUserCellDelegate>)followListUserCelldelegate;
 -(id)dismissActionBlock;

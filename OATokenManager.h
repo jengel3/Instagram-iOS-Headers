@@ -21,8 +21,6 @@
 	char isDispatching;
 
 }
--(void)call:(id)arg1 failedWithProblem:(id)arg2 ;
--(void)call:(id)arg1 failedWithError:(id)arg2 ;
 -(id)initWithConsumer:(id)arg1 token:(id)arg2 oauthBase:(id)arg3 realm:(id)arg4 callback:(id)arg5 delegate:(id)arg6 ;
 -(void)exchangeToken;
 -(void)deleteSavedRequestToken;
@@ -37,6 +35,8 @@
 -(void)enqueue:(id)arg1 selector:(SEL)arg2 ;
 -(void)fetchData:(id)arg1 method:(id)arg2 parameters:(id)arg3 files:(id)arg4 finished:(SEL)arg5 delegate:(id)arg6 ;
 -(void)fetchData:(id)arg1 method:(id)arg2 parameters:(id)arg3 files:(id)arg4 finished:(SEL)arg5 ;
+-(void)call:(id)arg1 failedWithError:(id)arg2 ;
+-(void)call:(id)arg1 failedWithProblem:(id)arg2 ;
 -(void)authorizedToken:(id)arg1 ;
 -(void)fetchData:(id)arg1 method:(id)arg2 parameters:(id)arg3 finished:(SEL)arg4 ;
 -(void)fetchData:(id)arg1 parameters:(id)arg2 files:(id)arg3 finished:(SEL)arg4 ;

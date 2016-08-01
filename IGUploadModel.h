@@ -3,7 +3,8 @@
 #import <libobjc.A.dylib/NSCoding.h>
 #import <Instagram/IGVideoRendererProgressDelegate.h>
 
-@class UIImage, NSData, NSString, NSDate, IGRequest, NSMutableDictionary, NSURL, NSArray, IGVideoRenderer, IGRequestError, NSMutableArray, IGAnalyticsWaterfall, IGUploadVideoMetaData;
+@protocol IGAnalyticsUploadWaterfall;
+@class UIImage, NSData, NSString, NSDate, IGRequest, NSMutableDictionary, NSURL, NSArray, IGVideoRenderer, IGRequestError, NSMutableArray, IGUploadVideoMetaData;
 
 @interface IGUploadModel : NSObject <NSCoding, IGVideoRendererProgressDelegate> {
 
@@ -42,7 +43,7 @@
 	int _autoRetryResumeUploadCount;
 	int _autoRetryConfigureCount;
 	NSMutableArray* _currentRangesUploadedAlready;
-	IGAnalyticsWaterfall* _waterfall;
+	id<IGAnalyticsUploadWaterfall> _waterfall;
 	NSDate* _videoStartUploadTime;
 	float _videoUploadSpeed;
 	IGUploadVideoMetaData* _videoMetadata;
@@ -118,7 +119,7 @@
 @property (assign,nonatomic) int autoRetryResumeUploadCount;                             //@synthesize autoRetryResumeUploadCount=_autoRetryResumeUploadCount - In the implementation block
 @property (assign,nonatomic) int autoRetryConfigureCount;                                //@synthesize autoRetryConfigureCount=_autoRetryConfigureCount - In the implementation block
 @property (nonatomic,retain) NSMutableArray * currentRangesUploadedAlready;              //@synthesize currentRangesUploadedAlready=_currentRangesUploadedAlready - In the implementation block
-@property (nonatomic,retain) IGAnalyticsWaterfall * waterfall;                           //@synthesize waterfall=_waterfall - In the implementation block
+@property (nonatomic,retain) id<IGAnalyticsUploadWaterfall> waterfall;                   //@synthesize waterfall=_waterfall - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -126,30 +127,32 @@
 +(int)version;
 -(void)setShareType:(int)arg1 ;
 -(int)uploadDataType;
--(NSString *)userPK;
--(NSDate *)uploadStartTime;
--(int)postStatus;
--(float)renderProgress;
+-(NSURL *)videoDataFileURL;
+-(void)setUploadProgress:(float)arg1 ;
 -(float)uploadProgress;
+-(NSDate *)uploadStartTime;
+-(float)renderProgress;
+-(int)postStatus;
 -(void)setVideoMetadata:(IGUploadVideoMetaData *)arg1 ;
 -(int)numberOfFailedUploads;
 -(void)setNumberOfFailedUploads:(int)arg1 ;
 -(NSMutableDictionary *)postDict;
--(void)setUploadProgress:(float)arg1 ;
+-(void)setVideoRenderer:(IGVideoRenderer *)arg1 ;
+-(void)setRenderProgress:(float)arg1 ;
+-(void)setUploadStartTime:(NSDate *)arg1 ;
 -(void)setPostDict:(NSMutableDictionary *)arg1 ;
 -(void)setVideoDataFileURL:(NSURL *)arg1 ;
--(void)setRenderProgress:(float)arg1 ;
 -(void)setPostStatus:(int)arg1 toStatus:(int)arg2 ;
 -(void)videoRenderer:(id)arg1 didProgress:(float)arg2 ;
 -(void)videoRenderer:(id)arg1 didFinishRenderingVideoToURL:(id)arg2 canceled:(char)arg3 ;
 -(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
+-(NSString *)userPK;
 -(int)shareType;
--(NSURL *)videoDataFileURL;
 -(IGVideoRenderer *)videoRenderer;
 -(unsigned)totalVideoBytesUploaded;
 -(int)postStatusFromPostStatusV0:(int)arg1 ;
 -(void)updatePostStatusAfterInitFromCoder;
--(IGAnalyticsWaterfall *)waterfall;
+-(id<IGAnalyticsUploadWaterfall>)waterfall;
 -(id)currentNotExpiredVideoUploadURL;
 -(void)setPostStatus:(int)arg1 fromStatus:(int)arg2 toStatus:(int)arg3 ;
 -(void)setPostStatus:(int)arg1 ;
@@ -230,7 +233,7 @@
 -(int)autoRetryConfigureCount;
 -(void)setAutoRetryConfigureCount:(int)arg1 ;
 -(NSMutableArray *)currentRangesUploadedAlready;
--(void)setWaterfall:(IGAnalyticsWaterfall *)arg1 ;
+-(void)setWaterfall:(id<IGAnalyticsUploadWaterfall>)arg1 ;
 -(float)videoUploadSpeed;
 -(unsigned)photoBytesUploaded;
 -(unsigned)videoBytesUploaded;
@@ -249,8 +252,6 @@
 -(void)setUploadWidthMaxForHiResLandscape:(int)arg1 ;
 -(void)setMinDownscaleHQResize:(float)arg1 ;
 -(IGUploadVideoMetaData *)videoMetadata;
--(void)setUploadStartTime:(NSDate *)arg1 ;
--(void)setVideoRenderer:(IGVideoRenderer *)arg1 ;
 -(NSData *)imageData;
 -(IGRequestError *)error;
 -(id)videoData;

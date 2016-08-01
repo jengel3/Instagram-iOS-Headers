@@ -37,6 +37,7 @@
 -(NSString *)webViewUserAgent;
 -(void)startAPIRequest:(id)arg1 parsingHandler:(/*^block*/id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(void)startIGRequest:(id)arg1 responseHandler:(/*^block*/id)arg2 ;
+-(void)startRequest:(id)arg1 responseHandler:(/*^block*/id)arg2 ;
 -(void)postRequestErrorNotification:(id)arg1 ;
 -(void)handleSystemMessages:(id)arg1 ;
 -(void)handleAPIRequestFailure:(id)arg1 withFailureHandler:(/*^block*/id)arg2 reponseDictionary:(id)arg3 error:(id)arg4 ;
@@ -47,7 +48,6 @@
 -(void)handleSystemMessage:(id)arg1 ;
 -(void)startIGRequest:(id)arg1 JSONResponseHandler:(/*^block*/id)arg2 ;
 -(void)startRequest:(id)arg1 JSONResponseHandler:(/*^block*/id)arg2 ;
--(void)startRequest:(id)arg1 responseHandler:(/*^block*/id)arg2 ;
 -(id)reachabilityString;
 -(id)initWithAppName:(id)arg1 baseURL:(id)arg2 ;
 -(void)addCommonHeadersToRequest:(id)arg1 ;

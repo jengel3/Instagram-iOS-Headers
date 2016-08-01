@@ -63,7 +63,6 @@
 -(void)setDelegate:(id<IGInsightsSeeAllPostsFilterSelectorViewDelegate>)arg1 ;
 -(int)numberOfComponentsInPickerView:(id)arg1 ;
 -(int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2 ;
--(id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3 ;
 -(float)pickerView:(id)arg1 widthForComponent:(int)arg2 ;
 -(float)pickerView:(id)arg1 rowHeightForComponent:(int)arg2 ;
 -(id)init;

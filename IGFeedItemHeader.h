@@ -5,7 +5,7 @@
 #import <Instagram/IGFollowButtonDelegate.h>
 
 @protocol IGFeedItemHeaderDelegate, IGFeedItemLoggingProviderDelegate, IGRaindropAnalyticsDelegate, IGSponsorableButton;
-@class NSObject, IGFeedItemHeaderViewModel, IGProfilePictureImageView, UIImageView, IGTapButton, UILabel, UIButton, IGFollowButton, IGStringStyle, NSArray, NSString;
+@class NSObject, IGFeedItemHeaderViewModel, IGProfilePictureImageView, UIImageView, IGTapButton, UIButton, IGFollowButton, IGStringStyle, NSArray, NSString;
 
 @interface IGFeedItemHeader : IGTimelineHeader <IGProfilePictureImageViewDelegate, IGFollowButtonDelegate> {
 
@@ -18,7 +18,6 @@
 	IGProfilePictureImageView* _profilePic;
 	UIImageView* _userBadge;
 	IGTapButton* _usernameButton;
-	UILabel* _timestampLabel;
 	UIButton* _locationButton;
 	UIButton* _customizableButton;
 	UIButton*<IGSponsorableButton> _sponsoredPostButton;
@@ -36,7 +35,6 @@
 @property (nonatomic,retain) IGProfilePictureImageView * profilePic;                          //@synthesize profilePic=_profilePic - In the implementation block
 @property (nonatomic,retain) UIImageView * userBadge;                                         //@synthesize userBadge=_userBadge - In the implementation block
 @property (nonatomic,retain) IGTapButton * usernameButton;                                    //@synthesize usernameButton=_usernameButton - In the implementation block
-@property (nonatomic,retain) UILabel * timestampLabel;                                        //@synthesize timestampLabel=_timestampLabel - In the implementation block
 @property (nonatomic,retain) UIButton * locationButton;                                       //@synthesize locationButton=_locationButton - In the implementation block
 @property (nonatomic,retain) UIButton * customizableButton;                                   //@synthesize customizableButton=_customizableButton - In the implementation block
 @property (nonatomic,retain) UIButton*<IGSponsorableButton> sponsoredPostButton;              //@synthesize sponsoredPostButton=_sponsoredPostButton - In the implementation block
@@ -57,16 +55,8 @@
 -(UIButton *)customizableButton;
 -(void)configureWithViewModel:(id)arg1 analyticsDelegate:(id)arg2 loggingDelegate:(id)arg3 delegate:(id)arg4 ;
 -(void)layoutAccessoryView;
--(UILabel *)timestampLabel;
 -(NSArray *)accessibleElements;
 -(void)configureWithViewModel:(id)arg1 ;
--(void)setTimestampLabel:(UILabel *)arg1 ;
--(UIButton*<IGSponsorableButton>)sponsoredPostButton;
--(IGStringStyle *)boldGrayStyle;
--(IGStringStyle *)boldLinkStyle;
--(void)setSponsoredPostButton:(UIButton*<IGSponsorableButton>)arg1 ;
--(void)setBoldGrayStyle:(IGStringStyle *)arg1 ;
--(void)setBoldLinkStyle:(IGStringStyle *)arg1 ;
 -(IGTapButton *)usernameButton;
 -(UIButton *)locationButton;
 -(UIImageView *)userBadge;
@@ -75,6 +65,7 @@
 -(void)layoutProfilePic;
 -(void)layoutUserNameAndBadgeAndLocation;
 -(void)layoutTitleAndImageForLocation;
+-(UIButton*<IGSponsorableButton>)sponsoredPostButton;
 -(void)onPostUpdated;
 -(void)onUserInfoChanged;
 -(void)updateAppearance;
@@ -84,22 +75,27 @@
 -(void)configureLocationButton;
 -(void)updateAccessoryViewAppearance;
 -(void)updateAppearanceForEventViewer;
--(IGStringStyle *)grayStyle;
 -(void)onLocationTapped;
+-(IGStringStyle *)boldLinkStyle;
+-(void)onCustomizableButtonPressed:(id)arg1 ;
 -(void)onMoreButtonTapped:(id)arg1 ;
 -(IGStringStyle *)boldGray7Style;
+-(IGStringStyle *)boldGrayStyle;
 -(void)updateButton:(id)arg1 withColor:(id)arg2 ;
 -(void)openUserViewFrom:(id)arg1 ;
 -(char)alternateAccessibility;
+-(IGStringStyle *)grayStyle;
 -(void)setUserBadge:(UIImageView *)arg1 ;
 -(void)setUsernameButton:(IGTapButton *)arg1 ;
 -(void)setLocationButton:(UIButton *)arg1 ;
+-(void)setCustomizableButton:(UIButton *)arg1 ;
+-(void)setSponsoredPostButton:(UIButton*<IGSponsorableButton>)arg1 ;
+-(void)setFollowButton:(IGFollowButton *)arg1 ;
+-(void)setBoldLinkStyle:(IGStringStyle *)arg1 ;
+-(void)setBoldGrayStyle:(IGStringStyle *)arg1 ;
 -(void)setGrayStyle:(IGStringStyle *)arg1 ;
 -(void)setBoldGray7Style:(IGStringStyle *)arg1 ;
 -(void)setAccessibleElements:(NSArray *)arg1 ;
--(void)setFollowButton:(IGFollowButton *)arg1 ;
--(void)setCustomizableButton:(UIButton *)arg1 ;
--(void)onCustomizableButtonPressed:(id)arg1 ;
 -(IGFollowButton *)followButton;
 -(void)followButton:(id)arg1 tappedWithAction:(int)arg2 ;
 -(void)followButtonDidUpdateButtonState:(id)arg1 ;

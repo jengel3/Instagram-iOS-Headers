@@ -36,7 +36,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(NSString *)maxId;
--(void)fetchList;
 -(void)fetchMore;
 -(void)setRequestManager:(IGBulkMediaRequestManager *)arg1 ;
 -(char)loadedOnce;
@@ -45,8 +44,9 @@
 -(IGBulkMediaRequestManager *)requestManager;
 -(id)emptyMessage;
 -(void)setFeaturedUserInfoList:(NSArray *)arg1 ;
--(NSArray *)featuredUserInfoList;
 -(void)fetchListWithRequest:(id)arg1 ;
+-(NSArray *)featuredUserInfoList;
+-(void)fetchList;
 -(void)prefetchThumbnailsForUserInfo:(id)arg1 ;
 -(void)fetchThumbnailIURLsForUserIDs:(id)arg1 ;
 -(void)setMaxId:(NSString *)arg1 ;

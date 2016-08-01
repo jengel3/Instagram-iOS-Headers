@@ -13,9 +13,9 @@
 @property (nonatomic,retain) IGInsightsComponentListViewController * componentListViewController;              //@synthesize componentListViewController=_componentListViewController - In the implementation block
 @property (nonatomic,retain) IGInsightsLoggingHelper * loggingHelper;                                          //@synthesize loggingHelper=_loggingHelper - In the implementation block
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
 -(char)canHostInlineGallery:(char)arg1 ;
 -(IGInsightsLoggingHelper *)loggingHelper;
--(char)prefersTabBarHidden;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(IGInsightsComponentListViewController *)componentListViewController;
 -(id)initWithQuery:(id)arg1 loggingHelper:(id)arg2 ;

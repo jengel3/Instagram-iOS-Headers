@@ -19,11 +19,10 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(void)cameraControllerDidCancel;
 -(void)cameraControllerDidFinishWithPhoto:(id)arg1 fromOrigin:(int)arg2 ;
--(void)cameraControllerDidFinishWithDirectShare:(char)arg1 ;
 -(void)cameraControllerDidFinishWithVideoComposition:(id)arg1 ;
--(void)mediaRequest:(id)arg1 didLoadMediaWithData:(id)arg2 forURL:(id)arg3 ;
 -(void)setMediaUrl:(NSURL *)arg1 ;
 -(NSURL *)mediaUrl;
 -(void)postVideoToFeed:(id)arg1 ;
@@ -32,6 +31,7 @@
 -(id)initWithPresentController:(id)arg1 ;
 -(void)setCameraNavigationController:(IGCameraNavigationController *)arg1 ;
 -(IGCameraNavigationController *)cameraNavigationController;
+-(void)cameraControllerDidFinishWithDirectShare:(char)arg1 ;
 -(UIViewController *)presenter;
 -(void)setPresenter:(UIViewController *)arg1 ;
 @end

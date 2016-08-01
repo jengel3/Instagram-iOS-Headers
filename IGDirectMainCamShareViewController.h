@@ -56,6 +56,7 @@
 @property (nonatomic,readonly) UIScrollView * scrollView; 
 @property (assign,nonatomic,__weak) UIViewController * delegate;                    //@synthesize delegate=_delegate - In the implementation block
 -(id)analyticsModule;
+-(void)hideTapped;
 -(id)initWithMediaMetadata:(id)arg1 userSession:(id)arg2 ;
 -(void)dataSourceDidStartLoading:(id)arg1 ;
 -(void)dataSourceDidFinishLoading:(id)arg1 ;
@@ -75,7 +76,6 @@
 -(int)typeForSection:(int)arg1 ;
 -(NSMutableDictionary *)sectionHeaderViews;
 -(void)seeAllTapped;
--(void)hideTapped;
 -(NSOrderedSet *)groupThreads;
 -(void)setForceHide:(char)arg1 ;
 -(void)reloadGroupSectionWithAnimation:(int)arg1 ;

@@ -4,6 +4,7 @@
 @required
 -(void)explorePromptMediaViewDidTapOnPromptView;
 -(void)explorePromptMediaViewDidTapOnCloseButton;
+-(void)explorePromptMediaViewDidFinishLoadingThumbnails;
 
 @end
 

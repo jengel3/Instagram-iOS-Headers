@@ -28,6 +28,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(float)popoverWidth;
 -(id)analyticsModule;
+-(void)questionView:(id)arg1 didSelectAnswers:(id)arg2 forQuestion:(id)arg3 ;
 -(void)setQuestionViews:(NSArray *)arg1 ;
 -(void)setCurrentQuestionIndex:(int)arg1 ;
 -(void)setThankYouView:(IGBrandLiftThankYouView *)arg1 ;
@@ -46,7 +47,6 @@
 -(void)logQuestion:(id)arg1 withAnswers:(id)arg2 ;
 -(void)showResultsView;
 -(unsigned)currentViewType;
--(void)questionView:(id)arg1 didSelectAnswers:(id)arg2 forQuestion:(id)arg3 ;
 -(void)thankYouViewDidSelectDone:(id)arg1 ;
 -(void)thankYouViewDidSelectShowResults:(id)arg1 ;
 -(id)initWithSurvey:(id)arg1 ;

@@ -19,10 +19,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(void)presentationTransition:(id)arg1 ;
 -(void)dismissTransition:(id)arg1 ;
--(void)showPreviewButtons:(char)arg1 previewController:(id)arg2 ;
--(void)addCameraControllerButtons:(id)arg1 toView:(id)arg2 ;
--(void)showCameraButtons:(char)arg1 cameraController:(id)arg2 ;
--(void)addPreviewControllerButtons:(id)arg1 toView:(id)arg2 ;
+-(void)showPreviewCancelButton:(id)arg1 downloadButton:(id)arg2 addTextButton:(id)arg3 addDrawingButton:(id)arg4 show:(char)arg5 ;
+-(void)showCameraFlashButton:(id)arg1 switchCameraButton:(id)arg2 closeButton:(id)arg3 show:(char)arg4 ;
 -(void)adjustButton:(id)arg1 transform:(CGAffineTransform)arg2 alpha:(float)arg3 ;
 -(double)transitionDuration:(id)arg1 ;
 -(void)animateTransition:(id)arg1 ;

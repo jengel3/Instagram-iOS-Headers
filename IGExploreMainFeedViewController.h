@@ -15,10 +15,11 @@
 #import <Instagram/IGSearchOriginControllerProtocol.h>
 #import <Instagram/IGEventViewerViewControllerDelegate.h>
 
-@class IGListCollectionView, IGListAdapter, NSString, IGUserSession, IGExploreMainFeedNetworkSource, IGFeedStatusView, IGExploreMainFeedLayout, NSMutableOrderedSet, IGSpinnerModel, NSArray, IGFeedVideoCellManager, IGRefreshControl, IGExploreMainFeedPreviewingHandler, NSIndexPath, IGFeedFocusCoordinator, IGChannelFocusCoordinator, IGExploreMainFeedLogger, IGCollectionViewVisibility, IGExploreTTILogger, IGSearchViewController, IGExploreVolumeViewController, NSDate, IGListAdapterPerfLogger;
+@class IGListCollectionView, IGListAdapter, NSString, IGUserSession, IGExploreMainFeedNetworkSource, IGFeedStatusView, IGExploreMainFeedLayout, NSMutableOrderedSet, IGSpinnerModel, NSArray, IGFeedVideoCellManager, IGRefreshControl, IGExploreMainFeedPreviewingHandler, NSIndexPath, IGFeedFocusCoordinator, IGChannelFocusCoordinator, IGExploreMainFeedLogger, IGCollectionViewVisibility, IGExploreTTILogger, IGSearchViewController, IGExploreVolumeViewController, NSDate, IGListAdapterUpdaterLogger;
 
 @interface IGExploreMainFeedViewController : IGViewController <IGExploreMainFeedNetworkSourceDelegate, IGFeedNetworkSourceDelegate, IGFeedNetworkSourceHideDelegate, IGFeedStatusViewDelegate, IGExploreMainFeedLayoutDataSource, IGListAdapterDataSource, IGListAdapterDelegate, UICollectionViewDelegate, IGExploreSearchControllerDelegate, IGExploreInterestSelectionItemControllerDelegate, IGAnalyticsModule, IGSearchOriginControllerProtocol, IGEventViewerViewControllerDelegate> {
 
+	char _didScrollOnce;
 	char _hasInteractedOnExplore;
 	char _shouldShowExplorePromptInThisSession;
 	char _didLoadInitialItems;
@@ -40,6 +41,7 @@
 	NSIndexPath* _currentActiveChannelIndexPath;
 	IGFeedFocusCoordinator* _mediaFocusCoordinator;
 	IGChannelFocusCoordinator* _channelFocusCoordinator;
+	float _initialOffset;
 	IGExploreMainFeedLogger* _logger;
 	IGCollectionViewVisibility* _collectionViewVisibility;
 	IGExploreTTILogger* _ttiLogger;
@@ -49,7 +51,7 @@
 	NSDate* _lastPrefetchTime;
 	int _stalenessThresholdSeconds;
 	NSString* _exploreInterestMessage;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 
 }
 
@@ -67,6 +69,8 @@
 @property (nonatomic,retain) NSIndexPath * currentActiveChannelIndexPath;                          //@synthesize currentActiveChannelIndexPath=_currentActiveChannelIndexPath - In the implementation block
 @property (nonatomic,readonly) IGFeedFocusCoordinator * mediaFocusCoordinator;                     //@synthesize mediaFocusCoordinator=_mediaFocusCoordinator - In the implementation block
 @property (nonatomic,readonly) IGChannelFocusCoordinator * channelFocusCoordinator;                //@synthesize channelFocusCoordinator=_channelFocusCoordinator - In the implementation block
+@property (assign,nonatomic) float initialOffset;                                                  //@synthesize initialOffset=_initialOffset - In the implementation block
+@property (assign,nonatomic) char didScrollOnce;                                                   //@synthesize didScrollOnce=_didScrollOnce - In the implementation block
 @property (nonatomic,readonly) IGExploreMainFeedLogger * logger;                                   //@synthesize logger=_logger - In the implementation block
 @property (nonatomic,readonly) IGCollectionViewVisibility * collectionViewVisibility;              //@synthesize collectionViewVisibility=_collectionViewVisibility - In the implementation block
 @property (nonatomic,readonly) IGExploreTTILogger * ttiLogger;                                     //@synthesize ttiLogger=_ttiLogger - In the implementation block
@@ -80,7 +84,7 @@
 @property (assign,nonatomic) char didLoadInitialItems;                                             //@synthesize didLoadInitialItems=_didLoadInitialItems - In the implementation block
 @property (assign,nonatomic) char didPerformActionsAfterInitialLoad;                               //@synthesize didPerformActionsAfterInitialLoad=_didPerformActionsAfterInitialLoad - In the implementation block
 @property (nonatomic,copy) NSString * exploreInterestMessage;                                      //@synthesize exploreInterestMessage=_exploreInterestMessage - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                        //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                     //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                              //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                        //@synthesize listAdapter=_listAdapter - In the implementation block
 @property (nonatomic,readonly) NSArray * allItems; 
@@ -90,25 +94,33 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(id)initWithUserSession:(id)arg1 ;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
+-(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
+-(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
 -(void)scrollToItem:(id)arg1 animated:(char)arg2 ;
--(id)initWithUserSession:(id)arg1 ;
+-(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
+-(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
 -(void)setupCollectionViewAndAdapter;
--(void)setNetworkSource:(IGExploreMainFeedNetworkSource *)arg1 ;
 -(void)requestToDismissEventViewerViewController:(id)arg1 ;
--(IGExploreTTILogger *)ttiLogger;
--(char)fetchMore;
--(char)enableNavState;
--(void)resetSearchControllerIfNeeded;
--(void)prepareForPopToRootTransition;
 -(CGRect)currentChannelFrameInWindow;
 -(id)currentChannelImageView;
+-(IGExploreTTILogger *)ttiLogger;
+-(void)resetSearchControllerIfNeeded;
+-(void)prepareForPopToRootTransition;
+-(void)setupPullToRefreshManager;
+-(void)removeLastSpinner;
+-(void)reloadFeed;
+-(void)updateFeed;
+-(IGExploreMainFeedNetworkSource *)networkSource;
+-(void)loadNextPage;
+-(char)fetchMore;
+-(void)setNetworkSource:(IGExploreMainFeedNetworkSource *)arg1 ;
 -(IGFeedVideoCellManager *)videoCellManager;
 -(IGChannelFocusCoordinator *)channelFocusCoordinator;
--(IGExploreMainFeedNetworkSource *)networkSource;
 -(CGSize)collectionView:(id)arg1 exploreMainFeedLayout:(id)arg2 sizeForItemAtIndexPath:(id)arg3 ;
 -(void)exploreMainFeedNetworkSourceDidGetEmptyResponseForPrefetch:(id)arg1 ;
 -(void)exploreMainFeedNetworkSource:(id)arg1 didLoadExplorePromptFlag:(char)arg2 ;
@@ -120,20 +132,20 @@
 -(NSDate *)lastPrefetchTime;
 -(int)stalenessThresholdSeconds;
 -(NSArray *)prefetchItems;
--(void)reloadFeed;
 -(IGExploreMainFeedNetworkSource *)prefetchNetworkSource;
 -(void)setLastFullFetchTime:(NSDate *)arg1 ;
 -(void)setPrefetchNetworkSource:(IGExploreMainFeedNetworkSource *)arg1 ;
 -(void)setLastPrefetchTime:(NSDate *)arg1 ;
 -(void)setPrefetchItems:(NSArray *)arg1 ;
 -(void)setupLogger;
--(void)setupPullToRefreshManager;
 -(void)setupPreview;
--(void)setupFeedStatusView;
+-(void)fetchFrequentItemsIfNeeded;
+-(void)setInitialOffset:(float)arg1 ;
 -(void)updateChannelFromImmersiveViewer;
 -(void)playVideoForChannel:(id)arg1 startTime:(float)arg2 ;
 -(void)syncWithContexualFeed;
 -(void)performActionsAfterInitialLoadIfNecessary;
+-(void)logImpressions;
 -(id)paramsForFetchAction:(int)arg1 ;
 -(id)locationParams;
 -(NSIndexPath *)currentActiveChannelIndexPath;
@@ -141,8 +153,6 @@
 -(NSString *)exploreInterestMessage;
 -(void)setExploreInterestMessage:(NSString *)arg1 ;
 -(void)setDidLoadInitialItems:(char)arg1 ;
--(void)removeLastSpinner;
--(void)updateFeed;
 -(void)setShouldShowExplorePromptInThisSession:(char)arg1 ;
 -(void)setupLastFetchTimeForFeedNetworkSource:(id)arg1 ;
 -(void)resetLastFetchTimeForFeedNetworkSource:(id)arg1 ;
@@ -150,11 +160,12 @@
 -(IGFeedFocusCoordinator *)mediaFocusCoordinator;
 -(void)setCurrentActiveChannelIndexPath:(NSIndexPath *)arg1 ;
 -(void)navigationControllerWillShowSearch;
--(char)shouldLoadMoreFromNetworkSource:(id)arg1 scrollingToTargetContentOffset:(CGPoint)arg2 inScrollView:(id)arg3 ;
--(void)loadNextPage;
 -(char)shouldCheckLoadMoreOnScroll;
+-(char)shouldLoadMoreFromNetworkSource:(id)arg1 scrollingToTargetContentOffset:(CGPoint)arg2 inScrollView:(id)arg3 ;
 -(void)sendOutNotificationForUserInteract;
 -(void)setupVideoCellManagerForCollectionView:(id)arg1 ;
+-(void)logScrollEventForScrollView:(id)arg1 ;
+-(void)logImpressionsIfNecessary;
 -(void)backgroundFetchExploreIfStale;
 -(NSDate *)lastFullFetchTime;
 -(void)prefetchData;
@@ -168,8 +179,12 @@
 -(void)setDidPerformActionsAfterInitialLoad:(char)arg1 ;
 -(char)didPerformActionsAfterInitialLoad;
 -(char)didLoadInitialItems;
+-(char)didScrollOnce;
+-(float)initialOffset;
+-(void)setDidScrollOnce:(char)arg1 ;
 -(void)searchControllerSearchBarTapped:(id)arg1 ;
 -(void)searchControllerCancelButtonTapped:(id)arg1 ;
+-(void)searchControllerChannelHomeTapped:(id)arg1 ;
 -(void)searchController:(id)arg1 switchedToViewController:(id)arg2 ;
 -(void)searchControllerPeopleIconTapped:(id)arg1 ;
 -(void)searchControllerDirectIconTapped:(id)arg1 ;
@@ -178,18 +193,15 @@
 -(void)exploreInterestSelectionItemControllerDidTapDone:(id)arg1 ;
 -(void)setStalenessThresholdSeconds:(int)arg1 ;
 -(void)feedNetworkSource:(id)arg1 didHideObject:(id)arg2 ;
--(void)feedNetworkSource:(id)arg1 didStartLoadingForFetchAction:(int)arg2 ;
--(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(IGCollectionViewVisibility *)collectionViewVisibility;
 -(void)setVideoCellManager:(IGFeedVideoCellManager *)arg1 ;
+-(void)setupFeedStatusView;
 -(IGFeedStatusView *)feedStatusView;
--(void)scrollViewDidEndScrolling;
+-(void)scrollViewDidEndScrolling:(id)arg1 ;
 -(void)feedStatusViewDidTapOnInfoView:(id)arg1 ;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
--(void)logImpressions;
--(void)listAdapter:(id)arg1 willDisplayItem:(id)arg2 atIndex:(int)arg3 ;
--(void)listAdapter:(id)arg1 didEndDisplayingItem:(id)arg2 atIndex:(int)arg3 ;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
 -(void)showSearchController;
+-(char)enableNavState;
 -(IGExploreMainFeedLogger *)logger;
 -(IGExploreMainFeedPreviewingHandler *)previewDelegate;
 -(void)setPreviewDelegate:(IGExploreMainFeedPreviewingHandler *)arg1 ;
@@ -222,6 +234,7 @@
 -(void)unregisterForNotifications;
 -(void)setSessionId:(NSString *)arg1 ;
 -(NSString *)sessionId;
+-(char)isViewVisible;
 -(void)fetch;
 -(NSArray *)allItems;
 -(IGExploreVolumeViewController *)volumeViewController;

@@ -32,9 +32,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(char)isViewFinishedLoading;
--(void)configureWithItem:(id)arg1 delegate:(id)arg2 ;
--(void)seekToBeginning;
 -(double)timerStartTime;
 -(void)setDurationBeforePhotoPause:(double)arg1 ;
 -(double)durationBeforePhotoPause;
@@ -43,8 +40,14 @@
 -(void)onDisplayLinkDidFire:(id)arg1 ;
 -(void)progressImageView:(id)arg1 didLoadImage:(id)arg2 withDataLength:(unsigned)arg3 ;
 -(void)progressImageView:(id)arg1 didFailLoadWithError:(id)arg2 ;
+-(void)configureWithItem:(id)arg1 delegate:(id)arg2 loggingContext:(id)arg3 ;
+-(void)pauseWithReason:(int)arg1 ;
+-(void)seekToBeginning;
+-(char)isViewFinishedLoading;
+-(void)stopWithReason:(int)arg1 ;
 -(void)play;
 -(IGImageProgressView *)photoView;
+-(void)setAudioEnabled:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(id<IGAlbumPlayerMediaViewDelegate>)delegate;
@@ -57,7 +60,6 @@
 -(void)setTimer:(NSTimer *)arg1 ;
 -(NSTimer *)timer;
 -(char)paused;
--(void)pause;
 -(void)cancelTimer;
 @end
 

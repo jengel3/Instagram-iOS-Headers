@@ -19,8 +19,8 @@
 @property (nonatomic,copy) NSString * text; 
 @property (assign,nonatomic) float maxWidth;                             //@synthesize maxWidth=_maxWidth - In the implementation block
 -(void)showIndicatorWithIcon:(id)arg1 animated:(char)arg2 ;
--(void)showIndicatorWithString:(id)arg1 iconName:(id)arg2 willContract:(char)arg3 animated:(char)arg4 ;
 -(void)showTextLabel;
+-(void)showIndicatorWithString:(id)arg1 iconName:(id)arg2 willContract:(char)arg3 animated:(char)arg4 ;
 -(void)shrinkToIconWithDuration:(float)arg1 delay:(float)arg2 ;
 -(void)hideAnimated:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

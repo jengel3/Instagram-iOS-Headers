@@ -51,6 +51,7 @@
 @property (assign,nonatomic) char isForVideo;                                          //@synthesize isForVideo=_isForVideo - In the implementation block
 @property (nonatomic,readonly) NSMutableURLRequest * mutableRequest; 
 @property (nonatomic,readonly) char isHandlerDisposed;                                 //@synthesize isHandlerDisposed=_isHandlerDisposed - In the implementation block
+-(double)totalRequestTimeInMiliseconds;
 -(char)isForVideo;
 -(char)hasFailed;
 -(double)serverLatencyInMiliseconds;
@@ -65,7 +66,6 @@
 -(id)initWithMutableRequest:(id)arg1 ;
 -(void)addDependant:(id)arg1 withPriority:(int)arg2 ;
 -(void)setHeaderHandler:(id)arg1 ;
--(double)totalRequestTimeInMiliseconds;
 -(void)removeDependant:(id)arg1 ;
 -(NSProgress *)ig_downloadProgress;
 -(NSHashTable *)dependants;

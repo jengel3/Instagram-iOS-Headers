@@ -5,8 +5,7 @@
 #import <Instagram/RCTScrollableProtocol.h>
 #import <Instagram/RCTAutoInsetsProtocol.h>
 
-@protocol UIScrollViewDelegate;
-@class RCTEventDispatcher, RCTCustomScrollView, UIView, NSMutableArray, NSString, NSHashTable, NSObject, UIScrollView, NSIndexSet;
+@class RCTEventDispatcher, RCTCustomScrollView, UIView, NSMutableArray, NSString, NSHashTable, UIScrollView, NSIndexSet;
 
 @interface RCTScrollView : RCTView <UIScrollViewDelegate, RCTScrollableProtocol, RCTAutoInsetsProtocol> {
 
@@ -21,7 +20,6 @@
 	NSString* _lastEmittedEventName;
 	NSHashTable* _scrollListeners;
 	char _automaticallyAdjustContentInsets;
-	NSObject*<UIScrollViewDelegate> _nativeScrollDelegate;
 	int _snapToInterval;
 	NSString* _snapToAlignment;
 	/*^block*/id _onScrollBeginDrag;
@@ -36,27 +34,26 @@
 
 }
 
-@property (nonatomic,readonly) UIView * contentView;                                                   //@synthesize contentView=_contentView - In the implementation block
-@property (assign,nonatomic) CGSize contentSize;                                                       //@synthesize contentSize=_contentSize - In the implementation block
-@property (nonatomic,readonly) UIScrollView * scrollView;                                              //@synthesize scrollView=_scrollView - In the implementation block
-@property (assign,nonatomic) UIEdgeInsets contentInset;                                                //@synthesize contentInset=_contentInset - In the implementation block
-@property (assign,nonatomic) char automaticallyAdjustContentInsets;                                    //@synthesize automaticallyAdjustContentInsets=_automaticallyAdjustContentInsets - In the implementation block
-@property (assign,nonatomic) double scrollEventThrottle;                                               //@synthesize scrollEventThrottle=_scrollEventThrottle - In the implementation block
+@property (nonatomic,readonly) UIView * contentView;                             //@synthesize contentView=_contentView - In the implementation block
+@property (assign,nonatomic) CGSize contentSize;                                 //@synthesize contentSize=_contentSize - In the implementation block
+@property (nonatomic,readonly) UIScrollView * scrollView;                        //@synthesize scrollView=_scrollView - In the implementation block
+@property (assign,nonatomic) UIEdgeInsets contentInset;                          //@synthesize contentInset=_contentInset - In the implementation block
+@property (assign,nonatomic) char automaticallyAdjustContentInsets;              //@synthesize automaticallyAdjustContentInsets=_automaticallyAdjustContentInsets - In the implementation block
+@property (assign,nonatomic) double scrollEventThrottle;                         //@synthesize scrollEventThrottle=_scrollEventThrottle - In the implementation block
 @property (assign,nonatomic) char centerContent; 
-@property (assign,nonatomic) int snapToInterval;                                                       //@synthesize snapToInterval=_snapToInterval - In the implementation block
-@property (nonatomic,copy) NSString * snapToAlignment;                                                 //@synthesize snapToAlignment=_snapToAlignment - In the implementation block
+@property (assign,nonatomic) int snapToInterval;                                 //@synthesize snapToInterval=_snapToInterval - In the implementation block
+@property (nonatomic,copy) NSString * snapToAlignment;                           //@synthesize snapToAlignment=_snapToAlignment - In the implementation block
 @property (nonatomic,copy) NSIndexSet * stickyHeaderIndices; 
-@property (nonatomic,copy) id onScrollBeginDrag;                                                       //@synthesize onScrollBeginDrag=_onScrollBeginDrag - In the implementation block
-@property (nonatomic,copy) id onScroll;                                                                //@synthesize onScroll=_onScroll - In the implementation block
-@property (nonatomic,copy) id onScrollEndDrag;                                                         //@synthesize onScrollEndDrag=_onScrollEndDrag - In the implementation block
-@property (nonatomic,copy) id onMomentumScrollBegin;                                                   //@synthesize onMomentumScrollBegin=_onMomentumScrollBegin - In the implementation block
-@property (nonatomic,copy) id onMomentumScrollEnd;                                                     //@synthesize onMomentumScrollEnd=_onMomentumScrollEnd - In the implementation block
-@property (nonatomic,copy) id onScrollAnimationEnd;                                                    //@synthesize onScrollAnimationEnd=_onScrollAnimationEnd - In the implementation block
+@property (nonatomic,copy) id onScrollBeginDrag;                                 //@synthesize onScrollBeginDrag=_onScrollBeginDrag - In the implementation block
+@property (nonatomic,copy) id onScroll;                                          //@synthesize onScroll=_onScroll - In the implementation block
+@property (nonatomic,copy) id onScrollEndDrag;                                   //@synthesize onScrollEndDrag=_onScrollEndDrag - In the implementation block
+@property (nonatomic,copy) id onMomentumScrollBegin;                             //@synthesize onMomentumScrollBegin=_onMomentumScrollBegin - In the implementation block
+@property (nonatomic,copy) id onMomentumScrollEnd;                               //@synthesize onMomentumScrollEnd=_onMomentumScrollEnd - In the implementation block
+@property (nonatomic,copy) id onScrollAnimationEnd;                              //@synthesize onScrollAnimationEnd=_onScrollAnimationEnd - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-@property (assign,nonatomic,__weak) NSObject*<UIScrollViewDelegate> nativeScrollDelegate;              //@synthesize nativeScrollDelegate=_nativeScrollDelegate - In the implementation block
 -(void)reactBridgeDidFinishTransaction;
 -(id)initWithEventDispatcher:(id)arg1 ;
 -(void)insertReactSubview:(id)arg1 atIndex:(int)arg2 ;
@@ -80,8 +77,6 @@
 -(id)onMomentumScrollEnd;
 -(CGSize)_calculateViewportSize;
 -(CGPoint)calculateOffsetForContentSize:(CGSize)arg1 ;
--(void)refreshContentInset;
--(void)setRemoveClippedSubviews:(char)arg1 ;
 -(double)scrollEventThrottle;
 -(void)setScrollEventThrottle:(double)arg1 ;
 -(void)setSnapToInterval:(int)arg1 ;
@@ -98,8 +93,8 @@
 -(void)scrollToOffset:(CGPoint)arg1 animated:(char)arg2 ;
 -(void)addScrollListener:(id)arg1 ;
 -(void)removeScrollListener:(id)arg1 ;
--(NSObject*<UIScrollViewDelegate>)nativeScrollDelegate;
--(void)setNativeScrollDelegate:(NSObject*<UIScrollViewDelegate>)arg1 ;
+-(void)setRemoveClippedSubviews:(char)arg1 ;
+-(void)refreshContentInset;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)setClipsToBounds:(char)arg1 ;

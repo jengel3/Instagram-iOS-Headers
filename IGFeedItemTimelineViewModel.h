@@ -22,7 +22,6 @@
 -(int)totalNumberOfRows;
 -(int)numberOfFeedCellsBeforeTextRows;
 -(int)numberOfTextRowsInTimeline;
--(char)shouldShowTimestamp;
 -(char)shouldShowInsights;
 -(NSArray *)textRowItems;
 -(int)cellTypeForTextTimelineRow:(int)arg1 ;

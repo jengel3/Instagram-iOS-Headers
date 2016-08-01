@@ -24,12 +24,12 @@
 +(id)standardLoggerWithPath:(id)arg1 ;
 +(id)logger;
 +(id)sharedLogger;
--(void)logFuncInfo:(const char*)arg1 msg:(id)arg2 ;
 -(id)initWithWriter:(id)arg1 formatter:(id)arg2 filter:(id)arg3 ;
 -(void)logInternalFunc:(const char*)arg1 format:(id)arg2 valist:(void*)arg3 level:(int)arg4 ;
 -(void)logDebug:(id)arg1 ;
 -(void)logAssert:(id)arg1 ;
 -(void)logFuncDebug:(const char*)arg1 msg:(id)arg2 ;
+-(void)logFuncInfo:(const char*)arg1 msg:(id)arg2 ;
 -(void)logFuncError:(const char*)arg1 msg:(id)arg2 ;
 -(void)logFuncAssert:(const char*)arg1 msg:(id)arg2 ;
 -(void)logMessage:(id)arg1 level:(int)arg2 ;

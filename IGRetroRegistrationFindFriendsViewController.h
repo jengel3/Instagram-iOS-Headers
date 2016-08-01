@@ -39,13 +39,15 @@
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(id<IGRaindropAnalyticsDelegate>)analyticsDelegate;
 -(void)setAnalyticsDelegate:(id<IGRaindropAnalyticsDelegate>)arg1 ;
--(void)contactsFriendsHelperDidTapLearnMore:(id)arg1 ;
--(IGFindUsersViewDataSource *)findUsersViewDataSource;
--(void)findUsersView:(id)arg1 didFollowUser:(id)arg2 atIndex:(unsigned)arg3 ;
 -(void)findUsersView:(id)arg1 didLoadUsers:(id)arg2 ;
+-(void)contactsFriendsHelperDidTapLearnMore:(id)arg1 ;
 -(void)findFriendsHelper:(id)arg1 didAuthorizeWithDataRequest:(id)arg2 ;
 -(void)findFriendsHelper:(id)arg1 didFailToAuthorizeWithMessage:(id)arg2 ;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
+-(IGFindUsersViewDataSource *)findUsersViewDataSource;
+-(void)findUsersView:(id)arg1 didFollowUser:(id)arg2 atIndex:(unsigned)arg3 ;
+-(void)onFacebookAuthSuccess;
+-(void)onFacebookAuthFailure;
 -(int)findFriendsMode;
 -(IGRetroRegistrationFindFriendsView *)findFriendsView;
 -(void)connectButtonTapped:(id)arg1 ;
@@ -55,8 +57,6 @@
 -(void)fetchVKFriends;
 -(void)fetchContactsFriends;
 -(IGRegistrationNavigationBar *)friendsListViewNavBar;
--(void)onFacebookAuthSuccess;
--(void)onFacebookAuthFailure;
 -(void)displayUserList;
 -(void)cancelUserFetch;
 -(void)nextButtonTapped:(id)arg1 ;

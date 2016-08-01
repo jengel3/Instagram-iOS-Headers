@@ -21,11 +21,11 @@
 @property (nonatomic,readonly) char shouldRefill;                        //@synthesize shouldRefill=_shouldRefill - In the implementation block
 @property (nonatomic,readonly) int megaphoneType;                        //@synthesize megaphoneType=_megaphoneType - In the implementation block
 @property (nonatomic,readonly) int bannerIndicatorType;                  //@synthesize bannerIndicatorType=_bannerIndicatorType - In the implementation block
--(int)bannerIndicatorType;
+-(id)initWithTitle:(id)arg1 viewAllText:(id)arg2 isDismissable:(char)arg3 shouldRefill:(char)arg4 displayNewUnit:(char)arg5 uuid:(id)arg6 ;
 -(int)megaphoneType;
+-(int)bannerIndicatorType;
 -(NSString *)viewAllText;
 -(char)shouldRefill;
--(id)initWithTitle:(id)arg1 viewAllText:(id)arg2 isDismissable:(char)arg3 shouldRefill:(char)arg4 displayNewUnit:(char)arg5 uuid:(id)arg6 ;
 -(id)init;
 -(NSString *)title;
 -(NSString *)uuid;

@@ -23,7 +23,6 @@
 @property (assign,nonatomic,__weak) id<IGFeedReshareNUXManagerDatasource> feedItemDatasource;              //@synthesize feedItemDatasource=_feedItemDatasource - In the implementation block
 @property (assign,nonatomic,__weak) IGListAdapter * listAdapter;                                           //@synthesize listAdapter=_listAdapter - In the implementation block
 -(IGListAdapter *)listAdapter;
--(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(void)hideAndCancelScheduledReshareNUX;
 -(void)showReshareNUXNowIfNeeded;
 -(int)maxNuxQuota;
@@ -37,6 +36,7 @@
 -(void)setFeedItemDatasource:(id<IGFeedReshareNUXManagerDatasource>)arg1 ;
 -(void)scheduleShowingReshareNUX;
 -(void)markNUXAction;
+-(void)setListAdapter:(IGListAdapter *)arg1 ;
 -(UICollectionView *)collectionView;
 -(IGUser *)currentUser;
 @end

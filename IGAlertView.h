@@ -27,12 +27,12 @@
 @property (copy,readonly) NSString * debugDescription; 
 +(void)showWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 otherButtonTitle:(id)arg4 cancelBlock:(/*^block*/id)arg5 otherBlock:(/*^block*/id)arg6 ;
 +(void)showWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 otherButtonTitle:(id)arg4 otherButton2Title:(id)arg5 cancelBlock:(/*^block*/id)arg6 otherBlock:(/*^block*/id)arg7 other2Block:(/*^block*/id)arg8 ;
--(id)initWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 otherButtonTitle:(id)arg4 cancelBlock:(/*^block*/id)arg5 otherBlock:(/*^block*/id)arg6 ;
 -(id)initWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 otherButtonTitle:(id)arg4 otherButton2Title:(id)arg5 cancelBlock:(/*^block*/id)arg6 otherBlock:(/*^block*/id)arg7 other2Block:(/*^block*/id)arg8 ;
 -(void)setOtherButtonTitle:(NSString *)arg1 ;
 -(void)setOtherBlock:(id)arg1 ;
 -(void)setOtherButton2Title:(NSString *)arg1 ;
 -(void)setOther2Block:(id)arg1 ;
+-(id)initWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 otherButtonTitle:(id)arg4 cancelBlock:(/*^block*/id)arg5 otherBlock:(/*^block*/id)arg6 ;
 -(NSString *)otherButtonTitle;
 -(NSString *)otherButton2Title;
 -(id)otherBlock;

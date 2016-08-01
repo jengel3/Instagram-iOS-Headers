@@ -27,9 +27,9 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)createTitleLabel;
 -(void)setUpViewHierarchy;
 -(id)createAlertBackground;
--(id)createTitleLabel;
 -(id)createSubitleLabel;
 -(id)createCTALabel;
 -(id)createCloseButton;

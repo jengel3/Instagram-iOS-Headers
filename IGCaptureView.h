@@ -53,7 +53,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)showCameraPermissionDeniedView;
 -(IGTapButton *)switchCameraButton;
 -(void)setVideoClipDeleteButtonHidden:(char)arg1 ;
 -(char)videoClipDeleteButtonHidden;
@@ -68,6 +67,7 @@
 -(void)setFocusLockGestureRecognizer:(UILongPressGestureRecognizer *)arg1 ;
 -(IGMediaCaptureButton *)photoCaptureButton;
 -(IGMediaCaptureButton *)videoCaptureButton;
+-(void)showCameraPermissionDeniedView;
 -(char)cameraModeLocked;
 -(void)setCameraModeLocked:(char)arg1 ;
 -(IGVideoRecordedClipsProgressView *)recordedClipsProgressView;

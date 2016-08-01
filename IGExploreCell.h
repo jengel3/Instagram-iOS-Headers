@@ -49,7 +49,6 @@
 -(void)setExploreViewModel:(id)arg1 ;
 -(IGThumbnailsGridView *)thumbnailsGridView;
 -(void)setFollowingVisible:(char)arg1 animated:(char)arg2 ;
--(UILabel *)bylineLabel;
 -(IGExploreEmptyView *)emptyView;
 -(id)setupThumbnailsCarouselView;
 -(IGCarouselView *)thumbnailsCarouselView;
@@ -62,6 +61,8 @@
 -(void)setEmptyView:(IGExploreEmptyView *)arg1 ;
 -(void)setThumbnailsCarouselView:(IGCarouselView *)arg1 ;
 -(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
+-(void)didFinishLoadingThumbnails;
+-(UILabel *)bylineLabel;
 -(IGExploreViewModel *)viewModel;
 -(void)setViewModel:(IGExploreViewModel *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

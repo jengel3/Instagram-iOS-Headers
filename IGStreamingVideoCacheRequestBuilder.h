@@ -17,14 +17,14 @@
 
 }
 +(id)builderWithUrl:(id)arg1 ;
+-(void)setIsPrefetch:(char)arg1 ;
+-(void)setReadAheadLimitInBytes:(int)arg1 ;
+-(void)setRequestedRange:(NSRange)arg1 ;
 -(void)onProgress:(/*^block*/id)arg1 ;
 -(void)onSuccess:(/*^block*/id)arg1 ;
--(void)setRequestedRange:(NSRange)arg1 ;
--(void)setReadAheadLimitInBytes:(int)arg1 ;
--(void)setIsPrefetch:(char)arg1 ;
--(id)initWithUrl:(id)arg1 ;
 -(void)setIgnoreCache:(char)arg1 ;
 -(void)onMediaInfoParsed:(/*^block*/id)arg1 ;
+-(id)initWithUrl:(id)arg1 ;
 -(void)onError:(/*^block*/id)arg1 ;
 -(id)build;
 @end

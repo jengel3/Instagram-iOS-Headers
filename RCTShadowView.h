@@ -21,7 +21,7 @@
 	char _hidden;
 	NSNumber* _reactTag;
 	RCTShadowView* _superview;
-	css_node* _cssNode;
+	CSSNodeRef _cssNode;
 	NSString* _viewName;
 	UIColor* _backgroundColor;
 	unsigned _layoutLifecycle;
@@ -32,7 +32,7 @@
 }
 
 @property (nonatomic,__weak,readonly) RCTShadowView * superview;              //@synthesize superview=_superview - In the implementation block
-@property (nonatomic,readonly) css_node* cssNode;                             //@synthesize cssNode=_cssNode - In the implementation block
+@property (nonatomic,readonly) CSSNodeRef cssNode;                            //@synthesize cssNode=_cssNode - In the implementation block
 @property (nonatomic,copy) NSString * viewName;                               //@synthesize viewName=_viewName - In the implementation block
 @property (nonatomic,retain) UIColor * backgroundColor;                       //@synthesize backgroundColor=_backgroundColor - In the implementation block
 @property (assign,nonatomic) unsigned layoutLifecycle;                        //@synthesize layoutLifecycle=_layoutLifecycle - In the implementation block
@@ -87,14 +87,14 @@
 -(void)setViewName:(NSString *)arg1 ;
 -(void)dirtyLayout;
 -(void)dirtyText;
+-(CSSNodeRef)cssNode;
 -(id)reactSuperview;
 -(id)processUpdatedProperties:(id)arg1 parentProperties:(id)arg2 ;
--(void)applyLayoutNode:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
+-(void)applyLayoutNode:(CSSNodeRef)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
 -(void)dirtyPropagation;
--(css_node*)cssNode;
 -(void)collectUpdatedFrames:(id)arg1 withFrame:(CGRect)arg2 hidden:(char)arg3 absolutePosition:(CGPoint)arg4 ;
--(void)fillCSSNode:(css_node*)arg1 ;
--(void)applyLayoutToChildren:(css_node*)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
+-(char)isCSSLeafNode;
+-(void)applyLayoutToChildren:(CSSNodeRef)arg1 viewsWithNewFrame:(id)arg2 absolutePosition:(CGPoint)arg3 ;
 -(id)reactTagAtPoint:(CGPoint)arg1 ;
 -(char)isReactRootView;
 -(char)isTextDirty;

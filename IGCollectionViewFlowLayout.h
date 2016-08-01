@@ -21,6 +21,7 @@
 -(id)layoutAttributesForElementsInRect:(CGRect)arg1 ;
 -(id)layoutAttributesForItemAtIndexPath:(id)arg1 ;
 -(id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2 ;
+-(id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2 ;
 -(char)shouldInvalidateLayoutForBoundsChange:(CGRect)arg1 ;
 -(float)topContentInset;
 @end

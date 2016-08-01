@@ -24,6 +24,7 @@
 -(void)completeColdStart;
 -(void)cancelWithStatus:(id)arg1 ;
 -(void)markLaunchUsable;
+-(void)markCachedStoriesDisplayed;
 -(double)mainCompleteTime;
 -(void)setMainCompleteTime:(double)arg1 ;
 -(void)markApplicationInitStarted;
@@ -49,7 +50,6 @@
 -(void)markFeedViewControllerInitializationFinished;
 -(void)markFeedViewControllerViewDidLoadStarted;
 -(void)markFeedViewControllerViewDidLoadFinished;
--(void)markCachedStoriesDisplayed;
 -(char)isComplete;
 -(void)timeout;
 -(char)enabled;

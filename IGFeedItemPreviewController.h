@@ -8,7 +8,6 @@
 
 @interface IGFeedItemPreviewController : IGViewController <IGFeedItemVideoViewDelegate, IGPreviewingAction> {
 
-	char _showTimestamp;
 	float _previewWidth;
 	UINavigationController* _navigationControllerForPushing;
 	IGPreviewEventManager* _logger;
@@ -29,7 +28,6 @@
 @property (nonatomic,readonly) NSArray * previewItems;                                             //@synthesize previewItems=_previewItems - In the implementation block
 @property (nonatomic,readonly) IGFeedVideoPlayer * videoPlayer;                                    //@synthesize videoPlayer=_videoPlayer - In the implementation block
 @property (nonatomic,copy,readonly) NSString * analyticsSourceModule;                              //@synthesize analyticsSourceModule=_analyticsSourceModule - In the implementation block
-@property (assign,nonatomic) char showTimestamp;                                                   //@synthesize showTimestamp=_showTimestamp - In the implementation block
 @property (assign,nonatomic) float previewWidth;                                                   //@synthesize previewWidth=_previewWidth - In the implementation block
 @property (nonatomic,retain) UINavigationController * navigationControllerForPushing;              //@synthesize navigationControllerForPushing=_navigationControllerForPushing - In the implementation block
 @property (nonatomic,retain) IGPreviewEventManager * logger;                                       //@synthesize logger=_logger - In the implementation block
@@ -45,14 +43,12 @@
 -(void)showDirectShare;
 -(void)viewProfile;
 -(void)showCommentController;
--(float)previewWidth;
--(char)showTimestamp;
 -(void)playVideo;
 -(UINavigationController *)navigationControllerForPushing;
 -(NSString *)analyticsSourceModule;
+-(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 showViewProfileAction:(char)arg3 analyticsSourceModule:(id)arg4 ;
+-(float)previewWidth;
 -(id)previewActionBarItems;
--(void)setShowTimestamp:(char)arg1 ;
--(id)initWithFeedItem:(id)arg1 placeholderImage:(id)arg2 showViewProfileAction:(char)arg3 showTimestamp:(char)arg4 analyticsSourceModule:(id)arg5 ;
 -(void)setPreviewWidth:(float)arg1 ;
 -(void)setNavigationControllerForPushing:(UINavigationController *)arg1 ;
 -(IGPreviewEventManager *)logger;

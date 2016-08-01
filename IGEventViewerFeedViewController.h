@@ -46,16 +46,15 @@
 -(NSIndexPath *)currentlyCenteredIndexPath;
 -(id<IGEventViewerFeedViewScrollingDelegate>)scrollingDelegate;
 -(void)scrollToItemAtIndexPath:(id)arg1 animated:(char)arg2 completion:(/*^block*/id)arg3 ;
+-(IGEventViewerCollectionViewCellAnimator *)cellAnimator;
 -(void)setCenteredIndexPathWhenBeginDragging:(NSIndexPath *)arg1 ;
 -(void)willScrollToContentOffset:(CGPoint)arg1 ;
 -(NSIndexPath *)centeredIndexPathWhenBeginDragging;
--(IGEventViewerCollectionViewCellAnimator *)cellAnimator;
 -(void)eventViewerFeedLayoutDidReachMaximumContentOffset:(id)arg1 ;
 -(CGSize)eventViewerFeedLayout:(id)arg1 sizeForItemAtIndexPath:(id)arg2 ;
 -(IGFeedItemMediaCell*<IGEventViewerCellType>)currentlyCenteredCell;
 -(IGEventViewerActionCell *)currentlyCenteredActionCell;
 -(id)cellAtIndexPath:(id)arg1 ;
--(void)setCurrentlyCenteredHeaderCellMoreButtonHidden:(char)arg1 ;
 -(void)setScrollingDelegate:(id<IGEventViewerFeedViewScrollingDelegate>)arg1 ;
 -(CGPoint)panGestureStartLocation;
 -(void)setPanGestureStartLocation:(CGPoint)arg1 ;
@@ -65,6 +64,7 @@
 -(void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(char)arg2 ;
 -(void)scrollViewDidEndDecelerating:(id)arg1 ;
 -(IGEventViewerDataSource *)dataSource;
+-(void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3 ;
 -(void)viewDidLayoutSubviews;
 -(IGListCollectionView *)collectionView;
 -(void)viewDidLoad;

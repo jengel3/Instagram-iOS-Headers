@@ -24,7 +24,6 @@
 -(id<IGEventViewerMediaContextViewDelegate>)contextViewDelegate;
 -(id)initWithContextViewDelegate:(id)arg1 ;
 -(void)showInMediaCell:(id)arg1 feedItem:(id)arg2 animated:(char)arg3 completion:(/*^block*/id)arg4 ;
--(void)updateLikeButtonInContextView:(id)arg1 feedItem:(id)arg2 animated:(char)arg3 ;
 -(void)cancelImageLoadingForBlurringView;
 -(IGFeedItemMediaCell*<IGEventViewerCellType>)mediaCell;
 -(void)setContextViewDelegate:(id<IGEventViewerMediaContextViewDelegate>)arg1 ;

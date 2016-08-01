@@ -31,13 +31,13 @@
 +(int)videoVersionForCurrentNetworkConditions;
 +(CGSize)aspectRatioForVideoVersions:(id)arg1 ;
 +(id)videoInfoDictionaryForVideoVersion:(int)arg1 fromVideoVersions:(id)arg2 ;
--(id)videoURLForCurrentNetworkConditions;
 -(id)videoURLForVideoVersion:(int)arg1 ;
--(id)initWithFeedItemDictionary:(id)arg1 ;
--(NSURL *)subtitleURL;
+-(id)videoURLForCurrentNetworkConditions;
 -(id)isAudioDetected;
--(id)initWithVideoVersions:(id)arg1 videoLength:(int)arg2 audioDetected:(id)arg3 originalMediaSize:(CGSize)arg4 subtitleURL:(id)arg5 ;
+-(id)initWithFeedItemDictionary:(id)arg1 ;
 -(NSSet *)allVideoURLs;
+-(NSURL *)subtitleURL;
+-(id)initWithVideoVersions:(id)arg1 videoLength:(int)arg2 audioDetected:(id)arg3 originalMediaSize:(CGSize)arg4 subtitleURL:(id)arg5 ;
 -(NSArray *)videoVersions;
 -(id)initWithVideoVersions:(id)arg1 videoLength:(int)arg2 audioDetected:(id)arg3 ;
 -(void)setVideoVersions:(NSArray *)arg1 ;

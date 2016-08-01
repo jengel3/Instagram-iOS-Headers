@@ -62,8 +62,8 @@
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
 -(void)scrollViewDidEndDragging:(id)arg1 ;
--(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
 -(IGGenericMegaphone *)megaphone;
+-(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
 -(void)didDismissMegaphoneItemController:(id)arg1 ;
 -(void)megaphoneItemController:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)scrollViewDidEndScrolling:(id)arg1 ;

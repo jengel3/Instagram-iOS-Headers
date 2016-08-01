@@ -7,6 +7,7 @@
 	NSString* _sessionID;
 	unsigned _sequence;
 	NSString* _deviceID;
+	NSString* _familyDeviceID;
 	NSString* _appID;
 	NSString* _userID;
 	NSString* _facebookID;
@@ -21,12 +22,12 @@
 @property (nonatomic,readonly) NSMutableArray * currentBatch;              //@synthesize currentBatch=_currentBatch - In the implementation block
 +(id)appVersionString;
 -(NSString *)facebookID;
--(id)initWithAppID:(id)arg1 deviceID:(id)arg2 userID:(id)arg3 facebookID:(id)arg4 ;
 -(void)beginNewBatch;
+-(id)loggingParametersForCurrentBatchWithTimeStamp:(double)arg1 ;
+-(id)initWithAppID:(id)arg1 deviceID:(id)arg2 familyDeviceID:(id)arg3 userID:(id)arg4 facebookID:(id)arg5 ;
+-(void)addEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
 -(void)appendEventsFromSession:(id)arg1 ;
 -(id)loggingDataForCurrentBatchWithTimeStamp:(double)arg1 ;
--(void)addEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
--(id)loggingParametersForCurrentBatchWithTimeStamp:(double)arg1 ;
 -(id)description;
 -(NSDate *)startTime;
 -(NSMutableArray *)currentBatch;

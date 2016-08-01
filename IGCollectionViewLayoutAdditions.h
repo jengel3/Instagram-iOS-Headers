@@ -6,11 +6,11 @@
 @property (assign,nonatomic) float headerAdjustmentAmount; 
 @required
 -(float)headerAdjustmentAmount;
--(float)supplementaryHeaderViewHeight;
 -(void)setSupplementaryHeaderViewHeight:(float)arg1;
--(float)supplementaryFooterViewHeight;
 -(void)setSupplementaryFooterViewHeight:(float)arg1;
 -(void)setHeaderAdjustmentAmount:(float)arg1;
+-(float)supplementaryHeaderViewHeight;
+-(float)supplementaryFooterViewHeight;
 
 @end
 

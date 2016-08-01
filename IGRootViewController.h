@@ -32,9 +32,8 @@
 -(void)moveAppToLoggedOutStateWithForceAnimated:(char)arg1 isSwitchingUsers:(char)arg2 hasRecentlyEnabledSSOUsers:(char)arg3 ;
 -(void)moveAppToLoggedInStateWithUserSession:(id)arg1 animated:(char)arg2 ;
 -(void)presentViewControllerFromTopMostController:(id)arg1 ;
--(id)analyticsMetadata;
--(char)enableNavState;
 -(void)setIsVisible:(char)arg1 ;
+-(id)analyticsMetadata;
 -(char)isManagingChildViewControllerAppearance;
 -(id)viewControllerStack;
 -(void)moveToAppLoginState:(int)arg1 userSession:(id)arg2 animated:(char)arg3 isSwitchingUsers:(char)arg4 hasRecentlyEnabledSSOUsers:(char)arg5 ;
@@ -48,6 +47,7 @@
 -(void)setPopoverWindow:(UIWindow *)arg1 ;
 -(UIViewController *)popoverViewController;
 -(void)setPopoverViewController:(UIViewController *)arg1 ;
+-(char)enableNavState;
 -(int)loginState;
 -(IGNavigationController *)registrationController;
 -(id)init;

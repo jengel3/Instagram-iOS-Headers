@@ -20,7 +20,7 @@
 -(char)trackWithNoLatency;
 -(id)trackingTokenBlock;
 -(NSString *)eventPrefix;
--(void)trackTimespentForFeedItem:(id)arg1 withTimespent:(double)arg2 extra:(id)arg3 ;
+-(void)trackTimespentForFeedItem:(id)arg1 module:(id)arg2 timespent:(double)arg3 extra:(id)arg4 ;
 -(void)setTrackWithNoLatency:(char)arg1 ;
 -(void)setTrackingTokenBlock:(id)arg1 ;
 -(void)setEventPrefix:(NSString *)arg1 ;

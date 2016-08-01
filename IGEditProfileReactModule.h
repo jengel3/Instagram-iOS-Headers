@@ -31,10 +31,11 @@
 +(id)__rct_export__1808;
 +(id)__rct_export__1849;
 +(id)__rct_export__19110;
-+(id)__rct_export__21111;
-+(id)__rct_export__22112;
-+(id)__rct_export__23213;
++(id)__rct_export__21311;
++(id)__rct_export__22512;
++(id)__rct_export__23613;
 +(void)load;
+-(IGProfilePictureHelper *)profilePictureHelper;
 -(void)setProfileActionNeeded:(char)arg1 ;
 -(void)fetchUserData:(/*^block*/id)arg1 rejecter:(/*^block*/id)arg2 ;
 -(void)post:(id)arg1 withReactTag:(id)arg2 withParameters:(id)arg3 onComplete:(/*^block*/id)arg4 onError:(/*^block*/id)arg5 ;
@@ -47,12 +48,11 @@
 -(void)pushUserChangedNotification;
 -(void)extractCountryCodeAndNumber:(id)arg1 callback:(/*^block*/id)arg2 ;
 -(void)confirmEmail:(id)arg1 resolver:(/*^block*/id)arg2 rejecter:(/*^block*/id)arg3 ;
--(void)sendSMSCodeToPhoneNumber:(id)arg1 onComplete:(/*^block*/id)arg2 onError:(/*^block*/id)arg3 ;
+-(void)sendSMSCodeToPhoneNumber:(id)arg1 resolver:(/*^block*/id)arg2 rejecter:(/*^block*/id)arg3 ;
 -(void)checkSMSConfirmationCode:(id)arg1 forPhoneNumber:(id)arg2 onComplete:(/*^block*/id)arg3 onError:(/*^block*/id)arg4 ;
 -(NSNumber *)importProfilePictureFlowReactTag;
 -(void)setImportProfilePictureFlowReactTag:(NSNumber *)arg1 ;
 -(void)setProfilePictureHelper:(IGProfilePictureHelper *)arg1 ;
--(IGProfilePictureHelper *)profilePictureHelper;
 -(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePictureWithURL:(id)arg2 fromOption:(int)arg3 ;
 -(void)profilePictureHelper:(id)arg1 didFinishDownloadingProfilePicture:(id)arg2 fromOption:(int)arg3 ;
 -(id)init;

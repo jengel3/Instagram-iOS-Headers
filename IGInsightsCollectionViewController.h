@@ -28,9 +28,9 @@
 @property (assign,nonatomic,__weak) id<IGInsightsComponentViewControllerNavigationDelegate> navigationDelegate; 
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(IGInsightsQuery *)buttonQuery;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 mediaItemCount:(int)arg4 loggingHelper:(id)arg5 ;
 -(IGInsightsCollectionView *)insightsCollectionView;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)didTapButtonOnHeaderView:(id)arg1 ;
 -(void)setInsightsCollectionView:(IGInsightsCollectionView *)arg1 ;
 -(void)didSelectCellOnCollectionView:(id)arg1 ForFeedItem:(id)arg2 ;

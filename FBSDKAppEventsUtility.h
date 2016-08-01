@@ -1,7 +1,7 @@
 
 
 @interface FBSDKAppEventsUtility : NSObject
-+(void)ensureOnMainThread;
++(void)ensureOnMainThread:(id)arg1 className:(id)arg2 ;
 +(id)activityParametersDictionaryForEvent:(id)arg1 implicitEventsOnly:(char)arg2 shouldAccessAdvertisingID:(char)arg3 ;
 +(char)validateIdentifier:(id)arg1 ;
 +(void)logAndNotify:(id)arg1 ;

@@ -23,12 +23,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(void)clearForUserPK:(id)arg1 ;
--(NSString *)userSessionPK;
 -(void)willSwitchUsers;
 -(void)willLogOut;
--(IGNonCurrentUserDefaults *)sessionUserDefaults;
+-(NSString *)userSessionPK;
 -(void)addRecentItem:(id)arg1 ;
+-(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setUserSessionPK:(NSString *)arg1 ;
+-(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(void)archiveIfNeeded;
 -(NSMutableOrderedSet *)mutableRecentItems;
 -(void)setNeedsToBeArchived:(char)arg1 ;
@@ -40,7 +41,6 @@
 -(NSArray *)itemControllers;
 -(id)recentItems;
 -(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
--(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(void)dealloc;
 -(void)clearHistory;
 -(void)didEnterBackground:(id)arg1 ;

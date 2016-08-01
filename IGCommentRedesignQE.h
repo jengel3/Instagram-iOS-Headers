@@ -5,5 +5,6 @@
 +(char)enableCommentLikes;
 +(char)enableVerifiedBadge;
 +(char)supportHighlightCommentsInFeed;
++(char)supportRefreshButton;
 @end
 

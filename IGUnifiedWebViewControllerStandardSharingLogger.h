@@ -14,9 +14,9 @@
 @property (nonatomic,readonly) IGSponsoredFeedItemTracker * tracker;              //@synthesize tracker=_tracker - In the implementation block
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
+-(id)concatenatedURLsForItems:(id)arg1 ;
 -(void)webViewController:(id)arg1 displayedShareActionsForItems:(id)arg2 ;
 -(void)webViewController:(id)arg1 forItems:(id)arg2 activityType:(id)arg3 wasCompleted:(char)arg4 returnedItems:(id)arg5 activityError:(id)arg6 ;
--(id)concatenatedURLsForItems:(id)arg1 ;
 -(IGSponsoredFeedItemTracker *)tracker;
 @end
 

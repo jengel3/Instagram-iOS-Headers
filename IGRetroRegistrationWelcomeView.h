@@ -27,11 +27,11 @@
 @property (nonatomic,retain) UIButton * dismissButton;                                                          //@synthesize dismissButton=_dismissButton - In the implementation block
 -(void)showDismissButton;
 -(IGRetroRegistrationFacebookButtonSeperator *)facebookButtonSeparator;
--(IGFacebookButton *)facebookButton;
 -(void)setFacebookButton:(IGFacebookButton *)arg1 ;
 -(void)setFacebookButtonSeparator:(IGRetroRegistrationFacebookButtonSeperator *)arg1 ;
 -(IGChevronTitleButton *)changeLanguageButton;
 -(void)setChangeLanguageButton:(IGChevronTitleButton *)arg1 ;
+-(IGFacebookButton *)facebookButton;
 -(UIButton *)signUpButton;
 -(void)setSignUpButton:(UIButton *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;

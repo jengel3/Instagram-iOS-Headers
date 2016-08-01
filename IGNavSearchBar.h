@@ -5,23 +5,22 @@
 #import <UIKit/UITextInputTraits.h>
 
 @protocol IGNavSearchBarDelegate;
-@class IGTextField, IGButton, UIButton, UIView, UIImage, NSString, NSAttributedString;
+@class IGTextField, UIButton, IGButton, UIView, UIImage, NSString, NSAttributedString;
 
 @interface IGNavSearchBar : UIView <UITextFieldDelegate, UITextInputTraits> {
 
 	char _editing;
 	char _hasCalculatedFrames;
-	char _showCancelButton;
-	char _showPeopleIcon;
-	char _enableMoreContextPlaceholder;
 	id<IGNavSearchBarDelegate> _delegate;
 	IGTextField* _searchTextField;
-	IGButton* _cancelButton;
 	UIButton* _backgroundButton;
+	IGButton* _cancelButton;
+	UIButton* _channelHomeButton;
+	UIButton* _peopleIconButton;
 	UIView* _searchLabelView;
 	UIImage* _searchIcon;
 	UIImage* _searchIconOn;
-	UIButton* _peopleIconButton;
+	int _searchBarType;
 	double _searchBarAnimationDuration;
 	CGRect _backgroundButtonFrameInactive;
 	CGRect _backgroundButtonFrameActive;
@@ -35,12 +34,13 @@
 }
 
 @property (nonatomic,retain) IGTextField * searchTextField;                              //@synthesize searchTextField=_searchTextField - In the implementation block
-@property (nonatomic,retain) IGButton * cancelButton;                                    //@synthesize cancelButton=_cancelButton - In the implementation block
 @property (nonatomic,retain) UIButton * backgroundButton;                                //@synthesize backgroundButton=_backgroundButton - In the implementation block
+@property (nonatomic,retain) IGButton * cancelButton;                                    //@synthesize cancelButton=_cancelButton - In the implementation block
+@property (nonatomic,retain) UIButton * channelHomeButton;                               //@synthesize channelHomeButton=_channelHomeButton - In the implementation block
+@property (nonatomic,retain) UIButton * peopleIconButton;                                //@synthesize peopleIconButton=_peopleIconButton - In the implementation block
 @property (nonatomic,retain) UIView * searchLabelView;                                   //@synthesize searchLabelView=_searchLabelView - In the implementation block
 @property (nonatomic,retain) UIImage * searchIcon;                                       //@synthesize searchIcon=_searchIcon - In the implementation block
 @property (nonatomic,retain) UIImage * searchIconOn;                                     //@synthesize searchIconOn=_searchIconOn - In the implementation block
-@property (nonatomic,retain) UIButton * peopleIconButton;                                //@synthesize peopleIconButton=_peopleIconButton - In the implementation block
 @property (assign,nonatomic) CGRect backgroundButtonFrameInactive;                       //@synthesize backgroundButtonFrameInactive=_backgroundButtonFrameInactive - In the implementation block
 @property (assign,nonatomic) CGRect backgroundButtonFrameActive;                         //@synthesize backgroundButtonFrameActive=_backgroundButtonFrameActive - In the implementation block
 @property (assign,nonatomic) CGRect cancelButtonFrameInactive;                           //@synthesize cancelButtonFrameInactive=_cancelButtonFrameInactive - In the implementation block
@@ -50,9 +50,7 @@
 @property (assign,nonatomic) CGRect searchLabelViewFrameInactive;                        //@synthesize searchLabelViewFrameInactive=_searchLabelViewFrameInactive - In the implementation block
 @property (assign,nonatomic) CGRect searchLabelViewFrameActive;                          //@synthesize searchLabelViewFrameActive=_searchLabelViewFrameActive - In the implementation block
 @property (assign,nonatomic) char hasCalculatedFrames;                                   //@synthesize hasCalculatedFrames=_hasCalculatedFrames - In the implementation block
-@property (assign,nonatomic) char showCancelButton;                                      //@synthesize showCancelButton=_showCancelButton - In the implementation block
-@property (assign,nonatomic) char showPeopleIcon;                                        //@synthesize showPeopleIcon=_showPeopleIcon - In the implementation block
-@property (assign,nonatomic) char enableMoreContextPlaceholder;                          //@synthesize enableMoreContextPlaceholder=_enableMoreContextPlaceholder - In the implementation block
+@property (assign,nonatomic) int searchBarType;                                          //@synthesize searchBarType=_searchBarType - In the implementation block
 @property (assign,nonatomic,__weak) id<IGNavSearchBarDelegate> delegate;                 //@synthesize delegate=_delegate - In the implementation block
 @property (assign,getter=isEditing,nonatomic) char editing;                              //@synthesize editing=_editing - In the implementation block
 @property (nonatomic,retain) NSString * placeholder; 
@@ -73,17 +71,24 @@
 @property (assign,getter=isSecureTextEntry,nonatomic) char secureTextEntry; 
 -(void)setSearchIcon:(UIImage *)arg1 ;
 -(void)setSearchIconOn:(UIImage *)arg1 ;
--(UIButton *)backgroundButton;
--(UIView *)searchLabelView;
+-(void)setupBackgroundButton;
+-(void)setupSearchLabelView;
+-(void)setupChannelHomeButton;
+-(void)setupCancelButton;
+-(void)setupPeopleIconButton;
 -(IGTextField *)searchTextField;
--(UIButton *)peopleIconButton;
 -(UIImage *)searchIconOn;
 -(UIImage *)searchIcon;
--(char)enableMoreContextPlaceholder;
+-(int)searchBarType;
 -(void)searchBarTapped;
+-(void)channelHomeButtonTapped;
 -(void)peopleIconButtonTapped;
 -(void)setHasCalculatedFrames:(char)arg1 ;
 -(char)hasCalculatedFrames;
+-(UIButton *)channelHomeButton;
+-(UIButton *)peopleIconButton;
+-(UIButton *)backgroundButton;
+-(UIView *)searchLabelView;
 -(void)setBackgroundButtonFrameInactive:(CGRect)arg1 ;
 -(void)setSearchLabelViewFrameInactive:(CGRect)arg1 ;
 -(void)setCancelButtonFrameInactive:(CGRect)arg1 ;
@@ -103,17 +108,15 @@
 -(void)addSpringAnimations:(/*^block*/id)arg1 duration:(double)arg2 complete:(/*^block*/id)arg3 ;
 -(CGRect)searchLabelViewFrameInactive;
 -(CGRect)searchTextFieldFrameInactive;
--(id)initWithFrame:(CGRect)arg1 showPeopleIcon:(char)arg2 showCancelButton:(char)arg3 enableMoreContextPlaceholder:(char)arg4 ;
+-(id)initWithFrame:(CGRect)arg1 searchBarType:(int)arg2 ;
 -(void)directIconButtonTapped;
 -(void)setSearchBarAnimationDuration:(double)arg1 ;
 -(void)setSearchTextField:(IGTextField *)arg1 ;
 -(void)setBackgroundButton:(UIButton *)arg1 ;
--(void)setSearchLabelView:(UIView *)arg1 ;
+-(void)setChannelHomeButton:(UIButton *)arg1 ;
 -(void)setPeopleIconButton:(UIButton *)arg1 ;
--(void)setShowCancelButton:(char)arg1 ;
--(char)showPeopleIcon;
--(void)setShowPeopleIcon:(char)arg1 ;
--(void)setEnableMoreContextPlaceholder:(char)arg1 ;
+-(void)setSearchLabelView:(UIView *)arg1 ;
+-(void)setSearchBarType:(int)arg1 ;
 -(void)textFieldDidChange:(id)arg1 ;
 -(void)makeInactive:(char)arg1 ;
 -(void)makeActive:(char)arg1 ;
@@ -155,7 +158,6 @@
 -(IGButton *)cancelButton;
 -(void)setCancelButton:(IGButton *)arg1 ;
 -(char)canResignFirstResponder;
--(char)showCancelButton;
 -(NSString *)placeholder;
 -(void)setAttributedPlaceholder:(NSAttributedString *)arg1 ;
 -(NSAttributedString *)attributedPlaceholder;

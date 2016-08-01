@@ -65,8 +65,10 @@
 -(void)finishRefreshFromPullToRefreshControl;
 -(void)reloadWithNewObjects:(id)arg1 context:(id)arg2 completionBlock:(/*^block*/id)arg3 ;
 -(char)isReloadingContent;
+-(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
 -(UIView *)backgroundSupplementaryHeaderView;
 -(UIView *)backgroundSupplementaryFooterView;
+-(void)setSupplementaryFooterViewHeight:(float)arg1 ;
 -(char)usesIgCollectionViewLayout;
 -(void)configureCollectionViewDataSource:(id)arg1 ;
 -(void)registerClasses;
@@ -75,7 +77,7 @@
 -(NSArray *)currentLoadingObjects;
 -(id)currentLoadingContext;
 -(void)reloadWithCurrentObjectsAnimated:(char)arg1 completionBlock:(/*^block*/id)arg2 ;
--(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
+-(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(id)setupCollectionViewWithLayout:(id)arg1 ;
 -(void)applyContentInset;
 -(char)showsPullToRefreshControl;
@@ -91,6 +93,7 @@
 -(void)setSupplementaryHeaderViewHeight:(float)arg1 animated:(char)arg2 ;
 -(void)setPullToRefreshInset:(float)arg1 ;
 -(void)scrollToTopOfContentInsetAnimated:(char)arg1 ;
+-(void)fakePullToRefreshWithDuration:(double)arg1 animated:(char)arg2 ;
 -(void)didChangeHeaderAdjustmentAmount:(float)arg1 ;
 -(void)setBackgroundSupplementaryHeaderView:(UIView *)arg1 ;
 -(void)setBackgroundSupplementaryFooterView:(UIView *)arg1 ;
@@ -98,10 +101,7 @@
 -(void)setHasNotifiedForEndOfContentReached:(char)arg1 ;
 -(void)setShowsPullToRefreshControl:(char)arg1 ;
 -(float)supplementaryHeaderViewHeight;
--(void)setSupplementaryHeaderViewHeight:(float)arg1 ;
 -(float)supplementaryFooterViewHeight;
--(void)setSupplementaryFooterViewHeight:(float)arg1 ;
--(void)setHeaderAdjustmentAmount:(float)arg1 ;
 -(void)scrollToTopAnimated:(char)arg1 ;
 -(NSArray *)objects;
 -(void)setDataSource:(id<IGCollectionViewControllerDataSource>)arg1 ;

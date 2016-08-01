@@ -21,6 +21,9 @@
 @property (nonatomic,copy) NSString * responseQueryText;                                         //@synthesize responseQueryText=_responseQueryText - In the implementation block
 @property (nonatomic,copy) NSString * responseRankToken;                                         //@synthesize responseRankToken=_responseRankToken - In the implementation block
 @property (assign,nonatomic) char responseWasFoundInCache;                                       //@synthesize responseWasFoundInCache=_responseWasFoundInCache - In the implementation block
++(char)shouldReloadForDataSourceDidStartLoading:(id)arg1 ;
++(char)shouldReloadForDataSourceDidFinishLoading:(id)arg1 ;
++(char)shouldLoadFrequentItemsForDataSourceDidFinishLoading:(id)arg1 ;
 +(void)clearHistory;
 -(IGUserListAutocompleteDataSource *)userDataSource;
 -(IGHashtagAutocompleteDataSource *)hashtagDataSource;

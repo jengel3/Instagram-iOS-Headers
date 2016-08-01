@@ -58,7 +58,6 @@
 -(int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2 ;
 -(id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 ;
 -(int)numberOfSectionsInTableView:(id)arg1 ;
--(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;
 -(void)setUserEmail:(NSString *)arg1 ;
 -(NSString *)userEmail;

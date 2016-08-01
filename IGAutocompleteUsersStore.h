@@ -25,7 +25,6 @@
 -(void)willLogOut;
 -(void)loadUsers;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 blendedSearchRecentItemsOrderStore:(id)arg3 ;
--(id)regexPattern;
 -(id)archiveURL;
 -(void)loadUsersFromNotification:(id)arg1 ;
 -(void)onFriendStatusReceived:(id)arg1 ;
@@ -40,6 +39,7 @@
 -(void)unbucketUser:(id)arg1 ;
 -(void)updateUser:(id)arg1 ;
 -(id)usersFromResponse:(id)arg1 ;
+-(id)regexPattern;
 -(id)storedUsersForKeys:(id)arg1 fromSet:(int)arg2 ;
 -(id)usersInBucket:(id)arg1 ;
 -(id)allUsers;

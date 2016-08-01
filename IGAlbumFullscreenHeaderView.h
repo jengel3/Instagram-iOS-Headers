@@ -22,8 +22,8 @@
 @property (nonatomic,readonly) IGProfilePictureImageView * profileImageView;                         //@synthesize profileImageView=_profileImageView - In the implementation block
 -(IGProfilePictureImageView *)profileImageView;
 -(void)dismissTapped;
--(void)configureWithItem:(id)arg1 delegate:(id)arg2 ;
 -(UILabel *)usernameLabel;
+-(void)configureWithHeaderModel:(id)arg1 delegate:(id)arg2 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

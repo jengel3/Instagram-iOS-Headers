@@ -48,8 +48,8 @@
 -(void)setImage:(id)arg1 isVideo:(char)arg2 ;
 -(void)videoPrepareForReuse;
 -(IGMediaThumbnailSelectableOverlay *)selectableOverlay;
--(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;
 -(void)setSelectableOverlay:(IGMediaThumbnailSelectableOverlay *)arg1 ;
+-(void)setImageURL:(id)arg1 isVideo:(char)arg2 synchronous:(char)arg3 ;
 -(void)setIsSelectable:(char)arg1 ;
 -(IGFeedVideoPlayer *)videoPlayer;
 -(void)setVideoPlayer:(IGFeedVideoPlayer *)arg1 ;

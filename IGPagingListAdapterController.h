@@ -9,6 +9,7 @@
 
 	int _initialSize;
 	int _pageSize;
+	char _processInitialBatch;
 	id<IGDKDiffable> _focusItem;
 	IGListAdapter* _listAdapter;
 	id<IGPagingListAdapterControllerItemProcessing> _processor;
@@ -30,9 +31,10 @@
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(void)_updateFocusOffsets:(IGPagingFocusOffsets)arg1 ;
--(id)initWithInitialSize:(int)arg1 pageSize:(int)arg2 focusItem:(id)arg3 listAdapter:(id)arg4 processor:(id)arg5 scrollingContext:(id)arg6 ;
--(char)load:(unsigned)arg1 ;
+-(void)_updateFocusOffsets:(IGPagingFocusOffsets)arg1 completion:(/*^block*/id)arg2 ;
+-(void)_processBatch:(id)arg1 completion:(/*^block*/id)arg2 ;
+-(id)initWithInitialSize:(int)arg1 pageSize:(int)arg2 processInitialBatch:(char)arg3 focusItem:(id)arg4 listAdapter:(id)arg5 processor:(id)arg6 scrollingContext:(id)arg7 ;
+-(char)load:(unsigned)arg1 completion:(/*^block*/id)arg2 ;
 -(void)setDelegate:(id<IGPagingListAdapterControllerDelegate>)arg1 ;
 -(id<IGPagingListAdapterControllerDelegate>)delegate;
 @end

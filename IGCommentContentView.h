@@ -5,7 +5,7 @@
 #import <Instagram/IGProfilePictureImageViewDelegate.h>
 
 @protocol IGCommentContentViewDelegate;
-@class IGCommentModel, IGProfilePictureImageView, IGCoreTextView, IGLabel, UILabel, UIButton, UIImageView, UIActivityIndicatorView, NSString;
+@class IGCommentModel, IGProfilePictureImageView, IGCoreTextView, UIButton, UIImageView, UIActivityIndicatorView, NSString;
 
 @interface IGCommentContentView : UIView <IGCoreTextLinkHandler, IGProfilePictureImageViewDelegate> {
 
@@ -17,20 +17,18 @@
 	id<IGCommentContentViewDelegate> _delegate;
 	IGProfilePictureImageView* _profilePic;
 	IGCoreTextView* _coreTextView;
-	IGLabel* _metadataLabel;
-	UILabel* _commentLikeLabel;
 	UIButton* _retryButton;
 	UIImageView* _statusView;
 	UIActivityIndicatorView* _activityIndicator;
+	IGCoreTextView* _metadataTextView;
 
 }
 
-@property (nonatomic,retain) IGLabel * metadataLabel;                                       //@synthesize metadataLabel=_metadataLabel - In the implementation block
-@property (nonatomic,retain) UILabel * commentLikeLabel;                                    //@synthesize commentLikeLabel=_commentLikeLabel - In the implementation block
 @property (nonatomic,retain) UIButton * retryButton;                                        //@synthesize retryButton=_retryButton - In the implementation block
 @property (nonatomic,retain) UIImageView * statusView;                                      //@synthesize statusView=_statusView - In the implementation block
 @property (nonatomic,retain) UIActivityIndicatorView * activityIndicator;                   //@synthesize activityIndicator=_activityIndicator - In the implementation block
 @property (nonatomic,retain) IGProfilePictureImageView * profilePic;                        //@synthesize profilePic=_profilePic - In the implementation block
+@property (nonatomic,retain) IGCoreTextView * metadataTextView;                             //@synthesize metadataTextView=_metadataTextView - In the implementation block
 @property (assign,nonatomic) char leftLocalization;                                         //@synthesize leftLocalization=_leftLocalization - In the implementation block
 @property (assign,nonatomic) char enableCommentLikes;                                       //@synthesize enableCommentLikes=_enableCommentLikes - In the implementation block
 @property (nonatomic,retain) IGCommentModel * comment;                                      //@synthesize comment=_comment - In the implementation block
@@ -42,18 +40,21 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(float)commentWidthForWidth:(float)arg1 ;
-+(float)commentXOffset;
-+(float)commentLikeHeight:(float)arg1 ;
++(float)commentWidthForWidth:(float)arg1 enableCommentLikes:(char)arg2 ;
++(float)metadataTextViewHeight;
++(float)metaDataTextSize;
++(float)profilePictureColumnWidthForEnabledCommentLikes:(char)arg1 ;
 +(float)heightForComment:(id)arg1 width:(float)arg2 enableCommentLikes:(char)arg3 ;
 -(UIButton *)retryButton;
 -(void)coreTextView:(id)arg1 didTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)coreTextView:(id)arg1 didLongTapOnString:(id)arg2 URL:(id)arg3 ;
 -(void)retryTapped;
--(IGLabel *)metadataLabel;
--(UILabel *)commentLikeLabel;
--(void)setMetadataLabel:(IGLabel *)arg1 ;
--(void)setCommentLikeLabel:(UILabel *)arg1 ;
+-(void)layoutRetryButton;
+-(void)layoutCommentCoreTextView;
+-(void)layoutMetadata;
+-(void)layoutActivityIndicator;
+-(IGCoreTextView *)metadataTextView;
+-(void)setMetadataTextView:(IGCoreTextView *)arg1 ;
 -(char)leftLocalization;
 -(void)setLeftLocalization:(char)arg1 ;
 -(char)canShowVerifiedBadge;
@@ -62,6 +63,7 @@
 -(void)setCanShowRetryButton:(char)arg1 ;
 -(void)setEnableCommentLikes:(char)arg1 ;
 -(char)enableCommentLikes;
+-(void)layoutProfilePic;
 -(IGCoreTextView *)coreTextView;
 -(void)setCoreTextView:(IGCoreTextView *)arg1 ;
 -(void)setRetryButton:(UIButton *)arg1 ;

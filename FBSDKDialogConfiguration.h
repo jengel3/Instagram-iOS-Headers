@@ -21,8 +21,8 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(char)supportsSecureCoding;
--(id)initWithName:(id)arg1 URL:(id)arg2 appVersions:(id)arg3 ;
 -(NSArray *)appVersions;
+-(id)initWithName:(id)arg1 URL:(id)arg2 appVersions:(id)arg3 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

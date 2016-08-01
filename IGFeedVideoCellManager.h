@@ -49,6 +49,8 @@
 -(void)videoPlaybackController:(id)arg1 didRequestPlaybackItem:(id)arg2 ;
 -(void)videoPlaybackController:(id)arg1 didFailPlayingItem:(id)arg2 error:(id)arg3 ;
 -(void)stopCurrentVideoWithReason:(int)arg1 ;
+-(id)initWithCollectionView:(id)arg1 collectionViewVisibility:(id)arg2 prebufferingHelper:(id)arg3 supportsAutoplay:(char)arg4 defaultPlaybackConfiguration:(id)arg5 ;
+-(IGCollectionViewVisibility *)collectionViewVisibility;
 -(char)autoPlayAllowed;
 -(id)videoCellForAutoPlay;
 -(char)startVideoForCellIfApplicable:(id)arg1 ;
@@ -66,7 +68,6 @@
 -(void)timedStopVideo:(id)arg1 ;
 -(void)stopVideo:(id)arg1 ;
 -(IGVideo *)currentlyPlayingVideo;
--(IGCollectionViewVisibility *)collectionViewVisibility;
 -(IGFeedVideoViewSession *)currentVideoViewSession50percent;
 -(IGFeedVideoViewSession *)currentVideoViewSession100percent;
 -(char)hasPausedVideo:(id)arg1 ;
@@ -83,7 +84,6 @@
 -(void)feedVideoCellDidRequestVideoPlayback:(id)arg1 config:(id)arg2 ;
 -(void)feedVideoCellDidRequestCurrentVideoStopWithReason:(int)arg1 ;
 -(void)feedVideoCellDidLoadImage:(id)arg1 ;
--(id)initWithCollectionView:(id)arg1 collectionViewVisibility:(id)arg2 prebufferingHelper:(id)arg3 supportsAutoplay:(char)arg4 defaultPlaybackConfiguration:(id)arg5 ;
 -(void)startVideoIfAutoplayCellExists;
 -(void)stopAllVideosWithReason:(int)arg1 ;
 -(void)stopCurrentVideoCellIfNotVisible;

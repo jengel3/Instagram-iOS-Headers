@@ -41,7 +41,6 @@
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(char)enableNavState;
 -(NSString *)moduleName;
 -(unsigned)numberOfLocalResults;
 -(char)canShowLocationCell;
@@ -69,6 +68,7 @@
 -(id)searchBarPlaceholder;
 -(void)onSearchTextDidChange:(id)arg1 ;
 -(id)fallbackIcon;
+-(char)enableNavState;
 -(void)dealloc;
 -(IGPlacesAutocompleteDataSource *)dataSource;
 -(id)title;

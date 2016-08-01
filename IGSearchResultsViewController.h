@@ -49,8 +49,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
-+(char)matchQuery:(id)arg1 forItem:(id)arg2 ;
-+(id)targetIdFromItem:(id)arg1 ;
 +(char)showHScrollSuggestions;
 +(id)placeDictionary:(id)arg1 ;
 +(id)hashtagDictionaryRepresentation:(id)arg1 ;
@@ -61,7 +59,7 @@
 -(id)analyticsModule;
 -(id)searchingCellForTableView:(id)arg1 ;
 -(id)analyticsExtras;
--(char)enableNavState;
+-(void)fetchFrequentItemsIfNeeded;
 -(void)followButton:(id)arg1 logfollowButtonTapWithAction:(int)arg2 targetID:(id)arg3 ;
 -(void)autocompleteDataSourceDidStartLoading:(id)arg1 ;
 -(void)autocompleteDataSourceDidFinishLoading:(id)arg1 ;
@@ -89,7 +87,7 @@
 -(NSOrderedSet *)sectionControllers;
 -(id)sectionControllerForSection:(unsigned)arg1 ;
 -(char)shouldShowPreviewMedia:(id)arg1 indexPath:(id)arg2 ;
--(void)logSearchResponseToSearchText:(id)arg1 rankToken:(id)arg2 ;
+-(void)logSearchResponseForDataSourceDidFinishLoading:(id)arg1 ;
 -(char)isSearchingIndicatorSection:(int)arg1 ;
 -(char)shouldShowLocationCellInSection:(int)arg1 ;
 -(id)noResultsCellForTableView:(id)arg1 ;
@@ -100,6 +98,7 @@
 -(void)clearSuggestions;
 -(id)resultsList:(id)arg1 ;
 -(id)resultTypeList:(id)arg1 ;
+-(void)logSearchResponseToSearchText:(id)arg1 rankToken:(id)arg2 ;
 -(void)hideButtonTappedWithItemID:(id)arg1 indexPath:(id)arg2 item:(id)arg3 ;
 -(id)initWithHostingViewController:(id)arg1 dataSource:(id)arg2 searchResultsTab:(id)arg3 ;
 -(void)transitionToVisibleState;
@@ -115,6 +114,7 @@
 -(id)searchBarPlaceholder;
 -(void)onSearchTextDidChange:(id)arg1 ;
 -(id)fallbackIcon;
+-(char)enableNavState;
 -(void)setHostingViewController:(IGSearchViewController *)arg1 ;
 -(char)isSearching;
 -(void)setSearchText:(NSString *)arg1 ;

@@ -27,9 +27,9 @@
 -(void)cancelRenderWithMetadata:(id)arg1 ;
 -(void)videoRenderer:(id)arg1 didFinishRenderingVideoToURL:(id)arg2 videoSize:(CGSize)arg3 canceled:(char)arg4 ;
 -(void)setRenderQueue:(NSMutableArray *)arg1 ;
--(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
 -(id)renderVideo:(id)arg1 withMetadata:(id)arg2 ;
 -(void)saveRenderWithMetadataWhenDone:(id)arg1 ;
+-(void)videoRenderer:(id)arg1 didFailWithError:(id)arg2 ;
 -(void)onAppBackground;
 -(void)onAppForeground;
 -(id)rendererWithMetadata:(id)arg1 ;

@@ -27,6 +27,7 @@
 -(id)withLeftUsers:(id)arg1 ;
 -(id)withInviter:(id)arg1 ;
 -(id)withPublishedMessages:(id)arg1 ;
+-(id)withUnfinishedMessage:(id)arg1 ;
 -(id)withLastActivityDate:(id)arg1 ;
 -(id)withNewestCursor:(id)arg1 ;
 -(id)withOldestCursor:(id)arg1 ;

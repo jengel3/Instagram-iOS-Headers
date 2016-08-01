@@ -39,15 +39,15 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
--(NSArray *)mediaBundles;
--(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)setFeedSource:(IGFeedNetworkSource *)arg1 ;
 -(IGFeedNetworkSource *)feedSource;
+-(void)feedNetworkSource:(id)arg1 didFinishLoadingObjects:(id)arg2 forFetchAction:(int)arg3 ;
+-(void)feedNetworkSource:(id)arg1 didFailToLoadForFetchAction:(int)arg2 ;
 -(void)onDataReceived:(id)arg1 ;
 -(id)getMediaBundles;
 -(void)queryMediaBundleWithMediaIDs:(id)arg1 ;
 -(void)setMediaBundles:(NSArray *)arg1 ;
+-(NSArray *)mediaBundles;
 -(NSArray *)mediaIDs;
 -(void)setMediaIDs:(NSArray *)arg1 ;
 -(void)queryInsightsItemsWithQuery:(id)arg1 ;

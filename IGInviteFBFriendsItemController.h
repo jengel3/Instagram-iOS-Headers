@@ -19,8 +19,8 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)cellForItemAtIndex:(int)arg1 ;
 -(void)didUpdateToItem:(id)arg1 ;
--(void)fbFriendCell:(id)arg1 wantToInviteFBUser:(id)arg2 ;
 -(id)cellClasses;
+-(void)fbFriendCell:(id)arg1 wantToInviteFBUser:(id)arg2 ;
 -(IGFBUserInfo *)item;
 -(unsigned)numberOfItems;
 -(void)didSelectItemAtIndex:(int)arg1 ;

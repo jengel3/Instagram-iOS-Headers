@@ -1,6 +1,7 @@
 
 
 @interface IGFeedItemTrackingManager : NSObject
++(void)removeFeedItem:(id)arg1 ;
 +(id)currentModule;
 +(char)isMainFeed;
 +(void)moreActionSheetForFeedItem:(id)arg1 dismissedWithButtonTitled:(id)arg2 userInfo:(id)arg3 ;
@@ -11,7 +12,6 @@
 +(id)trackingTokenStringForPost:(id)arg1 ;
 +(char)useNoLatencyLoggingForPost:(id)arg1 ;
 +(id)impressionTrackerForFeedItem:(id)arg1 ;
-+(void)removeFeedItem:(id)arg1 ;
 +(void)hideFeedItem:(id)arg1 extraDictionary:(id)arg2 ;
 +(char)isAdRatingFeed;
 +(char)isCTAAdvertiserProfile;
@@ -54,7 +54,8 @@
 -(void)feedItemReportInappropriate:(id)arg1 ;
 -(void)feedItemHideSpam:(id)arg1 ;
 -(void)feedItemMediaDidAppearInFull:(id)arg1 ;
--(void)didTakeDirectResponseOverlayAction:(id)arg1 ;
+-(void)feedItemPinchAttempted:(id)arg1 ;
+-(void)feedItemZoomEndedWithDuration:(id)arg1 ;
 -(void)didTakeDirectResponseAction:(id)arg1 ;
 -(void)directResponseActionFailed:(id)arg1 ;
 -(void)didTapHeaderTitle:(id)arg1 ;

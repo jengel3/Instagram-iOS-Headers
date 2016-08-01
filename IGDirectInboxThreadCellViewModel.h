@@ -22,9 +22,11 @@
 	NSURL* _imageURL;
 	UIImage* _placeholderImage;
 	IGDirectInboxCellButtonConfig* _buttonConfig;
+	NSString* _currentUserPK;
 
 }
 
+@property (nonatomic,readonly) NSString * currentUserPK;                                //@synthesize currentUserPK=_currentUserPK - In the implementation block
 @property (nonatomic,readonly) NSString * threadId;                                     //@synthesize threadId=_threadId - In the implementation block
 @property (nonatomic,readonly) float cellHeight;                                        //@synthesize cellHeight=_cellHeight - In the implementation block
 @property (nonatomic,readonly) char displaysUnreadIndicator;                            //@synthesize displaysUnreadIndicator=_displaysUnreadIndicator - In the implementation block
@@ -51,14 +53,15 @@
 -(IGUser *)secondUser;
 -(IGDirectInboxCellButtonConfig *)buttonConfig;
 -(char)isSwipedOpen;
--(char)hasNewContentFromThread:(id)arg1 transformer:(id)arg2 ;
 -(id)usernameTextFromThread:(id)arg1 ;
 -(id)messageTextFromThread:(id)arg1 ;
 -(id)mostRecentImageURLFromImageURLProvider:(id)arg1 imageHeight:(float)arg2 ;
 -(id)preloadedImageFromImageURLProvider:(id)arg1 ;
 -(id)buttonConfigFromThread:(id)arg1 ;
--(id)accessibilityLabelFromThread:(id)arg1 transformer:(id)arg2 ;
+-(id)accessibilityLabelFromThread:(id)arg1 ;
 -(void)setButtonConfig:(IGDirectInboxCellButtonConfig *)arg1 ;
+-(id)initWithThread:(id)arg1 currentUserPK:(id)arg2 ;
+-(NSString *)currentUserPK;
 -(float)cellHeight;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
@@ -69,7 +72,6 @@
 -(void)setIsSelected:(char)arg1 ;
 -(NSAttributedString *)messageText;
 -(void)setIsEditable:(char)arg1 ;
--(id)initWithThread:(id)arg1 ;
 -(char)isPending;
 -(NSString *)nameText;
 -(char)isMuted;

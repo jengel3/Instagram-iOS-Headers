@@ -35,6 +35,7 @@
 -(char)isHeaderCell:(id)arg1 ;
 -(char)isActionCell:(id)arg1 ;
 -(float)cellHeightForItem:(int)arg1 atSection:(unsigned)arg2 ;
+-(void)updateCell:(id)arg1 atIndexPath:(id)arg2 forTargetIndexPath:(id)arg3 ;
 -(void)updateVisibleCellsWithDynamicCrossFadeAnimated:(char)arg1 centeredIndexPath:(id)arg2 ;
 -(void)updateVisibleCellsForTargetIndexPath:(id)arg1 animated:(char)arg2 ;
 -(UICollectionView *)collectionView;

@@ -39,13 +39,14 @@
 -(void)setAugmentedRecipients:(NSArray *)arg1 ;
 -(NSArray *)augmentedRecipients;
 -(char)fetchNullStateResults;
+-(NSCache *)searchCache;
 -(void)performSearchForString:(id)arg1 augmentRecipients:(id)arg2 recipientHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
 -(id)recipientFromDictionary:(id)arg1 ;
 -(void)updateLocalResultsForSearchString:(id)arg1 ;
 -(void)useRankedContactsForString:(id)arg1 successHandler:(/*^block*/id)arg2 failureHandler:(/*^block*/id)arg3 ;
 -(char)showThreads;
 -(id)parseResultsFromResponse:(id)arg1 augmentRecipients:(id)arg2 ;
--(void)setNetworkSource:(IGUserListNetworkDataSource *)arg1 ;
+-(void)setSearchCache:(NSCache *)arg1 ;
 -(void)setShowThreads:(char)arg1 ;
 -(void)fetchDataWithRecipientSuccessHandler:(/*^block*/id)arg1 failureHandler:(/*^block*/id)arg2 ;
 -(char)useRankedContacts;
@@ -54,8 +55,7 @@
 -(void)dataSourceDidFailLoad:(id)arg1 ;
 -(void)setFetchNullStateResults:(char)arg1 ;
 -(IGUserListNetworkDataSource *)networkSource;
--(void)setSearchCache:(NSCache *)arg1 ;
--(NSCache *)searchCache;
+-(void)setNetworkSource:(IGUserListNetworkDataSource *)arg1 ;
 -(void)fetchData;
 -(void)setIsLocal:(char)arg1 ;
 -(void)setDelegate:(NSObject*<IGDirectRecipientDataSourceDelegate>)arg1 ;

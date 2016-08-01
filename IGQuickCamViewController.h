@@ -29,6 +29,7 @@
 	id<IGQuickCamViewControllerDelegate> _delegate;
 	id<IGQuickCamOutputAsset> _outputAsset;
 	UIView* _contentView;
+	UIView* _backgroundView;
 	IGGridViewController* _gridViewController;
 	IGQuickCamLibraryButton* _libraryButton;
 	IGQuickCamCaptureButton* _captureButton;
@@ -64,6 +65,7 @@
 }
 
 @property (nonatomic,retain) UIView * contentView;                                                  //@synthesize contentView=_contentView - In the implementation block
+@property (nonatomic,readonly) UIView * backgroundView;                                             //@synthesize backgroundView=_backgroundView - In the implementation block
 @property (assign,nonatomic) char gridViewIsLoaded;                                                 //@synthesize gridViewIsLoaded=_gridViewIsLoaded - In the implementation block
 @property (nonatomic,retain) IGGridViewController * gridViewController;                             //@synthesize gridViewController=_gridViewController - In the implementation block
 @property (nonatomic,retain) IGQuickCamLibraryButton * libraryButton;                               //@synthesize libraryButton=_libraryButton - In the implementation block
@@ -112,7 +114,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(IGCaptureManager *)captureManager;
 -(void)setViewColorToDefault;
--(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
 -(void)focusTap:(id)arg1 ;
 -(void)setFocusRing:(UIImageView *)arg1 ;
 -(UIImageView *)focusRing;
@@ -121,15 +122,12 @@
 -(void)setStabilizer:(IGStabilizationSampler *)arg1 ;
 -(char)hasStartedCapture;
 -(void)setCaptureManager:(IGCaptureManager *)arg1 ;
--(void)showCameraPermissionDeniedView;
+-(IGVideoRecorder *)videoRecorder;
+-(void)setVideoRecorder:(IGVideoRecorder *)arg1 ;
 -(void)updateStabilizationSampler;
--(IGCameraAccessPromptView *)cameraPermissionDeniedView;
--(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
 -(void)setInputAsset:(id<IGQuickCamInputAsset>)arg1 ;
 -(void)confirmInputAsset:(id)arg1 ;
--(void)showAudioPermissionsDeniedAlertView;
 -(void)stopRecordingOnCaptureQueue:(char)arg1 ;
--(IGVideoRecorder *)videoRecorder;
 -(void)updateVideoSize;
 -(id<IGQuickCamInputAsset>)inputAsset;
 -(IGQuickCamCaptureButton *)captureButton;
@@ -138,6 +136,9 @@
 -(IGStabilizationSampler *)stabilizer;
 -(void)setHasReceivedAudioFrames:(char)arg1 ;
 -(void)internalSetState:(int)arg1 ;
+-(void)captureButtonDidEndRecording;
+-(void)captureButtonDidTakePicture;
+-(void)captureButtonDidBeginRecording;
 -(id)inputLibraryAssetForFrameworkAsset:(id)arg1 ;
 -(void)captureManagerDidDropAudioBuffer;
 -(void)captureManagerDidCaptureAudioBuffer:(opaqueCMSampleBufferRef)arg1 ;
@@ -145,23 +146,17 @@
 -(void)captureManagerNeedsResume:(char)arg1 ;
 -(void)captureManagerDidDropVideoBuffer;
 -(void)captureManagerDidCaptureVideoBuffer:(opaqueCMSampleBufferRef)arg1 ;
--(void)captureButtonDidTakePicture;
--(void)captureButtonDidBeginRecording;
--(void)captureButtonDidEndRecording;
 -(void)captureButtonDidConfirm;
 -(IGTapButton *)switchCameraButton;
 -(id<IGQuickCamOutputAsset>)outputAsset;
 -(void)setOutputAsset:(id<IGQuickCamOutputAsset>)arg1 ;
 -(IGSampleBuffer *)imageBufferData;
 -(void)setImageBufferData:(IGSampleBuffer *)arg1 ;
--(IGLibraryAccessPromptView *)libraryAccessDeniedView;
--(void)setLibraryAccessDeniedView:(IGLibraryAccessPromptView *)arg1 ;
 -(char)hasReceivedAudioFrames;
--(char)hasShownAudioPermissionsDeniedAlertView;
--(void)setHasShownAudioPermissionsDeniedAlertView:(char)arg1 ;
 -(void)setPlayerView:(IGAssetPlayerView *)arg1 ;
 -(UIView *)loadingOverlayView;
 -(void)setMaxVideoDuration:(float)arg1 ;
+-(void)showCameraPermissionDeniedView;
 -(float)maxVideoDuration;
 -(void)cropViewUserInteractionDidBegin:(id)arg1 ;
 -(void)cropViewUserInteractionDidEnd:(id)arg1 ;
@@ -204,7 +199,7 @@
 -(void)setPreviewAsset:(id<IGQuickCamInputAsset>)arg1 ;
 -(void)assetPlayerViewAssetLoaded:(id)arg1 ;
 -(void)assetPlayerViewPlayStateDidChange:(id)arg1 ;
--(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG18)arg2 ;
+-(void)assetPlayerView:(id)arg1 didPlayToTime:(SCD_Struct_IG19)arg2 ;
 -(void)selectAlbumControllerDidSelectAlbum:(id)arg1 fetchResult:(id)arg2 ;
 -(void)setImageBufferQueue:(NSObject*<OS_dispatch_queue>)arg1 ;
 -(NSObject*<OS_dispatch_queue>)imageBufferQueue;
@@ -219,6 +214,10 @@
 -(void)setCaptureButton:(IGQuickCamCaptureButton *)arg1 ;
 -(void)startLibrary;
 -(void)showLibraryAccessDeniedView;
+-(IGCameraAccessPromptView *)cameraPermissionDeniedView;
+-(void)setCameraPermissionDeniedView:(IGCameraAccessPromptView *)arg1 ;
+-(IGLibraryAccessPromptView *)libraryAccessDeniedView;
+-(void)setLibraryAccessDeniedView:(IGLibraryAccessPromptView *)arg1 ;
 -(id<IGSelectAlbumDelegate>)albumControllerDelegate;
 -(void)setHasCaptureButtonConfirmed:(char)arg1 ;
 -(void)confirmAssetIfPossible;
@@ -226,9 +225,12 @@
 -(void)finalizeOutputAsset;
 -(CGRect)cropRectForOutputAsset;
 -(id)finalizeImage:(id)arg1 cropRect:(CGRect)arg2 ;
+-(void)showAudioPermissionsDeniedAlertView;
 -(int)fullSizeRequestID;
 -(void)setFullSizeRequestID:(int)arg1 ;
 -(void)setAlbumControllerDelegate:(id<IGSelectAlbumDelegate>)arg1 ;
+-(char)hasShownAudioPermissionsDeniedAlertView;
+-(void)setHasShownAudioPermissionsDeniedAlertView:(char)arg1 ;
 -(void)setGridViewController:(IGGridViewController *)arg1 ;
 -(IGAssetPlayerView *)playerView;
 -(void)startCapture;
@@ -246,6 +248,7 @@
 -(UIView *)contentView;
 -(void)setContentView:(UIView *)arg1 ;
 -(void)viewDidLayoutSubviews;
+-(UIView *)backgroundView;
 -(void)setVisible:(char)arg1 ;
 -(void)viewWillAppear:(char)arg1 ;
 -(void)viewDidLoad;

@@ -59,9 +59,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
+-(id)initWithUserSession:(id)arg1 ;
+-(int)selectedTabBarItem;
+-(id)navigationControllerForTabBarItem:(int)arg1 ;
 -(void)prefetchAndFocusInboxInNewsTab;
 -(void)setSelectedTabBarItem:(int)arg1 animated:(char)arg2 ;
--(id)initWithUserSession:(id)arg1 ;
 -(void)inboxCountDidUpdate:(id)arg1 ;
 -(void)settingsCountDidUpdate:(id)arg1 ;
 -(void)toastCountsReceived:(id)arg1 ;
@@ -82,13 +84,13 @@
 -(void)profileButtonPressed;
 -(void)profileButtonLongPressed:(id)arg1 ;
 -(void)setNeedsAttention:(char)arg1 forItem:(int)arg2 ;
+-(void)preheatDrafts;
 -(void)initializeInlineGalleryVCIfNeeded;
 -(IGNavigationController *)newsNavigationController;
 -(IGDimmedOverlayViewController *)dimmedOverlayViewController;
 -(IGInlineGalleryViewController *)inlineGalleryController;
 -(void)setInlineGalleryController:(IGInlineGalleryViewController *)arg1 ;
 -(void)logNavigationEventForClickPoint:(id)arg1 ;
--(int)selectedTabBarItem;
 -(char)presentInlineGalleryWithStyle:(int)arg1 animated:(char)arg2 ;
 -(IGSwitchUsersController *)switchUsersController;
 -(UIWindow *)dimmedOverlayWindow;
@@ -130,7 +132,6 @@
 -(void)impressionDebugging:(id)arg1 ;
 -(void)openURLInNewsTab:(id)arg1 ;
 -(void)refetchUserProfile;
--(id)navigationControllerForTabBarItem:(int)arg1 ;
 -(void)setActivityToastView:(IGToastViewPopup *)arg1 ;
 -(int)cameraButtonMode;
 -(void)setCameraButtonMode:(int)arg1 ;

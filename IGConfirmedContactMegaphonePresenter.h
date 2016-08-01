@@ -24,13 +24,13 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(unsigned)buttonActionFromString:(id)arg1 ;
--(IGGenericMegaphoneViewV2 *)megaphoneView;
 -(void)megaphoneViewDidDismiss:(id)arg1 ;
 -(void)megaphoneView:(id)arg1 didSelectButton:(id)arg2 ;
 -(void)megaphoneViewNeedsResize:(id)arg1 ;
 -(id)viewForMegaphone;
 -(void)logMegaphoneSeen;
 -(id)initWithMegaphone:(id)arg1 logger:(id)arg2 ;
+-(IGGenericMegaphoneViewV2 *)megaphoneView;
 -(void)confirmPhoneNumberViewControllerWantsToChangePhoneNumber:(id)arg1 ;
 -(void)confirmPhoneNumberViewControllerWantsConfirmationCodeResent:(id)arg1 ;
 -(void)confirmPhoneNumberViewControllerDidConfirmPhoneNumber:(id)arg1 withResponse:(id)arg2 ;

@@ -36,10 +36,10 @@
 @property (copy,readonly) NSString * debugDescription; 
 @property (assign,nonatomic,__weak) id<IGInsightsComponentNavigationDelegate> navigationDelegate; 
 -(IGInsightsLoggingHelper *)loggingHelper;
--(NSArray *)mediaBundles;
 -(IGInsightsQuery *)buttonQuery;
 -(void)setMediaBundles:(NSArray *)arg1 ;
 -(IGInsightsCollectionView *)componentView;
+-(NSArray *)mediaBundles;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
 -(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
 -(void)didSelectNavigateInComponentViewController:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
@@ -51,11 +51,11 @@
 -(void)setComponentView:(IGInsightsCollectionView *)arg1 ;
 -(IGInsightsDataProvider *)mediaBundleDataProvider;
 -(void)setMediaBundleDataProvider:(IGInsightsDataProvider *)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)_fetchFeedItemsFromMediaIDs:(id)arg1 ;
 -(void)_updateViewWithMediaBundle:(id)arg1 ;
 -(void)setInsightsCollectionViewController:(IGInsightsCollectionViewController *)arg1 ;
 -(IGInsightsCollectionViewController *)insightsCollectionViewController;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)setHeader:(NSString *)arg1 ;
 -(NSString *)header;
 -(id<IGInsightsComponentNavigationDelegate>)navigationDelegate;

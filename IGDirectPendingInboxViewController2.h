@@ -7,7 +7,7 @@
 #import <Instagram/IGDirectPendingInboxControllerType.h>
 
 @protocol IGDirectPendingInboxDelegate;
-@class IGUserSession, IGListCollectionView, IGListAdapter, IGListAdapterPerfLogger, IGRefreshControl, IGDirectPendingInboxService, IGDirectPendingInboxAnalyticsLogger, IGDirectUIPerfLogProxy, IGDirectInboxCellSwipeCoordinator, IGDirectInboxCellSelectCoordinator, IGDirectPendingInboxNuxViewModel, IGDirectPendingInboxNuxItemController, NSString;
+@class IGUserSession, IGListCollectionView, IGListAdapter, IGListAdapterUpdaterLogger, IGRefreshControl, IGDirectPendingInboxService, IGDirectPendingInboxAnalyticsLogger, IGDirectUIPerfLogProxy, IGDirectInboxCellSwipeCoordinator, IGDirectInboxCellSelectCoordinator, IGDirectPendingInboxNuxViewModel, IGDirectPendingInboxNuxItemController, NSString;
 
 @interface IGDirectPendingInboxViewController2 : IGViewController <IGListAdapterDataSource, UIScrollViewDelegate, IGDirectPendingInboxThreadItemControllerDelegate, IGDirectPendingInboxControllerType> {
 
@@ -16,7 +16,7 @@
 	IGUserSession* _userSession;
 	IGListCollectionView* _collectionView;
 	IGListAdapter* _listAdapter;
-	IGListAdapterPerfLogger* _adapterPerfLogger;
+	IGListAdapterUpdaterLogger* _adapterPerfLogger;
 	IGRefreshControl* _refreshControl;
 	IGDirectPendingInboxService* _service;
 	IGDirectPendingInboxAnalyticsLogger* _analyticsLogger;
@@ -31,7 +31,7 @@
 @property (nonatomic,readonly) IGUserSession * userSession;                                            //@synthesize userSession=_userSession - In the implementation block
 @property (nonatomic,readonly) IGListCollectionView * collectionView;                                  //@synthesize collectionView=_collectionView - In the implementation block
 @property (nonatomic,readonly) IGListAdapter * listAdapter;                                            //@synthesize listAdapter=_listAdapter - In the implementation block
-@property (nonatomic,readonly) IGListAdapterPerfLogger * adapterPerfLogger;                            //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
+@property (nonatomic,readonly) IGListAdapterUpdaterLogger * adapterPerfLogger;                         //@synthesize adapterPerfLogger=_adapterPerfLogger - In the implementation block
 @property (nonatomic,readonly) IGRefreshControl * refreshControl;                                      //@synthesize refreshControl=_refreshControl - In the implementation block
 @property (nonatomic,readonly) IGDirectPendingInboxService * service;                                  //@synthesize service=_service - In the implementation block
 @property (nonatomic,readonly) IGDirectPendingInboxAnalyticsLogger * analyticsLogger;                  //@synthesize analyticsLogger=_analyticsLogger - In the implementation block
@@ -47,16 +47,17 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
+-(id)initWithUserSession:(id)arg1 ;
 -(IGListAdapter *)listAdapter;
 -(id)itemsForListAdapter:(id)arg1 ;
 -(id)listAdapter:(id)arg1 listItemControllerForItem:(id)arg2 ;
 -(id)emptyViewForListAdapter:(id)arg1 ;
--(id)initWithUserSession:(id)arg1 ;
--(void)setTotalPending:(int)arg1 ;
+-(int)totalPending;
 -(char)shouldLogEvent:(unsigned)arg1 ;
 -(unsigned)lastLogEvent;
 -(void)allEventsLoggedWithResult:(id)arg1 ;
--(int)totalPending;
+-(void)setTotalPending:(int)arg1 ;
 -(IGDirectPendingInboxAnalyticsLogger *)analyticsLogger;
 -(void)inboxThreadItemController:(id)arg1 didAllowThreadWithId:(id)arg2 ;
 -(void)inboxThreadItemController:(id)arg1 didDeclineThreadWithId:(id)arg2 ;
@@ -71,8 +72,7 @@
 -(void)updateViewWithUpdatedContentInsets;
 -(IGDirectPendingInboxNuxViewModel *)nuxViewModel;
 -(IGDirectPendingInboxNuxItemController *)nuxItemController;
--(IGListAdapterPerfLogger *)adapterPerfLogger;
--(char)prefersTabBarHidden;
+-(IGListAdapterUpdaterLogger *)adapterPerfLogger;
 -(void)setDelegate:(id<IGDirectPendingInboxDelegate>)arg1 ;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)scrollViewWillEndDragging:(id)arg1 withVelocity:(CGPoint)arg2 targetContentOffset:(inout CGPoint*)arg3 ;

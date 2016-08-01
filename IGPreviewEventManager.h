@@ -19,9 +19,9 @@
 @property (assign,nonatomic) double startTime;                               //@synthesize startTime=_startTime - In the implementation block
 +(void)logAction:(id)arg1 module:(id)arg2 ;
 +(void)logShortcutAction:(id)arg1 ;
--(void)didDisappear;
 -(char)isLogged;
 -(void)setLogged:(char)arg1 ;
+-(void)didDisappear;
 -(void)logCommit;
 -(void)setStartTime:(double)arg1 ;
 -(NSString *)type;

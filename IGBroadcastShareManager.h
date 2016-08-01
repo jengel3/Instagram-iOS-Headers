@@ -16,7 +16,6 @@
 @interface IGBroadcastShareManager : IGViewController <IGLocationPickerDelegate, IGLocationSuggestionDataSource, IGLocationSuggestionDelegate, IGShareListManagerDelegate, IGUserInTaggingViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, IGAnalyticsModule, IGShareManager> {
 
 	char _isStickyEnabled;
-	char _shouldShowShareNewDesign;
 	NSString* _shareString;
 	UIViewController* _delegate;
 	IGMediaMetadata* _mediaMetadata;
@@ -37,7 +36,6 @@
 @property (nonatomic,retain) NSString * searchSessionId;                      //@synthesize searchSessionId=_searchSessionId - In the implementation block
 @property (assign,nonatomic) char isStickyEnabled;                            //@synthesize isStickyEnabled=_isStickyEnabled - In the implementation block
 @property (nonatomic,retain) NSIndexPath * shareIndexPath;                    //@synthesize shareIndexPath=_shareIndexPath - In the implementation block
-@property (assign,nonatomic) char shouldShowShareNewDesign;                   //@synthesize shouldShowShareNewDesign=_shouldShowShareNewDesign - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
@@ -52,12 +50,11 @@
 -(void)configureWithHeaderView:(id)arg1 ;
 -(NSString *)shareString;
 -(char)isReadyToShare;
--(id)analyticsMetadata;
--(char)enableNavState;
 -(void)locationPickerViewController:(id)arg1 didFinish:(char)arg2 withLocation:(id)arg3 ;
 -(void)userInTaggingViewController:(id)arg1 didFinish:(char)arg2 ;
+-(id)analyticsMetadata;
+-(UIView *)headerBackgroundView;
 -(void)updateLocationEnabled;
--(char)shouldShowShareNewDesign;
 -(float)locationSuggestionCellHeight;
 -(void)configureCaptionCell:(id)arg1 ;
 -(void)configurePeopleCell:(id)arg1 ;
@@ -66,7 +63,6 @@
 -(NSIndexPath *)shareIndexPath;
 -(void)setShareIndexPath:(NSIndexPath *)arg1 ;
 -(void)onPeopleCellTapped;
--(UIView *)headerBackgroundView;
 -(void)setHeaderBackgroundView:(UIView *)arg1 ;
 -(void)setLocationSuggestionCellHeight:(float)arg1 ;
 -(char)isStickyEnabled;
@@ -77,10 +73,10 @@
 -(NSString *)searchSessionId;
 -(void)setSearchSessionId:(NSString *)arg1 ;
 -(void)setIsStickyEnabled:(char)arg1 ;
--(void)setShouldShowShareNewDesign:(char)arg1 ;
 -(void)shareListNeedsReloadForServiceAtIndex:(int)arg1 ;
 -(id)viewControllerForShareConfiguration;
 -(void)shareListNeedsFullReload;
+-(char)enableNavState;
 -(void)setDelegate:(UIViewController *)arg1 ;
 -(void)dealloc;
 -(UIViewController *)delegate;

@@ -24,13 +24,12 @@
 +(id)imageForServiceType:(int)arg1 enabled:(char)arg2 ;
 +(id)shareServicesForServiceTypes:(id)arg1 ;
 +(id)sharedServiceManager;
--(NSString *)userSessionPK;
 -(void)willSwitchUsers;
 -(void)willLogOut;
+-(NSString *)userSessionPK;
 -(id)serviceHelperForService:(int)arg1 ;
 -(IGNonCurrentUserDefaults *)sessionUserDefaults;
 -(void)setUserSessionPK:(NSString *)arg1 ;
--(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 -(id)initWithUserSessionPK:(id)arg1 sessionUserDefaults:(id)arg2 ;
 -(void)setServiceMap:(NSDictionary *)arg1 ;
 -(char)serviceIsConfigured:(int)arg1 ;
@@ -48,5 +47,6 @@
 -(id)serviceTypesForCurrentLocaleMediaType:(int)arg1 locationAvailable:(char)arg2 abbreviatedList:(char)arg3 ;
 -(id)sharingInfoForService:(int)arg1 ;
 -(id)nameForService:(int)arg1 ;
+-(void)setSessionUserDefaults:(IGNonCurrentUserDefaults *)arg1 ;
 @end
 

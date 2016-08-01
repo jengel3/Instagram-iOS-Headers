@@ -1,11 +1,12 @@
 
 
-@class NSMutableArray;
+@class NSMutableArray, IGDirectThreadService;
 
 @interface IGPushHelper : NSObject {
 
 	NSMutableArray* _cachedFeedItems;
 	char _needToUpdatePushToken;
+	IGDirectThreadService* _threadService;
 	char _freshAppInstall;
 
 }
@@ -21,8 +22,8 @@
 -(void)registerForPushWithToken:(id)arg1 ;
 -(void)logPushNogification:(id)arg1 applicationState:(int)arg2 ;
 -(void)handleActionWithIdentifier:(id)arg1 forRemoteNotification:(id)arg2 completionHandler:(/*^block*/id)arg3 ;
--(char)shouldShowInboxPushMegaphone;
 -(char)appHasAskedSystemForPushPermissions;
+-(char)shouldShowInboxPushMegaphone;
 -(void)onBackground:(id)arg1 ;
 -(id)categoriesForPushNotifications;
 -(char)appHasPushPermissions;

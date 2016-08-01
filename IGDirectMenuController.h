@@ -2,7 +2,7 @@
 #import <Instagram/IGDirectSaveMediaDelegate.h>
 
 @protocol IGDirectViewControllerProtocol;
-@class IGDirectContent, IGDirectFeedCoordinator, IGUserSession, IGUser, NSMutableArray, UIViewController, UICollectionViewCell;
+@class IGDirectContent, IGDirectFeedCoordinator, IGUserSession, IGUser, NSMutableArray, UIViewController, UICollectionViewCell, IGDirectThreadService;
 
 @interface IGDirectMenuController : NSObject <IGDirectSaveMediaDelegate> {
 
@@ -13,6 +13,7 @@
 	NSMutableArray* _directSaveMediaObservers;
 	UIViewController*<IGDirectViewControllerProtocol> _viewController;
 	UICollectionViewCell* _cell;
+	IGDirectThreadService* _threadService;
 
 }
 
@@ -22,12 +23,13 @@
 @property (assign,nonatomic,__weak) UIViewController*<IGDirectViewControllerProtocol> viewController;              //@synthesize viewController=_viewController - In the implementation block
 @property (nonatomic,retain) IGDirectContent * item;                                                               //@synthesize item=_item - In the implementation block
 @property (nonatomic,retain) UICollectionViewCell * cell;                                                          //@synthesize cell=_cell - In the implementation block
+@property (nonatomic,retain) IGDirectThreadService * threadService;                                                //@synthesize threadService=_threadService - In the implementation block
 @property (nonatomic,retain) IGDirectFeedCoordinator * feedCoordinator;                                            //@synthesize feedCoordinator=_feedCoordinator - In the implementation block
+-(IGDirectThreadService *)threadService;
 -(void)didHideMenu:(id)arg1 ;
 -(void)unsend:(id)arg1 ;
 -(void)flag:(id)arg1 ;
 -(void)unlike:(id)arg1 ;
--(void)share:(id)arg1 ;
 -(void)postToFeed:(id)arg1 ;
 -(IGUser *)threadViewer;
 -(char)enableShareOwnMediaToFeed;
@@ -42,6 +44,7 @@
 -(void)setFeedCoordinator:(IGDirectFeedCoordinator *)arg1 ;
 -(void)setThreadViewer:(IGUser *)arg1 ;
 -(void)setDirectSaveMediaObservers:(NSMutableArray *)arg1 ;
+-(void)setThreadService:(IGDirectThreadService *)arg1 ;
 -(void)dealloc;
 -(IGDirectContent *)item;
 -(char)canPerformAction:(SEL)arg1 withSender:(id)arg2 ;

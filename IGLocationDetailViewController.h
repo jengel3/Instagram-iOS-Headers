@@ -6,13 +6,12 @@
 #import <Instagram/IGRelatedItemsHeaderViewDelegate.h>
 #import <Instagram/IGAnalyticsModule.h>
 
-@class IGLocation, NSArray, IGRankedMediaView, IGLocationHeaderView, IGExploreComposedPeopleYouFollowView, NSString, IGMediaThumbnailLogger, NSMutableSet, IGFeedItemPreviewingHandler, IGRelatedItemsService, IGRelatedItemsHeaderView, IGVisitedRelatedItemsStore, IGRelatedItemsLogger;
+@class IGLocation, IGRankedMediaView, IGLocationHeaderView, IGExploreComposedPeopleYouFollowView, NSString, IGMediaThumbnailLogger, NSMutableSet, IGFeedItemPreviewingHandler, IGRelatedItemsService, IGRelatedItemsHeaderView, IGVisitedRelatedItemsStore, IGRelatedItemsLogger;
 
 @interface IGLocationDetailViewController : IGFeedViewController_DEPRECATED <IGRankedMediaViewDelegate, IGLocationHeaderViewDelegate, IGExploreComposedPeopleYouFollowViewDelegate, IGRelatedItemsHeaderViewDelegate, IGAnalyticsModule> {
 
 	char _shouldUpdateLocationHeaderView;
 	IGLocation* _location;
-	NSArray* _forceMediaIDs;
 	IGRankedMediaView* _rankedMediaView;
 	IGLocationHeaderView* _locationHeaderView;
 	IGExploreComposedPeopleYouFollowView* _peopleYouFollowView;
@@ -39,7 +38,6 @@
 @property (nonatomic,readonly) IGRelatedItemsLogger * relatedItemsLogger;                                    //@synthesize relatedItemsLogger=_relatedItemsLogger - In the implementation block
 @property (assign,nonatomic) char shouldUpdateLocationHeaderView;                                            //@synthesize shouldUpdateLocationHeaderView=_shouldUpdateLocationHeaderView - In the implementation block
 @property (nonatomic,readonly) IGLocation * location;                                                        //@synthesize location=_location - In the implementation block
-@property (nonatomic,readonly) NSArray * forceMediaIDs;                                                      //@synthesize forceMediaIDs=_forceMediaIDs - In the implementation block
 @property (nonatomic,retain) IGRankedMediaView * rankedMediaView;                                            //@synthesize rankedMediaView=_rankedMediaView - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -50,12 +48,10 @@
 -(id)analyticsExtras;
 -(void)setThumbnailPreviewDelegate:(IGFeedItemPreviewingHandler *)arg1 ;
 -(IGFeedItemPreviewingHandler *)thumbnailPreviewDelegate;
--(char)enableNavState;
 -(void)composedPeopleYouFollowView:(id)arg1 didTapSocialItemAtIndex:(unsigned)arg2 ;
 -(IGMediaThumbnailLogger *)mediaLogger;
 -(id)collectionViewController:(id)arg1 cellForItemAtIndexPath:(id)arg2 ;
 -(void)handleLoadedContentDidChange;
--(NSArray *)forceMediaIDs;
 -(void)setRankedMediaView:(IGRankedMediaView *)arg1 ;
 -(void)requestRelatedItems;
 -(void)setRelatedItemsService:(IGRelatedItemsService *)arg1 ;
@@ -76,7 +72,6 @@
 -(void)relatedItemsHeaderView:(id)arg1 didTapItem:(id)arg2 atIndexPath:(id)arg3 ;
 -(void)relatedItemsHeaderView:(id)arg1 willDisplayItem:(id)arg2 atIndexPath:(id)arg3 ;
 -(IGRelatedItemsHeaderView *)relatedItemsHeaderView;
--(id)initWithLocation:(id)arg1 forceMediaIDs:(id)arg2 ;
 -(IGVisitedRelatedItemsStore *)visitedLocationsStore;
 -(void)configureLocationHeaderView;
 -(void)presentLocationShareView;
@@ -90,6 +85,7 @@
 -(void)locationHeaderViewMapTapped:(id)arg1 ;
 -(IGRankedMediaView *)rankedMediaView;
 -(void)rankedMediaView:(id)arg1 didSelectItemAtIndex:(unsigned)arg2 ;
+-(char)enableNavState;
 -(void)dealloc;
 -(void)scrollViewDidScroll:(id)arg1 ;
 -(void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2 ;

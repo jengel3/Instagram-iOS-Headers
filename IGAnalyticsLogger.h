@@ -14,6 +14,7 @@
 	IGAnalyticsLogFileManager* _fileManager;
 	NSString* _appID;
 	NSString* _deviceID;
+	NSString* _familyDeviceID;
 	NSString* _deviceSoftwareVersion;
 	NSString* _deviceHardwareVersion;
 	NSString* _appVersion;
@@ -36,14 +37,14 @@
 -(void)eventAggregatorDidProduceEvent:(id)arg1 module:(id)arg2 data:(id)arg3 ;
 -(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
 -(void)processCurrentBatch;
--(void)beginNewBatch;
 -(void)doLogEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
 -(void)checkCurrentBatchSize;
--(void)appendEventsFromSession:(id)arg1 ;
--(id)initWithQueue:(id)arg1 appID:(id)arg2 deviceID:(id)arg3 delegate:(id)arg4 fileManager:(id)arg5 ;
+-(id)initWithQueue:(id)arg1 appID:(id)arg2 deviceID:(id)arg3 familyDeviceID:(id)arg4 delegate:(id)arg5 fileManager:(id)arg6 ;
 -(void)beginSessionWithFacebookID:(id)arg1 userID:(id)arg2 ;
 -(void)logTimeSpentWithTimeStamp:(double)arg1 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;
+-(void)beginNewBatch;
+-(void)appendEventsFromSession:(id)arg1 ;
 -(IGAnalyticsSession *)session;
 -(void)setDelegate:(id<IGAnalyticsLoggerDelegate>)arg1 ;
 -(id<IGAnalyticsLoggerDelegate>)delegate;

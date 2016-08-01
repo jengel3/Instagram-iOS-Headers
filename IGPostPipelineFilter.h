@@ -70,6 +70,8 @@
 @property (assign,nonatomic) char disableTiltShiftRendering;                                         //@synthesize disableTiltShiftRendering=_disableTiltShiftRendering - In the implementation block
 @property (assign,nonatomic) char displayOriginal;                                                   //@synthesize displayOriginal=_displayOriginal - In the implementation block
 @property (assign,nonatomic,__weak) id<IGPostPipelineFilterDelegate> delegate;                       //@synthesize delegate=_delegate - In the implementation block
+-(void)render:(id)arg1 to:(id)arg2 ;
+-(void)setPhotoFilterStrength:(float)arg1 ;
 -(char)hasAdjustedValues;
 -(void)setLuxEnabled:(char)arg1 ;
 -(float)highlights;
@@ -81,7 +83,6 @@
 -(void)setVignette:(float)arg1 ;
 -(void)setFade:(float)arg1 ;
 -(void)setLocalLaplacianAmount:(float)arg1 ;
--(void)setPhotoFilterStrength:(float)arg1 ;
 -(void)setLuxBlendAmount:(float)arg1 ;
 -(Class)photoFilterClass;
 -(void)setSharpenDisabled:(char)arg1 ;
@@ -125,7 +126,6 @@
 -(void)setInputSurface:(IGSurface *)arg1 ;
 -(IGSurface *)inputSurface;
 -(void)setTextureTransform:(_GLKMatrix4)arg1 ;
--(void)render:(id)arg1 to:(id)arg2 ;
 -(char)sharpenDisabled;
 -(void)setLuxBlendFilter:(IGLuxBlendFilter *)arg1 ;
 -(id)basicAdjustFilter;

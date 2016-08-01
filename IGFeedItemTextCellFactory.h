@@ -8,7 +8,6 @@
 +(id)updateTranslationForComment:(id)arg1 withFeedItem:(id)arg2 ;
 +(float)textWidthContainedInWidth:(float)arg1 ;
 +(id)styledStringForFeedItem:(id)arg1 pageCellState:(id)arg2 attributes:(id)arg3 configuration:(id)arg4 commentIndex:(int)arg5 width:(float)arg6 ;
-+(char)showTimeStampForThisCellOnAuxWithConfiguration:(id)arg1 feedItem:(id)arg2 commentIndex:(int)arg3 ;
 +(CGSize)textCellSizeWithAttributes:(id)arg1 configuration:(id)arg2 feedItem:(id)arg3 pageCellState:(id)arg4 row:(int)arg5 containerWidth:(float)arg6 ;
 @end
 

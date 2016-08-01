@@ -14,11 +14,11 @@
 -(NSString *)analyticsModule;
 -(void)logDidEnterPendingRequestsViewWithCount:(int)arg1 ;
 -(void)logDidEnterThreadFromInboxAtIndex:(int)arg1 ;
--(void)logDidDisplayPushPromptFromInbox;
--(void)logDidConfirmPushPromptFromInbox;
--(void)logDidDismissPushPromptFromInbox;
 -(void)logComposerNewMessagePlusButtonTapped;
 -(void)logComposerSendPhotoVideoButtonTapped;
 -(void)logComposerSendMessageButtonTapped;
+-(void)logDidDisplayPushPromptFromInbox;
+-(void)logDidConfirmPushPromptFromInbox;
+-(void)logDidDismissPushPromptFromInbox;
 @end
 

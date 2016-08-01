@@ -10,8 +10,8 @@
 
 }
 
-@property (assign,nonatomic) id<FBSDKLoginTooltipViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
-@property (assign,nonatomic) char forceDisplay;                                       //@synthesize forceDisplay=_forceDisplay - In the implementation block
+@property (assign,nonatomic,__weak) id<FBSDKLoginTooltipViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+@property (assign,nonatomic) char forceDisplay;                                              //@synthesize forceDisplay=_forceDisplay - In the implementation block
 -(void)setForceDisplay:(char)arg1 ;
 -(char)forceDisplay;
 -(void)presentInView:(id)arg1 withArrowPosition:(CGPoint)arg2 direction:(unsigned)arg3 ;

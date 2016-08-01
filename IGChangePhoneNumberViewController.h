@@ -30,6 +30,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
 -(void)userDidSelectCountryWithName:(id)arg1 countryNumber:(id)arg2 ;
 -(void)parsePhoneNumber;
 -(void)setupNavigationItems;
@@ -49,7 +50,6 @@
 -(id)initWithNationalPhoneNumber:(id)arg1 countryCode:(id)arg2 selectedContactPreference:(unsigned)arg3 showContactOptions:(char)arg4 ;
 -(void)setRightButtonString:(id)arg1 ;
 -(void)setShowContactOptions:(char)arg1 ;
--(char)prefersTabBarHidden;
 -(void)setDelegate:(id<IGChangePhoneNumberViewControllerDelegate>)arg1 ;
 -(void)dealloc;
 -(void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 ;

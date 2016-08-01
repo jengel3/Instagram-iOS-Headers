@@ -10,7 +10,7 @@
 -(void)logSendText:(char)arg1 ;
 -(void)logSendLike:(char)arg1 ;
 -(void)logMessageTapped:(id)arg1 ;
--(void)logMediaExpand:(id)arg1 isFullScreen:(char)arg2 ;
+-(void)logMediaExpand:(id)arg1 ;
 -(void)logTextTappedWithURL:(id)arg1 ;
 -(void)logProfilePictureTappedWithUserPk:(id)arg1 isPendingThread:(char)arg2 ;
 -(void)logGroupThreadRenamedWithOldName:(id)arg1 ;

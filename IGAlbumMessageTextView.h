@@ -13,6 +13,7 @@
 
 @property (nonatomic,readonly) UIButton * sendButton;                     //@synthesize sendButton=_sendButton - In the implementation block
 @property (nonatomic,readonly) IGGrowingTextView * textView;              //@synthesize textView=_textView - In the implementation block
+-(void)enableSendButton:(char)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)layoutSubviews;
 -(CGSize)sizeThatFits:(CGSize)arg1 ;

@@ -14,8 +14,8 @@
 @property (nonatomic,retain) IGUser * user;                                                      //@synthesize user=_user - In the implementation block
 @property (nonatomic,readonly) IGProfilePictureImageView * profilePictureImageView;              //@synthesize profilePictureImageView=_profilePictureImageView - In the implementation block
 @property (nonatomic,readonly) UIImageView * verifiedUserBadgeView;                              //@synthesize verifiedUserBadgeView=_verifiedUserBadgeView - In the implementation block
--(UIImageView *)verifiedUserBadgeView;
 -(IGProfilePictureImageView *)profilePictureImageView;
+-(UIImageView *)verifiedUserBadgeView;
 -(IGUser *)user;
 -(void)setUser:(IGUser *)arg1 ;
 -(void)layoutSubviews;

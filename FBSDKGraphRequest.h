@@ -24,9 +24,9 @@
 +(id)preprocessParams:(id)arg1 ;
 +(id)serializeURL:(id)arg1 params:(id)arg2 ;
 -(id)initWithGraphPath:(id)arg1 parameters:(id)arg2 tokenString:(id)arg3 version:(id)arg4 HTTPMethod:(id)arg5 ;
--(id)initWithGraphPath:(id)arg1 parameters:(id)arg2 HTTPMethod:(id)arg3 ;
 -(id)initWithGraphPath:(id)arg1 parameters:(id)arg2 flags:(unsigned)arg3 ;
 -(id)initWithGraphPath:(id)arg1 parameters:(id)arg2 tokenString:(id)arg3 HTTPMethod:(id)arg4 flags:(unsigned)arg5 ;
+-(id)initWithGraphPath:(id)arg1 parameters:(id)arg2 HTTPMethod:(id)arg3 ;
 -(char)isGraphErrorRecoveryDisabled;
 -(NSString *)graphPath;
 -(id)initWithGraphPath:(id)arg1 parameters:(id)arg2 ;

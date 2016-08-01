@@ -25,8 +25,8 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(UITextView *)internalTextView;
 -(IGTextViewAnnouncer *)announcer;
+-(UITextView *)internalTextView;
 -(void)textViewWillBeginEditing:(id)arg1 ;
 -(void)textViewWillEndEditing:(id)arg1 ;
 -(void)textView:(id)arg1 willChangeTextInRange:(NSRange)arg2 replacementText:(id)arg3 ;

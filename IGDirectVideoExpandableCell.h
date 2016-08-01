@@ -16,7 +16,6 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(void)completeAnimation;
 -(void)stopAnimated:(char)arg1 ;
 -(void)videoView:(id)arg1 didFailToPlayWithError:(id)arg2 ;
 -(void)togglePlayStatus;
@@ -30,7 +29,6 @@
 -(void)stop;
 -(void)prepareForReuse;
 -(void)setContent:(id)arg1 ;
--(void)beginAnimation;
 -(id)mediaView;
 @end
 

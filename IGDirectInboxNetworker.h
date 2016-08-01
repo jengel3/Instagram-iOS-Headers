@@ -1,23 +1,27 @@
 
 
-@class NSString, IGDirectThreadStore;
+@class IGDirectNetworkPerfLogger, NSString, IGService;
 
 @interface IGDirectInboxNetworker : NSObject {
 
+	IGDirectNetworkPerfLogger* _perfLogger;
 	NSString* _nextPageCursorId;
 
 }
 
-@property (nonatomic,copy) NSString * nextPageCursorId;                        //@synthesize nextPageCursorId=_nextPageCursorId - In the implementation block
-@property (nonatomic,readonly) IGDirectThreadStore * threadStore; 
+@property (nonatomic,readonly) IGService * apiService; 
+@property (nonatomic,readonly) IGDirectNetworkPerfLogger * perfLogger;              //@synthesize perfLogger=_perfLogger - In the implementation block
+@property (nonatomic,copy) NSString * nextPageCursorId;                             //@synthesize nextPageCursorId=_nextPageCursorId - In the implementation block
+@property (nonatomic,readonly) char hasNextPage; 
 +(id)sharedNetworker;
--(void)fetchInboxDataFromFirstPage:(char)arg1 success:(/*^block*/id)arg2 failure:(/*^block*/id)arg3 ;
+-(IGDirectNetworkPerfLogger *)perfLogger;
 -(NSString *)nextPageCursorId;
--(void)logRequestTimePerfWithView:(id)arg1 duration:(double)arg2 threadID:(id)arg3 succeeded:(char)arg4 isFirstPage:(char)arg5 ;
 -(void)setNextPageCursorId:(NSString *)arg1 ;
 -(void)connectToRealtimeWithSubscriptionInfo:(id)arg1 ;
--(IGDirectThreadStore *)threadStore;
+-(IGService *)apiService;
 -(void)requestClearInboxCount;
+-(void)fetchInboxDataFromFirstPage:(char)arg1 success:(/*^block*/id)arg2 failure:(/*^block*/id)arg3 ;
+-(id)init;
 -(char)hasNextPage;
 @end
 

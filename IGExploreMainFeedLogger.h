@@ -17,14 +17,15 @@
 @property (nonatomic,readonly) IGMediaThumbnailLogger * mediaLogger;                           //@synthesize mediaLogger=_mediaLogger - In the implementation block
 @property (nonatomic,readonly) IGExploreInterestSelectionLogger * interestLogger;              //@synthesize interestLogger=_interestLogger - In the implementation block
 -(NSString *)module;
--(id)initWithModule:(id)arg1 ;
 -(NSMutableSet *)loggedImpressions;
 -(IGMediaThumbnailLogger *)mediaLogger;
 -(void)logImpressionForChannel:(id)arg1 position:(NSRange)arg2 sessionId:(id)arg3 ;
 -(IGExploreInterestSelectionLogger *)interestLogger;
 -(void)logClickForChannel:(id)arg1 position:(NSRange)arg2 sessionId:(id)arg3 ;
+-(id)initWithModule:(id)arg1 ;
 -(void)logImpressionForItem:(id)arg1 position:(NSRange)arg2 sessionId:(id)arg3 ;
 -(void)logClickForItem:(id)arg1 position:(NSRange)arg2 sessionId:(id)arg3 ;
+-(void)logScrollEventWithSessionId:(id)arg1 ;
 -(void)logExploreInterestSelectionSeeMoreForModel:(id)arg1 position:(NSRange)arg2 sessionId:(id)arg3 ;
 -(void)logExploreInterestSelectionDoneForModel:(id)arg1 position:(NSRange)arg2 sessionId:(id)arg3 ;
 @end

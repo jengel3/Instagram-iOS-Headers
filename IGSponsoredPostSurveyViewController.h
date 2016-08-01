@@ -18,13 +18,13 @@
 -(id)analyticsModule;
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
+-(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)onHideTapped;
 -(id)surveyQuestion;
 -(void)dismissWithAnswer:(id)arg1 ;
 -(IGSurveyTextualEmotionController *)questionController;
 -(void)surveyAnswerWasSelectedWith:(id)arg1 ;
 -(void)setQuestionController:(IGSurveyTextualEmotionController *)arg1 ;
--(void)setFeedItem:(IGFeedItem *)arg1 ;
 -(void)dealloc;
 -(id)completion;
 -(void)setCompletion:(id)arg1 ;

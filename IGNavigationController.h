@@ -39,11 +39,11 @@
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
--(CGPoint)initialTranslation;
--(void)setInitialTranslation:(CGPoint)arg1 ;
 -(IGHorizontalPanGestureRecognizer *)panGesture;
 -(void)setPanGesture:(IGHorizontalPanGestureRecognizer *)arg1 ;
 -(void)updateForVisibleChange;
+-(CGPoint)initialTranslation;
+-(void)setInitialTranslation:(CGPoint)arg1 ;
 -(IGAnalyticsMetadata *)analyticsMetadata;
 -(void)navigationAnimatorWillAnimateTransition:(id)arg1 ;
 -(void)navigationAnimatorDidFinishTransition:(id)arg1 ;

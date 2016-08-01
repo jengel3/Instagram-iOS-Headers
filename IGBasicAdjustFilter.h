@@ -47,6 +47,7 @@
 @property (assign,nonatomic) char sharpenDisabled;                         //@synthesize sharpenDisabled=_sharpenDisabled - In the implementation block
 +(id)filterName;
 +(int)filterType;
+-(void)render:(id)arg1 to:(id)arg2 ;
 -(char)hasAdjustedValues;
 -(float)highlights;
 -(float)vignette;
@@ -64,7 +65,6 @@
 -(float)tintShadowsIntensity;
 -(float)tintHighlightsIntensity;
 -(void)clearCachesNotOfSize:(CGSize)arg1 ;
--(void)render:(id)arg1 to:(id)arg2 ;
 -(void)configureProgram:(id)arg1 ;
 -(IGSurface *)blurredSurface;
 -(IGSurface *)sharpenBlurSurface;

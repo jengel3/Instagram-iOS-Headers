@@ -32,6 +32,7 @@
 -(IGExplorePromptTooltipController *)tooltipController;
 -(UIView *)tabBarView;
 -(UIView *)parentView;
+-(void)setAttentionOnExploreTabIfNecessary;
 -(void)setTabBarView:(UIView *)arg1 ;
 -(void)setParentView:(UIView *)arg1 ;
 -(void)setTooltipController:(IGExplorePromptTooltipController *)arg1 ;

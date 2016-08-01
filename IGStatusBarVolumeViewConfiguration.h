@@ -19,6 +19,8 @@
 @property (assign,nonatomic) float backgroundAlpha;                          //@synthesize backgroundAlpha=_backgroundAlpha - In the implementation block
 @property (nonatomic,retain) UIVisualEffect * backgroundEffect;              //@synthesize backgroundEffect=_backgroundEffect - In the implementation block
 @property (assign,nonatomic) float volumeViewHeight;                         //@synthesize volumeViewHeight=_volumeViewHeight - In the implementation block
++(id)albumCameraConfiguration;
++(id)albumViewerConfiguration;
 +(id)darkBackground;
 +(id)translucentBackground;
 +(id)defaultConfiguration;

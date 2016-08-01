@@ -20,8 +20,8 @@
 -(IGFeedItem *)feedItem;
 -(id)initWithFeedItem:(id)arg1 ;
 -(id)spondoredInfo;
--(int)directResponseStyle;
 -(IGDirectResponseInfo *)directResponseInfo;
+-(int)directResponseStyle;
 -(NSString *)actionText;
 -(IGSponsoredPostInfo *)sponsoredPostInfo;
 -(char)isDirectResponse;

@@ -41,9 +41,9 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(UILabel *)messageView;
 -(void)setMessageView:(UILabel *)arg1 ;
--(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
--(IGGenericMegaphone *)megaphone;
 -(void)setLineView:(UIView *)arg1 ;
+-(IGGenericMegaphone *)megaphone;
+-(void)setMegaphone:(IGGenericMegaphone *)arg1 ;
 -(id)initWithMegaphone:(id)arg1 ;
 -(NSString *)displaySource;
 -(id)createDismissButton;

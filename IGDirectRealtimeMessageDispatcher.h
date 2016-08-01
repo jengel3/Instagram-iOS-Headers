@@ -29,13 +29,13 @@
 -(void)registerAsRealtimeServerPayloadHandler;
 -(void)realtimeStatusDidChange:(id)arg1 ;
 -(NSMutableDictionary *)messageKeyToOperationMapping;
--(id<IGRealtimeMessageSending>)realtimeClient;
 -(id<IGDirectAckPayloadParsing>)ackPayloadParser;
 -(void)handleBroadcastResponse:(id)arg1 ;
 -(void)handlePayload:(id)arg1 ;
 -(char)needsMoreTimeProcessingPayload;
 -(id)initWithRealtimeClient:(id)arg1 ;
 -(void)sendMessage:(id)arg1 messageKey:(id)arg2 successHandler:(/*^block*/id)arg3 failureHandler:(/*^block*/id)arg4 ;
+-(id<IGRealtimeMessageSending>)realtimeClient;
 -(void)dealloc;
 -(NSString *)description;
 -(void)cleanUp;

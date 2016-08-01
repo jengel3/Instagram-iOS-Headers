@@ -21,6 +21,8 @@
 	char _blockTextShouldChange;
 	char _nativeUpdatesInFlight;
 	int _nativeEventCount;
+	CGSize _previousContentSize;
+	char _viewDidCompleteInitialLayout;
 	char _blurOnSubmit;
 	char _clearTextOnFocus;
 	char _selectTextOnFocus;
@@ -29,6 +31,7 @@
 	int _mostRecentEventCount;
 	NSNumber* _maxLength;
 	/*^block*/id _onChange;
+	/*^block*/id _onContentSizeChange;
 	/*^block*/id _onSelectionChange;
 	/*^block*/id _onTextInput;
 	UIEdgeInsets _contentInset;
@@ -47,6 +50,7 @@
 @property (assign,nonatomic) int mostRecentEventCount;                           //@synthesize mostRecentEventCount=_mostRecentEventCount - In the implementation block
 @property (nonatomic,retain) NSNumber * maxLength;                               //@synthesize maxLength=_maxLength - In the implementation block
 @property (nonatomic,copy) id onChange;                                          //@synthesize onChange=_onChange - In the implementation block
+@property (nonatomic,copy) id onContentSizeChange;                               //@synthesize onContentSizeChange=_onContentSizeChange - In the implementation block
 @property (nonatomic,copy) id onSelectionChange;                                 //@synthesize onSelectionChange=_onSelectionChange - In the implementation block
 @property (nonatomic,copy) id onTextInput;                                       //@synthesize onTextInput=_onTextInput - In the implementation block
 @property (readonly) unsigned hash; 
@@ -79,6 +83,8 @@
 -(char)automaticallyAdjustContentInsets;
 -(void)setAutomaticallyAdjustContentInsets:(char)arg1 ;
 -(void)setOnChange:(id)arg1 ;
+-(id)onContentSizeChange;
+-(void)setOnContentSizeChange:(id)arg1 ;
 -(id)onTextInput;
 -(void)setOnTextInput:(id)arg1 ;
 -(void)setPlaceholderTextColor:(UIColor *)arg1 ;

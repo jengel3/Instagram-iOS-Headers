@@ -66,8 +66,8 @@
 -(void)setSpinnerOffset:(CGSize)arg1 ;
 -(void)setShouldShowSendingDot:(char)arg1 ;
 -(void)setBottomAlignActionButton:(char)arg1 ;
--(void)setUpload:(IGDirectContent*<IGDirectUploadable>)arg1 ;
 -(IGDirectContent*<IGDirectUploadable>)upload;
+-(void)setUpload:(IGDirectContent*<IGDirectUploadable>)arg1 ;
 -(UIButton *)actionButton;
 -(void)setDelegate:(id<IGDirectContentUploadCell>)arg1 ;
 -(void)layoutSubviews;

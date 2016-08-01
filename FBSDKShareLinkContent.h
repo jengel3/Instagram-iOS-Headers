@@ -2,15 +2,17 @@
 #import <Instagram/Instagram-Structs.h>
 #import <Instagram/FBSDKSharingContent.h>
 
-@class NSURL, NSArray, NSString, NSDictionary;
+@class NSURL, FBSDKHashtag, NSArray, NSString, NSDictionary;
 
 @interface FBSDKShareLinkContent : NSObject <FBSDKSharingContent> {
 
 	NSURL* _contentURL;
+	FBSDKHashtag* _hashtag;
 	NSArray* _peopleIDs;
 	NSString* _placeID;
 	NSString* _ref;
 	NSDictionary* _feedParameters;
+	NSString* _quote;
 	NSString* _contentDescription;
 	NSString* _contentTitle;
 	NSURL* _imageURL;
@@ -21,20 +23,25 @@
 @property (nonatomic,copy) NSString * contentDescription;              //@synthesize contentDescription=_contentDescription - In the implementation block
 @property (nonatomic,copy) NSString * contentTitle;                    //@synthesize contentTitle=_contentTitle - In the implementation block
 @property (nonatomic,copy) NSURL * imageURL;                           //@synthesize imageURL=_imageURL - In the implementation block
+@property (nonatomic,copy) NSString * quote;                           //@synthesize quote=_quote - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 @property (nonatomic,copy) NSURL * contentURL;                         //@synthesize contentURL=_contentURL - In the implementation block
+@property (nonatomic,copy) FBSDKHashtag * hashtag;                     //@synthesize hashtag=_hashtag - In the implementation block
 @property (nonatomic,copy) NSArray * peopleIDs;                        //@synthesize peopleIDs=_peopleIDs - In the implementation block
 @property (nonatomic,copy) NSString * placeID;                         //@synthesize placeID=_placeID - In the implementation block
 @property (nonatomic,copy) NSString * ref;                             //@synthesize ref=_ref - In the implementation block
 +(char)supportsSecureCoding;
+-(FBSDKHashtag *)hashtag;
+-(void)setHashtag:(FBSDKHashtag *)arg1 ;
 -(char)isEqualToShareLinkContent:(id)arg1 ;
 -(NSDictionary *)feedParameters;
 -(NSArray *)peopleIDs;
 -(void)setPeopleIDs:(NSArray *)arg1 ;
 -(void)setFeedParameters:(NSDictionary *)arg1 ;
+-(void)setQuote:(NSString *)arg1 ;
 -(void)setContentTitle:(NSString *)arg1 ;
 -(void)setContentURL:(NSURL *)arg1 ;
 -(NSURL *)contentURL;
@@ -44,6 +51,7 @@
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(id)copyWithZone:(NSZone*)arg1 ;
+-(NSString *)quote;
 -(void)setPlaceID:(NSString *)arg1 ;
 -(NSString *)placeID;
 -(void)setContentDescription:(NSString *)arg1 ;

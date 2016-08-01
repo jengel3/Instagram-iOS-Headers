@@ -12,9 +12,9 @@
 
 @property (nonatomic,copy,readonly) NSString * accessTokenString;              //@synthesize accessTokenString=_accessTokenString - In the implementation block
 +(char)supportsSecureCoding;
--(NSString *)accessTokenString;
 -(id)initWithAccessTokenString:(id)arg1 ;
 -(void)resetForAccessTokenString:(id)arg1 ;
+-(NSString *)accessTokenString;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;
 -(id)init;

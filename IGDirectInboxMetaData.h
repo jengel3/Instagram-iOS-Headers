@@ -18,10 +18,10 @@
 @property (nonatomic,readonly) int unseenShareCount;                        //@synthesize unseenShareCount=_unseenShareCount - In the implementation block
 @property (nonatomic,readonly) NSDate * unseenShareTimeStamp;               //@synthesize unseenShareTimeStamp=_unseenShareTimeStamp - In the implementation block
 @property (nonatomic,readonly) IGGenericMegaphone * megaphone;              //@synthesize megaphone=_megaphone - In the implementation block
--(IGGenericMegaphone *)megaphone;
 -(NSString *)oldestCursor;
 -(int)unseenShareCount;
 -(NSDate *)unseenShareTimeStamp;
+-(IGGenericMegaphone *)megaphone;
 -(id)initWithOldestCursor:(id)arg1 unseenShareCount:(int)arg2 unseenShareTimeStamp:(id)arg3 megaphone:(id)arg4 ;
 -(id)initWithCoder:(id)arg1 ;
 -(void)encodeWithCoder:(id)arg1 ;

@@ -21,6 +21,7 @@
 	IGShareListManager* _shareListManager;
 	int _mediaType;
 	int _sourceType;
+	NSString* _sourceMediaID;
 	NSDictionary* _exifData;
 	int _cameraPosition;
 	float _deviceAngle;
@@ -48,6 +49,7 @@
 @property (nonatomic,retain) IGShareListManager * shareListManager;                 //@synthesize shareListManager=_shareListManager - In the implementation block
 @property (assign,nonatomic) int mediaType;                                         //@synthesize mediaType=_mediaType - In the implementation block
 @property (assign,nonatomic) int sourceType;                                        //@synthesize sourceType=_sourceType - In the implementation block
+@property (nonatomic,retain) NSString * sourceMediaID;                              //@synthesize sourceMediaID=_sourceMediaID - In the implementation block
 @property (nonatomic,retain) NSDictionary * exifData;                               //@synthesize exifData=_exifData - In the implementation block
 @property (assign,nonatomic) int cameraPosition;                                    //@synthesize cameraPosition=_cameraPosition - In the implementation block
 @property (assign,nonatomic) float deviceAngle;                                     //@synthesize deviceAngle=_deviceAngle - In the implementation block
@@ -73,12 +75,9 @@
 -(void)setShareType:(int)arg1 ;
 -(void)updateEditsInfo:(id)arg1 ;
 -(void)prepareToShare;
--(NSDictionary *)exifData;
 -(void)prepareForNewVideo:(id)arg1 ;
 -(IGPostUploadModel *)post;
 -(NSDate *)uploadStartTime;
--(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
--(void)setPreselectedMediaBehavior:(int)arg1 ;
 -(void)cancelCurrentPost;
 -(void)cancelCurrentUpload;
 -(void)setDeviceAngle:(float)arg1 ;
@@ -88,6 +87,7 @@
 -(void)setOriginalImageCropRect:(CGRect)arg1 ;
 -(void)setLocationMetadata:(IGLocationMetadata *)arg1 ;
 -(void)setUsertagsMetadata:(IGUsertagsMetadata *)arg1 ;
+-(void)setSourceMediaID:(NSString *)arg1 ;
 -(void)setExifData:(NSDictionary *)arg1 ;
 -(void)setVideoMetadata:(IGVideoMetadata *)arg1 ;
 -(void)setEditsMetadata:(IGEditsMetadata *)arg1 ;
@@ -95,6 +95,8 @@
 -(void)createLocationMetadata;
 -(IGLocationMetadata *)locationMetadata;
 -(IGUsertagsMetadata *)usertagsMetadata;
+-(NSString *)sourceMediaID;
+-(id)initWithSourceType:(int)arg1 sourceMediaID:(id)arg2 ;
 -(void)fetchVenue;
 -(CGRect)originalImageCropRect;
 -(char)shouldKeepCaptionOnMediaChange;
@@ -105,22 +107,25 @@
 -(UIImage *)preparedImage;
 -(IGVideoInfo *)preparedVideoInfo;
 -(NSArray *)preselectedIdentifiers;
+-(void)setPreselectedIdentifiers:(NSArray *)arg1 ;
+-(NSDictionary *)exifData;
 -(NSString *)mediaMetadataId;
 -(float)deviceAngle;
 -(id)uploadableModelWithParameter:(id)arg1 ;
 -(IGDirectShareRecipient *)directRecipient;
 -(void)setDirectRecipient:(IGDirectShareRecipient *)arg1 ;
 -(IGShareListManager *)shareListManager;
+-(void)setUploadStartTime:(NSDate *)arg1 ;
 -(id)sharingInfo;
 -(int)shareType;
+-(IGUploadModel *)upload;
 -(IGVideoMetadata *)videoMetadata;
 -(char)hasEditedShareInfo;
 -(void)setShouldKeepCaptionOnMediaChange:(char)arg1 ;
 -(IGEditsMetadata *)editsMetadata;
 -(void)updateCoverFramePosition:(float)arg1 ;
 -(void)updateIsAudioMuted:(char)arg1 ;
--(IGUploadModel *)upload;
--(void)setUploadStartTime:(NSDate *)arg1 ;
+-(void)setPreselectedMediaBehavior:(int)arg1 ;
 -(int)mediaType;
 -(void)setOriginalImage:(UIImage *)arg1 ;
 -(NSDate *)creationDate;

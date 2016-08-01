@@ -25,6 +25,7 @@
 @property (assign,nonatomic,__weak) IGRetroRegistrationUsernameViewController * vcDelegate;              //@synthesize vcDelegate=_vcDelegate - In the implementation block
 -(UILabel *)usernameLabel;
 -(void)setUsernameLabel:(UILabel *)arg1 ;
+-(id)createTermView;
 -(IGCoreTextView *)termView;
 -(IGRetroRegistrationUsernameViewController *)vcDelegate;
 -(void)setUsernameField:(IGRetroRegistrationUsernameField *)arg1 ;
@@ -33,7 +34,6 @@
 -(id)createUsernameLabel;
 -(id)createUsernameDescriptionLabel;
 -(id)createUsernameField;
--(id)createTermView;
 -(UILabel *)usernameDescriptionLabel;
 -(void)setUsernameDescriptionLabel:(UILabel *)arg1 ;
 -(void)setBadgeView:(UIImageView *)arg1 ;

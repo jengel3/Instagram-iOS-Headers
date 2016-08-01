@@ -1,11 +1,12 @@
 
+#import <Instagram/IGStorableObject.h>
 #import <Instagram/IGSearchResultsLoggableItem.h>
 #import <Instagram/IGDirectUploadableProducer.h>
 #import <Instagram/IGRelatedItemType.h>
 
 @class NSString, NSNumber, NSArray;
 
-@interface IGHashtagModel : NSObject <IGSearchResultsLoggableItem, IGDirectUploadableProducer, IGRelatedItemType> {
+@interface IGHashtagModel : IGStorableObject <IGSearchResultsLoggableItem, IGDirectUploadableProducer, IGRelatedItemType> {
 
 	NSString* _tagName;
 	NSString* _tagDescription;
@@ -24,11 +25,12 @@
 @property (nonatomic,retain) NSArray * mediaBundles;                //@synthesize mediaBundles=_mediaBundles - In the implementation block
 @property (nonatomic,copy,readonly) NSString * pk; 
 @property (nonatomic,readonly) NSString * displayName; 
++(id)centralizedStore;
++(id)pkFromDict:(id)arg1 ;
 -(NSString *)pk;
 -(id)uploadableModelWithParameter:(id)arg1 ;
 -(NSNumber *)mediaCount;
 -(void)setMediaCount:(NSNumber *)arg1 ;
--(NSArray *)mediaBundles;
 -(id)relatedItemId;
 -(id)relatedItemPath;
 -(id)relatedItemType;
@@ -37,7 +39,10 @@
 -(NSString *)tagDescription;
 -(void)setTagDescription:(NSString *)arg1 ;
 -(void)setMediaBundles:(NSArray *)arg1 ;
+-(NSArray *)mediaBundles;
 -(void)setTagName:(NSString *)arg1 ;
+-(id)initWithCoder:(id)arg1 ;
+-(void)encodeWithCoder:(id)arg1 ;
 -(char)isEqual:(id)arg1 ;
 -(unsigned)hash;
 -(NSString *)description;
@@ -46,5 +51,6 @@
 -(id)initWithName:(id)arg1 ;
 -(NSString *)displayName;
 -(id)loggingDescription;
+-(char)updateWithDictionary:(id)arg1 ;
 @end
 

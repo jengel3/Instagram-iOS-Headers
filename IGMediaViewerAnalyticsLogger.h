@@ -12,6 +12,7 @@
 @property (nonatomic,readonly) NSString * analyticsModule; 
 -(NSString *)analyticsModule;
 -(void)logTapped;
+-(void)logSwipedDown;
 -(void)logDragged;
 @end
 

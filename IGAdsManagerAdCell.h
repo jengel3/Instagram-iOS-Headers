@@ -19,15 +19,15 @@
 @property (nonatomic,readonly) IGMediaThumbnailView * thumbnailView;              //@synthesize thumbnailView=_thumbnailView - In the implementation block
 @property (nonatomic,readonly) UIImageView * rightArrow;                          //@synthesize rightArrow=_rightArrow - In the implementation block
 @property (nonatomic,retain) IGAdViewModel * viewModel;                           //@synthesize viewModel=_viewModel - In the implementation block
+-(void)setUpViewHierarchy;
 -(void)setUpTitle;
 -(void)setUpSubtitle;
+-(void)setUpRightArrow;
 -(void)setUpThumbnailView;
+-(CGRect)layoutForThumbnail;
 -(float)topBottomMarginWithTitleSize:(CGSize)arg1 subtitleSize:(CGSize)arg2 ;
 -(CGRect)layoutForTitleWithThumbnailRect:(CGRect)arg1 topMargin:(float)arg2 ;
 -(CGRect)layoutForSubtitleWithThumbnailRect:(CGRect)arg1 bottomMargin:(float)arg2 ;
--(CGRect)layoutForThumbnail;
--(void)setUpRightArrow;
--(void)setUpViewHierarchy;
 -(UIImageView *)rightArrow;
 -(IGAdViewModel *)viewModel;
 -(void)setViewModel:(IGAdViewModel *)arg1 ;

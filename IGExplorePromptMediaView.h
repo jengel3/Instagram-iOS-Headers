@@ -27,6 +27,7 @@
 -(void)didTapOnView;
 -(void)setImageURLs:(id)arg1 ;
 -(void)didTapThumbnailAtIndex:(unsigned)arg1 ;
+-(void)didFinishLoadingThumbnails;
 -(void)setCloseButton:(UIButton *)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGExplorePromptMediaViewDelegate>)arg1 ;

@@ -9,8 +9,6 @@
 
 	char _searching;
 	char _emptyQuery;
-	char _responseWasFoundInQueryCache;
-	char _isResponseQueryLocation;
 	IGUserListAutocompleteNetworkDataSource* _dataSource;
 	IGAutocompleteDataSourceStore* _dataStore;
 	NSString* _responseQueryText;
@@ -26,32 +24,23 @@
 @property (nonatomic,copy) NSString * responseQueryText;                                        //@synthesize responseQueryText=_responseQueryText - In the implementation block
 @property (nonatomic,copy) NSString * responseRankToken;                                        //@synthesize responseRankToken=_responseRankToken - In the implementation block
 @property (nonatomic,retain) NSDictionary * analyticsInfo;                                      //@synthesize analyticsInfo=_analyticsInfo - In the implementation block
-@property (assign,nonatomic) char responseWasFoundInQueryCache;                                 //@synthesize responseWasFoundInQueryCache=_responseWasFoundInQueryCache - In the implementation block
-@property (assign,nonatomic) char isResponseQueryLocation;                                      //@synthesize isResponseQueryLocation=_isResponseQueryLocation - In the implementation block
-@property (assign,nonatomic) char shouldReverseSort; 
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)allResults;
 -(id)resultForRow:(int)arg1 ;
--(char)shouldReverseSort;
--(void)setShouldReverseSort:(char)arg1 ;
 -(void)beginFilteringUsersInSet:(int)arg1 scope:(int)arg2 query:(id)arg3 rankToken:(id)arg4 analyticsInfo:(id)arg5 ;
--(void)setAnalyticsInfo:(NSDictionary *)arg1 ;
 -(NSDictionary *)analyticsInfo;
 -(void)autocompleteNetworkDataSource:(id)arg1 didUpdateSuggestions:(id)arg2 forQuery:(id)arg3 foundInQueryCache:(char)arg4 rankToken:(id)arg5 analyticsInfo:(id)arg6 isLoading:(char)arg7 ;
 -(void)autocompleteNetworkDataSource:(id)arg1 didFailUpdateWithError:(id)arg2 forQuery:(id)arg3 fallbackData:(id)arg4 rankToken:(id)arg5 analyticsInfo:(id)arg6 ;
--(void)setResponseWasFoundInQueryCache:(char)arg1 ;
+-(void)setAnalyticsInfo:(NSDictionary *)arg1 ;
 -(void)setResponseQueryText:(NSString *)arg1 ;
 -(void)setResponseRankToken:(NSString *)arg1 ;
 -(int)numberOfLocalResults;
 -(char)isLocalResult:(id)arg1 ;
 -(NSString *)responseQueryText;
 -(NSString *)responseRankToken;
--(char)responseWasFoundInQueryCache;
--(char)isResponseQueryLocation;
--(void)setIsResponseQueryLocation:(char)arg1 ;
 -(void)addUsersForFeedItem:(id)arg1 ;
 -(void)setEmptyQuery:(char)arg1 ;
 -(char)isEmptyQuery;

@@ -52,15 +52,7 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(void)onFriendStatusReceived:(id)arg1 ;
--(IGRealtimeManager *)realtimeManager;
--(void)handleRealtimeOperation:(id)arg1 ;
--(id)pkForRealtimeOperation:(id)arg1 ;
--(void)handleRealtimeRefreshRequest;
--(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)reloadDataFromPullToRefresh;
--(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
--(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
--(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(void)updateSections;
 -(void)newPromotionCreated;
 -(void)onFetchFailed:(id)arg1 ;
@@ -75,6 +67,7 @@
 -(void)showNuxIfAppropriate;
 -(void)fetchInboxWithForce:(char)arg1 ;
 -(void)downloadInboxWithContinuationToken:(id)arg1 ;
+-(IGRealtimeManager *)realtimeManager;
 -(IGNewsDataSourceStoriesSection *)storiesNewSection;
 -(id)latestInboxStoryTimestamp;
 -(void)onDataReceived:(id)arg1 ;
@@ -89,6 +82,7 @@
 -(void)setServerMegaphoneData:(NSDictionary *)arg1 ;
 -(void)setAdsManagerPendingCount:(unsigned)arg1 ;
 -(void)setSectionsWithMegaphoneStories:(id)arg1 unseenMessagesStories:(id)arg2 copyrightStories:(id)arg3 friendRequestStories:(id)arg4 newStories:(id)arg5 oldStories:(id)arg6 megaphone:(id)arg7 adsManagerPendingCount:(unsigned)arg8 ;
+-(void)setRealtimeManager:(IGRealtimeManager *)arg1 ;
 -(void)setInboxIsDirty:(char)arg1 ;
 -(void)removeFriendRequestStoryWithUser:(id)arg1 ;
 -(NSDictionary *)serverMegaphoneData;
@@ -96,11 +90,13 @@
 -(IGDefaultGenericMegaphoneLogger *)genericMegaphoneLogger;
 -(IGNotificationMegaphoneLogger *)notificationLogger;
 -(IGGenericMegaphoneView *)notificationMegaphoneView;
+-(void)legacyMegaphoneViewDidDismiss:(id)arg1 ;
 -(double)lastMediaPostTime;
 -(IGNuxTapOnCameraView *)noMediaNux;
 -(void)setLastMediaPostTime:(double)arg1 ;
 -(void)setNoMediaNux:(IGNuxTapOnCameraView *)arg1 ;
 -(float)fullOffsetAdjustmentWithVisibleNux;
+-(void)handleRealtimeOperation:(id)arg1 ;
 -(char)addStory:(id)arg1 ;
 -(void)updateForInsertWithRectBlock:(/*^block*/id)arg1 updateBlock:(/*^block*/id)arg2 ;
 -(IGNewsDataSourceStoriesSection *)storiesOldSection;
@@ -109,7 +105,11 @@
 -(IGNewsDataSourceStoriesSection *)copyrightStoriesSection;
 -(IGNewsDataSourceStoriesSection *)friendRequestSection;
 -(void)updateInboxStoryTimestamps;
+-(void)legacyMegaphoneView:(id)arg1 didOpenURL:(id)arg2 ;
+-(void)legacyMegaphoneView:(id)arg1 didTapButton:(id)arg2 ;
 -(void)newsDataSection:(id)arg1 dismissViewController:(id)arg2 forStory:(id)arg3 ;
+-(id)pkForRealtimeOperation:(id)arg1 ;
+-(void)handleRealtimeRefreshRequest;
 -(void)setNotificationMegaphoneView:(IGGenericMegaphoneView *)arg1 ;
 -(void)setNotificationLogger:(IGNotificationMegaphoneLogger *)arg1 ;
 -(void)setGenericMegaphoneView:(IGGenericMegaphoneView *)arg1 ;

@@ -25,8 +25,8 @@
 @property (assign,nonatomic,__weak) id<IGInsightsComponentViewControllerNavigationDelegate> navigationDelegate; 
 -(IGInsightsLoggingHelper *)loggingHelper;
 -(IGInsightsQuery *)buttonQuery;
--(IGInsightsChartView *)insightsChartView;
 -(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
+-(IGInsightsChartView *)insightsChartView;
 -(void)didTapButtonOnHeaderView:(id)arg1 ;
 -(id)initWithHeader:(id)arg1 buttonText:(id)arg2 buttonQuery:(id)arg3 chartStyle:(id)arg4 chartData:(id)arg5 loggingHelper:(id)arg6 ;
 -(void)setInsightsChartView:(IGInsightsChartView *)arg1 ;

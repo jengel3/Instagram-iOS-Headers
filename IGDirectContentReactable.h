@@ -9,12 +9,12 @@
 @property (assign,nonatomic) unsigned lastReactionType; 
 @required
 -(NSArray *)reactions;
--(id)copyOfContentWithReactionFilter:(id)arg1;
 -(void)setReactions:(id)arg1;
--(char)reactionsNeedsReRender;
 -(void)setReactionsNeedsReRender:(char)arg1;
--(unsigned)lastReactionType;
 -(void)setLastReactionType:(unsigned)arg1;
+-(id)copyOfContentWithReactionFilter:(id)arg1;
+-(char)reactionsNeedsReRender;
+-(unsigned)lastReactionType;
 -(unsigned)likeCount;
 -(void)setLikeCount:(unsigned)arg1;
 

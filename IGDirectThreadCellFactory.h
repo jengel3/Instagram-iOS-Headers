@@ -22,7 +22,7 @@
 -(IGDirectContent *)mediaMessageToHide;
 -(id)initWithCollectionView:(id)arg1 cellViewer:(id)arg2 ;
 -(void)setThreadIsPending:(char)arg1 ;
--(id)cellForContents:(id)arg1 indexPath:(id)arg2 cellDelegate:(id)arg3 expanded:(char)arg4 thread:(id)arg5 ;
+-(id)cellForContents:(id)arg1 indexPath:(id)arg2 cellDelegate:(id)arg3 thread:(id)arg4 ;
 -(void)setMediaMessageToHide:(IGDirectContent *)arg1 ;
 -(void)setCellViewer:(IGUser *)arg1 ;
 -(UICollectionView *)collectionView;

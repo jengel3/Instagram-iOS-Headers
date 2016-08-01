@@ -22,14 +22,15 @@
 @property (nonatomic,retain) ALAssetsGroup * savedPhotosGroup;                                   //@synthesize savedPhotosGroup=_savedPhotosGroup - In the implementation block
 @property (nonatomic,retain) NSArray * assets;                                                   //@synthesize assets=_assets - In the implementation block
 @property (assign,nonatomic,__weak) id<IGInlineGalleryDataSourceDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
+-(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
+-(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
+-(id)assetForIndexPath:(id)arg1 ;
 -(void)assetsLibraryDidChange:(id)arg1 ;
 -(void)filterAssetsGroup:(id)arg1 ;
 -(void)refreshAssetGroup:(id)arg1 ;
 -(id)initWithMaxItems:(int)arg1 ;
 -(char)hasCameraRollAccess;
 -(void)pauseDataFetch;
--(void)startDataFetchWithCompletion:(/*^block*/id)arg1 ;
--(void)decorateGridCell:(id)arg1 forAssetAtIndexPath:(id)arg2 ;
 -(id)errorMessageIfInvalidAssetAtIndexPath:(id)arg1 ;
 -(id)metadataForAssetAtIndexPath:(id)arg1 ;
 -(void)assignDefaultPhotoGroupWithCompletion:(/*^block*/id)arg1 ;
@@ -37,7 +38,6 @@
 -(id)extractAssetsForGroup:(id)arg1 ;
 -(void)setSavedPhotosGroup:(ALAssetsGroup *)arg1 ;
 -(int)maxItems;
--(id)assetForIndexPath:(id)arg1 ;
 -(int)numMediaSince:(double)arg1 ;
 -(void)setMaxItems:(int)arg1 ;
 -(void)setAssetsLibrary:(ALAssetsLibrary *)arg1 ;

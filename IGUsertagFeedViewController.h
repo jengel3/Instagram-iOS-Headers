@@ -39,6 +39,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
+-(char)prefersTabBarHidden;
 -(void)onCancelButtonTapped;
 -(void)setSpinnerButton:(UIBarButtonItem *)arg1 ;
 -(UIBarButtonItem *)spinnerButton;
@@ -47,7 +48,6 @@
 -(void)handleWillLoadItemsFromResponse:(id)arg1 ;
 -(UIBarButtonItem *)actionsButton;
 -(void)setActionsButton:(UIBarButtonItem *)arg1 ;
--(char)prefersTabBarHidden;
 -(void)setViewingTitle:(NSString *)arg1 ;
 -(void)onMoreButtonTapped;
 -(void)setHideActionSheet:(UIActionSheet *)arg1 ;

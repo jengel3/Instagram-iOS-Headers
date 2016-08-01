@@ -10,8 +10,8 @@
 }
 
 @property (nonatomic,retain) IGUser * user;              //@synthesize user=_user - In the implementation block
--(void)fetchList;
 -(void)fetchMore;
+-(void)fetchList;
 -(id)requestWithMaxId:(id)arg1 ;
 -(id)parseListResponse:(id)arg1 ;
 -(id)initWithUser:(id)arg1 ;

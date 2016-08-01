@@ -21,8 +21,8 @@
 @property (assign,nonatomic) _GLKMatrix4 textureTransform;               //@synthesize textureTransform=_textureTransform - In the implementation block
 @property (assign,nonatomic) float strength;                             //@synthesize strength=_strength - In the implementation block
 @property (nonatomic,retain) NSString * fullFragmentShader;              //@synthesize fullFragmentShader=_fullFragmentShader - In the implementation block
-+(id)overlayTitle;
 +(id)filterName;
++(id)overlayTitle;
 +(int)filterType;
 -(void)setContentTransform:(_GLKMatrix4)arg1 ;
 -(_GLKMatrix4)contentTransform;

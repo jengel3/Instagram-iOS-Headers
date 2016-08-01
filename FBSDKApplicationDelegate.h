@@ -9,12 +9,14 @@
 	FBSDKBridgeAPIRequest* _pendingRequest;
 	/*^block*/id _pendingRequestCompletionBlock;
 	id<FBSDKURLOpening> _pendingURLOpen;
+	/*^block*/id _organicDeeplinkHandler;
 	char _expectingBackground;
 	UIViewController* _safariViewController;
 	char _active;
 
 }
 
+@property (nonatomic,copy) id organicDeeplinkHandler;                    //@synthesize organicDeeplinkHandler=_organicDeeplinkHandler - In the implementation block
 @property (getter=isActive,nonatomic,readonly) char active;              //@synthesize active=_active - In the implementation block
 @property (readonly) unsigned hash; 
 @property (readonly) Class superclass; 
@@ -30,6 +32,8 @@
 -(void)_logIfAppLinkEvent:(id)arg1 ;
 -(void)_cancelBridgeRequest;
 -(void)viewControllerDidDisappear:(id)arg1 animated:(char)arg2 ;
+-(void)setOrganicDeeplinkHandler:(id)arg1 ;
+-(id)organicDeeplinkHandler;
 -(void)safariViewControllerDidFinish:(id)arg1 ;
 -(void)dealloc;
 -(id)init;

@@ -23,7 +23,7 @@
 +(id)periodWithStartPoint:(CGPoint)arg1 endPoint:(CGPoint)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 +(id)periodWithStartSize:(CGSize)arg1 endSize:(CGSize)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 +(id)periodWithStartRect:(CGRect)arg1 endRect:(CGRect)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
-+(id)periodWithStartDecimal:(SCD_Struct_CP126)arg1 endDecimal:(SCD_Struct_CP126)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
++(id)periodWithStartDecimal:(SCD_Struct_CP137)arg1 endDecimal:(SCD_Struct_CP137)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 +(id)periodWithStartPlotRange:(id)arg1 endPlotRange:(id)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 -(char)canStartWithValueFromObject:(id)arg1 propertyGetter:(SEL)arg2 ;
 -(void)setStartValueFromObject:(id)arg1 propertyGetter:(SEL)arg2 ;
@@ -33,7 +33,7 @@
 -(id)initWithStartPoint:(CGPoint)arg1 endPoint:(CGPoint)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 -(id)initWithStartSize:(CGSize)arg1 endSize:(CGSize)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 -(id)initWithStartRect:(CGRect)arg1 endRect:(CGRect)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
--(id)initWithStartDecimal:(SCD_Struct_CP126)arg1 endDecimal:(SCD_Struct_CP126)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
+-(id)initWithStartDecimal:(SCD_Struct_CP137)arg1 endDecimal:(SCD_Struct_CP137)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 -(id)initWithStartPlotRange:(id)arg1 endPlotRange:(id)arg2 duration:(float)arg3 withDelay:(float)arg4 ;
 -(NSValue *)endValue;
 -(NSValue *)startValue;

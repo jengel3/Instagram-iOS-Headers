@@ -13,6 +13,7 @@
 	IGImmediateActiveSeconds* _immediateActiveSeconds;
 	NSString* _appID;
 	NSString* _deviceID;
+	NSString* _familyDeviceID;
 	NSString* _APIKey;
 	NSString* _clientToken;
 	char _aldrinMode;
@@ -71,10 +72,10 @@
 +(void)logApplicationInit;
 +(void)logApplicationLaunch:(char)arg1 ;
 +(void)logApplicationForeground;
-+(double)applicationLaunchTimestamp;
 +(id)generateTokenWithSalt:(id)arg1 ;
++(double)applicationLaunchTimestamp;
 +(id)sharedAnalytics;
--(void)startAnalyticsWithAPIKey:(id)arg1 clientToken:(id)arg2 appID:(id)arg3 deviceID:(id)arg4 userID:(id)arg5 facebookID:(id)arg6 ;
+-(void)startAnalyticsWithAPIKey:(id)arg1 clientToken:(id)arg2 appID:(id)arg3 deviceID:(id)arg4 familyDeviceID:(id)arg5 userID:(id)arg6 facebookID:(id)arg7 ;
 -(void)setPeriodicUploadEnabled:(char)arg1 ;
 -(void)setPeriodicUploadTimeInterval:(int)arg1 ;
 -(void)handleUserIDUpdated:(id)arg1 ;
@@ -118,7 +119,7 @@
 -(void)setAccumulatedActiveTime:(double)arg1 ;
 -(void)addDeviceDetailsToExtras:(id)arg1 ;
 -(void)logApplicationData:(id)arg1 forState:(id)arg2 ;
--(void)startAnalyticsWithAPIKey:(id)arg1 clientToken:(id)arg2 appID:(id)arg3 deviceID:(id)arg4 userID:(id)arg5 facebookID:(id)arg6 aldrinMode:(char)arg7 ;
+-(void)startAnalyticsWithAPIKey:(id)arg1 clientToken:(id)arg2 appID:(id)arg3 deviceID:(id)arg4 familyDeviceID:(id)arg5 userID:(id)arg6 facebookID:(id)arg7 aldrinMode:(char)arg8 ;
 -(void)observeApplication;
 -(void)setConnectionObserver:(IGAnalyticsConnectionObserver *)arg1 ;
 -(void)logNoLatencyEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 ;
@@ -135,12 +136,12 @@
 -(void)setUploadingNoLatencyData:(char)arg1 ;
 -(IGAnalyticsUploader *)uploader;
 -(char)uploadingNoLatencyData;
+-(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 channel:(int)arg6 ;
 -(IGAnalyticsConnectionObserver *)connectionObserver;
 -(void)setIsInitialized:(char)arg1 ;
 -(NSTimer *)uploadTimer;
 -(void)setUploadTimer:(NSTimer *)arg1 ;
 -(void)connectionObserver:(id)arg1 connectionChangedWithReachability:(id)arg2 radioTechnology:(id)arg3 ;
--(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 channel:(int)arg6 ;
 -(void)incrementCounter:(id)arg1 byAmount:(int)arg2 ;
 -(void)analyticsLoggerForEvent:(id)arg1 addExtraEventInfoTo:(id)arg2 ;
 -(void)logEvent:(id)arg1 module:(id)arg2 extra:(id)arg3 uuid:(id)arg4 timestamp:(double)arg5 ;

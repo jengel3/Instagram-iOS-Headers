@@ -52,6 +52,7 @@
 @property (nonatomic,readonly) int webViewImplementation; 
 @property (assign,nonatomic) char youtubeNavigationFix;                           //@synthesize youtubeNavigationFix=_youtubeNavigationFix - In the implementation block
 +(void)setUnsupportedMIMETypes:(id)arg1 ;
+-(int)webViewImplementation;
 -(NSURL *)currentLocationURL;
 -(void)safeExecuteJavaScript:(id)arg1 completionHandler:(/*^block*/id)arg2 ;
 -(void)setGestureRecognizersEnabled:(char)arg1 ;
@@ -63,7 +64,6 @@
 -(void)setIsBannerAtTop:(char)arg1 ;
 -(char)youtubeNavigationFix;
 -(void)setYoutubeNavigationFix:(char)arg1 ;
--(int)webViewImplementation;
 -(void)_layoutBannerView;
 -(id<FBWebViewAnalytics>)analytics;
 -(void)setAnalytics:(id<FBWebViewAnalytics>)arg1 ;
@@ -84,8 +84,8 @@
 -(WKNavigation *)perfLogNavigation;
 -(void)setPerfLogNavigation:(WKNavigation *)arg1 ;
 -(id)initWithProcessPoolContainer:(id)arg1 frame:(CGRect)arg2 analytics:(id)arg3 alertHandler:(id)arg4 ;
--(char)recoveredFromOOMCrash;
 -(void)addScriptMessageHandlerForName:(id)arg1 ;
+-(char)recoveredFromOOMCrash;
 -(UIView *)bannerView;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<FBWebViewDelegate>)arg1 ;

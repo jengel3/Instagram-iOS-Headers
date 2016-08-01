@@ -4,16 +4,16 @@
 @interface IGUploadVideoMetaData : NSObject {
 
 	CGSize _videoSize;
-	SCD_Struct_IG52 _videoDuration;
+	SCD_Struct_IG53 _videoDuration;
 
 }
 
 @property (assign,nonatomic) CGSize videoSize;                           //@synthesize videoSize=_videoSize - In the implementation block
-@property (assign,nonatomic) SCD_Struct_IG52 videoDuration;              //@synthesize videoDuration=_videoDuration - In the implementation block
+@property (assign,nonatomic) SCD_Struct_IG53 videoDuration;              //@synthesize videoDuration=_videoDuration - In the implementation block
 -(id)initWithUrl:(id)arg1 ;
--(SCD_Struct_IG52)videoDuration;
+-(SCD_Struct_IG53)videoDuration;
 -(CGSize)videoSize;
--(void)setVideoDuration:(SCD_Struct_IG52)arg1 ;
+-(void)setVideoDuration:(SCD_Struct_IG53)arg1 ;
 -(void)setVideoSize:(CGSize)arg1 ;
 -(id)toDictionary;
 @end

@@ -12,6 +12,7 @@
 	double _initialTime;
 	double _bridgeInitStartTime;
 	double _bridgeInitEndTime;
+	double _initialContentDidAppearTime;
 	double _contentDidAppearTime;
 	unsigned long long _initialResidentMemory;
 	unsigned long long _contentDidAppearResidentMemory;
@@ -24,13 +25,15 @@
 @property (assign,nonatomic) double initialTime;                                             //@synthesize initialTime=_initialTime - In the implementation block
 @property (assign,nonatomic) double bridgeInitStartTime;                                     //@synthesize bridgeInitStartTime=_bridgeInitStartTime - In the implementation block
 @property (assign,nonatomic) double bridgeInitEndTime;                                       //@synthesize bridgeInitEndTime=_bridgeInitEndTime - In the implementation block
+@property (assign,nonatomic) double initialContentDidAppearTime;                             //@synthesize initialContentDidAppearTime=_initialContentDidAppearTime - In the implementation block
 @property (assign,nonatomic) double contentDidAppearTime;                                    //@synthesize contentDidAppearTime=_contentDidAppearTime - In the implementation block
 @property (assign,nonatomic) unsigned long long initialResidentMemory;                       //@synthesize initialResidentMemory=_initialResidentMemory - In the implementation block
 @property (assign,nonatomic) unsigned long long contentDidAppearResidentMemory;              //@synthesize contentDidAppearResidentMemory=_contentDidAppearResidentMemory - In the implementation block
 @property (nonatomic,copy) NSDictionary * jsEvents;                                          //@synthesize jsEvents=_jsEvents - In the implementation block
 @property (nonatomic,copy) NSArray * bridgeLoggerOutput;                                     //@synthesize bridgeLoggerOutput=_bridgeLoggerOutput - In the implementation block
--(double)contentDidAppearTime;
+-(double)initialContentDidAppearTime;
 -(double)initialTime;
+-(double)contentDidAppearTime;
 -(double)bridgeInitEndTime;
 -(double)bridgeInitStartTime;
 -(NSString *)viewName;
@@ -40,6 +43,7 @@
 -(void)setInitialTime:(double)arg1 ;
 -(void)setBridgeInitStartTime:(double)arg1 ;
 -(void)setBridgeInitEndTime:(double)arg1 ;
+-(void)setInitialContentDidAppearTime:(double)arg1 ;
 -(void)setContentDidAppearTime:(double)arg1 ;
 -(unsigned long long)initialResidentMemory;
 -(void)setInitialResidentMemory:(unsigned long long)arg1 ;

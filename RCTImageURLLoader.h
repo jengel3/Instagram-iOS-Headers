@@ -3,6 +3,8 @@
 @protocol RCTImageURLLoader <RCTBridgeModule>
 @optional
 -(float)loaderPriority;
+-(char)requiresScheduling;
+-(char)shouldCacheLoadedImages;
 
 @required
 -(char)canLoadImageURL:(id)arg1;

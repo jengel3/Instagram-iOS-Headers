@@ -18,7 +18,6 @@
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
 -(id)analyticsExtras;
--(char)enableNavState;
 -(void)onPostDeleted:(id)arg1 ;
 -(void)handleLoadedContentDidChange;
 -(void)updateTitleWithFeedItem:(id)arg1 ;
@@ -27,6 +26,7 @@
 -(id)singleFeedItemConfiguration;
 -(void)didResignCurrentInPageViewController:(id)arg1 ;
 -(void)didBecomeCurrentInPageViewController:(id)arg1 ;
+-(char)enableNavState;
 -(void)dealloc;
 -(id)navigationItem;
 -(void)viewDidLoad;

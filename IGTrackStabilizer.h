@@ -22,30 +22,30 @@
 	NSData* _gyroData;
 	int _frameskipFactor;
 	double _stabilizationZoom;
-	SCD_Struct_IG79 _calibrationParameters;
+	SCD_Struct_IG81 _calibrationParameters;
 
 }
 
 @property (nonatomic,readonly) int cameraPosition;                                 //@synthesize cameraPosition=_cameraPosition - In the implementation block
-@property (nonatomic,readonly) SCD_Struct_IG79 calibrationParameters;              //@synthesize calibrationParameters=_calibrationParameters - In the implementation block
+@property (nonatomic,readonly) SCD_Struct_IG81 calibrationParameters;              //@synthesize calibrationParameters=_calibrationParameters - In the implementation block
 @property (nonatomic,readonly) char canStabilize;                                  //@synthesize canStabilize=_canStabilize - In the implementation block
 @property (nonatomic,readonly) double stabilizationZoom;                           //@synthesize stabilizationZoom=_stabilizationZoom - In the implementation block
 @property (nonatomic,readonly) NSData * frameData;                                 //@synthesize frameData=_frameData - In the implementation block
 @property (nonatomic,readonly) NSData * gyroData;                                  //@synthesize gyroData=_gyroData - In the implementation block
 @property (nonatomic,readonly) char motionTrailsVisible; 
 @property (assign,nonatomic) int frameskipFactor;                                  //@synthesize frameskipFactor=_frameskipFactor - In the implementation block
-+(SCD_Struct_IG79)calibrationParameters:(int)arg1 ;
++(SCD_Struct_IG81)calibrationParameters:(int)arg1 ;
 +(id)identityWarp;
 +(char)supportsSecureCoding;
 +(id)platform;
 -(id)initWithCameraPosition:(int)arg1 gyroTrack:(id)arg2 frameTrack:(id)arg3 ;
--(unsigned long)frameIndexForPresentationTime:(SCD_Struct_IG52)arg1 ;
+-(unsigned long)frameIndexForPresentationTime:(SCD_Struct_IG53)arg1 ;
 -(id)warpForFrameIndex:(unsigned long)arg1 ;
--(SCD_Struct_IG79)calibrationParameters;
+-(SCD_Struct_IG81)calibrationParameters;
 -(double)stabilizationZoom;
 -(char)canStabilize;
 -(char)motionTrailsVisible;
--(id)initWithCameraPosition:(int)arg1 calibrationParameters:(SCD_Struct_IG79)arg2 gyroTrack:(id)arg3 frameTrack:(id)arg4 frameSkipFactor:(int)arg5 maxZoom:(float)arg6 iterations:(int)arg7 ;
+-(id)initWithCameraPosition:(int)arg1 calibrationParameters:(SCD_Struct_IG81)arg2 gyroTrack:(id)arg3 frameTrack:(id)arg4 frameSkipFactor:(int)arg5 maxZoom:(float)arg6 iterations:(int)arg7 ;
 -(void)stabilize;
 -(void)setFrameskipFactor:(int)arg1 ;
 -(NSData *)frameData;

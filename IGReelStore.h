@@ -2,7 +2,7 @@
 #import <Instagram/IGObjectStore.h>
 
 @interface IGReelStore : IGObjectStore
-+(id)sharedChannelStore;
++(id)sharedReelStore;
 -(Class)objectClass;
 @end
 

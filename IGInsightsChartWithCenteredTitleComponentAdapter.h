@@ -30,9 +30,9 @@
 -(id)initWithComponent:(id)arg1 loggingHelper:(id)arg2 surface:(unsigned)arg3 ;
 -(char)isComponentValid;
 -(void)setComponentView:(IGInsightsChartWithCenteredTitleView *)arg1 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)setChartWithCenteredTitleViewController:(IGInsightsChartWithCenteredTitleViewController *)arg1 ;
 -(IGInsightsChartWithCenteredTitleViewController *)chartWithCenteredTitleViewController;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(IGInsightsChartWithCenteredTitleComponent *)component;
 -(void)setComponent:(IGInsightsChartWithCenteredTitleComponent *)arg1 ;
 -(id<IGInsightsComponentNavigationDelegate>)navigationDelegate;

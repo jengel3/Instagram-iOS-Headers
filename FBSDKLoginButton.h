@@ -36,6 +36,7 @@
 -(id)analyticsParameters;
 -(id)impressionTrackingEventName;
 -(id)impressionTrackingIdentifier;
+-(void)_accessTokenDidChangeNotification:(id)arg1 ;
 -(unsigned)defaultAudience;
 -(void)setDefaultAudience:(unsigned)arg1 ;
 -(unsigned)loginBehavior;
@@ -45,7 +46,6 @@
 -(id)_longLogInTitle;
 -(id)_shortLogInTitle;
 -(id)_logOutTitle;
--(void)_acessTokenDidChangeNotification:(id)arg1 ;
 -(NSArray *)publishPermissions;
 -(NSArray *)readPermissions;
 -(unsigned)tooltipColorStyle;

@@ -20,8 +20,8 @@
 
 @property (nonatomic,copy) id transferRateStatusChangeBlock;              //@synthesize transferRateStatusChangeBlock=_transferRateStatusChangeBlock - In the implementation block
 +(id)sharedStat;
--(int)mostRecentTransferRate;
 -(float)mostRecentAverageTransferRate;
+-(int)mostRecentTransferRate;
 -(id)mostRecentTransferRateString;
 -(id)transferRateStatusChangeBlock;
 -(void)addTransferRate:(float)arg1 ;

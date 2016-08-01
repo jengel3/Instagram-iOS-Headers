@@ -32,7 +32,6 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 -(id)analyticsModule;
--(id)initWithFeedItem:(id)arg1 ;
 -(void)setKeyboardObserver:(FBKeyboardObserver *)arg1 ;
 -(FBKeyboardObserver *)keyboardObserver;
 -(void)setMessageTextView:(IGAlbumMessageTextView *)arg1 ;
@@ -45,6 +44,7 @@
 -(UISwipeGestureRecognizer *)swipeDownGesture;
 -(void)updateTextViewFrame;
 -(float)textViewBottomOffset;
+-(void)dismissWithMessage:(id)arg1 ;
 -(void)setTextViewBottomOffset:(float)arg1 ;
 -(void)keyboardObserver:(id)arg1 keyboardWillShowWithBeginFrame:(CGRect)arg2 endFrame:(CGRect)arg3 duration:(double)arg4 curve:(int)arg5 ;
 -(void)keyboardObserverKeyboardDidShow:(id)arg1 ;
@@ -59,6 +59,7 @@
 -(void)growingTextView:(id)arg1 willChangeHeight:(float)arg2 ;
 -(void)growingTextView:(id)arg1 didChangeHeight:(float)arg2 ;
 -(char)growingTextViewShouldReturn:(id)arg1 ;
+-(id)initWithFeedItem:(id)arg1 ;
 -(void)setDelegate:(id<IGAlbumMessageComposeDelegate>)arg1 ;
 -(id<IGAlbumMessageComposeDelegate>)delegate;
 -(char)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2 ;
@@ -67,6 +68,5 @@
 -(void)viewDidLayoutSubviews;
 -(void)viewDidLoad;
 -(void)viewDidAppear:(char)arg1 ;
--(void)dismiss;
 @end
 

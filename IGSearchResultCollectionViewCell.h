@@ -32,6 +32,7 @@
 @property (copy,readonly) NSString * description; 
 @property (copy,readonly) NSString * debugDescription; 
 +(CGSize)cellSize;
+-(UILongPressGestureRecognizer *)longPressRecognizer;
 -(UILabel *)usernameLabel;
 -(IGProfilePictureImageView *)profileView;
 -(void)setProfileView:(IGProfilePictureImageView *)arg1 ;
@@ -39,7 +40,6 @@
 -(id)initWithFrame:(CGRect)arg1 andBorderStyle:(int)arg2 ;
 -(UILabel *)unseenLabel;
 -(void)setLongPressRecognizer:(UILongPressGestureRecognizer *)arg1 ;
--(UILongPressGestureRecognizer *)longPressRecognizer;
 -(UIImageView *)verifiedBadgeImageView;
 -(void)configureWithUser:(id)arg1 delegate:(id)arg2 ;
 -(char)gestureRecognizerShouldBeginInCollectionView:(id)arg1 ;

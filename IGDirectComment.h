@@ -25,15 +25,15 @@
 @property (nonatomic,copy) IGDirectContentUploadInfo * uploadInfo;                      //@synthesize uploadInfo=_uploadInfo - In the implementation block
 @property (nonatomic,readonly) char canConvertToFullMessageByAddingItemID; 
 -(IGDirectContentUploadInfo *)uploadInfo;
--(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
--(char)canConvertToFullMessageByAddingItemID;
 -(void)updateLinksWithDictionary:(id)arg1 ;
 -(NSString *)storageKey;
 -(void)setStorageKey:(NSString *)arg1 ;
 -(id)uploadableModelWithParameter:(id)arg1 ;
 -(char)hasExactlyOneLink;
 -(id)contentTypeString;
+-(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
 -(id)dictionaryForRealtimeUpload;
+-(char)canConvertToFullMessageByAddingItemID;
 -(id)initAsUploadWithText:(id)arg1 recipient:(id)arg2 storageKey:(id)arg3 links:(id)arg4 ;
 -(char)isUploading;
 -(id)initWithCoder:(id)arg1 ;

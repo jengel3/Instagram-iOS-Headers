@@ -29,8 +29,8 @@
 -(float)scrollVelocity;
 -(id)initWithScrollView:(id)arg1 triggerHeight:(float)arg2 ;
 -(void)startLoadingAnimated:(char)arg1 ;
--(void)finishingLoading;
 -(void)scrollViewDidEndDragging;
+-(void)finishingLoading;
 -(void)scrollViewDidScroll;
 -(float)viewHeight;
 -(void)updateOriginalTopContentInset;

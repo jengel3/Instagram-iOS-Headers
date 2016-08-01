@@ -33,6 +33,7 @@
 -(void)awakeFromNib;
 -(void)sizeToFit;
 -(CGSize)intrinsicContentSize;
+-(id)defaultFont;
 -(CGRect)titleRectForContentRect:(CGRect)arg1 ;
 -(CGRect)imageRectForContentRect:(CGRect)arg1 ;
 -(id)defaultHighlightedColor;

@@ -15,6 +15,7 @@
 @property (assign,nonatomic) float trackThickness; 
 @property (nonatomic,retain) UIColor * progressTintColor; 
 @property (nonatomic,retain) UIColor * trackTintColor; 
++(float)defaultDimension;
 -(void)setTrackThickness:(float)arg1 ;
 -(float)trackThickness;
 -(id)initWithFrame:(CGRect)arg1 ;

@@ -30,7 +30,6 @@
 @property (assign,nonatomic,__weak) id<IGGenericMegaphoneViewDelegate> delegate;              //@synthesize delegate=_delegate - In the implementation block
 +(Class)styleClassForButton:(id)arg1 ;
 -(IGCoreTextView *)messageView;
--(void)configureWithMegaphone:(id)arg1 ;
 -(IGGenericMegaphone *)megaphone;
 -(void)didSelectButton:(id)arg1 ;
 -(IGButton *)buttonOne;
@@ -56,6 +55,7 @@
 -(void)configLabelsForMegaphone:(id)arg1 ;
 -(void)configImageViewForMegaphone:(id)arg1 ;
 -(void)configDismissButtonForMegaphone:(id)arg1 ;
+-(void)configureWithMegaphone:(id)arg1 ;
 -(id)initWithFrame:(CGRect)arg1 ;
 -(void)setDelegate:(id<IGGenericMegaphoneViewDelegate>)arg1 ;
 -(void)dealloc;

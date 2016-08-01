@@ -7,7 +7,7 @@
 @interface RCTImageStoreManager : NSObject <RCTURLRequestHandler> {
 
 	NSMutableDictionary* _store;
-	unsigned* _id;
+	unsigned _id;
 	NSObject*<OS_dispatch_queue> _methodQueue;
 
 }

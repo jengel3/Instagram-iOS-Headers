@@ -52,12 +52,12 @@
 -(void)didSelectNavigateInComponentAdapter:(id)arg1 toViewController:(id)arg2 animated:(char)arg3 ;
 -(void)didGetResponseForDataProvider:(id)arg1 ;
 -(void)requestFailureForDataProvider:(id)arg1 errorMessage:(id)arg2 ;
+-(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)setSurface:(unsigned)arg1 ;
 -(void)initializeSpinner;
 -(void)setEducationView:(IGInsightsContentRowListView *)arg1 ;
 -(IGInsightsContentRowListView *)educationView;
 -(void)needAnimateContentRowListView:(id)arg1 upForDistance:(float)arg2 ;
--(void)setLoggingHelper:(IGInsightsLoggingHelper *)arg1 ;
 -(void)initializeDataProvider;
 -(void)initializeObserver;
 -(void)requestTabContentForQuery:(id)arg1 ;

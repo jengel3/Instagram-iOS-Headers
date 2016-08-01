@@ -8,10 +8,11 @@
 #import <Instagram/IGDirectMediaContent.h>
 #import <Instagram/IGImageURLProvider.h>
 #import <libobjc.A.dylib/NSCoding.h>
+#import <Instagram/IGDirectMediaViewerProducer.h>
 
 @class IGDirectContentUploadInfo, NSString, IGUploadModel, NSData, NSArray, IGDirectItemIdBasedImageURLProcessor, IGVideo, NSValue, IGVideoComposition, IGPhoto, NSURL;
 
-@interface IGDirectVideo : IGDirectContent <IGDirectCommentable, IGDirectContentFirstAppearance, IGDirectContentMediaUploadable, IGDirectContentReactable, IGDirectMediaContent, IGImageURLProvider, NSCoding> {
+@interface IGDirectVideo : IGDirectContent <IGDirectCommentable, IGDirectContentFirstAppearance, IGDirectContentMediaUploadable, IGDirectContentReactable, IGDirectMediaContent, IGImageURLProvider, NSCoding, IGDirectMediaViewerProducer> {
 
 	char _isFirstAppearance;
 	char _reactionsNeedsReRender;
@@ -65,7 +66,6 @@
 @property (assign,nonatomic) unsigned lastReactionType;                                                      //@synthesize lastReactionType=_lastReactionType - In the implementation block
 @property (nonatomic,readonly) IGDirectItemIdBasedImageURLProcessor * previewImageURLProcessor;              //@synthesize previewImageURLProcessor=_previewImageURLProcessor - In the implementation block
 -(id)imageURLForWidth:(float)arg1 ;
--(IGUploadModel *)uploadModel;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 ;
 -(id)imageURLForWidth:(float)arg1 option:(int)arg2 scale:(float)arg3 ;
 -(id)imageURLOfAtLeastWidth:(float)arg1 scale:(float)arg2 ;
@@ -73,19 +73,21 @@
 -(IGDirectContentUploadInfo *)uploadInfo;
 -(NSURL *)cacheKeyURL;
 -(char)useMainCameraUploadFlow;
+-(IGUploadModel *)uploadModel;
 -(void)setUploadModel:(IGUploadModel *)arg1 ;
--(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
--(char)canConvertToFullMessageByAddingItemID;
--(NSArray *)reactions;
--(id)copyOfContentWithReactionFilter:(id)arg1 ;
--(void)setReactions:(NSArray *)arg1 ;
--(char)reactionsNeedsReRender;
--(void)setReactionsNeedsReRender:(char)arg1 ;
--(unsigned)lastReactionType;
--(void)setLastReactionType:(unsigned)arg1 ;
 -(NSString *)uploadComment;
--(void)setUploadComment:(NSString *)arg1 ;
+-(NSArray *)reactions;
+-(void)setReactions:(NSArray *)arg1 ;
+-(void)setReactionsNeedsReRender:(char)arg1 ;
+-(void)setLastReactionType:(unsigned)arg1 ;
 -(id)contentTypeString;
+-(void)setUploadInfo:(IGDirectContentUploadInfo *)arg1 ;
+-(void)setUploadComment:(NSString *)arg1 ;
+-(id)copyOfContentWithReactionFilter:(id)arg1 ;
+-(char)reactionsNeedsReRender;
+-(unsigned)lastReactionType;
+-(char)canConvertToFullMessageByAddingItemID;
+-(id)reactionItemKey;
 -(NSData *)renderedVideoData;
 -(NSValue *)renderedVideoSizeValue;
 -(int)numberOfFailedUploads;
@@ -96,6 +98,7 @@
 -(IGDirectItemIdBasedImageURLProcessor *)previewImageURLProcessor;
 -(char)isFirstAppearance;
 -(void)setIsFirstAppearance:(char)arg1 ;
+-(id)mediaViewerWithPreviewImage:(id)arg1 ;
 -(id)initAsUploadWithComment:(id)arg1 recipient:(id)arg2 aspectRatio:(CGSize)arg3 useMainCameraUploadFlow:(char)arg4 ;
 -(IGVideoComposition *)videoComposition;
 -(void)setVideoComposition:(IGVideoComposition *)arg1 ;

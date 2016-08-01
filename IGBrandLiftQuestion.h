@@ -29,13 +29,13 @@
 -(void)setTotalResponders:(int)arg1 ;
 -(void)setQuestionStyle:(int)arg1 ;
 -(void)setPossibleAnswers:(NSArray *)arg1 ;
--(int)questionStyle;
 -(NSString *)questionID;
 -(int)totalResponders;
 -(void)setTrackingToken:(NSString *)arg1 ;
 -(NSString *)surveyID;
 -(void)setSurveyID:(NSString *)arg1 ;
 -(NSArray *)possibleAnswers;
+-(int)questionStyle;
 -(void)setTitle:(NSString *)arg1 ;
 -(NSString *)title;
 -(NSString *)subtitle;

@@ -29,8 +29,8 @@
 @property (nonatomic,retain) NSString * authenticationPrompt;              //@synthesize authenticationPrompt=_authenticationPrompt - In the implementation block
 @property (nonatomic,readonly) NSArray * allKeys; 
 @property (nonatomic,readonly) NSArray * allItems; 
-+(char)removeItemForKey:(id)arg1 ;
 +(id)keyChainStoreWithService:(id)arg1 ;
++(char)removeItemForKey:(id)arg1 ;
 +(id)stringForKey:(id)arg1 error:(id*)arg2 ;
 +(char)setString:(id)arg1 forKey:(id)arg2 error:(id*)arg3 ;
 +(char)removeItemForKey:(id)arg1 error:(id*)arg2 ;
